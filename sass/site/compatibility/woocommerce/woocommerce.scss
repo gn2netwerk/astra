@@ -1307,10 +1307,6 @@ p.demo_store,
 			font-size: 1em;
 		}
 
-		a {
-			text-decoration: none;
-		}
-
 		a img {
 			width: 100%;
 			height: auto;
@@ -2670,7 +2666,6 @@ p.demo_store,
 				margin-top: .5em;
 				margin-bottom: .5em;
 				white-space: normal;
-    			line-height: 1.3;
 				&.added{
 					margin-bottom:0;
 					transition: margin 0s;

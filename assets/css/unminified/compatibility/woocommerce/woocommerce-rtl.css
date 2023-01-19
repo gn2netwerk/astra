@@ -1514,10 +1514,6 @@ p.demo_store[data-position="bottom"],
   font-size: 1em;
 }
 
-.woocommerce ul.products li.product a {
-  text-decoration: none;
-}
-
 .woocommerce ul.products li.product a img {
   width: 100%;
   height: auto;
@@ -3039,7 +3035,6 @@ p.demo_store[data-position="bottom"],
   margin-top: .5em;
   margin-bottom: .5em;
   white-space: normal;
-  line-height: 1.3;
 }
 
 .woocommerce ul.products li.product .button.added,
