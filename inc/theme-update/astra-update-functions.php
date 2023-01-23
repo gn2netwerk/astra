@@ -1098,3 +1098,21 @@ function astra_theme_background_updater_4_0_1() {
 	}
 
 }
+
+
+/**
+ * Handle backward compatibility on version 4.0.2
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_0_2() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// WooCommerce global button compatibility for new users only.
+	if ( ! isset( $theme_options['woo_btn_compatibility_flag'] ) ) {
+		$theme_options['woo_btn_compatibility_flag'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

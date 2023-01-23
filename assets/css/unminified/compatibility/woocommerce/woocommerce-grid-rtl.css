@@ -1652,7 +1652,6 @@ p.demo_store[data-position="bottom"],
 .woocommerce input.button:hover,
 .woocommerce #respond input#submit:hover {
   background-color: #dad8da;
-  text-decoration: none;
   background-image: none;
   color: #515151;
 }

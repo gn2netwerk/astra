@@ -1475,6 +1475,32 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$btn_color = astra_get_foreground_color( $theme_color );
 			}
+			
+			// WooCommerce global button compatibility for new users only.
+			$woo_btn_compatibility_desktop = array();
+			$woo_btn_compatibility_tablet  = array();
+			$woo_btn_compatibility_mobile  = array();
+
+			if ( apply_filters( 'astra_woo_btn_global_compatibility', astra_get_option( 'woo_btn_compatibility_flag', false ) ) ) {
+
+				$woo_btn_compatibility_desktop = array(
+					'font-family'     => astra_get_font_family( $theme_btn_font_family ),
+					'font-weight'     => esc_attr( $theme_btn_font_weight ),
+					'font-size'       => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
+					'line-height'     => esc_attr( $theme_btn_line_height ),
+					'text-decoration' => esc_attr( $theme_btn_text_decoration ),
+					'letter-spacing'  => esc_attr( $theme_btn_letter_spacing ),
+				);
+
+				$woo_btn_compatibility_tablet = array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
+				);
+
+				$woo_btn_compatibility_mobile = array(
+					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
+				);
+				
+			}
 
 			$css_desktop_output = array(
 				'#customer_details h3:not(.elementor-widget-woocommerce-checkout-page h3)' => array(
@@ -1543,18 +1569,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'background-color' => $link_color,
 				),
 				// Button Typography.
-				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
-					'font-family'     => astra_get_font_family( $theme_btn_font_family ),
-					'font-weight'     => esc_attr( $theme_btn_font_weight ),
-					'font-size'       => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
-					'line-height'     => esc_attr( $theme_btn_line_height ),
-					'text-decoration' => esc_attr( $theme_btn_text_decoration ),
-					'letter-spacing'  => esc_attr( $theme_btn_letter_spacing ),
-					'border-radius'   => astra_get_css_value( $btn_border_radius, 'px' ),
-					'padding-top'     => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
-					'padding-right'   => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
-					'padding-bottom'  => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
-					'padding-left'    => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array_merge(
+					$woo_btn_compatibility_desktop,
+					array(
+						'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+					)
 				),
 
 				'.woocommerce .woocommerce-cart-form button[name="update_cart"]:disabled' => array(
@@ -1623,6 +1646,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 
 				$css_desktop_output = array_merge( $css_desktop_output, $compat_css_desktop );
+			}
+
+			// WooCommerce global button compatibility for new users only.
+			if ( ! apply_filters( 'astra_woo_btn_global_compatibility', astra_get_option( 'woo_btn_compatibility_flag', false ) ) ) {
+				$css_desktop_output['.woocommerce ul.products li.product .button, .woocommerce-page ul.products li.product .button'] = array(
+					'line-height' => '1.3',
+				);
+
+				$css_desktop_output['.woocommerce ul.products li.product a, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit:hover'] = array(
+					'text-decoration' => 'none',
+				);
 			}
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
@@ -1970,13 +2004,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce-cart .woocommerce-shipping-calculator .button' => array(
 					'width' => '100%',
 				),
-				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
-					'font-size'      => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
-					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
-					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
-					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
-					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
-					
+				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array_merge(
+					$woo_btn_compatibility_tablet,  
+					array(
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+					)   
 				),
 				'.woocommerce div.product div.images, .woocommerce div.product div.summary, .woocommerce #content div.product div.images, .woocommerce #content div.product div.summary, .woocommerce-page div.product div.images, .woocommerce-page div.product div.summary, .woocommerce-page #content div.product div.images, .woocommerce-page #content div.product div.summary' => array(
 					'float' => 'none',
@@ -2025,12 +2060,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.ast-separate-container .ast-woocommerce-container' => array(
 					'padding' => '.54em 1em 1.33333em',
 				),
-				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
-					'font-size'      => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
-					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
-					'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
-					'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
-					'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array_merge(
+					$woo_btn_compatibility_mobile,
+					array(
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+					)
 				),
 				'.woocommerce-message, .woocommerce-error, .woocommerce-info' => array(
 					'display'   => 'flex',
