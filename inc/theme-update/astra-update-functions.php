@@ -1112,7 +1112,7 @@ function astra_theme_background_updater_4_0_2() {
 
 	// WooCommerce global button compatibility for new users only.
 	if ( ! isset( $theme_options['woo_btn_compatibility_flag'] ) ) {
-		$theme_options['woo_btn_compatibility_flag'] = true;
+		$theme_options['woo_btn_compatibility_flag'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

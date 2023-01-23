@@ -1481,7 +1481,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$woo_btn_compatibility_tablet  = array();
 			$woo_btn_compatibility_mobile  = array();
 
-			if ( apply_filters( 'astra_woo_btn_global_compatibility', astra_get_option( 'woo_btn_compatibility_flag', false ) ) ) {
+			if ( apply_filters( 'astra_woo_btn_global_compatibility', astra_get_option( 'woo_btn_compatibility_flag', true ) ) ) {
 
 				$woo_btn_compatibility_desktop = array(
 					'font-family'     => astra_get_font_family( $theme_btn_font_family ),
@@ -1649,7 +1649,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// WooCommerce global button compatibility for new users only.
-			if ( ! apply_filters( 'astra_woo_btn_global_compatibility', astra_get_option( 'woo_btn_compatibility_flag', false ) ) ) {
+			if ( ! apply_filters( 'astra_woo_btn_global_compatibility', astra_get_option( 'woo_btn_compatibility_flag', true ) ) ) {
 				$css_desktop_output['.woocommerce ul.products li.product .button, .woocommerce-page ul.products li.product .button'] = array(
 					'line-height' => '1.3',
 				);
