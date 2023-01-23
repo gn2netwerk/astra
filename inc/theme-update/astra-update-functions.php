@@ -1106,7 +1106,7 @@ function astra_theme_background_updater_4_0_1() {
  * @since x.x.x
  * @return void
  */
-function astra_theme_background_updater_4_0_2() {
+function astra_theme_background_updater_4_0_3() {
 
 	$theme_options = get_option( 'astra-settings', array() );
 
