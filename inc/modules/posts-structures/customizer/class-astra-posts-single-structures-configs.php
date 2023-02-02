@@ -70,57 +70,24 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * @since 4.0.0
 	 */
 	public function get_content_layout_choices( $post_type ) {
-		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
-			return array(
-				'default'                 => array(
-					'label' => __( 'Default', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-				),
-				'boxed-container'         => array(
-					'label' => __( 'Boxed', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-boxed', false ) : '',
-				),
-				'content-boxed-container' => array(
-					'label' => __( 'Content Boxed', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-content-boxed', false ) : '',
-				),
-				'plain-container'         => array(
-					'label' => __( 'Full Width / Contained', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
-				),
-				'page-builder'            => array(
-					'label' => __( 'Full Width / Stretched', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
-				),
-				'narrow-container'        => array(
-					'label' => __( 'Narrow Width', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
-				),
-			);
-		} else {
-			return array(
-				'default'                 => array(
-					'label' => __( 'Default', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-				),
-				'boxed-container'         => array(
-					'label' => __( 'Boxed', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-boxed', false ) : '',
-				),
-				'content-boxed-container' => array(
-					'label' => __( 'Content Boxed', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-content-boxed', false ) : '',
-				),
-				'plain-container'         => array(
-					'label' => __( 'Full Width / Contained', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
-				),
-				'page-builder'            => array(
-					'label' => __( 'Full Width / Stretched', 'astra' ),
-					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
-				),
-			);
-		}
+		return array(
+			'default'                 => array(
+				'label' => __( 'Default', 'astra' ),
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
+			),
+			'plain-container'         => array(
+				'label' => __( 'Normal', 'astra' ),
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+			),
+			'page-builder'            => array(
+				'label' => __( 'Full Width', 'astra' ),
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
+			),
+			'narrow-container'        => array(
+				'label' => __( 'Narrow', 'astra' ),
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
+			),
+		);
 	}
 
 	/**
