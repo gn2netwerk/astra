@@ -3767,7 +3767,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 				}
 			}
-			astra_toggle_container_layout();
+			astra_toggle_container_layouts();
 
 			$parse_css .= astra_parse_css( $submenu_toggle );
 

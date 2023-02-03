@@ -1645,17 +1645,25 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
  * @param string $narrow_container_max_width  dynamic container width in px.
  * @return string Parsed CSS based on $location and $narrow_container_max_width.
  */
-function astra_toggle_container_layout() {
+function astra_toggle_container_layouts() {
 
-	$current_layout = astra_get_content_layout();
 	$post_type = strval( get_post_type() );
+	$single_container_layout    = astra_get_option( 'single-' . $post_type . '-content-layout', '' );
+	$new_single_container_layout = astra_get_option( 'single-' . $post_type . '-new-content-layout', '' );
 	$single_content_style = astra_get_option( 'single-' . $post_type . '-content-style', '' );
 
-	if( "boxed" === $single_content_style && "plain-container" === $current_layout ) {
-		astra_update_option('single-' . $post_type . '-content-layout', 'boxed-container');
+	switch ($new_single_container_layout ) {
+		case 'normal-width-container':
+			if( "boxed" === $single_content_style ) {
+				astra_update_option('single-' . $post_type . '-content-layout', 'boxed-container');
+			}
+			else if ("unboxed" === $single_content_style ) {
+				astra_update_option('single-' . $post_type . '-content-layout', 'plain-container');
+			}
+			break;
+		default:
+			break;
 	}
-	else if( "unboxed" === $single_content_style && "plain-container" === $current_layout ) {
-		astra_update_option('single-' . $post_type . '-content-layout', 'plain-container');
-	}
+
 
 }
