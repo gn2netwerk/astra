@@ -91,6 +91,28 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	}
 
 	/**
+	 * Getting content layout style choices dynamically.
+	 * @param void
+	 * @since 4.0.0
+	 */
+	public function get_content_style_choices() {
+		return array(
+			'default'                 => array(
+				'label' => __( 'Default', 'astra' ),
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
+			),
+			'boxed'         => array(
+				'label' => __( 'Boxed', 'astra' ),
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-boxed', false ) : '',
+			),
+			'unboxed'            => array(
+				'label' => __( 'Unboxed', 'astra' ),
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+			),
+		);
+	}
+
+	/**
 	 * Register Single Post's Structures Customizer Configurations.
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
@@ -111,6 +133,18 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'priority'          => 3,
 				'title'             => __( 'Container Layout', 'astra' ),
 				'choices'           => $this->get_content_layout_choices( $post_type ),
+				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+			),
+			array(
+				'name'              => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-content-style]',
+				'type'              => 'control',
+				'control'           => 'ast-radio-image',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+				'section'           => $parent_section,
+				'default'           => astra_get_option( 'single-' . $post_type . '-content-style', 'default' ),
+				'priority'          => 3,
+				'title'             => __( 'Container Content Style', 'astra' ),
+				'choices'           => $this->get_content_style_choices( $post_type ),
 				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 			),
 			array(

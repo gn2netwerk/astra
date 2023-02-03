@@ -1636,3 +1636,26 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 		return '';
 	}
 }
+
+/**
+ * Function to toggle layout based on content layout selected and content style selected.
+ *
+ * @since 4.0.0
+ * @param string $location container layout for single-post, archives, pages, page meta.
+ * @param string $narrow_container_max_width  dynamic container width in px.
+ * @return string Parsed CSS based on $location and $narrow_container_max_width.
+ */
+function astra_toggle_container_layout() {
+
+	$current_layout = astra_get_content_layout();
+	$post_type = strval( get_post_type() );
+	$single_content_style = astra_get_option( 'single-' . $post_type . '-content-style', '' );
+
+	if( "boxed" === $single_content_style && "plain-container" === $current_layout ) {
+		astra_update_option('single-' . $post_type . '-content-layout', 'boxed-container');
+	}
+	else if( "unboxed" === $single_content_style && "plain-container" === $current_layout ) {
+		astra_update_option('single-' . $post_type . '-content-layout', 'plain-container');
+	}
+
+}
