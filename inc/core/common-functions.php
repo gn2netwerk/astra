@@ -1652,16 +1652,7 @@ function astra_toggle_container_layouts() {
 	$new_single_container_layout = astra_get_option( 'single-' . $post_type . '-new-content-layout', '' );
 	$single_content_style = astra_get_option( 'single-' . $post_type . '-content-style', '' );
 
-	// Migrate older user
-	if ( '' != $single_container_layout) {
-		switch ( $single_container_layout ) {
-			case 'plain-container':
-				astra_update_option('single-' . $post_type . '-new-content-layout', 'normal-width-container');
-				break;
-			default:
-				break;
-		}
-	}
+	// toggle old layouts based on new layout config selection.
 	switch ($new_single_container_layout ) {
 		case 'normal-width-container':
 			if( "boxed" === $single_content_style ) {
