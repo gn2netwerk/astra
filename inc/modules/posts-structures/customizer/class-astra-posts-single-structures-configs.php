@@ -123,24 +123,43 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 		}
 	}
 	public function get_new_container_layouts_choices() {		
-		return array(
-			'default'                 => array(
-				'label' => __( 'Default', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-			),
-			'normal-width-container'         => array(
-				'label' => __( 'Normal', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
-			),
-			'full-width-container'            => array(
-				'label' => __( 'Full Width', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
-			),
-			'narrow-width-container'        => array(
-				'label' => __( 'Narrow', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
-			),
-		);
+
+		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
+			return array(
+				'default'                 => array(
+					'label' => __( 'Default', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
+				),
+				'normal-width-container'         => array(
+					'label' => __( 'Normal', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+				),
+				'narrow-width-container'        => array(
+					'label' => __( 'Narrow', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
+				),
+				'full-width-container'            => array(
+					'label' => __( 'Full Width', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
+				),
+			);
+		}
+		else {
+			return array(
+				'default'                 => array(
+					'label' => __( 'Default', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
+				),
+				'normal-width-container'         => array(
+					'label' => __( 'Normal', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+				),
+				'full-width-container'            => array(
+					'label' => __( 'Full Width', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
+				),
+			);
+		}
 	}
 	/**
 	 * Getting content layout style choices dynamically.
