@@ -112,6 +112,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_theme_background_updater_4_0_2',
 				'astra_migrate_old_content_layouts'
 			),
+			'4.0.3' => array(
+				'astra_migrate_old_content_layouts'
+			),
 		);
 
 		/**
