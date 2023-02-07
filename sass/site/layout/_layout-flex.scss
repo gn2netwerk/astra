@@ -21,7 +21,7 @@ body{
 }
 
 //separate container content layout
-.ast-separate-container{
+.ast-separate-container, .ast-narrow-boxed-content, .ast-full-boxed-content {
 	background-color: $color-background-sep-content-body;
 	#primary{
 		padding: 4em 0;
@@ -105,5 +105,11 @@ body{
 		#primary {
 			padding-left: $space-between-primary-seconday;
 		}
+	}
+}
+
+.ast-full-boxed-content {
+	.post-navigation {
+		background-color: $color-background-sep-content-body;
 	}
 }

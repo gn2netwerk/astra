@@ -1745,6 +1745,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
 						'padding' => '3em',
 					),
+
+					// Boxed narrow single article, comments area.
+					'.ast-narrow-boxed-content .ast-article-post, .ast-narrow-boxed-content .ast-article-single, .ast-narrow-boxed-content .ast-comment-list li.depth-1, .ast-narrow-boxed-content .comment-respond' => array(
+						'padding' => '3em',
+					),
+
+					// Boxed fullwidth single article, comments area.
+					'.ast-full-boxed-content .ast-article-post, .ast-full-boxed-content .ast-article-single, .ast-full-boxed-content .ast-comment-list li.depth-1, .ast-full-boxed-content .comment-respond' => array(
+						'padding' => '3em',
+					),
+
 					'.ast-separate-container .ast-comment-list li.depth-1, .hentry' => array(
 						'margin-bottom' => '2em',
 					),
@@ -1752,7 +1763,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'background-color' => 'var(--ast-global-color-5)',
 						'border-bottom'    => '1px solid var(--ast-border-color)',
 					),
-					'.ast-separate-container .comments-title' => array(
+					'.ast-separate-container .comments-title, .ast-narrow-boxed-content .comments-title, .ast-full-boxed-content .comments-title' => array(
 						'padding' => '2em 2em 0 2em',
 					),
 					'.ast-page-builder-template .comment-form-textarea, .ast-comment-formwrap .ast-grid-common-col' => array(

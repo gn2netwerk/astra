@@ -1640,31 +1640,30 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 /**
  * Function to toggle layout based on content layout selected and content style selected.
  *
- * @since 4.0.0
- * @param string $location container layout for single-post, archives, pages, page meta.
- * @param string $narrow_container_max_width  dynamic container width in px.
- * @return string Parsed CSS based on $location and $narrow_container_max_width.
+ * @since x.x.x
+ * @return void
  */
 function astra_toggle_container_layouts() {
-
-	$post_type = strval( get_post_type() );
-	$single_container_layout    = astra_get_option( 'single-' . $post_type . '-content-layout', '' );
+	$post_type                   = strval( get_post_type() );
+	$single_container_layout     = astra_get_option( 'single-' . $post_type . '-content-layout', '' );
 	$new_single_container_layout = astra_get_option( 'single-' . $post_type . '-new-content-layout', '' );
-	$single_content_style = astra_get_option( 'single-' . $post_type . '-content-style', '' );
+	$single_content_style        = astra_get_option( 'single-' . $post_type . '-content-style', '' );
 
-	// toggle old layouts based on new layout config selection.
-	switch ($new_single_container_layout ) {
+	// Toggle old layouts based on new layout config selection.
+	switch ( $new_single_container_layout ) {
 		case 'normal-width-container':
+			astra_update_option('single-' . $post_type . '-content-layout', 'plain-container');
 			if( "boxed" === $single_content_style ) {
-				astra_update_option('single-' . $post_type . '-content-layout', 'boxed-container');
+				astra_update_option('single-' . $post_type . '-content-layout', 'content-boxed-container');
 			}
-			else if ("unboxed" === $single_content_style ) {
-				astra_update_option('single-' . $post_type . '-content-layout', 'plain-container');
-			}
+			break;
+		case 'narrow-width-container':
+			astra_update_option('single-' . $post_type . '-content-layout', 'narrow-container');
+			break;
+		case 'full-width-container':
+			astra_update_option('single-' . $post_type . '-content-layout', 'page-builder');
 			break;
 		default:
 			break;
 	}
-
-
 }

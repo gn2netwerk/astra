@@ -126,6 +126,27 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			}
 		}
 
+
+		// Apply content styles based on new content layouts.
+		$post_type                   = strval( get_post_type() );
+		$new_single_container_layout = astra_get_option( 'single-' . $post_type . '-new-content-layout', '' );
+		$single_content_style        = astra_get_option( 'single-' . $post_type . '-content-style', '' );
+
+		switch ($new_single_container_layout ) {
+			case 'narrow-width-container':
+				if( "boxed" === $single_content_style ) {
+					$classes[] = 'ast-narrow-boxed-content';
+				}
+				break;
+			case 'full-width-container':
+				if( "boxed" === $single_content_style ) {
+					$classes[] = 'ast-full-boxed-content';
+				}
+				break;
+			default:
+				break;
+		}
+
 		return $classes;
 	}
 }

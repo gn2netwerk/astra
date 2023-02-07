@@ -34,16 +34,42 @@ function astra_content_background_css( $dynamic_css ) {
 
 	// Container Layout Colors.
 	$container_css = array(
-		'.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-separate-container .related-posts-title-wrapper, .ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-separate-container .comments-area .comments-title, .ast-narrow-container .site-content' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
+		'.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-separate-container .related-posts-title-wrapper, .ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
 	);
 	// Container Layout Colors.
 	$container_css_tablet = array(
-		'.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-separate-container .related-posts-title-wrapper, .ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-separate-container .comments-area .comments-title, .ast-narrow-container .site-content' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
+		'.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-separate-container .related-posts-title-wrapper, .ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
 	);
 
 	// Container Layout Colors.
 	$container_css_mobile = array(
-		'.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-separate-container .related-posts-title-wrapper, .ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-separate-container .comments-area .comments-title, .ast-narrow-container .site-content' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
+		'.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-separate-container .related-posts-title-wrapper, .ast-separate-container.ast-two-container #secondary .widget,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
+	);
+
+	// Boxed Narrow Container Layout Colors Desktop.
+	$boxed_narrow_container_css = array(
+		'.ast-narrow-boxed-content .ast-article-single:not(.ast-related-post), .ast-narrow-boxed-content .comments-area .comment-respond,.ast-narrow-boxed-content .comments-area .ast-comment-list li, .ast-narrow-boxed-content .ast-woocommerce-container, .ast-narrow-boxed-content .error-404, .ast-narrow-boxed-content .no-results, .single.ast-narrow-boxed-content ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-narrow-boxed-content .related-posts-title-wrapper, .ast-narrow-boxed-content.ast-two-container #secondary .widget,.ast-narrow-boxed-content .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-narrow-boxed-content .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
+	);
+	// Boxed Narrow Container Layout Colors Tablet.
+	$boxed_narrow_container_css_tablet = array(
+		'.ast-narrow-boxed-content .ast-article-single:not(.ast-related-post), .ast-narrow-boxed-content .comments-area .comment-respond,.ast-narrow-boxed-content .comments-area .ast-comment-list li, .ast-narrow-boxed-content .ast-woocommerce-container, .ast-narrow-boxed-content .error-404, .ast-narrow-boxed-content .no-results, .single.ast-narrow-boxed-content ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-narrow-boxed-content .related-posts-title-wrapper, .ast-narrow-boxed-content.ast-two-container #secondary .widget,.ast-narrow-boxed-content .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-narrow-boxed-content .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
+	);
+	// Boxed Narrow Container Layout Colors Mobile.
+	$boxed_narrow_container_css_mobile = array(
+		'.ast-narrow-boxed-content .ast-article-single:not(.ast-related-post), .ast-narrow-boxed-content .comments-area .comment-respond,.ast-narrow-boxed-content .comments-area .ast-comment-list li, .ast-narrow-boxed-content .ast-woocommerce-container, .ast-narrow-boxed-content .error-404, .ast-narrow-boxed-content .no-results, .single.ast-narrow-boxed-content ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-narrow-boxed-content .related-posts-title-wrapper, .ast-narrow-boxed-content.ast-two-container #secondary .widget,.ast-narrow-boxed-content .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-narrow-boxed-content .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
+	);
+
+	// Boxed Fullwidth Container Layout Colors Desktop.
+	$boxed_fullwidth_container_css = array(
+		'.ast-full-boxed-content .ast-article-single:not(.ast-related-post), .ast-full-boxed-content .comments-area .comment-respond,.ast-full-boxed-content .comments-area .ast-comment-list li, .ast-full-boxed-content .ast-woocommerce-container, .ast-full-boxed-content .error-404, .ast-full-boxed-content .no-results, .single.ast-full-boxed-content ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-full-boxed-content .related-posts-title-wrapper, .ast-full-boxed-content.ast-two-container #secondary .widget,.ast-full-boxed-content .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-full-boxed-content .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
+	);
+	// Boxed Fullwidth Container Layout Colors Tablet.
+	$boxed_fullwidth_container_css_tablet = array(
+		'.ast-full-boxed-content .ast-article-single:not(.ast-related-post), .ast-full-boxed-content .comments-area .comment-respond,.ast-full-boxed-content .comments-area .ast-comment-list li, .ast-full-boxed-content .ast-woocommerce-container, .ast-full-boxed-content .error-404, .ast-full-boxed-content .no-results, .single.ast-full-boxed-content ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-full-boxed-content .related-posts-title-wrapper, .ast-full-boxed-content.ast-two-container #secondary .widget,.ast-full-boxed-content .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-full-boxed-content .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
+	);
+	// Boxed Fullwidth Container Layout Colors Mobile.
+	$boxed_fullwidth_container_css_mobile = array(
+		'.ast-full-boxed-content .ast-article-single:not(.ast-related-post), .ast-full-boxed-content .comments-area .comment-respond,.ast-full-boxed-content .comments-area .ast-comment-list li, .ast-full-boxed-content .ast-woocommerce-container, .ast-full-boxed-content .error-404, .ast-full-boxed-content .no-results, .single.ast-full-boxed-content ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-full-boxed-content .related-posts-title-wrapper, .ast-full-boxed-content.ast-two-container #secondary .widget,.ast-full-boxed-content .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-full-boxed-content .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
 	);
 
 	// Blog Pro Layout Colors.
@@ -86,6 +112,20 @@ function astra_content_background_css( $dynamic_css ) {
 	$dynamic_css .= astra_parse_css( $container_css_tablet, '', astra_get_tablet_breakpoint() );
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$dynamic_css .= astra_parse_css( $container_css_mobile, '', astra_get_mobile_breakpoint() );
+
+	// Boxed Narrow Content.
+	$dynamic_css .= astra_parse_css( $boxed_narrow_container_css );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$dynamic_css .= astra_parse_css( $boxed_narrow_container_css_tablet, '', astra_get_tablet_breakpoint() );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$dynamic_css .= astra_parse_css( $boxed_narrow_container_css_mobile, '', astra_get_mobile_breakpoint() );
+
+	// Boxed Full-Width Content.
+	$dynamic_css .= astra_parse_css( $boxed_fullwidth_container_css );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$dynamic_css .= astra_parse_css( $boxed_fullwidth_container_css_tablet, '', astra_get_tablet_breakpoint() );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$dynamic_css .= astra_parse_css( $boxed_fullwidth_container_css_mobile, '', astra_get_mobile_breakpoint() );
 
 	if ( astra_apply_content_background_fullwidth_layouts() ) {
 		$fullwidth_layout        = array(

@@ -1054,45 +1054,51 @@ body {
   margin: 4em 0;
 }
 
-.ast-separate-container {
+.ast-separate-container, .ast-narrow-boxed-content, .ast-full-boxed-content {
   background-color: #f5f5f5;
 }
 
-.ast-separate-container #primary {
+.ast-separate-container #primary, .ast-narrow-boxed-content #primary, .ast-full-boxed-content #primary {
   padding: 4em 0;
   margin: 0;
   border: 0;
 }
 
-.ast-separate-container .site-main > .ast-row {
+.ast-separate-container .site-main > .ast-row, .ast-narrow-boxed-content .site-main > .ast-row, .ast-full-boxed-content .site-main > .ast-row {
   margin-right: 0;
   margin-left: 0;
 }
 
 .ast-separate-container .ast-article-post,
-.ast-separate-container .ast-article-single:not(.ast-related-post) {
+.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-narrow-boxed-content .ast-article-post,
+.ast-narrow-boxed-content .ast-article-single:not(.ast-related-post), .ast-full-boxed-content .ast-article-post,
+.ast-full-boxed-content .ast-article-single:not(.ast-related-post) {
   background-color: #fff;
 }
 
 .ast-separate-container .ast-article-post,
-.ast-separate-container .ast-article-single {
+.ast-separate-container .ast-article-single, .ast-narrow-boxed-content .ast-article-post,
+.ast-narrow-boxed-content .ast-article-single, .ast-full-boxed-content .ast-article-post,
+.ast-full-boxed-content .ast-article-single {
   border-bottom: 1px solid var(--ast-border-color);
   margin: 0;
   padding: 5.34em 6.67em;
 }
 
-.ast-separate-container .blog-layout-1 {
+.ast-separate-container .blog-layout-1, .ast-narrow-boxed-content .blog-layout-1, .ast-full-boxed-content .blog-layout-1 {
   padding: 0;
   border-bottom: 0;
 }
 
-.ast-separate-container .ast-article-single {
+.ast-separate-container .ast-article-single, .ast-narrow-boxed-content .ast-article-single, .ast-full-boxed-content .ast-article-single {
   border-bottom: 0;
 }
 
 @media (max-width: 1200px) {
   .ast-separate-container .ast-article-post,
-  .ast-separate-container .ast-article-single {
+  .ast-separate-container .ast-article-single, .ast-narrow-boxed-content .ast-article-post,
+  .ast-narrow-boxed-content .ast-article-single, .ast-full-boxed-content .ast-article-post,
+  .ast-full-boxed-content .ast-article-single {
     margin: 0;
     padding: 3.34em 2.4em;
   }
@@ -1126,6 +1132,10 @@ body {
   .ast-left-sidebar #primary {
     padding-right: 30px;
   }
+}
+
+.ast-full-boxed-content .post-navigation {
+  background-color: #f5f5f5;
 }
 
 /*----------  Navigation  ----------*/

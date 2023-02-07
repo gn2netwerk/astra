@@ -1010,3 +1010,43 @@ function astra_theme_background_updater_4_0_2() {
 		}
 	}
 }
+
+/**
+ * Migrate old user content layouts to new ones.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_migrate_old_content_layouts() {
+	$theme_options = get_option( 'astra-settings', array() );
+	$post_type = strval( get_post_type() );
+	if ( ! isset( $theme_options['single-' . $post_type . '-new-content-layout'] ) && isset( $theme_options['single-' . $post_type . '-content-layout'] ) ) {
+		$old_layout = $theme_options['single-' . $post_type . '-content-layout'];
+		switch ( $old_layout ) {
+			case 'boxed-container':
+				$theme_options['single-' . $post_type . '-new-content-layout'] = 'normal-width-container';
+				$theme_options['single-' . $post_type . '-content-style']      = 'boxed';
+				break;
+			case 'content-boxed-container':
+				$theme_options['single-' . $post_type . '-new-content-layout'] = 'normal-width-container';
+				$theme_options['single-' . $post_type . '-content-style']      = 'boxed';
+				break;
+			case 'plain-container':
+				$theme_options['single-' . $post_type . '-new-content-layout'] = 'normal-width-container';
+				$theme_options['single-' . $post_type . '-content-style']      = 'unboxed';
+				break;
+			case 'page-builder':
+				$theme_options['single-' . $post_type . '-new-content-layout'] = 'full-width-container';
+				$theme_options['single-' . $post_type . '-content-style']      = 'unboxed';
+				break;
+			case 'narrow-container':
+				$theme_options['single-' . $post_type . '-new-content-layout'] = 'narrow-width-container';
+				$theme_options['single-' . $post_type . '-content-style']      = 'unboxed';
+				break;
+			default:
+				break;
+		}
+
+		update_option( 'astra-settings', $theme_options );
+	}
+}
