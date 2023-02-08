@@ -180,13 +180,13 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'label' => __( 'Default', 'astra' ),
 				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
 			),
-			'boxed'         => array(
-				'label' => __( 'Boxed', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-boxed', false ) : '',
-			),
 			'unboxed'            => array(
 				'label' => __( 'Unboxed', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'content-style-unboxed', false ) : '',
+			),
+			'boxed'         => array(
+				'label' => __( 'Boxed', 'astra' ),
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'content-style-boxed', false ) : '',
 			),
 		);
 	}
