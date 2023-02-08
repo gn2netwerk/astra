@@ -1643,7 +1643,7 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
  * @since x.x.x
  * @return void
  */
-function astra_toggle_container_layouts() {
+function astra_toggle_container_layouts( $location ) {
 	$post_type                   = strval( get_post_type() );
 	$single_container_layout     = astra_get_option( 'single-' . $post_type . '-content-layout', '' );
 	$new_single_container_layout = astra_get_option( 'single-' . $post_type . '-new-content-layout', '' );

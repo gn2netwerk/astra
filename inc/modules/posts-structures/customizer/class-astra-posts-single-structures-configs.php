@@ -182,11 +182,11 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			),
 			'unboxed'            => array(
 				'label' => __( 'Unboxed', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'content-style-unboxed', false ) : '',
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'single-content-style-unboxed', false ) : '',
 			),
 			'boxed'         => array(
 				'label' => __( 'Boxed', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'content-style-boxed', false ) : '',
+				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'single-content-style-boxed', false ) : '',
 			),
 		);
 	}
