@@ -233,7 +233,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
  * Add custom attribute to custom site logo.
  *
  * @param mixed $html custom logo html.
- * @since x.x.x
+ * @since 4.1.0
  * @return mixed custom logo html.
  */
 function astra_add_custom_logo_attributes( $html ) {

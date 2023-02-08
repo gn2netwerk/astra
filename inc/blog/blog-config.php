@@ -138,7 +138,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
  * Get post format as per new configurations set in customizer.
  *
  * @return string HTML markup for date span.
- * @since x.x.x
+ * @since 4.1.0
  */
 function astra_get_dynamic_post_format() {
 	$post_type          = strval( get_post_type() );

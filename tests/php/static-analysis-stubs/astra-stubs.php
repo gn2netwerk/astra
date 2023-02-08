@@ -4792,7 +4792,7 @@ namespace Elementor {
          *
          * @param array $classes Array of elementor edit mode check.
          *
-         * @since x.x.x
+         * @since 4.1.0
          */
         function astra_entry_header_class_custom($classes)
         {
@@ -6693,7 +6693,7 @@ namespace {
          *
          * @param string $value ajax add to cart value.
          * @return string yes | no  enable / disable ajax add to cart.
-         * @since x.x.x
+         * @since 4.1.0
          */
         public function option_woocommerce_enable_ajax_add_to_cart($value)
         {
@@ -6703,7 +6703,7 @@ namespace {
          *
          * @param string $value cart redirect after add value.
          * @return string yes | no enable / disable cart redirect after add.
-         * @since x.x.x
+         * @since 4.1.0
          */
         public function option_woocommerce_cart_redirect_after_add($value)
         {
@@ -9235,7 +9235,7 @@ namespace {
          *
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-         * @since x.x.x
+         * @since 4.1.0
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -13106,7 +13106,7 @@ namespace {
      * Get post format as per new configurations set in customizer.
      *
      * @return string HTML markup for date span.
-     * @since x.x.x
+     * @since 4.1.0
      */
     function astra_get_dynamic_post_format()
     {
@@ -16117,7 +16117,7 @@ namespace {
      * Add custom attribute to custom site logo.
      *
      * @param mixed $html custom logo html.
-     * @since x.x.x
+     * @since 4.1.0
      * @return mixed custom logo html.
      */
     function astra_add_custom_logo_attributes($html)
@@ -17165,7 +17165,7 @@ namespace {
     /**
      * Handle backward compatibility on version 4.1.0
      *
-     * @since x.x.x
+     * @since 4.1.0
      * @return void
      */
     function astra_theme_background_updater_4_1_0()

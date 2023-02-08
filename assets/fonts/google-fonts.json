@@ -9986,7 +9986,7 @@
         }
     },
     {
-        "Noto Sans N Ko": {
+        "Noto Sans NKo": {
             "variants": [
                 "regular"
             ],
@@ -10923,17 +10923,6 @@
     },
     {
         "Noto Serif NP Hmong": {
-            "variants": [
-                "regular",
-                "500",
-                "600",
-                "700"
-            ],
-            "category": "serif"
-        }
-    },
-    {
-        "Noto Serif Nyiakeng Puachue Hmong": {
             "variants": [
                 "regular",
                 "500",

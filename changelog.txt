@@ -19,7 +19,7 @@ v4.1.0
 - Fix: Spectra Compatibility - Spectra spacing options for applying custom margin and padding not working.
 - Fix: Content background color does not apply to Author Box in customizer preview.
 - Fix: Cost Calculator Builder - compatibility range slider.
-- Fix: Disable the title from elementor setting is not working as expected.
+- Fix: Disable the title from Elementor setting is not working as expected.
 - Fix: Footer Menu Alignment issue for responsive devices.
 - Fix: Inside container spacing for single posts affecting the related posts section.
 - Fix: PHP error 'Uncaught TypeError: ltrim()' for getting taxonomy term link.

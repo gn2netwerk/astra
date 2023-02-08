@@ -5578,7 +5578,7 @@ return array(
 		),
 	),
 	array(
-		'Noto Sans N Ko' => array(
+		'Noto Sans NKo' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
 		),
@@ -6101,12 +6101,6 @@ return array(
 	),
 	array(
 		'Noto Serif NP Hmong' => array(
-			'variants' => array( 'regular', '500', '600', '700' ), 
-			'category' => 'serif', 
-		),
-	),
-	array(
-		'Noto Serif Nyiakeng Puachue Hmong' => array(
 			'variants' => array( 'regular', '500', '600', '700' ), 
 			'category' => 'serif', 
 		),

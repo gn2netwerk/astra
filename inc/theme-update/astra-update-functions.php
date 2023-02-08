@@ -1014,7 +1014,7 @@ function astra_theme_background_updater_4_0_2() {
 /**
  * Handle backward compatibility on version 4.1.0
  *
- * @since x.x.x
+ * @since 4.1.0
  * @return void
  */
 function astra_theme_background_updater_4_1_0() {

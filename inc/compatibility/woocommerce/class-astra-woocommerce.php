@@ -3641,7 +3641,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @param string $value ajax add to cart value.
 		 * @return string yes | no  enable / disable ajax add to cart.
-		 * @since x.x.x
+		 * @since 4.1.0
 		 */
 		public function option_woocommerce_enable_ajax_add_to_cart( $value ) {
 			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
@@ -3656,7 +3656,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @param string $value cart redirect after add value.
 		 * @return string yes | no enable / disable cart redirect after add.
-		 * @since x.x.x
+		 * @since 4.1.0
 		 */
 		public function option_woocommerce_cart_redirect_after_add( $value ) {
 			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
