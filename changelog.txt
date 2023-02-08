@@ -1,4 +1,4 @@
-v4.1.0 (Unreleased)
+v4.1.0
 - New: Accessibility options to change color and style of highlighted element.
 - New: WooCommerce - Shop - Introducing new redirect actions on Add to cart click.
 - New: WooCommerce - Sortable support for payment options on single product page.
