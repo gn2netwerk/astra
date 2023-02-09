@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[site-content-layout]',
 					'type'              => 'control',
-					'control'           => 'ast-radio-image',
+					'control'           => 'ast-hidden',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-container-layout',
 					'default'           => astra_get_option( 'site-content-layout' ),
@@ -70,6 +70,31 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'narrow-container'        => array(
 							'label' => __( 'Narrow Width', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
+						),
+					),
+				),
+
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
+					'type'              => 'control',
+					'control'           => 'ast-radio-image',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'section'           => 'section-container-layout',
+					'default'           => astra_get_option( 'new-site-content-layout', '' ),
+					'priority'          => 9,
+					'title'             => __( 'Container Layout', 'astra' ),
+					'choices'           => array(
+						'normal-width-container'         => array(
+							'label' => __( 'Normal', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+						),
+						'narrow-width-container'        => array(
+							'label' => __( 'Narrow', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
+						),
+						'full-width-container'            => array(
+							'label' => __( 'Full Width', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),

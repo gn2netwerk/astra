@@ -1022,27 +1022,27 @@ function astra_migrate_old_content_layouts() {
 	if ( isset( $theme_options['single-post-content-layout'] ) ) {
 		$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 		foreach( $post_types as $index => $post_type ) {
-			$old_layout = $theme_options['single-' . $post_type . '-content-layout'];
+			$old_layout = $theme_options['single-' . esc_attr($post_type) . '-content-layout'];
 			switch ( $old_layout ) {
 				case 'boxed-container':
-					$theme_options['single-' . $post_type . '-new-content-layout'] = 'normal-width-container';
-					$theme_options['single-' . $post_type . '-content-style']      = 'boxed';
+					$theme_options['single-' . esc_attr($post_type) . '-new-content-layout'] = 'normal-width-container';
+					$theme_options['single-' . esc_attr($post_type) . '-content-style']      = 'boxed';
 					break;
 				case 'content-boxed-container':
-					$theme_options['single-' . $post_type . '-new-content-layout'] = 'normal-width-container';
-					$theme_options['single-' . $post_type . '-content-style']      = 'boxed';
+					$theme_options['single-' . esc_attr($post_type) . '-new-content-layout'] = 'normal-width-container';
+					$theme_options['single-' . esc_attr($post_type) . '-content-style']      = 'boxed';
 					break;
 				case 'plain-container':
-					$theme_options['single-' . $post_type . '-new-content-layout'] = 'normal-width-container';
-					$theme_options['single-' . $post_type . '-content-style']      = 'unboxed';
+					$theme_options['single-' . esc_attr($post_type) . '-new-content-layout'] = 'normal-width-container';
+					$theme_options['single-' . esc_attr($post_type) . '-content-style']      = 'unboxed';
 					break;
 				case 'page-builder':
-					$theme_options['single-' . $post_type . '-new-content-layout'] = 'full-width-container';
-					$theme_options['single-' . $post_type . '-content-style']      = 'unboxed';
+					$theme_options['single-' . esc_attr($post_type) . '-new-content-layout'] = 'full-width-container';
+					$theme_options['single-' . esc_attr($post_type) . '-content-style']      = 'unboxed';
 					break;
 				case 'narrow-container':
-					$theme_options['single-' . $post_type . '-new-content-layout'] = 'narrow-width-container';
-					$theme_options['single-' . $post_type . '-content-style']      = 'unboxed';
+					$theme_options['single-' . esc_attr($post_type) . '-new-content-layout'] = 'narrow-width-container';
+					$theme_options['single-' . esc_attr($post_type) . '-content-style']      = 'unboxed';
 					break;
 				default:
 					break;
