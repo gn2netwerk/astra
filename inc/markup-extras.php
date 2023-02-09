@@ -128,19 +128,21 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 
 
 		// Apply content styles based on new content layouts.
-		$post_type                   = strval( get_post_type() );
-		$new_single_container_layout = astra_get_option( 'single-' . $post_type . '-new-content-layout', '' );
-		$single_content_style        = astra_get_option( 'single-' . $post_type . '-content-style', '' );
-
-		switch ($new_single_container_layout ) {
+		$post_type            = strval( get_post_type() );
+		$blog_type            = is_singular() ? 'single' : 'archive';
+		$new_container_layout = astra_get_option( $blog_type . '-' . $post_type . '-new-content-layout', '' );
+		$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
+		switch ( $new_container_layout ) {
 			case 'narrow-width-container':
-				if( "boxed" === $single_content_style ) {
+				if( "boxed" === $content_style ) {
 					$classes[] = 'ast-narrow-boxed-content';
+					$classes[] = 'ast-separate-container';
 				}
 				break;
 			case 'full-width-container':
-				if( "boxed" === $single_content_style ) {
+				if( "boxed" === $content_style ) {
 					$classes[] = 'ast-full-boxed-content';
+					$classes[] = 'ast-separate-container';
 				}
 				break;
 			default:

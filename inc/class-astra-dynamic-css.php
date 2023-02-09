@@ -3099,6 +3099,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Page Meta.
 			$parse_css .= astra_narrow_container_width( astra_get_option_meta( 'site-content-layout', '', true ), $narrow_container_max_width );
 
+			// Apply new content layouts.
+			astra_toggle_container_layouts();
+
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
 					'.site-content .ast-container' => array(
@@ -3778,7 +3781,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 				}
 			}
-			astra_toggle_container_layouts();
 
 			$parse_css .= astra_parse_css( $submenu_toggle );
 

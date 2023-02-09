@@ -1644,25 +1644,27 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
  * @return void
  */
 function astra_toggle_container_layouts() {
+
 	$post_type                   = strval( get_post_type() );
-	$single_container_layout     = astra_get_option( 'single-' . $post_type . '-content-layout', '' );
-	$new_single_container_layout = astra_get_option( 'single-' . $post_type . '-new-content-layout', '' );
-	$single_content_style        = astra_get_option( 'single-' . $post_type . '-content-style', '' );
+	$blog_type                   = is_singular() ? 'single' : 'archive';
+	$single_container_layout     = astra_get_option( $blog_type . '-' . $post_type . '-content-layout', '' );
+	$new_single_container_layout = astra_get_option( $blog_type . '-' . $post_type . '-new-content-layout', '' );
+	$single_content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
 	$astra_theme_options         = get_option( 'astra-settings' );
 
 	// Toggle old layouts based on new layout config selection.
 	switch ( $new_single_container_layout ) {
 		case 'normal-width-container':
-			$astra_theme_options['single-' . $post_type . '-content-layout'] = 'plain-container';
+			$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = 'plain-container';
 			if( "boxed" === $single_content_style ) {
-				$astra_theme_options['single-' . $post_type . '-content-layout'] = 'content-boxed-container';
+				$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = 'content-boxed-container';
 			}
 			break;
 		case 'narrow-width-container':
-			$astra_theme_options['single-' . $post_type . '-content-layout'] = 'narrow-container';
+			$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = 'narrow-container';
 			break;
 		case 'full-width-container':
-			$astra_theme_options['single-' . $post_type . '-content-layout'] = 'page-builder';
+			$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = 'page-builder';
 			break;
 		default:
 			break;
