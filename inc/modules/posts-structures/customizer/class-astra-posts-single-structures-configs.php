@@ -176,10 +176,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 */
 	public function get_content_style_choices() {
 		return array(
-			'default'                 => array(
-				'label' => __( 'Default', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-			),
 			'unboxed'            => array(
 				'label' => __( 'Unboxed', 'astra' ),
 				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'single-content-style-unboxed', false ) : '',
