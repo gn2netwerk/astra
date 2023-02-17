@@ -1654,7 +1654,7 @@ function astra_toggle_container_layouts() {
 
 	
 	// Toggle old layouts based on new layout config selection.
-	if( '' !== $global_new_container_layout ) {
+	if( ! empty( $global_new_container_layout ) ) {
 		switch ( $global_new_container_layout ) {
 			case 'normal-width-container':
 				$astra_theme_options['site-content-layout'] = 'plain-container';
