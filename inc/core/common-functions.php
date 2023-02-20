@@ -1649,7 +1649,8 @@ function astra_toggle_container_layouts() {
 	$blog_type                   = is_singular() ? 'single' : 'archive';
 	$global_new_container_layout = astra_get_option( 'new-site-content-layout', '' );
 	$new_container_layout        = astra_get_option( $blog_type . '-' . $post_type . '-new-content-layout', '' );
-	$single_content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
+	$content_style               = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
+	$site_content_style          = astra_get_option( 'site-content-style', '' );
 	$astra_theme_options         = get_option( 'astra-settings' );
 
 	
@@ -1658,6 +1659,9 @@ function astra_toggle_container_layouts() {
 		switch ( $global_new_container_layout ) {
 			case 'normal-width-container':
 				$astra_theme_options['site-content-layout'] = 'plain-container';
+				if( "boxed" === $site_content_style ) {
+					$astra_theme_options['site-content-layout'] = 'content-boxed-container';
+				}
 				break;
 			case 'narrow-width-container':
 				$astra_theme_options['site-content-layout'] = 'narrow-container';
@@ -1675,7 +1679,7 @@ function astra_toggle_container_layouts() {
 		switch ( $new_container_layout ) {
 			case 'normal-width-container':
 				$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = 'plain-container';
-				if( "boxed" === $single_content_style ) {
+				if( ( "boxed" === $site_content_style && "default" === $content_style ) || "boxed" === $content_style ) {
 					$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = 'content-boxed-container';
 				}
 				break;
@@ -1688,8 +1692,7 @@ function astra_toggle_container_layouts() {
 			default:
 				break;
 		}
-	}
-	else {
+	} else {
 		$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = '';
 	}
 	update_option( 'astra-settings', $astra_theme_options );

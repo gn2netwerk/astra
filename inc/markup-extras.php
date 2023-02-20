@@ -128,25 +128,51 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 
 
 		// Apply content styles based on new content layouts.
-		$post_type            = strval( get_post_type() );
-		$blog_type            = is_singular() ? 'single' : 'archive';
-		$new_container_layout = astra_get_option( $blog_type . '-' . $post_type . '-new-content-layout', '' );
-		$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
-		switch ( $new_container_layout ) {
-			case 'narrow-width-container':
-				if( "boxed" === $content_style ) {
-					$classes[] = 'ast-narrow-boxed-content';
-					$classes[] = 'ast-separate-container';
-				}
-				break;
-			case 'full-width-container':
-				if( "boxed" === $content_style ) {
-					$classes[] = 'ast-full-boxed-content';
-					$classes[] = 'ast-separate-container';
-				}
-				break;
-			default:
-				break;
+		$post_type                   = strval( get_post_type() );
+		$blog_type                   = is_singular() ? 'single' : 'archive';
+		$new_container_layout        = astra_get_option( $blog_type . '-' . $post_type . '-new-content-layout', '' );
+		$global_new_container_layout = astra_get_option( 'new-site-content-layout', '' );
+		$content_style               = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
+		$site_content_style          = astra_get_option( 'site-content-style', '' );
+		
+		// Global.
+		if( ! empty( $global_new_container_layout ) ) {
+			switch ( $global_new_container_layout ) {
+				case 'narrow-width-container':
+					if( "boxed" === $site_content_style ) {
+						$classes[] = 'ast-narrow-boxed-content';
+						$classes[] = 'ast-separate-container';
+					}
+					break;
+				case 'full-width-container':
+					if( "boxed" === $site_content_style ) {
+						$classes[] = 'ast-full-boxed-content';
+						$classes[] = 'ast-separate-container';
+					}
+					break;
+				default:
+					break;
+			}
+		}
+
+		// Overriden by post/page specific config.
+		if ( ! empty( $new_container_layout ) && 'default' !== $new_container_layout ) {
+			switch ( $new_container_layout ) {
+				case 'narrow-width-container':
+					if( ( "boxed" === $site_content_style && "default" === $content_style ) || "boxed" === $content_style ) {
+						$classes[] = 'ast-narrow-boxed-content';
+						$classes[] = 'ast-separate-container';
+					}
+					break;
+				case 'full-width-container':
+					if( "boxed" === $content_style ) {
+						$classes[] = 'ast-full-boxed-content';
+						$classes[] = 'ast-separate-container';
+					}
+					break;
+				default:
+					break;
+			}
 		}
 
 		return $classes;
