@@ -1650,7 +1650,7 @@ function astra_toggle_container_layouts() {
 	$global_new_container_layout = astra_get_option( 'new-site-content-layout', '' );
 	$new_container_layout        = astra_get_option( $blog_type . '-' . $post_type . '-new-content-layout', '' );
 	$content_style               = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
-	$site_content_style          = astra_get_option( 'site-content-style', '' );
+	$site_content_style          = astra_get_option( 'site-content-style', 'unboxed' );
 	$astra_theme_options         = get_option( 'astra-settings' );
 
 	
