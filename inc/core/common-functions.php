@@ -1695,5 +1695,5 @@ function astra_toggle_container_layouts() {
 	} else {
 		$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = '';
 	}
-	update_option( 'astra-settings', $astra_theme_options );
+	update_option( 'astra-settings', $astra_theme_options, true );
 }
