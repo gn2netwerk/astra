@@ -154,14 +154,14 @@ function astra_get_dynamic_post_format() {
 		$class    = 'updated';
 		$itemprop = 'dateModified';
 		$date     = sprintf(
-			esc_html( '%s' ),
+			wp_kses_post( '%s' ),
 			$modified_date
 		);
 	} else {
 		$class    = 'published';
 		$itemprop = 'datePublished';
 		$date     = sprintf(
-			esc_html( '%s' ),
+			wp_kses_post( '%s' ),
 			$published_date
 		);
 	}
