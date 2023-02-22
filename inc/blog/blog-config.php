@@ -147,21 +147,21 @@ function astra_get_dynamic_post_format() {
 	$date_type          = $is_singular ? astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta-date-type', 'published' ) : astra_get_option( 'blog-meta-date-type', 'published' );
 	$date_format        = apply_filters( 'astra_post_date_format', ( '' === $date_format_option ) ? get_option( 'date_format' ) : $date_format_option );
 
-	$published_date = get_the_date( $date_format );
-	$modified_date  = get_the_modified_date( $date_format );
+	$published_date = strval( get_the_date( $date_format ) );
+	$modified_date  = strval( get_the_modified_date( $date_format ) );
 
 	if ( 'updated' === $date_type ) {
 		$class    = 'updated';
 		$itemprop = 'dateModified';
 		$date     = sprintf(
-			wp_kses_post( '%s' ),
+			esc_html( '%s' ),
 			$modified_date
 		);
 	} else {
 		$class    = 'published';
 		$itemprop = 'datePublished';
 		$date     = sprintf(
-			wp_kses_post( '%s' ),
+			esc_html( '%s' ),
 			$published_date
 		);
 	}
