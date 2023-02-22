@@ -167,7 +167,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'description'    => '',
 			);
 			// Register panel.
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$wp_customize->add_panel( 'astra-site-identity', $panel_arr );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$section_arr = array(
 				'priority'       => 80,
