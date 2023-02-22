@@ -147,10 +147,8 @@ function astra_get_dynamic_post_format() {
 	$date_type          = $is_singular ? astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta-date-type', 'published' ) : astra_get_option( 'blog-meta-date-type', 'published' );
 	$date_format        = apply_filters( 'astra_post_date_format', ( '' === $date_format_option ) ? get_option( 'date_format' ) : $date_format_option );
 
-	// @codingStandardsIgnoreStart
-	$published_date = esc_html( get_the_date( $date_format ) );
-	$modified_date  = esc_html( get_the_modified_date( $date_format ) );
-	// @codingStandardsIgnoreEnd
+	$published_date = get_the_date( $date_format );
+	$modified_date  = get_the_modified_date( $date_format );
 
 	if ( 'updated' === $date_type ) {
 		$class    = 'updated';
