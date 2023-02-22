@@ -5,6 +5,7 @@ v4.1.0
 - New: Published, last-updated date support for post meta date field.
 - New: Date format option for post meta date field.
 - New: Introduced new filter 'astra_custom_logo_attributes' to add attributes into custom logo.
+- Improvement: Hardened the security.
 - Improvement: Starter Templates admin menu nav-link removed when Whitelabel is enabled.
 - Improvement: Improved accessibility for header menu navigation.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
