@@ -152,7 +152,7 @@ namespace {
     /**
      * Astra_API_Init.
      *
-     * @since x.x.x
+     * @since 4.1.0
      */
     class Astra_API_Init extends \WP_REST_Controller
     {
@@ -293,7 +293,7 @@ namespace {
     /**
      * Astra_Menu.
      *
-     * @since x.x.x
+     * @since 4.1.0
      */
     class Astra_Menu
     {
@@ -14931,7 +14931,7 @@ namespace {
     /**
      * Don't apply direct new layouts to legacy users.
      *
-     * @since x.x.x
+     * @since 4.1.0
      * @param string $dynamic_blog_layout false if it is an existing user , true if not.
      * @return boolean  $dynamic_blog_layout false if it is an existing user , true if not.
      */
