@@ -1,6 +1,3 @@
-v4.1.1 (Unreleased)
-- Fix: Customizer - Typography and Button Preset options not working properly.
-
 v4.1.0 (Unreleased)
 - New: Accessibility options to change color and style of highlighted element.
 - New: WooCommerce - Shop - Introducing new redirect actions on Add to cart click.
