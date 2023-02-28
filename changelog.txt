@@ -18,7 +18,7 @@ v4.1.0
 - Fix: WooCommerce - Error, info content messages UI breaking on the frontend.
 - Fix: Builder - Off-canvas menu - Dropdown menu arrow icon is misplaced in case of toggle for desktop.
 - Fix: Spectra Compatibility - Spectra spacing options for applying custom margin and padding not working.
-- Fix: Content background color does not apply to author box in customizer preview.
+- Fix: Content background color does not apply to Author Box in customizer preview.
 - Fix: Cost Calculator Builder - compatibility range slider.
 - Fix: Disable the title from Elementor setting is not working as expected.
 - Fix: Footer menu alignment issue for responsive devices.
