@@ -218,6 +218,7 @@ html {
   margin-right: auto !important;
   margin-left: auto !important;
   margin-bottom: 1.5em;
+  padding-top: 0;
 }
 
 .edit-post-visual-editor__post-title-wrapper .title-visibility {
@@ -711,6 +712,10 @@ body .editor-styles-wrapper > .block-editor-block-list__layout.is-root-container
 body .editor-styles-wrapper > .block-editor-block-list__layout.is-root-container > .wp-block + .wp-block-list {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+body .editor-styles-wrapper > .block-editor-block-list__layout.edit-post-visual-editor__post-title-wrapper {
+  padding-top: 0;
 }
 
 .wp-block-table table {

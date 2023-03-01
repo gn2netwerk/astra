@@ -57,6 +57,7 @@ html {
     margin-left: auto !important;
     margin-right: auto !important;
 	margin-bottom: 1.5em;
+	padding-top: 0;
 	.title-visibility {
 		cursor: pointer;
 		font-size: 18px;
@@ -507,6 +508,11 @@ body {
 					}
 				}
 			}
+		}
+	}
+	.editor-styles-wrapper {
+		>.block-editor-block-list__layout.edit-post-visual-editor__post-title-wrapper {
+			padding-top: 0;
 		}
 	}
 }
