@@ -1,4 +1,5 @@
 v4.1.1 (Unreleased)
+- Fix: Customizer - Typography and Button Preset options selected preset not highlighting and reset button not functioning.
 - Fix: Slider Jumps and Flashes white when closing off canvas menu.
 
 v4.1.0 (Unreleased)
