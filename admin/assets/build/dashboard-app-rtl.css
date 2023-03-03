@@ -880,10 +880,10 @@ select {
   width: 75%;
 }.w-11\/12 {
   width: 91.666667%;
-}.w-\[30\%\] {
-  width: 30%;
-}.w-\[40\%\] {
-  width: 40%;
+}.w-\[35\%\] {
+  width: 35%;
+}.w-\[45\%\] {
+  width: 45%;
 }.w-fit {
   width: -moz-fit-content;
   width: fit-content;

@@ -123,7 +123,7 @@ const SpectraScreen = () => {
 						}
 					</p>
 					<button
-						className={`inline-flex w-[30%] justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover hover:text-white focus:text-white active:text-white focus:outline-none mr-4`}
+						className={`inline-flex w-[35%] justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover hover:text-white focus:text-white active:text-white focus:outline-none mr-4`}
 						onClick={ handleSpectraPluginAction }
 					>
 						{ getSpectraPluginTitle() }
@@ -163,7 +163,7 @@ const SpectraScreen = () => {
 						)}
 					</h3>
 					<button
-						className={`inline-flex w-[40%] justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover hover:text-white focus:text-white active:text-white focus:outline-none mr-4`}
+						className={`inline-flex w-[45%] justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover hover:text-white focus:text-white active:text-white focus:outline-none mr-4`}
 						onClick={ handleSpectraPluginAction }
 					>
 						{ getSpectraPluginTitle() }
