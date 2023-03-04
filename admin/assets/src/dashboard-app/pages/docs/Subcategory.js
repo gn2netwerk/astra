@@ -2,16 +2,43 @@ import { useState } from "react";
 import Astra_Admin_Icons from "@Common/block-icons";
 import ReactHtmlParser from "react-html-parser";
 
-const SubSection = ({ item }) => {
+const Subcategory = ({ item }) => {
 	const [sectionData, setSectionData] = useState(false);
 
-	const subItems = astra_admin.astra_docs_data.docs.filter((doc) => {
-		return doc.category.includes(item[0]);
+	const subItems = Object.entries( astra_admin.astra_docs_data.categories ).map( ( category ) => {
+		return category[1].subcategories;
 	});
 
 	const toggleSection = () => {
 		setSectionData(!sectionData);
 	};
+
+	const renderSubCategories = ( subCat, key ) => {
+		return(
+			Object.entries( subCat ).map( ( category, newKey ) => {
+				return ( newKey < 5 ) &&
+				<a
+					href={`https://wpastra.com/docs-category/astra-pro-modules/${category[0]}?utm_source=wp&utm_medium=dashboard`}
+					target="_blank"
+					className="flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer focus:outline-0"
+					key={newKey}
+				>
+					<div className="flex items-center ast-kb-caret">
+						<span>
+							{Astra_Admin_Icons["caret"]}
+						</span>
+
+						<div className="text-base leading-[1.625rem] text-slate-800 ml-2">
+							{ReactHtmlParser(category[1].name)}
+						</div>
+					</div>
+					<div className="text-slate-600 invisible group-hover:visible">
+						{Astra_Admin_Icons["redirect"]}
+					</div>
+				</a>
+			})
+		)
+	}
 
 	return (
 		<div className="py-5 border-t border-slate-200">
@@ -40,25 +67,7 @@ const SubSection = ({ item }) => {
 					<div className="space-y-1 mb-5">
 						{/* Single Item */}
 						{subItems.splice(0, 5).map((item, key) => (
-							<a
-								href={`${item.url}?utm_source=wp&utm_medium=dashboard`}
-								target="_blank"
-								className="flex items-center justify-between text-slate-800 rounded-md p-2 pl-0 hover:bg-gray-50 group cursor-pointer focus:outline-0"
-								key={key}
-							>
-								<div className="flex items-center ast-kb-caret">
-									<span>
-										{Astra_Admin_Icons["caret"]}
-									</span>
-
-									<div className="text-base leading-[1.625rem] text-slate-800 ml-2">
-										{ReactHtmlParser(item.title)}
-									</div>
-								</div>
-								<div className="text-slate-600 invisible group-hover:visible">
-									{Astra_Admin_Icons["redirect"]}
-								</div>
-							</a>
+							'colors-background-pro' in item && renderSubCategories( item, key ) // Specific to "Astra Pro Modules".
 						))}
 					</div>
 
@@ -68,7 +77,7 @@ const SubSection = ({ item }) => {
 						className="text-base font-medium leading-4 text-astra flex items-center"
 					>
 						<span className="mr-2">
-							{`View all ${ReactHtmlParser(item[1].name)} docs`}
+							{`View all ${ReactHtmlParser(item[1].name)} categories`}
 						</span>
 						{Astra_Admin_Icons["redirect"]}
 					</a>
@@ -78,4 +87,4 @@ const SubSection = ({ item }) => {
 	);
 };
 
-export default SubSection;
+export default Subcategory;
