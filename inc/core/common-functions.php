@@ -1672,6 +1672,9 @@ function astra_toggle_container_layouts() {
 				break;
 		}
 	} else {
+
+		// First change back old option to default.
+		$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = 'default';
 		switch ( $global_new_container_layout ) {
 			case 'normal-width-container':
 				$astra_theme_options['site-content-layout'] = 'plain-container';
@@ -1687,7 +1690,7 @@ function astra_toggle_container_layouts() {
 				break;
 			default:
 				break;
-		}	
+		}
 	}
 	update_option( 'astra-settings', $astra_theme_options, true );
 
