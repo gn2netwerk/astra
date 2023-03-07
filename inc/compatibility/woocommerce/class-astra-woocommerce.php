@@ -1422,14 +1422,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$ltr_left                                = $is_site_rtl ? 'right' : 'left';
 			$ltr_right                               = $is_site_rtl ? 'left' : 'right';
 			$icon_cart_color_slug                    = '';
-
-			$theme_btn_font_family     = astra_get_option( 'font-family-button' );
-			$theme_btn_font_size       = astra_get_option( 'font-size-button' );
-			$theme_btn_font_weight     = astra_get_option( 'font-weight-button' );
-			$theme_btn_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-transform' );
-			$theme_btn_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'line-height', 'line-height-unit' );
-			$theme_btn_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'letter-spacing', 'letter-spacing-unit' );
-			$theme_btn_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-decoration' );
+			$theme_btn_font_size                     = astra_get_option( 'font-size-button' );
 
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				$icon_cart_color_slug = 'woo-header-cart-icon-color';
@@ -1455,7 +1448,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_bg_color   = astra_get_option( 'button-bg-color', '', $theme_color );
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
 
-			$btn_border_radius = astra_get_option( 'button-radius' );
+			$btn_border_radius_fields = astra_get_option( 'button-radius-fields' );
 			$theme_btn_padding = astra_get_option( 'theme-button-padding' );
 
 			$cart_h_color = astra_get_foreground_color( $link_h_color );
@@ -1485,24 +1478,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$woo_btn_compatibility_mobile  = array();
 
 			if ( self::astra_woo_support_global_settings() ) {
-
-				$woo_btn_compatibility_desktop = array(
-					'font-family'     => astra_get_font_family( $theme_btn_font_family ),
-					'font-weight'     => esc_attr( $theme_btn_font_weight ),
-					'font-size'       => astra_get_font_css_value( $theme_btn_font_size['desktop'], $theme_btn_font_size['desktop-unit'] ),
-					'line-height'     => esc_attr( $theme_btn_line_height ),
-					'text-decoration' => esc_attr( $theme_btn_text_decoration ),
-					'letter-spacing'  => esc_attr( $theme_btn_letter_spacing ),
-				);
-
+				$woo_btn_compatibility_desktop = astra_get_font_array_css( astra_get_option( 'font-family-button' ), astra_get_option( 'font-weight-button' ), $theme_btn_font_size, 'font-extras-button' );
 				$woo_btn_compatibility_tablet = array(
 					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
 				);
-
 				$woo_btn_compatibility_mobile = array(
 					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
 				);
-
 			}
 
 			$css_desktop_output = array(
@@ -1575,7 +1557,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array_merge(
 					$woo_btn_compatibility_desktop,
 					array(
-						'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
+						'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'desktop' ),
+						'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'desktop' ),
+						'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'desktop' ),
+						'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'desktop' ),
 						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
 						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
 						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
@@ -2031,6 +2016,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array_merge(
 					$woo_btn_compatibility_tablet,
 					array(
+						'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'tablet' ),
+						'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'tablet' ),
+						'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'tablet' ),
+						'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'tablet' ),
 						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
 						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
 						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
@@ -2087,6 +2076,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array_merge(
 					$woo_btn_compatibility_mobile,
 					array(
+						'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'mobile' ),
+						'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'mobile' ),
+						'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'mobile' ),
+						'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'mobile' ),
 						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
 						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
 						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
@@ -3730,6 +3723,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public static function astra_woo_support_global_settings() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return true;
 			return apply_filters( 'astra_get_option_woo_support_global_settings', isset( $astra_settings['woo_support_global_settings'] ) ? false : true );
 		}
 	}
