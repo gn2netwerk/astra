@@ -3719,7 +3719,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Check is new structural things are updated.
 		 *
 		 * @return bool true|false.
-		 * @since 4.0.0
+		 * @since 4.1.0
 		 */
 		public static function astra_woo_support_global_settings() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
