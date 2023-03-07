@@ -1449,7 +1449,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', '', $link_h_color );
 
 			$btn_border_radius_fields = astra_get_option( 'button-radius-fields' );
-			$theme_btn_padding = astra_get_option( 'theme-button-padding' );
+			$theme_btn_padding        = astra_get_option( 'theme-button-padding' );
 
 			$cart_h_color = astra_get_foreground_color( $link_h_color );
 
@@ -1479,10 +1479,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( self::astra_woo_support_global_settings() ) {
 				$woo_btn_compatibility_desktop = astra_get_font_array_css( astra_get_option( 'font-family-button' ), astra_get_option( 'font-weight-button' ), $theme_btn_font_size, 'font-extras-button' );
-				$woo_btn_compatibility_tablet = array(
+				$woo_btn_compatibility_tablet  = array(
 					'font-size' => astra_get_font_css_value( $theme_btn_font_size['tablet'], $theme_btn_font_size['tablet-unit'] ),
 				);
-				$woo_btn_compatibility_mobile = array(
+				$woo_btn_compatibility_mobile  = array(
 					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
 				);
 			}
@@ -1561,10 +1561,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'desktop' ),
 						'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'desktop' ),
 						'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'desktop' ),
-						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
-						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
-						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
-						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+						'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 					)
 				),
 
@@ -2020,10 +2020,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'tablet' ),
 						'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'tablet' ),
 						'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'tablet' ),
-						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
-						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
-						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
-						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
+						'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
+						'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
+						'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
+						'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
 					)
 				),
 				'.woocommerce div.product div.images, .woocommerce div.product div.summary, .woocommerce #content div.product div.images, .woocommerce #content div.product div.summary, .woocommerce-page div.product div.images, .woocommerce-page div.product div.summary, .woocommerce-page #content div.product div.images, .woocommerce-page #content div.product div.summary' => array(
@@ -2080,10 +2080,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'mobile' ),
 						'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'mobile' ),
 						'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'mobile' ),
-						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
-						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
-						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
-						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
+						'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
+						'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
+						'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
+						'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'mobile' ),
 					)
 				),
 				'.woocommerce-message, .woocommerce-error, .woocommerce-info' => array(

@@ -1441,8 +1441,6 @@ function hasWordPressWidgetBlockEditor() {
 		}
 	}
 
-	astra_css( 'astra-settings[button-radius]', 'border-radius', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' + ele_border_radius_selector, 'px' );
-
 	// WooCommerce global button compatibility for new users only.
 	const woo_btn_normal_sector = astraCustomizer.astra_woo_btn_global_compatibility ? ', .woocommerce a.button' : '';
 	const woo_btn_hover_sector = astraCustomizer.astra_woo_btn_global_compatibility ? ', .woocommerce a.button:hover' : '';

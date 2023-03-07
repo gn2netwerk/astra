@@ -1469,7 +1469,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'has_block_editor_support'             => Astra_Dynamic_CSS::is_block_editor_support_enabled(),
 				'updated_gb_outline_button_patterns'   => astra_button_default_padding_updated(),
 				'apply_content_bg_fullwidth_layouts'   => astra_get_option( 'apply-content-background-fullwidth-layouts', true ),
-				'astra_woo_btn_global_compatibility'   => is_callable( 'Astra_Woocommerce::astra_woo_support_global_settings' ) ?  Astra_Woocommerce::astra_woo_support_global_settings() : false,
+				'astra_woo_btn_global_compatibility'   => is_callable( 'Astra_Woocommerce::astra_woo_support_global_settings' ) ? Astra_Woocommerce::astra_woo_support_global_settings() : false,
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
