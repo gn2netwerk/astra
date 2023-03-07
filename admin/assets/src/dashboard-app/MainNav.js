@@ -6,7 +6,27 @@ import DocsPopup from "./DocsPopup";
 import { Fragment } from 'react';
 
 export default function MainNav() {
-	const menus = wp.hooks.applyFilters( 'astra_dashboard.main_navigation', [
+	let navMenus = [];
+	if ( astra_admin.is_whitelabel ) {
+		navMenus = [
+			{
+				name: __( 'Welcome', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: '',
+			},
+			{
+				name: __( 'Settings', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'settings',
+			},
+			{
+				name: __( 'Free vs Pro', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'free-vs-pro',
+			},
+		];
+	} else {
+		navMenus = [
 			{
 				name: __( 'Welcome', 'astra' ),
 				slug: astra_admin.home_slug,
@@ -27,8 +47,9 @@ export default function MainNav() {
 				slug: astra_admin.home_slug,
 				path: 'free-vs-pro',
 			},
-		]
-	);
+		];
+	}
+	const menus = wp.hooks.applyFilters( 'astra_dashboard.main_navigation', navMenus );
 
 	const query = new URLSearchParams( useLocation()?.search );
 	const activePage = query.get( 'page' )
@@ -92,7 +113,7 @@ export default function MainNav() {
 					{astra_admin.show_self_branding && (
 						<div className="absolute bottom-2 lg:inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto ml-auto lg:ml-6 sm:pr-0">
 							<div className="text-sm font-medium leading-6 text-slate-600 pr-3 tablet:pr-2 border-r">
-								<DocsPopup />
+								{ astra_admin.astra_docs_data && <DocsPopup /> }
 							</div>
 							<div className="flex items-center text-[0.625rem] sm:text-sm font-medium leading-[1.375rem] text-slate-400 mr-1 sm:mr-3 divide-x divide-slate-200 gap-3 pl-1 sm:pl-3">
 								<div className="flex items-center">

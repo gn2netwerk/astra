@@ -66,7 +66,7 @@
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button {
     border-radius: unset;
     font-size: 12px;
-    padding: 9px 0;
+    padding: 9px 0 10px;
 }
 .customize-control-ast-selector .ast-selector-responsive-wrap.active {
     display: flex;
@@ -290,6 +290,7 @@
   border-radius: 3px;
   box-shadow: none;
   transition: all 0.3s;
+  -moz-appearance: textfield;
 }
 
 .customize-control-ast-border .input-wrapper .ast-border-wrapper li .ast-border-connected {
@@ -660,6 +661,10 @@
 
 #customize-control-astra-color-palettes .ast-color-palette-wrapper {
 	clear: both;
+}
+
+#customize-controls .customize-section-title.is-in-view.is-sticky {
+    z-index: 99;
 }
 
 #customize-control-astra-color-palettes .ast-palette-selection-wrapper {
@@ -1103,7 +1108,7 @@
 }
 .astra-color-picker-wrap {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
 	top: 30px;
     left: 0;
     right: 0;
@@ -1273,8 +1278,8 @@
 	width: 20px;
 }
 .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-	left: 3px;
-	top: -1px;
+	left: 0;
+	top: 0;
 	mix-blend-mode: difference;
 }
 .astra-popover-color .components-circular-option-picker .components-circular-option-picker__swatches {
@@ -1298,7 +1303,8 @@
         padding: 6px 10px;
     }
     .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-        width: 16px;
+        width: 20px;
+        top: -2px;
     }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
         width: 24px;
@@ -1316,17 +1322,16 @@
 	}
 	/** Modal Popup */
 	.ast-fields-wrap .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
-		width: 21px;
-		height: 21px;
+        width: auto;
+        height: auto;
 	}
-	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option-wrapper,
 	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option-wrapper {
 		height: 20px;
 		width: 20px;
 	}
 	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-		left: 2.5px;
-		top: -1px;
+		left: 1px;
+		top: -2px;
 		width: 18px;
 	}
 }
@@ -1535,6 +1540,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   top: 50%;
   right: 40px;
   transform: translateY(-50%);
+  z-index: 1;
 }
 
 .customize-control.customize-control-ast-toggle-control.ast-top-dotted-divider .ast-control-tooltip {
@@ -2101,6 +2107,9 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
 	text-align: center;
 	padding: 0 5px;
 }
+.ast-font-extras-wrapper .ast-font-extras-input input[type=number], .ast-font-spacing-wrapper .ast-font-spacing-input input[type=number] {
+	-moz-appearance: textfield;
+}
 .ast-font-extras-input:hover, .ast-font-spacing-input:hover {
 	border-color: var(--ast-customizer-color-2);
 }
@@ -2256,6 +2265,10 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 	display: flex;
 	white-space: break-spaces;
 	inline-size: max-content;
+}
+
+.ast-customizer-font-varient-wrap {
+	margin-top: 12px;
 }
 
 .ast-customizer-font-varient-wrap .ast-multi-select__value-container {
@@ -2508,6 +2521,69 @@ span.customize-control-title.ast-group-section-title {
 	border-radius: 3px 0px 0px 3px;
 }
 
+.customize-control-ast-radio-icon .ast-control-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.customize-control-ast-radio-icon .customize-control-title {
+    flex: 1;
+    padding-right: 0.5em;
+}
+
+.customize-control-ast-radio-icon .customize-control-title {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.customize-control-ast-radio-icon .ast-options {
+    background-color: var(--ast-customizer-color-9);
+    margin: 0;
+    line-height: 0;
+}
+
+.customize-control-ast-radio-icon .ast-options li {
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    width: 42px;
+    height: 28px;
+    line-height: 28px;
+    margin-bottom: 0;
+    border: 1px solid var(--ast-customizer-color-7);
+    color: var(--ast-customizer-color-8);
+    cursor: pointer;
+}
+
+.customize-control-ast-radio-icon .ast-options li .dashicon  {
+    text-align: center;
+    line-height: 28px;
+    width: 100%;
+}
+
+.customize-control-ast-radio-icon .ast-options li {
+    margin-left: -1px;
+}
+
+.customize-control-ast-radio-icon .ast-options li:nth-child(1) {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    margin-left: 0;
+}
+
+.customize-control-ast-radio-icon .ast-options li:nth-last-child(1) {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.customize-control-ast-radio-icon .ast-options li.active {
+    background-color: var(--ast-customizer-color-1);
+    color: var(--ast-customizer-color-10);
+    border-color: var(--ast-customizer-color-1);
+}
+
 .customize-control-ast-row-layout .ast-responsive-btns {
   position: relative;
   top: 1px;
@@ -2633,7 +2709,7 @@ span.customize-control-title.ast-group-section-title {
   box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
   background: var(--ast-customizer-color-12);
   color: var(--ast-customizer-color-10);
-  z-index: 1000;
+  z-index: 9;
   bottom: calc(100% + 5px);
   text-align: center;
   animation: tooltips-vert 300ms ease-out forwards;
@@ -3238,6 +3314,10 @@ span.customize-control-title.ast-group-section-title {
   -moz-appearance: textfield;
 }
 
+.customize-control-ast-responsive-spacing .ast-spacing-input-item input[type=number] {
+	-moz-appearance: textfield;
+}
+
 .customize-control-ast-responsive-spacing .ast-spacing-input-item input::-webkit-inner-spin-button,
 .customize-control-ast-responsive-spacing .ast-spacing-input-item input::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -3483,50 +3563,6 @@ span.customize-control-title.ast-group-section-title {
   font-size: 15px;
 }
 
-.ast-field-settings-modal .customize-control-ast-responsive .ast-responsive-btns {
-  margin-top: 6px;
-  position: absolute;
-  right: 15px;
-  top: 0px;
-}
-
-.customize-control-ast-responsive .input-wrapper {
-  overflow: hidden;
-}
-
-.customize-control-ast-responsive .ast-responsive-btns {
-    position: absolute;
-    top: 2px;
-    right: 0;
-}
-
-.customize-control-ast-responsive .input-wrapper input {
-  display: none;
-  width: 82%;
-  float: none;
-}
-
-.customize-control-ast-responsive .input-wrapper input.active {
-  display: block;
-}
-
-
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input {
-  display: inline-block;
-}
-
-.customize-control-ast-responsive .input-wrapper .ast-non-reponsive.ast-responsive-input.active {
-  display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
-  display: inline-block;
-}
-
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
-  width: 100%;
-}
-
 .input-wrapper.ast-responsive-wrapper {
   display: inline-flex;
   justify-content: space-between;
@@ -3534,11 +3570,6 @@ span.customize-control-title.ast-group-section-title {
   align-items: flex-start;
   flex: 0 1;
   width: 100%;
-}
-.customize-control-ast-responsive .ast-responsive-btns {
-  position: absolute;
-  right: 0px;
-  top: 1px;
 }
 
 .ast-variant-select > div {
@@ -4234,7 +4265,7 @@ span.customize-control-title.ast-group-section-title {
     top: 0;
 }
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-size: 13px;
     margin-top: 3px;
 }
@@ -4249,6 +4280,8 @@ span.customize-control-title.ast-group-section-title {
 }
 .customize-control-content {
     width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 .ast-sortable-subfields-wrap .ast-fields-wrap {
@@ -4307,6 +4340,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-list-icons .ahfb-sorter-item-panel-header .dashicons-admin-page {
     margin-right: 0;
 }
+
 .customize-control-ast-text-input textarea {
     display: block;
     width: 100%;
@@ -4389,7 +4423,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .dashicons-editor-help[data-title]{
-	z-index: 10;
+	z-index: 1;
 }
 
 .ast-dashicons-custom-tooltip {

@@ -65,6 +65,15 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		private static $db_options_no_defaults;
 
 		/**
+		 * A static theme astra-options variable.
+		 *
+		 * @since 4.0.2
+		 * @access public
+		 * @var mixed $astra_options
+		 */
+		public static $astra_options = null;
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -107,7 +116,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			/**
 			 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
 			 *
-			 * @since x.x.x
+			 * @since 4.0.0
 			 */
 			$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
 
@@ -127,6 +136,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'title-meta',
 					),
 					'blog-width'                           => 'default',
+					'blog-meta-date-type'                  => 'published',
+					'blog-meta-date-format'                => '',
 					'blog-max-width'                       => 1200,
 					'blog-post-content'                    => 'excerpt',
 					'blog-meta'                            => array(
@@ -201,7 +212,29 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'button-radius'                        => 2,
+					'button-radius-fields'                 => array(
+						'desktop'      => array(
+							'top'    => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'right'  => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'bottom' => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'left'   => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+						),
+						'tablet'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'mobile'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
 					'theme-button-border-group-border-size' => array(
 						'top'    => '',
 						'right'  => '',
@@ -447,6 +480,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'para-margin-bottom'                   => '',
 					'underline-content-links'              => true,
+					'site-accessibility-toggle'            => true,
+					'site-accessibility-highlight-type'    => 'dotted',
+					'site-accessibility-highlight-input-type' => 'disable',
 					'body-text-transform'                  => '',
 					'headings-font-family'                 => 'inherit',
 					'headings-font-weight'                 => $apply_new_default_values ? '600' : 'inherit',
@@ -578,10 +614,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		 *
 		 * @return array Return array of theme options from database.
 		 *
-		 * @since x.x.x
+		 * @since 4.0.0
 		 */
 		public static function get_astra_options() {
-			return get_option( ASTRA_THEME_SETTINGS );
+			if ( is_null( self::$astra_options ) || is_customize_preview() ) {
+				self::$astra_options = get_option( ASTRA_THEME_SETTINGS );
+			}
+			return self::$astra_options;
 		}
 
 		/**

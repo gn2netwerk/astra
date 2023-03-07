@@ -154,6 +154,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			add_filter( 'render_block_woocommerce/active-filters', array( $this, 'add_active_filter_widget_class' ), 10, 2 );
+
+			add_filter( 'option_woocommerce_enable_ajax_add_to_cart', array( $this, 'option_woocommerce_enable_ajax_add_to_cart' ) );
+			add_filter( 'option_woocommerce_cart_redirect_after_add', array( $this, 'option_woocommerce_cart_redirect_after_add' ) );
 		}
 
 		/**
@@ -331,7 +334,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( ( ! is_singular( 'product' ) && astra_is_shop_page_modern_style() ) ) {
 				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				return;
+				return $markup;
 			}
 
 			return $this->get_sale_flash_markup( 'default', $product );
@@ -409,7 +412,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( astra_get_option( 'single-product-enable-shipping' ) ) {
 				$shipping_text = astra_get_option( 'single-product-shipping-text', false );
 				if ( false !== $shipping_text ) {
-					echo ' <span class="ast-shipping-text">' . esc_attr( $shipping_text ) . '</span>';
+					echo ' <span class="ast-shipping-text">' . esc_html( $shipping_text ) . '</span>';
 				}
 			}
 		}
@@ -475,7 +478,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				/* Max width 762px because below to this point admin-bar height converts to 46px. */
 				$dynamic_css .= astra_parse_css( $admin_bar_responsive_css, '', '782' );
 			}
-
 			return $dynamic_css;
 		}
 
@@ -847,8 +849,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['store-notice-background-color'] = '';
 			$defaults['store-notice-position']         = 'top';
 
-			$defaults['shop-archive-width']     = 'default';
-			$defaults['shop-archive-max-width'] = 1200;
+			$defaults['shop-archive-width']      = 'default';
+			$defaults['shop-archive-max-width']  = 1200;
+			$defaults['shop-add-to-cart-action'] = 'default';
 
 			/* Free shipping */
 			$defaults['single-product-tabs-display']          = false;
@@ -1475,13 +1478,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$btn_color = astra_get_foreground_color( $theme_color );
 			}
-			
+
 			// WooCommerce global button compatibility for new users only.
 			$woo_btn_compatibility_desktop = array();
 			$woo_btn_compatibility_tablet  = array();
 			$woo_btn_compatibility_mobile  = array();
 
-			if ( apply_filters( 'astra_woo_btn_global_compatibility', astra_get_option( 'woo_btn_compatibility_flag', true ) ) ) {
+			if ( self::astra_woo_support_global_settings() ) {
 
 				$woo_btn_compatibility_desktop = array(
 					'font-family'     => astra_get_font_family( $theme_btn_font_family ),
@@ -1499,7 +1502,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$woo_btn_compatibility_mobile = array(
 					'font-size' => astra_get_font_css_value( $theme_btn_font_size['mobile'], $theme_btn_font_size['mobile-unit'] ),
 				);
-				
+
 			}
 
 			$css_desktop_output = array(
@@ -1649,13 +1652,22 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			// WooCommerce global button compatibility for new users only.
-			if ( ! apply_filters( 'astra_woo_btn_global_compatibility', astra_get_option( 'woo_btn_compatibility_flag', true ) ) ) {
+			if ( ! self::astra_woo_support_global_settings() ) {
 				$css_desktop_output['.woocommerce ul.products li.product .button, .woocommerce-page ul.products li.product .button'] = array(
 					'line-height' => '1.3',
 				);
 
 				$css_desktop_output['.woocommerce ul.products li.product a, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit:hover'] = array(
 					'text-decoration' => 'none',
+				);
+			}
+
+			if ( Astra_Dynamic_CSS::v4_block_editor_compat() ) {
+				$css_desktop_output['.entry-content .woocommerce-message, .entry-content .woocommerce-error, .entry-content .woocommerce-info'] = array(
+					'padding-top'           => '1em',
+					'padding-bottom'        => '1em',
+					'padding-' . $ltr_left  => '3.5em',
+					'padding-' . $ltr_right => '2em',
 				);
 			}
 
@@ -1668,6 +1680,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_cart() && false === Astra_Builder_Helper::apply_flex_based_css() && true === astra_get_option( 'cart-modern-layout' ) && true === astra_get_option( 'enable-cart-upsells' ) ) {
 				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
 					'width' => '100%',
+				);
+			}
+
+			// Backward compatibility for old users for h2 tag global fonts.
+			if ( apply_filters( 'astra_theme_woocommerce_global_h2_font', astra_get_option( 'woo_support_global_settings', false ) ) ) {
+
+				$css_desktop_output['.woocommerce .up-sells h2, .woocommerce .related.products h2, .woocommerce .woocommerce-tabs h2'] = array(
+					'font-size' => '1.5rem',
+				);
+
+				$css_desktop_output['.woocommerce h2, .woocommerce-account h2'] = array(
+					'font-size' => '1.625rem',
 				);
 			}
 
@@ -2005,13 +2029,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'width' => '100%',
 				),
 				'.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array_merge(
-					$woo_btn_compatibility_tablet,  
+					$woo_btn_compatibility_tablet,
 					array(
 						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
 						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
 						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
 						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'tablet' ),
-					)   
+					)
 				),
 				'.woocommerce div.product div.images, .woocommerce div.product div.summary, .woocommerce #content div.product div.images, .woocommerce #content div.product div.summary, .woocommerce-page div.product div.images, .woocommerce-page div.product div.summary, .woocommerce-page #content div.product div.images, .woocommerce-page #content div.product div.summary' => array(
 					'float' => 'none',
@@ -2368,7 +2392,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$single_product_cart_button_width_mobile = ( ! empty( $single_product_cart_button_width['mobile'] ) ) ? $single_product_cart_button_width['mobile'] : '';
 
-			$single_cart_button = '.single_add_to_cart_button';
+			$single_cart_button = '.woocommerce div.product form.cart .button.single_add_to_cart_button';
 
 			$css_output_cart_button_width_desktop = array(
 
@@ -3298,17 +3322,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since 3.9.0
 		 */
 		public function astra_update_flyout_cart_layout() {
-			if ( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+			if ( WC()->cart->is_empty() ) {
+				do_action( 'astra_empty_cart_before' );
 				?>
 					<div class="ast-mini-cart-empty">
 						<div class="ast-mini-cart-message">
-							<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'astra' ); ?></p>
+							<p class="woocommerce-mini-cart__empty-message"><?php echo esc_html( apply_filters( 'astra_mini_cart_empty_msg', __( 'No products in the cart.', 'astra' ) ) ); ?></p>
 						</div>
+						<?php do_action( 'astra_empty_cart_content' ); ?>
 						<div class="woocommerce-mini-cart__buttons">
 							<a href="<?php /** @psalm-suppress PossiblyFalseArgument */  echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="button wc-forward"><?php esc_html_e( 'Continue Shopping', 'astra' ); ?></a> <?php // phpcs:ignore Generic.Commenting.DocComment.MissingShort ?>
 						</div>
 					</div>
 				<?php
+				do_action( 'astra_empty_cart_after' );
 			}
 		}
 
@@ -3469,7 +3496,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 												if ( isset( $single['image'] ) && $single['image'] ) {
 													?>
 															<li class="ast-custom-payment">
-																<img src="<?php echo esc_attr( $single['image'] ); ?>" />
+																<img src="<?php echo esc_url( $single['image'] ); ?>" />
 												</li>
 														<?php
 												}
@@ -3661,6 +3688,49 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					echo '</div>';
 				}
 			}
+		}
+
+		/**
+		 * Enable ajax add to cart for shop page.
+		 *
+		 * @param string $value ajax add to cart value.
+		 * @return string yes | no  enable / disable ajax add to cart.
+		 * @since x.x.x
+		 */
+		public function option_woocommerce_enable_ajax_add_to_cart( $value ) {
+			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
+			if ( $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
+				return 'yes';
+			}
+			return $value;
+		}
+
+		/**
+		 * Enable ajax add to cart redirect.
+		 *
+		 * @param string $value cart redirect after add value.
+		 * @return string yes | no enable / disable cart redirect after add.
+		 * @since x.x.x
+		 */
+		public function option_woocommerce_cart_redirect_after_add( $value ) {
+			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
+
+			if ( $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
+				return 'no';
+			}
+
+			return $value;
+		}
+
+		/**
+		 * Check is new structural things are updated.
+		 *
+		 * @return bool true|false.
+		 * @since 4.0.0
+		 */
+		public static function astra_woo_support_global_settings() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return apply_filters( 'astra_get_option_woo_support_global_settings', isset( $astra_settings['woo_support_global_settings'] ) ? false : true );
 		}
 	}
 

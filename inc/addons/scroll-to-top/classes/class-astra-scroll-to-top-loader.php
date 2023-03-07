@@ -3,13 +3,13 @@
  * Scroll to Top - Customizer.
  *
  * @package Astra
- * @since x.x.x
+ * @since 4.0.0
  */
 
 /**
  * Customizer Initialization
  *
- * @since x.x.x
+ * @since 4.0.0
  */
 class Astra_Scroll_To_Top_Loader {
 
@@ -35,7 +35,7 @@ class Astra_Scroll_To_Top_Loader {
 	/**
 	 *  Constructor
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function __construct() {
 		add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
@@ -49,19 +49,42 @@ class Astra_Scroll_To_Top_Loader {
 	 *
 	 * @param  array $defaults  Astra options default value array.
 	 * @return array
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function theme_defaults( $defaults ) {
+		$astra_options = Astra_Theme_Options::get_astra_options();
 
-		$defaults['scroll-to-top-enable']          = true;
-		$defaults['scroll-to-top-icon-size']       = 15;
-		$defaults['scroll-to-top-icon-position']   = 'right';
-		$defaults['scroll-to-top-on-devices']      = 'both';
-		$defaults['scroll-to-top-icon-radius']     = '';
-		$defaults['scroll-to-top-icon-color']      = '';
-		$defaults['scroll-to-top-icon-h-color']    = '';
-		$defaults['scroll-to-top-icon-bg-color']   = '';
-		$defaults['scroll-to-top-icon-h-bg-color'] = '';
+		$defaults['scroll-to-top-enable']             = true;
+		$defaults['scroll-to-top-icon-size']          = 15;
+		$defaults['scroll-to-top-icon-position']      = 'right';
+		$defaults['scroll-to-top-on-devices']         = 'both';
+		$defaults['scroll-to-top-icon-radius-fields'] = array(
+			'desktop'      => array(
+				'top'    => ! isset( $astra_options['scroll-to-top-icon-radius'] ) ? '' : $astra_options['scroll-to-top-icon-radius'],
+				'right'  => ! isset( $astra_options['scroll-to-top-icon-radius'] ) ? '' : $astra_options['scroll-to-top-icon-radius'],
+				'bottom' => ! isset( $astra_options['scroll-to-top-icon-radius'] ) ? '' : $astra_options['scroll-to-top-icon-radius'],
+				'left'   => ! isset( $astra_options['scroll-to-top-icon-radius'] ) ? '' : $astra_options['scroll-to-top-icon-radius'],
+			),
+			'tablet'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'mobile'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
+		$defaults['scroll-to-top-icon-color']         = '';
+		$defaults['scroll-to-top-icon-h-color']       = '';
+		$defaults['scroll-to-top-icon-bg-color']      = '';
+		$defaults['scroll-to-top-icon-h-bg-color']    = '';
 
 		return $defaults;
 	}
@@ -70,16 +93,16 @@ class Astra_Scroll_To_Top_Loader {
 	 * Add customizer configs for scroll to top in the Theme Customizer.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function new_customize_register( $wp_customize ) {
-		require_once ASTRA_SCROLL_TO_TOP_DIR . 'classes/customizer/class-astra-scroll-to-top-configs.php';
+		require_once ASTRA_SCROLL_TO_TOP_DIR . 'classes/customizer/class-astra-scroll-to-top-configs.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound -- Not a template file so loading in a normal way.
 	}
 
 	/**
 	 * Customizer Preview
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function preview_scripts() {
 		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -96,7 +119,7 @@ class Astra_Scroll_To_Top_Loader {
 	 *
 	 * Loads appropriate template file based on the style option selected in options panel.
 	 *
-	 * @since x.x.x
+	 * @since 4.0.0
 	 */
 	public function html_markup_loader() {
 		if ( true === astra_get_option( 'scroll-to-top-enable', true ) ) {

@@ -6,7 +6,7 @@
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2022, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       x.x.x
+ * @since       4.0.0
  */
 
 // Block direct access to the file.
@@ -29,7 +29,7 @@ class Astra_Scroll_To_Top_Configs extends Astra_Customizer_Config_Base {
 	 *
 	 * @param Array                $configurations Astra Customizer Configurations.
 	 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-	 * @since x.x.x
+	 * @since 4.0.0
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
@@ -178,17 +178,17 @@ class Astra_Scroll_To_Top_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Scroll To Top Radius
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[scroll-to-top-icon-radius]',
-				'default'   => astra_get_option( 'scroll-to-top-icon-radius' ),
-				'type'      => 'control',
-				'control'   => 'ast-slider',
-				'transport' => 'postMessage',
-				'section'   => 'section-scroll-to-top',
-				'title'     => __( 'Border Radius', 'astra' ),
-				'suffix'    => 'px',
-				'priority'  => 1,
-				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
-				'context'   => array(
+				'name'           => ASTRA_THEME_SETTINGS . '[scroll-to-top-icon-radius-fields]',
+				'default'        => astra_get_option( 'scroll-to-top-icon-radius-fields' ),
+				'type'           => 'control',
+				'control'        => 'ast-responsive-spacing',
+				'transport'      => 'postMessage',
+				'section'        => 'section-scroll-to-top',
+				'title'          => __( 'Border Radius', 'astra' ),
+				'suffix'         => 'px',
+				'priority'       => 1,
+				'divider'        => array( 'ast_class' => 'ast-top-section-divider' ),
+				'context'        => array(
 					'relation' => 'AND',
 					( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
 					array(
@@ -197,6 +197,15 @@ class Astra_Scroll_To_Top_Configs extends Astra_Customizer_Config_Base {
 						'value'    => true,
 					),
 				),
+				'linked_choices' => true,
+				'unit_choices'   => array( 'px', 'em', '%' ),
+				'choices'        => array(
+					'top'    => __( 'Top', 'astra-addon' ),
+					'right'  => __( 'Right', 'astra-addon' ),
+					'bottom' => __( 'Bottom', 'astra-addon' ),
+					'left'   => __( 'Left', 'astra-addon' ),
+				),
+				'connected'      => false,
 			),
 
 			/**
