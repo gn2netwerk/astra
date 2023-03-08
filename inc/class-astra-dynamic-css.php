@@ -4672,14 +4672,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					text-align: left;
 				}
 
-				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout) {
+				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):not(.ast-continue-shopping) {
 					margin-left: 10px;
 					background-color: transparent;
 					border: 2px solid var( --ast-global-color-0 );
 					color: var( --ast-global-color-0 );
 				}
 
-				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):hover {
+				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):not(.ast-continue-shopping):hover {
 					border-color: var( --ast-global-color-1 );
 					color: var( --ast-global-color-1 );
 				}
@@ -4767,11 +4767,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					text-align: right;
 				}
 
-				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout) {
+				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):not(.ast-continue-shopping) {
 					margin-right: 10px;
 				}
 
-				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout),
+				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):not(.ast-continue-shopping),
 				.ast-site-header-cart .widget_shopping_cart .buttons .button:not(.checkout),
 				.ast-site-header-cart .ast-site-header-cart-data .ast-mini-cart-empty .woocommerce-mini-cart__buttons a.button {
 					background-color: transparent;
@@ -4781,7 +4781,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					color: ' . esc_attr( $normal_border_color ) . ';
 				}
 
-				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):hover,
+				.woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):not(.ast-continue-shopping):hover,
 				.ast-site-header-cart .widget_shopping_cart .buttons .button:not(.checkout):hover {
 					border-color: ' . $hover_border_color . ';
 					color: ' . esc_attr( $hover_border_color ) . ';
