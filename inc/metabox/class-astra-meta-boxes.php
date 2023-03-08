@@ -494,6 +494,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'sidebar_options'                => $this->get_sidebar_options(),
 					'sidebar_title'                  => __( 'Sidebar', 'astra' ),
 					'content_layout'                 => $this->get_content_layout_options(),
+					'content_style'                  => $this->get_content_style_options(),
 					'content_layout_title'           => __( 'Content Layout', 'astra' ),
 					'disable_sections_title'         => __( 'Disable Sections', 'astra' ),
 					'disable_sections'               => $this->get_disable_section_fields(),
@@ -533,16 +534,25 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		}
 
 		/**
-		 * Get Contenr Layout Options.
+		 * Get Content Layout Options.
 		 */
 		public function get_content_layout_options() {
 			return array(
 				'default'                 => __( 'Customizer Setting', 'astra' ),
-				'boxed-container'         => __( 'Boxed', 'astra' ),
-				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+				'plain-container'         => __( 'Normal', 'astra' ),
 				'narrow-container'        => __( 'Narrow Width', 'astra' ),
+				'page-builder'            => __( 'Full Width', 'astra' ),
+			);
+		}
+
+		/**
+		 * Get Content Style Options.
+		 */
+		public function get_content_style_options() {
+			return array(
+				'default'                      => __( 'Customizer Setting', 'astra' ),
+				'single-content-style-unboxed' => __( 'Unboxed', 'astra' ),
+				'single-content-style-boxed'   => __( 'Boxed', 'astra' ),
 			);
 		}
 

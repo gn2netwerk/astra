@@ -40,6 +40,10 @@ const MetaSettings = props => {
 		return ( { label: name, value: key } );
 	} );
 
+	const contentStyleOptions = Object.entries( astMetaParams.content_style ).map( ( [ key, name ] ) => {
+		return ( { label: name, value: key } );
+	} );
+
 	// Taransparent and Sticky Header Options.
 	const headerOptions = Object.entries( astMetaParams.header_options ).map( ( [ key, name ] ) => {
 		return ( { label: name, value: key } );
@@ -149,6 +153,23 @@ const MetaSettings = props => {
 						</div>
 					</PanelBody>
 					)}
+
+					{/* Content Style Setting */}
+					<PanelBody
+						title={ __( 'Content Style', 'astra' ) }
+						initialOpen={ true }
+					>
+						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
+							<AstRadioImageControl
+								metavalue = { ( undefined !== props.meta['site-content-style'] && ''!== props.meta['site-content-style'] ? props.meta['site-content-style'] : 'default' ) }
+								choices = { contentStyleOptions }
+								id = { 'site-content-style' }
+								onChange={ ( val ) => {
+									props.setMetaFieldValue( val, 'site-content-style' );
+								} }
+							/>
+						</div>
+					</PanelBody>					
 
 					{/* Sidebar Setting */}
 					{ ! is_hide_contnet_layout_sidebar && showSidebar() && (

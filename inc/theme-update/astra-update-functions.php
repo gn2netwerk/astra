@@ -1019,7 +1019,10 @@ function astra_theme_background_updater_4_0_2() {
  */
 function astra_migrate_old_content_layouts() {
 	$theme_options = get_option( 'astra-settings', array() );
-
+	$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
+	foreach ( $post_types as $index => $post_type ) { 
+		
+	}
 	// Global
 	if ( isset( $theme_options['site-content-layout'] ) ) {
 		$old_layout = $theme_options['site-content-layout'];
