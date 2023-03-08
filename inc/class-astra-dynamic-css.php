@@ -4642,6 +4642,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					position: absolute;
 					top: 0.5em;
 					left: 0;
+					border: none;
 					margin: 0;
 					padding: .6em 1em .4em;
 					color: var(--ast-global-color-2);
@@ -4736,6 +4737,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					position: absolute;
 					top: 0.5em;
 					right: 0;
+					border: none;
 					margin: 0;
 					padding: .6em 1em .4em;
 					color: var(--ast-global-color-2);
