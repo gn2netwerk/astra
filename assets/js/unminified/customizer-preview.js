@@ -952,11 +952,7 @@ function hasWordPressWidgetBlockEditor() {
 			let lmsButtonSelectors = ', body #ld_course_list .btn, body a.btn-blue, body a.btn-blue:visited, body a#quiz_continue_link, body .btn-join, body .learndash_checkout_buttons input.btn-join[type="button"], body #btn-join, body .learndash_checkout_buttons input.btn-join[type="submit"], body .wpProQuiz_content .wpProQuiz_button2, a.llms-button-primary, .llms-button-secondary, .llms-button-action, .llms-field-button, .llms-button-action.large';
 
 			let globalSelector = '.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' +
-			lmsButtonSelectors + search_button_selector ;
-
-			if ( document.body.classList.contains('woocommerce') ) {
-				globalSelector += ', .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] ';
-			}
+			lmsButtonSelectors + search_button_selector + woo_btn_normal_sector;
 			if ( document.body.classList.contains('edd-page' ) ) {
 				globalSelector += ', .ast-edd-site-header-cart .widget_edd_cart_widget .edd_checkout a, .widget_edd_cart_widget .edd_checkout a ';
 			}
@@ -1442,8 +1438,8 @@ function hasWordPressWidgetBlockEditor() {
 	}
 
 	// WooCommerce global button compatibility for new users only.
-	const woo_btn_normal_sector = astraCustomizer.astra_woo_btn_global_compatibility ? ', .woocommerce a.button, .woocommerce button.button' : '';
-	const woo_btn_hover_sector = astraCustomizer.astra_woo_btn_global_compatibility ? ', .woocommerce a.button:hover, .woocommerce button.button:hover' : '';
+	const woo_btn_normal_sector = astraCustomizer.astra_woo_btn_global_compatibility ? ', .woocommerce .widget_price_filter .button, .woocommerce a.button, .woocommerce .widget_price_filter .button, .woocommerce button.button' : '';
+	const woo_btn_hover_sector = astraCustomizer.astra_woo_btn_global_compatibility ? ', .woocommerce .widget_price_filter .button, .woocommerce a.button:hover, .woocommerce .widget_price_filter .button, .woocommerce button.button:hover' : '';
 
 	/**
 	 * Button border
@@ -1577,7 +1573,7 @@ function hasWordPressWidgetBlockEditor() {
 			btn_border_h_color_ele = ',.elementor-button-wrapper .elementor-button:hover, .elementor-button-wrapper .elementor-button:focus';
 		}
 
-		var btnSelector = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector;
+		var btnSelector = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link, .ast-custom-button' + btn_bg_color_ele + search_button_selector + woo_btn_normal_sector;
 
 		astraHandleButtonPresetPreview( btnSelector );
 
@@ -1597,7 +1593,7 @@ function hasWordPressWidgetBlockEditor() {
 
 	} else {
 
-		var btnSelector = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector;
+		var btnSelector = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .ast-custom-button' + search_button_selector + woo_btn_normal_sector;
 
 		astraHandleButtonPresetPreview( btnSelector );
 
