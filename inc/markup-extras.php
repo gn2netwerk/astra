@@ -138,13 +138,14 @@ function astra_apply_content_style_classes( $body_classes, $classes ) {
 	$post_type                   = strval( get_post_type() );
 	$blog_type                   = is_singular() ? 'single' : 'archive';
 	$content_style               = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
-	$global_content_style        = astra_get_option( 'site-content-style', '' );
-	if( "boxed" === $content_style ) {
+	$global_content_style        = astra_get_option( 'site-content-style', 'unboxed' );
+	$meta_content_style          = astra_get_option_meta( 'site-content-style', 'unboxed', true );
+	if( 'single-content-style-boxed' === $meta_content_style || "boxed" === $content_style ) {
 		foreach ($classes as $class) {
-			$body_classes[] = $class; 
+			$body_classes[] = $class;
 		}
-	} 
-	else if( empty( $content_style ) || 'default' === $content_style ) {
+	}
+	else if( empty( $content_style ) || 'default' === $content_style ||  'default' === $meta_content_style ) {
 		if( "boxed" === $global_content_style ) {
 			foreach ($classes as $class) {
 				$body_classes[] = $class; 

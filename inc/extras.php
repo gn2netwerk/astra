@@ -128,7 +128,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			// If post meta value is empty,
 			// Then get the POST_TYPE content layout.
 			$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
-			$content_layout = astra_toggle_layout( 'single-' . $post_type . '-new-content-layout', 'single-' . $post_type . '-content-layout', astra_get_option( 'single-' . $post_type . '-content-style', '' ), astra_get_option( 'site-content-style', 'unboxed' ), 'single' );
+			$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', astra_get_option_meta( 'site-content-style', 'unboxed', true ), astra_get_option( 'site-content-style', 'unboxed' ), 'meta' );
 
 			if ( empty( $content_layout ) ) {
 
@@ -171,13 +171,21 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 }
 
 function astra_toggle_layout( $new_content_option, $old_content_option, $content_style, $global_content_style, $level ) {
+
 	$astra_theme_options = get_option( 'astra-settings' );
-	$content_style_condition = 'global' === $level ? "boxed" === $global_content_style : ( "boxed" === $global_content_style && "default" === $content_style || "boxed" === $content_style );
+
+	// Content style dynamic conditions according to level (Global / Page / Meta).
+	$content_style_condition         = 'global' === $level ? 'boxed' === $global_content_style : ( 'boxed' === $global_content_style && 'default' === $content_style || 'boxed' === $content_style );
+	$dynamic_content_style_condition = 'meta' === $level ? ( 'boxed' === $global_content_style && 'default' === $content_style || 'single-content-style-boxed' === $content_style ) : $content_style_condition;
+
+	// Dynamic layout option for meta case.
+	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option ) : astra_get_option( $new_content_option );
 	$current_layout = '';
-	switch ( astra_get_option( $new_content_option ) ) {
+
+	switch ( $dynamic_layout_option ) {
 		case 'normal-width-container':
 			$astra_theme_options[ $old_content_option ] = 'plain-container';
-			if( $content_style_condition ) {
+			if ( $dynamic_content_style_condition ) {
 				$astra_theme_options[ $old_content_option ] = 'content-boxed-container';
 			}
 			$current_layout = $astra_theme_options[ $old_content_option ];

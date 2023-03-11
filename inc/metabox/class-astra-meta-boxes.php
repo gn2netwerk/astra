@@ -772,6 +772,28 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			);
 			register_post_meta(
 				'',
+				'new-site-content-layout',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'default'       => isset( $meta['new-site-content-layout']['default'] ) ? $meta['new-site-content-layout']['default'] : '',
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+			register_post_meta(
+				'',
+				'site-content-style',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'default'       => isset( $meta['site-content-style']['default'] ) ? $meta['site-content-style']['default'] : '',
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+			register_post_meta(
+				'',
 				'ast-global-header-display',
 				array(
 					'show_in_rest'  => true,
@@ -975,6 +997,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'site-content-layout'           => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'new-site-content-layout'           => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
