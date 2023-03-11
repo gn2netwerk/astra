@@ -128,7 +128,11 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			// If post meta value is empty,
 			// Then get the POST_TYPE content layout.
 			$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
-			$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', astra_get_option_meta( 'site-content-style', 'unboxed', true ), astra_get_option( 'site-content-style', 'unboxed' ), 'meta' );
+
+			// If post meta value is present then toggle old layouts.
+			if( $content_layout ) {
+				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', astra_get_option_meta( 'site-content-style', 'unboxed', true ), astra_get_option( 'site-content-style', 'unboxed' ), 'meta' );
+			}
 
 			if ( empty( $content_layout ) ) {
 
