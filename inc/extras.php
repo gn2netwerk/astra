@@ -134,12 +134,14 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 				$post_type = strval( get_post_type() );
 
 				$content_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
+				$content_layout = astra_toggle_layout( 'single-' . $post_type . '-new-content-layout', 'single-' . $post_type . '-content-layout', astra_get_option( 'single-' . $post_type . '-content-style', '' ), astra_get_option( 'site-content-style', 'unboxed' ), 'single' );
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
 					// Get the GLOBAL content layout value.
 					// NOTE: Here not used `true` in the below function call.
 					$content_layout = astra_get_option( 'site-content-layout', 'full-width' );
+					$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', '', astra_get_option( 'site-content-style', 'unboxed' ), 'global' );
 				}
 			}
 		} else {
@@ -148,7 +150,8 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			$post_type      = strval( get_post_type() );
 
 			$content_layout = astra_get_option( 'archive-' . $post_type . '-content-layout' );
-
+			$content_layout = astra_toggle_layout( 'archive-' . $post_type . '-new-content-layout', 'archive-' . $post_type . '-content-layout', astra_get_option( 'archive-' . $post_type . '-content-style', '' ), astra_get_option( 'site-content-style', 'unboxed' ), 'archive' );
+			
 			if ( is_search() ) {
 				$content_layout = astra_get_option( 'archive-post-content-layout' );
 			}
@@ -158,11 +161,42 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
 				$content_layout = astra_get_option( 'site-content-layout', 'full-width' );
+				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', '', astra_get_option( 'site-content-style', 'unboxed' ), 'global' );
 			}
 		}
 
 		return apply_filters( 'astra_get_content_layout', $content_layout );
 	}
+}
+
+function astra_toggle_layout( $new_content_option, $old_content_option, $content_style, $global_content_style, $level ) {
+	$astra_theme_options = get_option( 'astra-settings' );
+	$content_style_condition = 'global' === $level ? "boxed" === $global_content_style : ( "boxed" === $global_content_style && "default" === $content_style || "boxed" === $content_style );
+	$current_layout = '';
+	switch ( astra_get_option( $new_content_option ) ) {
+		case 'normal-width-container':
+			$astra_theme_options[ $old_content_option ] = 'plain-container';
+			if( $content_style_condition ) {
+				$astra_theme_options[ $old_content_option ] = 'content-boxed-container';
+			}
+			$current_layout = $astra_theme_options[ $old_content_option ];
+			break;
+		case 'narrow-width-container':
+			$astra_theme_options[ $old_content_option ] = 'narrow-container';
+			$current_layout = $astra_theme_options[ $old_content_option ];
+			break; 
+		case 'full-width-container':
+			$astra_theme_options[ $old_content_option ] = 'page-builder';
+			$current_layout = $astra_theme_options[ $old_content_option ];
+			break;
+		case 'default':
+			$astra_theme_options[ $old_content_option ] = 'default';
+			$current_layout = $astra_theme_options[ $old_content_option ];
+		default:
+			break;
+	}
+	update_option( 'astra-settings', $astra_theme_options );
+	return $current_layout;
 }
 
 /**

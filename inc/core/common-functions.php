@@ -1610,9 +1610,9 @@ function astra_load_woocommerce_login_form_password_icon() {
  * @param string $narrow_container_max_width  dynamic container width in px.
  * @return string Parsed CSS based on $location and $narrow_container_max_width.
  */
-function astra_narrow_container_width( $location, $narrow_container_max_width ) {
+function astra_narrow_container_width( $narrow_container_max_width ) {
 
-	if ( 'narrow-container' === $location ) {
+	if ( 'narrow-container' === astra_get_content_layout() ) {
 
 		$narrow_container_css = array(
 			'.ast-narrow-container .site-content > .ast-container' => array(
@@ -1643,7 +1643,7 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
  * @since x.x.x
  * @return void
  */
-function astra_toggle_container_layouts() {
+function astra_toggle_container_layouts( $content_layout ) {
 
 	$post_type                   = strval( get_post_type() );
 	$blog_type                   = is_singular() ? 'single' : 'archive';
@@ -1664,7 +1664,7 @@ function astra_toggle_container_layouts() {
 				break;
 			case 'narrow-width-container':
 				$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = 'narrow-container';
-				break;
+				break; 
 			case 'full-width-container':
 				$astra_theme_options[$blog_type . '-' . $post_type . '-content-layout'] = 'page-builder';
 				break;

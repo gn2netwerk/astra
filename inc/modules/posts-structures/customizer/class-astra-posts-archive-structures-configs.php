@@ -215,6 +215,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'default'           => astra_get_option( 'archive-' . $post_type . '-content-layout', 'default' ),
 				'priority'          => 5,
 				'title'             => __( 'Container Layout', 'astra' ),
+				'transport'         => 'refresh',
 				'choices'           => $this->get_content_layout_choices( $post_type ),
 			),
 			array(
@@ -227,6 +228,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 5,
 				'title'             => __( 'Container Layout', 'astra' ),
 				'choices'           => $this->get_new_content_layout_choices( $post_type ),
+				'transport'         => 'refresh',
 				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 			),
 			array(
