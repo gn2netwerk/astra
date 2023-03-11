@@ -127,7 +127,8 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 			// If post meta value is empty,
 			// Then get the POST_TYPE content layout.
-			$content_layout = astra_get_option_meta( 'site-content-layout', '', true );
+			$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
+			$content_layout = astra_toggle_layout( 'single-' . $post_type . '-new-content-layout', 'single-' . $post_type . '-content-layout', astra_get_option( 'single-' . $post_type . '-content-style', '' ), astra_get_option( 'site-content-style', 'unboxed' ), 'single' );
 
 			if ( empty( $content_layout ) ) {
 

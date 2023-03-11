@@ -25,7 +25,7 @@ const MetaSettings = props => {
     const closeModal = () => setOpen( false );
 
 	const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
-	const [ contentLayout, setContentLayout ] = useState(props.meta['site-content-layout']);
+	const [ contentLayout, setContentLayout ] = useState(props.meta['new-site-content-layout']);
 
 	// Adjust spacing & borders for table.
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
@@ -141,13 +141,34 @@ const MetaSettings = props => {
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							<AstRadioImageControl
-								metavalue = { ( undefined !== props.meta['site-content-layout'] && ''!== props.meta['site-content-layout'] ? props.meta['site-content-layout'] : 'default' ) }
+								metavalue = { ( undefined !== props.meta['new-site-content-layout'] && ''!== props.meta['new-site-content-layout'] ? props.meta['new-site-content-layout'] : 'default' ) }
 								choices = { contentLayoutOptions }
-								id = { 'site-content-layout' }
+								id = { 'new-site-content-layout' }
 								onChange={ ( val ) => {
 									setContentLayout(val);
+									console.log(val)
 									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
-									props.setMetaFieldValue( val, 'site-content-layout' );
+									props.setMetaFieldValue( val, 'new-site-content-layout' );
+									
+									// Set old content layout value.
+									switch ( val ) {
+										case 'normal-width-container':
+											if ( props.meta['site-content-style'] && 'boxed' === props.meta['site-content-style'] ) {
+												props.setMetaFieldValue( 'content-boxed-container', 'site-content-layout' );
+											}
+											break;
+										case 'narrow-width-container':
+											props.setMetaFieldValue( 'narrow-container', 'site-content-layout' );
+										break;
+										case 'full-width-container':
+											props.setMetaFieldValue( 'page-builder', 'site-content-layout' );
+											break;			
+										case 'default':
+											props.setMetaFieldValue( 'default', 'site-content-layout' );
+											break;			
+										default:
+											break;
+									}
 								} }
 							/>
 						</div>

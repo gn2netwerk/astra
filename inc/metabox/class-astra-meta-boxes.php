@@ -538,10 +538,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function get_content_layout_options() {
 			return array(
-				'default'                 => __( 'Customizer Setting', 'astra' ),
-				'plain-container'         => __( 'Normal', 'astra' ),
-				'narrow-container'        => __( 'Narrow Width', 'astra' ),
-				'page-builder'            => __( 'Full Width', 'astra' ),
+				'default'                => __( 'Customizer Setting', 'astra' ),
+				'normal-width-container' => __( 'Normal', 'astra' ),
+				'narrow-width-container' => __( 'Narrow Width', 'astra' ),
+				'full-width-container'   => __( 'Full Width', 'astra' ),
 			);
 		}
 
