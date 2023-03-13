@@ -1825,7 +1825,6 @@ function hasWordPressWidgetBlockEditor() {
 
 		wp.customize( 'astra-settings[button-color]', function( setting ) {
 			setting.bind( function( value ) {
-
 				if( '' === value ) {
 
 					var buttonPreset = wp.customize( 'astra-settings[button-preset-style]' ).get();
