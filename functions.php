@@ -11,7 +11,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-add_filter( 'astra_get_option_woo_support_global_settings', '__return_true' );
+
 /**
  * Define Constants
  */
