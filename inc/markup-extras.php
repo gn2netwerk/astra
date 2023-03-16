@@ -1691,7 +1691,7 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
 
 
 /**
- * BBPress Multiple user profile issue compatibility.
+ * BBPress Multiple user profile compatibility issue.
  *
  * @param bool $value For checking this issue is still persist or not.
  *
