@@ -1706,3 +1706,4 @@ return $value ;
 }
 
 add_filter ('astra_single_layout_one_banner_visibility', 'astra_bbpress_issue', 50) ;
+
