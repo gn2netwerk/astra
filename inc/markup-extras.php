@@ -1697,13 +1697,17 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
  *
  * @since x.x.x
  */
-function astra_bbpress_issue ($value) {
-	if( class_exists( 'bbpress' ) ) {
-		if (bbp_is_single_user()) return false ;
-		if (bbp_is_search()) return false ;
+function astra_bbpress_issue( $value ) {
+	if ( class_exists( 'bbpress' ) ) {
+		if ( bbp_is_single_user() ) {
+			return false;
+		}
+		if ( bbp_is_search() ) {
+			return false;
+		}
 	}
-return $value ;
+	return $value;
 }
 
-add_filter ('astra_single_layout_one_banner_visibility', 'astra_bbpress_issue', 50) ;
+add_filter( 'astra_single_layout_one_banner_visibility', 'astra_bbpress_issue', 50 );
 
