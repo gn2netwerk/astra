@@ -3624,6 +3624,10 @@ span.customize-control-title.ast-group-section-title {
   background-color: #fff;
 }
 
+.customize-control-ast-color-palette .ast-field-settings-modal {
+	z-index: 11;
+}
+
 .ast-field-settings-modal .customize-control-ast-divider:first-child {
   margin-top: 15px;
 }
