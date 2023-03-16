@@ -46,14 +46,14 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-buttons',
 					'options'   => array(
 						'button_01' => array(
-							'src'               => 'btn-preset-01',
-							'border-size'       => array(
+							'src'                  => 'btn-preset-01',
+							'border-size'          => array(
 								'top'    => 0,
 								'right'  => 0,
 								'bottom' => 0,
 								'left'   => 0,
 							),
-							'button-radius-fields'    => array(
+							'button-radius-fields' => array(
 								'desktop'      => array(
 									'top'    => 0,
 									'right'  => 0,
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-padding'    => array(
+							'button-padding'       => array(
 								'desktop'      => array(
 									'top'    => 10,
 									'right'  => 20,
@@ -99,19 +99,19 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-bg-color'   => '',
-							'button-bg-h-color' => '',
-							'button-color'      => '',
+							'button-bg-color'      => '',
+							'button-bg-h-color'    => '',
+							'button-color'         => '',
 						),
 						'button_02' => array(
-							'src'               => 'btn-preset-02',
-							'border-size'       => array(
+							'src'                  => 'btn-preset-02',
+							'border-size'          => array(
 								'top'    => 0,
 								'right'  => 0,
 								'bottom' => 0,
 								'left'   => 0,
 							),
-							'button-radius-fields'    => array(
+							'button-radius-fields' => array(
 								'desktop'      => array(
 									'top'    => 3,
 									'right'  => 3,
@@ -134,7 +134,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-padding'    => array(
+							'button-padding'       => array(
 								'desktop'      => array(
 									'top'    => 10,
 									'right'  => 20,
@@ -157,19 +157,19 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-bg-color'   => '',
-							'button-bg-h-color' => '',
-							'button-color'      => '',
+							'button-bg-color'      => '',
+							'button-bg-h-color'    => '',
+							'button-color'         => '',
 						),
 						'button_03' => array(
-							'src'               => 'btn-preset-03',
-							'border-size'       => array(
+							'src'                  => 'btn-preset-03',
+							'border-size'          => array(
 								'top'    => 0,
 								'right'  => 0,
 								'bottom' => 0,
 								'left'   => 0,
 							),
-							'button-radius-fields'    => array(
+							'button-radius-fields' => array(
 								'desktop'      => array(
 									'top'    => 30,
 									'right'  => 30,
@@ -192,7 +192,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-padding'    => array(
+							'button-padding'       => array(
 								'desktop'      => array(
 									'top'    => 10,
 									'right'  => 20,
@@ -215,19 +215,19 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-bg-color'   => '',
-							'button-bg-h-color' => '',
-							'button-color'      => '',
+							'button-bg-color'      => '',
+							'button-bg-h-color'    => '',
+							'button-color'         => '',
 						),
 						'button_04' => array(
-							'src'               => 'btn-preset-04',
-							'border-size'       => array(
+							'src'                  => 'btn-preset-04',
+							'border-size'          => array(
 								'top'    => 1,
 								'right'  => 1,
 								'bottom' => 1,
 								'left'   => 1,
 							),
-							'button-radius-fields'    => array(
+							'button-radius-fields' => array(
 								'desktop'      => array(
 									'top'    => 0,
 									'right'  => 0,
@@ -250,7 +250,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-padding'    => array(
+							'button-padding'       => array(
 								'desktop'      => array(
 									'top'    => 10,
 									'right'  => 20,
@@ -273,19 +273,19 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-bg-color'   => 'rgba(0,0,0,0)',
-							'button-bg-h-color' => '',
-							'button-color'      => '#0170B9',
+							'button-bg-color'      => 'rgba(0,0,0,0)',
+							'button-bg-h-color'    => '',
+							'button-color'         => '#0170B9',
 						),
 						'button_05' => array(
-							'src'               => 'btn-preset-05',
-							'border-size'       => array(
+							'src'                  => 'btn-preset-05',
+							'border-size'          => array(
 								'top'    => 1,
 								'right'  => 1,
 								'bottom' => 1,
 								'left'   => 1,
 							),
-							'button-radius-fields'    => array(
+							'button-radius-fields' => array(
 								'desktop'      => array(
 									'top'    => 3,
 									'right'  => 3,
@@ -308,7 +308,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-padding'    => array(
+							'button-padding'       => array(
 								'desktop'      => array(
 									'top'    => 10,
 									'right'  => 20,
@@ -331,19 +331,19 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-bg-color'   => 'rgba(0,0,0,0)',
-							'button-bg-h-color' => '',
-							'button-color'      => '#0170B9',
+							'button-bg-color'      => 'rgba(0,0,0,0)',
+							'button-bg-h-color'    => '',
+							'button-color'         => '#0170B9',
 						),
 						'button_06' => array(
-							'src'               => 'btn-preset-06',
-							'border-size'       => array(
+							'src'                  => 'btn-preset-06',
+							'border-size'          => array(
 								'top'    => 1,
 								'right'  => 1,
 								'bottom' => 1,
 								'left'   => 1,
 							),
-							'button-radius-fields'    => array(
+							'button-radius-fields' => array(
 								'desktop'      => array(
 									'top'    => 30,
 									'right'  => 30,
@@ -366,7 +366,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-padding'    => array(
+							'button-padding'       => array(
 								'desktop'      => array(
 									'top'    => 10,
 									'right'  => 20,
@@ -389,9 +389,9 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'tablet-unit'  => 'px',
 								'mobile-unit'  => 'px',
 							),
-							'button-bg-color'   => 'rgba(0,0,0,0)',
-							'button-bg-h-color' => '',
-							'button-color'      => '#0170B9',
+							'button-bg-color'      => 'rgba(0,0,0,0)',
+							'button-bg-h-color'    => '',
+							'button-color'         => '#0170B9',
 						),
 					),
 					'priority'  => 18,
