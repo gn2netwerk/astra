@@ -1698,13 +1698,8 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
  * @since x.x.x
  */
 function astra_bbpress_issue( $value ) {
-	if ( class_exists( 'bbpress' ) ) {
-		if ( bbp_is_single_user() ) { // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	if ( class_exists( 'bbpress' ) && ( bbp_is_single_user() || bbp_is_search() ) ) {
 			return false;
-		}
-		if ( bbp_is_search() ) { // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			return false;
-		}
 	}
 	return $value;
 }
