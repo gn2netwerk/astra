@@ -1073,7 +1073,7 @@
 }
 
 .customize-control-ast-responsive-background .astra-popover-color .components-h-stack.ast-color-palette,
-.customize-control-ast-color-group .astra-popover-color .components-h-stack.ast-color-palette {
+.customize-control-ast-color-group .astra-popover-color .astra-background-tabs .components-h-stack.ast-color-palette {
     padding: 0 5px 14px;
 }
 
