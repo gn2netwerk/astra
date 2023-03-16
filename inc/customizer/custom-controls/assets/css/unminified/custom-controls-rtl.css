@@ -1072,6 +1072,10 @@
     padding: 14px 5px;
 }
 
+.customize-control-ast-responsive-background .astra-popover-color .components-h-stack.ast-color-palette {
+    padding: 0 5px 14px;
+}
+
 .astra-popover-color .components-h-stack .components-button {
     flex: inherit;
 }
