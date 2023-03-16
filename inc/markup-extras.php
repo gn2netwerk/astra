@@ -1699,10 +1699,10 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
  */
 function astra_bbpress_issue( $value ) {
 	if ( class_exists( 'bbpress' ) ) {
-		if ( bbp_is_single_user() ) {
+		if ( bbp_is_single_user() ) { // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			return false;
 		}
-		if ( bbp_is_search() ) {
+		if ( bbp_is_search() ) { // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			return false;
 		}
 	}
