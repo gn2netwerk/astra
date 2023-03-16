@@ -1688,3 +1688,25 @@ function astra_skip_elementor_onboarding( $network_wide ) {
 }
 
 add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding' );
+
+
+/**
+ * BBPress Multiple user profile compatibility issue.
+ *
+ * @param bool $value For checking this issue is still persist or not.
+ *
+ * @since x.x.x
+ */
+function astra_bbpress_issue( $value ) {
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	if ( class_exists( 'bbpress' ) && ( bbp_is_single_user() || bbp_is_search() ) ) {
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			return false;
+	}
+	return $value;
+}
+
+add_filter( 'astra_single_layout_one_banner_visibility', 'astra_bbpress_issue', 50 );
+

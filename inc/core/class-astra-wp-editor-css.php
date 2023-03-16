@@ -153,7 +153,7 @@ class Astra_WP_Editor_CSS {
 		$btn_bg_color              = astra_get_option( 'button-bg-color', '', $theme_color );
 		$btn_h_color               = astra_get_option( 'button-h-color' );
 		$btn_bg_h_color            = astra_get_option( 'button-bg-h-color', '', $link_h_color );
-		$btn_border_radius         = astra_get_option( 'button-radius' );
+		$btn_border_radius_fields  = astra_get_option( 'button-radius-fields' );
 		$theme_btn_padding         = astra_get_option( 'theme-button-padding' );
 		$btn_border_size           = astra_get_option( 'theme-button-border-group-border-size' );
 		$btn_border_color          = astra_get_option( 'theme-button-border-group-border-color' );
@@ -542,7 +542,10 @@ class Astra_WP_Editor_CSS {
 				'letter-spacing'      => astra_get_css_value( $theme_btn_letter_spacing, 'px' ),
 				'text-decoration'     => esc_attr( $theme_btn_text_decoration ),
 				'font-size'           => astra_responsive_font( $theme_btn_font_size, 'desktop' ),
-				'border-radius'       => astra_get_css_value( $btn_border_radius, 'px' ),
+				'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'desktop' ),
+				'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'desktop' ),
+				'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'desktop' ),
+				'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'desktop' ),
 				'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
 				'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
 				'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
