@@ -7,6 +7,8 @@ v4.1.0 (Unreleased)
 - New: Introduced new filter 'astra_custom_logo_attributes' to add attributes into custom logo.
 - Improvement: Starter Templates admin menu nav-link removed when Whitelabel is enabled.
 - Improvement: Improved accessibility for header menu navigation.
+- Fix: Customizer - Typography and Button Preset options selected preset not highlighting and reset button not functioning.
+- Fix: Author Info box is visible multiple times and goes into infinite loop in case of BBPress.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
 - Fix: Block editor - Image breaking outside the entry container when left/right aligned.
 - Fix: WooCommerce - Real Time Quantity Updater not working in case of shortcode used.
