@@ -1699,7 +1699,9 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
  */
 function astra_bbpress_issue( $value ) {
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	if ( class_exists( 'bbpress' ) && ( bbp_is_single_user() || bbp_is_search() ) ) {
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			return false;
 	}
