@@ -564,6 +564,10 @@ module.exports = function (grunt) {
                         src: 'inc/metabox/extend-metabox/css/unminified/metabox-rtl.css',
                         dest: 'inc/metabox/extend-metabox/css/minified/metabox-rtl.min.css',
                     },
+					{
+                        src: 'assets/css/unminified/menu-animation-rtl.css',
+                        dest: 'assets/css/minified/menu-animation-rtl.min.css',
+                    },
                 ]
             }
         },
@@ -629,6 +633,7 @@ module.exports = function (grunt) {
 					'!playwright-report/**',
 					'!inc/customizer/custom-controls/typography/typography.js',
 					'!inc/customizer/custom-controls/typography/selectWoo.js',
+					'!assets/css/unminified',
                 ],
                 dest: 'astra/'
             }
