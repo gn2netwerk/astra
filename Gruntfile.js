@@ -633,7 +633,7 @@ module.exports = function (grunt) {
 					'!playwright-report/**',
 					'!inc/customizer/custom-controls/typography/typography.js',
 					'!inc/customizer/custom-controls/typography/selectWoo.js',
-					'!assets/css/unminified',
+					'!assets/css/unminified/**',
                 ],
                 dest: 'astra/'
             }
