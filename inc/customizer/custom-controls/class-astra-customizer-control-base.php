@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$file_rtl    = ( is_rtl() ) ? '-rtl' : '';
 			$css_uri     = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/css/' . $dir_name . '/';
-			$js_uri      = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/js/' . $dir_name . '/';
+			$js_uri      = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/js/unminified/';
 
 			wp_enqueue_style( 'astra-custom-control-style' . $file_rtl, $css_uri . 'custom-controls' . $file_prefix . $file_rtl . '.css', null, ASTRA_THEME_VERSION );
 
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 				'jquery-ui-sortable',
 			);
 
-			wp_enqueue_script( 'astra-custom-control-plain-script', $js_uri . 'custom-controls-plain' . $file_prefix . '.js', $custom_controls_plain_deps, ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'astra-custom-control-plain-script', $js_uri . 'custom-controls-plain.js', $custom_controls_plain_deps, ASTRA_THEME_VERSION, true );
 
 			// Enqueue Customizer React.JS script.
 			$custom_controls_react_deps = array(
