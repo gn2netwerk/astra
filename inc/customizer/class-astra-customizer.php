@@ -1038,7 +1038,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			// Localize variables for Dev mode > Customizer JS.
 			wp_localize_script(
-				SCRIPT_DEBUG ? 'astra-custom-control-react-script' : 'astra-custom-control-script',
+				'astra-custom-control-script',
 				'AstraBuilderCustomizerData',
 				array(
 					'contexts'                => self::get_contexts(),
