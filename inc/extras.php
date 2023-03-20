@@ -174,13 +174,13 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	}
 }
 
-function astra_toggle_layout( $new_content_option, $old_content_option, $content_style, $global_content_style, $level ) {
+function astra_toggle_layout( $new_content_option, $old_content_option, $level ) {
 
 	$astra_theme_options = get_option( 'astra-settings' );
 
-	// Content style dynamic conditions according to level (Global / Page / Meta).
-	$content_style_condition         = 'global' === $level ? 'boxed' === $global_content_style : ( 'boxed' === $global_content_style && 'default' === $content_style || 'boxed' === $content_style );
-	$dynamic_content_style_condition = 'meta' === $level ? ( 'boxed' === $global_content_style && 'default' === $content_style || 'single-content-style-boxed' === $content_style ) : $content_style_condition;
+	// // Content style dynamic conditions according to level (Global / Page / Meta).
+	// $content_style_condition         = 'global' === $level ? 'boxed' === $global_content_style : ( 'boxed' === $global_content_style && 'default' === $content_style || 'boxed' === $content_style );
+	// $dynamic_content_style_condition = 'meta' === $level ? ( 'boxed' === $global_content_style && 'default' === $content_style || 'single-content-style-boxed' === $content_style ) : $content_style_condition;
 
 	// Dynamic layout option for meta case.
 	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option ) : astra_get_option( $new_content_option );
@@ -189,9 +189,6 @@ function astra_toggle_layout( $new_content_option, $old_content_option, $content
 	switch ( $dynamic_layout_option ) {
 		case 'normal-width-container':
 			$astra_theme_options[ $old_content_option ] = 'plain-container';
-			if ( $dynamic_content_style_condition ) {
-				$astra_theme_options[ $old_content_option ] = 'content-boxed-container';
-			}
 			$current_layout = $astra_theme_options[ $old_content_option ];
 			break;
 		case 'narrow-width-container':
@@ -202,7 +199,7 @@ function astra_toggle_layout( $new_content_option, $old_content_option, $content
 			$astra_theme_options[ $old_content_option ] = 'page-builder';
 			$current_layout = $astra_theme_options[ $old_content_option ];
 			break;
-		case 'default':
+		case ('default' || ''):
 			$astra_theme_options[ $old_content_option ] = 'default';
 			$current_layout = $astra_theme_options[ $old_content_option ];
 		default:

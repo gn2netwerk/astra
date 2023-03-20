@@ -88,19 +88,38 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		
 		// Apply separate container class to the body.
 		$content_layout = astra_get_content_layout();
+		$is_boxed       = astra_is_content_style_boxed();
+
+		if ( 'plain-container' == $content_layout && $is_boxed ) {
+			$post_type                   = strval( get_post_type() );
+			$blog_type                   = is_singular() ? 'single' : 'archive';
+			$astra_theme_options         = get_option( 'astra-settings' );
+			$astra_theme_options[ $blog_type . '-' . $post_type . '-content-layout' ] = 'content-boxed-container';
+			$content_layout              = 'content-boxed-container';
+			update_option( 'astra-settings', $astra_theme_options, true );
+		}
+
 		if ( 'content-boxed-container' == $content_layout ) {
 			$classes[] = 'ast-separate-container';
 		} elseif ( 'boxed-container' == $content_layout ) {
 			$classes[] = 'ast-separate-container ast-two-container';
 		} elseif ( 'page-builder' == $content_layout ) {
 			$classes[] = 'ast-page-builder-template';
-			$classes = astra_apply_content_style_classes( $classes, ['ast-full-boxed-content', 'ast-separate-container'] );
+			if ( $is_boxed ) {
+				$classes[] = 'ast-full-boxed-container';
+				$classes[] = 'ast-separate-container';
+			}
 		} elseif ( 'plain-container' == $content_layout ) {
 			$classes[] = 'ast-plain-container';
+
 		} elseif ( 'narrow-container' == $content_layout ) {
 			$classes[] = 'ast-narrow-container';
-			$classes = astra_apply_content_style_classes( $classes, ['ast-narrow-boxed-content', 'ast-separate-container'] );
+			if ( $is_boxed ) {
+				$classes[] = 'ast-narrow-boxed-container';
+				$classes[] = 'ast-separate-container';
+			}
 		}
+
 
 		// Sidebar location.
 		$page_layout = 'ast-' . astra_page_layout();
@@ -134,25 +153,27 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 
 add_filter( 'body_class', 'astra_body_classes' );
 
-function astra_apply_content_style_classes( $body_classes, $classes ) {
+function astra_is_content_style_boxed() {
+
 	$post_type                   = strval( get_post_type() );
 	$blog_type                   = is_singular() ? 'single' : 'archive';
 	$content_style               = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
 	$global_content_style        = astra_get_option( 'site-content-style', 'unboxed' );
 	$meta_content_style          = astra_get_option_meta( 'site-content-style', 'unboxed', true );
-	if( 'single-content-style-boxed' === $meta_content_style || "boxed" === $content_style ) {
-		foreach ($classes as $class) {
-			$body_classes[] = $class;
-		}
+	$is_boxed = false;
+	
+	// Check wether to apply boxed content style or not.
+	if( 'single-content-style-boxed' === $meta_content_style ) {
+		$is_boxed = true;
 	}
-	else if( empty( $content_style ) || 'default' === $content_style ||  'default' === $meta_content_style ) {
-		if( "boxed" === $global_content_style ) {
-			foreach ($classes as $class) {
-				$body_classes[] = $class; 
-			}
-		}
+	else if( ( empty( $meta_content_style ) || 'default' === $meta_content_style ) && 'boxed' === $content_style ) {
+		$is_boxed = true;
 	}
-	return $body_classes;
+	else if( ( empty( $content_style ) || 'default' === $content_style ) && 'boxed' === $global_content_style ) {
+		$is_boxed = true;
+	}
+
+	return $is_boxed;
 }
 
 /**
