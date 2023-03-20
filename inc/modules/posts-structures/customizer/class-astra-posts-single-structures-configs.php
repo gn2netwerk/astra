@@ -39,21 +39,39 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'relation' => 'AND',
 				Astra_Builder_Helper::$general_tab_config,
 				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-content-layout]',
+					'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-new-content-layout]',
 					'operator' => '!=',
-					'value'    => 'narrow-container',
+					'value'    => 'narrow-width-container',
+				),
+				array(
+					'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-new-content-layout]',
+					'operator' => '!=',
+					'value'    => 'full-width-container',
 				),
 				array(
 					'relation' => 'OR',
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-content-layout]',
+						'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-new-content-layout]',
 						'operator' => '!=',
 						'value'    => 'default',
 					),
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[site-content-layout]',
+						'setting'  => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
 						'operator' => '!=',
-						'value'    => 'narrow-container',
+						'value'    => 'narrow-width-container',
+					),
+				),
+				array(
+					'relation' => 'OR',
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-new-content-layout]',
+						'operator' => '!=',
+						'value'    => 'default',
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
+						'operator' => '!=',
+						'value'    => 'full-width-container',
 					),
 				),
 			);
