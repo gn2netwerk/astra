@@ -109,6 +109,12 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 				$classes[] = 'ast-full-boxed-container';
 				$classes[] = 'ast-separate-container';
 			}
+			add_filter(
+				'astra_page_layout',
+				function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+					return 'no-sidebar';
+				}
+			);
 		} elseif ( 'plain-container' == $content_layout ) {
 			$classes[] = 'ast-plain-container';
 
