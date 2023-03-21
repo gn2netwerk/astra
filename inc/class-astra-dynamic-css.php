@@ -3085,6 +3085,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Global.
 			$parse_css .= astra_narrow_container_width( $narrow_container_max_width );
 
+			// Remove Sidebar for Full Width Container Layout.
+			if ( 'page-builder' === astra_get_content_layout() ) {
+				add_filter(
+					'astra_page_layout',
+					function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+						return 'no-sidebar';
+					}
+				);
+			}
+
 			// $post_type = strval( get_post_type() );
 			// if ( is_singular() ) {
 			// 	// Single layouts.

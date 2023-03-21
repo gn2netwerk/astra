@@ -109,12 +109,6 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 				$classes[] = 'ast-full-boxed-container';
 				$classes[] = 'ast-separate-container';
 			}
-			add_filter(
-				'astra_page_layout',
-				function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-					return 'no-sidebar';
-				}
-			);
 		} elseif ( 'plain-container' == $content_layout ) {
 			$classes[] = 'ast-plain-container';
 
@@ -169,10 +163,10 @@ function astra_is_content_style_boxed() {
 	$is_boxed = false;
 	
 	// Check wether to apply boxed content style or not.
-	if( 'single-content-style-boxed' === $meta_content_style ) {
+	if( 'single-content-style-boxed' === $meta_content_style && 'single' === $blog_type ) {
 		$is_boxed = true;
 	}
-	else if( ( empty( $meta_content_style ) || 'default' === $meta_content_style ) && 'boxed' === $content_style ) {
+	else if( ( empty( $meta_content_style ) || 'default' === $meta_content_style || 'archive' === $blog_type ) && 'boxed' === $content_style ) {
 		$is_boxed = true;
 	}
 	else if( ( empty( $content_style ) || 'default' === $content_style ) && 'boxed' === $global_content_style ) {
