@@ -97,21 +97,23 @@ const MetaSettings = props => {
 		/>);
 	});
 
-	const [isDefaultNarrow, setIsDefaultNarrow] = useState(false);
+	const [isDefaultExclude, setIsDefaultExclude] = useState(false);
 
-	// Side effect calling DOM API to check if current default layout is set to narrow width content layout.
+	// Side effect calling DOM API to check if current default layout is set to narrow width or full width content layout.
 	useEffect(() => {
-		if (document.querySelector('body').classList.contains('ast-default-layout-narrow-container')) {
-			setIsDefaultNarrow(true);
+		const isDefaultNarrow    = document.querySelector( 'body' ).classList.contains( 'ast-default-layout-narrow-container' );
+		const isDefaultFullWidth = document.querySelector( 'body' ).classList.contains( 'ast-default-layout-page-builder' );
+		if ( isDefaultFullWidth || isDefaultNarrow ) {
+			setIsDefaultExclude( true );
 		}
 		else {
-			setIsDefaultNarrow(false);
+			setIsDefaultExclude( false );
 		}
-	}, [contentLayout, setIsDefaultNarrow]);
+	}, [ contentLayout, setIsDefaultExclude ] );
 
 	// Display sidebar options or not.
 	const showSidebar = () => {
-		return (('narrow-container' === contentLayout) || ('default' === contentLayout && isDefaultNarrow)) ? false : true;
+		return ( ( 'narrow-width-container' === contentLayout ) || ( 'full-width-container' === contentLayout ) ||( 'default' === contentLayout && isDefaultExclude ) ) ? false : true;
 	}
 
 	return (
