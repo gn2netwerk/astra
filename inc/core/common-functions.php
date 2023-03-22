@@ -1620,16 +1620,6 @@ function astra_narrow_container_width( $narrow_container_max_width ) {
 			),
 		);
 
-		// Remove Sidebar for Narrow Width Container Layout.
-		if ( 'narrow-container' === astra_get_content_layout() ) {
-			add_filter(
-				'astra_page_layout',
-				function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-					return 'no-sidebar';
-				}
-			);
-		}
-
 		return astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
 
 	} else {

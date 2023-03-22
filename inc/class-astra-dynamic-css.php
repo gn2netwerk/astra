@@ -3085,8 +3085,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Global.
 			$parse_css .= astra_narrow_container_width( $narrow_container_max_width );
 
-			// Remove Sidebar for Full Width Container Layout.
-			if ( 'page-builder' === astra_get_content_layout() ) {
+			// Remove Sidebar for Full Width and Narrow Width Container Layout.
+			if ( 'page-builder' === $ast_container_layout || 'narrow-container' === $ast_container_layout ) {
 				add_filter(
 					'astra_page_layout',
 					function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
