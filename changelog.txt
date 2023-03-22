@@ -1,5 +1,4 @@
 v4.1.1 (Unreleased)
-- Fix: Customizer - Typography and Button Preset options selected preset not highlighting and reset button not functioning.
 - Fix: Slider Jumps and Flashes white when closing off canvas menu.
 
 v4.1.0 (Unreleased)
@@ -11,6 +10,8 @@ v4.1.0 (Unreleased)
 - New: Introduced new filter 'astra_custom_logo_attributes' to add attributes into custom logo.
 - Improvement: Starter Templates admin menu nav-link removed when Whitelabel is enabled.
 - Improvement: Improved accessibility for header menu navigation.
+- Fix: Customizer - Typography and Button Preset options selected preset not highlighting and reset button not functioning.
+- Fix: Author Info box is visible multiple times and goes into infinite loop in case of BBPress.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
 - Fix: Block editor - Image breaking outside the entry container when left/right aligned.
 - Fix: WooCommerce - Real Time Quantity Updater not working in case of shortcode used.
@@ -28,6 +29,7 @@ v4.1.0 (Unreleased)
 - Fix: PHP error 'Uncaught TypeError: ltrim()' for getting taxonomy term link.
 - Fix: Single post title transformed to capitalize after 4.0 update.
 - Fix: WooCommerce - Console throwing an event listener error when a product has only 1 item in stock.
+- Fix: WooCommerce - Buttons does not inherit global button styling from the theme customizer.
 
 v4.0.2
 - Deprecated: Filter 'astra_single_banner_post_meta' for single post meta markup has been deprecated instead use 'astra_single_post_meta'.
