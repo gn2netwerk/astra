@@ -131,7 +131,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 			// If post meta value is present then toggle old layouts.
 			if( $content_layout ) {
-				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', astra_get_option_meta( 'site-content-style', 'unboxed', true ), astra_get_option( 'site-content-style', 'unboxed' ), 'meta' );
+				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', 'meta' );
 			}
 
 			if ( empty( $content_layout ) ) {
@@ -139,14 +139,14 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 				$post_type = strval( get_post_type() );
 
 				$content_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
-				$content_layout = astra_toggle_layout( 'single-' . $post_type . '-new-content-layout', 'single-' . $post_type . '-content-layout', astra_get_option( 'single-' . $post_type . '-content-style', '' ), astra_get_option( 'site-content-style', 'unboxed' ), 'single' );
+				$content_layout = astra_toggle_layout( 'single-' . $post_type . '-new-content-layout', 'single-' . $post_type . '-content-layout', 'single' );
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
 					// Get the GLOBAL content layout value.
 					// NOTE: Here not used `true` in the below function call.
 					$content_layout = astra_get_option( 'site-content-layout', 'full-width' );
-					$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', '', astra_get_option( 'site-content-style', 'unboxed' ), 'global' );
+					$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', 'global' );
 				}
 			}
 		} else {
@@ -155,10 +155,11 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			$post_type      = strval( get_post_type() );
 
 			$content_layout = astra_get_option( 'archive-' . $post_type . '-content-layout' );
-			$content_layout = astra_toggle_layout( 'archive-' . $post_type . '-new-content-layout', 'archive-' . $post_type . '-content-layout', astra_get_option( 'archive-' . $post_type . '-content-style', '' ), astra_get_option( 'site-content-style', 'unboxed' ), 'archive' );
+			$content_layout = astra_toggle_layout( 'archive-' . $post_type . '-new-content-layout', 'archive-' . $post_type . '-content-layout', 'archive' );
 			
 			if ( is_search() ) {
 				$content_layout = astra_get_option( 'archive-post-content-layout' );
+				$content_layout = astra_toggle_layout( 'archive-post-new-content-layout', 'archive-post-content-layout', 'archive' );
 			}
 
 			if ( 'default' == $content_layout || empty( $content_layout ) ) {
@@ -166,7 +167,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
 				$content_layout = astra_get_option( 'site-content-layout', 'full-width' );
-				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', '', astra_get_option( 'site-content-style', 'unboxed' ), 'global' );
+				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', 'global' );
 			}
 		}
 
@@ -177,10 +178,6 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 function astra_toggle_layout( $new_content_option, $old_content_option, $level ) {
 
 	$astra_theme_options = get_option( 'astra-settings' );
-
-	// // Content style dynamic conditions according to level (Global / Page / Meta).
-	// $content_style_condition         = 'global' === $level ? 'boxed' === $global_content_style : ( 'boxed' === $global_content_style && 'default' === $content_style || 'boxed' === $content_style );
-	// $dynamic_content_style_condition = 'meta' === $level ? ( 'boxed' === $global_content_style && 'default' === $content_style || 'single-content-style-boxed' === $content_style ) : $content_style_condition;
 
 	// Dynamic layout option for meta case.
 	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option ) : astra_get_option( $new_content_option );
