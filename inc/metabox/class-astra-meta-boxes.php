@@ -208,6 +208,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 */
 			$site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
 			$site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
+			$new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : 'default';
 			$site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
 			$footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
 			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
@@ -246,12 +247,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
 				</p>
 				<select name="new-site-content-layout" id="new-site-content-layout">
-					<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-					<option value="normal-width-container" <?php selected( $site_content_layout, 'normal-width-container' ); ?> > <?php esc_html_e( 'Normal', 'astra' ); ?></option>
+					<option value="default" <?php selected( $new_site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
+					<option value="normal-width-container" <?php selected( $new_site_content_layout, 'normal-width-container' ); ?> > <?php esc_html_e( 'Normal', 'astra' ); ?></option>
 					<?php if ( ! $exclude_cpt ) { ?>
-						<option value="narrow-width-container" <?php selected( $site_content_layout, 'narrow-width-container' ); ?> > <?php esc_html_e( 'Narrow', 'astra' ); ?></option>
+						<option value="narrow-width-container" <?php selected( $new_site_content_layout, 'narrow-width-container' ); ?> > <?php esc_html_e( 'Narrow', 'astra' ); ?></option>
 					<?php } ?>
-					<option value="full-width-container" <?php selected( $site_content_layout, 'full-width-container' ); ?> > <?php esc_html_e( 'Full Width', 'astra' ); ?></option>
+					<option value="full-width-container" <?php selected( $new_site_content_layout, 'full-width-container' ); ?> > <?php esc_html_e( 'Full Width', 'astra' ); ?></option>
 				</select>
 			</div>
 			<?php
