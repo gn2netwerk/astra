@@ -973,16 +973,16 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     border-top: 1px solid #dddddd;
 }
 
+.components-popover .components-popover__content {
+	background: inherit;
+}
+
 .components-popover__content .ahfb-popover-builder-list .ahfb-radio-container-control {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
     width: 300px;
     max-height: 340px;
-}
-
-.ahfb-popover-builder-list {
-    padding: 0 5px;
 }
 
 .ahfb-popover-builder-list .ahfb-radio-container-control .components-button.is-tertiary {
@@ -1451,8 +1451,9 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
 }
 
 .ahfb-sorter-item-panel-header .ahfb-sorter-item-expand, .ahfb-sorter-item-panel-header .ahfb-sorter-item-remove {
-    color: #4B5563;
-    box-shadow: none;
+    color: #4B5563 !important;
+    background: none !important;
+    box-shadow: none !important;
 }
 
 .ahfb-sorter-item-panel-header .ahfb-sorter-item-expand:focus, .ahfb-sorter-item-panel-header .ahfb-sorter-item-remove:focus {
