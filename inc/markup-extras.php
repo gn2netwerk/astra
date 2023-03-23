@@ -159,7 +159,13 @@ function astra_is_content_style_boxed() {
 	$blog_type                   = is_singular() ? 'single' : 'archive';
 	$content_style               = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
 	$global_content_style        = astra_get_option( 'site-content-style', 'unboxed' );
-	$meta_content_style          = astra_get_option_meta( 'site-content-style', 'unboxed', true );
+
+	// Woocommerce compatibility
+	if ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) {
+		$global_content_style = astra_get_option( 'woocommerce-content-style', 'unboxed' );
+	}
+
+	$meta_content_style = astra_get_option_meta( 'site-content-style', 'unboxed', true );
 	$is_boxed = false;
 	
 	// Check wether to apply boxed content style or not.

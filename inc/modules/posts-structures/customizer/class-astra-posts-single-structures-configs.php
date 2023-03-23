@@ -76,7 +76,28 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				),
 			);
 		} else {
-			return Astra_Builder_Helper::$general_tab;
+			return array(
+				'relation' => 'AND',
+				Astra_Builder_Helper::$general_tab_config,
+				array(
+					'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-new-content-layout]',
+					'operator' => '!=',
+					'value'    => 'full-width-container',
+				),
+				array(
+					'relation' => 'OR',
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-new-content-layout]',
+						'operator' => '!=',
+						'value'    => 'default',
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woocommerce-new-content-layout]',
+						'operator' => '!=',
+						'value'    => 'full-width-container',
+					),
+				),
+			);
 		}
 	}
 

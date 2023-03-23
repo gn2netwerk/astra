@@ -81,7 +81,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 					'default'           => astra_get_option( 'woocommerce-new-content-layout' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Layout', 'astra' ),
-					'transport'         => 'postMessage',
 					'choices'           => array(
 						'default'                 => array(
 							'label' => __( 'Default', 'astra' ),
@@ -96,7 +95,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider' => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**

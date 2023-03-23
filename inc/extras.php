@@ -180,7 +180,7 @@ function astra_toggle_layout( $new_content_option, $old_content_option, $level )
 	$astra_theme_options = get_option( 'astra-settings' );
 
 	// Dynamic layout option for meta case.
-	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option ) : astra_get_option( $new_content_option );
+	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
 	$current_layout = '';
 
 	switch ( $dynamic_layout_option ) {
