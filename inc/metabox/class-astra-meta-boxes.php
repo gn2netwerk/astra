@@ -217,7 +217,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$mobile_header       = ( isset( $meta['ast-hfb-mobile-header-display']['default'] ) ) ? $meta['ast-hfb-mobile-header-display']['default'] : 'default';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 			$breadcrumbs_content = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
-
+			$exclude_cpt         = in_array( $post->post_type, [ 'product' ] );
 			$show_meta_field = ! self::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
 
@@ -245,12 +245,13 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				<p class="post-attributes-label-wrapper" >
 					<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
 				</p>
-				<select name="site-content-layout" id="site-content-layout">
+				<select name="new-site-content-layout" id="new-site-content-layout">
 					<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-					<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
-					<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
-					<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Full Width / Contained', 'astra' ); ?></option>
-					<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Full Width / Stretched', 'astra' ); ?></option>
+					<option value="normal-width-container" <?php selected( $site_content_layout, 'normal-width-container' ); ?> > <?php esc_html_e( 'Normal', 'astra' ); ?></option>
+					<?php if ( ! $exclude_cpt ) { ?>
+						<option value="narrow-width-container" <?php selected( $site_content_layout, 'narrow-width-container' ); ?> > <?php esc_html_e( 'Narrow', 'astra' ); ?></option>
+					<?php } ?>
+					<option value="full-width-container" <?php selected( $site_content_layout, 'full-width-container' ); ?> > <?php esc_html_e( 'Full Width', 'astra' ); ?></option>
 				</select>
 			</div>
 			<?php
