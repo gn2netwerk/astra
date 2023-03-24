@@ -1617,7 +1617,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding' => '10px 40px',
 				);
 				$css_desktop_output['.woocommerce table.cart td.actions .button, .woocommerce #content table.cart td.actions .button, .woocommerce-page table.cart td.actions .button, .woocommerce-page #content table.cart td.actions .button'] = array(
-					'line-height' => '1',
+					'line-height'  => '1',
 					'border-width' => '1px',
 					'border-style' => 'solid',
 				);
@@ -1634,7 +1634,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
 				);
-				$css_desktop_output['.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link'] = array_merge(
+				$css_desktop_output['.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link']               = array_merge(
 					$woo_btn_compatibility_desktop,
 					array(
 						'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'desktop' ),
@@ -2345,7 +2345,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							'border-color' => $btn_border_h_color ? $btn_border_h_color : $btn_bg_h_color,
 						),
 					);
-					$css_output .= astra_parse_css( $woo_global_button_css );
+					$css_output           .= astra_parse_css( $woo_global_button_css );
 				}
 
 				if ( $if_free_shipping ) {
