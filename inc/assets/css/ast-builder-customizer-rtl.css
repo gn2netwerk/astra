@@ -981,10 +981,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     max-height: 340px;
 }
 
-.ahfb-popover-builder-list {
-    padding: 0 5px;
-}
-
 .ahfb-popover-builder-list .ahfb-radio-container-control .components-button.is-tertiary {
     font-size: 12px;
     margin: 0;
