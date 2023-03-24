@@ -1,5 +1,6 @@
 v4.1.1 (Unreleased)
 - Fix: Astra content box mode removes Spectra column or container left padding.
+- Fix: Block Editor - WordPress 6.2 compatibility for Post Title Visibility Icon.
 
 v4.1.0 (Unreleased)
 - New: Accessibility options to change color and style of highlighted element.
