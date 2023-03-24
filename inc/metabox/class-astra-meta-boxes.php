@@ -406,7 +406,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 					default:
 					case 'FILTER_SANITIZE_STRING':
-							$meta_value = sanitize_text_field( wp_unslash( $key ) );
+							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
 						break;
 
 					case 'FILTER_SANITIZE_URL':
