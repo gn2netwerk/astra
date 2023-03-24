@@ -1,3 +1,6 @@
+v4.1.1 (Unreleased)
+- Fix: WooCommerce - Pagination does not work for WooCommerce Categories without Subcategories if displaying subcategories on products.
+
 v4.1.0 (Unreleased)
 - New: Accessibility options to change color and style of highlighted element.
 - New: WooCommerce - Shop - Introducing new redirect actions on Add to cart click.
