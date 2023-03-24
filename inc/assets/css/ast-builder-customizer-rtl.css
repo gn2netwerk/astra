@@ -973,10 +973,6 @@ li#customize-control-astra-settings-header-desktop-items, li#customize-control-a
     border-top: 1px solid #dddddd;
 }
 
-.components-popover .components-popover__content {
-	background: inherit;
-}
-
 .components-popover__content .ahfb-popover-builder-list .ahfb-radio-container-control {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
