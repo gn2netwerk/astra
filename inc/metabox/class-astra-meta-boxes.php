@@ -208,6 +208,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 */
 			$site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
 			$site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
+			$site_content_style  = ( isset( $meta['site-content-style']['default'] ) ) ? $meta['site-content-style']['default'] : 'default';
 			$new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : 'default';
 			$site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
 			$footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
@@ -239,7 +240,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			</div>
 			<?php
 			/**
-			 * Option: Sidebar
+			 * Option: Content Layout.
 			 */
 			?>
 			<div class="site-content-layout-meta-wrap components-base-control__field">
@@ -253,6 +254,21 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						<option value="narrow-width-container" <?php selected( $new_site_content_layout, 'narrow-width-container' ); ?> > <?php esc_html_e( 'Narrow', 'astra' ); ?></option>
 					<?php } ?>
 					<option value="full-width-container" <?php selected( $new_site_content_layout, 'full-width-container' ); ?> > <?php esc_html_e( 'Full Width', 'astra' ); ?></option>
+				</select>
+			</div>
+			<?php
+			/**
+			 * Option: Content Style.
+			 */
+			?>
+			<div class="site-content-style-meta-wrap components-base-control__field">
+				<p class="post-attributes-label-wrapper" >
+					<strong> <?php esc_html_e( 'Content Style', 'astra' ); ?> </strong>
+				</p>
+				<select name="site-content-style" id="site-content-style">
+					<option value="default" <?php selected( $site_content_style, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
+					<option value="unboxed" <?php selected( $site_content_style, 'unboxed' ); ?> > <?php esc_html_e( 'Unboxed', 'astra' ); ?></option>
+					<option value="boxed" <?php selected( $site_content_style, 'boxed' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
 				</select>
 			</div>
 			<?php

@@ -1219,6 +1219,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$shop_layout = 'default';
 				} else {
 					$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
+					$shop_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', 'meta' );
 				}
 
 				// If meta is not default, overide with meta container layout settings.
