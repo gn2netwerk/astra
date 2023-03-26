@@ -155,28 +155,31 @@ add_filter( 'body_class', 'astra_body_classes' );
 
 function astra_is_content_style_boxed() {
 
-	$post_type                   = strval( get_post_type() );
-	$blog_type                   = is_singular() ? 'single' : 'archive';
-	$content_style               = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
-	$global_content_style        = astra_get_option( 'site-content-style', 'unboxed' );
+	$post_type            = strval( get_post_type() );
+	$blog_type            = is_singular() ? 'single' : 'archive';
+	$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
+	$global_content_style = astra_get_option( 'site-content-style', 'unboxed' );
+	$meta_content_style   = astra_get_option_meta( 'site-content-style', 'unboxed', true );
+	$is_boxed = false;
 
-	// Woocommerce compatibility
+	// Woocommerce compatibility.
 	if ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) {
 		$global_content_style = astra_get_option( 'woocommerce-content-style', 'unboxed' );
 	}
 
-	$meta_content_style = astra_get_option_meta( 'site-content-style', 'unboxed', true );
-	$is_boxed = false;
-	
-	// Check wether to apply boxed content style or not.
-	if( 'single-content-style-boxed' === $meta_content_style && 'single' === $blog_type ) {
-		$is_boxed = true;
+	// Check whether to apply boxed content style or not.
+	if( 'single' === $blog_type && ('single-content-style-boxed' === $meta_content_style || 'boxed' === $meta_content_style && 'product' === $post_type ) ) {
+			$is_boxed = true;
 	}
-	else if( ( empty( $meta_content_style ) || 'default' === $meta_content_style || 'archive' === $blog_type ) && 'boxed' === $content_style ) {
-		$is_boxed = true;
+	elseif( 'boxed' === $content_style ) {
+		if ( empty( $meta_content_style ) || 'default' === $meta_content_style || 'archive' === $blog_type ) {
+			$is_boxed = true;
+		}
 	}
-	else if( ( empty( $content_style ) || 'default' === $content_style ) && 'boxed' === $global_content_style ) {
-		$is_boxed = true;
+	elseif( 'boxed' === $global_content_style ) {
+		if ( ( empty( $meta_content_style ) || 'default' === $meta_content_style ) && ( empty( $content_style ) || 'default' === $content_style ) ) {
+			$is_boxed = true;
+		}
 	}
 
 	return $is_boxed;

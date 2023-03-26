@@ -1022,6 +1022,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
+					'site-content-style'           => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
 					'ast-featured-img'              => array(
 						'sanitize' => 'FILTER_DEFAULT',
 					),
