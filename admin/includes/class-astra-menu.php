@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Astra_Menu.
  *
- * @since x.x.x
+ * @since 4.1.0
  */
 class Astra_Menu {
 
