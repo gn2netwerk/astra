@@ -21,6 +21,39 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 	class Astra_Learndash_Sidebar_Configs extends Astra_Customizer_Config_Base {
 
 		/**
+		 * Getting context for sidebar.
+		 * Case: Hide sidebar for Full-width layout.
+		 *
+		 * @param string $post_type On basis of this will decide to hide sidebar control or not.
+		 * @return mixed
+		 * @since 4.0.0
+		 */
+		public function get_sidebar_context() {
+			return array(
+				'relation' => 'AND',
+				Astra_Builder_Helper::$general_tab_config,
+				array(
+					'setting'  => ASTRA_THEME_SETTINGS . '[learndash-new-content-layout]',
+					'operator' => '!=',
+					'value'    => 'full-width-container',
+				),
+				array(
+					'relation' => 'OR',
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[learndash-new-content-layout]',
+						'operator' => '!=',
+						'value'    => 'default',
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
+						'operator' => '!=',
+						'value'    => 'full-width-container',
+					),
+				),
+			);
+		}
+
+		/**
 		 * Register LearnDash Sidebar settings.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
@@ -43,6 +76,7 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-leandash-general',
 					'default'           => astra_get_option( 'learndash-sidebar-layout' ),
+					'context'           => $this->get_sidebar_context(),
 					'priority'          => 5,
 					'title'             => __( 'Sidebar Layout', 'astra' ),
 					'choices'           => array(
