@@ -252,7 +252,7 @@ function astra_off_canvas_static_css() {
 		}
 		.ast-mobile-popup-drawer .ast-mobile-popup-inner {
 			width: 100%;
-			transform: translateX(100%);
+			transform: translateX(115%);
 			max-width: 90%;
 			left: 0;
 			top: 0;
