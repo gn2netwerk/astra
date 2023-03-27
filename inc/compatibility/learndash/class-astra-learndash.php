@@ -290,7 +290,8 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			$defaults['learndash-differentiate-rows']   = true;
 
 			// Container.
-			$defaults['learndash-content-layout'] = 'plain-container';
+			$defaults['learndash-content-layout']     = 'plain-container';
+			$defaults['learndash-new-content-layout'] = 'normal-width-container';
 
 			// Sidebar.
 			$defaults['learndash-sidebar-layout'] = 'default';

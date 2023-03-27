@@ -39,7 +39,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[learndash-content-layout]',
 					'type'              => 'control',
-					'control'           => 'ast-radio-image',
+					'control'           => 'ast-hidden',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-leandash-general',
 					'default'           => astra_get_option( 'learndash-content-layout' ),
@@ -64,6 +64,34 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 						),
 						'page-builder'            => array(
 							'label' => __( 'Full Width / Stretched', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
+						),
+					),
+				),
+
+				/**
+				 * Option: Revamped Container Layout.
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[learndash-new-content-layout]',
+					'type'              => 'control',
+					'control'           => 'ast-radio-image',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'section'           => 'section-leandash-general',
+					'default'           => astra_get_option( 'learndash-new-content-layout' ),
+					'priority'          => 5,
+					'title'             => __( 'Container Layout', 'astra' ),
+					'choices'           => array(
+						'default'                 => array(
+							'label' => __( 'Default', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
+						),
+						'normal-width-container'         => array(
+							'label' => __( 'Normal', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+						),
+						'full-width-container'            => array(
+							'label' => __( 'Full Width', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
