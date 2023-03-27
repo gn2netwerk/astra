@@ -20,7 +20,7 @@ const FreeVsPro = () => {
 
 	const redirectUpgradeAstraProPurchase = () => {
 		window.open(
-			astra_admin.upgrade_url,
+			'https://wpastra.com/pricing/?utm_source=wp&utm_medium=dashboard',
 			'_blank'
 		);
 	}
