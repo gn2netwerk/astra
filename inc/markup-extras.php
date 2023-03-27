@@ -163,7 +163,7 @@ function astra_is_content_style_boxed() {
 	$is_boxed = false;
 
 	// Woocommerce compatibility.
-	if ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) {
+	if ( 'product' === $post_type ) {
 		$global_content_style = astra_get_option( 'woocommerce-content-style', 'unboxed' );
 	}
 
