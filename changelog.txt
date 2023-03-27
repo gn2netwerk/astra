@@ -1,6 +1,6 @@
 v4.1.0
 - New: Accessibility options to change color and style of highlighted element. ( https://wpastra.com/docs/accessibility-controls/ )
-- New: WooCommerce - Shop - Introducing new redirect actions on add to cart click. ( Needs doc )
+- New: WooCommerce - Shop - Introducing new redirect actions on add to cart click. ( https://wpastra.com/docs/introducing-new-add-to-cart-trigger-actions-for-shop-and-single-product-pages/ )
 - New: WooCommerce - Sortable support for payment options on single product page.
 - New: Published, last-updated date support for post meta date field.
 - New: Date format option for post meta date field.
@@ -16,7 +16,7 @@ v4.1.0
 - Fix: WooCommerce - Real Time Quantity Updater not working in case of shortcode used.
 - Fix: WooCommerce - CSS overriding Global H2 tag font size WooCommerce pages.
 - Fix: Customizer - Global buttons text and background hover color not working in customizer preview.
-- Fix: Customizer's global outline button styling not reflecting in block editor for some cases.
+- Fix: Customizer - Global outline button styling not reflecting in block editor for some cases.
 - Fix: Footer builder - Widgets dynamic CSS gets added multiple times on the frontend.
 - Fix: WooCommerce - Error, info content messages UI breaking on the frontend.
 - Fix: Builder - Off-canvas menu - Dropdown menu arrow icon is misplaced in case of toggle for desktop.
