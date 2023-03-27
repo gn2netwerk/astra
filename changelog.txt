@@ -1,4 +1,4 @@
-v4.1.1 (Unreleased)
+v4.2.0 (Unreleased)
 - Fix: WooCommerce - Pagination does not work for WooCommerce Categories without Subcategories if displaying subcategories on products.
 
 v4.1.0 (Unreleased)
