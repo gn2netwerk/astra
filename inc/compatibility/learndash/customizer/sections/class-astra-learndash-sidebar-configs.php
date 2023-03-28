@@ -26,7 +26,7 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 		 *
 		 * @param string $post_type On basis of this will decide to hide sidebar control or not.
 		 * @return mixed
-		 * @since 4.0.0
+		 * @since x.x.x
 		 */
 		public function get_sidebar_context() {
 			return array(
