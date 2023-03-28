@@ -157,7 +157,7 @@ class Astra_Menu {
 			array( $this, 'render_admin_dashboard' ),
 			$astra_icon,
 			$priority
-		); 
+		);
 
 		// Add Customize submenu.
 		add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page -- Taken the menu on top level
@@ -192,7 +192,7 @@ class Astra_Menu {
 				__( 'Spectra', 'astra' ),
 				__( 'Spectra', 'astra' ),
 				$capability,
-				defined( 'UAGB_VER' ) ? admin_url( 'options-general.php?page=' . UAGB_SLUG ) : 'admin.php?page=' . self::$plugin_slug . '&path=spectra'
+				defined( 'UAGB_VER' ) ? ( version_compare( UAGB_VER, '2.4.1', '>=' ) ? admin_url( 'admin.php?page=' . UAGB_SLUG ) : admin_url( 'options-general.php?page=' . UAGB_SLUG ) ) : 'admin.php?page=' . self::$plugin_slug . '&path=spectra'
 			);
 		}
 
@@ -687,7 +687,7 @@ class Astra_Menu {
 		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$st_plugin_redirection = isset( $st_plugin_data['redirection'] ) ? $st_plugin_data['redirection'] : '';
 		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		
+
 		$sc_api_token         = get_option( 'sc_api_token', '' );
 		$surecart_redirection = empty( $sc_api_token ) ? 'sc-getting-started' : 'sc-dashboard';
 
