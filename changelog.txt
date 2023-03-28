@@ -1,4 +1,5 @@
 v4.1.1
+- Fix: Single Post - Related Post Title Font Size is not working for responsive devices.
 - Fix: PHP notice "Warning: Array to string conversion" while parsing button styling CSS.
 
 v4.1.0
