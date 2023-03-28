@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Edd_Sidebar_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-edd-general',
 					'default'           => astra_get_option( 'edd-general-sidebar-layout' ),
-					'priority'          => 5,
+					'priority'          => 6,
 					'title'             => __( 'Sidebar Layout', 'astra' ),
 					'choices'           => array(
 						'default'       => array(

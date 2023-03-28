@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-spacing ast-bottom-divider' ),
 				),
 			);
 

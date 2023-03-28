@@ -57,7 +57,7 @@ if ( ! class_exists( 'Astra_Edd_Content_Style_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'archive-content-style-boxed' ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' )
 				),
 			);
 
