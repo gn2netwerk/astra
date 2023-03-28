@@ -12,7 +12,6 @@ v4.1.0
 - Improvement: Compatibility with WordPress-6.2.
 - Improvement: Starter Templates admin menu nav-link removed when Whitelabel is enabled.
 - Improvement: Improved accessibility for header menu navigation.
-- Fix: Block Editor - WordPress 6.2 compatibility for Post Title Visibility Icon.
 - Fix: Customizer - Typography and Button Preset options selected preset not highlighting and reset button not functioning.
 - Fix: Author Info box is visible multiple times and goes into infinite loop in case of BBPress.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
