@@ -839,7 +839,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		public function theme_defaults( $defaults ) {
 
 			// Container.
-			$defaults['edd-content-layout'] = 'plain-container';
+			$defaults['edd-content-layout']     = 'plain-container';
+			$defaults['edd-new-content-layout'] = 'normal-width-container';
 
 			// Sidebar.
 			$defaults['edd-general-sidebar-layout'] = 'default';
