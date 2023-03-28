@@ -192,12 +192,23 @@ class Astra_Menu {
 				__( 'Spectra', 'astra' ),
 				__( 'Spectra', 'astra' ),
 				$capability,
-				defined( 'UAGB_VER' ) ? ( version_compare( UAGB_VER, '2.4.1', '>=' ) ? admin_url( 'admin.php?page=' . UAGB_SLUG ) : admin_url( 'options-general.php?page=' . UAGB_SLUG ) ) : 'admin.php?page=' . self::$plugin_slug . '&path=spectra'
+				$this->get_spectra_page_admin_link()
 			);
 		}
 
 		// Rename to Home menu.
 		$submenu[ self::$plugin_slug ][0][0] = __( 'Dashboard', 'astra' ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Required to rename the home menu.
+	}
+
+	/**
+	 * Provide the Spectra admin page URL.
+	 *
+	 * @since x.x.x
+	 * @return string url.
+	 */
+	public function get_spectra_page_admin_link() {
+		$spectra_admin_url = defined( 'UAGB_VER' ) ? ( version_compare( UAGB_VER, '2.4.1', '>=' ) ? admin_url( 'admin.php?page=' . UAGB_SLUG ) : admin_url( 'options-general.php?page=' . UAGB_SLUG ) ) : 'admin.php?page=' . self::$plugin_slug . '&path=spectra';
+		return apply_filters( 'astra_dashboard_spectra_admin_link', $spectra_admin_url );
 	}
 
 	/**
