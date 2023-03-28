@@ -203,7 +203,7 @@ class Astra_Menu {
 	/**
 	 * Provide the Spectra admin page URL.
 	 *
-	 * @since x.x.x
+	 * @since 4.1.1
 	 * @return string url.
 	 */
 	public function get_spectra_page_admin_link() {

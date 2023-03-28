@@ -2527,7 +2527,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'tablet' ),
 						'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'tablet' ),
 						'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'tablet' ),
-					)
+					),
 				);
 
 				/**
@@ -2544,7 +2544,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-top-right-radius'    => astra_responsive_spacing( $btn_border_radius_fields, 'right', 'mobile' ),
 						'border-bottom-right-radius' => astra_responsive_spacing( $btn_border_radius_fields, 'bottom', 'mobile' ),
 						'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'mobile' ),
-					)
+					),
 				);
 			}
 
