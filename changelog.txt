@@ -1,6 +1,4 @@
 v4.2.0 (Unreleased)
-- New: Accessibility options to change color and style of highlighted element.
-- New: WooCommerce - Shop - Introducing new redirect actions on Add to cart click.
 - Improvement: Theme package size optimized.
 
 v4.1.0
