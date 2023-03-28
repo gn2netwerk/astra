@@ -1,5 +1,5 @@
 v4.1.1
-- Fix: Related Post Title Font Size Not Working in Responsive mode.
+- Fix: Single Post - Related Post Title Font Size is not working for responsive devices.
 
 v4.1.0
 - New: Accessibility options to change color and style of highlighted element. ( https://wpastra.com/docs/accessibility-controls/ )
