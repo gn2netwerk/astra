@@ -1,3 +1,6 @@
+v4.1.1
+- Fix: Related Post Title Font Size Not Working in Responsive mode.
+
 v4.1.0
 - New: Accessibility options to change color and style of highlighted element. ( https://wpastra.com/docs/accessibility-controls/ )
 - New: WooCommerce - Shop - Introducing new redirect actions on add to cart click. ( https://wpastra.com/docs/introducing-new-add-to-cart-trigger-actions-for-shop-and-single-product-pages/ )
