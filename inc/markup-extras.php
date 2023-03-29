@@ -159,30 +159,41 @@ function astra_is_content_style_boxed() {
 	$blog_type            = is_singular() ? 'single' : 'archive';
 	$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
 	$global_content_style = astra_get_option( 'site-content-style', 'unboxed' );
-	$meta_content_style   = astra_get_option_meta( 'site-content-style', 'unboxed', true );
+	$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
 	$is_boxed = false;
 
-	// Woocommerce compatibility.
-	if ( 'product' === $post_type ) {
-		$global_content_style = astra_get_option( 'woocommerce-content-style', 'unboxed' );
+	$third_party_options = array(
+		'product'  => astra_get_option( 'woocommerce-content-style', '' ),
+		'download' => astra_get_option( 'edd-content-style', '' ),
+	);
+
+	// Third party content style option global compatibility.
+	if ( astra_is_third_party_post_type( $post_type ) ) {
+		$global_content_style = 'default' === $third_party_options[ $post_type ] ? $global_content_style : $third_party_options[ $post_type ];
 	}
 
 	// Check whether to apply boxed content style or not.
-	if( 'single' === $blog_type && ('single-content-style-boxed' === $meta_content_style || 'boxed' === $meta_content_style && 'product' === $post_type ) ) {
+	if ( 
+		'single' === $blog_type && ( 'single-content-style-boxed' === $meta_content_style ||
+		'boxed' === $meta_content_style && astra_is_third_party_post_type( $post_type ) ) ) {
 			$is_boxed = true;
 	}
-	elseif( 'boxed' === $content_style ) {
+	elseif ( 'boxed' === $content_style ) {
 		if ( empty( $meta_content_style ) || 'default' === $meta_content_style || 'archive' === $blog_type ) {
 			$is_boxed = true;
 		}
 	}
-	elseif( 'boxed' === $global_content_style ) {
+	elseif ( 'boxed' === $global_content_style ) {
 		if ( ( empty( $meta_content_style ) || 'default' === $meta_content_style ) && ( empty( $content_style ) || 'default' === $content_style ) ) {
 			$is_boxed = true;
 		}
 	}
 
 	return $is_boxed;
+}
+
+function astra_is_third_party_post_type( $post_type ) {
+	return in_array( $post_type, [ 'product', 'download' ] );
 }
 
 /**
