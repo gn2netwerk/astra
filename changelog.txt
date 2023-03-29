@@ -1,6 +1,5 @@
 v4.1.2
 - Fix: Post content shrinks on one side for the blog archive.
-- Fix: PHP error for "Uncaught Error: class Astra_Notices not found" in some cases.
 
 v4.1.1
 - Fix: Single Post - Related Post Title Font Size is not working for responsive devices.
