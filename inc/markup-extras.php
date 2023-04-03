@@ -169,7 +169,7 @@ function astra_is_content_style_boxed() {
 
 	// Third party content style option global compatibility.
 	if ( astra_is_third_party_post_type( $post_type ) ) {
-		$global_content_style = 'default' === $third_party_options[ $post_type ] ? $global_content_style : $third_party_options[ $post_type ];
+		$global_content_style = 'default' === $third_party_options[ $post_type ] || empty( $third_party_options[ $post_type ] ) ? $global_content_style : $third_party_options[ $post_type ];
 	}
 
 	// Check whether to apply boxed content style or not.
@@ -184,7 +184,7 @@ function astra_is_content_style_boxed() {
 		}
 	}
 	elseif ( 'boxed' === $global_content_style ) {
-		if ( ( empty( $meta_content_style ) || 'default' === $meta_content_style ) && ( empty( $content_style ) || 'default' === $content_style ) ) {
+		if ( ( empty( $meta_content_style ) || 'default' === $meta_content_style ) && ( empty( $content_style ) || 'default' === $content_style ) || 'archive' === $blog_type ) {
 			$is_boxed = true;
 		}
 	}

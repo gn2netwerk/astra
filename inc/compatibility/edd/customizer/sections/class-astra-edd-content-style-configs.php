@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Edd_Content_Style_Configs' ) ) {
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-edd-general',
-					'default'           => astra_get_option( 'edd-content-style', 'unboxed'),
+					'default'           => astra_get_option( 'edd-content-style' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Content Style', 'astra' ),
 					'choices'           => array(
