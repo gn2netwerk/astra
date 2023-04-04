@@ -233,7 +233,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
  * Add custom attribute to custom site logo.
  *
  * @param mixed $html custom logo html.
- * @since x.x.x
+ * @since 4.1.0
  * @return mixed custom logo html.
  */
 function astra_add_custom_logo_attributes( $html ) {
@@ -1695,7 +1695,7 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
  *
  * @param bool $value For checking this issue is still persist or not.
  *
- * @since x.x.x
+ * @since 4.1.0
  */
 function astra_bbpress_issue( $value ) {
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
