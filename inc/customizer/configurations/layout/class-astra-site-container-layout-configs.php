@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-container-layout',
-					'default'           => astra_get_option( 'site-content-style' ),
+					'default'           => astra_get_option( 'site-content-style', 'unboxed' ),
 					'priority'          => 9,
 					'title'             => __( 'Container Content Style', 'astra' ),
 					'choices'           => array(

@@ -172,20 +172,28 @@ function astra_is_content_style_boxed() {
 		$global_content_style = 'default' === $third_party_options[ $post_type ] || empty( $third_party_options[ $post_type ] ) ? $global_content_style : $third_party_options[ $post_type ];
 	}
 
-	// Check whether to apply boxed content style or not.
-	if ( 
-		'single' === $blog_type && ( 'single-content-style-boxed' === $meta_content_style ||
-		'boxed' === $meta_content_style && astra_is_third_party_post_type( $post_type ) ) ) {
-			$is_boxed = true;
+	// Global
+	if ( 'boxed' === $global_content_style ) {
+		$is_boxed = true;
 	}
-	elseif ( 'boxed' === $content_style ) {
-		if ( empty( $meta_content_style ) || 'default' === $meta_content_style || 'archive' === $blog_type ) {
+
+	// Archive
+	if( 'archive' === $blog_type && 'default' !== $content_style ) {
+		$is_boxed = ( 'boxed' === $content_style );
+	}
+	
+	// Single
+	if( 'single' === $blog_type && 'default' !== $content_style ) {
+		$is_boxed = ( 'boxed' === $content_style );
+	}
+
+	// Meta
+	if ( 'single' === $blog_type && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
+		if ( 'single-content-style-boxed' === $meta_content_style || 'boxed' === $meta_content_style && astra_is_third_party_post_type( $post_type ) ) {
 			$is_boxed = true;
 		}
-	}
-	elseif ( 'boxed' === $global_content_style ) {
-		if ( ( empty( $meta_content_style ) || 'default' === $meta_content_style ) && ( empty( $content_style ) || 'default' === $content_style ) || 'archive' === $blog_type ) {
-			$is_boxed = true;
+		else {
+			$is_boxed = false;
 		}
 	}
 
