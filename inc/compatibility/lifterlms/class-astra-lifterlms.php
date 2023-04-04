@@ -208,7 +208,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			);
 
 			// Container.
-			$defaults['lifterlms-content-layout'] = 'plain-container';
+			$defaults['lifterlms-content-layout']     = 'plain-container';
+			$defaults['lifterlms-new-content-layout'] = 'normal-width-container';
 
 			// Sidebar.
 			$defaults['lifterlms-sidebar-layout']               = 'no-sidebar';
