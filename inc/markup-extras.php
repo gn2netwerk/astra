@@ -1388,7 +1388,7 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 						}
 						break;
 					case 'single-excerpt':
-						$get_the_excerpt  = get_the_excerpt();
+						$get_the_excerpt = get_the_excerpt();
 						if ( empty( $get_the_excerpt ) ) {
 							$classes[] = 'ast-no-excerpt';
 							++$header_without_markup_counter;
