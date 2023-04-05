@@ -165,6 +165,8 @@ function astra_is_content_style_boxed() {
 	$third_party_options = array(
 		'product'  => astra_get_option( 'woocommerce-content-style', '' ),
 		'download' => astra_get_option( 'edd-content-style', '' ),
+		'course'   => astra_get_option( 'lifterlms-content-style', '' ),
+		'membership'   => astra_get_option( 'lifterlms-content-style', '' ),
 	);
 
 	// Third party content style option global compatibility.

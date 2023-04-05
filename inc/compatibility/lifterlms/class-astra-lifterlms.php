@@ -642,6 +642,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			if ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) {
 
 				$llms_layout = astra_get_option( 'lifterlms-content-layout' );
+				$llms_layout = astra_toggle_layout( 'lifterlms-new-content-layout', 'lifterlms-content-layout', 'global' );
 
 				$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 				$post_type            = strval( get_post_type() );
@@ -651,9 +652,10 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 					if ( is_singular() ) {
 						$dynamic_sidebar_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
+						$dynamic_sidebar_layout = astra_get_option( 'single-' . $post_type . '-new-content-layout' );
 					}
 					if ( is_archive() ) {
-						$dynamic_sidebar_layout = astra_get_option( 'archive-' . $post_type . '-content-layout' );
+						$dynamic_sidebar_layout = astra_get_option( 'archive-' . $post_type . '-new-content-layout' );
 					}
 
 					if ( ! empty( $dynamic_sidebar_layout ) && 'default' !== $dynamic_sidebar_layout ) {
@@ -676,6 +678,7 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					$shop_layout = 'default';
 				} else {
 					$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
+					$shop_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', 'meta' );
 				}
 
 				if ( 'default' !== $shop_layout && ! empty( $shop_layout ) ) {
