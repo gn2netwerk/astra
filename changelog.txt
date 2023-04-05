@@ -2,6 +2,7 @@ v4.1.3 (Unreleased)
 - Fix: Container - Content Boxed layout removes Spectra column or container left padding.
 - Fix: Offcanvas - Due to clickable hidden area toggle buttons don't work in RTL mode.
 - Fix: Header Builder - Cart - On adding product to cart, quantity plus & minus buttons gets disappear.
+- Fix: Topic tags div visible multiple times and goes into infinite loop in case of BBPress.
 
 v4.1.2
 - Fix: Post content shrinks on one side for the blog archive.
