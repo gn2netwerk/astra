@@ -10,7 +10,7 @@ window.addEventListener( "load", function(e) {
 
 
 /**This comment explains that in order to refresh the wc_fragments_refreshed event when an AJAX call is made, jQuery is used to update the quantity button. 
- * The comment acknowledges that plain JavaScript may not be able to trigger the wc_fragments_refreshed event in the same way, 
+ * Here plain JavaScript may not be able to trigger the wc_fragments_refreshed event in the same way, 
  * hence the need to use jQuery
 */
 jQuery( function( $ ) {
