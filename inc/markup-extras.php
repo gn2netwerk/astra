@@ -162,16 +162,17 @@ function astra_is_content_style_boxed() {
 	$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
 	$is_boxed = false;
 
-	$third_party_options = array(
-		'product'  => astra_get_option( 'woocommerce-content-style', '' ),
-		'download' => astra_get_option( 'edd-content-style', '' ),
-		'course'   => astra_get_option( 'lifterlms-content-style', '' ),
-		'membership'   => astra_get_option( 'lifterlms-content-style', '' ),
-	);
+	// Third party compatibility.
+	$third_party = astra_is_third_party();
+	if ( ! empty( $third_party ) ) {
+		$third_party_content_style = astra_get_option( $third_party . '-content-style', '' );
 
-	// Third party content style option global compatibility.
-	if ( astra_is_third_party_post_type( $post_type ) ) {
-		$global_content_style = 'default' === $third_party_options[ $post_type ] || empty( $third_party_options[ $post_type ] ) ? $global_content_style : $third_party_options[ $post_type ];
+		if ( 'lifterlms' === $third_party && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
+			$blog_type = '';
+		}
+
+		// Get global content style if third party is default.
+		$global_content_style = 'default' === $third_party_content_style || empty( $third_party_content_style ) ? $global_content_style : $third_party_content_style;		
 	}
 
 	// Global
@@ -191,7 +192,7 @@ function astra_is_content_style_boxed() {
 
 	// Meta
 	if ( 'single' === $blog_type && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
-		if ( 'single-content-style-boxed' === $meta_content_style || 'boxed' === $meta_content_style && astra_is_third_party_post_type( $post_type ) ) {
+		if ( 'single-content-style-boxed' === $meta_content_style || 'boxed' === $meta_content_style && astra_is_third_party() ) {
 			$is_boxed = true;
 		}
 		else {
@@ -202,8 +203,19 @@ function astra_is_content_style_boxed() {
 	return $is_boxed;
 }
 
-function astra_is_third_party_post_type( $post_type ) {
-	return in_array( $post_type, [ 'product', 'download', 'course' ] );
+function astra_is_third_party() {
+	
+	if( ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
+		return 'woocommerce';
+	}
+	else if ( is_plugin_active( 'easy-digital-downloads/easy-digital-downloads.php' ) && astra_is_edd_page() ) {
+		return 'edd';
+	}
+	else if ( ( is_plugin_active( 'lifterlms/lifterlms.php' ) ) && is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) {
+		return 'lifterlms';
+	}
+
+	return false;
 }
 
 /**
