@@ -1,4 +1,4 @@
-v4.1.3 (Unreleased)
+v4.1.3
 - Fix: Container - Content Boxed layout removes Spectra column or container left padding.
 - Fix: Offcanvas - Due to clickable hidden area toggle buttons don't work in RTL mode.
 - Fix: Header Builder - Cart - On adding product to cart, quantity plus & minus buttons gets disappear.
