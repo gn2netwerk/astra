@@ -2461,6 +2461,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'background-size'       => '.8em',
 					'background-repeat'     => 'no-repeat',
 					'background-position-x' => 'calc( 100% - 10px )',
+					'background-position-y' => 'center',
 					'-webkit-appearance'    => 'none',
 					'-moz-appearance'       => 'none',
 					'padding-right'         => '2em',
