@@ -203,7 +203,7 @@ function astra_is_content_style_boxed() {
 }
 
 function astra_is_third_party_post_type( $post_type ) {
-	return in_array( $post_type, [ 'product', 'download' ] );
+	return in_array( $post_type, [ 'product', 'download', 'course' ] );
 }
 
 /**

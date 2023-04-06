@@ -652,10 +652,11 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 
 					if ( is_singular() ) {
 						$dynamic_sidebar_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
-						$dynamic_sidebar_layout = astra_get_option( 'single-' . $post_type . '-new-content-layout' );
+						$dynamic_sidebar_layout = astra_toggle_layout( 'single-' . $post_type . '-new-content-layout', 'single-' . $post_type . '-content-layout', 'single' );
 					}
 					if ( is_archive() ) {
 						$dynamic_sidebar_layout = astra_get_option( 'archive-' . $post_type . '-new-content-layout' );
+						$dynamic_sidebar_layout = astra_toggle_layout( 'archive-' . $post_type . '-new-content-layout', 'archive-' . $post_type . '-content-layout', 'archive' );
 					}
 
 					if ( ! empty( $dynamic_sidebar_layout ) && 'default' !== $dynamic_sidebar_layout ) {
