@@ -1127,7 +1127,7 @@ function astra_migrate_content_layouts() {
 
 	// Global
 	if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
-		$theme_options = astra_apply_layout_migration( 'new-site-content-layout', 'site-content-layout', 'site-content-style' );	
+		$theme_options = astra_apply_layout_migration( 'new-site-content-layout', 'site-content-layout', 'site-content-style', $theme_options );	
 	}
 	update_option( 'astra-settings', $theme_options );
 }
