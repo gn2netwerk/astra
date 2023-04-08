@@ -386,6 +386,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) || is_singular( 'sfwd-quiz' ) || is_singular( 'sfwd-certificates' ) || is_singular( 'sfwd-assignment' ) ) {
 
 				$learndash_layout = astra_get_option( 'learndash-content-layout' );
+				$learndash_layout = astra_toggle_layout( 'learndash-new-content-layout', 'learndash-content-layout', 'global' );
 
 				if ( 'default' !== $learndash_layout ) {
 					$layout = $learndash_layout;
@@ -399,9 +400,11 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 
 					if ( is_singular() ) {
 						$dynamic_sidebar_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
+						$dynamic_sidebar_layout = astra_toggle_layout( 'single-' . $post_type . '-new-content-layout', 'single-' . $post_type . '-content-layout', 'single' );
 					}
 					if ( is_archive() ) {
 						$dynamic_sidebar_layout = astra_get_option( 'archive-' . $post_type . '-content-layout' );
+						$dynamic_sidebar_layout = astra_toggle_layout( 'archive-' . $post_type . '-new-content-layout', 'archive-' . $post_type . '-content-layout', 'archive' );
 					}
 
 					if ( ! empty( $dynamic_sidebar_layout ) && 'default' !== $dynamic_sidebar_layout ) {
@@ -410,6 +413,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				}
 
 				$learndash_layout = astra_get_option_meta( 'site-content-layout', '', true );
+				$learndash_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', 'meta' );
 
 				if ( 'default' !== $learndash_layout && ! empty( $learndash_layout ) ) {
 					$layout = $learndash_layout;

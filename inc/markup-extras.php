@@ -167,7 +167,7 @@ function astra_is_content_style_boxed() {
 	if ( ! empty( $third_party ) ) {
 		$third_party_content_style = astra_get_option( $third_party . '-content-style', '' );
 
-		if ( 'lifterlms' === $third_party && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
+		if ( in_array( $third_party, [ 'lifterlms', 'learndash' ] ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
 			$blog_type = '';
 		}
 
@@ -204,15 +204,20 @@ function astra_is_content_style_boxed() {
 }
 
 function astra_is_third_party() {
-	
+
+	$post_type            = strval( get_post_type() );
+
 	if( ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
 		return 'woocommerce';
 	}
 	else if ( is_plugin_active( 'easy-digital-downloads/easy-digital-downloads.php' ) && astra_is_edd_page() ) {
 		return 'edd';
 	}
-	else if ( ( is_plugin_active( 'lifterlms/lifterlms.php' ) ) && is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) {
+	else if ( ( is_plugin_active( 'lifterlms/lifterlms.php' ) ) && ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) ) {
 		return 'lifterlms';
+	}
+	else if ( ( is_plugin_active( 'lifterlms/lifterlms.php' ) ) && in_array( $post_type, [ 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ] ) ) {
+		return 'learndash';
 	}
 
 	return false;
