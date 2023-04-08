@@ -1119,3 +1119,40 @@ function astra_theme_background_updater_4_0_2() {
 	
 // 	update_option( 'astra-settings', $theme_options );
 // }
+
+
+function astra_migrate_content_layouts() {
+	$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
+	$theme_options = get_option( 'astra-settings' );
+
+	// Global
+	if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
+		$theme_options = astra_apply_layout_migration( 'new-site-content-layout', 'site-content-layout', 'site-content-style' );	
+	}
+	update_option( 'astra-settings', $theme_options );
+}
+
+function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options ) {
+		switch ( $old_layout ) {
+			case 'boxed-container':
+				$theme_options[ $new_layout ]    = 'normal-width-container';
+				$theme_options[ $content_style ] = 'boxed';
+				break;
+			case 'content-boxed-container':
+				$theme_options[ $new_layout ]    = 'normal-width-container';
+				$theme_options[ $content_style ] = 'boxed';
+				break;
+			case 'plain-container':
+				$theme_options[ $new_layout ]    = 'normal-width-container';
+				break;
+			case 'page-builder':
+				$theme_options[ $new_layout ]    = 'full-width-container';
+				break;
+			case 'narrow-container':
+				$theme_options[ $new_layout ]    = 'narrow-width-container';
+				break;
+			default:
+				$theme_options[ $new_layout ]    = 'default';
+				break;
+		}
+}
