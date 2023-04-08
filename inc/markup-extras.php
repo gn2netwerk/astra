@@ -175,22 +175,22 @@ function astra_is_content_style_boxed() {
 		$global_content_style = 'default' === $third_party_content_style || empty( $third_party_content_style ) ? $global_content_style : $third_party_content_style;		
 	}
 
-	// Global
+	// Global.
 	if ( 'boxed' === $global_content_style ) {
 		$is_boxed = true;
 	}
 
-	// Archive
+	// Archive.
 	if( 'archive' === $blog_type && 'default' !== $content_style ) {
 		$is_boxed = ( 'boxed' === $content_style );
 	}
 	
-	// Single
+	// Single.
 	if( 'single' === $blog_type && 'default' !== $content_style ) {
 		$is_boxed = ( 'boxed' === $content_style );
 	}
 
-	// Meta
+	// Meta.
 	if ( 'single' === $blog_type && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
 		if ( 'single-content-style-boxed' === $meta_content_style || 'boxed' === $meta_content_style && astra_is_third_party() ) {
 			$is_boxed = true;
