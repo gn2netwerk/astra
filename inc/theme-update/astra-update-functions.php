@@ -1133,7 +1133,7 @@ function astra_migrate_content_layouts() {
 }
 
 function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options ) {
-		switch ( $old_layout ) {
+		switch ( astra_get_option( $old_layout ) ) {
 			case 'boxed-container':
 				$theme_options[ $new_layout ]    = 'normal-width-container';
 				$theme_options[ $content_style ] = 'boxed';
