@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-section-spacing' ),
 				),
 
 				/**
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-leandash-general',
 					'default'           => astra_get_option( 'learndash-content-style', 'default' ),
-					'priority'          => 1,
+					'priority'          => 5,
 					'title'             => __( 'Container Content Style', 'astra' ),
 					'choices'           => array(
 						'default'         => array(
@@ -124,6 +124,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'archive-content-style-boxed' ) : '',
 						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 
 			);
