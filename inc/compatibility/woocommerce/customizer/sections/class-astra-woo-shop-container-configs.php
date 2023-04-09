@@ -103,7 +103,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[woocommerce-content-style]',
 					'type'              => 'control',
-					'control'           => 'ast-radio-image',
+					'control'           => 'ast-selector',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-woo-general',
 					'default'           => astra_get_option( 'woocommerce-content-style', 'default' ),
