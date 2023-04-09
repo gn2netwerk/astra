@@ -1134,9 +1134,9 @@ function astra_migrate_content_layouts() {
 	// Single, Archive.
 	foreach ( $blog_types as $index => $blog_type ) {
 		foreach( $post_types as $index => $post_type ) {
-			$old_layout    = $blog_type . esc_attr( $post_type ) . '-content-layout';
-			$new_layout    = $blog_type. esc_attr( $post_type ) . '-new-content-layout';
-			$content_style = $blog_type. esc_attr( $post_type ) . '-content-style';
+			$old_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-content-layout';
+			$new_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-new-content-layout';
+			$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
 			if( isset( $theme_options[ $old_layout ] ) ) {
 				$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options );	
 			}
