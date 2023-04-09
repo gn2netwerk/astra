@@ -1155,4 +1155,6 @@ function astra_apply_layout_migration( $old_layout, $new_layout, $content_style,
 				$theme_options[ $new_layout ]    = 'default';
 				break;
 		}
+
+		return $theme_options;
 }
