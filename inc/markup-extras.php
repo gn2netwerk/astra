@@ -181,12 +181,12 @@ function astra_is_content_style_boxed() {
 	}
 
 	// Archive.
-	if( 'archive' === $blog_type && 'default' !== $content_style ) {
+	if( 'archive' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style ) {
 		$is_boxed = ( 'boxed' === $content_style );
 	}
 	
 	// Single.
-	if( 'single' === $blog_type && 'default' !== $content_style ) {
+	if( 'single' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style  ) {
 		$is_boxed = ( 'boxed' === $content_style );
 	}
 
