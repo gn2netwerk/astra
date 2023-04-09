@@ -105,17 +105,11 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-separate-container ast-two-container';
 		} elseif ( 'page-builder' == $content_layout ) {
 			$classes[] = 'ast-page-builder-template';
-			if ( $is_boxed ) {
-				$classes[] = 'ast-full-boxed-container';
-				$classes[] = 'ast-separate-container';
-			}
 		} elseif ( 'plain-container' == $content_layout ) {
 			$classes[] = 'ast-plain-container';
-
 		} elseif ( 'narrow-container' == $content_layout ) {
 			$classes[] = 'ast-narrow-container';
 			if ( $is_boxed ) {
-				$classes[] = 'ast-narrow-boxed-container';
 				$classes[] = 'ast-separate-container';
 			}
 		}
@@ -207,16 +201,16 @@ function astra_is_third_party() {
 
 	$post_type            = strval( get_post_type() );
 
-	if( ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
+	if( defined( 'ASTRA_EXT_VER' ) && class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
 		return 'woocommerce';
 	}
-	else if ( is_plugin_active( 'easy-digital-downloads/easy-digital-downloads.php' ) && astra_is_edd_page() ) {
+	else if ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'Easy_Digital_Downloads' ) && astra_is_edd_page() ) {
 		return 'edd';
 	}
-	else if ( ( is_plugin_active( 'lifterlms/lifterlms.php' ) ) && ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) ) {
+	else if ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'LifterLMS' ) && ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) ) {
 		return 'lifterlms';
 	}
-	else if ( ( is_plugin_active( 'lifterlms/lifterlms.php' ) ) && in_array( $post_type, [ 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ] ) ) {
+	else if ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'SFWD_LMS' ) && in_array( $post_type, [ 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ] ) ) {
 		return 'learndash';
 	}
 

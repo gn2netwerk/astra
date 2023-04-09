@@ -102,6 +102,39 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	}
 
 	/**
+	 * Getting dynamic context for content style.
+	 * Compatibility case: hide content style option for Fullwidth layout.
+	 *
+	 * @param string
+	 * @return mixed
+	 * @since 4.0.0
+	 */
+	public function get_content_style_context( $post_type ) {
+		return array(
+			'relation' => 'AND',
+			Astra_Builder_Helper::$general_tab_config,
+			array(
+				'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-new-content-layout]',
+				'operator' => '!=',
+				'value'    => 'full-width-container',
+			),
+			array(
+				'relation' => 'OR',
+				array(
+					'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-new-content-layout]',
+					'operator' => '!=',
+					'value'    => 'default',
+				),
+				array(
+					'setting'  => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
+					'operator' => '!=',
+					'value'    => 'full-width-container',
+				),
+			),
+		);
+	}
+
+	/**
 	 * Getting content layout dynamically.
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
@@ -250,6 +283,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'default'           => astra_get_option( 'single-' . $post_type . '-content-style', 'default' ),
 				'priority'          => 3,
 				'title'             => __( 'Container Content Style', 'astra' ),
+				'context'           => $this->get_content_style_context( $post_type ),
 				'choices'     => array(
 					'default' => 'Default',
 					'unboxed' => 'Unboxed',
