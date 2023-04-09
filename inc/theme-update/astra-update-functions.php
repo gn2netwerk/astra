@@ -1125,6 +1125,7 @@ function astra_migrate_content_layouts() {
 	$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 	$theme_options = get_option( 'astra-settings' );
 	$blog_types = [ 'single', 'archive' ];
+	$meta = astra_get_option_meta('site-content-layout');
 
 	// Global.
 	if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
@@ -1142,7 +1143,6 @@ function astra_migrate_content_layouts() {
 			}
 		}
 	}
-
 
 	update_option( 'astra-settings', $theme_options );
 }
