@@ -368,7 +368,6 @@ const MetaSettings = props => {
     id: 'new-site-content-layout',
     onChange: val => {
       setContentLayout(val);
-      console.log(val);
       if (val === 'narrow-container') props.setMetaFieldValue('no-sidebar', 'site-sidebar-layout');
       props.setMetaFieldValue(val, 'new-site-content-layout');
 
@@ -397,7 +396,7 @@ const MetaSettings = props => {
     initialOpen: true
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-sidebar-layout-meta-wrap components-base-control__field"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_radio_image_js__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_selector_js__WEBPACK_IMPORTED_MODULE_7__["default"], {
     metavalue: undefined !== props.meta['site-content-style'] && '' !== props.meta['site-content-style'] ? props.meta['site-content-style'] : 'default',
     choices: contentStyleOptions,
     id: 'site-content-style',

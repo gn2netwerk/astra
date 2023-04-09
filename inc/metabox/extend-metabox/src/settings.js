@@ -148,7 +148,6 @@ const MetaSettings = props => {
 								id = { 'new-site-content-layout' }
 								onChange={ ( val ) => {
 									setContentLayout(val);
-									console.log(val)
 									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
 									props.setMetaFieldValue( val, 'new-site-content-layout' );
 									
@@ -183,7 +182,7 @@ const MetaSettings = props => {
 						initialOpen={ true }
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
-							<AstRadioImageControl
+							<AstSelectorControl
 								metavalue = { ( undefined !== props.meta['site-content-style'] && ''!== props.meta['site-content-style'] ? props.meta['site-content-style'] : 'default' ) }
 								choices = { contentStyleOptions }
 								id = { 'site-content-style' }

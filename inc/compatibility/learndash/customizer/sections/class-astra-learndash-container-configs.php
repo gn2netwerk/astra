@@ -104,26 +104,18 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[learndash-content-style]',
 					'type'              => 'control',
-					'control'           => 'ast-radio-image',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'control'           => 'ast-selector',
 					'section'           => 'section-leandash-general',
 					'default'           => astra_get_option( 'learndash-content-style', 'default' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Content Style', 'astra' ),
-					'choices'           => array(
-						'default'         => array(
-							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-						),
-						'unboxed'         => array(
-							'label' => __( 'Unboxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'archive-content-style-unboxed' ) : '',
-						),
-						'boxed'           => array(
-							'label' => __( 'Boxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'archive-content-style-boxed' ) : '',
-						),
+					'choices'     => array(
+						'default' => 'Default',
+						'unboxed' => 'Unboxed',
+						'boxed'   => 'Boxed',
 					),
+					'renderAs'   => 'text',
+					'responsive' => false,
 					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 

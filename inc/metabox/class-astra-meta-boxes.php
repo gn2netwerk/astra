@@ -593,9 +593,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function get_content_style_options() {
 			return array(
-				'default'                      => __( 'Customizer Setting', 'astra' ),
-				'single-content-style-unboxed' => __( 'Unboxed', 'astra' ),
-				'single-content-style-boxed'   => __( 'Boxed', 'astra' ),
+				'default' => __( 'Default', 'astra' ),
+				'unboxed' => __( 'Unboxed', 'astra' ),
+				'boxed'   => __( 'Boxed', 'astra' ),
 			);
 		}
 

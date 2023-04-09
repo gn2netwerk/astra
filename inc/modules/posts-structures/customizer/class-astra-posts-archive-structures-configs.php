@@ -210,28 +210,6 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	}
 
 	/**
-	 * Getting content layout style choices dynamically.
-	 * @param void
-	 * @since x.x.x
-	 */
-	public function get_content_style_choices() {
-		return array(
-			'default'                 => array(
-				'label' => __( 'Default', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-			),
-			'unboxed'            => array(
-				'label' => __( 'Unboxed', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'archive-content-style-unboxed', false ) : '',
-			),
-			'boxed'         => array(
-				'label' => __( 'Boxed', 'astra' ),
-				'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'archive-content-style-boxed', false ) : '',
-			),
-		);
-	}
-
-	/**
 	 * Register Single Post's Structures Customizer Configurations.
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
@@ -273,13 +251,18 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-style]',
 				'type'              => 'control',
-				'control'           => 'ast-radio-image',
-				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+				'control'           => 'ast-selector',
 				'section'           => $parent_section,
 				'default'           => astra_get_option( 'archive-' . $post_type . '-content-style', 'default' ),
 				'priority'          => 5,
 				'title'             => __( 'Container Content Style', 'astra' ),
-				'choices'           => $this->get_content_style_choices( $post_type ),
+				'choices'     => array(
+					'default' => 'Default',
+					'unboxed' => 'Unboxed',
+					'boxed'   => 'Boxed',
+				),
+				'responsive' => false,
+				'renderAs'   => 'text',
 				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 			),
 			array(
@@ -292,7 +275,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 5,
 				'title'             => __( 'Sidebar Layout', 'astra' ),
 				'context'           => $this->get_sidebar_context( $post_type ),
-				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				'choices'           => array(
 					'default'       => array(
 						'label' => __( 'Default', 'astra' ),

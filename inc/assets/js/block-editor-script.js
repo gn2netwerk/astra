@@ -84,7 +84,7 @@ function astra_onload_function() {
 
 			switch( contentLayout ) {
 			case 'normal-width-container':
-				if( 'single-content-style-boxed' === contentStyle ) {
+				if( 'boxed' === contentStyle ) {
 					bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
 					bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 				} else {

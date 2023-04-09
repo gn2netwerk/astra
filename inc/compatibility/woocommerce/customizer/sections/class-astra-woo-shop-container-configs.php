@@ -106,23 +106,16 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-woo-general',
-					'default'           => astra_get_option( 'woocommerce-content-style', 'unboxed'),
+					'default'           => astra_get_option( 'woocommerce-content-style', 'default' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Content Style', 'astra' ),
-					'choices'           => array(
-						'default'         => array(
-							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-						),
-						'unboxed'         => array(
-							'label' => __( 'Unboxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'archive-content-style-unboxed' ) : '',
-						),
-						'boxed'           => array(
-							'label' => __( 'Boxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'archive-content-style-boxed' ) : '',
-						),
+					'choices'     => array(
+						'default' => 'Default',
+						'unboxed' => 'Unboxed',
+						'boxed'   => 'Boxed',
 					),
+					'renderAs'   => 'text',
+					'responsive' => false,
 					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 				),
 			);
