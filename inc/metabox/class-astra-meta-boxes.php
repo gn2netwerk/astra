@@ -609,7 +609,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				),
 			);
 
-			$post_type            = get_post_type();
+			$post_type            = strval( get_post_type() );
 			$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 			if ( ( in_array( $post_type, $supported_post_types ) && true === astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) ) {
 				$astra_page_meta_elements[] = array(
