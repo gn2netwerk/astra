@@ -1,5 +1,6 @@
 v4.1.4 (Unreleased)
-- New: Introducing new "Disable Banner Area" metabox based option to control visibility of dynamic title area. (Needs doc)
+- New: Introducing new "Disable Banner Area" metabox based option to control visibility of title banner area. (Needs doc)
+- Improvement: Theme package size has been optimized from 9MB to under 6MB.
 
 v4.1.3
 - Fix: Container - Content Boxed layout removes Spectra column or container left padding.
