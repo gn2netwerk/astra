@@ -609,6 +609,15 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				),
 			);
 
+			$post_type            = get_post_type();
+			$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
+			if ( ( in_array( $post_type, $supported_post_types ) && true === astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) ) {
+				$astra_page_meta_elements[] = array(
+					'key'   => 'ast-banner-title-visibility',
+					'label' => __( 'Disable Banner Area', 'astra' ),
+				);
+			}
+
 			if ( 'none' !== astra_get_option( 'breadcrumb-position', 'none' ) ) {
 				$astra_page_meta_elements[] = array(
 					'key'   => 'ast-breadcrumbs-content',
@@ -769,6 +778,17 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'show_in_rest'  => true,
 					'single'        => true,
 					'default'       => isset( $meta['ast-global-header-display']['default'] ) ? $meta['ast-global-header-display']['default'] : '',
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+			register_post_meta(
+				'',
+				'ast-banner-title-visibility',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'default'       => isset( $meta['ast-banner-title-visibility']['default'] ) ? $meta['ast-banner-title-visibility']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -939,6 +959,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'astra_meta_box_options',
 				array(
 					'ast-global-header-display'     => array(
+						'sanitize' => 'FILTER_SANITIZE_STRING',
+					),
+					'ast-banner-title-visibility'       => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-hfb-above-header-display'  => array(
