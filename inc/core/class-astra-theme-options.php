@@ -445,11 +445,14 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'em',
 						'mobile-unit'  => 'em',
 					),
+
 					// Container.
 					'site-content-layout'                  => 'content-boxed-container',
 					'single-page-content-layout'           => false === astra_check_is_structural_setup() ? 'default' : 'plain-container',
 					'single-post-content-layout'           => 'default',
 					'archive-post-content-layout'          => 'default',
+					'new-site-content-layout'              => 'normal-width-container',
+
 					// Typography.
 					'body-font-family'                     => 'inherit',
 					'body-font-variant'                    => '',

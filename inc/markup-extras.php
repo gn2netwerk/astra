@@ -81,13 +81,24 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		} else {
 			$classes[] = 'ast-desktop';
 		}
-
+		
 		if ( astra_is_amp_endpoint() ) {
 			$classes[] = 'ast-amp';
 		}
-
+		
 		// Apply separate container class to the body.
 		$content_layout = astra_get_content_layout();
+		$is_boxed       = astra_is_content_style_boxed();
+
+		if ( 'plain-container' == $content_layout && $is_boxed ) {
+			$post_type                   = strval( get_post_type() );
+			$blog_type                   = is_singular() ? 'single' : 'archive';
+			$astra_theme_options         = get_option( 'astra-settings' );
+			$astra_theme_options[ $blog_type . '-' . $post_type . '-content-layout' ] = 'content-boxed-container';
+			$content_layout              = 'content-boxed-container';
+			update_option( 'astra-settings', $astra_theme_options, true );
+		}
+
 		if ( 'content-boxed-container' == $content_layout ) {
 			$classes[] = 'ast-separate-container';
 		} elseif ( 'boxed-container' == $content_layout ) {
@@ -98,7 +109,11 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-plain-container';
 		} elseif ( 'narrow-container' == $content_layout ) {
 			$classes[] = 'ast-narrow-container';
+			if ( $is_boxed ) {
+				$classes[] = 'ast-separate-container';
+			}
 		}
+
 
 		// Sidebar location.
 		$page_layout = 'ast-' . astra_page_layout();
@@ -131,6 +146,76 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 }
 
 add_filter( 'body_class', 'astra_body_classes' );
+
+function astra_is_content_style_boxed() {
+
+	$post_type            = strval( get_post_type() );
+	$blog_type            = is_singular() ? 'single' : 'archive';
+	$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
+	$global_content_style = astra_get_option( 'site-content-style' );
+	$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
+	$is_boxed = false;
+
+	// Third party compatibility.
+	$third_party = astra_is_third_party();
+	if ( ! empty( $third_party ) ) {
+		$third_party_content_style = astra_get_option( $third_party . '-content-style', '' );
+
+		if ( in_array( $third_party, [ 'lifterlms', 'learndash' ] ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
+			$blog_type = '';
+		}
+
+		// Get global content style if third party is default.
+		$global_content_style = 'default' === $third_party_content_style || empty( $third_party_content_style ) ? $global_content_style : $third_party_content_style;		
+	}
+
+	// Global.
+	if ( 'boxed' === $global_content_style ) {
+		$is_boxed = true;
+	}
+
+	// Archive.
+	if( 'archive' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style ) {
+		$is_boxed = ( 'boxed' === $content_style );
+	}
+	
+	// Single.
+	if( 'single' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style  ) {
+		$is_boxed = ( 'boxed' === $content_style );
+	}
+
+	// Meta.
+	if ( 'single' === $blog_type && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
+		if ( 'boxed' === $meta_content_style && astra_is_third_party() ) {
+			$is_boxed = true;
+		}
+		else {
+			$is_boxed = false;
+		}
+	}
+
+	return $is_boxed;
+}
+
+function astra_is_third_party() {
+
+	$post_type            = strval( get_post_type() );
+
+	if( defined( 'ASTRA_EXT_VER' ) && class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
+		return 'woocommerce';
+	}
+	else if ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'Easy_Digital_Downloads' ) && astra_is_edd_page() ) {
+		return 'edd';
+	}
+	else if ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'LifterLMS' ) && ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) ) {
+		return 'lifterlms';
+	}
+	else if ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'SFWD_LMS' ) && in_array( $post_type, [ 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ] ) ) {
+		return 'learndash';
+	}
+
+	return false;
+}
 
 /**
  * Astra Pagination

@@ -995,6 +995,19 @@ function hasWordPressWidgetBlockEditor() {
 		} );
 	} );
 
+
+	wp.customize( 'astra-settings[new-site-content-layout]', function( value ) {
+		value.bind( function( layout ) {
+			wp.customize.preview.send( 'refresh' );
+		} );
+	} );
+
+	wp.customize( 'astra-settings[site-content-layout]', function( value ) {
+		value.bind( function( layout ) {
+			wp.customize.preview.send( 'refresh' );
+		} );
+	} );
+
 	/**
 	 * Header Bottom Border color
 	 */

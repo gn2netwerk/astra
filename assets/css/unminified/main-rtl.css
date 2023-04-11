@@ -1128,6 +1128,10 @@ body {
   }
 }
 
+.ast-full-boxed-content .post-navigation {
+  background-color: #f5f5f5;
+}
+
 /*----------  Navigation  ----------*/
 /**
  * 	Navigations

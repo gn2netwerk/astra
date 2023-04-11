@@ -40,26 +40,65 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'relation' => 'AND',
 				Astra_Builder_Helper::$general_tab_config,
 				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-layout]',
+					'setting'  => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
 					'operator' => '!=',
-					'value'    => 'narrow-container',
+					'value'    => 'narrow-width-container',
+				),
+				array(
+					'setting'  => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
+					'operator' => '!=',
+					'value'    => 'full-width-container',
 				),
 				array(
 					'relation' => 'OR',
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-layout]',
+						'setting'  => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
 						'operator' => '!=',
 						'value'    => 'default',
 					),
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[site-content-layout]',
+						'setting'  => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
 						'operator' => '!=',
-						'value'    => 'narrow-container',
+						'value'    => 'narrow-width-container',
+					),
+				),
+				array(
+					'relation' => 'OR',
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
+						'operator' => '!=',
+						'value'    => 'default',
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
+						'operator' => '!=',
+						'value'    => 'full-width-container',
 					),
 				),
 			);
 		} else {
-			return Astra_Builder_Helper::$general_tab;
+			return array(
+				'relation' => 'AND',
+				Astra_Builder_Helper::$general_tab_config,
+				array(
+					'setting'  => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
+					'operator' => '!=',
+					'value'    => 'full-width-container',
+				),
+				array(
+					'relation' => 'OR',
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
+						'operator' => '!=',
+						'value'    => 'default',
+					),
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woocommerce-new-content-layout]',
+						'operator' => '!=',
+						'value'    => 'full-width-container',
+					),
+				),
+			);
 		}
 	}
 
@@ -125,6 +164,52 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	}
 
 	/**
+	 * Getting new content layout options dynamically.
+	 * Compatibility case: Narrow width + dynamic customizer controls.
+	 *
+	 * @param string $post_type On basis of this will decide to show narrow-width layout or not.
+	 * @since x.x.x
+	 */
+	public function get_new_content_layout_choices( $post_type ) {
+		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {
+			return array(
+				'default'                 => array(
+					'label' => __( 'Default', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
+				),
+				'normal-width-container'         => array(
+					'label' => __( 'Normal', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+				),
+				'narrow-width-container'        => array(
+					'label' => __( 'Narrow', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
+				),
+				'full-width-container'            => array(
+					'label' => __( 'Full Width', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
+				),
+			);
+		}
+		else {
+			return array(
+				'default'                 => array(
+					'label' => __( 'Default', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
+				),
+				'normal-width-container'         => array(
+					'label' => __( 'Normal', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+				),
+				'full-width-container'            => array(
+					'label' => __( 'Full Width', 'astra' ),
+					'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
+				),
+			);
+		}
+	}
+
+	/**
 	 * Register Single Post's Structures Customizer Configurations.
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
@@ -141,13 +226,43 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-layout]',
 				'type'              => 'control',
-				'control'           => 'ast-radio-image',
+				'control'           => 'ast-hidden',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 				'section'           => $parent_section,
 				'default'           => astra_get_option( 'archive-' . $post_type . '-content-layout', 'default' ),
 				'priority'          => 5,
 				'title'             => __( 'Container Layout', 'astra' ),
+				'transport'         => 'refresh',
 				'choices'           => $this->get_content_layout_choices( $post_type ),
+			),
+			array(
+				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
+				'type'              => 'control',
+				'control'           => 'ast-radio-image',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+				'section'           => $parent_section,
+				'default'           => astra_get_option( 'archive-' . $post_type . '-new-content-layout', 'default' ),
+				'priority'          => 5,
+				'title'             => __( 'Container Layout', 'astra' ),
+				'choices'           => $this->get_new_content_layout_choices( $post_type ),
+				'transport'         => 'refresh',
+				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+			),
+			array(
+				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-style]',
+				'type'              => 'control',
+				'control'           => 'ast-selector',
+				'section'           => $parent_section,
+				'default'           => astra_get_option( 'archive-' . $post_type . '-content-style', 'default' ),
+				'priority'          => 5,
+				'title'             => __( 'Container Content Style', 'astra' ),
+				'choices'     => array(
+					'default' => 'Default',
+					'unboxed' => 'Unboxed',
+					'boxed'   => 'Boxed',
+				),
+				'responsive' => false,
+				'renderAs'   => 'text',
 				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 			),
 			array(
@@ -160,7 +275,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 5,
 				'title'             => __( 'Sidebar Layout', 'astra' ),
 				'context'           => $this->get_sidebar_context( $post_type ),
-				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				'choices'           => array(
 					'default'       => array(
 						'label' => __( 'Default', 'astra' ),

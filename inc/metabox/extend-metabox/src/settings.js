@@ -25,7 +25,7 @@ const MetaSettings = props => {
     const closeModal = () => setOpen( false );
 
 	const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
-	const [ contentLayout, setContentLayout ] = useState(props.meta['site-content-layout']);
+	const [ contentLayout, setContentLayout ] = useState(props.meta['new-site-content-layout']);
 
 	// Adjust spacing & borders for table.
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
@@ -37,6 +37,10 @@ const MetaSettings = props => {
 	} );
 
 	const contentLayoutOptions = Object.entries( astMetaParams.content_layout ).map( ( [ key, name ] ) => {
+		return ( { label: name, value: key } );
+	} );
+
+	const contentStyleOptions = Object.entries( astMetaParams.content_style ).map( ( [ key, name ] ) => {
 		return ( { label: name, value: key } );
 	} );
 
@@ -93,21 +97,23 @@ const MetaSettings = props => {
 		/>);
 	});
 
-	const [isDefaultNarrow, setIsDefaultNarrow] = useState(false);
+	const [isDefaultExclude, setIsDefaultExclude] = useState(false);
 
-	// Side effect calling DOM API to check if current default layout is set to narrow width content layout.
+	// Side effect calling DOM API to check if current default layout is set to narrow width or full width content layout.
 	useEffect(() => {
-		if (document.querySelector('body').classList.contains('ast-default-layout-narrow-container')) {
-			setIsDefaultNarrow(true);
+		const isDefaultNarrow    = document.querySelector( 'body' ).classList.contains( 'ast-default-layout-narrow-container' );
+		const isDefaultFullWidth = document.querySelector( 'body' ).classList.contains( 'ast-default-layout-page-builder' );
+		if ( isDefaultFullWidth || isDefaultNarrow ) {
+			setIsDefaultExclude( true );
 		}
 		else {
-			setIsDefaultNarrow(false);
+			setIsDefaultExclude( false );
 		}
-	}, [contentLayout, setIsDefaultNarrow]);
+	}, [ contentLayout, setIsDefaultExclude ] );
 
 	// Display sidebar options or not.
 	const showSidebar = () => {
-		return (('narrow-container' === contentLayout) || ('default' === contentLayout && isDefaultNarrow)) ? false : true;
+		return ( ( 'narrow-width-container' === contentLayout ) || ( 'full-width-container' === contentLayout ) ||( 'default' === contentLayout && isDefaultExclude ) ) ? false : true;
 	}
 
 	return (
@@ -137,18 +143,55 @@ const MetaSettings = props => {
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							<AstRadioImageControl
-								metavalue = { ( undefined !== props.meta['site-content-layout'] && ''!== props.meta['site-content-layout'] ? props.meta['site-content-layout'] : 'default' ) }
+								metavalue = { ( undefined !== props.meta['new-site-content-layout'] && ''!== props.meta['new-site-content-layout'] ? props.meta['new-site-content-layout'] : 'default' ) }
 								choices = { contentLayoutOptions }
-								id = { 'site-content-layout' }
+								id = { 'new-site-content-layout' }
 								onChange={ ( val ) => {
 									setContentLayout(val);
 									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
-									props.setMetaFieldValue( val, 'site-content-layout' );
+									props.setMetaFieldValue( val, 'new-site-content-layout' );
+									
+									// Set old content layout value.
+									switch ( val ) {
+										case 'normal-width-container':
+											if ( props.meta['site-content-style'] && 'boxed' === props.meta['site-content-style'] ) {
+												props.setMetaFieldValue( 'content-boxed-container', 'site-content-layout' );
+											}
+											break;
+										case 'narrow-width-container':
+											props.setMetaFieldValue( 'narrow-container', 'site-content-layout' );
+										break;
+										case 'full-width-container':
+											props.setMetaFieldValue( 'page-builder', 'site-content-layout' );
+											break;			
+										case 'default':
+											props.setMetaFieldValue( 'default', 'site-content-layout' );
+											break;			
+										default:
+											break;
+									}
 								} }
 							/>
 						</div>
 					</PanelBody>
 					)}
+
+					{/* Content Style Setting */}
+					<PanelBody
+						title={ __( 'Content Style', 'astra' ) }
+						initialOpen={ true }
+					>
+						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
+							<AstSelectorControl
+								metavalue = { ( undefined !== props.meta['site-content-style'] && ''!== props.meta['site-content-style'] ? props.meta['site-content-style'] : 'default' ) }
+								choices = { contentStyleOptions }
+								id = { 'site-content-style' }
+								onChange={ ( val ) => {
+									props.setMetaFieldValue( val, 'site-content-style' );
+								} }
+							/>
+						</div>
+					</PanelBody>					
 
 					{/* Sidebar Setting */}
 					{ ! is_hide_contnet_layout_sidebar && showSidebar() && (
