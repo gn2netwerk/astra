@@ -111,6 +111,37 @@ const MetaSettings = props => {
 		}
 	}, [ contentLayout, setIsDefaultExclude ] );
 
+	// useEffect(() => {
+	// 	if ( props.meta['astra-migrated-user-meta'] ) {
+
+	// 		// older user
+
+	// 		console.log(props.meta['site-content-layout']);
+	// 		// // Set old content layout value.
+	// 		// switch ( val ) {
+	// 		// 	case 'normal-width-container':
+	// 		// 		props.setMetaFieldValue( 'plain-container', 'site-content-layout' );
+	// 		// 		if ( props.meta['site-content-style'] && 'boxed' === props.meta['site-content-style'] ) {
+	// 		// 			props.setMetaFieldValue( 'content-boxed-container', 'site-content-layout' );
+	// 		// 		}
+	// 		// 		break;
+	// 		// 	case 'narrow-width-container':
+	// 		// 		props.setMetaFieldValue( 'narrow-container', 'site-content-layout' );
+	// 		// 	break;
+	// 		// 	case 'full-width-container':
+	// 		// 		props.setMetaFieldValue( 'page-builder', 'site-content-layout' );
+	// 		// 		break;			
+	// 		// 	case 'default':
+	// 		// 		props.setMetaFieldValue( 'default', 'site-content-layout' );
+	// 		// 		break;			
+	// 		// 	default:
+	// 		// 		break;
+	// 		// }
+	// 	}
+	// }, [] );
+
+	console.log(props.meta['site-content-layout']);
+
 	// Display sidebar options or not.
 	const showSidebar = () => {
 		return ( ( 'narrow-width-container' === contentLayout ) || ( 'full-width-container' === contentLayout ) ||( 'default' === contentLayout && isDefaultExclude ) ) ? false : true;

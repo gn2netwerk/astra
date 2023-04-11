@@ -1142,40 +1142,41 @@ function astra_theme_background_updater_4_1_0() {
 function astra_theme_background_updater_4_1_4() {
 	$post_types            = Astra_Posts_Structure_Loader::get_supported_post_types();
 	$theme_options         = get_option( 'astra-settings' );
-	$blog_types            = [ 'single', 'archive' ]; // convert to array PHP 8
-	$third_party_layouts   = [ 'woocommerce', 'edd', 'lifterlms', 'learndash' ];
+	$blog_types            = array( 'single', 'archive' );
+	$third_party_layouts   = array( 'woocommerce', 'edd', 'lifterlms', 'learndash' );
 
-	// Backwards flag.
-	$theme_options[ 'astra-v4-1-4-migrate' ] =  true;
+	if ( ! isset( $theme_options['v4-1-4-update-migration'] ) ) {
 
-	// Global.
-	if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
-		$theme_options = astra_apply_layout_migration( 'site-content-layout', 'new-site-content-layout', 'site-content-style', $theme_options );	
-	}
+		$theme_options['v4-1-4-update-migration'] = true;
 
-	// Single, Archive.
-	foreach ( $blog_types as $index => $blog_type ) {
-		foreach( $post_types as $index => $post_type ) {
-			$old_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-content-layout';
-			$new_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-new-content-layout';
-			$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
+		// Global.
+		if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
+			$theme_options = astra_apply_layout_migration( 'site-content-layout', 'new-site-content-layout', 'site-content-style', $theme_options );	
+		}
+	
+		// Single, Archive.
+		foreach ( $blog_types as $index => $blog_type ) {
+			foreach( $post_types as $index => $post_type ) {
+				$old_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-content-layout';
+				$new_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-new-content-layout';
+				$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
+				if( isset( $theme_options[ $old_layout ] ) ) {
+					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options );	
+				}
+			}
+		}
+	
+		// Third party content layout.
+		foreach( $third_party_layouts as $index => $layout ) {
+			$old_layout    = $layout . '-content-layout';
+			$new_layout    = $layout . '-new-content-layout';
+			$content_style = $layout . '-content-style';
 			if( isset( $theme_options[ $old_layout ] ) ) {
 				$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options );	
 			}
 		}
+		update_option( 'astra-settings', $theme_options );
 	}
-
-	// Third party content layout.
-	foreach( $third_party_layouts as $index => $layout ) {
-		$old_layout    = $layout . '-content-layout';
-		$new_layout    = $layout . '-new-content-layout';
-		$content_style = $layout . '-content-style';
-		if( isset( $theme_options[ $old_layout ] ) ) {
-			$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options );	
-		}
-	}
-
-	update_option( 'astra-settings', $theme_options );
 }
 
 function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options ) {
