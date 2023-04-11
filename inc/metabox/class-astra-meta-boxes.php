@@ -1005,8 +1005,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
 			$astra_update_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
-
-			if ( ! $astra_update_migration ) {
+			$astra_update_migration = true;
+			if ( $astra_update_migration ) {
 				register_post_meta(
 					'',
 					'astra-migrated-user-meta',

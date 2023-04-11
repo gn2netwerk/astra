@@ -111,36 +111,50 @@ const MetaSettings = props => {
 		}
 	}, [ contentLayout, setIsDefaultExclude ] );
 
-	// useEffect(() => {
-	// 	if ( props.meta['astra-migrated-user-meta'] ) {
+	useEffect(() => {
+		if ( props.meta['astra-migrated-user-meta'] ) {
+			switch ( props.meta['site-content-layout'] ) {
+				case 'plain-container':
+					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
+					if ( props.meta['site-content-style'] ) {
+						props.setMetaFieldValue( 'unboxed', 'site-content-style' );
+					}
+					break;
+				case 'boxed-container':
+					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
+					if ( props.meta['site-content-style'] ) {
+						props.setMetaFieldValue( 'boxed', 'site-content-style' );
+					}
+					break;
+				case 'content-boxed-container':
+					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
+					if ( props.meta['site-content-style'] ) {
+						props.setMetaFieldValue( 'boxed', 'site-content-style' );
+					}
+					break;
+				case 'page-builder':
+					props.setMetaFieldValue( 'full-width-container', 'new-site-content-layout' );
+					if ( props.meta['site-content-style'] ) {
+						props.setMetaFieldValue( 'unboxed', 'site-content-style' );
+					}
+					break;
+				case 'narrow-container':
+					props.setMetaFieldValue( 'narrow-width-container', 'new-site-content-layout' );
+					if ( props.meta['site-content-style'] ) {
+						props.setMetaFieldValue( 'unboxed', 'site-content-style' );
+					}
+					break;			
+				case ('default' || ''):
+					props.setMetaFieldValue( 'default', 'site-content-layout' );
+					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
+					break;
+				default:
+					break;
+			}
 
-	// 		// older user
-
-	// 		console.log(props.meta['site-content-layout']);
-	// 		// // Set old content layout value.
-	// 		// switch ( val ) {
-	// 		// 	case 'normal-width-container':
-	// 		// 		props.setMetaFieldValue( 'plain-container', 'site-content-layout' );
-	// 		// 		if ( props.meta['site-content-style'] && 'boxed' === props.meta['site-content-style'] ) {
-	// 		// 			props.setMetaFieldValue( 'content-boxed-container', 'site-content-layout' );
-	// 		// 		}
-	// 		// 		break;
-	// 		// 	case 'narrow-width-container':
-	// 		// 		props.setMetaFieldValue( 'narrow-container', 'site-content-layout' );
-	// 		// 	break;
-	// 		// 	case 'full-width-container':
-	// 		// 		props.setMetaFieldValue( 'page-builder', 'site-content-layout' );
-	// 		// 		break;			
-	// 		// 	case 'default':
-	// 		// 		props.setMetaFieldValue( 'default', 'site-content-layout' );
-	// 		// 		break;			
-	// 		// 	default:
-	// 		// 		break;
-	// 		// }
-	// 	}
-	// }, [] );
-
-	console.log(props.meta['site-content-layout']);
+			props.setMetaFieldValue('', 'astra-migrated-user-meta');
+		}
+	}, [] );
 
 	// Display sidebar options or not.
 	const showSidebar = () => {

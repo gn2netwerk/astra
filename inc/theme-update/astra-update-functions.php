@@ -1191,15 +1191,21 @@ function astra_apply_layout_migration( $old_layout, $new_layout, $content_style,
 				break;
 			case 'plain-container':
 				$theme_options[ $new_layout ]    = 'normal-width-container';
+				$theme_options[ $content_style ] = 'unboxed';
 				break;
 			case 'page-builder':
 				$theme_options[ $new_layout ]    = 'full-width-container';
+				$theme_options[ $content_style ] = 'unboxed';
 				break;
 			case 'narrow-container':
 				$theme_options[ $new_layout ]    = 'narrow-width-container';
+				$theme_options[ $content_style ] = 'unboxed';
+				break;
+			case ( 'default' || '' ):
+				$theme_options[ $new_layout ]    = 'default';
+				$theme_options[ $content_style ] = 'default';
 				break;
 			default:
-				$theme_options[ $new_layout ]    = 'default';
 				break;
 		}
 
