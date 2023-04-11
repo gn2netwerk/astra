@@ -374,6 +374,7 @@ const MetaSettings = props => {
       // Set old content layout value.
       switch (val) {
         case 'normal-width-container':
+          props.setMetaFieldValue('plain-container', 'site-content-layout');
           if (props.meta['site-content-style'] && 'boxed' === props.meta['site-content-style']) {
             props.setMetaFieldValue('content-boxed-container', 'site-content-layout');
           }
