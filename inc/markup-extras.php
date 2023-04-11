@@ -164,14 +164,6 @@ function astra_is_content_style_boxed() {
 		if ( in_array( $third_party, [ 'lifterlms', 'learndash' ] ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
 			$blog_type = '';
 		}
-		if ( is_shop() ) {
-			$shop_page_id = get_option( 'woocommerce_shop_page_id' );
-			$shop_layout  = get_post_meta( $shop_page_id, 'site-content-layout', true );
-		}
-
-		if ( 'woocommerce' === $third_party && is_shop() ) {
-			$shop_page_id = get_option( 'woocommerce_shop_page_id' );
-		}
 
 		// Get global content style if third party is default.
 		$global_content_style = 'default' === $third_party_content_style || empty( $third_party_content_style ) ? $global_content_style : $third_party_content_style;		
@@ -194,7 +186,7 @@ function astra_is_content_style_boxed() {
 
 	// Meta.
 	if ( 'single' === $blog_type && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
-		if ( 'boxed' === $meta_content_style && astra_is_third_party() ) {
+		if ( 'boxed' === $meta_content_style ) {
 			$is_boxed = true;
 		}
 		else {
