@@ -1020,7 +1020,7 @@ function astra_theme_background_updater_4_0_2() {
 function astra_migrate_content_layouts() {
 	$post_types            = Astra_Posts_Structure_Loader::get_supported_post_types();
 	$theme_options         = get_option( 'astra-settings' );
-	$blog_types            = [ 'single', 'archive' ];
+	$blog_types            = [ 'single', 'archive' ]; // convert to array PHP 8
 	$third_party_layouts   = [ 'woocommerce', 'edd', 'lifterlms', 'learndash' ];
 
 	// Global.
