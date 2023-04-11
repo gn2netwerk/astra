@@ -112,7 +112,7 @@ const MetaSettings = props => {
 	}, [ contentLayout, setIsDefaultExclude ] );
 
 	useEffect(() => {
-		if ( props.meta['astra-migrated-user-meta'] ) {
+		if ( props.meta['astra-migrated-user-meta'] === '' ) {
 			switch ( props.meta['site-content-layout'] ) {
 				case 'plain-container':
 					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
@@ -151,9 +151,9 @@ const MetaSettings = props => {
 				default:
 					break;
 			}
-
-			props.setMetaFieldValue('', 'astra-migrated-user-meta');
+			props.setMetaFieldValue( '1', 'astra-migrated-user-meta' );
 		}
+		console.log(props.meta);
 	}, [] );
 
 	// Display sidebar options or not.
