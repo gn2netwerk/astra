@@ -1132,17 +1132,21 @@ function astra_theme_background_updater_4_1_0() {
 	}
 }
 
-/*
- * Migrate old user content layouts to new ones.
+/**
+ * Handle backward compatibility on version 4.1.4
  *
+ * Migration cases for container layouts revamp.
  * @since x.x.x
  * @return void
  */
-function astra_migrate_content_layouts() {
+function astra_theme_background_updater_4_1_4() {
 	$post_types            = Astra_Posts_Structure_Loader::get_supported_post_types();
 	$theme_options         = get_option( 'astra-settings' );
 	$blog_types            = [ 'single', 'archive' ]; // convert to array PHP 8
 	$third_party_layouts   = [ 'woocommerce', 'edd', 'lifterlms', 'learndash' ];
+
+	// Backwards flag.
+	$theme_options[ 'astra-v4-1-4-migrate' ] =  true;
 
 	// Global.
 	if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
