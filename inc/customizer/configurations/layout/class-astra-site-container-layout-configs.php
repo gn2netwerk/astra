@@ -81,7 +81,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-container-layout',
-					'default'           => astra_get_option( 'new-site-content-layout', '' ),
+					'default'           => astra_get_option( 'new-site-content-layout', 'unboxed' ),
 					'priority'          => 9,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'transport'         => 'postMessage',
