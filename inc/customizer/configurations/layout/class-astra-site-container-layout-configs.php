@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-selector',
 					'section'           => 'section-container-layout',
-					'default'           => astra_get_option( 'site-content-style' ),
+					'default'           => astra_get_option( 'site-content-style', 'unboxed' ),
 					'priority'          => 9,
 					'title'             => __( 'Container Content Style', 'astra' ),
 					'choices'     => array(
