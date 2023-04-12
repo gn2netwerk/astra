@@ -87,15 +87,22 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		}
 		
 		// Apply separate container class to the body.
-		$content_layout = astra_get_content_layout();
-		$is_boxed       = astra_is_content_style_boxed();
+		$content_layout   = astra_get_content_layout();
+		$is_boxed            = astra_is_content_style_boxed();
+		$is_sidebar_boxed    = astra_is_sidebar_style_boxed();
 
 		if ( 'plain-container' == $content_layout && $is_boxed ) {
-			$post_type                   = strval( get_post_type() );
-			$blog_type                   = is_singular() ? 'single' : 'archive';
-			$astra_theme_options         = get_option( 'astra-settings' );
-			$astra_theme_options[ $blog_type . '-' . $post_type . '-content-layout' ] = 'content-boxed-container';
-			$content_layout              = 'content-boxed-container';
+			$post_type           = strval( get_post_type() );
+			$blog_type           = is_singular() ? 'single' : 'archive';
+			$astra_theme_options = get_option( 'astra-settings' );
+			if ( $is_sidebar_boxed ) {
+				$astra_theme_options[ $blog_type . '-' . $post_type . '-content-layout' ] = 'boxed-container';
+				$content_layout              = 'boxed-container';
+			}
+			else {
+				$astra_theme_options[ $blog_type . '-' . $post_type . '-content-layout' ] = 'content-boxed-container';
+				$content_layout              = 'content-boxed-container';
+			}
 			update_option( 'astra-settings', $astra_theme_options, true );
 		}
 
@@ -215,6 +222,16 @@ function astra_is_third_party() {
 	}
 
 	return false;
+}
+
+function astra_is_sidebar_style_boxed() {
+	$global_content_style = astra_get_option( 'site-sidebar-style', 'unboxed' );
+	$is_sidebar_boxed = false;
+
+	if ( 'boxed' === $global_content_style ) {
+		$is_sidebar_boxed = true;
+	}
+	return $is_sidebar_boxed;
 }
 
 /**
