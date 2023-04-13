@@ -27,6 +27,38 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base {
 
 	/**
+	 * Getting context for Sidebar Style option.
+	 * Case: Hide sidebar style for no sidebar position.
+	 *
+	 * @return mixed
+	 * @since x.x.x
+	 */
+	public function get_sidebar_styles_context( $post_type ) {
+		return array(
+			'relation' => 'AND',
+			Astra_Builder_Helper::$general_tab_config,
+			array(
+				'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-sidebar-layout]',
+				'operator' => '!=',
+				'value'    => 'no-sidebar',
+			),
+			array(
+				'relation' => 'OR',
+				array(
+					'setting'  => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-sidebar-layout]',
+					'operator' => '!=',
+					'value'    => 'default',
+				),
+				array(
+					'setting'  => ASTRA_THEME_SETTINGS . '[site-sidebar-layout]',
+					'operator' => '!=',
+					'value'    => 'no-sidebar',
+				),
+			),
+		);
+	}
+
+	/**
 	 * Getting dynamic context for sidebar.
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
@@ -303,7 +335,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'priority'          => 3,
 				'title'             => __( 'Sidebar Layout', 'astra' ),
 				'context'           => $this->get_sidebar_context( $post_type ),
-				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-spacing' ),
 				'choices'           => array(
 					'default'       => array(
 						'label' => __( 'Default', 'astra' ),
@@ -322,6 +354,27 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 					),
 				),
+			),
+			/**
+			 * Option: Single Sidebar Style.
+			 */
+			array(
+				'name'              => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-sidebar-style]',
+				'type'              => 'control',
+				'control'           => 'ast-selector',
+				'section'           => $parent_section,
+				'default'           => astra_get_option( 'single-' . $post_type . '-sidebar-style', 'default' ),
+				'context'           => $this->get_sidebar_styles_context( $post_type ),
+				'priority'          => 3,
+				'title'             => __( 'Sidebar Style', 'astra' ),
+				'choices'     => array(
+					'default' => __( 'Default', 'astra' ),
+					'unboxed' => __( 'Unboxed', 'astra' ),
+					'boxed'   => __( 'Boxed', 'astra' ),
+				),
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 			),
 		);
 	}

@@ -1132,82 +1132,82 @@ function astra_theme_background_updater_4_1_0() {
 	}
 }
 
-/**
- * Handle backward compatibility on version 4.1.4
- *
- * Migration cases for container layouts revamp.
- * @since x.x.x
- * @return void
- */
-function astra_theme_background_updater_4_1_4() {
-	$post_types            = Astra_Posts_Structure_Loader::get_supported_post_types();
-	$theme_options         = get_option( 'astra-settings' );
-	$blog_types            = array( 'single', 'archive' );
-	$third_party_layouts   = array( 'woocommerce', 'edd', 'lifterlms', 'learndash' );
+// /**
+//  * Handle backward compatibility on version 4.1.4
+//  *
+//  * Migration cases for container layouts revamp.
+//  * @since x.x.x
+//  * @return void
+//  */
+// function astra_theme_background_updater_4_1_4() {
+// 	$post_types            = Astra_Posts_Structure_Loader::get_supported_post_types();
+// 	$theme_options         = get_option( 'astra-settings' );
+// 	$blog_types            = array( 'single', 'archive' );
+// 	$third_party_layouts   = array( 'woocommerce', 'edd', 'lifterlms', 'learndash' );
 
-	if ( ! isset( $theme_options['v4-1-4-update-migration'] ) ) {
+// 	if ( ! isset( $theme_options['v4-1-4-update-migration'] ) ) {
 
-		$theme_options['v4-1-4-update-migration'] = true;
+// 		$theme_options['v4-1-4-update-migration'] = true;
 
-		// Global.
-		if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
-			$theme_options = astra_apply_layout_migration( 'site-content-layout', 'new-site-content-layout', 'site-content-style', $theme_options );	
-		}
+// 		// Global.
+// 		if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
+// 			$theme_options = astra_apply_layout_migration( 'site-content-layout', 'new-site-content-layout', 'site-content-style', $theme_options );	
+// 		}
 	
-		// Single, Archive.
-		foreach ( $blog_types as $index => $blog_type ) {
-			foreach( $post_types as $index => $post_type ) {
-				$old_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-content-layout';
-				$new_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-new-content-layout';
-				$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
-				if( isset( $theme_options[ $old_layout ] ) ) {
-					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options );	
-				}
-			}
-		}
+// 		// Single, Archive.
+// 		foreach ( $blog_types as $index => $blog_type ) {
+// 			foreach( $post_types as $index => $post_type ) {
+// 				$old_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-content-layout';
+// 				$new_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-new-content-layout';
+// 				$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
+// 				if( isset( $theme_options[ $old_layout ] ) ) {
+// 					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options );	
+// 				}
+// 			}
+// 		}
 	
-		// Third party content layout.
-		foreach( $third_party_layouts as $index => $layout ) {
-			$old_layout    = $layout . '-content-layout';
-			$new_layout    = $layout . '-new-content-layout';
-			$content_style = $layout . '-content-style';
-			if( isset( $theme_options[ $old_layout ] ) ) {
-				$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options );	
-			}
-		}
-		update_option( 'astra-settings', $theme_options );
-	}
-}
+// 		// Third party content layout.
+// 		foreach( $third_party_layouts as $index => $layout ) {
+// 			$old_layout    = $layout . '-content-layout';
+// 			$new_layout    = $layout . '-new-content-layout';
+// 			$content_style = $layout . '-content-style';
+// 			if( isset( $theme_options[ $old_layout ] ) ) {
+// 				$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options );	
+// 			}
+// 		}
+// 		update_option( 'astra-settings', $theme_options );
+// 	}
+// }
 
-function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options ) {
-		switch ( astra_get_option( $old_layout ) ) {
-			case 'boxed-container':
-				$theme_options[ $new_layout ]    = 'normal-width-container';
-				$theme_options[ $content_style ] = 'boxed';
-				break;
-			case 'content-boxed-container':
-				$theme_options[ $new_layout ]    = 'normal-width-container';
-				$theme_options[ $content_style ] = 'boxed';
-				break;
-			case 'plain-container':
-				$theme_options[ $new_layout ]    = 'normal-width-container';
-				$theme_options[ $content_style ] = 'unboxed';
-				break;
-			case 'page-builder':
-				$theme_options[ $new_layout ]    = 'full-width-container';
-				$theme_options[ $content_style ] = 'unboxed';
-				break;
-			case 'narrow-container':
-				$theme_options[ $new_layout ]    = 'narrow-width-container';
-				$theme_options[ $content_style ] = 'unboxed';
-				break;
-			case ( 'default' || '' ):
-				$theme_options[ $new_layout ]    = 'default';
-				$theme_options[ $content_style ] = 'default';
-				break;
-			default:
-				break;
-		}
+// function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options ) {
+// 		switch ( astra_get_option( $old_layout ) ) {
+// 			case 'boxed-container':
+// 				$theme_options[ $new_layout ]    = 'normal-width-container';
+// 				$theme_options[ $content_style ] = 'boxed';
+// 				break;
+// 			case 'content-boxed-container':
+// 				$theme_options[ $new_layout ]    = 'normal-width-container';
+// 				$theme_options[ $content_style ] = 'boxed';
+// 				break;
+// 			case 'plain-container':
+// 				$theme_options[ $new_layout ]    = 'normal-width-container';
+// 				$theme_options[ $content_style ] = 'unboxed';
+// 				break;
+// 			case 'page-builder':
+// 				$theme_options[ $new_layout ]    = 'full-width-container';
+// 				$theme_options[ $content_style ] = 'unboxed';
+// 				break;
+// 			case 'narrow-container':
+// 				$theme_options[ $new_layout ]    = 'narrow-width-container';
+// 				$theme_options[ $content_style ] = 'unboxed';
+// 				break;
+// 			case ( 'default' || '' ):
+// 				$theme_options[ $new_layout ]    = 'default';
+// 				$theme_options[ $content_style ] = 'default';
+// 				break;
+// 			default:
+// 				break;
+// 		}
 
-		return $theme_options;
-}
+// 		return $theme_options;
+// }

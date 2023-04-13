@@ -80,6 +80,9 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 
+				/**
+				 * Option: Site Sidebar Style.
+				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[site-sidebar-style]',
 					'type'              => 'control',

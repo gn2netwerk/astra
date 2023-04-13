@@ -233,12 +233,23 @@ function astra_is_third_party() {
 }
 
 function astra_is_sidebar_style_boxed() {
-	$global_content_style = astra_get_option( 'site-sidebar-style', 'unboxed' );
+
+	$post_type            = strval( get_post_type() );
+	$blog_type            = 'single';
+	$sidebar_style        = astra_get_option( $blog_type . '-' . $post_type . '-sidebar-style', '' );
+	$global_sidebar_style = astra_get_option( 'site-content-style' );
 	$is_sidebar_boxed = false;
 
-	if ( 'boxed' === $global_content_style ) {
+	// Global.
+	if ( 'boxed' === $global_sidebar_style ) {
 		$is_sidebar_boxed = true;
 	}
+
+	// Single.
+	if( 'single' === $blog_type && ! empty( $sidebar_style ) && 'default' !== $sidebar_style  ) {
+		$is_sidebar_boxed = ( 'boxed' === $sidebar_style );
+	}
+
 	return $is_sidebar_boxed;
 }
 

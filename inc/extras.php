@@ -182,17 +182,6 @@ function astra_toggle_layout( $new_content_option, $old_content_option, $level )
 	// Dynamic layout option for meta case.
 	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
 	$current_layout = '';
-
-	// Handling migration case for Meta.
-	$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
-	$astra_update_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
-	$old_meta_option        = astra_get_option_meta( 'site-content-layout', '', true );
-	$post_meta_key          = astra_get_option_meta( 'astra-migrated-user-meta', '', true );
-	if( $astra_update_migration && $old_meta_option && $post_meta_key) {
-		$meta_id = astra_get_post_id();
-		update_post_meta( $meta_id, 'astra-migrated-user-meta', '1' );
-		$current_layout = astra_handle_meta_migration( $meta_id, $old_meta_option, $astra_theme_options );
-	}
 	
 	switch ( $dynamic_layout_option ) {
 		case 'normal-width-container':
@@ -217,43 +206,6 @@ function astra_toggle_layout( $new_content_option, $old_content_option, $level )
 	return $current_layout;
 }
 
-function astra_handle_meta_migration( $meta_id, $old_meta_option, $theme_options ) {
-	$layout = '';
-	$content_style = '';
-	switch ( $old_meta_option ) {
-		case 'boxed-container':
-			$layout = 'normal-width-container';
-			$content_style = 'boxed';
-			break;
-		case 'content-boxed-container':
-			$layout = 'normal-width-container';
-			$content_style = 'boxed';
-			break;
-		case 'plain-container':
-			$layout = 'normal-width-container';
-			$content_style = 'unboxed';
-			break;
-		case 'page-builder':
-			$layout = 'full-width-container';
-			$content_style = 'unboxed';
-			break;
-		case 'narrow-container':
-			$layout = 'narrow-width-container';
-			$content_style = 'unboxed';
-			break;
-		case ( 'default' || '' ):
-			$layout = 'default';
-			$content_style = 'default';
-			break;
-		default:
-			break;
-	}
-
-	update_post_meta( $meta_id, 'new-site-content-layout', $layout );
-	update_post_meta( $meta_id, 'site-content-style', $layout );
-
-	return $layout;
-}
 /**
  * Function to check if it is Internet Explorer
  */
