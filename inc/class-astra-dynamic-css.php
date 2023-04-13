@@ -2852,6 +2852,28 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 			$parse_css             .= astra_parse_css( $separate_container_css );
 
+
+			// Change Container background color for Normal Layout + Content Style Unboxed + Sidebar + Boxed Case.
+			$is_boxed            = astra_is_content_style_boxed();
+			$is_sidebar_boxed    = astra_is_sidebar_style_boxed();
+			$current_layout      = astra_get_content_layout();
+
+			if ( 'plain-container' === $current_layout && ! $is_boxed && $is_sidebar_boxed ) {
+				$content_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+				$container_css = array(
+					'body.ast-separate-container .ast-article-single:not(.ast-related-post), body.ast-separate-container .ast-article-post' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
+				);
+				$container_tablet_css = array(
+					'body.ast-separate-container .ast-article-single:not(.ast-related-post), body.ast-separate-container .ast-article-post' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
+				);
+				$container_mobile_css = array(
+					'body.ast-separate-container .ast-article-single:not(.ast-related-post), body.ast-separate-container .ast-article-post' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
+				);
+				$parse_css .= astra_parse_css( $container_css );
+				$parse_css .= astra_parse_css( $container_tablet_css, '', astra_get_tablet_breakpoint() );
+				$parse_css .= astra_parse_css( $container_mobile_css, '', astra_get_mobile_breakpoint() );
+			}
+
 			if ( $block_editor_legacy_setup ) {
 				/**
 				 * Added new compatibility & layout designs for core block layouts.

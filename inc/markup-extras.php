@@ -88,22 +88,30 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		
 		// Apply separate container class to the body.
 		$content_layout   = astra_get_content_layout();
-		$is_boxed            = astra_is_content_style_boxed();
-		$is_sidebar_boxed    = astra_is_sidebar_style_boxed();
+		$is_boxed         = astra_is_content_style_boxed();
+		$is_sidebar_boxed = astra_is_sidebar_style_boxed();
 
-		if ( 'plain-container' == $content_layout && $is_boxed ) {
-			$post_type           = strval( get_post_type() );
-			$blog_type           = is_singular() ? 'single' : 'archive';
-			$astra_theme_options = get_option( 'astra-settings' );
-			if ( $is_sidebar_boxed ) {
-				$astra_theme_options[ $blog_type . '-' . $post_type . '-content-layout' ] = 'boxed-container';
-				$content_layout              = 'boxed-container';
+		if ( 'plain-container' === $content_layout ) {
+			$post_type = strval( get_post_type() );
+			$blog_type = is_singular() ? 'single' : 'archive';
+			if ( 'no-sidebar' === astra_page_layout() ) {
+				if ( $is_boxed ) {
+					$content_layout = 'boxed-container';
+				}
 			}
-			else {
-				$astra_theme_options[ $blog_type . '-' . $post_type . '-content-layout' ] = 'content-boxed-container';
-				$content_layout              = 'content-boxed-container';
+			else if ( 'no-sidebar' !== astra_page_layout() ) {
+				if ( $is_boxed ) {
+					$content_layout = $is_sidebar_boxed ? 'boxed-container' : 'content-boxed-container';
+				}
+				elseif ( ! $is_boxed && $is_sidebar_boxed ){
+					$content_layout = 'boxed-container';
+				}
 			}
-			update_option( 'astra-settings', $astra_theme_options, true );
+			if ( $content_layout ) {
+				$astra_theme_options = get_option( 'astra-settings' );
+				$astra_theme_options[ $blog_type . '-' . $post_type . '-content-layout' ] = $content_layout;
+				update_option( 'astra-settings', $astra_theme_options, true );
+			}
 		}
 
 		if ( 'content-boxed-container' == $content_layout ) {
