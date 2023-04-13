@@ -612,10 +612,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$post_type            = strval( get_post_type() );
 			$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 			if ( ( in_array( $post_type, $supported_post_types ) && true === astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) ) {
-				$astra_page_meta_elements[] = array(
-					'key'   => 'ast-banner-title-visibility',
-					'label' => __( 'Disable Banner Area', 'astra' ),
-				);
+				if ( ! ( class_exists( 'WooCommerce' ) && astra_get_post_id() === wc_get_page_id( 'shop' ) ) ) {
+					$astra_page_meta_elements[] = array(
+						'key'   => 'ast-banner-title-visibility',
+						'label' => __( 'Disable Banner Area', 'astra' ),
+					);
+				}
 			}
 
 			if ( 'none' !== astra_get_option( 'breadcrumb-position', 'none' ) ) {
