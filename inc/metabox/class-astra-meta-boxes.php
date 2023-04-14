@@ -206,17 +206,17 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/**
 			 * Get options
 			 */
-			$site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
-			$site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
-			$site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
-			$footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
-			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
-			$above_header        = ( isset( $meta['ast-hfb-above-header-display']['default'] ) ) ? $meta['ast-hfb-above-header-display']['default'] : 'default';
-			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
-			$below_header        = ( isset( $meta['ast-hfb-below-header-display']['default'] ) ) ? $meta['ast-hfb-below-header-display']['default'] : 'default';
-			$mobile_header       = ( isset( $meta['ast-hfb-mobile-header-display']['default'] ) ) ? $meta['ast-hfb-mobile-header-display']['default'] : 'default';
-			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
-			$breadcrumbs_content = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
+			$site_sidebar          = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
+			$site_content_layout   = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
+			$site_post_title       = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
+			$footer_bar            = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
+			$footer_widgets        = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
+			$above_header          = ( isset( $meta['ast-hfb-above-header-display']['default'] ) ) ? $meta['ast-hfb-above-header-display']['default'] : 'default';
+			$primary_header        = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
+			$below_header          = ( isset( $meta['ast-hfb-below-header-display']['default'] ) ) ? $meta['ast-hfb-below-header-display']['default'] : 'default';
+			$mobile_header         = ( isset( $meta['ast-hfb-mobile-header-display']['default'] ) ) ? $meta['ast-hfb-mobile-header-display']['default'] : 'default';
+			$ast_featured_img      = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
+			$breadcrumbs_content   = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
 			$ast_banner_visibility = ( isset( $meta['ast-banner-title-visibility']['default'] ) ) ? $meta['ast-banner-title-visibility']['default'] : '';
 
 			$show_meta_field = ! self::is_bb_themer_layout();
@@ -342,16 +342,19 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						<?php
 							$post_type            = $post->post_type;
 							$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
-							if ( ( in_array( $post_type, $supported_post_types ) && true === astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) ) {
-								if ( ! ( class_exists( 'WooCommerce' ) && absint( astra_get_post_id() ) === wc_get_page_id( 'shop' ) ) ) {
-						?>
+						if ( ( in_array( $post_type, $supported_post_types ) && true === astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) ) {
+							if ( ! ( class_exists( 'WooCommerce' ) && absint( astra_get_post_id() ) === wc_get_page_id( 'shop' ) ) ) {
+								?>
 							<div class="ast-banner-title-visibility-option-wrap">
 								<label for="ast-banner-title-visibility">
 									<input type="checkbox" id="ast-banner-title-visibility" name="ast-banner-title-visibility" value="disabled" <?php checked( $ast_banner_visibility, 'disabled' ); ?> />
-									<?php esc_html_e( 'Disable Banner Area', 'astra' ); ?>
+								<?php esc_html_e( 'Disable Banner Area', 'astra' ); ?>
 								</label>
 							</div>
-						<?php } } ?>
+								<?php 
+							} 
+						} 
+						?>
 
 					<?php } ?>
 
@@ -979,7 +982,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-global-header-display'     => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
-					'ast-banner-title-visibility'       => array(
+					'ast-banner-title-visibility'   => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-hfb-above-header-display'  => array(
