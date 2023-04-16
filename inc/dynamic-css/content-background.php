@@ -26,22 +26,15 @@ function astra_content_background_css( $dynamic_css ) {
 		return $dynamic_css;
 	}
 
-	$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
-	$blog_layout    = astra_get_option( 'blog-layout' );
-	$blog_grid      = astra_get_option( 'blog-grid' );
+	$content_bg_obj      = astra_get_option( 'content-bg-obj-responsive' );
+	$blog_layout         = astra_get_option( 'blog-layout' );
+	$blog_grid           = astra_get_option( 'blog-grid' );
+	$sidebar_default_css = $content_bg_obj;
 
 	$author_box_extra_selector = ( true === astra_check_is_structural_setup() ) ? '.site-main' : '';
 
-	// // Change Container background color for Normal Layout + Content Style Unboxed + Sidebar + Boxed Case.
-	// $is_boxed            = astra_is_content_style_boxed();
-	// $is_sidebar_boxed    = astra_is_sidebar_style_boxed();
-	// $current_layout      = astra_get_content_layout();
-	// $sidebar_boxed_css   = '.ast-separate-container.ast-two-container #secondary .widget';
-	// $
-
-	// if ( 'plain-container' === $current_layout && ! $is_boxed && $is_sidebar_boxed ) {
-
-	// }
+	// Change container background color for normal Layout + content style unboxed + sidebar + boxed Case.
+	$content_bg_obj = astra_apply_unboxed_container( $content_bg_obj );
 
 	// Container Layout Colors.
 	$container_css = array(
@@ -57,17 +50,19 @@ function astra_content_background_css( $dynamic_css ) {
 		'.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, .ast-separate-container .related-posts-title-wrapper,.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, .ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
 	);
 
-	// Sidebar Specific CSS.
-	$sidebar_desktop_css = array(
-		'.ast-separate-container.ast-two-container #secondary .widget' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
+	// Sidebar specific css.
+	$sidebar_css = array(
+		'.ast-separate-container.ast-two-container #secondary .widget' => astra_get_responsive_background_obj( $sidebar_default_css, 'desktop' ),
 	);
 
-	$sidebar_tablet_css = array(
-		'.ast-separate-container.ast-two-container #secondary .widget' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
+	// Sidebar specific css.
+	$sidebar_css_tablet = array(
+		'.ast-separate-container.ast-two-container #secondary .widget' => astra_get_responsive_background_obj( $sidebar_default_css, 'tablet' ),
 	);
 
-	$sidebar_mobile_css = array(
-		'.ast-separate-container.ast-two-container #secondary .widget' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
+	// Sidebar specific css.
+	$sidebar_css_mobile = array(
+		'.ast-separate-container.ast-two-container #secondary .widget' => astra_get_responsive_background_obj( $sidebar_default_css, 'mobile' ),
 	);
 
 	// Blog Pro Layout Colors.
@@ -110,11 +105,11 @@ function astra_content_background_css( $dynamic_css ) {
 	$dynamic_css .= astra_parse_css( $container_css_tablet, '', astra_get_tablet_breakpoint() );
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$dynamic_css .= astra_parse_css( $container_css_mobile, '', astra_get_mobile_breakpoint() );
-	$dynamic_css .= astra_parse_css( $sidebar_desktop_css );
+	$dynamic_css .= astra_parse_css( $sidebar_css );
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$dynamic_css .= astra_parse_css( $sidebar_tablet_css, '', astra_get_tablet_breakpoint() );
+	$dynamic_css .= astra_parse_css( $sidebar_css_tablet, '', astra_get_tablet_breakpoint() );
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$dynamic_css .= astra_parse_css( $sidebar_mobile_css, '', astra_get_mobile_breakpoint() );
+	$dynamic_css .= astra_parse_css( $sidebar_css_mobile, '', astra_get_mobile_breakpoint() );
 
 	if ( astra_apply_content_background_fullwidth_layouts() ) {
 		$fullwidth_layout        = array(
@@ -135,4 +130,22 @@ function astra_content_background_css( $dynamic_css ) {
 	}
 
 	return $dynamic_css;
+}
+
+/**
+ * Change container bg color to site bg color for case: normal Layout + content style unboxed + sidebar + boxed.
+ *
+ * @return Object Container bg color object or site bg color object.
+ *
+ * @since x.x.x
+ */
+function astra_apply_unboxed_container( $content_bg_obj ) {
+	$is_boxed            = astra_is_content_style_boxed();
+	$is_sidebar_boxed    = astra_is_sidebar_style_boxed();
+	$current_layout      = astra_get_content_layout();
+	$sidebar_boxed_css   = '.ast-separate-container.ast-two-container #secondary .widget';
+	if ( 'plain-container' === $current_layout && ! $is_boxed && $is_sidebar_boxed ) {
+		$content_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+	}
+	return $content_bg_obj;
 }
