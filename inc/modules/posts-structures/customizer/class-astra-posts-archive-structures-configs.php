@@ -223,6 +223,10 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			return array(); // Page archive not require.
 		}
 		return array(
+
+			/**
+			 * Option: Old Single Container Layout.
+			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-layout]',
 				'type'              => 'control',
@@ -235,6 +239,10 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'transport'         => 'refresh',
 				'choices'           => $this->get_content_layout_choices( $post_type ),
 			),
+
+			/**
+			 * Option: Revamped Single Container Layout.
+			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
 				'type'              => 'control',
@@ -248,6 +256,10 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'transport'         => 'refresh',
 				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 			),
+
+			/**
+			 * Option: Single Container Content Style.
+			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-style]',
 				'type'              => 'control',
@@ -265,6 +277,11 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'renderAs'   => 'text',
 				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 			),
+
+
+			/**
+			 * Option: Single Sidebar Layout.
+			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-sidebar-layout]',
 				'type'              => 'control',
