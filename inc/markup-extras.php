@@ -238,6 +238,7 @@ function astra_is_sidebar_style_boxed() {
 	$blog_type            = is_singular() ? 'single' : 'archive';
 	$sidebar_style        = astra_get_option( $blog_type . '-' . $post_type . '-sidebar-style', '' );
 	$global_sidebar_style = astra_get_option( 'site-content-style' );
+	$meta_sidebar_style   = astra_get_option_meta( 'site-sidebar-style', '', true );
 	$is_sidebar_boxed = false;
 
 	// Global.
@@ -253,6 +254,16 @@ function astra_is_sidebar_style_boxed() {
 	// Single.
 	if( 'single' === $blog_type && ! empty( $sidebar_style ) && 'default' !== $sidebar_style  ) {
 		$is_sidebar_boxed = ( 'boxed' === $sidebar_style );
+	}
+
+	// Meta.
+	if ( 'single' === $blog_type && ! empty( $meta_sidebar_style ) && 'default' !== $meta_sidebar_style ) {
+		if ( 'boxed' === $meta_sidebar_style ) {
+			$is_sidebar_boxed = true;
+		}
+		else {
+			$is_sidebar_boxed = false;
+		}
 	}
 
 	return $is_sidebar_boxed;
