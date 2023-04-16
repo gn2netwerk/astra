@@ -210,7 +210,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	}
 
 	/**
-	 * Register Single Post's Structures Customizer Configurations.
+	 * Register Archive Post's Structures Customizer Configurations.
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
 	 * @param string $post_type Post Type.
@@ -225,7 +225,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 		return array(
 
 			/**
-			 * Option: Old Single Container Layout.
+			 * Option: Old Archive Container Layout.
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-layout]',
@@ -241,7 +241,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Option: Revamped Single Container Layout.
+			 * Option: Revamped Archive Container Layout.
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
@@ -254,11 +254,11 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'title'             => __( 'Container Layout', 'astra' ),
 				'choices'           => $this->get_new_content_layout_choices( $post_type ),
 				'transport'         => 'refresh',
-				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'           => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 			),
 
 			/**
-			 * Option: Single Container Content Style.
+			 * Option: Archive Container Content Style.
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-style]',
@@ -278,9 +278,23 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
+			/**
+			 * Help Text: Archive Container Content Style.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-style-description]',
+				'type'     => 'control',
+				'control'  => 'ast-description',
+				'section'  => $parent_section,
+				'priority' => 5,
+				'title'    => '',
+				'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+				'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+				'settings' => array(),
+			),
 
 			/**
-			 * Option: Single Sidebar Layout.
+			 * Option: Archive Sidebar Layout.
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-sidebar-layout]',
@@ -291,7 +305,6 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'default'           => astra_get_option( 'archive-' . $post_type . '-sidebar-layout', 'default' ),
 				'priority'          => 5,
 				'title'             => __( 'Sidebar Layout', 'astra' ),
-				'context'           => $this->get_sidebar_context( $post_type ),
 				'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				'choices'           => array(
 					'default'       => array(
@@ -311,6 +324,42 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 					),
 				),
+			),
+
+			/**
+			 * Help Text: Archive Sidebar Layout.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-sidebar-layout-description]',
+				'type'     => 'control',
+				'control'  => 'ast-description',
+				'section'  => $parent_section,
+				'priority' => 5,
+				'title'    => '',
+				'help'     => __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ),
+				'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+				'settings' => array(),
+			),
+
+			/**
+			 * Option: Archive Sidebar Style.
+			 */
+			array(
+				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-sidebar-style]',
+				'type'              => 'control',
+				'control'           => 'ast-selector',
+				'section'           => $parent_section,
+				'default'           => astra_get_option( 'archive-' . $post_type . '-sidebar-style', 'default' ),
+				'priority'          => 5,
+				'title'             => __( 'Sidebar Style', 'astra' ),
+				'choices'     => array(
+					'default' => __( 'Default', 'astra' ),
+					'unboxed' => __( 'Unboxed', 'astra' ),
+					'boxed'   => __( 'Boxed', 'astra' ),
+				),
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
 			),
 		);
 	}

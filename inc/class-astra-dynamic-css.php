@@ -2853,26 +2853,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css             .= astra_parse_css( $separate_container_css );
 
 
-			// Change Container background color for Normal Layout + Content Style Unboxed + Sidebar + Boxed Case.
-			$is_boxed            = astra_is_content_style_boxed();
-			$is_sidebar_boxed    = astra_is_sidebar_style_boxed();
-			$current_layout      = astra_get_content_layout();
-			$author_box_extra_selector = ( true === astra_check_is_structural_setup() ) ? '.site-main' : '';
-			if ( 'plain-container' === $current_layout && ! $is_boxed && $is_sidebar_boxed ) {
-				$content_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
-				$container_css = array(
-					'body.ast-separate-container .ast-article-single:not(.ast-related-post), body.ast-separate-container .comments-area .comment-respond,body.ast-separate-container .comments-area .ast-comment-list li, body.ast-separate-container body.ast-woocommerce-container, body.ast-separate-container .error-404, body.ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, body.ast-separate-container .related-posts-title-wrapper, body.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, body.ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
-				);
-				$container_tablet_css = array(
-					'body.ast-separate-container .ast-article-single:not(.ast-related-post), body.ast-separate-container .comments-area .comment-respond,body.ast-separate-container .comments-area .ast-comment-list li, body.ast-separate-container body.ast-woocommerce-container, body.ast-separate-container .error-404, body.ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, body.ast-separate-container .related-posts-title-wrapper, body.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, body.ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
-				);
-				$container_mobile_css = array(
-					'body.ast-separate-container .ast-article-single:not(.ast-related-post), body.ast-separate-container .comments-area .comment-respond,body.ast-separate-container .comments-area .ast-comment-list li, body.ast-separate-container body.ast-woocommerce-container, body.ast-separate-container .error-404, body.ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, body.ast-separate-container .related-posts-title-wrapper, body.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, body.ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
-				);
-				$parse_css .= astra_parse_css( $container_css );
-				$parse_css .= astra_parse_css( $container_tablet_css, '', astra_get_tablet_breakpoint() );
-				$parse_css .= astra_parse_css( $container_mobile_css, '', astra_get_mobile_breakpoint() );
-			}
+			// // Change Container background color for Normal Layout + Content Style Unboxed + Sidebar + Boxed Case.
+			// $is_boxed            = astra_is_content_style_boxed();
+			// $is_sidebar_boxed    = astra_is_sidebar_style_boxed();
+			// $current_layout      = astra_get_content_layout();
+			// $author_box_extra_selector = ( true === astra_check_is_structural_setup() ) ? '.site-main' : '';
+			// if ( 'plain-container' === $current_layout && ! $is_boxed && $is_sidebar_boxed ) {
+			// 	$content_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+			// 	$container_css = array(
+			// 		'body.ast-separate-container .ast-article-single:not(.ast-related-post), body.ast-separate-container .comments-area .comment-respond,body.ast-separate-container .comments-area .ast-comment-list li, body.ast-separate-container body.ast-woocommerce-container, body.ast-separate-container .error-404, body.ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, body.ast-separate-container .related-posts-title-wrapper, body.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, body.ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
+			// 	);
+			// 	$container_tablet_css = array(
+			// 		'body.ast-separate-container .ast-article-single:not(.ast-related-post), body.ast-separate-container .comments-area .comment-respond,body.ast-separate-container .comments-area .ast-comment-list li, body.ast-separate-container body.ast-woocommerce-container, body.ast-separate-container .error-404, body.ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, body.ast-separate-container .related-posts-title-wrapper, body.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, body.ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
+			// 	);
+			// 	$container_mobile_css = array(
+			// 		'body.ast-separate-container .ast-article-single:not(.ast-related-post), body.ast-separate-container .comments-area .comment-respond,body.ast-separate-container .comments-area .ast-comment-list li, body.ast-separate-container body.ast-woocommerce-container, body.ast-separate-container .error-404, body.ast-separate-container .no-results, .single.ast-separate-container ' . esc_attr( $author_box_extra_selector ) . ' .ast-author-meta, body.ast-separate-container .related-posts-title-wrapper, body.ast-separate-container .comments-count-wrapper, .ast-box-layout.ast-plain-container .site-content,.ast-padded-layout.ast-plain-container .site-content, body.ast-separate-container .comments-area .comments-title' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
+			// 	);
+			// 	$parse_css .= astra_parse_css( $container_css );
+			// 	$parse_css .= astra_parse_css( $container_tablet_css, '', astra_get_tablet_breakpoint() );
+			// 	$parse_css .= astra_parse_css( $container_mobile_css, '', astra_get_mobile_breakpoint() );
+			// }
 
 			if ( $block_editor_legacy_setup ) {
 				/**

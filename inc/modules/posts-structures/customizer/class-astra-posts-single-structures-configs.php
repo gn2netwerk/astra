@@ -273,7 +273,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			),
 
 			/**
-			 * Help Text: Single Sidebar Style.
+			 * Help Text: Single Container Content Style.
 			 */
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-content-style-description]',
