@@ -268,9 +268,7 @@ const MetaSettings = props => {
       value: key
     };
   });
-
-  // Taransparent and Sticky Header Options.
-  const headerOptions = Object.entries(astMetaParams.header_options).map(_ref4 => {
+  const sidebarStyleOptions = Object.entries(astMetaParams.content_style).map(_ref4 => {
     let [key, name] = _ref4;
     return {
       label: name,
@@ -278,8 +276,8 @@ const MetaSettings = props => {
     };
   });
 
-  // Page header optins.
-  const pageHeaderOptions = Object.entries(astMetaParams.page_header_options).map(_ref5 => {
+  // Taransparent and Sticky Header Options.
+  const headerOptions = Object.entries(astMetaParams.header_options).map(_ref5 => {
     let [key, name] = _ref5;
     return {
       label: name,
@@ -287,21 +285,17 @@ const MetaSettings = props => {
     };
   });
 
-  // Checkbox control
-  const disableSections = Object.entries(astMetaParams.disable_sections).map(_ref6 => {
-    let [key, value] = _ref6;
-    let sectionValue = 'disabled' === props.meta[value['key']] ? true : false;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_checkbox_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      label: value['label'],
-      value: sectionValue,
-      key: key,
-      name: value['key'],
-      onChange: val => {
-        props.setMetaFieldValue(val, value['key']);
-      }
-    });
+  // Page header optins.
+  const pageHeaderOptions = Object.entries(astMetaParams.page_header_options).map(_ref6 => {
+    let [key, name] = _ref6;
+    return {
+      label: name,
+      value: key
+    };
   });
-  const headers_meta_options = Object.entries(astMetaParams.headers_meta_options).map(_ref7 => {
+
+  // Checkbox control
+  const disableSections = Object.entries(astMetaParams.disable_sections).map(_ref7 => {
     let [key, value] = _ref7;
     let sectionValue = 'disabled' === props.meta[value['key']] ? true : false;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_checkbox_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -314,10 +308,23 @@ const MetaSettings = props => {
       }
     });
   });
+  const headers_meta_options = Object.entries(astMetaParams.headers_meta_options).map(_ref8 => {
+    let [key, value] = _ref8;
+    let sectionValue = 'disabled' === props.meta[value['key']] ? true : false;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_checkbox_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      label: value['label'],
+      value: sectionValue,
+      key: key,
+      name: value['key'],
+      onChange: val => {
+        props.setMetaFieldValue(val, value['key']);
+      }
+    });
+  });
 
   // Checkbox control
-  const stickyHeadderOptions = Object.entries(astMetaParams.sticky_header_options).map(_ref8 => {
-    let [key, value] = _ref8;
+  const stickyHeadderOptions = Object.entries(astMetaParams.sticky_header_options).map(_ref9 => {
+    let [key, value] = _ref9;
     let stickyValue = 'disabled' === props.meta[value['key']] ? true : false;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_checkbox_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
       label: value['label'],
@@ -438,7 +445,7 @@ const MetaSettings = props => {
     }
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
     title: __('Content Style', 'astra'),
-    initialOpen: true
+    initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-sidebar-layout-meta-wrap components-base-control__field"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_selector_js__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -459,6 +466,18 @@ const MetaSettings = props => {
     id: 'site-sidebar-layout',
     onChange: val => {
       props.setMetaFieldValue(val, 'site-sidebar-layout');
+    }
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
+    title: __('Sidebar Style', 'astra'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ast-sidebar-layout-meta-wrap components-base-control__field"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_selector_js__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    metavalue: undefined !== props.meta['site-sidebar-style'] && '' !== props.meta['site-sidebar-style'] ? props.meta['site-sidebar-style'] : 'default',
+    choices: sidebarStyleOptions,
+    id: 'site-sidebar-style',
+    onChange: val => {
+      props.setMetaFieldValue(val, 'site-sidebar-style');
     }
   }))), !is_hide_contnet_layout_sidebar && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
     title: __('Disable Elements', 'astra'),

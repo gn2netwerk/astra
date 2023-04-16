@@ -515,6 +515,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'sidebar_title'                  => __( 'Sidebar', 'astra' ),
 					'content_layout'                 => $this->get_content_layout_options(),
 					'content_style'                  => $this->get_content_style_options(),
+					'sidebar-style'                  => $this->get_sidebar_style_options(),
 					'content_layout_title'           => __( 'Content Layout', 'astra' ),
 					'disable_sections_title'         => __( 'Disable Sections', 'astra' ),
 					'disable_sections'               => $this->get_disable_section_fields(),
@@ -594,6 +595,17 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * Get Content Style Options.
 		 */
 		public function get_content_style_options() {
+			return array(
+				'default' => __( 'Default', 'astra' ),
+				'unboxed' => __( 'Unboxed', 'astra' ),
+				'boxed'   => __( 'Boxed', 'astra' ),
+			);
+		}
+
+		/**
+		 * Get Sidebar Style Options.
+		 */
+		public function get_sidebar_style_options() {
 			return array(
 				'default' => __( 'Default', 'astra' ),
 				'unboxed' => __( 'Unboxed', 'astra' ),
@@ -839,6 +851,17 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			);
 			register_post_meta(
 				'',
+				'site-sidebar-style',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'default'       => isset( $meta['site-sidebar-style']['default'] ) ? $meta['site-content-style']['default'] : '',
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+			register_post_meta(
+				'',
 				'ast-global-header-display',
 				array(
 					'show_in_rest'  => true,
@@ -1067,6 +1090,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'site-content-style'           => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-sidebar-style'           => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),

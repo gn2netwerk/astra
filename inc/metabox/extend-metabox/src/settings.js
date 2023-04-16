@@ -44,6 +44,10 @@ const MetaSettings = props => {
 		return ( { label: name, value: key } );
 	} );
 
+	const sidebarStyleOptions = Object.entries( astMetaParams.content_style ).map( ( [ key, name ] ) => {
+		return ( { label: name, value: key } );
+	} );
+
 	// Taransparent and Sticky Header Options.
 	const headerOptions = Object.entries( astMetaParams.header_options ).map( ( [ key, name ] ) => {
 		return ( { label: name, value: key } );
@@ -225,7 +229,7 @@ const MetaSettings = props => {
 					{/* Content Style Setting */}
 					<PanelBody
 						title={ __( 'Content Style', 'astra' ) }
-						initialOpen={ true }
+						initialOpen={ false }
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							<AstSelectorControl
@@ -257,6 +261,23 @@ const MetaSettings = props => {
 						</div>
 					</PanelBody>
 					)}
+
+					{/* Sidebar Style Setting */}
+					<PanelBody
+						title={ __( 'Sidebar Style', 'astra' ) }
+						initialOpen={ false }
+					>
+						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
+							<AstSelectorControl
+								metavalue = { ( undefined !== props.meta['site-sidebar-style'] && ''!== props.meta['site-sidebar-style'] ? props.meta['site-sidebar-style'] : 'default' ) }
+								choices = { sidebarStyleOptions }
+								id = { 'site-sidebar-style' }
+								onChange={ ( val ) => {
+									props.setMetaFieldValue( val, 'site-sidebar-style' );
+								} }
+							/>
+						</div>
+					</PanelBody>	
 
 					{/* Disable Section Setting */}
 					{ ! is_hide_contnet_layout_sidebar && ( <PanelBody
