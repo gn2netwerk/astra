@@ -115,7 +115,41 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 					'divider'           => array( 'ast_class' => 'ast-top-section-divider' )
 				),
 
+				/**
+				 * Help Text: LifterLMS Sidebar Layout.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-layout-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => $section_courses,
+					'priority' => 1,
+					'title'    => '',
+					'help'     => __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+					'settings' => array(),
+				),
 
+				/**
+				 * Option: LifterLMS Sidebar Style.
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-style]',
+					'type'              => 'control',
+					'control'           => 'ast-selector',
+					'section'           => $section_courses,
+					'default'           => astra_get_option( 'lifterlms-sidebar-style', 'default' ),
+					'priority'          => 1,
+					'title'             => __( 'LifterLMS Sidebar Style', 'astra' ),
+					'choices'     => array(
+						'default' => __( 'Default', 'astra' ),
+						'unboxed' => __( 'Unboxed', 'astra' ),
+						'boxed'   => __( 'Boxed', 'astra' ),
+					),
+					'responsive' => false,
+					'renderAs'   => 'text',
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-top-spacing' ),
+				),
 
 				/**
 				 * Option: Course/Lesson Sidebar Layout.
@@ -148,7 +182,43 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider ast-section-spacing' ),
+				),
+
+				/**
+				 * Help Text: Single Sidebar Layout.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => $section_courses,
+					'priority' => 1,
+					'title'    => '',
+					'help'     => __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Course/Lesson Sidebar Style.
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-style]',
+					'type'              => 'control',
+					'control'           => 'ast-selector',
+					'section'           => $section_courses,
+					'default'           => astra_get_option( 'lifterlms-course-lesson-sidebar-style', 'default' ),
+					'priority'          => 1,
+					'title'             => __( 'Course/Lesson Sidebar Style', 'astra' ),
+					'choices'     => array(
+						'default' => __( 'Default', 'astra' ),
+						'unboxed' => __( 'Unboxed', 'astra' ),
+						'boxed'   => __( 'Boxed', 'astra' ),
+					),
+					'responsive' => false,
+					'renderAs'   => 'text',
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-top-spacing' ),
 				),
 			);
 

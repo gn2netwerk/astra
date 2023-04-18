@@ -212,7 +212,7 @@ function astra_is_content_style_boxed() {
 	return $is_boxed;
 }
 
-function astra_is_third_party() {
+function astra_is_third_party( $is_sidebar_option = false) {
 
 	$post_type            = strval( get_post_type() );
 
@@ -223,6 +223,9 @@ function astra_is_third_party() {
 		return 'edd';
 	}
 	else if ( class_exists( 'LifterLMS' ) && ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) ) {
+		if ( $is_sidebar_option && ( is_lesson() || is_course() ) ) {
+			return 'lifterlms-course-lesson';
+		}
 		return 'lifterlms';
 	}
 	else if ( class_exists( 'SFWD_LMS' ) && in_array( $post_type, [ 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ] ) ) {
@@ -242,7 +245,7 @@ function astra_is_sidebar_style_boxed() {
 	$is_sidebar_boxed = false;
 
 	// Third party compatibility.
-	$third_party = astra_is_third_party();
+	$third_party = astra_is_third_party( true );
 	if ( ! empty( $third_party ) ) {
 		$third_party_sidebar_style = astra_get_option( $third_party . '-sidebar-style', '' );
 
@@ -251,7 +254,7 @@ function astra_is_sidebar_style_boxed() {
 		}
 
 		// Get global content style if third party is default.
-		$global_sidebar_style = 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ? $global_content_style : $third_party_sidebar_style;		
+		$global_sidebar_style = 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ? $global_sidebar_style : $third_party_sidebar_style;		
 	}
 
 	// Global.

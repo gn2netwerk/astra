@@ -125,6 +125,21 @@ if ( ! class_exists( 'Astra_Lifter_Container_Configs' ) ) {
 					'responsive' => false,
 				),
 
+				/**
+				 * Help Text: LifterLMS Content Style.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-content-style-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => $section,
+					'priority' => 1,
+					'title'    => '',
+					'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+					'settings' => array(),
+				),
+
 			);
 
 			return array_merge( $configurations, $_configs );

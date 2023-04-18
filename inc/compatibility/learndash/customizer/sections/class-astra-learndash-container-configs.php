@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 					'control'           => 'ast-hidden',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-leandash-general',
-					'default'           => astra_get_option( 'learndash-content-layout' ),
+					'default'           => astra_get_option( 'learndash-content-layout', 'default' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'choices'           => array(
