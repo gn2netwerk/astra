@@ -216,16 +216,16 @@ function astra_is_third_party() {
 
 	$post_type            = strval( get_post_type() );
 
-	if( defined( 'ASTRA_EXT_VER' ) && class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
+	if( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
 		return 'woocommerce';
 	}
-	else if ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'Easy_Digital_Downloads' ) && astra_is_edd_page() ) {
+	else if ( class_exists( 'Easy_Digital_Downloads' ) && astra_is_edd_page() ) {
 		return 'edd';
 	}
-	else if ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'LifterLMS' ) && ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) ) {
+	else if ( class_exists( 'LifterLMS' ) && ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) ) {
 		return 'lifterlms';
 	}
-	else if ( defined( 'ASTRA_EXT_VER' ) && class_exists( 'SFWD_LMS' ) && in_array( $post_type, [ 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ] ) ) {
+	else if ( class_exists( 'SFWD_LMS' ) && in_array( $post_type, [ 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ] ) ) {
 		return 'learndash';
 	}
 
@@ -240,6 +240,19 @@ function astra_is_sidebar_style_boxed() {
 	$global_sidebar_style = astra_get_option( 'site-content-style' );
 	$meta_sidebar_style   = astra_get_option_meta( 'site-sidebar-style', '', true );
 	$is_sidebar_boxed = false;
+
+	// Third party compatibility.
+	$third_party = astra_is_third_party();
+	if ( ! empty( $third_party ) ) {
+		$third_party_sidebar_style = astra_get_option( $third_party . '-sidebar-style', '' );
+
+		if ( in_array( $third_party, [ 'lifterlms', 'learndash' ] ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
+			$blog_type = '';
+		}
+
+		// Get global content style if third party is default.
+		$global_sidebar_style = 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ? $global_content_style : $third_party_sidebar_style;		
+	}
 
 	// Global.
 	if ( 'boxed' === $global_sidebar_style ) {

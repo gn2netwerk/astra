@@ -104,7 +104,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 					'name'              => ASTRA_THEME_SETTINGS . '[woocommerce-content-style]',
 					'type'              => 'control',
 					'control'           => 'ast-selector',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-woo-general',
 					'default'           => astra_get_option( 'woocommerce-content-style', 'default' ),
 					'priority'          => 5,
@@ -117,6 +116,21 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 					'renderAs'   => 'text',
 					'responsive' => false,
 					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
+				),
+
+				/**
+				 * Help Text: Woocommerce Container Content Style.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-content-style-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-woo-general',
+					'priority' => 5,
+					'title'    => '',
+					'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+					'settings' => array(),
 				),
 			);
 
