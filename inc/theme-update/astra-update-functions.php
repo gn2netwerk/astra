@@ -1150,11 +1150,11 @@ function astra_theme_background_updater_4_2_0() {
 		);
 
 		foreach ( $ast_bg_control_options as $key => $bg_option ) {
-			if ( isset( $theme_options[ $bg_option ] ) && ! isset( $theme_options[ $bg_option ][ 'overlay-type' ] ) ) {
-				$bg_type  = isset( $theme_options[ $bg_option ]['background-type'] ) ? $theme_options[ $bg_option ]['background-type'] : '';
+			if ( isset( $theme_options[ $bg_option ] ) && ! isset( $theme_options[ $bg_option ]['overlay-type'] ) ) {
+				$bg_type = isset( $theme_options[ $bg_option ]['background-type'] ) ? $theme_options[ $bg_option ]['background-type'] : '';
 
-				$theme_options[ $bg_option ]['overlay-type'] = 'none';
-				$theme_options[ $bg_option ]['overlay-color'] = '';
+				$theme_options[ $bg_option ]['overlay-type']     = 'none';
+				$theme_options[ $bg_option ]['overlay-color']    = '';
 				$theme_options[ $bg_option ]['overlay-gradient'] = '';
 
 				if ( 'image' === $bg_type ) {
@@ -1162,8 +1162,8 @@ function astra_theme_background_updater_4_2_0() {
 					$bg_color = isset( $theme_options[ $bg_option ]['background-color'] ) ? $theme_options[ $bg_option ]['background-color'] : '';
 
 					if ( '' !== $bg_img && '' !== $bg_color && ( ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && ! is_numeric( strpos( $bg_color, 'radial-gradient' ) ) ) ) {
-						$theme_options[ $bg_option ]['overlay-type'] = 'classic';
-						$theme_options[ $bg_option ]['overlay-color'] = $bg_color;
+						$theme_options[ $bg_option ]['overlay-type']     = 'classic';
+						$theme_options[ $bg_option ]['overlay-color']    = $bg_color;
 						$theme_options[ $bg_option ]['overlay-gradient'] = '';
 					}
 				}
@@ -1192,67 +1192,67 @@ function astra_theme_background_updater_4_2_0() {
 
 		$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_menu;
 		for ( $index = 1; $index <= $component_limit; $index++ ) {
-			$_prefix  = 'menu' . $index;
+			$_prefix                       = 'menu' . $index;
 			$ast_resp_bg_control_options[] = 'header-' . $_prefix . '-bg-obj-responsive';
 		}
 
 		foreach ( $ast_resp_bg_control_options as $key => $resp_bg_option ) {
 			// Desktop version.
-			if ( isset( $theme_options[ $resp_bg_option ][ 'desktop' ] ) && ! isset( $theme_options[ $resp_bg_option ][ 'desktop' ][ 'overlay-type' ] ) ) {
-				$desk_bg_type  = isset( $theme_options[ $resp_bg_option ][ 'desktop' ]['background-type'] ) ? $theme_options[ $resp_bg_option ][ 'desktop' ]['background-type'] : '';
+			if ( isset( $theme_options[ $resp_bg_option ]['desktop'] ) && ! isset( $theme_options[ $resp_bg_option ]['desktop']['overlay-type'] ) ) {
+				$desk_bg_type = isset( $theme_options[ $resp_bg_option ]['desktop']['background-type'] ) ? $theme_options[ $resp_bg_option ]['desktop']['background-type'] : '';
 
-				$theme_options[ $resp_bg_option ][ 'desktop' ]['overlay-type'] = '';
-				$theme_options[ $resp_bg_option ][ 'desktop' ]['overlay-color'] = '';
-				$theme_options[ $resp_bg_option ][ 'desktop' ]['overlay-gradient'] = '';
+				$theme_options[ $resp_bg_option ]['desktop']['overlay-type']     = '';
+				$theme_options[ $resp_bg_option ]['desktop']['overlay-color']    = '';
+				$theme_options[ $resp_bg_option ]['desktop']['overlay-gradient'] = '';
 
 				if ( 'image' === $desk_bg_type ) {
-					$bg_img      = isset( $theme_options[ $resp_bg_option ][ 'desktop' ]['background-image'] ) ? $theme_options[ $resp_bg_option ][ 'desktop' ]['background-image'] : '';
-					$bg_color    = isset( $theme_options[ $resp_bg_option ][ 'desktop' ]['background-color'] ) ? $theme_options[ $resp_bg_option ][ 'desktop' ]['background-color'] : '';
+					$bg_img   = isset( $theme_options[ $resp_bg_option ]['desktop']['background-image'] ) ? $theme_options[ $resp_bg_option ]['desktop']['background-image'] : '';
+					$bg_color = isset( $theme_options[ $resp_bg_option ]['desktop']['background-color'] ) ? $theme_options[ $resp_bg_option ]['desktop']['background-color'] : '';
 
 					if ( '' !== $bg_img && '' !== $bg_color && ( ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && ! is_numeric( strpos( $bg_color, 'radial-gradient' ) ) ) ) {
-						$theme_options[ $resp_bg_option ][ 'desktop' ]['overlay-type'] = 'classic';
-						$theme_options[ $resp_bg_option ][ 'desktop' ]['overlay-color'] = $bg_color;
-						$theme_options[ $resp_bg_option ][ 'desktop' ]['overlay-gradient'] = '';
+						$theme_options[ $resp_bg_option ]['desktop']['overlay-type']     = 'classic';
+						$theme_options[ $resp_bg_option ]['desktop']['overlay-color']    = $bg_color;
+						$theme_options[ $resp_bg_option ]['desktop']['overlay-gradient'] = '';
 					}
 				}
 			}
 
 			// Tablet version.
-			if ( isset( $theme_options[ $resp_bg_option ][ 'tablet' ] ) && ! isset( $theme_options[ $resp_bg_option ][ 'tablet' ][ 'overlay-type' ] ) ) {
-				$tablet_bg_type  = isset( $theme_options[ $resp_bg_option ][ 'tablet' ]['background-type'] ) ? $theme_options[ $resp_bg_option ][ 'tablet' ]['background-type'] : '';
+			if ( isset( $theme_options[ $resp_bg_option ]['tablet'] ) && ! isset( $theme_options[ $resp_bg_option ]['tablet']['overlay-type'] ) ) {
+				$tablet_bg_type = isset( $theme_options[ $resp_bg_option ]['tablet']['background-type'] ) ? $theme_options[ $resp_bg_option ]['tablet']['background-type'] : '';
 
-				$theme_options[ $resp_bg_option ][ 'tablet' ]['overlay-type'] = '';
-				$theme_options[ $resp_bg_option ][ 'tablet' ]['overlay-color'] = '';
-				$theme_options[ $resp_bg_option ][ 'tablet' ]['overlay-gradient'] = '';
+				$theme_options[ $resp_bg_option ]['tablet']['overlay-type']     = '';
+				$theme_options[ $resp_bg_option ]['tablet']['overlay-color']    = '';
+				$theme_options[ $resp_bg_option ]['tablet']['overlay-gradient'] = '';
 
 				if ( 'image' === $tablet_bg_type ) {
-					$bg_img      = isset( $theme_options[ $resp_bg_option ][ 'tablet' ]['background-image'] ) ? $theme_options[ $resp_bg_option ][ 'tablet' ]['background-image'] : '';
-					$bg_color    = isset( $theme_options[ $resp_bg_option ][ 'tablet' ]['background-color'] ) ? $theme_options[ $resp_bg_option ][ 'tablet' ]['background-color'] : '';
+					$bg_img   = isset( $theme_options[ $resp_bg_option ]['tablet']['background-image'] ) ? $theme_options[ $resp_bg_option ]['tablet']['background-image'] : '';
+					$bg_color = isset( $theme_options[ $resp_bg_option ]['tablet']['background-color'] ) ? $theme_options[ $resp_bg_option ]['tablet']['background-color'] : '';
 
 					if ( '' !== $bg_img && '' !== $bg_color && ( ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && ! is_numeric( strpos( $bg_color, 'radial-gradient' ) ) ) ) {
-						$theme_options[ $resp_bg_option ][ 'tablet' ]['overlay-type'] = 'classic';
-						$theme_options[ $resp_bg_option ][ 'tablet' ]['overlay-color'] = $bg_color;
-						$theme_options[ $resp_bg_option ][ 'tablet' ]['overlay-gradient'] = '';
+						$theme_options[ $resp_bg_option ]['tablet']['overlay-type']     = 'classic';
+						$theme_options[ $resp_bg_option ]['tablet']['overlay-color']    = $bg_color;
+						$theme_options[ $resp_bg_option ]['tablet']['overlay-gradient'] = '';
 					}
 				}
 			}
 
 			// Mobile version.
-			if ( isset( $theme_options[ $resp_bg_option ][ 'mobile' ] ) && ! isset( $theme_options[ $resp_bg_option ][ 'mobile' ][ 'overlay-type' ] ) ) {
-				$mobile_bg_type  = isset( $theme_options[ $resp_bg_option ][ 'mobile' ]['background-type'] ) ? $theme_options[ $resp_bg_option ][ 'mobile' ]['background-type'] : '';
+			if ( isset( $theme_options[ $resp_bg_option ]['mobile'] ) && ! isset( $theme_options[ $resp_bg_option ]['mobile']['overlay-type'] ) ) {
+				$mobile_bg_type = isset( $theme_options[ $resp_bg_option ]['mobile']['background-type'] ) ? $theme_options[ $resp_bg_option ]['mobile']['background-type'] : '';
 
-				$theme_options[ $resp_bg_option ][ 'mobile' ]['overlay-type'] = '';
-				$theme_options[ $resp_bg_option ][ 'mobile' ]['overlay-color'] = '';
-				$theme_options[ $resp_bg_option ][ 'mobile' ]['overlay-gradient'] = '';
+				$theme_options[ $resp_bg_option ]['mobile']['overlay-type']     = '';
+				$theme_options[ $resp_bg_option ]['mobile']['overlay-color']    = '';
+				$theme_options[ $resp_bg_option ]['mobile']['overlay-gradient'] = '';
 
 				if ( 'image' === $mobile_bg_type ) {
-					$bg_img      = isset( $theme_options[ $resp_bg_option ][ 'mobile' ]['background-image'] ) ? $theme_options[ $resp_bg_option ][ 'mobile' ]['background-image'] : '';
-					$bg_color    = isset( $theme_options[ $resp_bg_option ][ 'mobile' ]['background-color'] ) ? $theme_options[ $resp_bg_option ][ 'mobile' ]['background-color'] : '';
+					$bg_img   = isset( $theme_options[ $resp_bg_option ]['mobile']['background-image'] ) ? $theme_options[ $resp_bg_option ]['mobile']['background-image'] : '';
+					$bg_color = isset( $theme_options[ $resp_bg_option ]['mobile']['background-color'] ) ? $theme_options[ $resp_bg_option ]['mobile']['background-color'] : '';
 
 					if ( '' !== $bg_img && '' !== $bg_color && ( ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && ! is_numeric( strpos( $bg_color, 'radial-gradient' ) ) ) ) {
-						$theme_options[ $resp_bg_option ][ 'mobile' ]['overlay-type'] = 'classic';
-						$theme_options[ $resp_bg_option ][ 'mobile' ]['overlay-color'] = $bg_color;
-						$theme_options[ $resp_bg_option ][ 'mobile' ]['overlay-gradient'] = '';
+						$theme_options[ $resp_bg_option ]['mobile']['overlay-type']     = 'classic';
+						$theme_options[ $resp_bg_option ]['mobile']['overlay-color']    = $bg_color;
+						$theme_options[ $resp_bg_option ]['mobile']['overlay-gradient'] = '';
 					}
 				}
 			}

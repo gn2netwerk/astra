@@ -355,8 +355,6 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 	}else{
 		if( undefined !== bg_obj['background-type'] && '' !== bg_obj['background-type'] ) {
 
-			console.error( bg_obj );
-
 			if ( ( 'color' === bg_obj['background-type'] ) ) {
 
 				if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color && 'unset' !== bg_color ) {
