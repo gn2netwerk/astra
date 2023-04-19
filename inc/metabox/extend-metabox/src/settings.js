@@ -117,13 +117,15 @@ const MetaSettings = props => {
 
 	console.log( props );
 	useEffect(() => {
-		debugger;
-		if ( props.meta['astra-migrate-meta-layouts'] === '' ) {
+		if ( astMetaParams.v4_1_4_migration ) {
 			switch ( props.meta['site-content-layout'] ) {
 				case 'plain-container':
 					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
 					if ( props.meta['site-content-style'] ) {
 						props.setMetaFieldValue( 'unboxed', 'site-content-style' );
+					}
+					if ( props.meta['site-sidebar-style'] ) {
+						props.setMetaFieldValue( 'unboxed', 'site-sidebar-style' );
 					}
 					break;
 				case 'boxed-container':
@@ -131,12 +133,16 @@ const MetaSettings = props => {
 					if ( props.meta['site-content-style'] ) {
 						props.setMetaFieldValue( 'boxed', 'site-content-style' );
 					}
+					if ( props.meta['site-sidebar-style'] ) {
+						props.setMetaFieldValue( 'boxed', 'site-sidebar-style' );
+					}
 					break;
 				case 'content-boxed-container':
 					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
 					if ( props.meta['site-content-style'] ) {
 						props.setMetaFieldValue( 'boxed', 'site-content-style' );
 					}
+					
 					break;
 				case 'page-builder':
 					props.setMetaFieldValue( 'full-width-container', 'new-site-content-layout' );
@@ -152,7 +158,6 @@ const MetaSettings = props => {
 					break;			
 				case ('default' || ''):
 					props.setMetaFieldValue( 'default', 'site-content-layout' );
-					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
 					break;
 				default:
 					break;

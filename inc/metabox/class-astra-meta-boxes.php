@@ -521,6 +521,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				}
 			}
 
+			$astra_settings         = get_option( ASTRA_THEME_SETTINGS );
 			wp_localize_script(
 				'astra-meta-settings',
 				'astMetaParams',
@@ -552,6 +553,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'is_hide_contnet_layout_sidebar' => $ast_content_layout_sidebar,
 					'upgrade_pro_link'               => ASTRA_PRO_UPGRADE_URL,
 					'show_upgrade_notice'            => astra_showcase_upgrade_notices(),
+					'v4_1_4_migration'               => isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false,
 				)
 			);
 
@@ -1041,28 +1043,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'auth_callback' => '__return_true',
 				)
 			);
-
-			$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
-			$astra_update_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
-			$astra_update_migration = true;
-			// $site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
-			// $site_content_style  = ( isset( $meta['site-content-style']['default'] ) ) ? $meta['site-content-style']['default'] : 'default';
-			// $site_sidebar_style  = ( isset( $meta['site-sidebar-style']['default'] ) ) ? $meta['site-sidebar-style']['default'] : 'default';
-			// $new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : 'default';
-			if ( $astra_update_migration ) {
-				register_post_meta(
-					'',
-					'astra-migrate-meta-layouts',
-					array(
-						'show_in_rest'  => true,
-						'single'        => true,
-						'default'       => isset( $meta['astra-migrate-meta-layouts']['default'] ) ? $meta['astra-migrate-meta-layouts']['default'] : '',
-						'type'          => 'string',
-						'auth_callback' => '__return_true',
-					)
-				);
-			}
-			
 		}
 
 		/**

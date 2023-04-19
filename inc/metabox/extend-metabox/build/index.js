@@ -350,19 +350,24 @@ const MetaSettings = props => {
   }, [contentLayout, setIsDefaultExclude]);
   console.log(props);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    debugger;
-    if (props.meta['astra-migrate-meta-layouts'] === '') {
+    if (astMetaParams.v4_1_4_migration) {
       switch (props.meta['site-content-layout']) {
         case 'plain-container':
           props.setMetaFieldValue('normal-width-container', 'new-site-content-layout');
           if (props.meta['site-content-style']) {
             props.setMetaFieldValue('unboxed', 'site-content-style');
           }
+          if (props.meta['site-sidebar-style']) {
+            props.setMetaFieldValue('unboxed', 'site-sidebar-style');
+          }
           break;
         case 'boxed-container':
           props.setMetaFieldValue('normal-width-container', 'new-site-content-layout');
           if (props.meta['site-content-style']) {
             props.setMetaFieldValue('boxed', 'site-content-style');
+          }
+          if (props.meta['site-sidebar-style']) {
+            props.setMetaFieldValue('boxed', 'site-sidebar-style');
           }
           break;
         case 'content-boxed-container':
@@ -385,7 +390,6 @@ const MetaSettings = props => {
           break;
         case 'default' || 0:
           props.setMetaFieldValue('default', 'site-content-layout');
-          props.setMetaFieldValue('unboxed', 'site-content-style');
           break;
         default:
           break;
