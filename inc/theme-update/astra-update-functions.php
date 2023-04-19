@@ -1162,7 +1162,7 @@ function astra_theme_background_updater_4_1_4() {
 				$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
 				$sidebar_style = $blog_type . '-' . esc_attr( $post_type ) . '-sidebar-style';
 				if( isset( $theme_options[ $old_layout ] ) ) {
-					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $theme_options );	
+					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options );	
 				}
 			}
 		}
