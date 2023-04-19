@@ -1477,11 +1477,11 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
 				break;
 
 			case 'image':
-				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				// @codingStandardsIgnoreStart
 				$overlay_type  = isset( $bg_obj['overlay-type'] ) ? $bg_obj['overlay-type'] : 'none';
 				$overlay_color = isset( $bg_obj['overlay-color'] ) ? $bg_obj['overlay-color'] : '';
 				$overlay_grad  = isset( $bg_obj['overlay-gradient'] ) ? $bg_obj['overlay-gradient'] : '';
-				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				// @codingStandardsIgnoreEnd
 
 				if ( 'none' !== $overlay_type && '' !== $bg_img ) {
 					if ( 'classic' === $overlay_type && '' !== $overlay_color ) {
