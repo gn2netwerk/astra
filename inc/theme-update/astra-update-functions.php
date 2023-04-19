@@ -1145,16 +1145,17 @@ function astra_theme_background_updater_4_1_4() {
 	$blog_types            = array( 'single', 'archive' );
 	$third_party_layouts   = array( 'woocommerce', 'edd', 'lifterlms', 'learndash' );
 
-	if ( ! isset( $theme_options['v4-1-4-update-migration'] ) ) {
+	if ( ! isset( $theme_options['v4-1-4-update-migration'] ) && ! isset( $theme_options['astra-fullwidth-sidebar-support'] )  ) {
 
-		$theme_options['v4-1-4-update-migration'] = true;
-
+		$theme_options['v4-1-4-update-migration']         = true;
+		$theme_options['astra-fullwidth-sidebar-support'] = false;
+	
 		// Global.
 		if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
 			$theme_options = astra_apply_layout_migration( 'site-content-layout', 'new-site-content-layout', 'site-content-style', 'site-sidebar-style', $theme_options );	
 		}
 	
-		// Single, Archive.
+		// Single, archive.
 		foreach ( $blog_types as $index => $blog_type ) {
 			foreach( $post_types as $index => $post_type ) {
 				$old_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-content-layout';
