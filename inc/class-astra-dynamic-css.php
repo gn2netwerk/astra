@@ -3237,7 +3237,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_narrow_container_width( $narrow_container_max_width );
 
 			// Remove Sidebar for Full Width and Narrow Width Container Layout.
-			if ( 'page-builder' === $ast_container_layout || 'narrow-container' === $ast_container_layout ) {
+			if ( ( 'page-builder' === $ast_container_layout && astra_fullwidth_sidebar_support() ) || 'narrow-container' === $ast_container_layout ) {
 				add_filter(
 					'astra_page_layout',
 					function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
@@ -3245,20 +3245,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					}
 				);
 			}
-
-			// $post_type = strval( get_post_type() );
-			// if ( is_singular() ) {
-			// 	// Single layouts.
-			// 	$single_container_layout = astra_get_option( 'single-' . $post_type . '-content-layout', '' );
-			// 	$parse_css              .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
-			// } else {
-			// 	// Archive layouts.
-			// 	$archive_container_layout = astra_get_option( 'archive-' . $post_type . '-content-layout', '' );
-			// 	$parse_css               .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
-			// }
-
-			// // Page Meta.
-			// $parse_css .= astra_narrow_container_width( astra_get_option_meta( 'site-content-layout', '', true ), $narrow_container_max_width );
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
@@ -4885,6 +4871,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function astra_woo_support_global_settings() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			return apply_filters( 'astra_get_option_woo_support_global_settings', isset( $astra_settings['woo_support_global_settings'] ) ? false : true );
+		}
+
+		/**
+		 * Check if fullwidth layout with sidebar is supported.
+		 * Old users - yes
+		 * New users - no
+		 * @return bool true|false.
+		 * @since x.x.x
+		 */
+		public static function astra_fullwidth_sidebar_support() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return apply_filters( 'astra_get_option_v4-1-4-update-migration', isset( $astra_settings['v4-1-4-update-migration'] ) ? false : true );
 		}
 	}
 }
