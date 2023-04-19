@@ -531,7 +531,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'sidebar_title'                  => __( 'Sidebar', 'astra' ),
 					'content_layout'                 => $this->get_content_layout_options(),
 					'content_style'                  => $this->get_content_style_options(),
-					'sidebar-style'                  => $this->get_sidebar_style_options(),
+					'sidebar_style'                  => $this->get_sidebar_style_options(),
 					'content_layout_title'           => __( 'Content Layout', 'astra' ),
 					'disable_sections_title'         => __( 'Disable Sections', 'astra' ),
 					'disable_sections'               => $this->get_disable_section_fields(),
@@ -575,7 +575,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function get_content_layout_options() {
 			$post_type = get_post_type();
-			$exclude_post_types = [
+			$exclude_post_types = array(
 				'product',
 				'download',
 				'course',
@@ -591,7 +591,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'sfwd-lessons',
 				'sfwd-topic',
 				'groups'
-			];
+			);
 			if ( in_array( $post_type, $exclude_post_types ) ) {
 				return array(
 					'default'                => __( 'Customizer Setting', 'astra' ),
@@ -1045,13 +1045,18 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
 			$astra_update_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
 			$astra_update_migration = true;
+			// $site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
+			// $site_content_style  = ( isset( $meta['site-content-style']['default'] ) ) ? $meta['site-content-style']['default'] : 'default';
+			// $site_sidebar_style  = ( isset( $meta['site-sidebar-style']['default'] ) ) ? $meta['site-sidebar-style']['default'] : 'default';
+			// $new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : 'default';
 			if ( $astra_update_migration ) {
 				register_post_meta(
 					'',
-					'astra-migrated-user-meta',
+					'astra-migrate-meta-layouts',
 					array(
 						'show_in_rest'  => true,
 						'single'        => true,
+						'default'       => isset( $meta['astra-migrate-meta-layouts']['default'] ) ? $meta['astra-migrate-meta-layouts']['default'] : '',
 						'type'          => 'string',
 						'auth_callback' => '__return_true',
 					)

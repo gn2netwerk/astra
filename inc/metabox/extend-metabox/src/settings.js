@@ -115,8 +115,10 @@ const MetaSettings = props => {
 		}
 	}, [ contentLayout, setIsDefaultExclude ] );
 
+	console.log( props );
 	useEffect(() => {
-		if ( props.meta['astra-migrated-user-meta'] === '' ) {
+		debugger;
+		if ( props.meta['astra-migrate-meta-layouts'] === '' ) {
 			switch ( props.meta['site-content-layout'] ) {
 				case 'plain-container':
 					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
@@ -155,7 +157,7 @@ const MetaSettings = props => {
 				default:
 					break;
 			}
-			props.setMetaFieldValue( '1', 'astra-migrated-user-meta' );
+			props.setMetaFieldValue( 'set', 'astra-migrate-meta-layouts' );
 		}
 		console.log(props.meta);
 	}, [] );
