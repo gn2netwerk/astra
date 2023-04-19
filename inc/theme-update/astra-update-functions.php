@@ -1145,7 +1145,7 @@ function astra_theme_background_updater_4_1_4() {
 	$blog_types            = array( 'single', 'archive' );
 	$third_party_layouts   = array( 'woocommerce', 'edd', 'lifterlms', 'learndash' );
 
-	if ( ! isset( $theme_options['v4-1-4-update-migration'] ) && ! isset( $theme_options['astra-fullwidth-sidebar-support'] )  ) {
+	if ( ! isset( $theme_options['v4-1-4-update-migration'] ) && ! isset( $theme_options['astra-fullwidth-sidebar-support'] ) ) {
 
 		$theme_options['v4-1-4-update-migration']         = true;
 		$theme_options['astra-fullwidth-sidebar-support'] = false;
