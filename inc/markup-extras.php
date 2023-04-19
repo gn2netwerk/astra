@@ -169,6 +169,7 @@ function astra_is_content_style_boxed() {
 	$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
 	$global_content_style = astra_get_option( 'site-content-style' );
 	$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
+	$meta_key             = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 	$is_boxed = false;
 
 	// Third party compatibility.
