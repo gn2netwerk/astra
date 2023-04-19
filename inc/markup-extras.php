@@ -240,7 +240,7 @@ function astra_is_sidebar_style_boxed() {
 	$post_type            = strval( get_post_type() );
 	$blog_type            = is_singular() ? 'single' : 'archive';
 	$sidebar_style        = astra_get_option( $blog_type . '-' . $post_type . '-sidebar-style', '' );
-	$global_sidebar_style = astra_get_option( 'site-content-style' );
+	$global_sidebar_style = astra_get_option( 'site-sidebar-style' );
 	$meta_sidebar_style   = astra_get_option_meta( 'site-sidebar-style', '', true );
 	$is_sidebar_boxed = false;
 
