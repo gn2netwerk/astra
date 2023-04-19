@@ -21,39 +21,6 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 	class Astra_Learndash_Sidebar_Configs extends Astra_Customizer_Config_Base {
 
 		/**
-		 * Getting context for sidebar.
-		 * Case: Hide sidebar for Full-width layout.
-		 *
-		 * @param string $post_type On basis of this will decide to hide sidebar control or not.
-		 * @return mixed
-		 * @since x.x.x
-		 */
-		public function get_sidebar_context() {
-			return array(
-				'relation' => 'AND',
-				Astra_Builder_Helper::$general_tab_config,
-				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[learndash-new-content-layout]',
-					'operator' => '!=',
-					'value'    => 'full-width-container',
-				),
-				array(
-					'relation' => 'OR',
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[learndash-new-content-layout]',
-						'operator' => '!=',
-						'value'    => 'default',
-					),
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
-						'operator' => '!=',
-						'value'    => 'full-width-container',
-					),
-				),
-			);
-		}
-
-		/**
 		 * Register LearnDash Sidebar settings.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
@@ -76,7 +43,6 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-leandash-general',
 					'default'           => astra_get_option( 'learndash-sidebar-layout' ),
-					'context'           => $this->get_sidebar_context(),
 					'priority'          => 5,
 					'title'             => __( 'Sidebar Layout', 'astra' ),
 					'choices'           => array(
@@ -97,6 +63,43 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+				),
+
+				/**
+				 * Help Text: Learndash Sidebar Layout.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-leandash-general',
+					'priority' => 5,
+					'title'    => '',
+					'help'     => __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing ast-section-divider' ),
+					'settings' => array(),
+				),
+
+				/**
+				 * Option: Learndash Sidebar Style.
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[learndash-sidebar-style]',
+					'type'              => 'control',
+					'control'           => 'ast-selector',
+					'section'           => 'section-leandash-general',
+					'default'           => astra_get_option( 'learndash-sidebar-style', 'default' ),
+					'priority'          => 5,
+					'title'             => __( 'Sidebar Style', 'astra' ),
+					'choices'     => array(
+						'default' => __( 'Default', 'astra' ),
+						'unboxed' => __( 'Unboxed', 'astra' ),
+						'boxed'   => __( 'Boxed', 'astra' ),
+					),
+					'responsive' => false,
+					'renderAs'   => 'text',
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-top-spacing' ),
 				),
 			);
 

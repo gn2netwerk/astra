@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-leandash-general',
-					'default'           => astra_get_option( 'learndash-new-content-layout' ),
+					'default'           => astra_get_option( 'learndash-new-content-layout', 'default' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'choices'           => array(
@@ -95,11 +95,11 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-section-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-bottom-spacing' ),
 				),
 
 				/**
-				 * Option: Content Style Option.
+				 * Option: LearnDash Content Style Option.
 				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[learndash-content-style]',
@@ -116,7 +116,21 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
+					'divider'    => array( 'ast_class' => 'ast-top-spacing' ),
+				),
+
+				/**
+				 * Help Text: LearnDash Content Style Option.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[learndash-content-style-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-leandash-general',
+					'priority' => 5,
+					'title'    => '',
+					'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+					'settings' => array(),
 				),
 
 			);

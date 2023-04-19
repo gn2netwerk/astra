@@ -209,6 +209,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
 			$site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
 			$site_content_style  = ( isset( $meta['site-content-style']['default'] ) ) ? $meta['site-content-style']['default'] : 'default';
+			$site_sidebar_style  = ( isset( $meta['site-sidebar-style']['default'] ) ) ? $meta['site-sidebar-style']['default'] : 'default';
 			$new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : 'default';
 			$site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
 			$footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
@@ -236,6 +237,21 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'astra' ); ?></option>
 					<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
 					<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
+				</select>
+			</div>
+			<?php
+			/**
+			 * Option: Sidebar Style.
+			 */
+			?>
+			<div class="site-sidebar-style-meta-wrap components-base-control__field">
+				<p class="post-attributes-label-wrapper" >
+					<strong> <?php esc_html_e( 'Sidebar Style', 'astra' ); ?> </strong>
+				</p>
+				<select name="site-sidebar-style" id="site-sidebar-style">
+					<option value="default" <?php selected( $site_sidebar_style, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
+					<option value="unboxed" <?php selected( $site_sidebar_style, 'unboxed' ); ?> > <?php esc_html_e( 'Unboxed', 'astra' ); ?></option>
+					<option value="boxed" <?php selected( $site_sidebar_style, 'boxed' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
 				</select>
 			</div>
 			<?php
@@ -855,7 +871,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
-					'default'       => isset( $meta['site-sidebar-style']['default'] ) ? $meta['site-content-style']['default'] : '',
+					'default'       => isset( $meta['site-sidebar-style']['default'] ) ? $meta['site-sidebar-style']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)

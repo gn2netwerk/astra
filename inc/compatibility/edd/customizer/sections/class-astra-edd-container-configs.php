@@ -116,7 +116,20 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 					),
 					'renderAs'   => 'text',
 					'responsive' => false,
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' )
+				),
+
+				/**
+				 * Help Text: EDD Content Style Option.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[edd-content-style-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-edd-general',
+					'priority' => 5,
+					'title'    => '',
+					'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+					'settings' => array(),
 				),
 			);
 
