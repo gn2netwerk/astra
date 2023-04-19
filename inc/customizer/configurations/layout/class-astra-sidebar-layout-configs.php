@@ -21,25 +21,6 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 	class Astra_Sidebar_Layout_Configs extends Astra_Customizer_Config_Base {
 
 		/**
-		 * Getting context for sidebar.
-		 * Case: Hide sidebar style for no sidebar position.
-		 *
-		 * @return mixed
-		 * @since x.x.x
-		 */
-		public function get_sidebar_styles_context() {
-			return array(
-				'relation' => 'AND',
-				Astra_Builder_Helper::$general_tab_config,
-				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[site-sidebar-layout]',
-					'operator' => '!=',
-					'value'    => 'no-sidebar',
-				),
-			);
-		}
-
-		/**
 		 * Register Astra Sidebar Layout Configurations.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
@@ -77,7 +58,21 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
+				),
+
+				/**
+				 * Help Text: Archive Sidebar Layout.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[site-sidebar-layout-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-sidebars',
+					'priority' => 5,
+					'title'    => '',
+					'help'     => __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+					'settings' => array(),
 				),
 
 				/**
@@ -89,7 +84,6 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'control'           => 'ast-selector',
 					'section'           => 'section-sidebars',
 					'default'           => astra_get_option( 'site-sidebar-style', 'unboxed' ),
-					'context'           => $this->get_sidebar_styles_context(),
 					'priority'          => 9,
 					'title'             => __( 'Sidebar Style', 'astra' ),
 					'choices'     => array(
@@ -98,7 +92,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-section-divider' ),
 				),
 
 				/**
