@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'default'           => astra_get_option( 'new-site-content-layout', 'unboxed' ),
 					'priority'          => 9,
 					'title'             => __( 'Container Layout', 'astra' ),
-					'transport'         => 'postMessage',
+					'transport'         => 'refresh',
 					'choices'           => array(
 						'normal-width-container'         => array(
 							'label' => __( 'Normal', 'astra' ),

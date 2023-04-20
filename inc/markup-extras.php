@@ -91,17 +91,6 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		$is_boxed         = astra_is_content_style_boxed();
 		$is_sidebar_boxed = astra_is_sidebar_style_boxed();
 
-		// Meta options migrations.
-		$meta_layout          = astra_get_option_meta('site-content-layout', '', true );
-		$new_meta_layout      = astra_get_option_meta('new-site-content-layout', '', true );
-		if ( isset( $meta_layout ) && ! $new_meta_layout ) {
-			$migrated_options = astra_migrate_meta_options( $meta_layout );
-			$new_layout   = $migrated_options['new-meta-layout'];
-			$content_layout = astra_toggle_layout($new_layout, 'meta', true);
-			$is_boxed         = 'boxed' === $migrated_options['meta-content-style'] ? true : false;
-			$is_sidebar_boxed = 'boxed' === $migrated_options['meta-sidebar-style'] ? true : false;
-		}
-
 		if ( 'plain-container' === $content_layout ) {
 			$post_type = strval( get_post_type() );
 			$blog_type = is_singular() ? 'single' : 'archive';
@@ -289,51 +278,6 @@ function astra_is_sidebar_style_boxed() {
 	}
 
 	return $is_sidebar_boxed;
-}
-
-function astra_migrate_meta_options( $meta_layout ) {
-	$new_layout = '';
-	$content_style = '';
-	$sidebar_style = '';
-	switch ( $meta_layout ) {
-		case 'boxed-container':
-			$new_layout         = 'normal-width-container';
-			$content_style      = 'boxed';
-			$sidebar_style      = 'boxed';
-			break;
-		case 'content-boxed-container':
-			$new_layout         = 'normal-width-container';
-			$content_style      = 'boxed';
-			$sidebar_style      = 'unboxed';
-			break;
-		case 'plain-container':
-			$new_layout         = 'normal-width-container';
-			$content_style      = 'unboxed';
-			$sidebar_style      = 'unboxed';
-			break;
-		case 'page-builder':
-			$new_layout         = 'full-width-container';
-			$content_style      = 'unboxed';
-			$sidebar_style      = 'unboxed';
-			break;
-		case 'narrow-container':
-			$new_layout         = 'narrow-width-container';
-			$content_style      = 'unboxed';
-			$sidebar_style      = 'unboxed';
-			break;
-		case ( 'default' || '' ):
-			$new_layout         = 'default';
-			$content_style      = 'default';
-			$sidebar_style      = 'default';
-			break;
-		default:
-			break;
-	}
-	return array(
-		'new-meta-layout'    => $new_layout,
-		'meta-content-style' => $content_style,
-		'meta-sidebar-style' => $sidebar_style
-	);
 }
 
 /**

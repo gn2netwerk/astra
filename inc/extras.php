@@ -165,16 +165,21 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	}
 }
 
-function astra_toggle_layout( $new_content_option, $level, $migrate = false ) {
+function astra_toggle_layout( $new_content_option, $level ) {
 
 	// Dynamic layout option for meta case.
 	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
 	$current_layout = '';
-
-	if ( $migrate ) {
-		$dynamic_layout_option = $new_content_option;
-	}
 	
+	// Meta layout migrations.
+	if ( 'meta' === $level ) {
+		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
+		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
+		if ( $meta_old_layout && ! $meta_new_layout ) {
+			$dynamic_layout_option = astra_migrate_meta_options( $meta_old_layout );
+		}
+	}
+
 	switch ( $dynamic_layout_option ) {
 		case 'normal-width-container':
 			$current_layout = 'plain-container';
@@ -191,6 +196,34 @@ function astra_toggle_layout( $new_content_option, $level, $migrate = false ) {
 			break;
 	}
 	return $current_layout;
+}
+
+function astra_migrate_meta_options( $meta_layout ) {
+	$new_layout = '';
+	switch ( $meta_layout ) {
+		case 'boxed-container':
+			$new_layout = 'normal-width-container';
+			break;
+		case 'content-boxed-container':
+			$new_layout = 'normal-width-container';
+			break;
+		case 'plain-container':
+			$new_layout = 'normal-width-container';
+			break;
+		case 'page-builder':
+			$new_layout = 'full-width-container';
+			break;
+		case 'narrow-container':
+			$new_layout = 'narrow-width-container';
+			break;
+		case ( 'default' || '' ):
+			$new_layout = 'default';
+			break;
+		default:
+			break;
+	}
+
+	return $new_layout;
 }
 
 /**
