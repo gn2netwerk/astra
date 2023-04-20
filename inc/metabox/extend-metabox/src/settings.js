@@ -117,7 +117,6 @@ const MetaSettings = props => {
 
 	console.log( props );
 	useEffect(() => {
-		debugger
 		if ( astMetaParams.v4_1_4_migration ) {
 			switch ( props.meta['site-content-layout'] ) {
 				case 'plain-container':
@@ -162,7 +161,7 @@ const MetaSettings = props => {
 				default:
 					break;
 			}
-			props.setMetaFieldValue( 'set1', 'astra-migrate-meta-layouts' );
+			props.setMetaFieldValue( 'set', 'astra-migrate-meta-layouts' );
 		}
 		console.log(props.meta);
 	}, [] );
