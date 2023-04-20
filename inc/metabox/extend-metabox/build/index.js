@@ -350,7 +350,6 @@ const MetaSettings = props => {
   }, [contentLayout, setIsDefaultExclude]);
   console.log(props);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    debugger;
     if (astMetaParams.v4_1_4_migration) {
       switch (props.meta['site-content-layout']) {
         case 'plain-container':
@@ -395,7 +394,7 @@ const MetaSettings = props => {
         default:
           break;
       }
-      props.setMetaFieldValue('set1', 'astra-migrate-meta-layouts');
+      props.setMetaFieldValue('set', 'astra-migrate-meta-layouts');
     }
     console.log(props.meta);
   }, []);

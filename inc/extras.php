@@ -177,32 +177,25 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 function astra_toggle_layout( $new_content_option, $old_content_option, $level ) {
 
-	$astra_theme_options = get_option( 'astra-settings' );
-
 	// Dynamic layout option for meta case.
 	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
 	$current_layout = '';
 	
 	switch ( $dynamic_layout_option ) {
 		case 'normal-width-container':
-			$astra_theme_options[ $old_content_option ] = 'plain-container';
-			$current_layout = $astra_theme_options[ $old_content_option ];
+			$current_layout = 'plain-container';
 			break;
 		case 'narrow-width-container':
-			$astra_theme_options[ $old_content_option ] = 'narrow-container';
-			$current_layout = $astra_theme_options[ $old_content_option ];
-			break; 
+			$current_layout = 'narrow-container';
+			break;
 		case 'full-width-container':
-			$astra_theme_options[ $old_content_option ] = 'page-builder';
-			$current_layout = $astra_theme_options[ $old_content_option ];
+			$current_layout = 'page-builder';
 			break;
 		case ('default' || ''):
-			$astra_theme_options[ $old_content_option ] = 'default';
-			$current_layout = $astra_theme_options[ $old_content_option ];
+			$current_layout = 'default';
 		default:
 			break;
 	}
-	update_option( 'astra-settings', $astra_theme_options );
 	return $current_layout;
 }
 

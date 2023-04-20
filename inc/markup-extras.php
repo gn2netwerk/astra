@@ -170,7 +170,7 @@ function astra_is_content_style_boxed() {
 	$global_content_style = astra_get_option( 'site-content-style' );
 	$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
 	$is_boxed = false;
-	//astra_meta_options_migration();
+
 	// Third party compatibility.
 	$third_party = astra_is_third_party();
 	if ( ! empty( $third_party ) ) {
@@ -242,7 +242,6 @@ function astra_is_sidebar_style_boxed() {
 	$sidebar_style        = astra_get_option( $blog_type . '-' . $post_type . '-sidebar-style', '' );
 	$global_sidebar_style = astra_get_option( 'site-sidebar-style' );
 	$meta_sidebar_style   = astra_get_option_meta( 'site-sidebar-style', '', true );
-	$meta_key             = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 	$is_sidebar_boxed = false;
 
 	// Third party compatibility.
