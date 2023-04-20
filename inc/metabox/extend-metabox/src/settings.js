@@ -116,10 +116,10 @@ const MetaSettings = props => {
 		}
 	}, [ contentLayout, setIsDefaultExclude ] );
 
+	// Migrate meta layout, content style and sidebar options if old user.
 	useEffect(() => {
 		if ( astMetaParams.v4_1_4_migration && ! props.meta['astra-migrate-meta-layouts'] ) {
 			props.setMetaFieldValue( 'set', 'astra-migrate-meta-layouts' );
-			console.log(props.meta);
 			switch ( props.meta['site-content-layout'] ) {
 				case 'plain-container':
 					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
