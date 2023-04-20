@@ -1045,7 +1045,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			);
 
 			$v4_1_4_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
-			$v4_1_4_migration = true;
 
 			if( $v4_1_4_migration ) {
 				register_post_meta(
