@@ -1053,7 +1053,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
-			);				
+			);
 		}
 
 		/**

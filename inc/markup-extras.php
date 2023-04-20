@@ -240,6 +240,7 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
  * 
  */
 if ( ! function_exists( 'astra_is_third_party' ) ) {
+
 	/**
 	 * Check if the current page is a third party page.
 	 *

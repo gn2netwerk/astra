@@ -169,6 +169,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
  * Function to toggle old layouts from new layout selection.
  */
 if ( ! function_exists( 'astra_toggle_layout' ) ) {
+
 	/**
 	 * Return current content layout as per new layout selection.
 	 *
@@ -212,6 +213,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
  * Function to migrate meta layout option to new layout.
  */
 if ( ! function_exists( 'astra_migrate_meta_layout' ) ) {
+
 	/**
 	 * Migrate meta layout to new layout.
 	 *

@@ -133,17 +133,16 @@ function astra_content_background_css( $dynamic_css ) {
 }
 
 /**
- * Change container bg color to site bg color for case: normal Layout + content style unboxed + sidebar + boxed.
- *
- * @return Object Container bg color object or site bg color object.
+ * Applies an unboxed container to the content.
  *
  * @since x.x.x
+ * @param array $content_bg_obj The background object for the content.
+ * @return array The updated background object for the content.
  */
 function astra_apply_unboxed_container( $content_bg_obj ) {
 	$is_boxed            = astra_is_content_style_boxed();
 	$is_sidebar_boxed    = astra_is_sidebar_style_boxed();
 	$current_layout      = astra_get_content_layout();
-	$sidebar_boxed_css   = '.ast-separate-container.ast-two-container #secondary .widget';
 	if ( 'plain-container' === $current_layout && ! $is_boxed && $is_sidebar_boxed ) {
 		$content_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 	}

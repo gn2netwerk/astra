@@ -1182,6 +1182,13 @@ function astra_theme_background_updater_4_1_4() {
 	}
 }
 
+/**
+ * Handle migration from old to new layouts.
+ *
+ * Migration cases for old users, old layouts -> new layouts.
+ * @since x.x.x
+ * @return void
+ */
 function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options ) {
 		switch ( astra_get_option( $old_layout ) ) {
 			case 'boxed-container':
@@ -1217,6 +1224,5 @@ function astra_apply_layout_migration( $old_layout, $new_layout, $content_style,
 			default:
 				break;
 		}
-
 		return $theme_options;
 }
