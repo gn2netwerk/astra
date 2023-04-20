@@ -90,6 +90,13 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		$content_layout   = astra_get_content_layout();
 		$is_boxed         = astra_is_content_style_boxed();
 		$is_sidebar_boxed = astra_is_sidebar_style_boxed();
+		// $v4_1_4_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
+		// $meta_layout   = astra_get_option_meta( 'site-content-layout', '', true);
+
+		// // Meta migration.
+		// if( isset( $meta_layout ) && $v4_1_4_migration ) {
+		// 	$content_layout = astra_meta_options_migration( $meta_layout );
+		// }
 
 		if ( 'plain-container' === $content_layout ) {
 			$post_type = strval( get_post_type() );
@@ -285,61 +292,31 @@ function astra_is_sidebar_style_boxed() {
 	return $is_sidebar_boxed;
 }
 
-function astra_meta_options_migration() {
-	$theme_options         = get_option( 'astra-settings' );
-	$meta_key              = astra_get_option_meta( 'astra-migrate-meta-layouts', '' , true );
-	$flag = true;
-	if ( isset( $flag ) && ! $meta_key ) {
-		register_post_meta(
-			'',
-			'astra-migrate-meta-layouts',
-			array(
-				'show_in_rest'  => true,
-				'single'        => true,
-				'type'          => 'string',
-				'auth_callback' => '__return_true',
-			)
-		);
-		$old_layout = astra_get_option_meta( 'site-content-layout', '', true );
-		switch ( $old_layout ) {
-			case 'boxed-container':
-				$new_layout         = 'normal-width-container';
-				$meta_content_style = 'boxed';
-				$meta_sidebar_style = 'boxed';
-				break;
-			case 'content-boxed-container':
-				$new_layout         = 'normal-width-container';
-				$meta_content_style = 'boxed';
-				$meta_sidebar_style = 'unboxed';
-				break;
-			case 'plain-container':
-				$new_layout         = 'normal-width-container';
-				$meta_content_style = 'unboxed';
-				$meta_sidebar_style = 'unboxed';
-				break;
-			case 'page-builder':
-				$new_layout         = 'full-width-container';
-				$meta_content_style = 'unboxed';
-				break;
-			case 'narrow-container':
-				$new_layout         = 'narrow-width-container';
-				$meta_content_style = 'unboxed';
-				break;
-			case ( 'default' || '' ):
-				$new_layout         = 'default';
-				$meta_content_style = 'default';
-				$meta_sidebar_style = 'default';
-				break;
-			default:
-			    $new_layout = '';
-				$meta_content_style = '';
-				$meta_sidebar_style = '';
-				break;
-		}
-		update_post_meta( astra_get_post_id(), 'site-content-layout', $new_layout);
-		update_post_meta( astra_get_post_id(), 'site-content-style', $meta_content_style);
-		update_post_meta( astra_get_post_id(), 'site-sidebar-style', $meta_sidebar_style);
+function astra_meta_options_migration( $meta_layout ) {
+
+	switch ( $old_layout ) {
+		case 'boxed-container':
+			$new_layout         = 'normal-width-container';
+			break;
+		case 'content-boxed-container':
+			$new_layout         = 'normal-width-container';
+			break;
+		case 'plain-container':
+			$new_layout         = 'normal-width-container';
+			break;
+		case 'page-builder':
+			$new_layout         = 'full-width-container';
+			break;
+		case 'narrow-container':
+			$new_layout         = 'narrow-width-container';
+			break;
+		case ( 'default' || '' ):
+			$new_layout         = 'default';
+			break;
+		default:
+			break;
 	}
+	return $meta_layout;
 }
 /**
  * Astra Pagination

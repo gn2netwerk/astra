@@ -128,6 +128,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			// If post meta value is empty,
 			// Then get the POST_TYPE content layout.
 			$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
+			$meta_layout    = astra_get_option_meta( 'site-content-layout', '', true );
 
 			// If post meta value is present then toggle old layouts.
 			if( $content_layout ) {
