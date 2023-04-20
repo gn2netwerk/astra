@@ -1044,20 +1044,16 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				)
 			);
 
-			$v4_1_4_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
-
-			if( $v4_1_4_migration ) {
-				register_post_meta(
-					'',
-					'astra-migrate-meta-layouts',
-					array(
-						'show_in_rest'  => true,
-						'single'        => true,
-						'type'          => 'string',
-						'auth_callback' => '__return_true',
-					)
-				);				
-			}
+			register_post_meta(
+				'',
+				'astra-migrate-meta-layouts',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);				
 		}
 
 		/**

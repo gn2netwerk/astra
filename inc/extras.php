@@ -165,66 +165,85 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	}
 }
 
-function astra_toggle_layout( $new_content_option, $level ) {
-
-	// Dynamic layout option for meta case.
-	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
-	$current_layout = '';
+/**
+ * Function to toggle old layouts from new layout selection.
+ */
+if ( ! function_exists( 'astra_toggle_layout' ) ) {
+	/**
+	 * Return current content layout as per new layout selection.
+	 *
+	 * @since x.x.x
+	 * @return mixed content layout.
+	 */
+	function astra_toggle_layout( $new_content_option, $level ) {
 	
-	// Meta layout migrations.
-	$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
-	$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
+		// Dynamic layout option for meta case.
+		$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
+		$current_layout = '';
+		
+		// Meta layout migrations.
+		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
+		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
+		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
+		if ( $meta_old_layout && ! $meta_new_layout && 'set' !== $meta_key ) {
+			$dynamic_layout_option = astra_migrate_meta_layout( $meta_old_layout );
+		}
 
-	$v4_1_4_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
-	$meta_key = astra_get_option_meta( 'astra-migrate-meta-layouts' );
-	if ( $meta_old_layout && ! $meta_new_layout && $v4_1_4_migration && ! isset( $meta_key ) ) {
-		$dynamic_layout_option = astra_migrate_meta_options( $meta_old_layout );
+		switch ( $dynamic_layout_option ) {
+			case 'normal-width-container':
+				$current_layout = 'plain-container';
+				break;
+			case 'narrow-width-container':
+				$current_layout = 'narrow-container';
+				break;
+			case 'full-width-container':
+				$current_layout = 'page-builder';
+				break;
+			case ('default' || ''):
+				$current_layout = 'default';
+			default:
+				break;
+		}
+		return $current_layout;
 	}
-
-	switch ( $dynamic_layout_option ) {
-		case 'normal-width-container':
-			$current_layout = 'plain-container';
-			break;
-		case 'narrow-width-container':
-			$current_layout = 'narrow-container';
-			break;
-		case 'full-width-container':
-			$current_layout = 'page-builder';
-			break;
-		case ('default' || ''):
-			$current_layout = 'default';
-		default:
-			break;
-	}
-	return $current_layout;
 }
 
-function astra_migrate_meta_options( $meta_layout ) {
-	$new_layout = '';
-	switch ( $meta_layout ) {
-		case 'boxed-container':
-			$new_layout = 'normal-width-container';
-			break;
-		case 'content-boxed-container':
-			$new_layout = 'normal-width-container';
-			break;
-		case 'plain-container':
-			$new_layout = 'normal-width-container';
-			break;
-		case 'page-builder':
-			$new_layout = 'full-width-container';
-			break;
-		case 'narrow-container':
-			$new_layout = 'narrow-width-container';
-			break;
-		case ( 'default' || '' ):
-			$new_layout = 'default';
-			break;
-		default:
-			break;
-	}
-
-	return $new_layout;
+/**
+ * Function to migrate meta layout option to new layout.
+ */
+if ( ! function_exists( 'astra_migrate_meta_layout' ) ) {
+	/**
+	 * Migrate meta layout to new layout.
+	 *
+	 * @since x.x.x
+	 * @return mixed new layout.
+	 */
+	function astra_migrate_meta_layout( $meta_layout ) {
+		$new_layout = '';
+		switch ( $meta_layout ) {
+			case 'boxed-container':
+				$new_layout = 'normal-width-container';
+				break;
+			case 'content-boxed-container':
+				$new_layout = 'normal-width-container';
+				break;
+			case 'plain-container':
+				$new_layout = 'normal-width-container';
+				break;
+			case 'page-builder':
+				$new_layout = 'full-width-container';
+				break;
+			case 'narrow-container':
+				$new_layout = 'narrow-width-container';
+				break;
+			case ( 'default' || '' ):
+				$new_layout = 'default';
+				break;
+			default:
+				break;
+		}
+		return $new_layout;
+	}	
 }
 
 /**
