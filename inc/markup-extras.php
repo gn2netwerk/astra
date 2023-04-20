@@ -94,7 +94,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		// Meta options migrations.
 		$meta_layout          = astra_get_option_meta('site-content-layout', '', true );
 		$new_meta_layout      = astra_get_option_meta('new-site-content-layout', '', true );
-		if ( isset( $meta_layout ) && ! isset( $new_meta_layout ) ) {
+		if ( isset( $meta_layout ) && ! $new_meta_layout ) {
 			$migrated_options = astra_migrate_meta_options( $meta_layout );
 			$new_layout   = $migrated_options['new-meta-layout'];
 			$content_layout = astra_toggle_layout($new_layout, 'meta', true);
@@ -293,6 +293,8 @@ function astra_is_sidebar_style_boxed() {
 
 function astra_migrate_meta_options( $meta_layout ) {
 	$new_layout = '';
+	$content_style = '';
+	$sidebar_style = '';
 	switch ( $meta_layout ) {
 		case 'boxed-container':
 			$new_layout         = 'normal-width-container';
