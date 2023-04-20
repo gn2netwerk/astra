@@ -125,14 +125,17 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 		if ( is_singular() ) {
 
-			// If post meta value is empty,
-			// Then get the POST_TYPE content layout.
-			$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
 			$meta_layout    = astra_get_option_meta( 'site-content-layout', '', true );
-
-			// If post meta value is present then toggle old layouts.
-			if( $content_layout ) {
-				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', 'meta' );
+			if( ! empty( $meta_layout ) ) {
+				$new_migrated_layout = astra_migrate_meta_options( $meta_layout );
+				$content_layout = astra_toggle_layout( $new_migrated_layout, 'site-content-layout', 'meta', true );
+			}
+			else {
+				$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
+				// If post meta value is present then toggle old layouts.
+				if( $content_layout ) {
+					$content_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', 'meta' );
+				}
 			}
 
 			if ( empty( $content_layout ) ) {
@@ -176,11 +179,15 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	}
 }
 
-function astra_toggle_layout( $new_content_option, $old_content_option, $level ) {
+function astra_toggle_layout( $new_content_option, $old_content_option, $level, $migrate = false ) {
 
 	// Dynamic layout option for meta case.
 	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
 	$current_layout = '';
+
+	if ( $migrate ) {
+		$dynamic_layout_option = $new_content_option;
+	}
 	
 	switch ( $dynamic_layout_option ) {
 		case 'normal-width-container':
@@ -198,6 +205,33 @@ function astra_toggle_layout( $new_content_option, $old_content_option, $level )
 			break;
 	}
 	return $current_layout;
+}
+
+function astra_migrate_meta_options( $meta_layout ) {
+	$new_layout = '';
+	switch ( $meta_layout ) {
+		case 'boxed-container':
+			$new_layout         = 'normal-width-container';
+			break;
+		case 'content-boxed-container':
+			$new_layout         = 'normal-width-container';
+			break;
+		case 'plain-container':
+			$new_layout         = 'normal-width-container';
+			break;
+		case 'page-builder':
+			$new_layout         = 'full-width-container';
+			break;
+		case 'narrow-container':
+			$new_layout         = 'narrow-width-container';
+			break;
+		case ( 'default' || '' ):
+			$new_layout         = 'default';
+			break;
+		default:
+			break;
+	}
+	return $new_layout;
 }
 
 /**

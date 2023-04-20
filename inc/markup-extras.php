@@ -292,32 +292,6 @@ function astra_is_sidebar_style_boxed() {
 	return $is_sidebar_boxed;
 }
 
-function astra_meta_options_migration( $meta_layout ) {
-
-	switch ( $old_layout ) {
-		case 'boxed-container':
-			$new_layout         = 'normal-width-container';
-			break;
-		case 'content-boxed-container':
-			$new_layout         = 'normal-width-container';
-			break;
-		case 'plain-container':
-			$new_layout         = 'normal-width-container';
-			break;
-		case 'page-builder':
-			$new_layout         = 'full-width-container';
-			break;
-		case 'narrow-container':
-			$new_layout         = 'narrow-width-container';
-			break;
-		case ( 'default' || '' ):
-			$new_layout         = 'default';
-			break;
-		default:
-			break;
-	}
-	return $meta_layout;
-}
 /**
  * Astra Pagination
  */
