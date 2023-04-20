@@ -208,10 +208,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var html_react_parser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! html-react-parser */ "./node_modules/html-react-parser/index.mjs");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! lodash */ "lodash");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_11__);
 
 /**
  * Meta Options build.
  */
+
 
 
 
@@ -348,9 +351,10 @@ const MetaSettings = props => {
       setIsDefaultExclude(false);
     }
   }, [contentLayout, setIsDefaultExclude]);
-  console.log(props);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    if (astMetaParams.v4_1_4_migration) {
+    if (astMetaParams.v4_1_4_migration && !props.meta['astra-migrate-meta-layouts']) {
+      props.setMetaFieldValue('set', 'astra-migrate-meta-layouts');
+      console.log(props.meta);
       switch (props.meta['site-content-layout']) {
         case 'plain-container':
           props.setMetaFieldValue('normal-width-container', 'new-site-content-layout');
@@ -394,9 +398,7 @@ const MetaSettings = props => {
         default:
           break;
       }
-      props.setMetaFieldValue('set', 'astra-migrate-meta-layouts');
     }
-    console.log(props.meta);
   }, []);
 
   // Display sidebar options or not.
@@ -427,27 +429,6 @@ const MetaSettings = props => {
       setContentLayout(val);
       if (val === 'narrow-container') props.setMetaFieldValue('no-sidebar', 'site-sidebar-layout');
       props.setMetaFieldValue(val, 'new-site-content-layout');
-
-      // Set old content layout value.
-      switch (val) {
-        case 'normal-width-container':
-          props.setMetaFieldValue('plain-container', 'site-content-layout');
-          if (props.meta['site-content-style'] && 'boxed' === props.meta['site-content-style']) {
-            props.setMetaFieldValue('content-boxed-container', 'site-content-layout');
-          }
-          break;
-        case 'narrow-width-container':
-          props.setMetaFieldValue('narrow-container', 'site-content-layout');
-          break;
-        case 'full-width-container':
-          props.setMetaFieldValue('page-builder', 'site-content-layout');
-          break;
-        case 'default':
-          props.setMetaFieldValue('default', 'site-content-layout');
-          break;
-        default:
-          break;
-      }
     }
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
     title: __('Content Style', 'astra'),
@@ -3126,6 +3107,17 @@ module.exports = StyleToObject;
 
 "use strict";
 module.exports = window["React"];
+
+/***/ }),
+
+/***/ "lodash":
+/*!*************************!*\
+  !*** external "lodash" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["lodash"];
 
 /***/ }),
 

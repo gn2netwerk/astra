@@ -11,6 +11,7 @@ import AstSelectorControl from './ast-selector.js';
 import svgIcons from '../../../../assets/svg/svgs.json';
 import { SelectControl, PanelBody, Modal } from '@wordpress/components';
 import parse from 'html-react-parser';
+import { isSet } from 'lodash';
 const { __ } = wp.i18n;
 
 const MetaSettings = props => {
@@ -115,9 +116,10 @@ const MetaSettings = props => {
 		}
 	}, [ contentLayout, setIsDefaultExclude ] );
 
-	console.log( props );
 	useEffect(() => {
-		if ( astMetaParams.v4_1_4_migration ) {
+		if ( astMetaParams.v4_1_4_migration && ! props.meta['astra-migrate-meta-layouts'] ) {
+			props.setMetaFieldValue( 'set', 'astra-migrate-meta-layouts' );
+			console.log(props.meta);
 			switch ( props.meta['site-content-layout'] ) {
 				case 'plain-container':
 					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
@@ -161,9 +163,7 @@ const MetaSettings = props => {
 				default:
 					break;
 			}
-			props.setMetaFieldValue( 'set', 'astra-migrate-meta-layouts' );
 		}
-		console.log(props.meta);
 	}, [] );
 
 	// Display sidebar options or not.
@@ -205,27 +205,6 @@ const MetaSettings = props => {
 									setContentLayout(val);
 									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
 									props.setMetaFieldValue( val, 'new-site-content-layout' );
-									
-									// Set old content layout value.
-									switch ( val ) {
-										case 'normal-width-container':
-											props.setMetaFieldValue( 'plain-container', 'site-content-layout' );
-											if ( props.meta['site-content-style'] && 'boxed' === props.meta['site-content-style'] ) {
-												props.setMetaFieldValue( 'content-boxed-container', 'site-content-layout' );
-											}
-											break;
-										case 'narrow-width-container':
-											props.setMetaFieldValue( 'narrow-container', 'site-content-layout' );
-										break;
-										case 'full-width-container':
-											props.setMetaFieldValue( 'page-builder', 'site-content-layout' );
-											break;			
-										case 'default':
-											props.setMetaFieldValue( 'default', 'site-content-layout' );
-											break;			
-										default:
-											break;
-									}
 								} }
 							/>
 						</div>

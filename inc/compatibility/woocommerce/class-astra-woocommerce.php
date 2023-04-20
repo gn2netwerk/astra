@@ -1209,8 +1209,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) {
 
-				$woo_layout = astra_get_option( 'woocommerce-content-layout' );
-				$woo_layout = astra_toggle_layout( 'woocommerce-new-content-layout', 'woocommerce-content-layout', 'global' );
+				$woo_layout = astra_toggle_layout( 'woocommerce-new-content-layout', 'global' );
 
 				// If not default override with woocommerce global container settings.
 				if ( 'default' !== $woo_layout ) {
@@ -1220,13 +1219,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$global_page_specific_layout = 'default';
 
 				if ( is_shop() || is_product_taxonomy() ) {
-					$global_page_specific_layout = astra_get_option( 'archive-product-content-layout', 'default' );
-					$global_page_specific_layout = astra_toggle_layout( 'archive-product-new-content-layout', 'archive-product-content-layout', 'archive' );
+					$global_page_specific_layout = astra_toggle_layout( 'archive-product-new-content-layout', 'archive' );
 				}
 
 				if ( is_product() ) {
-					$global_page_specific_layout = astra_get_option( 'single-product-content-layout', 'default' );
-					$global_page_specific_layout = astra_toggle_layout( 'single-product-new-content-layout', 'single-product-content-layout', 'single' );
+					$global_page_specific_layout = astra_toggle_layout( 'single-product-new-content-layout', 'single' );
 				}
 
 				// If page specific is not default, overide with page specific layout.
@@ -1241,7 +1238,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					$shop_layout = 'default';
 				} else {
 					$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
-					$shop_layout = astra_toggle_layout( 'new-site-content-layout', 'site-content-layout', 'meta' );
+					$shop_layout = astra_toggle_layout( 'new-site-content-layout', 'meta' );
 				}
 
 				// If meta is not default, overide with meta container layout settings.
