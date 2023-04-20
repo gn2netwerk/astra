@@ -94,11 +94,13 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		// Meta content style migrations.
 		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
 		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
-		if ( $meta_old_layout && ! $meta_new_layout ) {
-			if ( 'content-boxed-container' == $content_layout ) {
+		$v4_1_4_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
+		$meta_key = astra_get_option_meta( 'astra-migrate-meta-layouts' );
+		if ( $meta_old_layout && ! $meta_new_layout && $v4_1_4_migration && ! isset( $meta_key ) ) {
+			if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 				$is_boxed = true;
 				$is_sidebar_boxed = false;
-			} elseif ( 'boxed-container' == $content_layout ) {
+			} elseif ( 'boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 				$is_boxed = true;
 				$is_sidebar_boxed = true;
 			}	

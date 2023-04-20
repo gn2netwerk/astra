@@ -174,7 +174,10 @@ function astra_toggle_layout( $new_content_option, $level ) {
 	// Meta layout migrations.
 	$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
 	$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
-	if ( $meta_old_layout && ! $meta_new_layout ) {
+
+	$v4_1_4_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
+	$meta_key = astra_get_option_meta( 'astra-migrate-meta-layouts' );
+	if ( $meta_old_layout && ! $meta_new_layout && $v4_1_4_migration && ! isset( $meta_key ) ) {
 		$dynamic_layout_option = astra_migrate_meta_options( $meta_old_layout );
 	}
 
