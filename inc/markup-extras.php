@@ -90,13 +90,17 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		$content_layout   = astra_get_content_layout();
 		$is_boxed         = astra_is_content_style_boxed();
 		$is_sidebar_boxed = astra_is_sidebar_style_boxed();
-		// $v4_1_4_migration = isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false;
-		// $meta_layout   = astra_get_option_meta( 'site-content-layout', '', true);
 
-		// // Meta migration.
-		// if( isset( $meta_layout ) && $v4_1_4_migration ) {
-		// 	$content_layout = astra_meta_options_migration( $meta_layout );
-		// }
+		// Meta options migrations.
+		$meta_layout          = astra_get_option_meta('site-content-layout', '', true );
+		$new_meta_layout      = astra_get_option_meta('new-site-content-layout', '', true );
+		if ( isset( $meta_layout ) && ! isset( $new_meta_layout ) ) {
+			$migrated_options = astra_migrate_meta_options( $meta_layout );
+			$new_layout   = $migrated_options['new-meta-layout'];
+			$content_layout = astra_toggle_layout($new_layout, 'meta', true);
+			$is_boxed         = 'boxed' === $migrated_options['meta-content-style'] ? true : false;
+			$is_sidebar_boxed = 'boxed' === $migrated_options['meta-sidebar-style'] ? true : false;
+		}
 
 		if ( 'plain-container' === $content_layout ) {
 			$post_type = strval( get_post_type() );
@@ -113,11 +117,6 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 				elseif ( ! $is_boxed && $is_sidebar_boxed ){
 					$content_layout = 'boxed-container';
 				}
-			}
-			if ( $content_layout ) {
-				$astra_theme_options = get_option( 'astra-settings' );
-				$astra_theme_options[ $blog_type . '-' . $post_type . '-content-layout' ] = $content_layout;
-				update_option( 'astra-settings', $astra_theme_options, true );
 			}
 		}
 
@@ -290,6 +289,49 @@ function astra_is_sidebar_style_boxed() {
 	}
 
 	return $is_sidebar_boxed;
+}
+
+function astra_migrate_meta_options( $meta_layout ) {
+	$new_layout = '';
+	switch ( $meta_layout ) {
+		case 'boxed-container':
+			$new_layout         = 'normal-width-container';
+			$content_style      = 'boxed';
+			$sidebar_style      = 'boxed';
+			break;
+		case 'content-boxed-container':
+			$new_layout         = 'normal-width-container';
+			$content_style      = 'boxed';
+			$sidebar_style      = 'unboxed';
+			break;
+		case 'plain-container':
+			$new_layout         = 'normal-width-container';
+			$content_style      = 'unboxed';
+			$sidebar_style      = 'unboxed';
+			break;
+		case 'page-builder':
+			$new_layout         = 'full-width-container';
+			$content_style      = 'unboxed';
+			$sidebar_style      = 'unboxed';
+			break;
+		case 'narrow-container':
+			$new_layout         = 'narrow-width-container';
+			$content_style      = 'unboxed';
+			$sidebar_style      = 'unboxed';
+			break;
+		case ( 'default' || '' ):
+			$new_layout         = 'default';
+			$content_style      = 'default';
+			$sidebar_style      = 'default';
+			break;
+		default:
+			break;
+	}
+	return array(
+		'new-meta-layout'    => $new_layout,
+		'meta-content-style' => $content_style,
+		'meta-sidebar-style' => $sidebar_style
+	);
 }
 
 /**

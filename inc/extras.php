@@ -125,17 +125,10 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 		if ( is_singular() ) {
 
-			$meta_layout    = astra_get_option_meta( 'site-content-layout', '', true );
-			if( ! empty( $meta_layout ) ) {
-				$new_migrated_layout = astra_migrate_meta_options( $meta_layout );
-				$content_layout = astra_toggle_layout( $new_migrated_layout, 'meta', true );
-			}
-			else {
-				$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
-				// If post meta value is present then toggle old layouts.
-				if( $content_layout ) {
-					$content_layout = astra_toggle_layout( 'new-site-content-layout', 'meta' );
-				}
+			$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
+			// If post meta value is present then toggle old layouts.
+			if( $content_layout ) {
+				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'meta' );
 			}
 
 			if ( empty( $content_layout ) ) {
@@ -198,33 +191,6 @@ function astra_toggle_layout( $new_content_option, $level, $migrate = false ) {
 			break;
 	}
 	return $current_layout;
-}
-
-function astra_migrate_meta_options( $meta_layout ) {
-	$new_layout = '';
-	switch ( $meta_layout ) {
-		case 'boxed-container':
-			$new_layout         = 'normal-width-container';
-			break;
-		case 'content-boxed-container':
-			$new_layout         = 'normal-width-container';
-			break;
-		case 'plain-container':
-			$new_layout         = 'normal-width-container';
-			break;
-		case 'page-builder':
-			$new_layout         = 'full-width-container';
-			break;
-		case 'narrow-container':
-			$new_layout         = 'narrow-width-container';
-			break;
-		case ( 'default' || '' ):
-			$new_layout         = 'default';
-			break;
-		default:
-			break;
-	}
-	return $new_layout;
 }
 
 /**
