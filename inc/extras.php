@@ -172,12 +172,10 @@ function astra_toggle_layout( $new_content_option, $level ) {
 	$current_layout = '';
 	
 	// Meta layout migrations.
-	if ( 'meta' === $level ) {
-		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
-		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
-		if ( $meta_old_layout && ! $meta_new_layout ) {
-			$dynamic_layout_option = astra_migrate_meta_options( $meta_old_layout );
-		}
+	$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
+	$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
+	if ( $meta_old_layout && ! $meta_new_layout ) {
+		$dynamic_layout_option = astra_migrate_meta_options( $meta_old_layout );
 	}
 
 	switch ( $dynamic_layout_option ) {
