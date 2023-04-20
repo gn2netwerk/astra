@@ -756,9 +756,9 @@ function hasWordPressWidgetBlockEditor() {
 	 * @returns {void}
 	 */
 	const apply_content_bg = ( selector ) => {
-		astra_apply_responsive_background_css( 'astra-settings[' + content_bg_option + ']', selector, 'desktop' );
-		astra_apply_responsive_background_css( 'astra-settings[' + content_bg_option + ']', selector, 'tablet' );
-		astra_apply_responsive_background_css( 'astra-settings[' + content_bg_option + ']', selector, 'mobile' );
+		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', selector, 'desktop' );
+		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', selector, 'tablet' );
+		astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', selector, 'mobile' );
 	}
 
 	/*
