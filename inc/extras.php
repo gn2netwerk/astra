@@ -126,7 +126,8 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 		if ( is_singular() ) {
 
 			$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
-			// If post meta value is present then toggle old layouts.
+
+			// If post meta value is present, apply new layout option.
 			if( $content_layout ) {
 				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'meta' );
 			}
@@ -175,7 +176,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 	 *
 	 * @since x.x.x
 	 * @param mixed $new_content_option The new content layout option.
-	 * @param int $level The level of the layout.
+	 * @param mixed $level The level of the layout.
 	 * @return mixed content layout.
 	 */
 	function astra_toggle_layout( $new_content_option, $level ) {
@@ -191,7 +192,6 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 		if ( $meta_old_layout && ! $meta_new_layout && 'set' !== $meta_key ) {
 			$dynamic_layout_option = astra_migrate_meta_layout( $meta_old_layout );
 		}
-
 		switch ( $dynamic_layout_option ) {
 			case 'normal-width-container':
 				$current_layout = 'plain-container';
@@ -202,9 +202,8 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 			case 'full-width-container':
 				$current_layout = 'page-builder';
 				break;
-			case ('default' || ''):
-				$current_layout = 'default';
 			default:
+				$current_layout = 'default';
 				break;
 		}
 		return $current_layout;
@@ -220,6 +219,7 @@ if ( ! function_exists( 'astra_migrate_meta_layout' ) ) {
 	 * Migrate meta layout to new layout.
 	 *
 	 * @since x.x.x
+	 * @param mixed $meta_layout
 	 * @return mixed new layout.
 	 */
 	function astra_migrate_meta_layout( $meta_layout ) {
@@ -240,10 +240,8 @@ if ( ! function_exists( 'astra_migrate_meta_layout' ) ) {
 			case 'narrow-container':
 				$new_layout = 'narrow-width-container';
 				break;
-			case ( 'default' || '' ):
-				$new_layout = 'default';
-				break;
 			default:
+				$new_layout = 'default';
 				break;
 		}
 		return $new_layout;

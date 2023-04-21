@@ -85,43 +85,11 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		if ( astra_is_amp_endpoint() ) {
 			$classes[] = 'ast-amp';
 		}
-		
-		// Apply separate container class to the body.
+
 		$content_layout   = astra_get_content_layout();
 		$is_boxed         = astra_is_content_style_boxed();
 		$is_sidebar_boxed = astra_is_sidebar_style_boxed();
-
-		// Meta content style migrations.
-		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
-		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
-		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
-		if ( $meta_old_layout && ! $meta_new_layout && 'set' !== $meta_key ) {
-			if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
-				$is_boxed = true;
-				$is_sidebar_boxed = false;
-			} elseif ( 'boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
-				$is_boxed = true;
-				$is_sidebar_boxed = true;
-			}
-		}
-
-		if ( 'plain-container' === $content_layout ) {
-			$post_type = strval( get_post_type() );
-			$blog_type = is_singular() ? 'single' : 'archive';
-			if ( 'no-sidebar' === astra_page_layout() ) {
-				if ( $is_boxed ) {
-					$content_layout = 'boxed-container';
-				}
-			}
-			else if ( 'no-sidebar' !== astra_page_layout() ) {
-				if ( $is_boxed ) {
-					$content_layout = $is_sidebar_boxed ? 'boxed-container' : 'content-boxed-container';
-				}
-				elseif ( ! $is_boxed && $is_sidebar_boxed ){
-					$content_layout = 'boxed-container';
-				}
-			}
-		}
+		$content_layout   = astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed );
 
 		if ( 'content-boxed-container' == $content_layout ) {
 			$classes[] = 'ast-separate-container';
@@ -215,7 +183,7 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 		if( 'archive' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style ) {
 			$is_boxed = ( 'boxed' === $content_style );
 		}
-		
+
 		// Single.
 		if( 'single' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style  ) {
 			$is_boxed = ( 'boxed' === $content_style );
@@ -230,7 +198,6 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 				$is_boxed = false;
 			}
 		}
-
 		return $is_boxed;
 	}
 }
@@ -250,7 +217,7 @@ if ( ! function_exists( 'astra_is_third_party' ) ) {
 	 */
 	function astra_is_third_party( $is_sidebar_option = false) {
 
-		$post_type            = strval( get_post_type() );
+		$post_type = strval( get_post_type() );
 
 		if( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
 			return 'woocommerce';
@@ -331,6 +298,59 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
 		}
 
 		return $is_sidebar_boxed;
+	}
+}
+
+/**
+ * Switch to content boxed container or boxed container
+ * Depending on content style and sidebar style.
+ */
+if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
+
+	/**
+	 * Switch to legacy boxed layouts (Content Boxed, Boxed) as per content style selection.
+	 *
+	 * @since x.x.x
+	 * @param mixed $content_layout Current layout.
+	 * @param boolean $is_boxed Current content style.
+	 * @param boolean $is_sidebar_boxed Current sidebar style.
+	 * @return mixed The content layout.
+	 */
+	function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed ) {
+
+		// Meta content style migrations.
+		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
+		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
+		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
+		if ( $meta_old_layout && ! $meta_new_layout && 'set' !== $meta_key ) {
+			if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
+				$is_boxed = true;
+				$is_sidebar_boxed = false;
+			} elseif ( 'boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
+				$is_boxed = true;
+				$is_sidebar_boxed = true;
+			}
+		}
+
+		// Apply content boxed layout or boxed layout depending on content/sidebar style.
+		if ( 'plain-container' === $content_layout ) {
+			$post_type = strval( get_post_type() );
+			$blog_type = is_singular() ? 'single' : 'archive';
+			if ( 'no-sidebar' === astra_page_layout() ) {
+				if ( $is_boxed ) {
+					$content_layout = 'boxed-container';
+				}
+			}
+			else if ( 'no-sidebar' !== astra_page_layout() ) {
+				if ( $is_boxed ) {
+					$content_layout = $is_sidebar_boxed ? 'boxed-container' : 'content-boxed-container';
+				}
+				elseif ( ! $is_boxed && $is_sidebar_boxed ){
+					$content_layout = 'boxed-container';
+				}
+			}
+		}
+		return $content_layout;
 	}
 }
 
