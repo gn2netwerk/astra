@@ -192,7 +192,7 @@ const MetaSettings = props => {
 				<div className="ast-sidebar-container components-panel__body is-opened" id="astra_settings_meta_box">
 
 					{/* Content Layout Setting */}
-					{ ! is_hide_contnet_layout_sidebar && (<PanelBody
+					{ ! is_hide_content_layout_sidebar && (<PanelBody
 						title={ __( 'Content Layout', 'astra' ) }
 						initialOpen={ true }
 					>
@@ -229,7 +229,7 @@ const MetaSettings = props => {
 					</PanelBody>					
 
 					{/* Sidebar Setting */}
-					{ ! is_hide_contnet_layout_sidebar && showSidebar() && (
+					{ ! is_hide_content_layout_sidebar && showSidebar() && (
 					<PanelBody
 						title={ __( 'Sidebar', 'astra' ) }
 						initialOpen={ false }
@@ -265,7 +265,7 @@ const MetaSettings = props => {
 					</PanelBody>	
 
 					{/* Disable Section Setting */}
-					{ ! is_hide_contnet_layout_sidebar && ( <PanelBody
+					{ ! is_hide_content_layout_sidebar && ( <PanelBody
 						title={ __( 'Disable Elements', 'astra' ) }
 						initialOpen={ false }
 					>
@@ -274,7 +274,7 @@ const MetaSettings = props => {
 						</div>
 					</PanelBody> ) }
 
-					{ is_hide_contnet_layout_sidebar && ( <PanelBody
+					{ is_hide_content_layout_sidebar && ( <PanelBody
 						title={ __( 'Disable Elements', 'astra' ) }
 						initialOpen={ true }
 					>
@@ -283,7 +283,7 @@ const MetaSettings = props => {
 						</div>
 					</PanelBody> ) }
 
-					{  ! is_hide_contnet_layout_sidebar && ( undefined !== props.meta['ast-global-header-display'] && 'disabled' !== props.meta['ast-global-header-display'] ) &&
+					{  ! is_hide_content_layout_sidebar && ( undefined !== props.meta['ast-global-header-display'] && 'disabled' !== props.meta['ast-global-header-display'] ) &&
 						<div className="ast-custom-layout-panel components-panel__body">
 							<h2 className="components-panel__body-title">
 								<button className="components-button components-panel__body-toggle" onClick = { openModal }>

@@ -220,6 +220,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$mobile_header       = ( isset( $meta['ast-hfb-mobile-header-display']['default'] ) ) ? $meta['ast-hfb-mobile-header-display']['default'] : 'default';
 			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 			$breadcrumbs_content = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
+			$ast_banner_visibility = ( isset( $meta['ast-banner-title-visibility']['default'] ) ) ? $meta['ast-banner-title-visibility']['default'] : '';
 			$exclude_cpt         = in_array( $post->post_type, [ 'product' ] );
 			$show_meta_field = ! self::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
@@ -371,6 +372,24 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 								<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
 							</label>
 						</div>
+
+						<?php
+							$post_type            = $post->post_type;
+							$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
+						if ( ( in_array( $post_type, $supported_post_types ) && true === astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) ) {
+							if ( ! ( class_exists( 'WooCommerce' ) && absint( astra_get_post_id() ) === wc_get_page_id( 'shop' ) ) ) {
+								?>
+							<div class="ast-banner-title-visibility-option-wrap">
+								<label for="ast-banner-title-visibility">
+									<input type="checkbox" id="ast-banner-title-visibility" name="ast-banner-title-visibility" value="disabled" <?php checked( $ast_banner_visibility, 'disabled' ); ?> />
+								<?php esc_html_e( 'Disable Banner Area', 'astra' ); ?>
+								</label>
+							</div>
+								<?php 
+							} 
+						} 
+						?>
+
 					<?php } ?>
 
 					<?php
@@ -692,6 +711,17 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				),
 			);
 
+			$post_type            = strval( get_post_type() );
+			$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
+			if ( ( in_array( $post_type, $supported_post_types ) && true === astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) ) {
+				if ( ! ( class_exists( 'WooCommerce' ) && absint( astra_get_post_id() ) === wc_get_page_id( 'shop' ) ) ) {
+					$astra_page_meta_elements[] = array(
+						'key'   => 'ast-banner-title-visibility',
+						'label' => __( 'Disable Banner Area', 'astra' ),
+					);
+				}
+			}
+
 			if ( 'none' !== astra_get_option( 'breadcrumb-position', 'none' ) ) {
 				$astra_page_meta_elements[] = array(
 					'key'   => 'ast-breadcrumbs-content',
@@ -891,6 +921,17 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			);
 			register_post_meta(
 				'',
+				'ast-banner-title-visibility',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'default'       => isset( $meta['ast-banner-title-visibility']['default'] ) ? $meta['ast-banner-title-visibility']['default'] : '',
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+			register_post_meta(
+				'',
 				'ast-main-header-display',
 				array(
 					'show_in_rest'  => true,
@@ -1066,6 +1107,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'astra_meta_box_options',
 				array(
 					'ast-global-header-display'     => array(
+						'sanitize' => 'FILTER_SANITIZE_STRING',
+					),
+					'ast-banner-title-visibility'   => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 					'ast-hfb-above-header-display'  => array(
