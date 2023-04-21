@@ -118,7 +118,7 @@ const MetaSettings = props => {
 
 	// Migrate meta layout, content style and sidebar options if old user.
 	useEffect(() => {
-		if ( astMetaParams.v4_1_4_migration && ! props.meta['astra-migrate-meta-layouts'] ) {
+		if ( astMetaParams.v4_1_4_migration && 'set' !== props.meta['astra-migrate-meta-layouts'] ) {
 			props.setMetaFieldValue( 'set', 'astra-migrate-meta-layouts' );
 			switch ( props.meta['site-content-layout'] ) {
 				case 'plain-container':
@@ -157,10 +157,8 @@ const MetaSettings = props => {
 						props.setMetaFieldValue( 'unboxed', 'site-content-style' );
 					}
 					break;
-				case ('default' || ''):
-					props.setMetaFieldValue( 'default', 'site-content-layout' );
-					break;
 				default:
+					props.setMetaFieldValue( 'default', 'site-content-layout' );
 					break;
 			}
 		}
