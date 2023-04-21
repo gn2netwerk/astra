@@ -17249,6 +17249,18 @@ namespace {
     function astra_apply_unboxed_container( $content_bg_obj )
     {
     }
+	/**
+	 * Switch to legacy boxed layouts (Content Boxed, Boxed) as per content style selection.
+	 *
+	 * @since x.x.x
+	 * @param mixed $content_layout Current layout.
+	 * @param boolean $is_boxed Current content style.
+	 * @param boolean $is_sidebar_boxed Current sidebar style.
+	 * @return mixed The content layout.
+	 */
+	function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed )
+    {
+    }
     /**
      * Handle backward compatibility on version 4.1.0
      *
