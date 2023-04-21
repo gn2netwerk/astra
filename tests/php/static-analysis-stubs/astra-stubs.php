@@ -11910,17 +11910,6 @@ namespace {
     class Astra_Posts_Archive_Structures_Configs extends \Astra_Customizer_Config_Base
     {
         /**
-         * Getting dynamic context for sidebar.
-         * Compatibility case: Narrow width + dynamic customizer controls.
-         *
-         * @param string $post_type On basis of this will decide to hide sidebar control or not.
-         * @return mixed
-         * @since 4.0.0
-         */
-        public function get_sidebar_context($post_type)
-        {
-        }
-        /**
          * Getting content layout dynamically.
          * Compatibility case: Narrow width + dynamic customizer controls.
          *
@@ -11961,16 +11950,6 @@ namespace {
      */
     class Astra_Posts_Single_Structures_Configs extends \Astra_Customizer_Config_Base
     {
-        /**
-         * Getting dynamic context for sidebar.
-         * Compatibility case: Narrow width + dynamic customizer controls.
-         *
-         * @param string $post_type On basis of this will decide to hide sidebar control or not.
-         * @since 4.0.0
-         */
-        public function get_sidebar_context($post_type)
-        {
-        }
         /**
          * Getting content layout dynamically.
          * Compatibility case: Narrow width + dynamic customizer controls.

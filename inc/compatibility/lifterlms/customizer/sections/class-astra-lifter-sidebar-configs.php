@@ -21,39 +21,6 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 	class Astra_Lifter_Sidebar_Configs extends Astra_Customizer_Config_Base {
 
 		/**
-		 * Getting context for sidebar.
-		 * Case: Hide sidebar for Full-width layout.
-		 *
-		 * @param string $post_type On basis of this will decide to hide sidebar control or not.
-		 * @return mixed
-		 * @since x.x.x
-		 */
-		public function get_sidebar_context() {
-			return array(
-				'relation' => 'AND',
-				Astra_Builder_Helper::$general_tab_config,
-				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[lifterlms-new-content-layout]',
-					'operator' => '!=',
-					'value'    => 'full-width-container',
-				),
-				array(
-					'relation' => 'OR',
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[lifterlms-new-content-layout]',
-						'operator' => '!=',
-						'value'    => 'default',
-					),
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
-						'operator' => '!=',
-						'value'    => 'full-width-container',
-					),
-				),
-			);
-		}
-
-		/**
 		 * Register Astra-LifterLMS Sidebar Customizer Configurations.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
@@ -93,7 +60,6 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 					'default'           => astra_get_option( 'lifterlms-sidebar-layout' ),
 					'priority'          => 1,
 					'title'             => $title_lifter_lms,
-					'context'           => $this->get_sidebar_context(),
 					'choices'           => array(
 						'default'       => array(
 							'label' => __( 'Default', 'astra' ),
@@ -162,7 +128,6 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 					'section'           => $section_courses,
 					'default'           => astra_get_option( 'lifterlms-course-lesson-sidebar-layout' ),
 					'priority'          => 1,
-					'context'           => $this->get_sidebar_context(),
 					'title'             => $title_lifter_lms_courses,
 					'choices'           => array(
 						'default'       => array(
