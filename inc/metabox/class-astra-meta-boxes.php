@@ -206,22 +206,38 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/**
 			 * Get options
 			 */
-			$site_sidebar        = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
-			$site_content_layout = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
-			$site_content_style  = ( isset( $meta['site-content-style']['default'] ) ) ? $meta['site-content-style']['default'] : 'default';
-			$site_sidebar_style  = ( isset( $meta['site-sidebar-style']['default'] ) ) ? $meta['site-sidebar-style']['default'] : 'default';
+			$site_sidebar            = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
+			$site_content_layout     = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
+			$site_content_style      = ( isset( $meta['site-content-style']['default'] ) ) ? $meta['site-content-style']['default'] : 'default';
+			$site_sidebar_style      = ( isset( $meta['site-sidebar-style']['default'] ) ) ? $meta['site-sidebar-style']['default'] : 'default';
 			$new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : 'default';
-			$site_post_title     = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
-			$footer_bar          = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
-			$footer_widgets      = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
-			$above_header        = ( isset( $meta['ast-hfb-above-header-display']['default'] ) ) ? $meta['ast-hfb-above-header-display']['default'] : 'default';
-			$primary_header      = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
-			$below_header        = ( isset( $meta['ast-hfb-below-header-display']['default'] ) ) ? $meta['ast-hfb-below-header-display']['default'] : 'default';
-			$mobile_header       = ( isset( $meta['ast-hfb-mobile-header-display']['default'] ) ) ? $meta['ast-hfb-mobile-header-display']['default'] : 'default';
-			$ast_featured_img    = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
-			$breadcrumbs_content = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
-			$ast_banner_visibility = ( isset( $meta['ast-banner-title-visibility']['default'] ) ) ? $meta['ast-banner-title-visibility']['default'] : '';
-			$exclude_cpt         = in_array( $post->post_type, [ 'product' ] );
+			$site_post_title         = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
+			$footer_bar              = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
+			$footer_widgets          = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
+			$above_header            = ( isset( $meta['ast-hfb-above-header-display']['default'] ) ) ? $meta['ast-hfb-above-header-display']['default'] : 'default';
+			$primary_header          = ( isset( $meta['ast-main-header-display']['default'] ) ) ? $meta['ast-main-header-display']['default'] : '';
+			$below_header            = ( isset( $meta['ast-hfb-below-header-display']['default'] ) ) ? $meta['ast-hfb-below-header-display']['default'] : 'default';
+			$mobile_header           = ( isset( $meta['ast-hfb-mobile-header-display']['default'] ) ) ? $meta['ast-hfb-mobile-header-display']['default'] : 'default';
+			$ast_featured_img        = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
+			$breadcrumbs_content     = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
+			$ast_banner_visibility   = ( isset( $meta['ast-banner-title-visibility']['default'] ) ) ? $meta['ast-banner-title-visibility']['default'] : '';
+			$exclude_cpt             = isset( $post->post_type ) ? in_array( $post->post_type, array(
+				'product',
+				'download',
+				'course',
+				'lesson',
+				'tutor_quiz',
+				'tutor_assignments',
+				'sfwd-assignment',
+				'sfwd-essays',
+				'sfwd-transactions',
+				'sfwd-certificates',
+				'sfwd-quiz',
+				'sfwd-courses',
+				'sfwd-lessons',
+				'sfwd-topic',
+				'groups'
+			) ) : '';
 			$show_meta_field = ! self::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
 
