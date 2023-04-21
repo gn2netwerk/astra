@@ -75,6 +75,9 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					),
 				),
 
+				/**
+				 * Option: Global Revamped Container Layouts.
+				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
 					'type'              => 'control',
@@ -102,6 +105,9 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'divider'           => array( 'ast_class' => 'ast-bottom-spacing ast-bottom-divider' ),
 				),
 
+				/**
+				 * Option: Global Container Content Style.
+				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[site-content-style]',
 					'type'              => 'control',
@@ -116,7 +122,20 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
+				),
+
+				/**
+				 * Help Text: Global Container Content Style.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[site-content-style-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-container-layout',
+					'priority' => 9,
+					'title'    => '',
+					'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+					'settings' => array(),
 				),
 
 				/**

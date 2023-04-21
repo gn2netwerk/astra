@@ -174,6 +174,8 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 	 * Return current content layout as per new layout selection.
 	 *
 	 * @since x.x.x
+	 * @param mixed $new_content_option The new content layout option.
+	 * @param int $level The level of the layout.
 	 * @return mixed content layout.
 	 */
 	function astra_toggle_layout( $new_content_option, $level ) {
