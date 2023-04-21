@@ -596,7 +596,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		}
 
 		/**
-		 * Get all Sidebar Options.
+		 * Returns an array of sidebar options.
+		 *
+		 * @return array The array of sidebar options.
 		 */
 		public function get_sidebar_options() {
 			return array(
@@ -608,7 +610,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		}
 
 		/**
-		 * Get Content Layout Options.
+		 * Returns an array of content layout options for the current post type.
+		 *
+		 * If the current post type is one of the excluded post types,
+		 * only the 'default', 'normal-width-container' will be returned
+		 *
+		 * @return array The array of content layout options.
 		 */
 		public function get_content_layout_options() {
 			$post_type = get_post_type();
@@ -645,7 +652,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		}
 
 		/**
-		 * Get Content Style Options.
+		 * Returns an array of sidebar style options.
+		 *
+		 * @return array The array of content layout options.
 		 */
 		public function get_content_style_options() {
 			return array(
@@ -656,7 +665,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		}
 
 		/**
-		 * Get Sidebar Style Options.
+		 * Returns an array of sidebar style options.
+		 *
+		 * @return array The array of sidebar style options.
 		 */
 		public function get_sidebar_style_options() {
 			return array(
