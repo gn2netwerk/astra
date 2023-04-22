@@ -3228,7 +3228,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Page Meta.
 			$parse_css .= astra_narrow_container_width( astra_get_content_layout(), $narrow_container_max_width );
 
-			// Remove Sidebar for Narrow Width Container Layout.
+			// Remove Sidebar for Full Width Container Layout.
 			if ( ( 'page-builder' === $ast_container_layout && self::astra_fullwidth_sidebar_support() ) ) {
 				add_filter(
 					'astra_page_layout',
