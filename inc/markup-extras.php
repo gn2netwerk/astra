@@ -158,13 +158,13 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 		$blog_type            = is_singular() ? 'single' : 'archive';
 		$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
 		$global_content_style = astra_get_option( 'site-content-style' );
-		$meta_content_style = '';
 		$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
 		$is_boxed = false;
 
 		// Third party compatibility.
 		$third_party = astra_is_third_party();
 		if ( ! empty( $third_party ) ) {
+			$meta_content_style = '';
 			$third_party_content_style = astra_get_option( $third_party . '-content-style', '' );
 			if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
 
