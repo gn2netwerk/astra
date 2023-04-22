@@ -1195,37 +1195,37 @@ function astra_theme_background_updater_4_1_4() {
  * @return array $theme_options The updated theme options.
  */
 function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options ) {
-		switch ( astra_get_option( $old_layout ) ) {
-			case 'boxed-container':
-				$theme_options[ $new_layout ]    = 'normal-width-container';
-				$theme_options[ $content_style ] = 'boxed';
-				$theme_options[ $sidebar_style ] = 'boxed';
-				break;
-			case 'content-boxed-container':
-				$theme_options[ $new_layout ]    = 'normal-width-container';
-				$theme_options[ $content_style ] = 'boxed';
-				$theme_options[ $sidebar_style ] = 'unboxed';
-				break;
-			case 'plain-container':
-				$theme_options[ $new_layout ]    = 'normal-width-container';
-				$theme_options[ $content_style ] = 'unboxed';
-				$theme_options[ $sidebar_style ] = 'unboxed';
-				break;
-			case 'page-builder':
-				$theme_options[ $new_layout ]    = 'full-width-container';
-				$theme_options[ $content_style ] = 'unboxed';
-				$theme_options[ $sidebar_style ] = 'default';
-				break;
-			case 'narrow-container':
-				$theme_options[ $new_layout ]    = 'narrow-width-container';
-				$theme_options[ $content_style ] = 'unboxed';
-				$theme_options[ $sidebar_style ] = 'default';
-				break;
-			default:
-				$theme_options[ $new_layout ]    = 'default';
-				$theme_options[ $content_style ] = 'default';
-				$theme_options[ $sidebar_style ] = 'default';
-				break;
-		}
-		return $theme_options;
+	switch ( astra_get_option( $old_layout ) ) {
+		case 'boxed-container':
+			$theme_options[ $new_layout ]    = 'normal-width-container';
+			$theme_options[ $content_style ] = 'boxed';
+			$theme_options[ $sidebar_style ] = 'boxed';
+			break;
+		case 'content-boxed-container':
+			$theme_options[ $new_layout ]    = 'normal-width-container';
+			$theme_options[ $content_style ] = 'boxed';
+			$theme_options[ $sidebar_style ] = 'unboxed';
+			break;
+		case 'plain-container':
+			$theme_options[ $new_layout ]    = 'normal-width-container';
+			$theme_options[ $content_style ] = 'unboxed';
+			$theme_options[ $sidebar_style ] = 'unboxed';
+			break;
+		case 'page-builder':
+			$theme_options[ $new_layout ]    = 'full-width-container';
+			$theme_options[ $content_style ] = 'unboxed';
+			$theme_options[ $sidebar_style ] = 'default';
+			break;
+		case 'narrow-container':
+			$theme_options[ $new_layout ]    = 'narrow-width-container';
+			$theme_options[ $content_style ] = 'unboxed';
+			$theme_options[ $sidebar_style ] = 'default';
+			break;
+		default:
+			$theme_options[ $new_layout ]    = 'default';
+			$theme_options[ $content_style ] = 'default';
+			$theme_options[ $sidebar_style ] = 'default';
+			break;
+	}
+	return $theme_options;
 }
