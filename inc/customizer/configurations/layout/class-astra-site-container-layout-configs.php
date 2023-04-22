@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-container-layout',
-					'default'           => astra_get_option( 'new-site-content-layout', 'unboxed' ),
+					'default'           => astra_get_option( 'new-site-content-layout', 'normal-width-container' ),
 					'priority'          => 9,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'transport'         => 'refresh',
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-selector',
 					'section'           => 'section-container-layout',
-					'default'           => astra_get_option( 'site-content-style', 'unboxed' ),
+					'default'           => astra_get_option( 'site-content-style', 'boxed' ),
 					'priority'          => 9,
 					'title'             => __( 'Container Content Style', 'astra' ),
 					'choices'     => array(

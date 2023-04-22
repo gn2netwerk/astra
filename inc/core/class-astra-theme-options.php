@@ -452,6 +452,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'single-post-content-layout'           => 'default',
 					'archive-post-content-layout'          => 'default',
 					'new-site-content-layout'              => 'normal-width-container',
+					'site-content-style'                   => 'boxed',
 
 					// Typography.
 					'body-font-family'                     => 'inherit',
