@@ -165,8 +165,7 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 		$third_party = astra_is_third_party();
 		if ( ! empty( $third_party ) ) {
 			$third_party_content_style = astra_get_option( $third_party . '-content-style', '' );
-
-			/** @psalm-suppress PossiblyUndefinedVariable */
+			$meta_content_style = isset( $meta_content_style ) ? $meta_content_style : '';
 			if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
 
 				// Case: blog type (single or archive) not needed for lifterlms or learndash if not supported post type.
