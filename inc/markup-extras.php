@@ -166,8 +166,10 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 		if ( ! empty( $third_party ) ) {
 			$third_party_content_style = astra_get_option( $third_party . '-content-style', '' );
             
-			/** @psalm-suppress UndefinedVariable */
+			/** @psalm-suppress PossiblyUndefinedVariable */
 			if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
+
+				// Case: blog type (single or archive) not needed for lifterlms or learndash if not supported post type.
 				$blog_type = '';
 			}
 
@@ -350,8 +352,12 @@ if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
 				if ( $is_boxed ) {
 					$content_layout = $is_sidebar_boxed ? 'boxed-container' : 'content-boxed-container';
 				}
-				/** @psalm-suppress RedundantConditionGivenDocblockType */
-				elseif ( ! $is_boxed && $is_sidebar_boxed ){
+				elseif ( $is_sidebar_boxed ){
+
+					/**
+					 * Case: unboxed container with sidebar boxed
+					 * container unboxed css is applied through astra_apply_unboxed_container()
+					*/ 
 					$content_layout = 'boxed-container';
 				}
 			}
