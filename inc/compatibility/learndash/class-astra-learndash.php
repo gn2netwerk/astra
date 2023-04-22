@@ -423,7 +423,6 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					}
 				}
 
-				$learndash_layout = astra_get_option_meta( 'site-content-layout', '', true );
 				$learndash_layout = astra_toggle_layout( 'new-site-content-layout', 'meta' );
 
 				if ( 'default' !== $learndash_layout && ! empty( $learndash_layout ) ) {
