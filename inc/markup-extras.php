@@ -164,16 +164,14 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 		// Third party compatibility.
 		$third_party = astra_is_third_party();
 		if ( ! empty( $third_party ) ) {
-			$meta_content_style = '';
 			$third_party_content_style = astra_get_option( $third_party . '-content-style', '' );
-			if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
 
-				// Case: blog type (single or archive) not needed for lifterlms or learndash if not supported post type.
+			if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
 				$blog_type = '';
 			}
 
 			// Get global content style if third party is default.
-			$global_content_style = 'default' === $third_party_content_style || empty( $third_party_content_style ) ? $global_content_style : $third_party_content_style;
+			$global_content_style = ( 'default' === $third_party_content_style || empty( $third_party_content_style ) ) ? $global_content_style : $third_party_content_style;
 		}
 
 		// Global.
@@ -236,8 +234,7 @@ if ( ! function_exists( 'astra_is_third_party' ) ) {
 			}
 			return 'lifterlms';
 		}
-		/** @psalm-suppress UndefinedFunction */
-		elseif ( class_exists( 'SFWD_LMS' ) && in_array( $post_type, [ 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ] ) ) {
+		elseif ( class_exists( 'SFWD_LMS' ) && in_array( $post_type, array( 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ) ) ) {
 			return 'learndash';
 		}
 
@@ -270,12 +267,12 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
 		if ( ! empty( $third_party ) ) {
 			$third_party_sidebar_style = astra_get_option( $third_party . '-sidebar-style', '' );
 
-			if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
+			if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_sidebar_style ) ) {
 				$blog_type = '';
 			}
 
-			// Get global content style if third party is default.
-			$global_sidebar_style = 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ? $global_sidebar_style : $third_party_sidebar_style;
+			// Get global sidebar style if third party is default.
+			$global_sidebar_style = ( 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ) ? $global_sidebar_style : $third_party_sidebar_style;
 		}
 
 		// Global.
