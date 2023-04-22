@@ -25,7 +25,7 @@ const MetaSettings = props => {
     const openModal = () => setOpen( true );
     const closeModal = () => setOpen( false );
 
-	const is_hide_content_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
+	const is_hide_content_layout_sidebar = astMetaParams.is_hide_content_layout_sidebar;
 	const [ contentLayout, setContentLayout ] = useState(props.meta['new-site-content-layout']);
 
 	// Adjust spacing & borders for table.
