@@ -1187,7 +1187,12 @@ function astra_theme_background_updater_4_1_4() {
  *
  * Migration cases for old users, old layouts -> new layouts.
  * @since x.x.x
- * @return void
+ * @param mixed $old_layout
+ * @param mixed $new_layout
+ * @param mixed $content_style
+ * @param mixed $sidebar_style
+ * @param array $theme_options
+ * @return array $theme_options The updated theme options.
  */
 function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options ) {
 		switch ( astra_get_option( $old_layout ) ) {
@@ -1216,12 +1221,10 @@ function astra_apply_layout_migration( $old_layout, $new_layout, $content_style,
 				$theme_options[ $content_style ] = 'unboxed';
 				$theme_options[ $sidebar_style ] = 'default';
 				break;
-			case ( 'default' || '' ):
+			default:
 				$theme_options[ $new_layout ]    = 'default';
 				$theme_options[ $content_style ] = 'default';
 				$theme_options[ $sidebar_style ] = 'default';
-				break;
-			default:
 				break;
 		}
 		return $theme_options;

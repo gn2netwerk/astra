@@ -17234,7 +17234,7 @@ namespace {
      *
      * Migration cases for old users, old layouts -> new layouts.
      * @since x.x.x
-     * @return void
+     * @return mixed $theme_options The updated theme options.
      */
     function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options )
     {
