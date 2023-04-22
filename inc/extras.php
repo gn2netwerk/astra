@@ -245,7 +245,7 @@ if ( ! function_exists( 'astra_migrate_meta_layout' ) ) {
 				break;
 		}
 		return $new_layout;
-	}	
+	}
 }
 
 /**

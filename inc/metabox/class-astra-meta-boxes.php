@@ -641,7 +641,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'default'                => __( 'Customizer Setting', 'astra' ),
 					'normal-width-container' => __( 'Normal', 'astra' ),
 					'full-width-container'   => __( 'Full Width', 'astra' ),
-				);				
+				);
 			}
 			return array(
 				'default'                => __( 'Customizer Setting', 'astra' ),
