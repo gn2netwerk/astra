@@ -123,46 +123,33 @@ const MetaSettings = props => {
 			switch ( props.meta['site-content-layout'] ) {
 				case 'plain-container':
 					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
-					if ( props.meta['site-content-style'] ) {
-						props.setMetaFieldValue( 'unboxed', 'site-content-style' );
-					}
-					if ( props.meta['site-sidebar-style'] ) {
-						props.setMetaFieldValue( 'unboxed', 'site-sidebar-style' );
-					}
+					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
+					props.setMetaFieldValue( 'unboxed', 'site-sidebar-style' );
 					break;
 				case 'boxed-container':
 					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
-					if ( props.meta['site-content-style'] ) {
-						props.setMetaFieldValue( 'boxed', 'site-content-style' );
-					}
-					if ( props.meta['site-sidebar-style'] ) {
-						props.setMetaFieldValue( 'boxed', 'site-sidebar-style' );
-					}
+					props.setMetaFieldValue( 'boxed', 'site-content-style' );
+					props.setMetaFieldValue( 'boxed', 'site-sidebar-style' );
 					break;
 				case 'content-boxed-container':
 					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
-					if ( props.meta['site-content-style'] ) {
-						props.setMetaFieldValue( 'boxed', 'site-content-style' );
-					}
+					props.setMetaFieldValue( 'boxed', 'site-content-style' );
+					props.setMetaFieldValue( 'unboxed', 'site-sidebar-style' );
 					break;
 				case 'page-builder':
 					props.setMetaFieldValue( 'full-width-container', 'new-site-content-layout' );
-					if ( props.meta['site-content-style'] ) {
-						props.setMetaFieldValue( 'unboxed', 'site-content-style' );
-					}
+					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
 					break;
 				case 'narrow-container':
 					props.setMetaFieldValue( 'narrow-width-container', 'new-site-content-layout' );
-					if ( props.meta['site-content-style'] ) {
-						props.setMetaFieldValue( 'unboxed', 'site-content-style' );
-					}
+					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
 					break;
 				default:
 					props.setMetaFieldValue( 'default', 'site-content-layout' );
 					break;
 			}
 		}
-	}, [] );
+	}, [props.meta['astra-migrate-meta-layouts']] );
 
 	// Display sidebar options or not.
 	const showSidebar = () => {
