@@ -39,42 +39,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				 * Option: Single Page Content Layout
-				 */
-				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[site-content-layout]',
-					'type'              => 'control',
-					'control'           => 'ast-hidden',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-					'section'           => 'section-container-layout',
-					'default'           => astra_get_option( 'site-content-layout' ),
-					'priority'          => 9,
-					'title'             => __( 'Container Layout', 'astra' ),
-					'choices'           => array(
-						'boxed-container'         => array(
-							'label' => __( 'Boxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-boxed', false ) : '',
-						),
-						'content-boxed-container' => array(
-							'label' => __( 'Content Boxed', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-content-boxed', false ) : '',
-						),
-						'plain-container'         => array(
-							'label' => __( 'Full Width / Contained', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
-						),
-						'page-builder'            => array(
-							'label' => __( 'Full Width / Stretched', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
-						),
-						'narrow-container'        => array(
-							'label' => __( 'Narrow Width', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
-						),
-					),
-				),
-
-				/**
 				 * Option: Global Revamped Container Layouts.
 				 */
 				array(
@@ -90,15 +54,15 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'choices'           => array(
 						'normal-width-container'         => array(
 							'label' => __( 'Normal', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-contained', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'normal-width-container', false ) : '',
 						),
 						'narrow-width-container'        => array(
 							'label' => __( 'Narrow', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-width-container', false ) : '',
 						),
 						'full-width-container'            => array(
 							'label' => __( 'Full Width', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'full-width-container', false ) : '',
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-spacing ast-bottom-divider' ),

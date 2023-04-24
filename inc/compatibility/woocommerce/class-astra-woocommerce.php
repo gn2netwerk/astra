@@ -808,7 +808,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['astra-woocommerce-cart-icons-flag'] = true;
 
 			// Container.
-			$defaults['woocommerce-content-layout']     = 'plain-container';
 			$defaults['woocommerce-new-content-layout'] = 'normal-width-container';
 			$defaults['archive-product-content-layout'] = 'default';
 			$defaults['single-product-content-layout']  = 'default';
