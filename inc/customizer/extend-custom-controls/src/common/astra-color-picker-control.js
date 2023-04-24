@@ -355,7 +355,6 @@ class AstraColorPickerControl extends Component {
 	onOverlayTabSelect ( tabName ) {
 		this.setState( { overlayType: tabName } );
 		this.onChangeImageOptions( 'overlayType', 'overlay-type', tabName );
-		wp.customize.previewer.refresh();
 	}
 
 	onPaletteChangeComplete( color ) {
