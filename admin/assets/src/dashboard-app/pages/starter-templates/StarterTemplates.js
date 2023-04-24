@@ -90,7 +90,7 @@ const StarterTemplates = () => {
 
 	const onLearnMoreGuideClick = () => {
 		window.open(
-			'https://wpastra.com/starter-templates/?utm_source=dashboard&utm_medium=free-theme&utm_campaign=starter-templates',
+			'https://wpastra.com/website-templates/?utm_source=dashboard&utm_medium=free-theme&utm_campaign=starter-templates',
 			'_blank'
 		);
 	};
