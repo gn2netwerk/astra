@@ -36,6 +36,7 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 				'border'      => 'none',
 				'background'  => 'inherit',
 				'text-indent' => '0',
+				'text-decoration' => 'none',
 			),
 			'.ast-breadcrumbs .trail-browse'      => array(
 				'font-size'   => 'inherit',
