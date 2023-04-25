@@ -6,6 +6,7 @@ v4.1.4 (Unreleased)
 - Fix: Spectra's Tab anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
 - Fix: WooCommerce - Cart - Realtime quantity updater not working on change of input box when Mix Match plugin is activated.
 - Fix: Breadcrumb content text-decoration style not working for active menu link.
+- Fix: Item Divider doesn't work on Last Submenu.
 
 v4.1.3
 - Fix: Container - Content Boxed layout removes Spectra column or container left padding.
