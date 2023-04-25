@@ -207,7 +207,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Get options
 			 */
 			$site_sidebar            = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
-			$site_content_layout     = ( isset( $meta['site-content-layout']['default'] ) ) ? $meta['site-content-layout']['default'] : 'default';
 			$site_content_style      = ( isset( $meta['site-content-style']['default'] ) ) ? $meta['site-content-style']['default'] : 'default';
 			$site_sidebar_style      = ( isset( $meta['site-sidebar-style']['default'] ) ) ? $meta['site-sidebar-style']['default'] : 'default';
 			$new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : 'default';
@@ -276,7 +275,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Content Layout.
 			 */
 			?>
-			<div class="site-content-layout-meta-wrap components-base-control__field">
+			<div class="new-site-content-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
 					<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
 				</p>

@@ -447,12 +447,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 
 					// Container.
-					'site-content-layout'                  => 'content-boxed-container',
-					'single-page-content-layout'           => false === astra_check_is_structural_setup() ? 'default' : 'plain-container',
-					'single-post-content-layout'           => 'default',
-					'archive-post-content-layout'          => 'default',
-					'new-site-content-layout'              => 'normal-width-container',
-					'site-content-style'                   => 'boxed',
+					'single-page-new-content-layout'           => false === astra_check_is_structural_setup() ? 'default' : 'normal-width-container',
+					'single-post-new-content-layout'           => 'default',
+					'archive-post-new-content-layout'          => 'default',
+					'new-site-content-layout'                  => 'normal-width-container',
+					'site-content-style'                       => 'boxed',
 
 					// Typography.
 					'body-font-family'                     => 'inherit',

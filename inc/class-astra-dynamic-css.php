@@ -3210,20 +3210,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 
 			/* Narrow width container layout dynamic css */
-
-			// Global.
-			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
-
-			$post_type = strval( get_post_type() );
-			if ( is_singular() ) {
-				// Single layouts.
-				$single_container_layout = astra_get_content_layout();
-				$parse_css              .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
-			} else {
-				// Archive layouts.
-				$archive_container_layout = astra_get_content_layout();
-				$parse_css               .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
-			}
+			$parse_css .= astra_narrow_container_width( astra_get_content_layout(), $narrow_container_max_width );
 
 			// Page Meta.
 			$parse_css .= astra_narrow_container_width( astra_get_content_layout(), $narrow_container_max_width );

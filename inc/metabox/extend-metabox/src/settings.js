@@ -145,7 +145,7 @@ const MetaSettings = props => {
 					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
 					break;
 				default:
-					props.setMetaFieldValue( 'default', 'site-content-layout' );
+					props.setMetaFieldValue( 'default', 'new-site-content-layout' );
 					break;
 			}
 		}
