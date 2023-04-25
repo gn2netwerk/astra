@@ -4,7 +4,7 @@ v4.1.4 (Unreleased)
 - Improvement: Theme package size has been optimized from 9MB to under 6MB.
 - Improvement: Added WPML translation support for Pro Custom Layout's Layout, Display-Exclusion rules, Users rule options.
 - Fix: Spectra's Tab anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
-- Fix: Trigger to change event on the input not working.
+- Fix: WooCommerce - Cart - Realtime quantity updater not working on change of input box when Mix Match plugin is activated.
 - Fix: Breadcrumb content text-decoration style not working for active menu link.
 
 v4.1.3
