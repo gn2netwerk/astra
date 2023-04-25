@@ -4,6 +4,7 @@ v4.1.4 (Unreleased)
 - Improvement: Theme package size has been optimized from 9MB to under 6MB.
 - Improvement: Added WPML translation support for Pro Custom Layout's Layout, Display-Exclusion rules, Users rule options.
 - Fix: Spectra's Tab anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
+- Fix: Breadcrumb content text-decoration style not working for active menu link.
 
 v4.1.3
 - Fix: Container - Content Boxed layout removes Spectra column or container left padding.
