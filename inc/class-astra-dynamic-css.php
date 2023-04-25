@@ -3215,16 +3215,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Page Meta.
 			$parse_css .= astra_narrow_container_width( astra_get_content_layout(), $narrow_container_max_width );
 
-			// Remove Sidebar for Full Width Container Layout.
-			if ( ( 'page-builder' === $ast_container_layout && self::astra_fullwidth_sidebar_support() ) ) {
-				add_filter(
-					'astra_page_layout',
-					function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-						return 'no-sidebar';
-					}
-				);
-			}
-
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
 					'.site-content .ast-container' => array(
@@ -4861,7 +4851,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function astra_fullwidth_sidebar_support() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-			return apply_filters( 'astra_get_option_astra_fullwidth_sidebar_support', isset( $astra_settings['astra-fullwidth-sidebar-support'] ) ? false : true );
+			return apply_filters( 'astra_get_option_fullwidth_sidebar_support', isset( $astra_settings['fullwidth_sidebar_support'] ) ? false : true );
 		}
 	}
 }
