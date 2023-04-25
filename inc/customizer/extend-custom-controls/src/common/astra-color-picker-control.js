@@ -341,19 +341,16 @@ class AstraColorPickerControl extends Component {
 		} else {
 			newColor = color.hex;
 		}
-		this.setState( { overlayType: 'classic' } );
 		this.onChangeImageOptions( 'overlayType', 'overlay-type', 'classic' );
 		this.onChangeImageOptions( 'overlayColor', 'overlay-color', newColor );
 	}
 
 	onChangeOverlayGradientComplete( gradient ) {
-		this.setState( { overlayType: 'gradient' } );
 		this.onChangeImageOptions( 'overlayType', 'overlay-type', 'gradient' );
 		this.onChangeImageOptions( 'overlayGradient', 'overlay-gradient', gradient );
 	}
 
 	onOverlayTabSelect ( tabName ) {
-		this.setState( { overlayType: tabName } );
 		this.onChangeImageOptions( 'overlayType', 'overlay-type', tabName );
 	}
 
