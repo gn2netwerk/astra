@@ -315,15 +315,18 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'border-color'        => $sub_menu_divider_color,
 				'border-style'        => 'solid',
 			);
-			$css_output_desktop[ '.ast-desktop ' . $selector . ' .menu-item .sub-menu .menu-item:last-child .menu-link' ] = array(
+			$css_output_desktop[ '.ast-desktop ' . $selector . ' .menu-item .sub-menu:last-child > .menu-item > .menu-link' ] = array(
+				'border-bottom-width' => $sub_menu_divider_size . 'px',
+			);
+			$css_output_desktop[ '.ast-desktop ' . $selector . ' .menu-item:last-child > .menu-item > .menu-link' ] = array(
 				'border-bottom-width' => 0,
 			);
 		} else {
-
 			$css_output_desktop[ '.ast-desktop .ast-builder-menu-' . $index . ' .menu-item .sub-menu .menu-link' ] = array(
 				'border-style' => 'none',
 			);
-		}
+		}		
+		
 
 		/* Parse CSS from array() */
 		$css_output  = astra_parse_css( $css_output_desktop );
