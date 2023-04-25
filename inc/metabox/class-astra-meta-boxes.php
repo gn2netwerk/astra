@@ -587,7 +587,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'is_hide_contnet_layout_sidebar' => $ast_content_layout_sidebar,
 					'upgrade_pro_link'               => ASTRA_PRO_CUSTOMIZER_UPGRADE_URL,
 					'show_upgrade_notice'            => astra_showcase_upgrade_notices(),
-					'v4_1_4_migration'               => isset( $astra_settings[ 'v4-1-4-update-migration' ] ) ? true : false,
+					'v4_2_0_migration'               => isset( $astra_settings[ 'v4-2-0-update-migration' ] ) ? true : false,
 				)
 			);
 
