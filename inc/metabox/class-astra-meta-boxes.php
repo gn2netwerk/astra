@@ -555,7 +555,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				}
 			}
 
-			$astra_settings         = get_option( ASTRA_THEME_SETTINGS );
 			wp_localize_script(
 				'astra-meta-settings',
 				'astMetaParams',
@@ -587,7 +586,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'is_hide_contnet_layout_sidebar' => $ast_content_layout_sidebar,
 					'upgrade_pro_link'               => ASTRA_PRO_CUSTOMIZER_UPGRADE_URL,
 					'show_upgrade_notice'            => astra_showcase_upgrade_notices(),
-					'v4_2_0_migration'               => isset( $astra_settings[ 'v4-2-0-update-migration' ] ) ? true : false,
+					// Flag needed to check whether user is old or new, true for old user, false for new.
+					'v4_2_0_migration'               => ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ),
 				)
 			);
 

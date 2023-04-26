@@ -98,29 +98,10 @@ add_filter(
 	 */
 	function( $sidebar_layout ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 		$ast_container_layout = astra_get_content_layout();
-		if ( 'page-builder' === $ast_container_layout && astra_fullwidth_sidebar_support() ) {
+		if ( 'page-builder' === $ast_container_layout && Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ) {
 			return 'no-sidebar';
 		}
 		return $sidebar_layout;
 	}
 );
 
-/**
- * Check if fullwidth layout with sidebar is supported.
- * Old users - yes.
- * New users - no.
- */
-if ( ! function_exists( 'astra_fullwidth_sidebar_support' ) ) {
-
-	/**
-	 * Check if fullwidth layout with sidebar is supported.
-	 * Old users - yes
-	 * New users - no
-	 * @return bool true|false.
-	 * @since x.x.x
-	 */
-	function astra_fullwidth_sidebar_support() {
-		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-		return apply_filters( 'astra_get_option_fullwidth_sidebar_support', isset( $astra_settings['fullwidth_sidebar_support'] ) ? false : true );
-	}
-}
