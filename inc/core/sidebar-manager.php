@@ -93,7 +93,7 @@ add_filter(
 	 * Old users - yes
 	 * New users - no
 	 * @param mixed $sidebar_layout
-	 * @return bool true|false.
+	 * @return mixed $sidebar_layout
 	 * @since x.x.x
 	 */
 	function( $sidebar_layout ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
