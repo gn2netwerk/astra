@@ -11,7 +11,7 @@ import AstSelectorControl from './ast-selector.js';
 import svgIcons from '../../../../assets/svg/svgs.json';
 import { SelectControl, PanelBody, Modal } from '@wordpress/components';
 import parse from 'html-react-parser';
-import { isSet } from 'lodash';
+
 const { __ } = wp.i18n;
 
 const MetaSettings = props => {
