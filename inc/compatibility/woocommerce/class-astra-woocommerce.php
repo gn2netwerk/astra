@@ -88,9 +88,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Cart fragment.
 			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
-				add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'cart_link_fragment' ) );
+				add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'cart_link_fragment' ), 11 );
 			} else {
-				add_filter( 'add_to_cart_fragments', array( $this, 'cart_link_fragment' ) );
+				add_filter( 'add_to_cart_fragments', array( $this, 'cart_link_fragment' ), 11 );
 			}
 
 			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'product_flip_image' ), 10 );
@@ -682,8 +682,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function woo_filter_style( $styles ) {
 
 			/* Directory and Extension */
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			$file_prefix = '.min';
+			$dir_name    = 'minified';
 
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/woocommerce/';
 
@@ -1617,7 +1617,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding' => '10px 40px',
 				);
 				$css_desktop_output['.woocommerce table.cart td.actions .button, .woocommerce #content table.cart td.actions .button, .woocommerce-page table.cart td.actions .button, .woocommerce-page #content table.cart td.actions .button'] = array(
-					'line-height' => '1',
+					'line-height'  => '1',
 					'border-width' => '1px',
 					'border-style' => 'solid',
 				);
@@ -1634,7 +1634,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
 				);
-				$css_desktop_output['.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link'] = array_merge(
+				$css_desktop_output['.woocommerce a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce-cart table.cart td.actions .button, .woocommerce form.checkout_coupon .button, .woocommerce #respond input#submit, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link']               = array_merge(
 					$woo_btn_compatibility_desktop,
 					array(
 						'border-top-left-radius'     => astra_responsive_spacing( $btn_border_radius_fields, 'top', 'desktop' ),
@@ -2345,7 +2345,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							'border-color' => $btn_border_h_color ? $btn_border_h_color : $btn_bg_h_color,
 						),
 					);
-					$css_output .= astra_parse_css( $woo_global_button_css );
+					$css_output           .= astra_parse_css( $woo_global_button_css );
 				}
 
 				if ( $if_free_shipping ) {
@@ -2461,6 +2461,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'background-size'       => '.8em',
 					'background-repeat'     => 'no-repeat',
 					'background-position-x' => 'calc( 100% - 10px )',
+					'background-position-y' => 'center',
 					'-webkit-appearance'    => 'none',
 					'-moz-appearance'       => 'none',
 					'padding-right'         => '2em',
@@ -3339,6 +3340,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$this->astra_get_cart_link();
 			$fragments['a.cart-container'] = ob_get_clean();
 
+			ob_start();
+
+			woocommerce_mini_cart();
+
+			$mini_cart = ob_get_clean();
+
+			$fragments['div.widget_shopping_cart_content'] = '<div class="widget_shopping_cart_content">' . $mini_cart . '</div>';
 			return $fragments;
 		}
 
@@ -3721,7 +3729,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @param string $value ajax add to cart value.
 		 * @return string yes | no  enable / disable ajax add to cart.
-		 * @since x.x.x
+		 * @since 4.1.0
 		 */
 		public function option_woocommerce_enable_ajax_add_to_cart( $value ) {
 			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
@@ -3736,7 +3744,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @param string $value cart redirect after add value.
 		 * @return string yes | no enable / disable cart redirect after add.
-		 * @since x.x.x
+		 * @since 4.1.0
 		 */
 		public function option_woocommerce_cart_redirect_after_add( $value ) {
 			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
