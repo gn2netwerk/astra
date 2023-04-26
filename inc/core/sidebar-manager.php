@@ -87,6 +87,15 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 // Removing the sidebar if layout is FW Stretched.
 add_filter(
 	'astra_page_layout',
+
+	/**
+	 * Remove Sidebar if current layout is Fullwidth.
+	 * Old users - yes
+	 * New users - no
+	 * @param mixed $sidebar_layout
+	 * @return bool true|false.
+	 * @since x.x.x
+	 */
 	function( $sidebar_layout ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
 		$ast_container_layout = astra_get_content_layout();
 		if ( 'page-builder' === $ast_container_layout && astra_fullwidth_sidebar_support() ) {
@@ -113,5 +122,5 @@ if ( ! function_exists( 'astra_fullwidth_sidebar_support' ) ) {
 	function astra_fullwidth_sidebar_support() {
 		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 		return apply_filters( 'astra_get_option_fullwidth_sidebar_support', isset( $astra_settings['fullwidth_sidebar_support'] ) ? false : true );
-	}	
+	}
 }
