@@ -256,7 +256,6 @@ function astra_off_canvas_static_css() {
 			max-width: 0;
 			left: 0;
 			top: 0;
-			background: #fafafa;
 			color: #3a3a3a;
 			bottom: 0;
 			opacity: 0;
@@ -345,7 +344,6 @@ function astra_off_canvas_static_css() {
 			max-width: 0;
 			right: 0;
 			top: 0;
-			background: #fafafa;
 			color: #3a3a3a;
 			bottom: 0;
 			opacity: 0;
