@@ -303,7 +303,7 @@ html {
 
 .ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .title-visibility, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper .title-visibility {
   right: unset;
-  top: -21px;
+  top: -41px;
   height: 40px;
 }
 
@@ -723,4 +723,8 @@ body .editor-styles-wrapper > .block-editor-block-list__layout.edit-post-visual-
 
 .wp-block-table figcaption {
   font-size: 1rem;
+}
+
+.wp-block-button .wp-block-button__link {
+  border-radius: 2px;
 }

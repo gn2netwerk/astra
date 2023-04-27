@@ -130,7 +130,7 @@ html {
 		max-width: none;
 		.title-visibility {
 			left: unset;
-			top: -21px;
+			top: -41px;
 			height: 40px;
 		}
 	}
@@ -525,3 +525,8 @@ body {
 	}
 }
 
+.wp-block-button {
+	.wp-block-button__link {
+	  border-radius: 2px;
+	}
+}

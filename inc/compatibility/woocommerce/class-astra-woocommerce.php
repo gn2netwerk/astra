@@ -88,9 +88,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Cart fragment.
 			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
-				add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'cart_link_fragment' ) );
+				add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'cart_link_fragment' ), 11 );
 			} else {
-				add_filter( 'add_to_cart_fragments', array( $this, 'cart_link_fragment' ) );
+				add_filter( 'add_to_cart_fragments', array( $this, 'cart_link_fragment' ), 11 );
 			}
 
 			add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'product_flip_image' ), 10 );
@@ -682,8 +682,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function woo_filter_style( $styles ) {
 
 			/* Directory and Extension */
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			$file_prefix = '.min';
+			$dir_name    = 'minified';
 
 			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/woocommerce/';
 
@@ -2463,6 +2463,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'background-size'       => '.8em',
 					'background-repeat'     => 'no-repeat',
 					'background-position-x' => 'calc( 100% - 10px )',
+					'background-position-y' => 'center',
 					'-webkit-appearance'    => 'none',
 					'-moz-appearance'       => 'none',
 					'padding-right'         => '2em',
@@ -3341,6 +3342,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$this->astra_get_cart_link();
 			$fragments['a.cart-container'] = ob_get_clean();
 
+			ob_start();
+
+			woocommerce_mini_cart();
+
+			$mini_cart = ob_get_clean();
+
+			$fragments['div.widget_shopping_cart_content'] = '<div class="widget_shopping_cart_content">' . $mini_cart . '</div>';
 			return $fragments;
 		}
 
@@ -3723,7 +3731,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @param string $value ajax add to cart value.
 		 * @return string yes | no  enable / disable ajax add to cart.
-		 * @since x.x.x
+		 * @since 4.1.0
 		 */
 		public function option_woocommerce_enable_ajax_add_to_cart( $value ) {
 			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
@@ -3738,7 +3746,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @param string $value cart redirect after add value.
 		 * @return string yes | no enable / disable cart redirect after add.
-		 * @since x.x.x
+		 * @since 4.1.0
 		 */
 		public function option_woocommerce_cart_redirect_after_add( $value ) {
 			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
