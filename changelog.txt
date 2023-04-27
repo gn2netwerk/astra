@@ -6,6 +6,7 @@ v4.1.4 (Unreleased)
 - Fix: Spectra's Tab anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
 - Fix: WooCommerce - Cart - Realtime quantity updater not working on change of input box when Mix Match plugin is activated.
 - Fix: Breadcrumb content text-decoration style not working for active menu link.
+- Fix: WooCommerce - Cart - PHP error "can not redeclare astra_cart_position function".
 - Fix: Slider Jumps and Flashes white when closing off canvas menu.
 
 v4.1.3
