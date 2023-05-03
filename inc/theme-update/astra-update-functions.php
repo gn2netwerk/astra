@@ -1133,14 +1133,14 @@ function astra_theme_background_updater_4_1_0() {
 }
 
 /**
- * x.x.x backward handling cases.
+ * 4.1.4 backward handling cases.
  *
  * 1. Migrating users to combined color overlay option to new dedicated overlay options.
  *
- * @since x.x.x
+ * @since 4.1.4
  * @return void
  */
-function astra_theme_background_updater_4_2_0() {
+function astra_theme_background_updater_4_1_4() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['v4-2-0-update-migration'] ) ) {
 		$ast_bg_control_options = array(
