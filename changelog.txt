@@ -9,7 +9,7 @@ v4.1.4 (Unreleased)
 - Fix: WooCommerce - Cart - Realtime quantity updater not working on change of input box when Mix Match plugin is activated.
 - Fix: Breadcrumb content text-decoration style not working for active menu link.
 - Fix: WooCommerce - Cart - PHP error "can not redeclare astra_cart_position function".
-- Fix: Slider Jumps and Flashes white when closing off canvas menu.
+- Fix: Header Builder - Off-canvas - Getting white flash jerk when closing offcanvas toggle menu.
 - Fix: WooCommerce - Pagination does not work for WooCommerce Categories without Subcategories if displaying subcategories on products.
 - Fix: Double border-top applied for above footer in customizer preview.
 
