@@ -4301,7 +4301,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						padding-' . $ltr_left . ': 20px;
 					}
 				}
-				';	
+				';
 			}
 
 			return $sidebar_static_css;
