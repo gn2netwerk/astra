@@ -12,6 +12,7 @@ v4.1.4 (Unreleased)
 - Fix: Header Builder - Off-canvas - Getting white flash jerk when closing offcanvas toggle menu.
 - Fix: WooCommerce - Pagination does not work for WooCommerce Categories without Subcategories if displaying subcategories on products.
 - Fix: Double border-top applied for above footer in customizer preview.
+- Fix: WooCommerce - Cart - UI conflict when sidebar is activated.
 
 v4.1.3
 - Fix: Container - Content Boxed layout removes Spectra column or container left padding.
