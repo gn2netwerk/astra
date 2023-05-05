@@ -1220,15 +1220,15 @@ function astra_theme_background_updater_4_2_0() {
 			// Tablet version.
 			if ( isset( $theme_options[ $resp_bg_option ]['tablet'] ) && is_array( $theme_options[ $resp_bg_option ]['tablet'] ) && ! isset( $theme_options[ $resp_bg_option ]['tablet']['overlay-type'] ) ) {
 				$tablet_bg_type = isset( $theme_options[ $resp_bg_option ]['tablet']['background-type'] ) ? $theme_options[ $resp_bg_option ]['tablet']['background-type'] : '';
-				$theme_options[ $resp_bg_option ]['tablet']['overlay-type'] = '';
-				$theme_options[ $resp_bg_option ]['tablet']['overlay-color'] = '';
+				$theme_options[ $resp_bg_option ]['tablet']['overlay-type']     = '';
+				$theme_options[ $resp_bg_option ]['tablet']['overlay-color']    = '';
 				$theme_options[ $resp_bg_option ]['tablet']['overlay-gradient'] = '';
 				if ( 'image' === $tablet_bg_type ) {
-					$bg_img = isset( $theme_options[ $resp_bg_option ]['tablet']['background-image'] ) ? $theme_options[ $resp_bg_option ]['tablet']['background-image'] : '';
+					$bg_img   = isset( $theme_options[ $resp_bg_option ]['tablet']['background-image'] ) ? $theme_options[ $resp_bg_option ]['tablet']['background-image'] : '';
 					$bg_color = isset( $theme_options[ $resp_bg_option ]['tablet']['background-color'] ) ? $theme_options[ $resp_bg_option ]['tablet']['background-color'] : '';
 					if ( '' !== $bg_img && '' !== $bg_color && ( ! is_numeric( strpos( $bg_color, 'linear-gradient' ) ) && ! is_numeric( strpos( $bg_color, 'radial-gradient' ) ) ) ) {
-						$theme_options[ $resp_bg_option ]['tablet']['overlay-type'] = 'classic';
-						$theme_options[ $resp_bg_option ]['tablet']['overlay-color'] = $bg_color;
+						$theme_options[ $resp_bg_option ]['tablet']['overlay-type']     = 'classic';
+						$theme_options[ $resp_bg_option ]['tablet']['overlay-color']    = $bg_color;
 						$theme_options[ $resp_bg_option ]['tablet']['overlay-gradient'] = '';
 					}
 				}
@@ -1253,8 +1253,7 @@ function astra_theme_background_updater_4_2_0() {
 						$theme_options[ $resp_bg_option ]['mobile']['overlay-gradient'] = '';
 					}
 				}
-			}
-			
+			}       
 		}
 
 		$theme_options['v4-2-0-update-migration'] = true;
