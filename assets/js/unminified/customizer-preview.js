@@ -798,7 +798,7 @@ function hasWordPressWidgetBlockEditor() {
 		} else {
 			dynamicSelector   += ', .ast-separate-container .ast-article-post';
 		}
-		debugger;
+
 		/**
 		 * Content background color
 		 */
