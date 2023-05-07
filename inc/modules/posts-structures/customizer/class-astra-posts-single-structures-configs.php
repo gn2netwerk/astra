@@ -202,7 +202,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
-				'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
+				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 			),
 		);
 	}

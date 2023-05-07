@@ -98,7 +98,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-top-divider ast-bottom-spacing' ),
+					'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 				),
 
 				/**

@@ -26,7 +26,6 @@ const MetaSettings = props => {
     const closeModal = () => setOpen( false );
 
 	const is_hide_content_layout_sidebar = astMetaParams.is_hide_content_layout_sidebar;
-	const [ contentLayout, setContentLayout ] = useState(props.meta['new-site-content-layout']);
 
 	// Adjust spacing & borders for table.
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
@@ -102,20 +101,6 @@ const MetaSettings = props => {
 		/>);
 	});
 
-	const [isDefaultExclude, setIsDefaultExclude] = useState(false);
-
-	// Side effect calling DOM API to check if current default layout is set to narrow width or full width content layout.
-	useEffect(() => {
-		const isDefaultNarrow    = document.querySelector( 'body' ).classList.contains( 'ast-default-layout-narrow-container' );
-		const isDefaultFullWidth = document.querySelector( 'body' ).classList.contains( 'ast-default-layout-page-builder' );
-		if ( isDefaultFullWidth || isDefaultNarrow ) {
-			setIsDefaultExclude( true );
-		}
-		else {
-			setIsDefaultExclude( false );
-		}
-	}, [ contentLayout, setIsDefaultExclude ] );
-
 	// Migrate meta layout, content style and sidebar options if old user.
 	useEffect(() => {
 		if ( astMetaParams.v4_2_0_migration && 'set' !== props.meta['astra-migrate-meta-layouts'] ) {
@@ -151,11 +136,6 @@ const MetaSettings = props => {
 		}
 	}, [props.meta['astra-migrate-meta-layouts']] );
 
-	// Display sidebar options or not.
-	const showSidebar = () => {
-		return ( ( 'narrow-width-container' === contentLayout ) || ( 'full-width-container' === contentLayout ) ||( 'default' === contentLayout && isDefaultExclude ) ) ? false : true;
-	}
-
 	return (
 		<>
 			{/* Meta settings icon */}
@@ -187,7 +167,7 @@ const MetaSettings = props => {
 								choices = { contentLayoutOptions }
 								id = { 'new-site-content-layout' }
 								onChange={ ( val ) => {
-									setContentLayout(val);
+									console.log( val );
 									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
 									props.setMetaFieldValue( val, 'new-site-content-layout' );
 								} }
@@ -214,7 +194,6 @@ const MetaSettings = props => {
 					</PanelBody>					
 
 					{/* Sidebar Setting */}
-					{ ! is_hide_content_layout_sidebar && showSidebar() && (
 					<PanelBody
 						title={ __( 'Sidebar', 'astra' ) }
 						initialOpen={ false }
@@ -229,8 +208,10 @@ const MetaSettings = props => {
 								} }
 							/>
 						</div>
+						<p className='description'>
+								{ __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ) }
+						</p>
 					</PanelBody>
-					)}
 
 					{/* Sidebar Style Setting */}
 					<PanelBody
