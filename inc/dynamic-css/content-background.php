@@ -65,6 +65,23 @@ function astra_content_background_css( $dynamic_css ) {
 		'.ast-separate-container.ast-two-container #secondary .widget' => astra_get_responsive_background_obj( $sidebar_default_css, 'mobile' ),
 	);
 
+	// Apply Content BG Color for Narrow Unboxed Container.
+	if ( ! astra_is_content_style_boxed() ) {
+		$container_css = array_merge(
+			$container_css,
+			array( '.ast-narrow-container .site-content' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ) ),
+		);
+		$container_css_tablet = array_merge(
+			$container_css_tablet,
+			array( '.ast-narrow-container .site-content' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ) ),
+		);
+		$container_css_mobile = array_merge(
+			$container_css_mobile,
+			array( '.ast-narrow-container .site-content' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ) ),
+		);
+	}
+
+
 	// Blog Pro Layout Colors.
 	if ( 'blog-layout-1' == $blog_layout && 1 != $blog_grid ) {
 		$blog_layouts        = array(
