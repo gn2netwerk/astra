@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Lifter_Container_Configs' ) ) {
 					'section'           => $section,
 					'default'           => astra_get_option( 'lifterlms-content-style', 'default' ),
 					'priority'          => 1,
-					'title'             => __( 'Container Content Style', 'astra' ),
+					'title'             => __( 'Content Style', 'astra' ),
 					'choices'     => array(
 						'default' => 'Default',
 						'unboxed' => 'Unboxed',

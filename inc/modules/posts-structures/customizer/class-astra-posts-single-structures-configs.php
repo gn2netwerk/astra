@@ -101,7 +101,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			),
 
 			/**
-			 * Option: Single Container Content Style.
+			 * Option: Single Content Style.
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-content-style]',
@@ -110,7 +110,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'section'           => $parent_section,
 				'default'           => astra_get_option( 'single-' . $post_type . '-content-style', 'default' ),
 				'priority'          => 3,
-				'title'             => __( 'Container Content Style', 'astra' ),
+				'title'             => __( 'Content Style', 'astra' ),
 				'choices'     => array(
 					'default' => 'Default',
 					'unboxed' => 'Unboxed',
@@ -122,7 +122,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 			),
 
 			/**
-			 * Help Text: Single Container Content Style.
+			 * Help Text: Single Content Style.
 			 */
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[single-' . $post_type . '-content-style-description]',

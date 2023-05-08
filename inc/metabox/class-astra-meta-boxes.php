@@ -246,7 +246,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			?>
 			<div class="site-sidebar-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
-					<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
+					<strong> <?php esc_html_e( 'Sidebar Layout', 'astra' ); ?> </strong>
 				</p>
 				<select name="site-sidebar-layout" id="site-sidebar-layout">
 					<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>

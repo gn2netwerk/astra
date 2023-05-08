@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 					'section'           => 'section-woo-general',
 					'default'           => astra_get_option( 'woocommerce-content-style', 'default' ),
 					'priority'          => 5,
-					'title'             => __( 'Container Content Style', 'astra' ),
+					'title'             => __( 'Content Style', 'astra' ),
 					'choices'     => array(
 						'default' => 'Default',
 						'unboxed' => 'Unboxed',
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 				),
 
 				/**
-				 * Help Text: Woocommerce Container Content Style.
+				 * Help Text: Woocommerce Content Style.
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-content-style-description]',

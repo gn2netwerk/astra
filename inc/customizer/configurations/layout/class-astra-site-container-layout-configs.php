@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Global Container Content Style.
+				 * Option: Global Content Style.
 				 */
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[site-content-style]',
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'section'           => 'section-container-layout',
 					'default'           => astra_get_option( 'site-content-style', 'boxed' ),
 					'priority'          => 9,
-					'title'             => __( 'Container Content Style', 'astra' ),
+					'title'             => __( 'Content Style', 'astra' ),
 					'choices'     => array(
 						'unboxed' => __( 'Unboxed', 'astra' ),
 						'boxed'   => __( 'Boxed', 'astra' ),
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Help Text: Global Container Content Style.
+				 * Help Text: Global Content Style.
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[site-content-style-description]',

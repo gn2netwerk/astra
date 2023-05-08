@@ -100,25 +100,29 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$post_id = get_the_ID();
 
 			if ( $post_id ) {
-				$meta_content_layout = get_post_meta( $post_id, 'site-content-layout', true );
+				$meta_content_layout = astra_toggle_layout( 'new-site-content-layout', 'meta');
 			}
 
 			if ( ( isset( $meta_content_layout ) && ! empty( $meta_content_layout ) ) && 'default' !== $meta_content_layout ) {
 				$content_layout = $meta_content_layout;
 			} else {
-				$content_layout = astra_get_option( 'site-content-layout' );
+				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'global');
 			}
 
-			$editor_default_content_layout = astra_get_option( 'single-' . strval( get_post_type() ) . '-content-layout' );
+			$editor_default_content_layout = astra_toggle_layout( 'single-' . strval( get_post_type() ) . '-new-content-layout', 'single');
 
 			if ( 'default' === $editor_default_content_layout || empty( $editor_default_content_layout ) ) {
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
-				$editor_default_content_layout = astra_get_option( 'site-content-layout', 'full-width' );
+				$editor_default_content_layout = astra_toggle_layout( 'new-site-content-layout', 'global' );
 				$classes                      .= ' ast-default-layout-' . $editor_default_content_layout;
 			} else {
 				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
 			}
+
+			$is_boxed         = astra_is_content_style_boxed();
+			$is_sidebar_boxed = astra_is_sidebar_style_boxed();
+			$content_layout   = astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed );
 
 			if ( 'content-boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container';

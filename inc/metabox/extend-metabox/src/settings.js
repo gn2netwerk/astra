@@ -195,7 +195,7 @@ const MetaSettings = props => {
 
 					{/* Sidebar Setting */}
 					<PanelBody
-						title={ __( 'Sidebar', 'astra' ) }
+						title={ __( 'Sidebar Layout', 'astra' ) }
 						initialOpen={ false }
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">

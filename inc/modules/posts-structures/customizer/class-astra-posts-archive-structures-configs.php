@@ -105,7 +105,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Option: Archive Container Content Style.
+			 * Option: Archive Content Style.
 			 */
 			array(
 				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-style]',
@@ -114,7 +114,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'section'           => $parent_section,
 				'default'           => astra_get_option( 'archive-' . $post_type . '-content-style', 'default' ),
 				'priority'          => 5,
-				'title'             => __( 'Container Content Style', 'astra' ),
+				'title'             => __( 'Content Style', 'astra' ),
 				'choices'     => array(
 					'default' => 'Default',
 					'unboxed' => 'Unboxed',
@@ -126,7 +126,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			),
 
 			/**
-			 * Help Text: Archive Container Content Style.
+			 * Help Text: Archive Content Style.
 			 */
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-content-style-description]',

@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 					'section'           => 'section-edd-general',
 					'default'           => astra_get_option( 'edd-content-style', 'default' ),
 					'priority'          => 5,
-					'title'             => __( 'Container Content Style', 'astra' ),
+					'title'             => __( 'Content Style', 'astra' ),
 					'choices'     => array(
 						'default' => 'Default',
 						'unboxed' => 'Unboxed',

@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 					'section'           => 'section-leandash-general',
 					'default'           => astra_get_option( 'learndash-content-style', 'default' ),
 					'priority'          => 5,
-					'title'             => __( 'Container Content Style', 'astra' ),
+					'title'             => __( 'Content Style', 'astra' ),
 					'choices'     => array(
 						'default' => 'Default',
 						'unboxed' => 'Unboxed',
