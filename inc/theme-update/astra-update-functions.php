@@ -1199,7 +1199,9 @@ function astra_theme_background_updater_4_2_0() {
 		foreach ( $ast_resp_bg_control_options as $key => $resp_bg_option ) {
 			// Desktop version.
 			if ( isset( $theme_options[ $resp_bg_option ]['desktop'] ) && is_array( $theme_options[ $resp_bg_option ]['desktop'] ) && ! isset( $theme_options[ $resp_bg_option ]['desktop']['overlay-type'] ) ) {
+				// @codingStandardsIgnoreStart
 				$desk_bg_type = isset( $theme_options[ $resp_bg_option ]['desktop']['background-type'] ) ? $theme_options[ $resp_bg_option ]['desktop']['background-type'] : '';
+				// @codingStandardsIgnoreEnd
 
 				$theme_options[ $resp_bg_option ]['desktop']['overlay-type']     = '';
 				$theme_options[ $resp_bg_option ]['desktop']['overlay-color']    = '';
@@ -1219,9 +1221,9 @@ function astra_theme_background_updater_4_2_0() {
 
 			// Tablet version.
 			if ( isset( $theme_options[ $resp_bg_option ]['tablet'] ) && is_array( $theme_options[ $resp_bg_option ]['tablet'] ) && ! isset( $theme_options[ $resp_bg_option ]['tablet']['overlay-type'] ) ) {
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				// @codingStandardsIgnoreStart
 				$tablet_bg_type = isset( $theme_options[ $resp_bg_option ]['tablet']['background-type'] ) ? $theme_options[ $resp_bg_option ]['tablet']['background-type'] : '';
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				// @codingStandardsIgnoreEnd
 				$theme_options[ $resp_bg_option ]['tablet']['overlay-type']     = '';
 				$theme_options[ $resp_bg_option ]['tablet']['overlay-color']    = '';
 				$theme_options[ $resp_bg_option ]['tablet']['overlay-gradient'] = '';
@@ -1239,9 +1241,9 @@ function astra_theme_background_updater_4_2_0() {
 
 			// Mobile version.
 			if ( isset( $theme_options[ $resp_bg_option ]['mobile'] ) && is_array( $theme_options[ $resp_bg_option ]['mobile'] ) && ! isset( $theme_options[ $resp_bg_option ]['mobile']['overlay-type'] ) ) {
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				// @codingStandardsIgnoreStart
 				$mobile_bg_type = isset( $theme_options[ $resp_bg_option ]['mobile']['background-type'] ) ? $theme_options[ $resp_bg_option ]['mobile']['background-type'] : '';
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				// @codingStandardsIgnoreEnd
 				$theme_options[ $resp_bg_option ]['mobile']['overlay-type']     = '';
 				$theme_options[ $resp_bg_option ]['mobile']['overlay-color']    = '';
 				$theme_options[ $resp_bg_option ]['mobile']['overlay-gradient'] = '';
