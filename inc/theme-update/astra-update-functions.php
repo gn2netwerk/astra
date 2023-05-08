@@ -1221,6 +1221,7 @@ function astra_theme_background_updater_4_2_0() {
 			}
 
 			// Tablet version.
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */
 			if ( isset( $theme_options[ $resp_bg_option ]['tablet'] ) && is_array( $theme_options[ $resp_bg_option ]['tablet'] ) && ! isset( $theme_options[ $resp_bg_option ]['tablet']['overlay-type'] ) ) {
 				// @codingStandardsIgnoreStart
 				$tablet_bg_type = isset( $theme_options[ $resp_bg_option ]['tablet']['background-type'] ) ? $theme_options[ $resp_bg_option ]['tablet']['background-type'] : '';
@@ -1241,6 +1242,7 @@ function astra_theme_background_updater_4_2_0() {
 
 
 			// Mobile version.
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */
 			if ( isset( $theme_options[ $resp_bg_option ]['mobile'] ) && is_array( $theme_options[ $resp_bg_option ]['mobile'] ) && ! isset( $theme_options[ $resp_bg_option ]['mobile']['overlay-type'] ) ) {
 				// @codingStandardsIgnoreStart
 				$mobile_bg_type = isset( $theme_options[ $resp_bg_option ]['mobile']['background-type'] ) ? $theme_options[ $resp_bg_option ]['mobile']['background-type'] : '';
