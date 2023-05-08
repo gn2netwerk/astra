@@ -17216,7 +17216,7 @@ namespace {
 	 * @since x.x.x
 	 * @return mixed content layout.
 	 */
-	function astra_toggle_layout( $new_content_option, $level )
+	function astra_toggle_layout( $new_content_option, $level, $post_id )
     {
     }
     /**

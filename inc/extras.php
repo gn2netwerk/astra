@@ -179,12 +179,17 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 	 * @param mixed $level The level of the layout.
 	 * @return mixed content layout.
 	 */
-	function astra_toggle_layout( $new_content_option, $level ) {
-	
+	function astra_toggle_layout( $new_content_option, $level, $post_id = false ) {
+		
 		// Dynamic layout option for meta case.
 		$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
 		$current_layout = '';
-		
+
+		// Get meta value by ID if specified.
+		if ( $post_id ) {
+			$dynamic_layout_option = get_post_meta( $post_id, $new_content_option, true );
+		}
+
 		// Meta layout migrations.
 		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
 		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
@@ -192,6 +197,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 		if ( $meta_old_layout && ! $meta_new_layout && 'set' !== $meta_key ) {
 			$dynamic_layout_option = astra_migrate_meta_layout( $meta_old_layout );
 		}
+
 		switch ( $dynamic_layout_option ) {
 			case 'normal-width-container':
 				$current_layout = 'plain-container';

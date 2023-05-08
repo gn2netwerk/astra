@@ -100,7 +100,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$post_id = get_the_ID();
 
 			if ( $post_id ) {
-				$meta_content_layout = astra_toggle_layout( 'new-site-content-layout', 'meta');
+				$meta_content_layout = astra_toggle_layout( 'new-site-content-layout', 'meta', $post_id );
 			}
 
 			if ( ( isset( $meta_content_layout ) && ! empty( $meta_content_layout ) ) && 'default' !== $meta_content_layout ) {
