@@ -1142,7 +1142,7 @@ function astra_theme_background_updater_4_1_0() {
  */
 function astra_theme_background_updater_4_1_4() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['v4-2-0-update-migration'] ) ) {
+	if ( ! isset( $theme_options['v4-1-4-update-migration'] ) ) {
 		$ast_bg_control_options = array(
 			'off-canvas-background',
 			'footer-adv-bg-obj',
@@ -1264,7 +1264,7 @@ function astra_theme_background_updater_4_1_4() {
 			}
 		}
 
-		$theme_options['v4-2-0-update-migration'] = true;
+		$theme_options['v4-1-4-update-migration'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
