@@ -17205,6 +17205,7 @@ namespace {
 	 * Migrate meta layout to new layout.
 	 *
 	 * @since x.x.x
+	 * @param mixed $meta_layout
 	 * @return mixed new layout.
 	 */
 	function astra_migrate_meta_layout( $meta_layout )
@@ -17214,6 +17215,9 @@ namespace {
 	 * Return current content layout as per new layout selection.
 	 *
 	 * @since x.x.x
+	 * @param mixed $new_content_option The new content layout option.
+	 * @param mixed $level The level of the layout.
+	 * @param mixed $post_id The id to fetch post meta.
 	 * @return mixed content layout.
 	 */
 	function astra_toggle_layout( $new_content_option, $level, $post_id )
@@ -17224,7 +17228,12 @@ namespace {
      *
      * Migration cases for old users, old layouts -> new layouts.
      * @since x.x.x
-     * @return mixed $theme_options The updated theme options.
+     * @param mixed $old_layout
+     * @param mixed $new_layout
+     * @param mixed $content_style
+     * @param mixed $sidebar_style
+     * @param array $theme_options
+     * @return array $theme_options The updated theme options.
      */
     function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options )
     {

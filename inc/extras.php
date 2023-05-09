@@ -177,6 +177,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 	 * @since x.x.x
 	 * @param mixed $new_content_option The new content layout option.
 	 * @param mixed $level The level of the layout.
+	 * @param mixed $post_id The id to fetch post meta.
 	 * @return mixed content layout.
 	 */
 	function astra_toggle_layout( $new_content_option, $level, $post_id = false ) {
