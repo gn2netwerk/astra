@@ -103,7 +103,6 @@ const MetaSettings = props => {
 
 	// Migrate meta layout, content style and sidebar options if old user.
 	useEffect(() => {
-		debugger
 		if ( astMetaParams.v4_1_5_migration && 'set' !== props.meta['astra-migrate-meta-layouts'] ) {
 			props.setMetaFieldValue( 'set', 'astra-migrate-meta-layouts' );
 			switch ( props.meta['site-content-layout'] ) {
