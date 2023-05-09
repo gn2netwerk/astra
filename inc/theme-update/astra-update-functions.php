@@ -1279,7 +1279,7 @@ function astra_theme_background_updater_4_1_4() {
  */
 function astra_theme_background_updater_4_1_5() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['v4-1-5-update-migration'] ) ) {			
+	if ( ! isset( $theme_options['v4-1-5-update-migration'] ) ) {		
 
 		$post_types            = Astra_Posts_Structure_Loader::get_supported_post_types();
 		$theme_options         = get_option( 'astra-settings' );
