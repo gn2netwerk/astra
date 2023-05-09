@@ -1133,54 +1133,6 @@ function astra_theme_background_updater_4_1_0() {
 }
 
 /**
- * Handle migration from old to new layouts.
- *
- * Migration cases for old users, old layouts -> new layouts.
- * @since x.x.x
- * @param mixed $old_layout
- * @param mixed $new_layout
- * @param mixed $content_style
- * @param mixed $sidebar_style
- * @param array $theme_options
- * @return array $theme_options The updated theme options.
- */
-function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options ) {
-	switch ( astra_get_option( $old_layout ) ) {
-		case 'boxed-container':
-			$theme_options[ $new_layout ]    = 'normal-width-container';
-			$theme_options[ $content_style ] = 'boxed';
-			$theme_options[ $sidebar_style ] = 'boxed';
-			break;
-		case 'content-boxed-container':
-			$theme_options[ $new_layout ]    = 'normal-width-container';
-			$theme_options[ $content_style ] = 'boxed';
-			$theme_options[ $sidebar_style ] = 'unboxed';
-			break;
-		case 'plain-container':
-			$theme_options[ $new_layout ]    = 'normal-width-container';
-			$theme_options[ $content_style ] = 'unboxed';
-			$theme_options[ $sidebar_style ] = 'unboxed';
-			break;
-		case 'page-builder':
-			$theme_options[ $new_layout ]    = 'full-width-container';
-			$theme_options[ $content_style ] = 'unboxed';
-			$theme_options[ $sidebar_style ] = 'default';
-			break;
-		case 'narrow-container':
-			$theme_options[ $new_layout ]    = 'narrow-width-container';
-			$theme_options[ $content_style ] = 'unboxed';
-			$theme_options[ $sidebar_style ] = 'default';
-			break;
-		default:
-			$theme_options[ $new_layout ]    = 'default';
-			$theme_options[ $content_style ] = 'default';
-			$theme_options[ $sidebar_style ] = 'default';
-			break;
-	}
-	return $theme_options;
-}
-
-/**
  * 4.1.4 backward handling cases.
  *
  * 1. Migrating users to combined color overlay option to new dedicated overlay options.
@@ -1372,4 +1324,50 @@ function astra_theme_background_updater_4_1_5() {
 	}
 }
 
-
+/**
+ * Handle migration from old to new layouts.
+ *
+ * Migration cases for old users, old layouts -> new layouts.
+ * @since x.x.x
+ * @param mixed $old_layout
+ * @param mixed $new_layout
+ * @param mixed $content_style
+ * @param mixed $sidebar_style
+ * @param array $theme_options
+ * @return array $theme_options The updated theme options.
+ */
+function astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options ) {
+	switch ( astra_get_option( $old_layout ) ) {
+		case 'boxed-container':
+			$theme_options[ $new_layout ]    = 'normal-width-container';
+			$theme_options[ $content_style ] = 'boxed';
+			$theme_options[ $sidebar_style ] = 'boxed';
+			break;
+		case 'content-boxed-container':
+			$theme_options[ $new_layout ]    = 'normal-width-container';
+			$theme_options[ $content_style ] = 'boxed';
+			$theme_options[ $sidebar_style ] = 'unboxed';
+			break;
+		case 'plain-container':
+			$theme_options[ $new_layout ]    = 'normal-width-container';
+			$theme_options[ $content_style ] = 'unboxed';
+			$theme_options[ $sidebar_style ] = 'unboxed';
+			break;
+		case 'page-builder':
+			$theme_options[ $new_layout ]    = 'full-width-container';
+			$theme_options[ $content_style ] = 'unboxed';
+			$theme_options[ $sidebar_style ] = 'default';
+			break;
+		case 'narrow-container':
+			$theme_options[ $new_layout ]    = 'narrow-width-container';
+			$theme_options[ $content_style ] = 'unboxed';
+			$theme_options[ $sidebar_style ] = 'default';
+			break;
+		default:
+			$theme_options[ $new_layout ]    = 'default';
+			$theme_options[ $content_style ] = 'default';
+			$theme_options[ $sidebar_style ] = 'default';
+			break;
+	}
+	return $theme_options;
+}
