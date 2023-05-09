@@ -199,6 +199,9 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 			$dynamic_layout_option = astra_migrate_meta_layout( $meta_old_layout );
 		}
 
+		$post_id = get_the_ID();
+		$meta = get_post_meta( $post_id, 'astra-migrate-meta-layouts', true );;
+
 		switch ( $dynamic_layout_option ) {
 			case 'normal-width-container':
 				$current_layout = 'plain-container';
