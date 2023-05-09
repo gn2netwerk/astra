@@ -191,6 +191,9 @@ const MetaSettings = props => {
 								} }
 							/>
 						</div>
+						<p className='description'>
+							{ __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ) }
+						</p>
 					</PanelBody>					
 
 					{/* Sidebar Setting */}
@@ -209,7 +212,7 @@ const MetaSettings = props => {
 							/>
 						</div>
 						<p className='description'>
-								{ __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ) }
+							{ __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ) }
 						</p>
 					</PanelBody>
 
