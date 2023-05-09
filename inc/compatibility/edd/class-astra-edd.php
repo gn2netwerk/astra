@@ -1038,14 +1038,14 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 
 				// Global.
-				$edd_layout = astra_toggle_layout( 'new-site-content-layout', 'global' );
+				$edd_layout = astra_toggle_layout( 'new-site-content-layout', 'global', false );
 
 				if ( 'default' !== $edd_layout ) {
 					$layout = $edd_layout;
 				}
 
 				// Customizer General.
-				$edd_customizer_layout = astra_toggle_layout( 'edd-new-content-layout', 'global' );
+				$edd_customizer_layout = astra_toggle_layout( 'edd-new-content-layout', 'global', false );
 
 
 				if ( 'default' !== $edd_customizer_layout ) {
@@ -1053,7 +1053,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				}
 
 				if ( $is_edd_single_page ) {
-					$edd_single_product_layout = astra_toggle_layout( 'single-download-new-content-layout', 'single' );
+					$edd_single_product_layout = astra_toggle_layout( 'single-download-new-content-layout', 'single', false );
 
 					if ( 'default' !== $edd_single_product_layout ) {
 						$layout = $edd_single_product_layout;
@@ -1062,7 +1062,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					$page_id         = get_the_ID();
 					$edd_page_layout = get_post_meta( $page_id, 'site-content-layout', true );
 				} elseif ( $is_edd_archive_page ) {
-					$edd_page_layout = astra_toggle_layout( 'archive-download-new-content-layout', 'archive' );
+					$edd_page_layout = astra_toggle_layout( 'archive-download-new-content-layout', 'archive', false );
 				} else {
 					$edd_page_layout = astra_get_option_meta( 'site-content-layout', '', true );
 				}

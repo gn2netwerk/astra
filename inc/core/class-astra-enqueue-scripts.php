@@ -106,15 +106,15 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			if ( ( isset( $meta_content_layout ) && ! empty( $meta_content_layout ) ) && 'default' !== $meta_content_layout ) {
 				$content_layout = $meta_content_layout;
 			} else {
-				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'global');
+				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'global', false );
 			}
 
-			$editor_default_content_layout = astra_toggle_layout( 'single-' . strval( get_post_type() ) . '-new-content-layout', 'single');
+			$editor_default_content_layout = astra_toggle_layout( 'single-' . strval( get_post_type() ) . '-new-content-layout', 'single', false );
 
 			if ( 'default' === $editor_default_content_layout || empty( $editor_default_content_layout ) ) {
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
-				$editor_default_content_layout = astra_toggle_layout( 'new-site-content-layout', 'global' );
+				$editor_default_content_layout = astra_toggle_layout( 'new-site-content-layout', 'global', false );
 				$classes                      .= ' ast-default-layout-' . $editor_default_content_layout;
 			} else {
 				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
