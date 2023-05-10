@@ -81,7 +81,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		} else {
 			$classes[] = 'ast-desktop';
 		}
-		
+
 		if ( astra_is_amp_endpoint() ) {
 			$classes[] = 'ast-amp';
 		}
