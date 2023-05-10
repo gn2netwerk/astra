@@ -1179,10 +1179,14 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-featured-img'              => array(
+					'astra-migrate-meta-layouts'   => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-featured-img'             => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
-					'ast-breadcrumbs-content'       => array(
+					'ast-breadcrumbs-content'      => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 				)
