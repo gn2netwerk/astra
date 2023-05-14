@@ -238,51 +238,39 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 	 * @return html                Markup.
 	 */
 	function astra_post_author( $output_filter = '' ) {
-
-		ob_start();
-
-		echo '<span ';
-			echo astra_attr(
-				'post-meta-author',
-				array(
-					'class' => 'posted-by vcard author',
-				)
+		global $post;
+		$author_id   = $post->post_author;
+		$author_data = get_transient( 'astra_author_' . $author_id );
+	
+		if ( false === $author_data ) {
+			$author_data = array(
+				'name' => get_the_author_meta( 'display_name', $author_id ),
+				'url'  => get_author_posts_url( $author_id ),
 			);
-		echo '>';
-			// Translators: Author Name. ?>
-			<a title="<?php printf( esc_attr__( 'View all posts by %1$s', 'astra' ), get_the_author() ); ?>"
-				href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"
-				<?php
-					echo astra_attr(
-						'author-url',
-						array(
-							'class' => 'url fn n',
-						)
-					);
-				?>
-				>
-				<span
-				<?php
-					echo astra_attr(
-						'author-name',
-						array(
-							'class' => 'author-name',
-						)
-					);
-				?>
-				>
-				<?php
-					/** @psalm-suppress PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					echo wp_kses_post( astra_post_author_name() );
-				?>
-			</span>
-			</a>
-		</span>
+			set_transient( 'astra_author_' . $author_id, $author_data, DAY_IN_SECONDS );
+		}
+	
+		$output = '<span ' . astra_attr(
+			'post-meta-author',
+			array(
+				'class' => 'posted-by vcard author',
+			)
+		) . '>';
 
-		<?php
-
-		$output = ob_get_clean();
-
+		$output .= '<a title="' . esc_attr__( 'View all posts by ', 'astra' ) . $author_data['name'] . '" href="' . esc_url( $author_data['url'] ) . '" rel="author" ' . astra_attr(
+			'author-url',
+			array(
+				'class' => 'url fn n',
+			)
+		) . '>';
+		
+		$output .= '<span ' . astra_attr(
+			'author-name',
+			array(
+				'class' => 'author-name',
+			)
+		) . '>' . wp_kses_post( $author_data['name'] ) . '</span></a></span>';
+	
 		return apply_filters( 'astra_post_author', $output, $output_filter );
 	}
 }
