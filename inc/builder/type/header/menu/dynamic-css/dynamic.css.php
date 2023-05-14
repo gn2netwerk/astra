@@ -193,6 +193,16 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 		$menu_spacing_tablet_top = astra_responsive_spacing( $menu_spacing, 'top', 'tablet' );
 		$menu_spacing_tablet_top = ( isset( $menu_spacing_tablet_top ) && ! empty( $menu_spacing_tablet_top ) ) ? $menu_spacing_tablet_top : 0;
 
+		if ( ! is_rtl() ) {
+			$selector_right_value = array(
+				'right' => '-15px',
+			);
+		} else {
+			$selector_right_value = array(
+				'left' => '-15px',
+			);
+		}
+
 		$css_output_tablet = array(
 
 			$mobile_selector . ' .menu-item > .menu-link' => array(
@@ -235,6 +245,7 @@ function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 				'top'   => $menu_spacing_tablet_top,
 				'right' => astra_calculate_spacing( astra_responsive_spacing( $menu_spacing, 'right', 'tablet' ), '-', '0.907', 'em' ),
 			),
+			$selector . ' .inline-on-mobile .menu-item.menu-item-has-children > .ast-menu-toggle' => $selector_right_value,
 			$selector . ' .menu-item-has-children > .menu-link:after' => array(
 				'content' => 'unset',
 			),
