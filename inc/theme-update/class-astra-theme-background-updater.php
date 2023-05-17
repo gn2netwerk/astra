@@ -118,7 +118,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_theme_background_updater_4_1_4',
 			),
 			'4.1.5' => array(
-				'astra_theme_background_updater_4_1_5',
+				'astra_theme_background_updater_4_1_6',
 			),			
 		);
 

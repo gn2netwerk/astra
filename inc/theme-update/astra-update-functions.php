@@ -1277,7 +1277,7 @@ function astra_theme_background_updater_4_1_4() {
  * @since x.x.x
  * @return void
  */
-function astra_theme_background_updater_4_1_5() {
+function astra_theme_background_updater_4_1_6() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['v4-1-5-update-migration'] ) ) {		
 

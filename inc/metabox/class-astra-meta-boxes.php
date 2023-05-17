@@ -587,7 +587,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'upgrade_pro_link'               => ASTRA_PRO_CUSTOMIZER_UPGRADE_URL,
 					'show_upgrade_notice'            => astra_showcase_upgrade_notices(),
 					// Flag needed to check whether user is old or new, true for old user, false for new.
-					'v4_1_5_migration'               => ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ),
+					'v4_1_6_migration'               => ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ),
 				)
 			);
 
