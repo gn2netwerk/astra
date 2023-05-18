@@ -196,6 +196,7 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 			}
 			elseif ( 'edd' === $third_party &&  astra_is_edd_single_page() ) {
 				$page_id             = get_the_ID();
+				/** @psalm-suppress PossiblyFalseArgument */
 				$meta_content_style  = get_post_meta( $page_id, 'site-content-style', true );
 				$is_third_party_shop = true;
 			}
