@@ -160,6 +160,7 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 		$global_content_style = astra_get_option( 'site-content-style' );
 		$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
 		$is_boxed = false;
+		$is_third_party_shop = false;
 
 		// Third party compatibility.
 		$third_party = astra_is_third_party();
@@ -172,6 +173,30 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 
 			// Get global content style if third party is default.
 			$global_content_style = ( 'default' === $third_party_content_style || empty( $third_party_content_style ) ) ? $global_content_style : $third_party_content_style;
+
+			// Third party shop/archive page meta case.
+			if ( 'woocommerce' === $third_party && is_shop() ) {
+				$shop_page_id = get_option( 'woocommerce_shop_page_id' );
+				$meta_content_style = get_post_meta( $shop_page_id, 'site-content-style', true );
+				$is_third_party_shop = true;
+			}
+			elseif ( 'lifterlms' === $third_party ) {
+				if ( is_courses() ) {
+					$lifter_page_id = get_option( 'lifterlms_shop_page_id' );
+					$meta_content_style = get_post_meta( $lifter_page_id, 'site-content-style', true );
+					$is_third_party_shop = true;
+				}
+				elseif ( is_memberships() ) {
+					$lifter_page_id = get_option( 'lifterlms_memberships_page_id' );
+					$meta_content_style = get_post_meta( $lifter_page_id, 'site-content-style', true );
+					$is_third_party_shop = true;
+				}
+			}
+			elseif ( 'edd' === $third_party &&  astra_is_edd_single_page() ) {
+				$meta_content_style = get_post_meta( get_the_ID(), 'site-content-style', true );
+				$is_third_party_shop = true;
+			}
+
 		}
 
 		// Global.
@@ -190,7 +215,7 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 		}
 
 		// Meta.
-		if ( 'single' === $blog_type && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
+		if ( ( 'single' === $blog_type || $is_third_party_shop )  && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
 			if ( 'boxed' === $meta_content_style ) {
 				$is_boxed = true;
 			}

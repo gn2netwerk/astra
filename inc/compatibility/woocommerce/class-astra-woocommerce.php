@@ -1238,7 +1238,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				if ( is_shop() ) {
 					$shop_page_id = get_option( 'woocommerce_shop_page_id' );
-					$shop_layout  = get_post_meta( $shop_page_id, 'site-content-layout', true );
+					$shop_layout = astra_toggle_layout( 'new-site-content-layout', 'meta', $shop_page_id );
 				} elseif ( is_product_taxonomy() ) {
 					$shop_layout = 'default';
 				} else {
