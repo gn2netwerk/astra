@@ -812,6 +812,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['archive-product-content-layout'] = 'default';
 			$defaults['single-product-content-layout']  = 'default';
 
+			// Content Style.
+			$defaults['woocommerce-content-style'] = 'unboxed';
+			$defaults['woocommerce-sidebar-style'] = 'unboxed';
+
 			// Sidebar.
 			$defaults['woocommerce-sidebar-layout']     = 'no-sidebar';
 			$defaults['archive-product-sidebar-layout'] = 'default';
