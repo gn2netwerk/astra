@@ -181,11 +181,13 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 				$is_third_party_shop = true;
 			}
 			elseif ( 'lifterlms' === $third_party ) {
+				/** @psalm-suppress UndefinedFunction */
 				if ( is_courses() ) {
 					$lifter_page_id = get_option( 'lifterlms_shop_page_id' );
 					$meta_content_style = get_post_meta( $lifter_page_id, 'site-content-style', true );
 					$is_third_party_shop = true;
 				}
+				/** @psalm-suppress UndefinedFunction */
 				elseif ( is_memberships() ) {
 					$lifter_page_id = get_option( 'lifterlms_memberships_page_id' );
 					$meta_content_style = get_post_meta( $lifter_page_id, 'site-content-style', true );
