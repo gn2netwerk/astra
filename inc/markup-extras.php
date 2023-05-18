@@ -176,26 +176,27 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 
 			// Third party shop/archive page meta case.
 			if ( 'woocommerce' === $third_party && is_shop() ) {
-				$shop_page_id = get_option( 'woocommerce_shop_page_id' );
-				$meta_content_style = get_post_meta( $shop_page_id, 'site-content-style', true );
+				$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
+				$meta_content_style  = get_post_meta( $shop_page_id, 'site-content-style', true );
 				$is_third_party_shop = true;
 			}
 			elseif ( 'lifterlms' === $third_party ) {
 				/** @psalm-suppress UndefinedFunction */
 				if ( is_courses() ) {
-					$lifter_page_id = get_option( 'lifterlms_shop_page_id' );
-					$meta_content_style = get_post_meta( $lifter_page_id, 'site-content-style', true );
+					$lifter_page_id      = get_option( 'lifterlms_shop_page_id' );
+					$meta_content_style  = get_post_meta( $lifter_page_id, 'site-content-style', true );
 					$is_third_party_shop = true;
 				}
 				/** @psalm-suppress UndefinedFunction */
 				elseif ( is_memberships() ) {
-					$lifter_page_id = get_option( 'lifterlms_memberships_page_id' );
-					$meta_content_style = get_post_meta( $lifter_page_id, 'site-content-style', true );
+					$lifter_page_id      = get_option( 'lifterlms_memberships_page_id' );
+					$meta_content_style  = get_post_meta( $lifter_page_id, 'site-content-style', true );
 					$is_third_party_shop = true;
 				}
 			}
 			elseif ( 'edd' === $third_party &&  astra_is_edd_single_page() ) {
-				$meta_content_style = get_post_meta( get_the_ID(), 'site-content-style', true );
+				$page_id             = get_the_ID();
+				$meta_content_style  = get_post_meta( $page_id, 'site-content-style', true );
 				$is_third_party_shop = true;
 			}
 
