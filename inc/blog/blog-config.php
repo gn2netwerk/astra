@@ -247,7 +247,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 				'name' => get_the_author_meta( 'display_name', $author_id ),
 				'url'  => get_author_posts_url( $author_id ),
 			);
-			set_transient( 'astra_author_' . $author_id, $author_data, DAY_IN_SECONDS );
+			set_transient( 'astra_author_' . $author_id, $author_data );
 		}
 	
 		$output = '<span ' . astra_attr(
