@@ -75,10 +75,10 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		}
 
 
-		/**
+/**
 		 * Hide elementor title.
 		 *
-		 * @param array $classes Array of elementor edit mode check & compatibility for banner layout 2.
+		 * @param array $classes Array of elementor edit mode check.
 		 *
 		 * @since 4.1.0
 		 */
@@ -86,13 +86,17 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			$post_id = astra_get_post_id();
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$edit_mode = get_post_meta( $post_id, '_elementor_edit_mode', true );
-			// Check layout type and show page title markup
-			$astra_post_type      = strval( get_post_type() );
-			$astra_banner_control = 'ast-dynamic-single-' . esc_attr( $astra_post_type );
-			$astra_layout_type    = astra_get_option( $astra_banner_control . '-layout', 'layout-1' );
 
-			if ( $edit_mode && $edit_mode === 'builder' && $astra_layout_type != 'layout-2' ) {
+			if ( $edit_mode && $edit_mode === 'builder') {
 				$classes[] = 'ast-header-without-markup';
+
+				// Check layout type and show page title markup
+				$astra_post_type      = strval( get_post_type() );
+				$astra_banner_control = 'ast-dynamic-single-' . esc_attr( $astra_post_type );
+				$astra_layout_type = astra_get_option( $astra_banner_control . '-layout', 'layout-1' );
+				if ($astra_layout_type == 'layout-2' && in_array('ast-header-without-markup', $classes)) {
+					unset($classes[array_search('ast-header-without-markup', $classes)]);
+				}
 			}
 
 			return $classes;
