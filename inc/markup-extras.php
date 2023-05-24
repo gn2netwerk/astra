@@ -340,16 +340,18 @@ if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
 	 */
 	function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed ) {
 
-		// Meta content style migrations.
 		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
+		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
+		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 
 		// Third party archive meta migration.
 		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
 		if ( '' === $meta_old_layout && isset( $third_party_meta_page ) && $third_party_meta_page ) {
 			$meta_old_layout = $third_party_meta_page;
+			$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
 		}
-		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
-		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
+
+		// Meta content style migrations.
 		if ( $meta_old_layout && 'set' !== $meta_key ) {
 			if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 				$is_boxed = true;
