@@ -1,5 +1,6 @@
 v4.1.6 (Unreleased)
-- Improvment - Header Footer Builder - Added new social icon "TikTok".
+- Improvement: Header Footer Builder - Added new social icon "TikTok".
+- Improvement: Improved title area customizer control UI for better user experience.
 - Fix: Header Builder - Menu - Item Divider doesn't work on the last submenu item.
 
 v4.1.5
