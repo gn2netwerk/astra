@@ -102,6 +102,13 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		} elseif ( 'narrow-container' == $content_layout ) {
 			$classes[] = 'ast-narrow-container';
 
+			// Narrow meta migration case.
+			$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
+			$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
+			if ( 'narrow-container' === $meta_old_layout && 'set' !== $meta_key ) {
+				$is_boxed = false;
+			}
+
 			// Adding boxed class for narrow layout.
 			if ( $is_boxed ) {
 				$classes[] = 'ast-separate-container';
@@ -343,7 +350,7 @@ if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
 		}
 		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
 		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
-		if ( $meta_old_layout && ! $meta_new_layout && 'set' !== $meta_key ) {
+		if ( $meta_old_layout && 'set' !== $meta_key ) {
 			if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 				$is_boxed = true;
 				$is_sidebar_boxed = false;
