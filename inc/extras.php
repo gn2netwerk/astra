@@ -193,6 +193,12 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 
 		// Meta layout migrations.
 		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
+
+		// Third party archive meta migration.
+		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
+		if ( '' === $meta_old_layout && isset( $third_party_meta_page ) && $third_party_meta_page ) {
+			$meta_old_layout = $third_party_meta_page;
+		}
 		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
 		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 		if ( $meta_old_layout && ! $meta_new_layout && 'set' !== $meta_key ) {

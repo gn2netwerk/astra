@@ -175,32 +175,9 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 			$global_content_style = ( 'default' === $third_party_content_style || empty( $third_party_content_style ) ) ? $global_content_style : $third_party_content_style;
 
 			// Third party shop/archive page meta case.
-			if ( 'woocommerce' === $third_party && is_shop() ) {
-				$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
-				$meta_content_style  = get_post_meta( $shop_page_id, 'site-content-style', true );
-				$is_third_party_shop = true;
-			}
-			elseif ( 'lifterlms' === $third_party ) {
-				/** @psalm-suppress UndefinedFunction */
-				if ( is_courses() ) {
-					$lifter_page_id      = get_option( 'lifterlms_shop_page_id' );
-					$meta_content_style  = get_post_meta( $lifter_page_id, 'site-content-style', true );
-					$is_third_party_shop = true;
-				}
-				/** @psalm-suppress UndefinedFunction */
-				elseif ( is_memberships() ) {
-					$lifter_page_id      = get_option( 'lifterlms_memberships_page_id' );
-					$meta_content_style  = get_post_meta( $lifter_page_id, 'site-content-style', true );
-					$is_third_party_shop = true;
-				}
-			}
-			elseif ( 'edd' === $third_party &&  astra_is_edd_single_page() ) {
-				$page_id             = get_the_ID();
-				/** @psalm-suppress PossiblyFalseArgument */
-				$meta_content_style  = get_post_meta( $page_id, 'site-content-style', true );
-				$is_third_party_shop = true;
-			}
-
+			$third_party_meta_page = astra_third_party_archive_meta( 'site-content-style' );
+			$meta_content_style = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_content_style;
+			$is_third_party_shop = isset( $meta_content_style );
 		}
 
 		// Global.
@@ -289,7 +266,8 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
 		$sidebar_style        = astra_get_option( $blog_type . '-' . $post_type . '-sidebar-style', '' );
 		$global_sidebar_style = astra_get_option( 'site-sidebar-style' );
 		$meta_sidebar_style   = astra_get_option_meta( 'site-sidebar-style', '', true );
-		$is_sidebar_boxed = false;
+		$is_sidebar_boxed     = false;
+		$is_third_party_shop  = false;
 
 		// Third party compatibility.
 		$third_party = astra_is_third_party( true );
@@ -302,6 +280,11 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
 
 			// Get global sidebar style if third party is default.
 			$global_sidebar_style = ( 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ) ? $global_sidebar_style : $third_party_sidebar_style;
+
+			// Third party shop/archive page meta case.
+			$third_party_meta_page = astra_third_party_archive_meta( 'site-sidebar-style' );
+			$meta_sidebar_style = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_sidebar_style;
+			$is_third_party_shop = isset( $meta_sidebar_style );
 		}
 
 		// Global.
@@ -320,7 +303,7 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
 		}
 
 		// Meta.
-		if ( 'single' === $blog_type && ! empty( $meta_sidebar_style ) && 'default' !== $meta_sidebar_style ) {
+		if ( ( 'single' === $blog_type || $is_third_party_shop ) && ! empty( $meta_sidebar_style ) && 'default' !== $meta_sidebar_style ) {
 			if ( 'boxed' === $meta_sidebar_style ) {
 				$is_sidebar_boxed = true;
 			}
@@ -352,6 +335,12 @@ if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
 
 		// Meta content style migrations.
 		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
+
+		// Third party archive meta migration.
+		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
+		if ( '' === $meta_old_layout && isset( $third_party_meta_page ) && $third_party_meta_page ) {
+			$meta_old_layout = $third_party_meta_page;
+		}
 		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
 		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 		if ( $meta_old_layout && ! $meta_new_layout && 'set' !== $meta_key ) {
@@ -381,13 +370,56 @@ if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
 
 					/**
 					 * Case: unboxed container with sidebar boxed
-					 * container unboxed css is applied through astra_apply_unboxed_container()
+					 * Container unboxed css is applied through astra_apply_unboxed_container()
 					*/ 
 					$content_layout = 'boxed-container';
 				}
 			}
 		}
 		return $content_layout;
+	}
+}
+
+/**
+ * Get Third Party Archive Meta Value.
+ */
+if ( ! function_exists( 'astra_third_party_archive_meta' ) ) {
+
+	/**
+	 * WooCommerce, LifterLMS, EDD Archive (Shop, Courses, Memberships etc) Meta value.
+	 *
+	 * @since x.x.x
+	 * @param mixed option name of the option to fetch.
+	 * @return mixed meta_value
+	 */
+	function astra_third_party_archive_meta( $option ) {
+
+		$meta_value = false;
+		$third_party = astra_is_third_party( true );
+		// Third party shop/archive page meta case.
+		if ( 'woocommerce' === $third_party && is_shop() ) {
+			$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
+			$meta_value          = get_post_meta( $shop_page_id, $option , true );
+		}
+		elseif ( 'lifterlms' === $third_party ) {
+			/** @psalm-suppress UndefinedFunction */
+			if ( is_courses() ) {
+				$lifter_page_id      = get_option( 'lifterlms_shop_page_id' );
+				$meta_value          = get_post_meta( $lifter_page_id, $option , true );
+			}
+			/** @psalm-suppress UndefinedFunction */
+			elseif ( is_memberships() ) {
+				$lifter_page_id      = get_option( 'lifterlms_memberships_page_id' );
+				$meta_value          = get_post_meta( $lifter_page_id, $option , true );
+			}
+		}
+		elseif ( 'edd' === $third_party &&  astra_is_edd_single_page() ) {
+			$page_id             = get_the_ID();
+			/** @psalm-suppress PossiblyFalseArgument */
+			$meta_value          = get_post_meta( $page_id, $option , true );
+		}
+
+		return $meta_value;
 	}
 }
 
