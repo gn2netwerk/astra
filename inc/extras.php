@@ -201,7 +201,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 		}
 		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
 		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
-		if ( $meta_old_layout && ! $meta_new_layout && 'set' !== $meta_key ) {
+		if ( $meta_old_layout && 'set' !== $meta_key ) {
 			$dynamic_layout_option = astra_migrate_meta_layout( $meta_old_layout );
 		}
 
