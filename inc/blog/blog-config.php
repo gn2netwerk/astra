@@ -240,7 +240,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 	function astra_post_author( $output_filter = '' ) {
 		
 		global $post;
-		$author_id = $post->post_author;
+		$author_id = isset( $post->post_author ) ? $post->post_author : 1;
 
 		ob_start();
 
