@@ -398,7 +398,7 @@ if ( ! function_exists( 'astra_third_party_archive_meta' ) ) {
 	 * WooCommerce, LifterLMS, EDD Archive (Shop, Courses, Memberships etc) Meta value.
 	 *
 	 * @since x.x.x
-	 * @param mixed option name of the option to fetch.
+	 * @param mixed $option name of the option to fetch.
 	 * @return mixed meta_value
 	 */
 	function astra_third_party_archive_meta( $option ) {

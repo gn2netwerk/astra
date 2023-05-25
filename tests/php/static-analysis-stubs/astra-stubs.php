@@ -17260,6 +17260,16 @@ namespace {
 	function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed )
     {
     }
+	/**
+	 * WooCommerce, LifterLMS, EDD Archive (Shop, Courses, Memberships etc) Meta value.
+	 *
+	 * @since x.x.x
+	 * @param mixed $option name of the option to fetch.
+	 * @return mixed meta_value
+	 */
+	function astra_third_party_archive_meta( $option ) 
+    {
+    }
     /**
      * Handle backward compatibility on version 4.1.0
      *
