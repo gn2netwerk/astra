@@ -589,8 +589,8 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 	/**
 	 * Sets or removes .focus class on an element and its ancestors until a specific class is found.
 	 * @param {Element} element - The element to apply the .focus class and traverse its ancestors.
-	* @param {string} targetClass - The class name to search for in the ancestors.
-	*/
+	 * @param {string} targetClass - The class name to search for in the ancestors.
+	 */
 	function toggleFocusAndAncestors(element, targetClass) {
 		while (-1 === element.className.indexOf(targetClass)) {
 		if ('li' === element.tagName.toLowerCase()) {
