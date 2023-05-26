@@ -243,7 +243,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			// Migrate old meta content layout.
 			$meta_key        = isset ( $meta['astra-migrate-meta-layouts']['default'] ) ? $meta['astra-migrate-meta-layouts']['default'] : '';
 			$old_meta_layout = isset ( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '';
-			if ( ! empty( $old_meta_layout ) && 'set' !== $meta_key ) {
+			if ( ! empty( $old_meta_layout ) && 'set' !== $meta_key && empty( $new_site_content_layout ) ) {
 				$old_meta_content_layout = $meta['site-content-layout']['default'];
 				switch ( $old_meta_content_layout ) {
 					case 'plain-container':
