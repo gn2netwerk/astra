@@ -2405,6 +2405,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 			}
 
+			if ( is_checkout() ) {
+				$css_output .= astra_parse_css(
+					array(
+						'.select2-dropdown' => array(
+							'z-index'    => '98'
+						),
+					)
+				);
+			}
+
 			/* Parse CSS from array()*/
 			/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$css_output .= astra_parse_css( $woo_product_lang_direction_css, astra_get_tablet_breakpoint( '', 1 ) );
