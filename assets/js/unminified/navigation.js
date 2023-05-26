@@ -179,7 +179,7 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 ( function() {
 
 	var menu_toggle_all 	 = document.querySelectorAll( '.main-header-menu-toggle' );
-	var menu_click_listeners = {};
+	var menu_click_listeners_nav = {};
 
 	/* Add break point Class and related trigger */
 	var updateHeaderBreakPoint = function () {
@@ -288,8 +288,8 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 
 				menu_toggle_all[i].setAttribute('data-index', i);
 
-				if ( ! menu_click_listeners[i] ) {
-					menu_click_listeners[i] = menu_toggle_all[i];
+				if ( ! menu_click_listeners_nav[i] ) {
+					menu_click_listeners_nav[i] = menu_toggle_all[i];
 					menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
 				}
 
