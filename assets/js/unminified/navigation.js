@@ -587,51 +587,41 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
    	}
 
 	/**
+	 * Sets or removes .focus class on an element and its ancestors until a specific class is found.
+	 */
+	function toggleFocusAndAncestors(element, targetClass) {
+		while (-1 === element.className.indexOf(targetClass)) {
+		if ('li' === element.tagName.toLowerCase()) {
+			if (element.classList.contains('focus')) {
+			element.classList.remove('focus');
+			} else {
+			element.classList.add('focus');
+			}
+		}
+		element = element.parentElement;
+		}
+	}
+	
+	/**
 	 * Sets or removes .focus class on an element on focus.
 	 */
 	function toggleFocus() {
 		var self = this;
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
-
-			self = self.parentElement;
-		}
+		toggleFocusAndAncestors(self, 'nav-menu');
 	}
-
+	
 	/**
 	 * Sets or removes .focus class on an element on blur.
 	 */
 	function toggleBlurFocus() {
 		var self = this || '',
-            hash = '#';
-		var	link = new String( self );
-        if( link.indexOf( hash ) !== -1 && document.body.classList.contains('ast-mouse-clicked') ) {
-        	return;
-        }
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
-
-			self = self.parentElement;
+		hash = '#';
+		var link = String(self);
+		if (link.includes(hash) && document.body.classList.contains('ast-mouse-clicked')) {
+		return;
 		}
-	}
+		toggleFocusAndAncestors(self, 'nav-menu');
+	}  
 
 	/* Add class if mouse clicked and remove if tab pressed */
 	if ( 'querySelector' in document && 'addEventListener' in window ) {
