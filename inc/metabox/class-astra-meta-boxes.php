@@ -240,6 +240,45 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$show_meta_field = ! self::is_bb_themer_layout();
 			do_action( 'astra_meta_box_markup_before', $meta );
 
+			// Migrate old meta content layout.
+			$meta_key        = isset ( $meta['astra-migrate-meta-layouts']['default'] ) ? $meta['astra-migrate-meta-layouts']['default'] : '';
+			$old_meta_layout = isset ( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '';
+			if ( ! empty( $old_meta_layout ) && 'set' !== $meta_key ) {
+				$old_meta_content_layout = $meta['site-content-layout']['default'];
+				switch ( $old_meta_content_layout ) {
+					case 'plain-container':
+						$new_site_content_layout = 'normal-width-container';
+						$site_content_style = 'unboxed';
+						$site_sidebar_style = 'unboxed';
+						break;
+					case 'boxed-container':
+						$new_site_content_layout = 'normal-width-container';
+						$site_content_style = 'boxed';
+						$site_sidebar_style = 'boxed';
+						break;
+					case 'content-boxed-container':
+						$new_site_content_layout = 'normal-width-container';
+						$site_content_style = 'boxed';
+						$site_sidebar_style = 'unboxed';
+						break;
+					case 'page-builder':
+						$new_site_content_layout = 'full-width-container';
+						$site_content_style = 'unboxed';
+						$site_sidebar_style = 'unboxed';
+						break;
+					case 'narrow-container':
+						$new_site_content_layout = 'narrow-width-container';
+						$site_content_style = 'unboxed';
+						$site_sidebar_style = 'unboxed';
+						break;
+					default:
+						$new_site_content_layout = 'default';
+						break;
+				}
+				$post_id = get_the_ID();
+				update_post_meta( $post_id, 'astra-migrate-meta-layouts', 'set' );
+			}
+
 			/**
 			 * Option: Sidebar
 			 */
