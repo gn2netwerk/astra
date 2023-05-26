@@ -2405,7 +2405,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 			}
 
-			if ( is_checkout() ) {
+			if ( is_checkout() && ! is_wc_endpoint_url( 'order-received' ) ) {
 				$css_output .= astra_parse_css(
 					array(
 						'.select2-dropdown' => array(
