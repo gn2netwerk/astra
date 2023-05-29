@@ -209,7 +209,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$site_sidebar            = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
 			$site_content_style      = ( isset( $meta['site-content-style']['default'] ) ) ? $meta['site-content-style']['default'] : 'default';
 			$site_sidebar_style      = ( isset( $meta['site-sidebar-style']['default'] ) ) ? $meta['site-sidebar-style']['default'] : 'default';
-			$new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : 'default';
+			$new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : '';
 			$site_post_title         = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
 			$footer_bar              = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
 			$footer_widgets          = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
@@ -1202,12 +1202,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						'default'  => 'default',
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
-					'site-content-layout'           => array(
-						'default'  => 'default',
-						'sanitize' => 'FILTER_SANITIZE_STRING',
-					),
 					'new-site-content-layout'           => array(
-						'default'  => 'default',
+						'default'  => '',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 					'site-content-style'           => array(
