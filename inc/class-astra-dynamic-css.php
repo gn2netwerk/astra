@@ -3630,9 +3630,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 *   - Sidebar Positions CSS
 			 */
 			$secondary_width = absint( astra_get_option( 'site-sidebar-width' ) );
-			// phpcs:ignore WordPress.PHP.StrictlyTypedParameter
 			$primary_width = absint( 100 - $secondary_width );
-			// phpcs:ignore WordPress.PHP.StrictlyTypedParameter
 			$meta_style = '';
 
 			// Header Separator.
