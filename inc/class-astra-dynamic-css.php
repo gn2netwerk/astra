@@ -3664,9 +3664,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'width' => astra_get_css_value( $primary_width, '%' ),
 					),
 					'#secondary' => array(
-						// phpcs:ignore WordPress.PHP.StrictlyTypedParameter
-						'width' => astra_get_css_value( $secondary_width, '%' ),
-						// phpcs:ignore WordPress.PHP.StrictlyTypedParameter
+						'width' => astra_get_css_value( $secondary_width, '%' ), // phpcs:ignore Squiz.PHP.NonExecutableCode
 					),
 				);
 
