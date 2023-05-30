@@ -158,7 +158,7 @@ const MetaSettings = props => {
 
 					{/* Content Layout Setting */}
 					{ ! is_hide_content_layout_sidebar && (<PanelBody
-						title={ __( 'Content Layout', 'astra' ) }
+						title={ __( 'Container Layout', 'astra' ) }
 						initialOpen={ true }
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
