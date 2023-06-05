@@ -536,7 +536,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					delete_post_meta( $post_id, $key );
 				}
 
-				// Update flag as old container layout migration already done. 
+				// Update meta key (flag) as old user migration is already completed at this point. 
 				update_post_meta( $post_id, 'astra-migrate-meta-layouts', 'set' );
 			}
 
