@@ -535,6 +535,9 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				} else {
 					delete_post_meta( $post_id, $key );
 				}
+
+				// Update flag as old container layout migration already done. 
+				update_post_meta( $post_id, 'astra-migrate-meta-layouts', 'set' );
 			}
 
 		}
