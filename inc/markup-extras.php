@@ -324,7 +324,7 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
 }
 
 /**
- * Switch to content boxed container or boxed container
+ * Switch to content boxed container or boxed container.
  * Depending on content style and sidebar style.
  */
 if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
