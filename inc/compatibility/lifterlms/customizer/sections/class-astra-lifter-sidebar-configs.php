@@ -29,20 +29,27 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
-			$common_title   = __( 'Sidebar Layout', 'astra' );
-			$common_section = 'section-lifterlms';
+			$common_title                    = __( 'Sidebar Layout', 'astra' );
+			$common_section                  = 'section-lifterlms';
+			$common_lifter_lms_sidebar_style = __( 'Sidebar Style', 'astra' );
+			$lifter_lms_section_divider      = true;
 
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'lifterlms' ) ) {
-				$section_general          = 'section-lifterlms-general';
-				$section_courses          = 'section-lifterlms-course-lesson';
-				$title_lifter_lms         = $common_title;
-				$title_lifter_lms_courses = $common_title;
+				$section_general                        = 'section-lifterlms-general';
+				$section_courses                        = 'section-lifterlms-course-lesson';
+				$title_lifter_lms                       = $common_title;
+				$title_lifter_lms_courses               = $common_title;
+				$title_lifter_lms_sidebar_style         = $common_lifter_lms_sidebar_style;
+				$title_lifter_lms_courses_sidebar_style = $common_lifter_lms_sidebar_style;
+				$lifter_lms_section_divider             = false;
 			} else {
-				$section_general          = $common_section;
-				$section_courses          = $common_section;
-				$title_lifter_lms         = __( 'Global Sidebar Layout', 'astra' );
-				$title_lifter_lms_courses = __( 'Course/Lesson Sidebar Layout', 'astra' );
+				$section_general                        = $common_section;
+				$section_courses                        = $common_section;
+				$title_lifter_lms                       = __( 'Global Sidebar Layout', 'astra' );
+				$title_lifter_lms_courses               = __( 'Course/Lesson Sidebar Layout', 'astra' );
+				$title_lifter_lms_sidebar_style         = __( 'Global Sidebar Style', 'astra' );
+				$title_lifter_lms_courses_sidebar_style = __( 'Course/Lesson Sidebar Style', 'astra' );
 			}
 
 
@@ -106,7 +113,7 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 					'section'           => $section_general,
 					'default'           => astra_get_option( 'lifterlms-sidebar-style', 'default' ),
 					'priority'          => 1,
-					'title'             => __( 'LifterLMS Sidebar Style', 'astra' ),
+					'title'             => $title_lifter_lms_sidebar_style,
 					'choices'     => array(
 						'default' => __( 'Default', 'astra' ),
 						'unboxed' => __( 'Unboxed', 'astra' ),
@@ -147,7 +154,7 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider' => $lifter_lms_section_divider ? array( 'ast_class' => 'ast-section-spacing ast-top-section-divider' ) : array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -175,7 +182,7 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 					'section'           => $section_courses,
 					'default'           => astra_get_option( 'lifterlms-course-lesson-sidebar-style', 'default' ),
 					'priority'          => 1,
-					'title'             => __( 'Course/Lesson Sidebar Style', 'astra' ),
+					'title'             => $title_lifter_lms_courses_sidebar_style,
 					'choices'     => array(
 						'default' => __( 'Default', 'astra' ),
 						'unboxed' => __( 'Unboxed', 'astra' ),
