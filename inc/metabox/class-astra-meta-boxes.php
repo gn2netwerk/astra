@@ -237,14 +237,14 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'sfwd-topic',
 				'groups'
 			) ) : '';
-			$show_meta_field = ! self::is_bb_themer_layout();
+			$show_meta_field       = ! self::is_bb_themer_layout();
+			$old_meta_layout       = isset ( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '';
+			$meta_key              = ( isset( $meta['astra-migrate-meta-layouts']['default'] ) ) ? $meta['astra-migrate-meta-layouts']['default'] : '';
+			$migrated_user         = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
 			do_action( 'astra_meta_box_markup_before', $meta );
 
-			// Migrate old meta content layout.
-			$old_meta_layout  = isset ( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '';
-			$meta_key         = ( isset( $meta['astra-migrate-meta-layouts']['default'] ) ) ? $meta['astra-migrate-meta-layouts']['default'] : '';
-			$migrated_user = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
-			if ( ! empty( $old_meta_layout ) && $migrated_user && empty( $new_site_content_layout )) {
+			// Migrate old user existing container layout option to new layout options.
+			if ( ! empty( $old_meta_layout ) && 'set' !== $meta_key && $migrated_user ) {
 				$old_meta_content_layout = $meta['site-content-layout']['default'];
 				switch ( $old_meta_content_layout ) {
 					case 'plain-container':

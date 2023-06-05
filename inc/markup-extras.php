@@ -352,7 +352,7 @@ if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
 			$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
 		}
 
-		// Meta content style migrations.
+		// Migrate old user existing container layout option to new layout options.
 		if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
 			if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 				$is_boxed = true;
