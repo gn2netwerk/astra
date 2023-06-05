@@ -276,8 +276,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						$new_site_content_layout = 'default';
 						break;
 				}
-				$post_id = get_the_ID();
-				update_post_meta( $post_id, 'astra-migrate-meta-layouts', 'set' );
 			}
 
 			/**
