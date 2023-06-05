@@ -244,7 +244,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$old_meta_layout  = isset ( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '';
 			$meta_key         = ( isset( $meta['astra-migrate-meta-layouts']['default'] ) ) ? $meta['astra-migrate-meta-layouts']['default'] : '';
 			$migrated_user = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
-			if ( ! empty( $old_meta_layout ) && 'set' !== $meta_key && $migrated_user && empty( $new_site_content_layout )) {
+			if ( ! empty( $old_meta_layout ) && $migrated_user && empty( $new_site_content_layout )) {
 				$old_meta_content_layout = $meta['site-content-layout']['default'];
 				switch ( $old_meta_content_layout ) {
 					case 'plain-container':
