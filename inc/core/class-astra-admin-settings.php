@@ -152,7 +152,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Force Astra welcome notice on theme activation.
 			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) && ! in_array( $current_slug, array( 'astra-advanced-hook', 'astra_adv_header' ), true ) ) {
 
-				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
+				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-banner.png';
 				$ast_sites_notice_btn = self::astra_sites_notice_button();
 
 				if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
@@ -173,7 +173,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'<div class="ast-welcome-notice">
 							<div class="ast-row">
 							<div class="ast-col">
-								<div class="notice-content">
+								<div class="notice-content-new">
 								<p class="sub-notice-title">%1$s</p>
 								<h2 class="notice-title">%2$s</h2>
 								<p class="description">%3$s</p>
