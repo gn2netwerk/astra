@@ -170,20 +170,28 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'id'                         => 'astra-sites-on-active',
 					'type'                       => 'info',
 					'message'                    => sprintf(
-						'<div class="notice-image">
-							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div>
-							<div class="notice-content">
-								<h2 class="notice-heading">
-									%2$s
-								</h2>
-								<p>%3$s</p>
-								<div class="astra-review-notice-container">
+						'<div class="ast-welcome-notice">
+							<div class="ast-row">
+							<div class="ast-col">
+								<div class="notice-content">
+								<p class="sub-notice-title">%1$s</p>
+								<h2 class="notice-title">%2$s</h2>
+								<p class="description">%3$s</p>
+								<div class="notice-actions">
 									<a class="%4$s" %5$s %6$s %7$s %8$s %9$s %10$s> %11$s </a>
 								</div>
-							</div>',
-						$image_path,
-						__( 'Thank you for installing Astra!', 'astra' ),
-						__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/website-templates/?utm_source=dashboard&utm_medium=free-theme&utm_campaign=starter-templates" target="_blank">starter templates</a>? Install the Starter Templates plugin to get started.', 'astra' ),
+								</div>
+							</div>
+							<div class="ast-col ast-col-right">
+								<div class="image-container">
+								<img src="%12$s" alt="Astra" />
+								</div>
+							</div>
+							</div>
+						</div>',
+						__( 'Thanks for installing the Astra theme 🎉', 'astra' ),
+						__( 'Get Started with Ready-Made Templates', 'astra' ),
+						__( 'Building a website doesn\'t have to be hard. With Astra\'s starter templates, you can easily import ready-made designs and start building your dream website in just a few minutes.', 'astra' ),
 						esc_attr( $ast_sites_notice_btn['class'] ),
 						'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
 						'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
@@ -191,7 +199,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) . '"',
 						'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
 						'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
-						esc_html( $ast_sites_notice_btn['button_text'] )
+						esc_html( $ast_sites_notice_btn['button_text'] ),
+						$image_path
 					),
 					'priority'                   => 5,
 					'display-with-other-notices' => false,
