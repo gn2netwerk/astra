@@ -1312,6 +1312,7 @@ function astra_theme_background_updater_4_1_6() {
 			$sidebar_style = $layout . '-sidebar-style';
 			if( isset( $theme_options[ $old_layout ] ) ) {
 				if ( 'lifterlms' === $layout ) {
+
 					// Lifterlms course/lesson sidebar style migration case.
 					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, 'lifterlms-course-lesson-sidebar-style', $theme_options );
 				}
