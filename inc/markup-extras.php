@@ -184,7 +184,7 @@ if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
 			// Third party shop/archive page meta case.
 			$third_party_meta_page = astra_third_party_archive_meta( 'site-content-style' );
 			$meta_content_style = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_content_style;
-			$is_third_party_shop = empty( $meta_content_style ) ? false : true;
+			$is_third_party_shop = isset( $third_party_meta_page ) && $third_party_meta_page ?  true : false;
 		}
 
 		// Global.
@@ -291,7 +291,7 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
 			// Third party shop/archive page meta case.
 			$third_party_meta_page = astra_third_party_archive_meta( 'site-sidebar-style' );
 			$meta_sidebar_style = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_sidebar_style;
-			$is_third_party_shop = empty( $meta_sidebar_style ) ? false : true;
+			$is_third_party_shop = isset( $third_party_meta_page ) && $third_party_meta_page ?  true : false;
 		}
 
 		// Global.
