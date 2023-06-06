@@ -1284,7 +1284,7 @@ function astra_theme_background_updater_4_1_6() {
 		$post_types            = Astra_Posts_Structure_Loader::get_supported_post_types();
 		$theme_options         = get_option( 'astra-settings' );
 		$blog_types            = array( 'single', 'archive' );
-		$third_party_layouts   = array( 'woocommerce', 'edd', 'lifterlms', 'learndash' );
+		$third_party_layouts   = array( 'woocommerce', 'edd', 'lifterlms', 'lifterlms-course-lesson', 'learndash' );
 	
 		// Global.
 		if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
@@ -1304,13 +1304,17 @@ function astra_theme_background_updater_4_1_6() {
 			}
 		}
 	
-		// Third party content layout.
+		// Third party existing layout migrations to new layout options.
 		foreach( $third_party_layouts as $index => $layout ) {
 			$old_layout    = $layout . '-content-layout';
 			$new_layout    = $layout . '-new-content-layout';
 			$content_style = $layout . '-content-style';
 			$sidebar_style = $layout . '-sidebar-style';
 			if( isset( $theme_options[ $old_layout ] ) ) {
+				if ( 'lifterlms' === $layout ) {
+					// Lifterlms course/lesson sidebar style migration case.
+					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, 'lifterlms-course-lesson-sidebar-style', $theme_options );
+				}
 				$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options );
 			}
 		}
