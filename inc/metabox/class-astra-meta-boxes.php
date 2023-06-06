@@ -482,7 +482,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 * Metabox Save
 		 *
-		 * @param  number $post_id Post ID.
+		 * @param  number|int $post_id Post ID.
 		 * @return void
 		 */
 		public function save_meta_box( $post_id ) {
