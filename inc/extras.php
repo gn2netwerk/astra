@@ -181,7 +181,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 	 * @return mixed content layout.
 	 */
 	function astra_toggle_layout( $new_content_option, $level, $post_id = false ) {
-		
+
 		// Dynamic layout option for meta case.
 		$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
 		$current_layout = '';
@@ -212,6 +212,11 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 				break;
 			case 'narrow-width-container':
 				$current_layout = 'narrow-container';
+
+				// Exclude narrow layout for third party cases.
+				if ( astra_is_third_party() && ( Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ) ) {
+					$current_layout = 'plain-container';
+				}
 				break;
 			case 'full-width-container':
 				$current_layout = 'page-builder';

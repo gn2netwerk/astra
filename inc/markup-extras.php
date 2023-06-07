@@ -105,7 +105,8 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			// Narrow meta migration case.
 			$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
 			$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
-			if ( 'narrow-container' === $meta_old_layout && 'set' !== $meta_key ) {
+			$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
+			if ( 'narrow-container' === $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
 				$is_boxed = false;
 			}
 
