@@ -1794,7 +1794,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-bottom' => '2em',
 					),
 					'.ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
-						'background-color' => 'var(--ast-global-color-5)',
 						'border-bottom'    => '1px solid var(--ast-border-color)',
 					),
 					'.ast-separate-container .comments-title' => array(
