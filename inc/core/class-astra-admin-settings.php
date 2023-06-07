@@ -156,10 +156,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$ast_sites_notice_btn = self::astra_sites_notice_button();
 
 				if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-					$ast_sites_notice_btn['button_text'] = __( 'Get Started', 'astra' );
+					$ast_sites_notice_btn['button_text'] = __( 'Activate Starter Templates', 'astra' );
 					$ast_sites_notice_btn['class']      .= ' button button-primary button-hero';
 				} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-					$ast_sites_notice_btn['button_text'] = __( 'Get Started', 'astra' );
+					$ast_sites_notice_btn['button_text'] = __( 'Install Starter Templates', 'astra' );
 					$ast_sites_notice_btn['class']      .= ' button button-primary button-hero';
 					// Astra Premium Sites - Active.
 				} else {
