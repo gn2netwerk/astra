@@ -33,6 +33,12 @@ class Astra_Posts_Structures_Configs extends Astra_Customizer_Config_Base {
 	 * @since 4.0.0
 	 */
 	public static function get_narrow_width_exculde_cpts() {
+		$exclude_cpts = array();
+        if ( ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ) ) {
+            array( 'product', 'download', 'course', 'lesson', 'tutor_quiz', 'tutor_assignments', 'sfwd-assignment', 'sfwd-essays', 'sfwd-transactions', 'sfwd-certificates', 'sfwd-quiz' );
+        }
+
+		// Excluded some more cpts for narrow.
 		return apply_filters( 'astra_exculde_narrow_width_support_posttypes', array( 'product', 'download', 'course', 'lesson', 'tutor_quiz', 'tutor_assignments', 'sfwd-assignment', 'sfwd-essays', 'sfwd-transactions', 'sfwd-certificates', 'sfwd-quiz', 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'groups' ) );
 	}
 
