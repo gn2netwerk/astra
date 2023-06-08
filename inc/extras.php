@@ -194,6 +194,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 		// Meta layout migrations.
 		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
 		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
+		$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
 
 		// Third party archive meta migration.
 		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
@@ -202,7 +203,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 			$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
 		}
 
-		if ( $meta_old_layout && 'set' !== $meta_key && 'meta' === $level ) {
+		if ( $meta_old_layout && 'set' !== $meta_key && 'meta' === $level && $migrated_user ) {
 			$dynamic_layout_option = astra_migrate_meta_layout( $meta_old_layout );
 		}
 
@@ -214,7 +215,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 				$current_layout = 'narrow-container';
 
 				// Exclude narrow layout for third party cases.
-				if ( astra_is_third_party() && ( Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ) ) {
+				if ( astra_is_third_party() && ( ! $migrated_user ) ) {
 					$current_layout = 'plain-container';
 				}
 				break;
