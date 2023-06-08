@@ -198,7 +198,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 
 		// Third party archive meta migration.
 		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
-		if ( '' === $meta_old_layout && 'meta' === $level && $migrated_user ) {
+		if ( 'meta' === $level && $migrated_user ) {
 			if( isset( $third_party_meta_page ) && $third_party_meta_page ) {
 				$meta_old_layout = $third_party_meta_page;
 				$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
