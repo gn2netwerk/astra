@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 					'section'           => 'section-woo-general',
 					'default'           => astra_get_option( 'woocommerce-content-style', 'default' ),
 					'priority'          => 5,
-					'title'             => __( 'Content Style', 'astra' ),
+					'title'             => __( 'Container Style', 'astra' ),
 					'choices'     => array(
 						'default' => 'Default',
 						'unboxed' => 'Unboxed',
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 					'section'  => 'section-woo-general',
 					'priority' => 5,
 					'title'    => '',
-					'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+					'help'     => __( 'Container style will apply only when layout is set to either normal or narrow.', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
 					'settings' => array(),
 				),

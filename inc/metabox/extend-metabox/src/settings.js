@@ -178,7 +178,7 @@ const MetaSettings = props => {
 
 					{/* Content Style Setting */}
 					<PanelBody
-						title={ __( 'Content Style', 'astra' ) }
+						title={ __( 'Container Style', 'astra' ) }
 						initialOpen={ false }
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
@@ -192,7 +192,7 @@ const MetaSettings = props => {
 							/>
 						</div>
 						<p className='description'>
-							{ __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ) }
+							{ __( 'Container style will apply only when layout is set to either normal or narrow.', 'astra' ) }
 						</p>
 					</PanelBody>					
 

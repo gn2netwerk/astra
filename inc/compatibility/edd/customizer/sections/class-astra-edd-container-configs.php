@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 					'section'           => 'section-edd-general',
 					'default'           => astra_get_option( 'edd-content-style', 'default' ),
 					'priority'          => 5,
-					'title'             => __( 'Content Style', 'astra' ),
+					'title'             => __( 'Container Style', 'astra' ),
 					'choices'     => array(
 						'default' => 'Default',
 						'unboxed' => 'Unboxed',
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 					'section'  => 'section-edd-general',
 					'priority' => 5,
 					'title'    => '',
-					'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+					'help'     => __( 'Container style will apply only when layout is set to either normal or narrow.', 'astra' ),
 					'settings' => array(),
 				),
 			);

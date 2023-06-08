@@ -110,7 +110,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'section'           => $parent_section,
 				'default'           => astra_get_option( 'single-' . $post_type . '-content-style', 'default' ),
 				'priority'          => 3,
-				'title'             => __( 'Content Style', 'astra' ),
+				'title'             => __( 'Container Style', 'astra' ),
 				'choices'     => array(
 					'default' => 'Default',
 					'unboxed' => 'Unboxed',
@@ -131,7 +131,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'section'  => $parent_section,
 				'priority' => 3,
 				'title'    => '',
-				'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+				'help'     => __( 'Container style will apply only when layout is set to either normal or narrow.', 'astra' ),
 				'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
 				'settings' => array(),
 			),

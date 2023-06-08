@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 					'section'           => 'section-leandash-general',
 					'default'           => astra_get_option( 'learndash-content-style', 'default' ),
 					'priority'          => 5,
-					'title'             => __( 'Content Style', 'astra' ),
+					'title'             => __( 'Container Style', 'astra' ),
 					'choices'     => array(
 						'default' => 'Default',
 						'unboxed' => 'Unboxed',
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 					'section'  => 'section-leandash-general',
 					'priority' => 5,
 					'title'    => '',
-					'help'     => __( 'Content style will apply only when layout is set to either normal or narrow.', 'astra' ),
+					'help'     => __( 'Container style will apply only when layout is set to either normal or narrow.', 'astra' ),
 					'settings' => array(),
 				),
 
