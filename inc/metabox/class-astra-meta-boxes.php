@@ -661,7 +661,25 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * @return array The array of content layout options.
 		 */
 		public function get_content_layout_options() {
-			if ( astra_is_third_party() ) {
+			$post_type   = get_post_type();
+			$exclude_cpt = isset( $post_type ) ? in_array( $post_type, array(
+				'product',
+				'download',
+				'course',
+				'lesson',
+				'tutor_quiz',
+				'tutor_assignments',
+				'sfwd-assignment',
+				'sfwd-essays',
+				'sfwd-transactions',
+				'sfwd-certificates',
+				'sfwd-quiz',
+				'sfwd-courses',
+				'sfwd-lessons',
+				'sfwd-topic',
+				'groups'
+			) ) : false;
+			if ( astra_is_third_party() || $exclude_cpt ) {
 				return array(
 					'default'                => __( 'Customizer Setting', 'astra' ),
 					'normal-width-container' => __( 'Normal', 'astra' ),
