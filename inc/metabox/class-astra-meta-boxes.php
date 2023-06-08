@@ -536,6 +536,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					// Update meta key (flag) as old user migration is already completed at this point. 
 					update_post_meta( $post_id, 'astra-migrate-meta-layouts', 'set' );
 				} else {
+
+					/** @psalm-suppress InvalidArgument */
 					delete_post_meta( $post_id, $key );
 				}
 
