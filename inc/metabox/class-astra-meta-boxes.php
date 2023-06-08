@@ -655,14 +655,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 * Returns an array of content layout options for the current post type.
 		 *
-		 * If the current post type is one of the excluded post types,
-		 * only the 'default', 'normal-width-container' will be returned
-		 *
 		 * @return array The array of content layout options.
 		 */
 		public function get_content_layout_options() {
 			$post_type   = get_post_type();
-			$exclude_cpt = isset( $post_type ) ? in_array( $post_type, array(
+			$exclude_cpt = in_array( $post_type, array(
 				'product',
 				'download',
 				'course',
@@ -678,7 +675,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'sfwd-lessons',
 				'sfwd-topic',
 				'groups'
-			) ) : false;
+			) );
 			if ( astra_is_third_party() || $exclude_cpt ) {
 				return array(
 					'default'                => __( 'Customizer Setting', 'astra' ),
