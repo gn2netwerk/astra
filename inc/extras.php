@@ -202,7 +202,7 @@ if ( ! function_exists( 'astra_toggle_layout' ) ) {
 			$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
 		}
 
-		if ( $meta_old_layout && 'set' !== $meta_key ) {
+		if ( $meta_old_layout && 'set' !== $meta_key && 'meta' === $level ) {
 			$dynamic_layout_option = astra_migrate_meta_layout( $meta_old_layout );
 		}
 
