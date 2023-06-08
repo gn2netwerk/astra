@@ -244,7 +244,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			do_action( 'astra_meta_box_markup_before', $meta );
 
 			// Migrate old user existing container layout option to new layout options.
-			if ( ! empty( $old_meta_layout ) && 'set' !== $meta_key && isset( $migrated_user ) && $migrated_user ) {
+			if ( ! empty( $old_meta_layout ) && 'set' !== $meta_key && $migrated_user ) {
 				$old_meta_content_layout = $meta['site-content-layout']['default'];
 				switch ( $old_meta_content_layout ) {
 					case 'plain-container':
@@ -333,7 +333,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			?>
 			<div class="site-content-style-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
-					<strong> <?php esc_html_e( 'Container Style', 'astra' ); ?> </strong>
+					<strong> <?php esc_html_e( 'Content Style', 'astra' ); ?> </strong>
 				</p>
 				<select name="site-content-style" id="site-content-style">
 					<option value="default" <?php selected( $site_content_style, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>

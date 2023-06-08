@@ -106,10 +106,8 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
 			$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 			$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
-			if ( isset( $migrated_user ) && 'set' !== $meta_key && isset( $migrated_user ) && $migrated_user ) {
-				if ( isset( $meta_old_layout ) && 'narrow-container' === $meta_old_layout ) {
-					$is_boxed = false;
-				}
+			if ( 'narrow-container' === $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
+				$is_boxed = false;
 			}
 
 			// Adding boxed class for narrow layout.
@@ -350,23 +348,19 @@ if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
 
 		// Third party archive meta migration.
 		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
-		if ( isset( $third_party_meta_page ) && $third_party_meta_page ) {
-			if ( isset( $meta_old_layout ) && $meta_old_layout ) {			
-				$meta_old_layout = $third_party_meta_page;
-				$meta_key        = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
-			}
+		if ( '' === $meta_old_layout && isset( $third_party_meta_page ) && $third_party_meta_page ) {
+			$meta_old_layout = $third_party_meta_page;
+			$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
 		}
 
 		// Migrate old user existing container layout option to new layout options.
-		if ( isset( $meta_key ) && 'set' !== $meta_key && isset( $migrated_user ) && $migrated_user ) {
-			if ( isset( $meta_old_layout ) && $meta_old_layout ) {
-				if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
-					$is_boxed = true;
-					$is_sidebar_boxed = false;
-				} elseif ( 'boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
-					$is_boxed = true;
-					$is_sidebar_boxed = true;
-				}
+		if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
+			if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
+				$is_boxed = true;
+				$is_sidebar_boxed = false;
+			} elseif ( 'boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
+				$is_boxed = true;
+				$is_sidebar_boxed = true;
 			}
 		}
 
