@@ -532,12 +532,13 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				// Store values.
 				if ( $meta_value ) {
 					update_post_meta( $post_id, $key, $meta_value );
+
+					// Update meta key (flag) as old user migration is already completed at this point. 
+					update_post_meta( $post_id, 'astra-migrate-meta-layouts', 'set' );
 				} else {
 					delete_post_meta( $post_id, $key );
 				}
 
-				// Update meta key (flag) as old user migration is already completed at this point. 
-				update_post_meta( $post_id, 'astra-migrate-meta-layouts', 'set' );
 			}
 
 		}
