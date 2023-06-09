@@ -1,6 +1,7 @@
 v4.1.6 (Unreleased)
 - Improvement: Header Footer Builder - Added new social icon "TikTok".
 - Improvement: Improved title area customizer control UI for better user experience.
+- Improvement: Rearranged SureCart dynamic CPT sections on top level in the customizer.
 - Fix: Header Builder - Menu - Item Divider doesn't work on the last submenu item.
 - Fix: Author Link not working on layout 2 for single post title.
 
