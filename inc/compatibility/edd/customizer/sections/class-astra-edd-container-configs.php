@@ -36,12 +36,12 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 				 * Option: Revamped Container Layout.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[edd-new-content-layout]',
+					'name'              => ASTRA_THEME_SETTINGS . '[edd-ast-content-layout]',
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-edd-general',
-					'default'           => astra_get_option( 'edd-new-content-layout' ),
+					'default'           => astra_get_option( 'edd-ast-content-layout' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'choices'           => array(

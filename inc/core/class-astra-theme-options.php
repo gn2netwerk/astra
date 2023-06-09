@@ -471,10 +471,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 
 					// Container.
-					'single-page-new-content-layout'           => false === astra_check_is_structural_setup() ? 'default' : 'normal-width-container',
-					'single-post-new-content-layout'           => 'default',
-					'archive-post-new-content-layout'          => 'default',
-					'new-site-content-layout'                  => 'normal-width-container',
+					'single-page-ast-content-layout'           => false === astra_check_is_structural_setup() ? 'default' : 'normal-width-container',
+					'single-post-ast-content-layout'           => 'default',
+					'archive-post-ast-content-layout'          => 'default',
+					'ast-site-content-layout'                  => 'normal-width-container',
 					'site-content-style'                       => 'boxed',
 
 					// Typography.

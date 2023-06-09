@@ -42,12 +42,12 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				 * Option: Global Revamped Container Layouts.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[new-site-content-layout]',
+					'name'              => ASTRA_THEME_SETTINGS . '[ast-site-content-layout]',
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-container-layout',
-					'default'           => astra_get_option( 'new-site-content-layout', 'normal-width-container' ),
+					'default'           => astra_get_option( 'ast-site-content-layout', 'normal-width-container' ),
 					'priority'          => 9,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'transport'         => 'refresh',

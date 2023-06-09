@@ -36,12 +36,12 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 				 * Option: Revamped Container Layout.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[learndash-new-content-layout]',
+					'name'              => ASTRA_THEME_SETTINGS . '[learndash-ast-content-layout]',
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-leandash-general',
-					'default'           => astra_get_option( 'learndash-new-content-layout' ),
+					'default'           => astra_get_option( 'learndash-ast-content-layout' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'choices'           => array(

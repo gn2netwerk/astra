@@ -229,7 +229,7 @@ if ( ! function_exists( 'astra_is_third_party' ) ) {
 	 * @param bool $is_sidebar_option Optional. Whether to check sidebar option needed for Lifterlms case. Default false.
 	 * @return string|bool Returns the name of third party if page belongs to any, otherwise returns false.
 	 */
-	function astra_is_third_party( $is_sidebar_option = false) {
+	function astra_is_third_party( $is_sidebar_option = false ) {
 
 		$post_type = strval( get_post_type() );
 
@@ -342,7 +342,7 @@ if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
 	function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed ) {
 
 		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
-		$meta_new_layout = astra_get_option_meta('new-site-content-layout', '', true );
+		$meta_new_layout = astra_get_option_meta('ast-site-content-layout', '', true );
 		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 		$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
 

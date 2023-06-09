@@ -304,7 +304,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			$defaults['learndash-differentiate-rows']   = true;
 
 			// Container.
-			$defaults['learndash-new-content-layout'] = 'normal-width-container';
+			$defaults['learndash-ast-content-layout'] = 'normal-width-container';
 
 			// Sidebar.
 			$defaults['learndash-sidebar-layout'] = 'default';
@@ -398,7 +398,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 
 			if ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) || is_singular( 'sfwd-quiz' ) || is_singular( 'sfwd-certificates' ) || is_singular( 'sfwd-assignment' ) ) {
 
-				$learndash_layout = astra_toggle_layout( 'learndash-new-content-layout', 'global', false );
+				$learndash_layout = astra_toggle_layout( 'learndash-ast-content-layout', 'global', false );
 
 				if ( 'default' !== $learndash_layout ) {
 					$layout = $learndash_layout;
@@ -411,10 +411,10 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					$dynamic_sidebar_layout = '';
 
 					if ( is_singular() ) {
-						$dynamic_sidebar_layout = astra_toggle_layout( 'single-' . $post_type . '-new-content-layout', 'single', false );
+						$dynamic_sidebar_layout = astra_toggle_layout( 'single-' . $post_type . '-ast-content-layout', 'single', false );
 					}
 					if ( is_archive() ) {
-						$dynamic_sidebar_layout = astra_toggle_layout( 'archive-' . $post_type . '-new-content-layout', 'archive', false );
+						$dynamic_sidebar_layout = astra_toggle_layout( 'archive-' . $post_type . '-ast-content-layout', 'archive', false );
 					}
 
 					if ( ! empty( $dynamic_sidebar_layout ) && 'default' !== $dynamic_sidebar_layout ) {
@@ -422,7 +422,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 					}
 				}
 
-				$learndash_layout = astra_toggle_layout( 'new-site-content-layout', 'meta', false );
+				$learndash_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
 
 				if ( 'default' !== $learndash_layout && ! empty( $learndash_layout ) ) {
 					$layout = $learndash_layout;

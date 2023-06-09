@@ -33,7 +33,7 @@ function astra_onload_function() {
 	wp.data.subscribe(function () {
 		setTimeout( function () {
 			// Compatibility for updating layout in editor with direct reflection.
-			const contentLayout = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['new-site-content-layout'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['new-site-content-layout'] : 'default',
+			const contentLayout = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['ast-site-content-layout'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['ast-site-content-layout'] : 'default',
 				bodyClass = document.querySelector('body');
 			const contentStyle = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-content-style'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-content-style'] : 'default';
 

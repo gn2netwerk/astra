@@ -36,12 +36,12 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 				 * Option: Revamped Container Layout.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[woocommerce-new-content-layout]',
+					'name'              => ASTRA_THEME_SETTINGS . '[woocommerce-ast-content-layout]',
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'section'           => 'section-woo-general',
-					'default'           => astra_get_option( 'woocommerce-new-content-layout' ),
+					'default'           => astra_get_option( 'woocommerce-ast-content-layout' ),
 					'priority'          => 5,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'choices'           => array(

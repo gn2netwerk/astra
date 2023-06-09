@@ -91,12 +91,12 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Revamped Archive Container Layout.
 			 */
 			array(
-				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-new-content-layout]',
+				'name'              => ASTRA_THEME_SETTINGS . '[archive-' . $post_type . '-ast-content-layout]',
 				'type'              => 'control',
 				'control'           => 'ast-radio-image',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 				'section'           => $parent_section,
-				'default'           => astra_get_option( 'archive-' . $post_type . '-new-content-layout', 'default' ),
+				'default'           => astra_get_option( 'archive-' . $post_type . '-ast-content-layout', 'default' ),
 				'priority'          => 5,
 				'title'             => __( 'Container Layout', 'astra' ),
 				'choices'           => $this->get_new_content_layout_choices( $post_type ),

@@ -125,40 +125,40 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 		if ( is_singular() ) {
 
-			$content_layout = astra_get_option_meta( 'new-site-content-layout', '', true );
+			$content_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
 
 			// If post meta value is present, apply new layout option.
 			if( $content_layout ) {
-				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'meta', false );
+				$content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
 			}
 
 			if ( empty( $content_layout ) ) {
 
 				$post_type = strval( get_post_type() );
-				$content_layout = astra_toggle_layout( 'single-' . $post_type . '-new-content-layout', 'single', false );
+				$content_layout = astra_toggle_layout( 'single-' . $post_type . '-ast-content-layout', 'single', false );
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
 					// Get the GLOBAL content layout value.
 					// NOTE: Here not used `true` in the below function call.
-					$content_layout = astra_toggle_layout( 'new-site-content-layout', 'global', false );
+					$content_layout = astra_toggle_layout( 'ast-site-content-layout', 'global', false );
 				}
 			}
 		} else {
 
 			$content_layout = '';
 			$post_type      = strval( get_post_type() );
-			$content_layout = astra_toggle_layout( 'archive-' . $post_type . '-new-content-layout', 'archive', false );
+			$content_layout = astra_toggle_layout( 'archive-' . $post_type . '-ast-content-layout', 'archive', false );
 			
 			if ( is_search() ) {
-				$content_layout = astra_toggle_layout( 'archive-post-new-content-layout', 'archive', false );
+				$content_layout = astra_toggle_layout( 'archive-post-ast-content-layout', 'archive', false );
 			}
 
 			if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
-				$content_layout = astra_toggle_layout( 'new-site-content-layout', 'global', false );
+				$content_layout = astra_toggle_layout( 'ast-site-content-layout', 'global', false );
 			}
 		}
 

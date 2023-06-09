@@ -209,7 +209,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$site_sidebar            = ( isset( $meta['site-sidebar-layout']['default'] ) ) ? $meta['site-sidebar-layout']['default'] : 'default';
 			$site_content_style      = ( isset( $meta['site-content-style']['default'] ) ) ? $meta['site-content-style']['default'] : 'default';
 			$site_sidebar_style      = ( isset( $meta['site-sidebar-style']['default'] ) ) ? $meta['site-sidebar-style']['default'] : 'default';
-			$new_site_content_layout = ( isset( $meta['new-site-content-layout']['default'] ) ) ? $meta['new-site-content-layout']['default'] : '';
+			$new_site_content_layout = ( isset( $meta['ast-site-content-layout']['default'] ) ) ? $meta['ast-site-content-layout']['default'] : '';
 			$site_post_title         = ( isset( $meta['site-post-title']['default'] ) ) ? $meta['site-post-title']['default'] : '';
 			$footer_bar              = ( isset( $meta['footer-sml-layout']['default'] ) ) ? $meta['footer-sml-layout']['default'] : '';
 			$footer_widgets          = ( isset( $meta['footer-adv-display']['default'] ) ) ? $meta['footer-adv-display']['default'] : '';
@@ -313,11 +313,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * Option: Content Layout.
 			 */
 			?>
-			<div class="new-site-content-layout-meta-wrap components-base-control__field">
+			<div class="ast-site-content-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
 					<strong> <?php esc_html_e( 'Container Layout', 'astra' ); ?> </strong>
 				</p>
-				<select name="new-site-content-layout" id="new-site-content-layout">
+				<select name="ast-site-content-layout" id="ast-site-content-layout">
 					<option value="default" <?php selected( $new_site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
 					<option value="normal-width-container" <?php selected( $new_site_content_layout, 'normal-width-container' ); ?> > <?php esc_html_e( 'Normal', 'astra' ); ?></option>
 					<?php if ( ! $exclude_cpt ) { ?>
@@ -944,11 +944,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			);
 			register_post_meta(
 				'',
-				'new-site-content-layout',
+				'ast-site-content-layout',
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
-					'default'       => isset( $meta['new-site-content-layout']['default'] ) ? $meta['new-site-content-layout']['default'] : '',
+					'default'       => isset( $meta['ast-site-content-layout']['default'] ) ? $meta['ast-site-content-layout']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -1204,7 +1204,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						'default'  => 'default',
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
-					'new-site-content-layout'           => array(
+					'ast-site-content-layout'           => array(
 						'default'  => '',
 						'sanitize' => 'FILTER_DEFAULT',
 					),

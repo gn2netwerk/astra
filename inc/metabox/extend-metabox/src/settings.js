@@ -107,30 +107,30 @@ const MetaSettings = props => {
 			props.setMetaFieldValue( 'set', 'astra-migrate-meta-layouts' );
 			switch ( props.meta['site-content-layout'] ) {
 				case 'plain-container':
-					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
+					props.setMetaFieldValue( 'normal-width-container', 'ast-site-content-layout' );
 					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
 					props.setMetaFieldValue( 'unboxed', 'site-sidebar-style' );
 					break;
 				case 'boxed-container':
-					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
+					props.setMetaFieldValue( 'normal-width-container', 'ast-site-content-layout' );
 					props.setMetaFieldValue( 'boxed', 'site-content-style' );
 					props.setMetaFieldValue( 'boxed', 'site-sidebar-style' );
 					break;
 				case 'content-boxed-container':
-					props.setMetaFieldValue( 'normal-width-container', 'new-site-content-layout' );
+					props.setMetaFieldValue( 'normal-width-container', 'ast-site-content-layout' );
 					props.setMetaFieldValue( 'boxed', 'site-content-style' );
 					props.setMetaFieldValue( 'unboxed', 'site-sidebar-style' );
 					break;
 				case 'page-builder':
-					props.setMetaFieldValue( 'full-width-container', 'new-site-content-layout' );
+					props.setMetaFieldValue( 'full-width-container', 'ast-site-content-layout' );
 					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
 					break;
 				case 'narrow-container':
-					props.setMetaFieldValue( 'narrow-width-container', 'new-site-content-layout' );
+					props.setMetaFieldValue( 'narrow-width-container', 'ast-site-content-layout' );
 					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
 					break;
 				default:
-					props.setMetaFieldValue( 'default', 'new-site-content-layout' );
+					props.setMetaFieldValue( 'default', 'ast-site-content-layout' );
 					break;
 			}
 		}
@@ -163,13 +163,13 @@ const MetaSettings = props => {
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							<AstRadioImageControl
-								metavalue = { ( undefined !== props.meta['new-site-content-layout'] && ''!== props.meta['new-site-content-layout'] ? props.meta['new-site-content-layout'] : 'default' ) }
+								metavalue = { ( undefined !== props.meta['ast-site-content-layout'] && ''!== props.meta['ast-site-content-layout'] ? props.meta['ast-site-content-layout'] : 'default' ) }
 								choices = { contentLayoutOptions }
-								id = { 'new-site-content-layout' }
+								id = { 'ast-site-content-layout' }
 								onChange={ ( val ) => {
 									console.log( val );
 									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
-									props.setMetaFieldValue( val, 'new-site-content-layout' );
+									props.setMetaFieldValue( val, 'ast-site-content-layout' );
 								} }
 							/>
 						</div>

@@ -808,7 +808,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['astra-woocommerce-cart-icons-flag'] = true;
 
 			// Container.
-			$defaults['woocommerce-new-content-layout'] = 'normal-width-container';
+			$defaults['woocommerce-ast-content-layout'] = 'normal-width-container';
 			$defaults['archive-product-content-layout'] = 'default';
 			$defaults['single-product-content-layout']  = 'default';
 
@@ -1214,7 +1214,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) {
 
-				$woo_layout = astra_toggle_layout( 'woocommerce-new-content-layout', 'global', false );
+				$woo_layout = astra_toggle_layout( 'woocommerce-ast-content-layout', 'global', false );
 
 				// If not default override with woocommerce global container settings.
 				if ( 'default' !== $woo_layout ) {
@@ -1224,11 +1224,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$global_page_specific_layout = 'default';
 
 				if ( is_shop() || is_product_taxonomy() ) {
-					$global_page_specific_layout = astra_toggle_layout( 'archive-product-new-content-layout', 'archive', false );
+					$global_page_specific_layout = astra_toggle_layout( 'archive-product-ast-content-layout', 'archive', false );
 				}
 
 				if ( is_product() ) {
-					$global_page_specific_layout = astra_toggle_layout( 'single-product-new-content-layout', 'single', false );
+					$global_page_specific_layout = astra_toggle_layout( 'single-product-ast-content-layout', 'single', false );
 				}
 
 				// If page specific is not default, overide with page specific layout.
@@ -1238,12 +1238,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				if ( is_shop() ) {
 					$shop_page_id = get_option( 'woocommerce_shop_page_id' );
-					$shop_layout = astra_toggle_layout( 'new-site-content-layout', 'meta', $shop_page_id );
+					$shop_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', $shop_page_id );
 				} elseif ( is_product_taxonomy() ) {
 					$shop_layout = 'default';
 				} else {
 					$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
-					$shop_layout = astra_toggle_layout( 'new-site-content-layout', 'meta', false );
+					$shop_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
 				}
 
 				// If meta is not default, overide with meta container layout settings.
