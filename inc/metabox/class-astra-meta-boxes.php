@@ -264,16 +264,18 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						break;
 					case 'page-builder':
 						$new_site_content_layout = 'full-width-container';
-						$site_content_style = 'unboxed';
-						$site_sidebar_style = 'unboxed';
+						$site_content_style = 'default';
+						$site_sidebar_style = 'default';
 						break;
 					case 'narrow-container':
 						$new_site_content_layout = 'narrow-width-container';
 						$site_content_style = 'unboxed';
-						$site_sidebar_style = 'unboxed';
+						$site_sidebar_style = 'default';
 						break;
 					default:
 						$new_site_content_layout = 'default';
+						$site_content_style = 'default';
+						$site_sidebar_style = 'default';
 						break;
 				}
 			}
