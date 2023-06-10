@@ -166,8 +166,7 @@ const MetaSettings = props => {
 								metavalue = { ( undefined !== props.meta['ast-site-content-layout'] && ''!== props.meta['ast-site-content-layout'] ? props.meta['ast-site-content-layout'] : 'default' ) }
 								choices = { contentLayoutOptions }
 								id = { 'ast-site-content-layout' }
-								onChange={ ( val ) => {
-									console.log( val );
+								onChange={ ( val ) => {						
 									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
 									props.setMetaFieldValue( val, 'ast-site-content-layout' );
 								} }

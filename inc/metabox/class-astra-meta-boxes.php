@@ -676,7 +676,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'sfwd-topic',
 				'groups'
 			) );
-			if ( astra_is_third_party() || $exclude_cpt ) {
+			if ( astra_with_third_party() || $exclude_cpt ) {
 				return array(
 					'default'                => __( 'Customizer Setting', 'astra' ),
 					'normal-width-container' => __( 'Normal', 'astra' ),
@@ -692,9 +692,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		}
 
 		/**
-		 * Returns an array of sidebar style options.
-		 *
 		 * @return array The array of content layout options.
+		 * @since x.x.x
 		 */
 		public function get_content_style_options() {
 			return array(
@@ -705,9 +704,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		}
 
 		/**
-		 * Returns an array of sidebar style options.
-		 *
 		 * @return array The array of sidebar style options.
+		 * @since x.x.x
 		 */
 		public function get_sidebar_style_options() {
 			return array(

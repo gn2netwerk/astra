@@ -151,109 +151,96 @@ add_filter( 'body_class', 'astra_body_classes' );
 
 /**
  * Checks whether content style is boxed for current layout.
+ *
+ * @since x.x.x
+ * @return boolean 
  */
-if ( ! function_exists( 'astra_is_content_style_boxed' ) ) {
+function astra_is_content_style_boxed() {
 
-	/**
-	 * Checks whether content style is boxed for current layout.
-	 *
-	 * @since x.x.x
-	 * @return boolean 
-	 */
-	function astra_is_content_style_boxed() {
+	$post_type            = strval( get_post_type() );
+	$blog_type            = is_singular() ? 'single' : 'archive';
+	$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
+	$global_content_style = astra_get_option( 'site-content-style' );
+	$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
+	$is_boxed = false;
+	$is_third_party_shop = false;
 
-		$post_type            = strval( get_post_type() );
-		$blog_type            = is_singular() ? 'single' : 'archive';
-		$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
-		$global_content_style = astra_get_option( 'site-content-style' );
-		$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
-		$is_boxed = false;
-		$is_third_party_shop = false;
+	// Third party compatibility.
+	$third_party = astra_with_third_party();
+	if ( ! empty( $third_party ) ) {
+		$third_party_content_style = astra_get_option( $third_party . '-content-style', '' );
 
-		// Third party compatibility.
-		$third_party = astra_is_third_party();
-		if ( ! empty( $third_party ) ) {
-			$third_party_content_style = astra_get_option( $third_party . '-content-style', '' );
-
-			if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
-				$blog_type = '';
-			}
-
-			// Get global content style if third party is default.
-			$global_content_style = ( 'default' === $third_party_content_style || empty( $third_party_content_style ) ) ? $global_content_style : $third_party_content_style;
-
-			// Third party shop/archive page meta case.
-			$third_party_meta_page = astra_third_party_archive_meta( 'site-content-style' );
-			$meta_content_style = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_content_style;
-			$is_third_party_shop = isset( $third_party_meta_page ) && $third_party_meta_page ?  true : false;
+		if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_content_style ) ) {
+			$blog_type = '';
 		}
 
-		// Global.
-		if ( 'boxed' === $global_content_style ) {
+		// Get global content style if third party is default.
+		$global_content_style = ( 'default' === $third_party_content_style || empty( $third_party_content_style ) ) ? $global_content_style : $third_party_content_style;
+
+		// Third party shop/archive page meta case.
+		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-style' );
+		$meta_content_style = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_content_style;
+		$is_third_party_shop = isset( $third_party_meta_page ) && $third_party_meta_page ?  true : false;
+	}
+
+	// Global.
+	if ( 'boxed' === $global_content_style ) {
+		$is_boxed = true;
+	}
+
+	// Archive.
+	if( 'archive' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style ) {
+		$is_boxed = ( 'boxed' === $content_style );
+	}
+
+	// Single.
+	if( 'single' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style  ) {
+		$is_boxed = ( 'boxed' === $content_style );
+	}
+
+	// Meta.
+	if ( ( 'single' === $blog_type || $is_third_party_shop )  && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
+		if ( 'boxed' === $meta_content_style ) {
 			$is_boxed = true;
 		}
-
-		// Archive.
-		if( 'archive' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style ) {
-			$is_boxed = ( 'boxed' === $content_style );
+		else {
+			$is_boxed = false;
 		}
-
-		// Single.
-		if( 'single' === $blog_type && ! empty( $content_style ) && 'default' !== $content_style  ) {
-			$is_boxed = ( 'boxed' === $content_style );
-		}
-
-		// Meta.
-		if ( ( 'single' === $blog_type || $is_third_party_shop )  && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
-			if ( 'boxed' === $meta_content_style ) {
-				$is_boxed = true;
-			}
-			else {
-				$is_boxed = false;
-			}
-		}
-		return $is_boxed;
 	}
+	return $is_boxed;
 }
 
 /**
  * Check if the current page is a third party page.
- * 
+ *
+ * @since x.x.x
+ * @param bool $is_sidebar_option Optional. Whether to check sidebar option needed for Lifterlms case. Default false.
+ * @return string|bool Returns the name of third party if page belongs to any, otherwise returns false.
  */
-if ( ! function_exists( 'astra_is_third_party' ) ) {
+function astra_with_third_party( $is_sidebar_option = false ) {
 
-	/**
-	 * Check if the current page is a third party page.
-	 *
-	 * @since x.x.x
-	 * @param bool $is_sidebar_option Optional. Whether to check sidebar option needed for Lifterlms case. Default false.
-	 * @return string|bool Returns the name of third party if page belongs to any, otherwise returns false.
-	 */
-	function astra_is_third_party( $is_sidebar_option = false ) {
+	$post_type = strval( get_post_type() );
 
-		$post_type = strval( get_post_type() );
-
-		/** @psalm-suppress UndefinedFunction */
-		if( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
-			return 'woocommerce';
-		}
-		/** @psalm-suppress UndefinedFunction */
-		elseif ( class_exists( 'Easy_Digital_Downloads' ) && astra_is_edd_page() ) {
-			return 'edd';
-		}
-		/** @psalm-suppress UndefinedFunction */
-		elseif ( class_exists( 'LifterLMS' ) && ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) ) {
-			if ( $is_sidebar_option && ( is_lesson() || is_course() ) ) {
-				return 'lifterlms-course-lesson';
-			}
-			return 'lifterlms';
-		}
-		elseif ( class_exists( 'SFWD_LMS' ) && in_array( $post_type, array( 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ) ) ) {
-			return 'learndash';
-		}
-
-		return false;
+	/** @psalm-suppress UndefinedFunction */
+	if( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_checkout() || is_cart() || is_account_page() ) ) {
+		return 'woocommerce';
 	}
+	/** @psalm-suppress UndefinedFunction */
+	elseif ( class_exists( 'Easy_Digital_Downloads' ) && astra_is_edd_page() ) {
+		return 'edd';
+	}
+	/** @psalm-suppress UndefinedFunction */
+	elseif ( class_exists( 'LifterLMS' ) && ( is_lifterlms() || is_llms_account_page() || is_llms_checkout() ) ) {
+		if ( $is_sidebar_option && ( is_lesson() || is_course() ) ) {
+			return 'lifterlms-course-lesson';
+		}
+		return 'lifterlms';
+	}
+	elseif ( class_exists( 'SFWD_LMS' ) && in_array( $post_type, array( 'sfwd-courses', 'sfwd-lessons', 'sfwd-topic', 'sfwd-quiz', 'sfwd-certificates', 'sfwd-assignment' ) ) ) {
+		return 'learndash';
+	}
+
+	return false;
 }
 
 /**
@@ -278,7 +265,7 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
 		$is_third_party_shop  = false;
 
 		// Third party compatibility.
-		$third_party = astra_is_third_party( true );
+		$third_party = astra_with_third_party( true );
 		if ( ! empty( $third_party ) ) {
 			$third_party_sidebar_style = astra_get_option( $third_party . '-sidebar-style', '' );
 
@@ -325,113 +312,101 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
 }
 
 /**
- * Switch to content boxed container or boxed container.
- * Depending on content style and sidebar style.
+ * Switch to legacy boxed layouts (Content Boxed, Boxed) as per content style selection.
+ *
+ * @since x.x.x
+ * @param mixed $content_layout Current layout.
+ * @param boolean $is_boxed Current content style.
+ * @param boolean $is_sidebar_boxed Current sidebar style.
+ * @return mixed The content layout.
  */
-if ( ! function_exists( 'astra_apply_boxed_layouts' ) ) {
+function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed ) {
 
-	/**
-	 * Switch to legacy boxed layouts (Content Boxed, Boxed) as per content style selection.
-	 *
-	 * @since x.x.x
-	 * @param mixed $content_layout Current layout.
-	 * @param boolean $is_boxed Current content style.
-	 * @param boolean $is_sidebar_boxed Current sidebar style.
-	 * @return mixed The content layout.
-	 */
-	function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed ) {
+	$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
+	$meta_new_layout = astra_get_option_meta('ast-site-content-layout', '', true );
+	$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
+	$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
 
-		$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
-		$meta_new_layout = astra_get_option_meta('ast-site-content-layout', '', true );
-		$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
-		$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
-
-		// Third party archive meta migration.
-		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
-		if ( isset( $third_party_meta_page ) && $third_party_meta_page && $migrated_user ) {
-			$meta_old_layout = $third_party_meta_page;
-			$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
-		}
-
-		// Migrate old user existing container layout option to new layout options.
-		if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
-			if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
-				$is_boxed = true;
-				$is_sidebar_boxed = false;
-			} elseif ( 'boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
-				$is_boxed = true;
-				$is_sidebar_boxed = true;
-			}
-		}
-
-		// Apply content boxed layout or boxed layout depending on content/sidebar style.
-		if ( 'plain-container' === $content_layout ) {
-			$post_type = strval( get_post_type() );
-			$blog_type = is_singular() ? 'single' : 'archive';
-			if ( 'no-sidebar' === astra_page_layout() ) {
-				if ( $is_boxed ) {
-					$content_layout = 'boxed-container';
-				}
-			}
-			else if ( 'no-sidebar' !== astra_page_layout() ) {
-				if ( $is_boxed ) {
-					$content_layout = $is_sidebar_boxed ? 'boxed-container' : 'content-boxed-container';
-				}
-				elseif ( $is_sidebar_boxed ){
-
-					/**
-					 * Case: unboxed container with sidebar boxed
-					 * Container unboxed css is applied through astra_apply_unboxed_container()
-					*/ 
-					$content_layout = 'boxed-container';
-				}
-			}
-		}
-		return $content_layout;
+	// Third party archive meta migration.
+	$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
+	if ( isset( $third_party_meta_page ) && $third_party_meta_page && $migrated_user ) {
+		$meta_old_layout = $third_party_meta_page;
+		$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
 	}
+
+	// Migrate old user existing container layout option to new layout options.
+	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
+		if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
+			$is_boxed = true;
+			$is_sidebar_boxed = false;
+		} elseif ( 'boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
+			$is_boxed = true;
+			$is_sidebar_boxed = true;
+		}
+	}
+
+	// Apply content boxed layout or boxed layout depending on content/sidebar style.
+	if ( 'plain-container' === $content_layout ) {
+		$post_type = strval( get_post_type() );
+		$blog_type = is_singular() ? 'single' : 'archive';
+		if ( 'no-sidebar' === astra_page_layout() ) {
+			if ( $is_boxed ) {
+				$content_layout = 'boxed-container';
+			}
+		}
+		else if ( 'no-sidebar' !== astra_page_layout() ) {
+			if ( $is_boxed ) {
+				$content_layout = $is_sidebar_boxed ? 'boxed-container' : 'content-boxed-container';
+			}
+			elseif ( $is_sidebar_boxed ){
+
+				/**
+				 * Case: unboxed container with sidebar boxed
+				 * Container unboxed css is applied through astra_apply_unboxed_container()
+				*/ 
+				$content_layout = 'boxed-container';
+			}
+		}
+	}
+	return $content_layout;
 }
 
+
 /**
- * Get Third Party Archive Meta Value.
+ * WooCommerce, LifterLMS, EDD Archive (Shop, Courses, Memberships etc) Meta value.
+ *
+ * @since x.x.x
+ * @param mixed $option name of the option to fetch.
+ * @return mixed meta_value
  */
-if ( ! function_exists( 'astra_third_party_archive_meta' ) ) {
+function astra_third_party_archive_meta( $option ) {
 
-	/**
-	 * WooCommerce, LifterLMS, EDD Archive (Shop, Courses, Memberships etc) Meta value.
-	 *
-	 * @since x.x.x
-	 * @param mixed $option name of the option to fetch.
-	 * @return mixed meta_value
-	 */
-	function astra_third_party_archive_meta( $option ) {
-
-		$meta_value = false;
-		$third_party = astra_is_third_party( true );
-		// Third party shop/archive page meta case.
-		if ( 'woocommerce' === $third_party && is_shop() ) {
-			$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
-			$meta_value          = get_post_meta( $shop_page_id, $option , true );
-		}
-		elseif ( 'lifterlms' === $third_party ) {
-			/** @psalm-suppress UndefinedFunction */
-			if ( is_courses() ) {
-				$lifter_page_id      = get_option( 'lifterlms_shop_page_id' );
-				$meta_value          = get_post_meta( $lifter_page_id, $option , true );
-			}
-			/** @psalm-suppress UndefinedFunction */
-			elseif ( is_memberships() ) {
-				$lifter_page_id      = get_option( 'lifterlms_memberships_page_id' );
-				$meta_value          = get_post_meta( $lifter_page_id, $option , true );
-			}
-		}
-		elseif ( 'edd' === $third_party &&  astra_is_edd_single_page() ) {
-			$page_id             = get_the_ID();
-			/** @psalm-suppress PossiblyFalseArgument */
-			$meta_value          = get_post_meta( $page_id, $option , true );
-		}
-
-		return $meta_value;
+	$meta_value = false;
+	$third_party = astra_with_third_party( true );
+	// Third party shop/archive page meta case.
+	if ( 'woocommerce' === $third_party && is_shop() ) {
+		$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
+		$meta_value          = get_post_meta( $shop_page_id, $option , true );
 	}
+	elseif ( 'lifterlms' === $third_party ) {
+		/** @psalm-suppress UndefinedFunction */
+		if ( is_courses() ) {
+			$lifter_page_id      = get_option( 'lifterlms_shop_page_id' );
+			$meta_value          = get_post_meta( $lifter_page_id, $option , true );
+		}
+		/** @psalm-suppress UndefinedFunction */
+		elseif ( is_memberships() ) {
+			$lifter_page_id      = get_option( 'lifterlms_memberships_page_id' );
+			$meta_value          = get_post_meta( $lifter_page_id, $option , true );
+		}
+	}
+	elseif ( 'edd' === $third_party &&  astra_is_edd_single_page() ) {
+		$page_id             = get_the_ID();
+		/** @psalm-suppress PossiblyFalseArgument */
+		$meta_value          = get_post_meta( $page_id, $option , true );
+	}
+
+	return $meta_value;
 }
 
 /**

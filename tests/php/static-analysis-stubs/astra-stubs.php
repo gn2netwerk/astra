@@ -17189,7 +17189,7 @@ namespace {
 	 * @param bool $is_sidebar_option Optional. Whether to check sidebar option needed for Lifterlms case. Default false.
 	 * @return string|bool Returns the name of third party if page belongs to any, otherwise returns false.
 	 */
-	function astra_is_third_party( $is_sidebar_option = false)
+	function astra_with_third_party( $is_sidebar_option = false)
     {
     }
 	/**
