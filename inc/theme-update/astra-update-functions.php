@@ -1360,13 +1360,13 @@ function astra_apply_layout_migration( $old_layout, $new_layout, $content_style,
 			break;
 		case 'page-builder':
 			$theme_options[ $new_layout ]    = 'full-width-container';
-			$theme_options[ $content_style ] = 'default';
-			$theme_options[ $sidebar_style ] = 'default';
+			$theme_options[ $content_style ] = 'unboxed';
+			$theme_options[ $sidebar_style ] = 'unboxed';
 			break;
 		case 'narrow-container':
 			$theme_options[ $new_layout ]    = 'narrow-width-container';
 			$theme_options[ $content_style ] = 'unboxed';
-			$theme_options[ $sidebar_style ] = 'default';
+			$theme_options[ $sidebar_style ] = 'unboxed';
 			break;
 		default:
 			$theme_options[ $new_layout ]    = 'default';
