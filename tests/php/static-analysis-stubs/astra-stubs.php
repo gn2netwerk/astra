@@ -17243,9 +17243,12 @@ namespace {
      *
      * @since x.x.x
      * @param array $content_bg_obj The background object for the content.
-     * @return array The updated background object for the content.
+     * @param bool  $is_boxed Container style is boxed or not.
+     * @param bool  $is_sidebar_boxed Sidebar style is boxed or not.
+     * @param mixed $current_layout The current container layout applied.
+     * @return array $content_bg_obj The updated background object for the content.
      */
-    function astra_apply_unboxed_container( $content_bg_obj )
+    function astra_apply_unboxed_container( $content_bg_obj, $is_boxed, $is_sidebar_boxed, $current_layout )
     {
     }
 	/**
