@@ -200,7 +200,7 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false ) {
 		}
 	}
 
-	if ( $meta_old_layout && 'set' !== $meta_key && 'meta' === $level && $migrated_user ) {
+	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
 		$dynamic_layout_option = astra_migrate_meta_layout( $meta_old_layout );
 	}
 
