@@ -336,7 +336,12 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 
 	// Migrate old user existing container layout option to new layout options.
 	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
-		if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
+		if( 'plain-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
+			
+			// No need to evaluate further as no boxed layout will be applicable now.
+			return $content_layout;
+		}
+		else if ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 			$is_boxed = true;
 			$is_sidebar_boxed = false;
 		} elseif ( 'boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
