@@ -17211,15 +17211,16 @@ namespace {
 	function astra_migrate_meta_layout( $meta_layout )
     {
     }
-	/**
-	 * Return current content layout as per new layout selection.
-	 *
-	 * @since x.x.x
-	 * @param mixed $new_content_option The new content layout option.
-	 * @param mixed $level The level of the layout.
-	 * @param mixed $post_id The id to fetch post meta.
-	 * @return mixed content layout.
-	 */
+    /**
+     * Return current content layout as per new layout selection.
+     *
+     * @since x.x.x
+     * @param mixed $new_content_option The new content layout option.
+     * @param mixed $level The level of the layout.
+     * @param mixed $post_id The id to fetch post meta.
+     * @param mixed $old_meta The old content layout option for migration cases.
+     * @return mixed content layout.
+     */
 	function astra_toggle_layout( $new_content_option, $level, $post_id )
     {
     }
