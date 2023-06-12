@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
 
             const slideInCart = jQuery('#astra-mobile-cart-drawer');
 
-            if (!astra_shop_add_to_cart.elementor_preview_active) {
+            if (typeof astra_shop_add_to_cart.elementor_preview_active !== 'undefined' && !astra_shop_add_to_cart.elementor_preview_active) {
                 if ('slide_in_cart' === astra_shop_add_to_cart.shop_add_to_cart_action && slideInCart) {
 
                     slideInCart.addClass('active');
