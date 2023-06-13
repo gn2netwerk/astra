@@ -660,15 +660,18 @@ function astra_has_gcp_typo_preset_compatibility() {
 }
 
 /**
- * Check whether user is exising or new to apply the updated default values for button padding & support GB button paddings with global button padding options.
+ * Check whether user is existing or new to apply the updated default values for button padding & support GB button paddings with global button padding options.
  *
  * @since 3.6.3
  * @return string
  */
 function astra_button_default_padding_updated() {
-	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
-	$astra_settings['btn-default-padding-updated'] = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : true;
-	return apply_filters( 'astra_update_button_padding_defaults', $astra_settings['btn-default-padding-updated'] );
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	$padding_updated = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : null;
+	if ( $padding_updated === false ) {
+		$padding_updated = array( true );
+	}
+	return apply_filters( 'astra_update_button_padding_defaults', $padding_updated );
 }
 
 /**
