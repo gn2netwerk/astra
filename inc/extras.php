@@ -642,11 +642,11 @@ function astra_load_preload_local_fonts( $url, $format = 'woff2' ) {
  * @since 3.6.0
  */
 function astra_get_transparent_header_default_value() {
-    $astra_settings = get_option( ASTRA_THEME_SETTINGS, array() );
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS, array() );
 
-    $astra_settings['transparent-header-default-border'] = isset( $astra_settings['transparent-header-default-border'] ) ? $astra_settings['transparent-header-default-border'] : array();
+	$astra_settings['transparent-header-default-border'] = isset( $astra_settings['transparent-header-default-border'] ) ? $astra_settings['transparent-header-default-border'] : array();
 
-    return apply_filters( 'astra_transparent_header_default_border', $astra_settings['transparent-header-default-border'] );
+	return apply_filters( 'astra_transparent_header_default_border', $astra_settings['transparent-header-default-border'] );
 }
 
 /**
@@ -668,7 +668,7 @@ function astra_has_gcp_typo_preset_compatibility() {
  * @return string
  */
 function astra_button_default_padding_updated() {
-	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings  = get_option( ASTRA_THEME_SETTINGS );
 	$padding_updated = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : null;
 	if ( $padding_updated === false ) {
 		$padding_updated = array( true );
