@@ -335,7 +335,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			?>
 			<div class="site-content-style-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
-					<strong> <?php esc_html_e( 'Content Style', 'astra' ); ?> </strong>
+					<strong> <?php esc_html_e( 'Container Style', 'astra' ); ?> </strong>
 				</p>
 				<select name="site-content-style" id="site-content-style">
 					<option value="default" <?php selected( $site_content_style, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
