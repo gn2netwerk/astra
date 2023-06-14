@@ -249,37 +249,70 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				switch ( $old_meta_content_layout ) {
 					case 'plain-container':
 						$new_site_content_layout = 'normal-width-container';
-						$site_content_style = 'unboxed';
-						$site_sidebar_style = 'unboxed';
+						$site_content_style      = 'unboxed';
+						$site_sidebar_style      = 'unboxed';
 						break;
 					case 'boxed-container':
 						$new_site_content_layout = 'normal-width-container';
-						$site_content_style = 'boxed';
-						$site_sidebar_style = 'boxed';
+						$site_content_style      = 'boxed';
+						$site_sidebar_style      = 'boxed';
 						break;
 					case 'content-boxed-container':
 						$new_site_content_layout = 'normal-width-container';
-						$site_content_style = 'boxed';
-						$site_sidebar_style = 'unboxed';
+						$site_content_style      = 'boxed';
+						$site_sidebar_style      = 'unboxed';
 						break;
 					case 'page-builder':
 						$new_site_content_layout = 'full-width-container';
-						$site_content_style = 'default';
-						$site_sidebar_style = 'default';
+						$site_content_style      = 'unboxed';
+						$site_sidebar_style      = 'unboxed';
 						break;
 					case 'narrow-container':
 						$new_site_content_layout = 'narrow-width-container';
-						$site_content_style = 'unboxed';
-						$site_sidebar_style = 'default';
+						$site_content_style      = 'unboxed';
+						$site_sidebar_style      = 'unboxed';
 						break;
-					default:
+						default:
 						$new_site_content_layout = 'default';
-						$site_content_style = 'default';
-						$site_sidebar_style = 'default';
+						$site_content_style      = 'default';
+						$site_sidebar_style      = 'default';
 						break;
+					}
 				}
-			}
-
+				
+			/**
+			 * Option: Content Layout.
+			 */
+			?>
+			<div class="ast-site-content-layout-meta-wrap components-base-control__field">
+				<p class="post-attributes-label-wrapper" >
+					<strong> <?php esc_html_e( 'Container Layout', 'astra' ); ?> </strong>
+				</p>
+				<select name="ast-site-content-layout" id="ast-site-content-layout">
+					<option value="default" <?php selected( $new_site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
+					<option value="normal-width-container" <?php selected( $new_site_content_layout, 'normal-width-container' ); ?> > <?php esc_html_e( 'Normal', 'astra' ); ?></option>
+					<?php if ( ! $exclude_cpt ) { ?>
+						<option value="narrow-width-container" <?php selected( $new_site_content_layout, 'narrow-width-container' ); ?> > <?php esc_html_e( 'Narrow', 'astra' ); ?></option>
+						<?php } ?>
+						<option value="full-width-container" <?php selected( $new_site_content_layout, 'full-width-container' ); ?> > <?php esc_html_e( 'Full Width', 'astra' ); ?></option>
+					</select>
+			</div>
+			<?php
+			/**
+			 * Option: Content Style.
+			 */
+			?>
+			<div class="site-content-style-meta-wrap components-base-control__field">
+				<p class="post-attributes-label-wrapper" >
+					<strong> <?php esc_html_e( 'Container Style', 'astra' ); ?> </strong>
+				</p>
+				<select name="site-content-style" id="site-content-style">
+					<option value="default" <?php selected( $site_content_style, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
+					<option value="unboxed" <?php selected( $site_content_style, 'unboxed' ); ?> > <?php esc_html_e( 'Unboxed', 'astra' ); ?></option>
+					<option value="boxed" <?php selected( $site_content_style, 'boxed' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
+				</select>
+			</div>
+			<?php
 			/**
 			 * Option: Sidebar
 			 */
@@ -308,39 +341,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					<option value="default" <?php selected( $site_sidebar_style, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
 					<option value="unboxed" <?php selected( $site_sidebar_style, 'unboxed' ); ?> > <?php esc_html_e( 'Unboxed', 'astra' ); ?></option>
 					<option value="boxed" <?php selected( $site_sidebar_style, 'boxed' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
-				</select>
-			</div>
-			<?php
-			/**
-			 * Option: Content Layout.
-			 */
-			?>
-			<div class="ast-site-content-layout-meta-wrap components-base-control__field">
-				<p class="post-attributes-label-wrapper" >
-					<strong> <?php esc_html_e( 'Container Layout', 'astra' ); ?> </strong>
-				</p>
-				<select name="ast-site-content-layout" id="ast-site-content-layout">
-					<option value="default" <?php selected( $new_site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-					<option value="normal-width-container" <?php selected( $new_site_content_layout, 'normal-width-container' ); ?> > <?php esc_html_e( 'Normal', 'astra' ); ?></option>
-					<?php if ( ! $exclude_cpt ) { ?>
-						<option value="narrow-width-container" <?php selected( $new_site_content_layout, 'narrow-width-container' ); ?> > <?php esc_html_e( 'Narrow', 'astra' ); ?></option>
-					<?php } ?>
-					<option value="full-width-container" <?php selected( $new_site_content_layout, 'full-width-container' ); ?> > <?php esc_html_e( 'Full Width', 'astra' ); ?></option>
-				</select>
-			</div>
-			<?php
-			/**
-			 * Option: Content Style.
-			 */
-			?>
-			<div class="site-content-style-meta-wrap components-base-control__field">
-				<p class="post-attributes-label-wrapper" >
-					<strong> <?php esc_html_e( 'Container Style', 'astra' ); ?> </strong>
-				</p>
-				<select name="site-content-style" id="site-content-style">
-					<option value="default" <?php selected( $site_content_style, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-					<option value="unboxed" <?php selected( $site_content_style, 'unboxed' ); ?> > <?php esc_html_e( 'Unboxed', 'astra' ); ?></option>
-					<option value="boxed" <?php selected( $site_content_style, 'boxed' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
 				</select>
 			</div>
 			<?php
