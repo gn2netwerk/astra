@@ -123,13 +123,13 @@ const MetaSettings = props => {
 					break;
 				case 'page-builder':
 					props.setMetaFieldValue( 'full-width-container', 'ast-site-content-layout' );
-					props.setMetaFieldValue( 'default', 'site-content-style' );
-					props.setMetaFieldValue( 'default', 'site-sidebar-style' );
+					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
+					props.setMetaFieldValue( 'unboxed', 'site-sidebar-style' );
 					break;
 				case 'narrow-container':
 					props.setMetaFieldValue( 'narrow-width-container', 'ast-site-content-layout' );
 					props.setMetaFieldValue( 'unboxed', 'site-content-style' );
-					props.setMetaFieldValue( 'default', 'site-sidebar-style' );
+					props.setMetaFieldValue( 'unboxed', 'site-sidebar-style' );
 					break;
 				default:
 					props.setMetaFieldValue( 'default', 'ast-site-content-layout' );
