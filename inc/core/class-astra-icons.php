@@ -25,19 +25,20 @@ class Astra_Icons {
 		}
 	}
 
-	/**
-	 * Check if we need to load icons as SVG or fonts.
-	 * Returns true if SVG false if font.
-	 *
-	 * @since 3.3.0
-	 *
-	 * @return boolean should be svg or font.
-	 */
-	public static function is_svg_icons() {
-		$astra_settings                               = get_option( ASTRA_THEME_SETTINGS );
-		$astra_settings['can-update-astra-icons-svg'] = ( isset( $astra_settings['can-update-astra-icons-svg'] ) && false === $astra_settings['can-update-astra-icons-svg'] ) ? false : true;
-		return apply_filters( 'astra_is_svg_icons', $astra_settings['can-update-astra-icons-svg'] );
-	}
+/**
+ * Check if we need to load icons as SVG or fonts.
+ * Returns true if SVG false if font.
+ *
+ * @since 3.3.0
+ *
+ * @return boolean should be svg or font.
+ */
+public static function is_svg_icons() {
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	$astra_icons    = isset( $astra_settings['can-update-astra-icons-svg'] ) ? $astra_settings['can-update-astra-icons-svg'] : true;
+	$astra_icons    = apply_filters( 'astra_is_svg_icons', $astra_icons );
+	return $astra_icons;
+}
 
 	/**
 	 * Get SVG icons.
