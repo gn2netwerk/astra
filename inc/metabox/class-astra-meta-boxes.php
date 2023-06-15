@@ -272,13 +272,13 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						$site_content_style      = 'unboxed';
 						$site_sidebar_style      = 'unboxed';
 						break;
-						default:
+					default:
 						$new_site_content_layout = 'default';
 						$site_content_style      = 'default';
 						$site_sidebar_style      = 'default';
 						break;
-					}
 				}
+			}
 				
 			/**
 			 * Option: Content Layout.
