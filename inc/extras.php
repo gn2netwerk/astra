@@ -209,7 +209,6 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false, $ol
 		}
 	}
 
-
 	switch ( $dynamic_layout_option ) {
 		case 'normal-width-container':
 			$current_layout = 'plain-container';
