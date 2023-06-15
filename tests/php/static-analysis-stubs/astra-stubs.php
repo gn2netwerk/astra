@@ -17221,7 +17221,7 @@ namespace {
      * @param mixed $old_meta The old content layout option for migration cases.
      * @return mixed content layout.
      */
-	function astra_toggle_layout( $new_content_option, $level, $post_id )
+	function astra_toggle_layout( $new_content_option, $level, $post_id = false, $old_meta = false )
     {
     }
     /**
