@@ -34,7 +34,7 @@ class Astra_Icons {
 	 * @return boolean should be svg or font.
 	 */
 	public static function is_svg_icons() {
-		$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+		$astra_settings = get_option( ASTRA_THEME_SETTINGS, array() );
 		$astra_icons    = isset( $astra_settings['can-update-astra-icons-svg'] ) ? $astra_settings['can-update-astra-icons-svg'] : true;
 		$astra_icons    = apply_filters( 'astra_is_svg_icons', $astra_icons );
 		return $astra_icons;
