@@ -5,7 +5,7 @@ v4.1.6 (Unreleased)
 - Fix: Header Builder - Menu - Item Divider doesn't work on the last submenu item.
 - Fix: Author Link not working on layout 2 for single post title.
 - Fix: Fatal error: Uncaught TypeError: Unsupported operand types: On frontend and customizer.
-- Fix: WooCommerce - Quantity Field on Shop Page plugin is not working with Astra AJAX.
+- Fix: WooCommerce - Quantity not updating properly when ajax add to cart is used on shop page.
 
 v4.1.5
 - Fix: Offcanvas Menu - Transparent empty canvas visible on expanding offcanvas toggle button.
