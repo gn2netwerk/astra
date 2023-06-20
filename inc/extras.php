@@ -668,7 +668,7 @@ function astra_has_gcp_typo_preset_compatibility() {
  */
 function astra_button_default_padding_updated() {
 	$astra_settings  = get_option( ASTRA_THEME_SETTINGS, array() );
-		$padding_updated = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : true;
+	$padding_updated = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : true;
 	return apply_filters( 'astra_update_button_padding_defaults', $padding_updated );
 }
 
