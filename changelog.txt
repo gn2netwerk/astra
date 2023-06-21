@@ -2,6 +2,7 @@ v4.1.6 (Unreleased)
 - Improvement: Header Footer Builder - Added new social icon "TikTok".
 - Improvement: Improved title area customizer control UI for better user experience.
 - Improvement: Refactor duplication blocks of code found in navigation JS file.
+- Improvement: Added a new filter 'astra_font_line_height_unit' to allow users to adjust the unit for line height.
 - Fix: Header Builder - Menu - Item Divider doesn't work on the last submenu item.
 - Fix: Author Link not working on layout 2 for single post title.
 - Fix: Fatal error: Uncaught TypeError: Unsupported operand types: On frontend and customizer.

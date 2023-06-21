@@ -27,7 +27,14 @@ define( 'ASTRA_PRO_CUSTOMIZER_UPGRADE_URL', 'https://wpastra.com/pro/?utm_source
  * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
  */
 define( 'ASTRA_EXT_MIN_VER', '4.1.0' );
+add_filter( 'astra_font_line_height_unit', 'my_custom_font_extras_unit' );
 
+function my_custom_font_extras_unit( $unit ) {
+	// Modify the unit or provide a different value based on your requirements
+	$modified_unit = 'em';
+
+	return $modified_unit;
+}
 /**
  * Setup helper functions of Astra.
  */
