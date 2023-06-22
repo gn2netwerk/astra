@@ -86,7 +86,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			$edit_mode = get_post_meta( astra_get_post_id(), '_elementor_edit_mode', true );
 			$astra_layout_type = astra_get_option( 'ast-dynamic-single-' . get_post_type() . '-layout', 'layout-1' );
 		
-			if ( ( $edit_mode && $edit_mode === 'builder' ) || ( $edit_mode === 'builder' && $astra_layout_type == 'layout-2' ) ) {
+			if ( ( $edit_mode && $edit_mode === 'builder' ) || ( $edit_mode === 'builder' && $astra_layout_type === 'layout-2' ) ) {
 				$classes[] = 'ast-header-without-markup';
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				if ( $astra_layout_type === 'layout-2' && in_array( 'ast-header-without-markup', $classes ) ) {
