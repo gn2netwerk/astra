@@ -3605,7 +3605,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$list_spacing_css = array(
 					'.entry-content li > p' => array(
 						'margin-bottom' => 0,
-					),	
+					),
 				);
 				$parse_css .= astra_parse_css( $list_spacing_css );
 			}
