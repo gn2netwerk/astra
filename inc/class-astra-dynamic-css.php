@@ -3607,6 +3607,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-bottom' => 0,
 					),	
 				);
+				$parse_css .= astra_parse_css( $list_vertical_spacing_css );
 			}
 
 			$parse_css .= $dynamic_css;

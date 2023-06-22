@@ -1270,7 +1270,7 @@ function astra_theme_background_updater_4_1_4() {
 }
 
 /**
- * Handle backward compatibility on version 3.9.4
+ * Handle backward compatibility on version 4.1.6
  *
  * @since x.x.x
  * @return void
