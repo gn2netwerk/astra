@@ -3601,6 +3601,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
 			}
 
+			if( self::is_list_vertical_spacing_enabled() ) {
+				$list_vertical_spacing_css = array(
+					'.entry-content li > p' => array(
+						'margin-bottom' => 0,
+					),	
+				);
+			}
+
 			$parse_css .= $dynamic_css;
 			$custom_css = astra_get_option( 'custom-css' );
 
@@ -4085,6 +4093,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['ele-default-color-typo-setting-comp'] = ( isset( $astra_settings['ele-default-color-typo-setting-comp'] ) && false === $astra_settings['ele-default-color-typo-setting-comp'] ) ? false : true;
 			return apply_filters( 'astra_elementor_default_color_font_comp', $astra_settings['ele-default-color-typo-setting-comp'] );
+		}
+
+		/**
+		 * For existing users, do not provide list vertical spacing.
+		 *
+		 * @since x.x.x
+		 * @return boolean true for new users, false for old users.
+		 */
+		public static function is_list_vertical_spacing_enabled() {
+			$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['list-vertical-spacing']               = isset( $astra_settings['list-vertical-spacing'] ) ? false : true;
+			return apply_filters( 'astra_list_vertical_spacing', $astra_settings['list-vertical-spacing'] );
 		}
 
 		/**
