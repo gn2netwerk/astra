@@ -17213,6 +17213,15 @@ namespace {
     {
     }
     /**
+     * Handle backward compatibility on version 4.1.6
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_theme_background_updater_4_1_6()
+    {
+    }
+    /**
      * WordPress filter - Widget Tags
      *
      * @param  array $args Tag arguments.
