@@ -2909,10 +2909,6 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 1.6em;
 }
 
-.entry-content li > p {
-  margin-bottom: 0;
-}
-
 .read-more {
   margin-bottom: 0;
 }

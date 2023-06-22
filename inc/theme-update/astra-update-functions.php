@@ -1277,8 +1277,8 @@ function astra_theme_background_updater_4_1_4() {
  */
 function astra_theme_background_updater_4_1_6() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['list-vertical-spacing'] ) ) {
-		$theme_options['list-vertical-spacing'] = false;
+	if ( ! isset( $theme_options['list-block-vertical-spacing'] ) ) {
+		$theme_options['list-block-vertical-spacing'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

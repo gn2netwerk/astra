@@ -3601,13 +3601,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
 			}
 
-			if( self::is_list_vertical_spacing_enabled() ) {
-				$list_vertical_spacing_css = array(
+			if( self::astra_list_block_vertical_spacing() ) {
+				$list_spacing_css = array(
 					'.entry-content li > p' => array(
 						'margin-bottom' => 0,
 					),	
 				);
-				$parse_css .= astra_parse_css( $list_vertical_spacing_css );
+				$parse_css .= astra_parse_css( $list_spacing_css );
 			}
 
 			$parse_css .= $dynamic_css;
@@ -4097,15 +4097,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * For existing users, do not provide list vertical spacing.
+		 * For existing users, do not provide nested p block inside list vertical spacing.
 		 *
 		 * @since x.x.x
 		 * @return boolean true for new users, false for old users.
 		 */
-		public static function is_list_vertical_spacing_enabled() {
-			$astra_settings                                        = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['list-vertical-spacing']               = isset( $astra_settings['list-vertical-spacing'] ) ? false : true;
-			return apply_filters( 'astra_list_vertical_spacing', $astra_settings['list-vertical-spacing'] );
+		public static function astra_list_block_vertical_spacing() {
+			$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['list-block-vertical-spacing'] = isset( $astra_settings['list-block-vertical-spacing'] ) ? false : true;
+			return apply_filters( 'astra_list_block_vertical_spacing', $astra_settings['list-block-vertical-spacing'] );
 		}
 
 		/**
