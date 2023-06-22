@@ -4097,7 +4097,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * For existing users, do not provide nested p block inside list vertical spacing.
+		 * For existing users, do not provide list vertical spacing.
 		 *
 		 * @since x.x.x
 		 * @return boolean true for new users, false for old users.
