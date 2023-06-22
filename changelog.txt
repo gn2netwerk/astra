@@ -5,7 +5,10 @@ v4.1.6 (Unreleased)
 - Fix: Header Builder - Menu - Item Divider doesn't work on the last submenu item.
 - Fix: Author Link not working on layout 2 for single post title.
 - Fix: Fatal error: Uncaught TypeError: Unsupported operand types: On frontend and customizer.
-- Fix: Author related post cta where "http://" is being prefixed with target attribute.
+- Fix: Related Posts - Read more CTA having "http://" prefix with target attribute.
+- Fix: WooCommerce - Slide-in cart automatically trigger while saving changes in elementor editor.
+- Fix: Incompatibility with latest PHP v8.x versions.
+- Fix: Post title & Featured image is not visible while editing in elementor with banner layout 2.
 
 v4.1.5
 - Fix: Offcanvas Menu - Transparent empty canvas visible on expanding offcanvas toggle button.
