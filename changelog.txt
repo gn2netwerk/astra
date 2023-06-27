@@ -7,7 +7,7 @@ v4.1.6 (Unreleased)
 - Fix: Header Builder - Menu - Item Divider doesn't work on the last submenu item.
 - Fix: Author Link not working on layout 2 for single post title.
 - Fix: Fatal error: Uncaught TypeError: Unsupported operand types: On frontend and customizer.
-- Fix: List block vertical spacing improved.
+- Fix: Applied bottom spacing creates big gap with paragraphs from list block in entry-content.
 - Fix: WooCommerce - Quantity not updating properly when ajax add to cart is used on shop page.
 - Fix: Related Posts - Read more CTA having "http://" prefix with target attribute.
 - Fix: WooCommerce - Slide-in cart automatically trigger while saving changes in elementor editor.
