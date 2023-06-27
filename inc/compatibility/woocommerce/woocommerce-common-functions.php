@@ -363,18 +363,18 @@ if ( ! function_exists( 'astra_get_wc_endpoints_title' ) ) {
 	 * 
 	 * @since x.x.x
 	 */
-function astra_get_wc_endpoints_title( $title ) {
-	if ( class_exists( 'WooCommerce' ) && is_wc_endpoint_url() ) {
-		$endpoint = WC()->query->get_current_endpoint();
-		$action = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : '';
-		$ep_title = $endpoint ? WC()->query->get_endpoint_title( $endpoint, $action ) : '';
+	function astra_get_wc_endpoints_title( $title ) {
+		if ( class_exists( 'WooCommerce' ) && is_wc_endpoint_url() ) {
+			$endpoint = WC()->query->get_current_endpoint();
+			$action = isset( $_GET['action'] ) ? sanitize_text_field( wp_unslash( $_GET['action'] ) ) : '';
+			$ep_title = $endpoint ? WC()->query->get_endpoint_title( $endpoint, $action ) : '';
 		
-		if ( $ep_title ) {
-			return $ep_title;
-		}
+			if ( $ep_title ) {
+				return $ep_title;
+			}
 	}
 
-	return $title;
+		return $title;
 }
 
 add_filter( 'astra_the_title', 'astra_get_wc_endpoints_title' );
