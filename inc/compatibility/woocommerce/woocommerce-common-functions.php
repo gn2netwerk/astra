@@ -350,7 +350,17 @@ function astra_add_to_cart_quantity_btn_enabled() {
 	return apply_filters( 'astra_add_to_cart_quantity_btn_enabled', astra_get_option( 'single-product-plus-minus-button' ) );
 }
 
+/**
+ * Woocommerce MyAccount Page Endpoint.
+ */
+if ( ! function_exists( 'astra_get_wc_endpoints_title' ) ) {
 
+	/**
+	 * Woocommerce MyAccount Page Endpoint.
+	 *
+	 * @param string $title Default archive title.
+	 * @return string
+	 */
 function astra_get_wc_endpoints_title( $title ) {
 	if ( class_exists( 'WooCommerce' ) && is_wc_endpoint_url() ) {
 		$endpoint = WC()->query->get_current_endpoint();
@@ -366,3 +376,4 @@ function astra_get_wc_endpoints_title( $title ) {
 }
 
 add_filter( 'astra_the_title', 'astra_get_wc_endpoints_title' );
+}
