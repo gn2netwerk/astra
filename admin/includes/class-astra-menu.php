@@ -1050,7 +1050,13 @@ class Astra_Menu {
 	 * @since 4.0.0
 	 */
 	public function astra_admin_footer_link() {
-		return '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-astra-hover"> ' . esc_html( astra_get_theme_name() ) . '.</span></span>';
+		$footer_text = sprintf(
+			/* translators: 1: Astra, 2: Theme rating link */
+			__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'astra' ),
+			'<span class="bcf-footer-thankyou"><strong>' . esc_html( astra_get_theme_name() ) . '</strong>',
+			'<a href="https://wordpress.org/support/plugin/custom-fonts/reviews/?filter=5#new-post" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a></span>'
+		);
+		return $footer_text;
 	}
 }
 
