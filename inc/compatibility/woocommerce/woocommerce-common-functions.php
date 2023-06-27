@@ -372,10 +372,11 @@ if ( ! function_exists( 'astra_get_wc_endpoints_title' ) ) {
 			if ( $ep_title ) {
 				return $ep_title;
 			}
-	}
+		}
 
 		return $title;
-}
+	}
 
-add_filter( 'astra_the_title', 'astra_get_wc_endpoints_title' );
-}
+	add_filter( 'astra_the_title', 'astra_get_wc_endpoints_title' );
+	}
+	
