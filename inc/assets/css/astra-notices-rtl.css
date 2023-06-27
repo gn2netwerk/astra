@@ -88,20 +88,16 @@
 
 .ast-welcome-notice {
   position: relative;
-  padding-top: 40px;
 }
 .ast-welcome-notice .ast-row {
   display: flex;
   flex-wrap: wrap;
 }
 .ast-welcome-notice .ast-row .ast-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 45%;
+  width: 50%;
 }
 .ast-welcome-notice .ast-row .ast-col.ast-col-right {
-  width: 55%;
+  width: 50%;
   align-self: flex-end;
 }
 .ast-welcome-notice .ast-row .ast-col .notice-content-new {
@@ -132,7 +128,7 @@
 }
 .ast-welcome-notice .ast-row .ast-col .notice-title {
   font-weight: 500;
-  font-size: 28px;
+  font-size: 36px;
   line-height: 32px;
   letter-spacing: -0.5px;
   color: #1f2937;
@@ -148,7 +144,7 @@
 .ast-welcome-notice .ast-row .ast-col .description {
   color: #4b5563;
   margin-bottom: 27px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
   font-weight: 400;
 }
@@ -185,6 +181,9 @@
 .ast-welcome-notice .ast-row .ast-col .image-container img {
   width: 100%;
   height: auto;
+}
+.astra-notice-wrapper.astra-notice.notice.is-dismissible {
+  padding-left: 20px;
 }
 @media screen and (max-width: 1199px) {
   .ast-welcome-notice .ast-row .ast-col .image-container {
