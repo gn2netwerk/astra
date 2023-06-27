@@ -358,8 +358,10 @@ if ( ! function_exists( 'astra_get_wc_endpoints_title' ) ) {
 	/**
 	 * Woocommerce MyAccount Page Endpoint.
 	 *
-	 * @param string $title Default archive title.
+	 * @param string $title for MyAccount title endpoint.
 	 * @return string
+	 * 
+	 * @since x.x.x
 	 */
 function astra_get_wc_endpoints_title( $title ) {
 	if ( class_exists( 'WooCommerce' ) && is_wc_endpoint_url() ) {
