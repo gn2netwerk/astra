@@ -170,25 +170,20 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'id'                         => 'astra-sites-on-active',
 					'type'                       => 'info',
 					'message'                    => sprintf(
-						'<div class="ast-welcome-notice">
-							<div class="ast-row">
-							<div class="ast-col">
-								<div class="notice-content-new">
-								<p class="sub-notice-title">%1$s</p>
-								<h2 class="notice-title">%2$s</h2>
-								<p class="description">%3$s</p>
-								<div class="notice-actions">
-									<a class="%4$s" %5$s %6$s %7$s %8$s %9$s %10$s> %11$s </a>
+
+							'<div class="ast-welcome-banner">
+								<div class="ast-col-left">
+									<p class="sub-notice-title">%1$s</p>
+									<h2 class="notice-title">%2$s</h2>
+									<p class="description">%3$s</p>
+									<div class="notice-actions">
+										<button class="%4$s" %5$s %6$s %7$s %8$s %9$s %10$s> %11$s </button>
+									</div>
 								</div>
+								<div class="ast-col-right">
+									<img src="%12$s" alt="Starter Templates" />
 								</div>
-							</div>
-							<div class="ast-col ast-col-right">
-								<div class="image-container">
-								<img src="%12$s" alt="Astra" />
-								</div>
-							</div>
-							</div>
-						</div>',
+							</div>',
 						__( 'Thanks for installing the Astra theme 🎉', 'astra' ),
 						__( 'Get Started with Ready-Made Templates', 'astra' ),
 						__( 'Building a website doesn\'t have to be hard. With Astra\'s starter templates, you can easily import ready-made designs and start building your dream website in just a few minutes.', 'astra' ),
