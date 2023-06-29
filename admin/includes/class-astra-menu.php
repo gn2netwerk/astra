@@ -1052,7 +1052,7 @@ class Astra_Menu {
 	public function astra_admin_footer_link() {
 		$theme_name = astra_get_theme_name();
 		if ( astra_is_white_labelled() ) {
-			$footer_text = '<span id="footer-thankyou"> Thank you for using <span class="focus:text-astra-hover active:text-astra-hover hover:text-astra-hover"> ' . esc_html( $theme_name ) . '.</span></span>';
+			$footer_text = '<span id="footer-thankyou">' . __( 'Thank you for using', 'astra' ) . '<span class="focus:text-astra-hover active:text-astra-hover hover:text-astra-hover"> ' . esc_html( $theme_name ) . '.</span></span>';
 		} else {
 			$footer_text = sprintf(
 				/* translators: 1: Astra, 2: Theme rating link */
