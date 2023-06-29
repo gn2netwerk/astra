@@ -151,19 +151,26 @@ add_filter( 'body_class', 'astra_body_classes' );
 
 /**
  * Checks whether content style is boxed for current layout.
- *
  * @since x.x.x
+ * @param mixed $post_id Current post ID.
  * @return boolean 
  */
-function astra_is_content_style_boxed() {
+function astra_is_content_style_boxed( $post_id = false ) {
 
 	$post_type            = strval( get_post_type() );
 	$blog_type            = is_singular() ? 'single' : 'archive';
-	$content_style        = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
 	$global_content_style = astra_get_option( 'site-content-style' );
 	$meta_content_style   = astra_get_option_meta( 'site-content-style', '', true );
 	$is_boxed = false;
 	$is_third_party_shop = false;
+
+	// Editor compatibility.
+	if ( $post_id ) {
+		$blog_type = 'single';
+		$meta_content_style = get_post_meta( $post_id, 'site-content-style', true );
+	}
+
+	$content_style = astra_get_option( $blog_type . '-' . $post_type . '-content-style', '' );
 
 	// Third party compatibility.
 	$third_party = astra_with_third_party();
@@ -245,70 +252,71 @@ function astra_with_third_party( $is_sidebar_option = false ) {
 
 /**
  * Check if the sidebar style is boxed.
+ * @since x.x.x
+ * @param mixed $post_id Current post ID.
+ * @return bool Whether the sidebar style is boxed.
  */
-if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
+function astra_is_sidebar_style_boxed( $post_id = false ) {
 
-	/**
-	 * Check if the sidebar style is boxed.
-	 *
-	 * @since x.x.x
-	 * @return bool Whether the sidebar style is boxed.
-	 */
-	function astra_is_sidebar_style_boxed() {
+	$post_type            = strval( get_post_type() );
+	$blog_type            = is_singular() ? 'single' : 'archive';
+	$global_sidebar_style = astra_get_option( 'site-sidebar-style' );
+	$meta_sidebar_style   = astra_get_option_meta( 'site-sidebar-style', '', true );
+	$is_sidebar_boxed     = false;
+	$is_third_party_shop  = false;
 
-		$post_type            = strval( get_post_type() );
-		$blog_type            = is_singular() ? 'single' : 'archive';
-		$sidebar_style        = astra_get_option( $blog_type . '-' . $post_type . '-sidebar-style', '' );
-		$global_sidebar_style = astra_get_option( 'site-sidebar-style' );
-		$meta_sidebar_style   = astra_get_option_meta( 'site-sidebar-style', '', true );
-		$is_sidebar_boxed     = false;
-		$is_third_party_shop  = false;
+	// Editor compatibility.
+	if ( $post_id ) {
+		$blog_type = 'single';
+		$meta_sidebar_style = get_post_meta( $post_id, 'site-sidebar-style', true );
+	}
 
-		// Third party compatibility.
-		$third_party = astra_with_third_party( true );
-		if ( ! empty( $third_party ) ) {
-			$third_party_sidebar_style = astra_get_option( $third_party . '-sidebar-style', '' );
+	$sidebar_style = astra_get_option( $blog_type . '-' . $post_type . '-sidebar-style', '' );
 
-			if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_sidebar_style ) ) {
-				$blog_type = '';
-			}
+	// Third party compatibility.
+	$third_party = astra_with_third_party( true );
+	if ( ! empty( $third_party ) ) {
+		$third_party_sidebar_style = astra_get_option( $third_party . '-sidebar-style', '' );
 
-			// Get global sidebar style if third party is default.
-			$global_sidebar_style = ( 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ) ? $global_sidebar_style : $third_party_sidebar_style;
-
-			// Third party shop/archive page meta case.
-			$third_party_meta_page = astra_third_party_archive_meta( 'site-sidebar-style' );
-			$meta_sidebar_style = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_sidebar_style;
-			$is_third_party_shop = isset( $third_party_meta_page ) && $third_party_meta_page ?  true : false;
+		if ( in_array( $third_party, array( 'lifterlms', 'learndash' ) ) && ! in_array( $post_type, Astra_Posts_Structure_Loader::get_supported_post_types() ) && empty ( $meta_sidebar_style ) ) {
+			$blog_type = '';
 		}
 
-		// Global.
-		if ( 'boxed' === $global_sidebar_style ) {
+		// Get global sidebar style if third party is default.
+		$global_sidebar_style = ( 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ) ? $global_sidebar_style : $third_party_sidebar_style;
+
+		// Third party shop/archive page meta case.
+		$third_party_meta_page = astra_third_party_archive_meta( 'site-sidebar-style' );
+		$meta_sidebar_style = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_sidebar_style;
+		$is_third_party_shop = isset( $third_party_meta_page ) && $third_party_meta_page ?  true : false;
+	}
+
+	// Global.
+	if ( 'boxed' === $global_sidebar_style ) {
+		$is_sidebar_boxed = true;
+	}
+
+	// Archive.
+	if( 'archive' === $blog_type && ! empty( $sidebar_style ) && 'default' !== $sidebar_style ) {
+		$is_sidebar_boxed = ( 'boxed' === $sidebar_style );
+	}
+
+	// Single.
+	if( 'single' === $blog_type && ! empty( $sidebar_style ) && 'default' !== $sidebar_style  ) {
+		$is_sidebar_boxed = ( 'boxed' === $sidebar_style );
+	}
+
+	// Meta.
+	if ( ( 'single' === $blog_type || $is_third_party_shop ) && ! empty( $meta_sidebar_style ) && 'default' !== $meta_sidebar_style ) {
+		if ( 'boxed' === $meta_sidebar_style ) {
 			$is_sidebar_boxed = true;
 		}
-
-		// Archive.
-		if( 'archive' === $blog_type && ! empty( $sidebar_style ) && 'default' !== $sidebar_style ) {
-			$is_sidebar_boxed = ( 'boxed' === $sidebar_style );
+		else {
+			$is_sidebar_boxed = false;
 		}
-
-		// Single.
-		if( 'single' === $blog_type && ! empty( $sidebar_style ) && 'default' !== $sidebar_style  ) {
-			$is_sidebar_boxed = ( 'boxed' === $sidebar_style );
-		}
-
-		// Meta.
-		if ( ( 'single' === $blog_type || $is_third_party_shop ) && ! empty( $meta_sidebar_style ) && 'default' !== $meta_sidebar_style ) {
-			if ( 'boxed' === $meta_sidebar_style ) {
-				$is_sidebar_boxed = true;
-			}
-			else {
-				$is_sidebar_boxed = false;
-			}
-		}
-
-		return $is_sidebar_boxed;
 	}
+
+	return $is_sidebar_boxed;
 }
 
 /**
@@ -318,14 +326,22 @@ if ( ! function_exists( 'astra_is_sidebar_style_boxed' ) ) {
  * @param mixed $content_layout Current layout.
  * @param boolean $is_boxed Current content style.
  * @param boolean $is_sidebar_boxed Current sidebar style.
+ * @param mixed $post_id Current post ID.
  * @return mixed The content layout.
  */
-function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed ) {
+function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed, $post_id = false ) {
 
 	$meta_old_layout = astra_get_option_meta('site-content-layout', '', true );
-	$meta_new_layout = astra_get_option_meta('ast-site-content-layout', '', true );
+	$meta_new_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
 	$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 	$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
+
+	// Editor compatibility.
+	if ( $post_id ) {
+		$meta_old_layout = get_post_meta( $post_id, 'site-content-layout', true );
+		$meta_new_layout = get_post_meta( $post_id, 'ast-site-content-layout', true );
+		$meta_key 	     = get_post_meta( $post_id, 'astra-migrate-meta-layouts', true );	
+	}
 
 	// Third party archive meta migration.
 	$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
@@ -352,8 +368,6 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 
 	// Apply content boxed layout or boxed layout depending on content/sidebar style.
 	if ( 'plain-container' === $content_layout ) {
-		$post_type = strval( get_post_type() );
-		$blog_type = is_singular() ? 'single' : 'archive';
 		if ( 'no-sidebar' === astra_page_layout() ) {
 			if ( $is_boxed ) {
 				$content_layout = 'boxed-container';

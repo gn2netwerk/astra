@@ -17177,6 +17177,7 @@ namespace {
 	 * Checks whether content style is boxed for current layout.
 	 *
 	 * @since x.x.x
+     * @param mixed $post_id Current post ID.
 	 * @return boolean 
 	 */
 	function astra_is_content_style_boxed()
@@ -17196,6 +17197,7 @@ namespace {
 	 * Check if the sidebar style is boxed.
 	 *
 	 * @since x.x.x
+     * @param mixed $post_id Current post ID.
 	 * @return bool Whether the sidebar style is boxed.
 	 */
 	function astra_is_sidebar_style_boxed()
@@ -17259,6 +17261,7 @@ namespace {
 	 * @param mixed $content_layout Current layout.
 	 * @param boolean $is_boxed Current content style.
 	 * @param boolean $is_sidebar_boxed Current sidebar style.
+     * @param mixed $post_id Current post ID.
 	 * @return mixed The content layout.
 	 */
 	function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed )

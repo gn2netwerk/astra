@@ -98,8 +98,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			$post_id = get_the_ID();
-			$is_boxed         = astra_is_content_style_boxed();
-			$is_sidebar_boxed = astra_is_sidebar_style_boxed();
+			$is_boxed         = astra_is_content_style_boxed( $post_id );
+			$is_sidebar_boxed = astra_is_sidebar_style_boxed( $post_id );
 
 			if ( $post_id ) {
 				$meta_content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', $post_id );
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			$editor_default_content_layout = astra_toggle_layout( 'single-' . strval( get_post_type() ) . '-ast-content-layout', 'single', false );
-			$editor_default_content_layout = astra_apply_boxed_layouts( $editor_default_content_layout, $is_boxed, $is_sidebar_boxed );
+			$editor_default_content_layout = astra_apply_boxed_layouts( $editor_default_content_layout, $is_boxed, $is_sidebar_boxed, $post_id );
 			if ( 'default' === $editor_default_content_layout || empty( $editor_default_content_layout ) ) {
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
 			}
 
-			$content_layout   = astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed );
+			$content_layout   = astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed, $post_id );
 
 			if ( 'content-boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container';
