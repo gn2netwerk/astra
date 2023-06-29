@@ -69,10 +69,10 @@ const CustomLayouts = () => {
 									{ __( 'Upgrade to Astra Pro to get access to Custom Layouts, which allow you to create a unique header, footer, 404 pages, and custom content.', 'astra' ) }
 								</p>
 							</div>
-							<div className="relative pb-[17.5rem] mt-5">
-								{/* Added rel=0 query parameter at the end to disable YouTube recommendations. */}
-								{
-									astra_admin.show_banner_video && <iframe
+							{
+								astra_admin.show_banner_video && <div className="relative pb-[17.5rem] mt-5">
+									{/* Added rel=0 query parameter at the end to disable YouTube recommendations. */}
+									<iframe
 										className="absolute inset-0 w-full h-full rounded-md"
 										src={`https://www.youtube-nocookie.com/embed/${videoID}?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
 										allow="autoplay"
@@ -80,8 +80,8 @@ const CustomLayouts = () => {
 										frameBorder="0"
 										allowFullScreen
 									></iframe>
-								}
-							</div>
+								</div>
+							}
 						</div>
 					</div>
 					<div className="text-center mt-5">

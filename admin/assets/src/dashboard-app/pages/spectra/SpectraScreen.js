@@ -128,10 +128,10 @@ const SpectraScreen = () => {
 					>
 						{ getSpectraPluginTitle() }
 					</button>
-					<div className="relative pb-[25.375rem] mt-12 w-full">
-						{/* Added rel=0 query parameter at the end to disable YouTube recommendations */}
-						{
-							astra_admin.show_banner_video && <iframe
+					{
+						astra_admin.show_banner_video && <div className="relative pb-[25.375rem] mt-12 w-full">
+							{/* Added rel=0 query parameter at the end to disable YouTube recommendations */}
+							<iframe
 								className="absolute inset-0 w-full h-full rounded-md"
 								src={`https://www.youtube-nocookie.com/embed/${videoID}?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
 								allow="autoplay"
@@ -139,8 +139,8 @@ const SpectraScreen = () => {
 								frameBorder="0"
 								allowFullScreen
 							></iframe>
-						}
-					</div>
+						</div>
+					}
 				</div>
 
 				<div className="grid grid-cols-2 gap-12 mt-16 px-0 sm:px-8">
