@@ -4,6 +4,7 @@ v4.1.6 (Unreleased)
 - Improvement: Rearranged SureCart dynamic CPT sections on top level in the customizer.
 - Improvement: Refactor duplication blocks of code found in navigation JS file.
 - Improvement: Added a new filter 'astra_font_line_height_unit' to adjust the unit for line height.
+- Improvement: Added a new filter 'astra_show_banner_video' to display/hide admin page banner YouTube video.
 - Fix: Header Builder - Menu - Item Divider doesn't work on the last submenu item.
 - Fix: Author Link not working on layout 2 for single post title.
 - Fix: WooCommerce - Sticky Header feature is overwritten by the Checkout dropdown fields.
