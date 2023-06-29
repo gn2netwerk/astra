@@ -71,14 +71,16 @@ const CustomLayouts = () => {
 							</div>
 							<div className="relative pb-[17.5rem] mt-5">
 								{/* Added rel=0 query parameter at the end to disable YouTube recommendations. */}
-								<iframe
-									className="absolute inset-0 w-full h-full rounded-md"
-									src={`https://www.youtube-nocookie.com/embed/${videoID}?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
-									allow="autoplay"
-									title="YouTube video player"
-									frameBorder="0"
-									allowFullScreen
-								></iframe>
+								{
+									astra_admin.show_banner_video && <iframe
+										className="absolute inset-0 w-full h-full rounded-md"
+										src={`https://www.youtube-nocookie.com/embed/${videoID}?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
+										allow="autoplay"
+										title="YouTube video player"
+										frameBorder="0"
+										allowFullScreen
+									></iframe>
+								}
 							</div>
 						</div>
 					</div>
