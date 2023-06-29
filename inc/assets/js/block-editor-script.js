@@ -56,7 +56,11 @@ function astra_onload_function() {
 				bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container', 'ast-narrow-container');
 			break;
 			case 'default':
-				if( bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ) {
+				if( bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ) {
+					bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
+					bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
+				}
+				else if( bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ) {
 					bodyClass.classList.add('ast-separate-container');
 					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 				} else if( bodyClass.classList.contains( 'ast-default-layout-page-builder' ) ) {
