@@ -80,12 +80,12 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 *
 		 * @param array $classes Array of elementor edit mode check.
 		 *
-		 * @since x.x.x
+		 * @since 4.1.0
 		 */
 		function astra_entry_header_class_custom( $classes ) {
 			$edit_mode = get_post_meta( astra_get_post_id(), '_elementor_edit_mode', true );
 			$astra_layout_type = astra_get_option( 'ast-dynamic-single-' . get_post_type() . '-layout', 'layout-1' );
-		
+
 			if ( ( $edit_mode && $edit_mode === 'builder' ) || ( $edit_mode === 'builder' && $astra_layout_type === 'layout-2' ) ) {
 				$classes[] = 'ast-header-without-markup';
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
