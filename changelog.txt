@@ -16,6 +16,7 @@ v4.1.6 (Unreleased)
 - Fix: WooCommerce - Slide-in cart automatically trigger while saving changes in elementor editor.
 - Fix: Incompatibility with latest PHP v8.x versions.
 - Fix: Post title & Featured image is not visible while editing in elementor with banner layout 2.
+- Fix: The Sticky Add to cart feature not working in the RTL version of the website.
 
 v4.1.5
 - Fix: Offcanvas Menu - Transparent empty canvas visible on expanding offcanvas toggle button.
