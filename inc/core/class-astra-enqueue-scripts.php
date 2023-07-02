@@ -100,6 +100,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$post_id = get_the_ID();
 			$is_boxed         = astra_is_content_style_boxed( $post_id );
 			$is_sidebar_boxed = astra_is_sidebar_style_boxed( $post_id );
+			$classes .= $is_boxed ? ' ast-default-content-style-boxed' : ' ast-default-content-unboxed';
+			$classes .= $is_sidebar_boxed ? ' ast-default-sidebar-style-boxed' : ' ast-default-sidebar-unboxed';
 
 			if ( $post_id ) {
 				$meta_content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', $post_id );
