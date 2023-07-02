@@ -20,20 +20,22 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 
 	/**
 	 * Site Sidebar
-	 *
+	 * @param  boolean $post_id Post ID.
+	 * @return mixed Sidebar layout.
 	 * Default 'right sidebar' for overall site.
 	 */
-	function astra_page_layout() {
+	function astra_page_layout( $post_id = false ) {
 
 		$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 
-		if ( is_singular() ) {
+		if ( is_singular() || $post_id) {
 
 			// If post meta value is empty,
 			// Then get the POST_TYPE sidebar.
-			$layout = astra_get_option_meta( 'site-sidebar-layout', '', true );
+			$layout = $post_id ? get_post_meta( $post_id, 'site-sidebar-layout', true ) : astra_get_option_meta( 'site-sidebar-layout', '', true );
 
-			if ( empty( $layout ) ) {
+			// If post meta value is empty or in editor and sidebar set as default.
+			if ( empty( $layout ) || ( $post_id && 'default' == $layout ) ) {
 
 				$post_type = strval( get_post_type() );
 
@@ -83,25 +85,3 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 		return apply_filters( 'astra_page_layout', $layout );
 	}
 }
-
-// Removing the sidebar if layout is FW Stretched.
-add_filter(
-	'astra_page_layout',
-
-	/**
-	 * Remove Sidebar if current layout is Fullwidth.
-	 * Old users - yes
-	 * New users - no
-	 * @param mixed $sidebar_layout
-	 * @return mixed $sidebar_layout
-	 * @since x.x.x
-	 */
-	function( $sidebar_layout ) { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
-		$ast_container_layout = astra_get_content_layout();
-		if ( 'page-builder' === $ast_container_layout && Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ) {
-			return 'no-sidebar';
-		}
-		return $sidebar_layout;
-	}
-);
-

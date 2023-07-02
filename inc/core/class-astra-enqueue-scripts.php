@@ -112,13 +112,15 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			$editor_default_content_layout = astra_toggle_layout( 'single-' . strval( get_post_type() ) . '-ast-content-layout', 'single', false );
-			$editor_default_content_layout = astra_apply_boxed_layouts( $editor_default_content_layout, $is_boxed, $is_sidebar_boxed, $post_id );
+
 			if ( 'default' === $editor_default_content_layout || empty( $editor_default_content_layout ) ) {
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
 				$editor_default_content_layout = astra_toggle_layout( 'ast-site-content-layout', 'global', false );
+				$editor_default_content_layout = astra_apply_boxed_layouts( $editor_default_content_layout, $is_boxed, $is_sidebar_boxed, $post_id );
 				$classes                      .= ' ast-default-layout-' . $editor_default_content_layout;
 			} else {
+				$editor_default_content_layout = astra_apply_boxed_layouts( $editor_default_content_layout, $is_boxed, $is_sidebar_boxed, $post_id );
 				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
 			}
 
@@ -148,7 +150,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes .= ' ast-block-custom';
 			}
 
-			$classes .= ' ast-' . astra_page_layout();
+			$classes .= ' ast-' . astra_page_layout( $post_id );
 
 			return $classes;
 		}

@@ -335,12 +335,14 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 	$meta_new_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
 	$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 	$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
+	$sidebar_layout  = astra_page_layout();
 
 	// Editor compatibility.
 	if ( $post_id ) {
 		$meta_old_layout = get_post_meta( $post_id, 'site-content-layout', true );
 		$meta_new_layout = get_post_meta( $post_id, 'ast-site-content-layout', true );
-		$meta_key 	     = get_post_meta( $post_id, 'astra-migrate-meta-layouts', true );	
+		$meta_key 	     = get_post_meta( $post_id, 'astra-migrate-meta-layouts', true );
+		$sidebar_layout  = astra_page_layout( $post_id );
 	}
 
 	// Third party archive meta migration.
@@ -368,12 +370,12 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 
 	// Apply content boxed layout or boxed layout depending on content/sidebar style.
 	if ( 'plain-container' === $content_layout ) {
-		if ( 'no-sidebar' === astra_page_layout() ) {
+		if ( 'no-sidebar' === $sidebar_layout ) {
 			if ( $is_boxed ) {
 				$content_layout = 'boxed-container';
 			}
 		}
-		else if ( 'no-sidebar' !== astra_page_layout() ) {
+		else if ( 'no-sidebar' !== $sidebar_layout ) {
 			if ( $is_boxed ) {
 				$content_layout = $is_sidebar_boxed ? 'boxed-container' : 'content-boxed-container';
 			}

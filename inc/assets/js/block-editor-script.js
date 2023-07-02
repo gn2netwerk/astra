@@ -36,16 +36,13 @@ function astra_onload_function() {
 			const contentLayout = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['ast-site-content-layout'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['ast-site-content-layout'] : 'default',
 				bodyClass = document.querySelector('body');
 			const contentStyle = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-content-style'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-content-style'] : 'default';
+			const sidebarStyle = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-sidebar-style'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-sidebar-style'] : 'default';
+			const sidebarLayout = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-sidebar-layout'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-sidebar-layout'] : 'default';
 
 			switch( contentLayout ) {
 			case 'normal-width-container':
-				if( 'boxed' === contentStyle ) {
-					bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
-					bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
-				} else {
-					bodyClass.classList.add('ast-plain-container');
-					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-narrow-container');
-				}
+				bodyClass.classList.add('ast-plain-container');
+				bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-narrow-container');
 			break;
 			case 'narrow-width-container':
 				bodyClass.classList.add('ast-narrow-container');
@@ -74,6 +71,58 @@ function astra_onload_function() {
 					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-plain-container');
 				}
 			break;
+		}
+
+		const is_default_boxed = bodyClass.classList.contains( 'ast-default-layout-boxed-container' );
+		const is_default_content_boxed = bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' );
+		const is_default_normal = bodyClass.classList.contains( 'ast-default-layout-plain-container' );
+		const is_default_normal_width = ( 'default' === contentLayout && ( is_default_boxed || is_default_content_boxed || is_default_normal ) );
+		if ( 'normal-width-container' === contentLayout || is_default_normal_width ) {
+			switch ( contentStyle ) {
+				case 'boxed':
+					bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
+					bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
+					break;
+				case 'unboxed':
+					bodyClass.classList.add('ast-plain-container');
+					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-narrow-container');
+				break;
+				default:
+					if ( is_default_boxed ) {
+						bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
+						bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
+					}
+					else if ( is_default_normal ) {
+						bodyClass.classList.add('ast-plain-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-narrow-container');
+					}
+					break;
+			}
+
+			const is_sidebar_default_enabled = 'default' === sidebarLayout && ( ! bodyClass.classList.contains( 'ast-no-sidebar' ) );
+			const is_content_style_boxed = ( 'boxed' === contentStyle || ( 'default' === contentStyle && ( is_default_boxed || is_default_content_boxed ) ) );
+			if( is_content_style_boxed && ( 'no-sidebar' !== sidebarLayout || is_sidebar_default_enabled ) ) {
+				switch ( sidebarStyle ) {
+					case 'boxed':
+						bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
+						bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
+						break;
+					case 'unboxed':
+						bodyClass.classList.add('ast-separate-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
+					break;
+					default:
+						if ( is_default_boxed ) {
+							bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
+							bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
+						}
+						else if ( is_default_content_boxed ) {
+							bodyClass.classList.add('ast-separate-container');
+							bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
+						}
+						break;
+				}
+			}
 		}
 
 			const editorStylesWrapper = document.querySelector( '.editor-styles-wrapper' );
