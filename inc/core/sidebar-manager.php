@@ -20,22 +20,21 @@ if ( ! function_exists( 'astra_page_layout' ) ) {
 
 	/**
 	 * Site Sidebar
-	 * @param  boolean $post_id Post ID.
-	 * @return mixed Sidebar layout.
+	 *
 	 * Default 'right sidebar' for overall site.
 	 */
-	function astra_page_layout( $post_id = false ) {
+	function astra_page_layout() {
 
 		$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 
-		if ( is_singular() || $post_id) {
+		if ( is_singular() ) {
 
 			// If post meta value is empty,
 			// Then get the POST_TYPE sidebar.
-			$layout = $post_id ? get_post_meta( $post_id, 'site-sidebar-layout', true ) : astra_get_option_meta( 'site-sidebar-layout', '', true );
+			$layout = astra_get_option_meta( 'site-sidebar-layout', '', true );
 
 			// If post meta value is empty or in editor and sidebar set as default.
-			if ( empty( $layout ) || ( $post_id && 'default' == $layout ) ) {
+			if ( empty( $layout ) ) {
 
 				$post_type = strval( get_post_type() );
 

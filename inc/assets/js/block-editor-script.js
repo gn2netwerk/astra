@@ -140,7 +140,7 @@ function astra_onload_function() {
 					break;
 			}
 
-			const is_sidebar_default_enabled = 'default' === sidebarLayout && ( ! bodyClass.classList.contains( 'ast-no-sidebar' ) );
+			const is_sidebar_default_enabled = 'default' === sidebarLayout && ( ! bodyClass.classList.contains( 'ast-sidebar-default-no-sidebar' ) );
 			if( ( 'default' !== sidebarLayout && 'no-sidebar' !== sidebarLayout || is_sidebar_default_enabled ) ) {
 				switch ( sidebarStyle ) {
 					case 'boxed':
@@ -153,13 +153,16 @@ function astra_onload_function() {
 						}
 						break;
 					default:
-						if ( 'default' === contentStyle && ! is_content_style_boxed && ! is_sidebar_style_boxed ) {
+						if ( 'unboxed' === contentStyle && ! is_sidebar_style_boxed ) {
 							applyContainerLayoutClasses( 'plain-container' );
 						}
-						else if ( ! is_content_style_boxed && is_sidebar_style_boxed || is_content_style_boxed && is_sidebar_style_boxed ) {
+						else if ( 'default' === contentStyle && ! is_sidebar_style_boxed && ! is_content_style_boxed ) {
+							applyContainerLayoutClasses( 'plain-container' );
+						}
+						else if ( is_sidebar_style_boxed ) {
 							applyContainerLayoutClasses( 'boxed-container' );
 						}
-						else if ( is_content_style_boxed && ! is_sidebar_style_boxed ) {
+						else if ( ! is_sidebar_style_boxed ) {
 							applyContainerLayoutClasses( 'content-boxed-container' );
 						}
 						break;

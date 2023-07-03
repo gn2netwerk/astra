@@ -206,7 +206,7 @@ function astra_is_content_style_boxed( $post_id = false ) {
 	}
 
 	// Meta.
-	if ( ( 'single' === $blog_type || $is_third_party_shop )  && ! empty( $meta_content_style ) && 'default' !== $meta_content_style ) {
+	if ( ( 'single' === $blog_type || $is_third_party_shop )  && ! empty( $meta_content_style ) && 'default' !== $meta_content_style && ! $post_id ) {
 		if ( 'boxed' === $meta_content_style ) {
 			$is_boxed = true;
 		}
@@ -307,7 +307,7 @@ function astra_is_sidebar_style_boxed( $post_id = false ) {
 	}
 
 	// Meta.
-	if ( ( 'single' === $blog_type || $is_third_party_shop ) && ! empty( $meta_sidebar_style ) && 'default' !== $meta_sidebar_style ) {
+	if ( ( 'single' === $blog_type || $is_third_party_shop ) && ! empty( $meta_sidebar_style ) && 'default' !== $meta_sidebar_style && ! $post_id ) {
 		if ( 'boxed' === $meta_sidebar_style ) {
 			$is_sidebar_boxed = true;
 		}
@@ -342,7 +342,8 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 		$meta_old_layout = get_post_meta( $post_id, 'site-content-layout', true );
 		$meta_new_layout = get_post_meta( $post_id, 'ast-site-content-layout', true );
 		$meta_key 	     = get_post_meta( $post_id, 'astra-migrate-meta-layouts', true );
-		$sidebar_layout  = astra_page_layout( $post_id );
+		$post_type       = strval( get_post_type() );
+		$sidebar_layout  = astra_get_sidebar_layout_for_editor( $post_type );
 	}
 
 	// Third party archive meta migration.

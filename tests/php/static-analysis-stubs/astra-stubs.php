@@ -15152,6 +15152,16 @@ namespace {
     {
     }
     /**
+     * Function which will return the Sidebar Layout for the Editor.
+     * 
+     * @since x.x.x
+     * @param string $post_type Post Type.
+     * @return string Sidebar Layout.
+     */
+    function astra_get_sidebar_layout_for_editor( $post_type )
+    {
+    }
+    /**
      * Determines, whether the specific hook type is actually supported.
      *
      * Plugin developers should always check for the support of a <strong>specific</strong>

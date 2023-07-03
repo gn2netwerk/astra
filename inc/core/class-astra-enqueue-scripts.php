@@ -152,7 +152,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes .= ' ast-block-custom';
 			}
 
-			$classes .= ' ast-' . astra_page_layout( $post_id );
+			$classes .= ' ast-' . astra_page_layout();
+			$classes .= ' ast-sidebar-default-' . astra_get_sidebar_layout_for_editor( strval( get_post_type() ) );
 
 			return $classes;
 		}
