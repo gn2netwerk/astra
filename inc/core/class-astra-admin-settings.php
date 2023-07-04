@@ -186,7 +186,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							</div>',
 						__( 'Thanks for installing the Astra theme 🎉', 'astra' ),
 						__( 'Get Started with Ready-Made Templates', 'astra' ),
-						__( 'Building a website doesn\'t have to be hard. With Astra\'s starter templates, you can easily import ready-made designs and start building your dream website in just a few minutes.', 'astra' ),
+						__( 'Building a website doesn\'t have to be hard. With Astra\'s Starter Templates, you can easily import ready-made designs and start building your dream website in just a few minutes.', 'astra' ),
 						esc_attr( $ast_sites_notice_btn['class'] ),
 						'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
 						'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',

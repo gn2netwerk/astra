@@ -115,6 +115,7 @@
 	width: 100%;
 	position: relative;
 	right: 30px;
+	top: 10px;
 }
 .ast-welcome-banner .notice-title {
 	color: #1e293b;
