@@ -3525,7 +3525,7 @@ namespace {
 		/**
 		 * For existing users, do not provide list vertical spacing.
 		 *
-		 * @since x.x.x
+		 * @since 4.1.6
 		 * @return boolean true for new users, false for old users.
 		 */
 		public static function astra_list_block_vertical_spacing()
@@ -17215,7 +17215,7 @@ namespace {
     /**
      * Handle backward compatibility on version 4.1.6
      *
-     * @since x.x.x
+     * @since 4.1.6
      * @return void
      */
     function astra_theme_background_updater_4_1_6()

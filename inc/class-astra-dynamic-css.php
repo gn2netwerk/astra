@@ -3601,13 +3601,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
 			}
 
-			if( self::astra_list_block_vertical_spacing() ) {
+			if ( self::astra_list_block_vertical_spacing() ) {
 				$list_spacing_css = array(
 					'.entry-content li > p' => array(
 						'margin-bottom' => 0,
 					),
 				);
-				$parse_css .= astra_parse_css( $list_spacing_css );
+				$parse_css       .= astra_parse_css( $list_spacing_css );
 			}
 
 			$parse_css .= $dynamic_css;
@@ -3639,8 +3639,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 *   - Sidebar Positions CSS
 			 */
 			$secondary_width = absint( astra_get_option( 'site-sidebar-width' ) );
-			$primary_width = absint( 100 - $secondary_width );
-			$meta_style = '';
+			$primary_width   = absint( 100 - $secondary_width );
+			$meta_style      = '';
 
 			// Header Separator.
 			$header_separator       = astra_get_option( 'header-main-sep' );
@@ -3671,7 +3671,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'width' => astra_get_css_value( $primary_width, '%' ),
 					),
 					'#secondary' => array(
-						'width' => astra_get_css_value( strval($secondary_width), '%' ),
+						'width' => astra_get_css_value( strval( $secondary_width ), '%' ),
 					),
 				);
 
@@ -4099,7 +4099,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * For existing users, do not provide list vertical spacing.
 		 *
-		 * @since x.x.x
+		 * @since 4.1.6
 		 * @return boolean true for new users, false for old users.
 		 */
 		public static function astra_list_block_vertical_spacing() {
