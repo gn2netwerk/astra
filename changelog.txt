@@ -19,6 +19,7 @@ v4.1.6
 - Fix: The Sticky Add to cart feature not working in the RTL version of the website.
 - Fix: Secondary menu SVG alignment on tablet/mobile including RTL version.
 - Fix: Single product payment icons misalignment on Safari browsers (Mac and iOS).
+- Fix: Blog - Read time option visible with free theme but not working.
 
 v4.1.5
 - Fix: Offcanvas Menu - Transparent empty canvas visible on expanding offcanvas toggle button.
