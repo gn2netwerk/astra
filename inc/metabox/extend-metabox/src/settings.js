@@ -162,9 +162,10 @@ const MetaSettings = props => {
 
 					{/* Content Layout Setting */}
 					{ ! is_hide_content_layout_sidebar && (<PanelBody
-						title={ __( 'Container Layout', 'astra' ) }
+						title={ __( 'Container', 'astra' ) }
 						initialOpen={ true }
 					>
+						<label id='ast-label-container-layout' className='ast-sub-section-title'>{ __( 'Container Layout', 'astra' ) }</label>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							<AstRadioImageControl
 								metavalue = { ( undefined !== props.meta['ast-site-content-layout'] && ''!== props.meta['ast-site-content-layout'] ? props.meta['ast-site-content-layout'] : 'default' ) }
@@ -176,14 +177,7 @@ const MetaSettings = props => {
 								} }
 							/>
 						</div>
-					</PanelBody>
-					)}
-
-					{/* Content Style Setting */}
-					<PanelBody
-						title={ __( 'Container Style', 'astra' ) }
-						initialOpen={ false }
-					>
+						<label id='ast-label-container-style' className='ast-sub-section-title'>{ __( 'Container Style', 'astra' ) }</label>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							<AstSelectorControl
 								metavalue = { ( undefined !== props.meta['site-content-style'] && ''!== props.meta['site-content-style'] ? props.meta['site-content-style'] : 'default' ) }
@@ -197,13 +191,15 @@ const MetaSettings = props => {
 						<p className='description'>
 							{ __( 'Container style will apply only when layout is set to either normal or narrow.', 'astra' ) }
 						</p>
-					</PanelBody>					
+					</PanelBody>
+					)}				
 
 					{/* Sidebar Setting */}
 					<PanelBody
-						title={ __( 'Sidebar Layout', 'astra' ) }
+						title={ __( 'Sidebar', 'astra' ) }
 						initialOpen={ false }
 					>
+						<label id='ast-label-sidebar-layout' className='ast-sub-section-title'>{ __( 'Sidebar Layout', 'astra' ) }</label>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							<AstRadioImageControl
 								metavalue = { ( undefined !== props.meta['site-sidebar-layout'] && ''!== props.meta['site-sidebar-layout'] ? props.meta['site-sidebar-layout'] : 'default' ) }
@@ -217,13 +213,7 @@ const MetaSettings = props => {
 						<p className='description'>
 							{ __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ) }
 						</p>
-					</PanelBody>
-
-					{/* Sidebar Style Setting */}
-					<PanelBody
-						title={ __( 'Sidebar Style', 'astra' ) }
-						initialOpen={ false }
-					>
+						<label id='ast-label-sidebar-style' className='ast-sub-section-title'>{ __( 'Sidebar Style', 'astra' ) }</label>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							<AstSelectorControl
 								metavalue = { ( undefined !== props.meta['site-sidebar-style'] && ''!== props.meta['site-sidebar-style'] ? props.meta['site-sidebar-style'] : 'default' ) }
@@ -234,7 +224,7 @@ const MetaSettings = props => {
 								} }
 							/>
 						</div>
-					</PanelBody>	
+					</PanelBody>
 
 					{/* Disable Section Setting */}
 					{ ! is_hide_content_layout_sidebar && ( <PanelBody
