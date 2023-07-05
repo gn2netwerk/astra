@@ -79,32 +79,6 @@ class Astra_Menu {
 
 		add_action( 'admin_menu', array( $this, 'setup_menu' ) );
 		add_action( 'admin_init', array( $this, 'settings_admin_scripts' ) );
-
-		add_action( 'after_setup_theme', array( $this, 'init_admin_settings' ), 99 );
-	}
-
-	/**
-	 * Admin settings init.
-	 *
-	 * @since 4.0.0
-	 */
-	public function init_admin_settings() {
-		if ( ! is_customize_preview() ) {
-			add_action( 'admin_head', array( $this, 'admin_submenu_css' ) );
-		}
-	}
-
-	/**
-	 * Add custom CSS for admin area sub menu icons.
-	 *
-	 * @since 4.0.0
-	 */
-	public function admin_submenu_css() {
-		echo '<style class="astra-menu-appearance-style">
-				#toplevel_page_' . esc_attr( self::$plugin_slug ) . ' .wp-menu-image.svg {
-					background-size: 18px auto !important;
-				}
-			</style>';
 	}
 
 	/**
