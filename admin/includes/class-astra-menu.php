@@ -129,7 +129,6 @@ class Astra_Menu {
 			$capability,
 			self::$plugin_slug,
 			array( $this, 'render_admin_dashboard' ),
-			// 'data:image/svg+xml;base64,' . base64_encode( file_get_contents( ASTRA_THEME_DIR . 'new-1.svg' ) ),
 			$astra_icon,
 			$priority
 		);
