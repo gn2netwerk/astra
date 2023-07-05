@@ -1,3 +1,6 @@
+v4.1.7 (Unreleased)
+- Improvement: Accessibility improvements for Woocommerce Pages.
+
 v4.1.6 (Unreleased)
 - Improvement: Header Footer Builder - Added new social icon "TikTok".
 - Improvement: Improved title area customizer control UI for better user experience.

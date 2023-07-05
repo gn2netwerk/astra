@@ -4648,6 +4648,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 
+			.ast-site-header-cart .cart-container {
+				display: inline-block;
+			}
 			';
 			if ( is_rtl() ) {
 				$cart_static_css .= '
