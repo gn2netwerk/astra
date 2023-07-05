@@ -15161,7 +15161,7 @@ namespace {
     {
     }
     /**
-     * Function which will return the Sidebar Layout for the Editor.
+     * Function which will return the Sidebar Layout to determine default body classes for Editor.
      * 
      * @since x.x.x
      * @param string $post_type Post Type.
