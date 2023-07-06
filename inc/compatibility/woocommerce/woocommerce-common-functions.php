@@ -364,7 +364,7 @@ if ( ! function_exists( 'astra_get_wc_endpoints_title' ) ) {
 	 * @since x.x.x
 	 */
 	function astra_get_wc_endpoints_title( $title ) {
-		if ( class_exists( 'WooCommerce' ) && is_wc_endpoint_url() ) {
+		if ( class_exists( 'WooCommerce' ) && is_wc_endpoint_url() && is_account_page() ) {
 			$endpoint = WC()->query->get_current_endpoint();
 			$action   = isset( $_GET['action'] ) ? $_GET['action'] : '';
 			$sanitized_action   = is_string( $action ) ? sanitize_text_field( wp_unslash( $action ) ) : '';
