@@ -87,21 +87,23 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				add_action( 'init', array( $this, 'update_woocommerce_checkout' ) );
 			}
 
-			add_filter( 'astra_shop_add_to_cart_js_localize', array( $this, 'astra_shop_add_to_cart_js_localize' ), 10, 1);
+			add_filter( 'astra_shop_add_to_cart_js_localize', array( $this, 'astra_shop_add_to_cart_js_localize' ), 10, 1 );
 		}
 
 		/**
 		 * Append Elementor preview status.
+		 *
 		 * @param Array $localize_data
 		 *
-		 * @since x.x.x
+		 * @since 4.1.6
 		 * @return Array
 		 */
-		public function astra_shop_add_to_cart_js_localize($localize_data) {
+		public function astra_shop_add_to_cart_js_localize( $localize_data ) {
 			$elementor_preview_active = false;
 
 			if ( class_exists( 'Elementor\Plugin' ) ) {
-				$elementor_preview_active = \Elementor\Plugin::$instance->preview->is_preview_mode();;
+				$elementor_preview_active = \Elementor\Plugin::$instance->preview->is_preview_mode();
+
 			}
 
 			$localize_data['elementor_preview_active'] = $elementor_preview_active;
