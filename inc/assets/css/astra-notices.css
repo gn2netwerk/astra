@@ -103,7 +103,7 @@
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: center;
-	padding: 65px 0px 65px 53px;
+	padding: 38px 0px 38px 53px;
 }
 .ast-col-right {
 	width: 50%;
@@ -111,7 +111,6 @@
 	flex-direction: column;
 	align-items: flex-end;
 	align-self: flex-end;
-	padding-top: 30px;
 }
 .ast-col-right > img {
 	width: 100%;
@@ -192,5 +191,29 @@
 	}
 	.ast-welcome-banner .description {
 		font-size: 14px;
+	}
+}
+
+@media screen and (min-width: 1199px) and (max-width: 1700px) {
+	.ast-welcome-banner {
+		max-height: 350px;
+	}
+	.ast-col-left {
+		width: 45%;
+	}
+	.ast-col-right {
+		width: 60%;
+	}
+	#astra-sites-on-active .ast-welcome-banner .button-primary {
+		font-size: 14px;
+	}
+	.ast-welcome-banner .notice-title {
+		font-size: 25px;
+	}
+	.ast-welcome-banner .sub-notice-title {
+		font-size: 15px;
+	}
+	.ast-welcome-banner .description {
+		font-size: 15px;
 	}
 }
