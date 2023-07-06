@@ -136,12 +136,14 @@
 	margin-bottom: 32px;
 	padding: 0px;
 }
-.astra-notice-container .notice-actions > button {
+#astra-sites-on-active .astra-notice-container .notice-actions > button {
 	border-radius: 6px;
 	background: #046bd2;
 	padding: 10px 16px;
 	/* shadow/sm */
 	color: white;
+	box-shadow: none;
+	border: none;
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 24px;
@@ -168,7 +170,7 @@
 		padding: 20px 24px;
 		align-items: unset;
 	}
-	.astra-notice-container .notice-actions > button {
+	#astra-sites-on-active .astra-notice-container .notice-actions > button {
 		width: 100%;
 	}
 	.ast-welcome-banner .description {
@@ -181,7 +183,7 @@
 		font-size: 14px;
 		align-items: unset;
 	}
-	.astra-notice-container .notice-actions > button {
+	#astra-sites-on-active .astra-notice-container .notice-actions > button {
 		font-size: 14px;
 		width: 100%;
 	}
@@ -206,7 +208,7 @@
 	.ast-col-right {
 		width: 60%;
 	}
-	.astra-notice-container .notice-actions > button {
+	#astra-sites-on-active .astra-notice-container .notice-actions > button {
 		font-size: 14px;
 	}
 	.ast-welcome-banner .notice-title {
