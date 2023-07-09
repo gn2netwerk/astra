@@ -225,7 +225,11 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false, $ol
 			$current_layout = 'page-builder';
 			break;
 		default:
-			$current_layout = 'default';
+			if( 'meta' === $level && ! $migrated_user && 'set' !== $meta_key && $old_meta ) {
+				$current_layout = $old_meta;
+			} else {
+				$current_layout = 'default';
+			}
 			break;
 	}
 	return $current_layout;
