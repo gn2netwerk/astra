@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$site_content_width         = astra_get_option( 'site-content-width', 1200 );
 			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
-			$container_layout           = astra_get_option( 'site-content-layout' );
+			$container_layout           = astra_toggle_layout( 'ast-site-content-layout', 'global', false );
 			$title_color                = astra_get_option( 'header-color-site-title' );
 			$title_hover_color          = astra_get_option( 'header-color-h-site-title' );
 			$tagline_color              = astra_get_option( 'header-color-site-tagline' );
@@ -3595,6 +3595,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 				$parse_css       .= astra_parse_css( $list_spacing_css );
+			}
+
+			if ( self::astra_fullwidth_sidebar_support() ) {
+				if ( 'page-builder' == $ast_container_layout ) {
+					add_filter(
+						'astra_page_layout',
+						function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+							return 'no-sidebar';
+						}
+					);
+				}
 			}
 
 			$parse_css .= $dynamic_css;
