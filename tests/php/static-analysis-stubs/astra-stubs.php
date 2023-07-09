@@ -11934,7 +11934,7 @@ namespace {
          * @param string $post_type Post Type.
          * @param bool $content_layout Content Layout.
          * @param bool $content_style Content Style.
-         * @return array Customizer Configurations.
+         * @return string Customizer Configurations.
          */
         public function astra_single_defaults( $post_type, $content_layout = false, $content_style = false )
         {
@@ -17294,7 +17294,7 @@ namespace {
      * @param mixed $post_id Current post ID.
 	 * @return mixed The content layout.
 	 */
-	function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed )
+	function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed, $post_id = false )
     {
     }
 	/**

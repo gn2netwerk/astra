@@ -341,7 +341,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 	if ( $post_id ) {
 		$meta_old_layout = get_post_meta( $post_id, 'site-content-layout', true );
 		$meta_new_layout = get_post_meta( $post_id, 'ast-site-content-layout', true );
-		$meta_key 	     = get_post_meta( $post_id, 'astra-migrate-meta-layouts', true );
+		$meta_key        = get_post_meta( $post_id, 'astra-migrate-meta-layouts', true );
 		$post_type       = strval( get_post_type() );
 		$sidebar_layout  = astra_get_sidebar_layout_for_editor( $post_type );
 	}

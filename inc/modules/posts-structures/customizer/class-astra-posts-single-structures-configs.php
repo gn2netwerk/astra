@@ -78,7 +78,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * @param string $post_type Post Type.
 	 * @param bool $content_layout Content Layout.
 	 * @param bool $content_style Content Style.
-	 * @return array Customizer Configurations.
+	 * @return string Customizer Configurations.
 	 */
 	public function astra_single_defaults( $post_type, $content_layout = false, $content_style = false ) {
 		if( 'page' === $post_type ) {
