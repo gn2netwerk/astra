@@ -348,7 +348,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 
 	// Third party archive meta migration.
 	$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
-	if ( isset( $third_party_meta_page ) && $third_party_meta_page && $migrated_user ) {
+	if ( false !== $third_party_meta_page && $migrated_user ) {
 		$meta_old_layout = $third_party_meta_page;
 		$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
 	}
