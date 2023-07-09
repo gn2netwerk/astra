@@ -17210,7 +17210,7 @@ namespace {
      * @param mixed $post_id Current post ID.
 	 * @return boolean 
 	 */
-	function astra_is_content_style_boxed()
+    function astra_is_content_style_boxed( $post_id = false )
     {
     }
 	/**
@@ -17230,7 +17230,7 @@ namespace {
      * @param mixed $post_id Current post ID.
 	 * @return bool Whether the sidebar style is boxed.
 	 */
-	function astra_is_sidebar_style_boxed()
+	function astra_is_sidebar_style_boxed( $post_id = false )
     {
     }
 	/**
