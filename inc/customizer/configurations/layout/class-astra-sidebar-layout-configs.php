@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Help Text: Archive Sidebar Layout.
+				 * Help Text: Sidebar Layout.
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[site-sidebar-layout-description]',
