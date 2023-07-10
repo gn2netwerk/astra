@@ -1,3 +1,8 @@
+v4.2.0-beta.1
+- New: Introducing Revamped Container Layout Options: 'Normal', 'Narrow', 'Fullwidth'.
+- New: Introducing new Container Style Options: 'Boxed', 'Unboxed'.
+- New: Introducing new Sidebar Style Options: 'Boxed', 'Unboxed'.
+
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
 - Improvement: Improved title area customizer control UI for better user experience.
