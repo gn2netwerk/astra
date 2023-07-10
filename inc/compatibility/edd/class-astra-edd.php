@@ -1065,6 +1065,12 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					$edd_page_layout = astra_toggle_layout( 'archive-download-ast-content-layout', 'archive', false );
 				} else {
 					$edd_page_layout = astra_get_option_meta( 'site-content-layout', '', true );
+					if ( isset( $edd_page_layout ) ) {
+						$edd_page_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false, $edd_page_layout );
+					}
+					else {
+						$edd_page_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
+					}
 				}
 
 				if ( 'default' !== $edd_page_layout && ! empty( $edd_page_layout ) ) {

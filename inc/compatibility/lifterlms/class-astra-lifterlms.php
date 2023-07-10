@@ -685,8 +685,13 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 				} elseif ( is_course_taxonomy() ) {
 					$shop_layout = 'default';
 				} else {
-					$shop_layout = astra_get_option_meta( 'site-content-layout', '', true );
-					$shop_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
+					$old_meta_layout = astra_get_option_meta( 'site-content-layout', '', true );
+					if ( isset( $old_meta_layout ) ) {
+						$shop_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false, $old_meta_layout);
+					}
+					else {
+						$shop_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
+					}
 				}
 
 				if ( 'default' !== $shop_layout && ! empty( $shop_layout ) ) {
