@@ -406,7 +406,7 @@ function astra_third_party_archive_meta( $option ) {
 	$meta_value = false;
 	$third_party = astra_with_third_party( true );
 	// Third party shop/archive page meta case.
-	if ( 'woocommerce' === $third_party && is_shop() ) {
+	if ( 'woocommerce' === $third_party && ( is_shop() || is_product_taxonomy() ) ) {
 		$shop_page_id        = get_option( 'woocommerce_shop_page_id' );
 		$meta_value          = get_post_meta( $shop_page_id, $option , true );
 	}
