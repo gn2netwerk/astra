@@ -421,6 +421,9 @@ function astra_third_party_archive_meta( $option ) {
 			$lifter_page_id      = get_option( 'lifterlms_memberships_page_id' );
 			$meta_value          = get_post_meta( $lifter_page_id, $option , true );
 		}
+		elseif ( is_course_taxonomy() ) {
+			$meta_value          = 'default';
+		}
 	}
 	elseif ( 'edd' === $third_party &&  astra_is_edd_single_page() ) {
 		$page_id             = get_the_ID();
