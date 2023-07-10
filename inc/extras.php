@@ -200,7 +200,7 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false, $ol
 	$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
 	$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
 	if ( 'meta' === $level && $migrated_user ) {
-		if( isset( $third_party_meta_page ) && $third_party_meta_page ) {
+		if( false !== $third_party_meta_page ) {
 			$old_meta = $third_party_meta_page;
 			$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
 		}
