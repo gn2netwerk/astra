@@ -78,6 +78,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 					'help'     => __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
 					'settings' => array(),
+					'hide'     => ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ),
 				),
 
 				/**

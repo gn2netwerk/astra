@@ -186,6 +186,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 				'help'     => __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ),
 				'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
 				'settings' => array(),
+				'hide'     => ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ),
 			),
 
 			/**
