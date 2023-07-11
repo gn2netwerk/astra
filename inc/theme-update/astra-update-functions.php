@@ -1289,7 +1289,7 @@ function astra_theme_background_updater_4_1_6() {
  * @since 4.2.0-beta.1
  * @return void
  */
-function astra_theme_background_updater_4_2_0() {
+function astra_theme_background_updater_4_2_0_beta_1() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['v4-2-0-beta-1-update-migration'] ) ) {
 
@@ -1297,12 +1297,12 @@ function astra_theme_background_updater_4_2_0() {
 		$theme_options         = get_option( 'astra-settings' );
 		$blog_types            = array( 'single', 'archive' );
 		$third_party_layouts   = array( 'woocommerce', 'edd', 'lifterlms', 'lifterlms-course-lesson', 'learndash' );
-	
+
 		// Global.
 		if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
 			$theme_options = astra_apply_layout_migration( 'site-content-layout', 'ast-site-content-layout', 'site-content-style', 'site-sidebar-style', $theme_options );
 		}
-	
+
 		// Single, archive.
 		foreach ( $blog_types as $index => $blog_type ) {
 			foreach( $post_types as $index => $post_type ) {
@@ -1315,7 +1315,7 @@ function astra_theme_background_updater_4_2_0() {
 				}
 			}
 		}
-	
+
 		// Third party existing layout migrations to new layout options.
 		foreach( $third_party_layouts as $index => $layout ) {
 			$old_layout    = $layout . '-content-layout';
