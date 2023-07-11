@@ -210,9 +210,11 @@ const MetaSettings = props => {
 								} }
 							/>
 						</div>
-						<p className='description'>
-							{ __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ) }
-						</p>
+						{ ! astMetaParams.v4_1_6_migration && (
+							<p className='description'>
+								{ __( 'Sidebar will only apply when container layout is set to normal.', 'astra' ) }
+							</p>
+						)}
 						<label id='ast-label-sidebar-style' className='ast-sub-section-title'>{ __( 'Sidebar Style', 'astra' ) }</label>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							<AstSelectorControl
