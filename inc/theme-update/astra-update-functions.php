@@ -1286,7 +1286,7 @@ function astra_theme_background_updater_4_1_6() {
 /**
  * Migrating users to new container layout options
  *
- * @since x.x.x
+ * @since 4.2.0-beta.1
  * @return void
  */
 function astra_theme_background_updater_4_2_0() {
@@ -1345,7 +1345,7 @@ function astra_theme_background_updater_4_2_0() {
  * Handle migration from old to new layouts.
  *
  * Migration cases for old users, old layouts -> new layouts.
- * @since x.x.x
+ * @since 4.2.0-beta.1
  * @param mixed $old_layout
  * @param mixed $new_layout
  * @param mixed $content_style

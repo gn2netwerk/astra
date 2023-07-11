@@ -4878,7 +4878,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Old users - yes
 		 * New users - no
 		 * @return bool true|false.
-		 * @since x.x.x
+		 * @since 4.2.0-beta.1
 		 */
 		public static function astra_fullwidth_sidebar_support() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
