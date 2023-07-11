@@ -11929,17 +11929,6 @@ namespace {
         {
         }
         /**
-         * Get default value for single post's structures.
-         * 
-         * @param string $post_type Post Type.
-         * @param bool $content_layout Content Layout.
-         * @param bool $content_style Content Style.
-         * @return string Customizer Configurations.
-         */
-        public function astra_single_defaults( $post_type, $content_layout = false, $content_style = false )
-        {
-        }
-        /**
          * Register Single Post's Structures Customizer Configurations.
          *
          * @param string $parent_section Section of dynamic customizer.

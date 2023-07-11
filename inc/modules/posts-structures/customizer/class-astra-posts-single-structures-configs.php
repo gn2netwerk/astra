@@ -73,24 +73,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	}
 
 	/**
-	 * Get default value for single post's structures.
-	 * 
-	 * @param string $post_type Post Type.
-	 * @param bool $content_layout Content Layout.
-	 * @param bool $content_style Content Style.
-	 * @return string Customizer Configurations.
-	 */
-	public function astra_single_defaults( $post_type, $content_layout = false, $content_style = false ) {
-		if( 'page' === $post_type ) {
-			$value = $content_layout ? 'normal-width-container' : 'unboxed';
-			return false === astra_check_is_structural_setup() ? 'default' : $value;
-		}
-		else {
-			return 'default';
-		}
-	}
-
-	/**
 	 * Register Single Post's Structures Customizer Configurations.
 	 *
 	 * @param string $parent_section Section of dynamic customizer.
@@ -111,7 +93,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'control'           => 'ast-radio-image',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 				'section'           => $parent_section,
-				'default'           => astra_get_option( 'single-' . $post_type . '-ast-content-layout', self::astra_single_defaults( $post_type, true ) ),
+				'default'           => astra_get_option( 'single-' . $post_type . '-ast-content-layout', 'default' ),
 				'priority'          => 3,
 				'title'             => __( 'Container Layout', 'astra' ),
 				'choices'           => $this->get_new_content_layout_choices( $post_type ),
@@ -126,7 +108,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				'type'              => 'control',
 				'control'           => 'ast-selector',
 				'section'           => $parent_section,
-				'default'           => astra_get_option( 'single-' . $post_type . '-content-style', 'default', self::astra_single_defaults( $post_type, false, true ) ),
+				'default'           => astra_get_option( 'single-' . $post_type . '-content-style', 'default' ),
 				'priority'          => 3,
 				'title'             => __( 'Container Style', 'astra' ),
 				'choices'     => array(
