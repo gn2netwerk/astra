@@ -4669,7 +4669,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 
-			.ast-site-header-cart .cart-container {
+			.ast-site-header-cart .cart-container:focus-visible {
 				display: inline-block;
 			}
 			';
