@@ -456,13 +456,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				);
 			}
 
-			if ( 'hang-over-top' === astra_get_option( 'store-notice-position' ) ) {
-				$css_output_mobile = array();
-				// Mobile styles for Hang over top positioning of Store Notice bar in mobile devices only
-			}
-
-
-				
 			/* Parse CSS from array() */
 			$dynamic_css .= astra_parse_css( $css_output_desktop );
 
