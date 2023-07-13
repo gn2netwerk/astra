@@ -1,6 +1,6 @@
 v4.1.7 (Unreleased)
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
-- Fix: Issue where alt tags were not rendering for SVG images on the product page.
+- Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
