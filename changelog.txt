@@ -1,5 +1,6 @@
 v4.1.7 (Unreleased)
 - Improvement: Accessibility improvements for Woocommerce Pages.
+- Improvement: New Astra dashboard CTA banner for Starter Template installation.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
