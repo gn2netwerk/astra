@@ -1,3 +1,6 @@
+v4.1.7 ( unreleased )
+- Fix: Cart button color setting is not working when product added to cart.
+
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
 - Improvement: Improved title area customizer control UI for better user experience.
