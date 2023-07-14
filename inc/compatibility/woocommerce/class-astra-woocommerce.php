@@ -3519,41 +3519,41 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			<fieldset class="ast-single-product-payments <?php echo esc_attr( $if_color_version_css ); ?>">
 				<legend><?php echo esc_html( $section_title ); ?></legend>
 				<ul>
-					<?php
-					$colored_varients = array( 'cc-amex', 'cc-apple-pay', 'cc-discover', 'cc-mastercard', 'cc-paypal', 'cc-visa' );
-					$payment_list     = astra_get_option( 'single-product-payment-list' );
+			<?php
+			$colored_varients = array( 'cc-amex', 'cc-apple-pay', 'cc-discover', 'cc-mastercard', 'cc-paypal', 'cc-visa' );
+			$payment_list = astra_get_option( 'single-product-payment-list' );
 
-					if ( isset( $payment_list['items'] ) ) {
-						?>
-							<?php foreach ( $payment_list['items'] as $single ) { ?>
-								<?php if ( isset( $single['enabled'] ) && true === $single['enabled'] ) { ?>
-										<?php
-										if ( isset( $single['source'] ) && $single['source'] ) {
-											if ( 'image' === $single['source'] ) {
-												if ( isset( $single['image'] ) && $single['image'] ) {
-													?>
-															<li class="ast-custom-payment">
-																<img src="<?php echo esc_url( $single['image'] ); ?>" />
-												</li>
-														<?php
-												}
-											} else {
-												if ( isset( $single['icon'] ) && $single['icon'] ) {
+			if ( isset( $payment_list['items'] ) ) {
+				foreach ( $payment_list['items'] as $single ) {
+					if ( isset( $single['enabled'] ) && true === $single['enabled'] ) {
+						if ( isset( $single['source'] ) && $single['source'] ) {
+							if ( 'image' === $single['source'] ) {
+								if ( isset( $single['image'] ) && $single['image'] ) {
+									$image_id = attachment_url_to_postid( $single['image'] );
+									$image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+									?>
+							<li class="ast-custom-payment">
+								<img src="<?php echo esc_url( $single['image'] ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>" />
+							</li>
+									<?php
+								}
+							} else {
+								if ( isset( $single['icon'] ) && $single['icon'] ) {
+									$selected_icon = in_array( $single['icon'], $colored_varients ) && 'inherit_text_color' !== $if_color_version ? $single['icon'] . '-c' : $single['icon'];
+									?>
+								<li class="ast-custom-payment">
+										<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( $selected_icon, false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							</li>
+									<?php
+								}
+							}
+						}
+					}
+				}
+			}
+			?>
+</ul>
 
-													$selected_icon = in_array( $single['icon'], $colored_varients ) && 'inherit_text_color' !== $if_color_version ? $single['icon'] . '-c' : $single['icon'];
-													?>
-													<li class="ast-custom-payment">
-													<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( $selected_icon, false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-													</li>
-													<?php
-												}
-											}
-										}
-										?>
-								<?php } ?>
-							<?php } ?>
-					<?php } ?>
-				</ul>
 			</fieldset>
 
 			<?php
