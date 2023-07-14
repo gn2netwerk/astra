@@ -1,4 +1,5 @@
-v4.1.7 ( unreleased )
+v4.1.7 (Unreleased)
+- Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Fix: Cart button color setting is not working when product added to cart.
 
 v4.1.6
