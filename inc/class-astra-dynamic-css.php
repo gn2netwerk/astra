@@ -784,47 +784,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Accessibility options.
 			$enable_site_accessibility        = astra_get_option( 'site-accessibility-toggle', false );
-			$html_selectors_focus_visible     = 'a:focus-visible, 
-												.ast-menu-toggle:focus-visible, 
-												.site .skip-link:focus-visible, 
-												.wp-block-loginout input:focus-visible, 
-												.wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper, 
-												.ast-header-navigation-arrow:focus-visible,
-												.woocommerce .wc-proceed-to-checkout > .checkout-button:focus-visible,
-												.woocommerce .woocommerce-MyAccount-navigation ul li a:focus-visible,
-												.ast-orders-table__row .ast-orders-table__cell:focus-visible,
-												.woocommerce .woocommerce-order-details .order-again > .button:focus-visible,
-												.woocommerce .woocommerce-message a.button.wc-forward:focus-visible';
+			$html_selectors_focus_visible     = 'a:focus-visible, .ast-menu-toggle:focus-visible, .site .skip-link:focus-visible, 
+ .wp-block-loginout input:focus-visible, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper, .ast-header-navigation-arrow:focus-visible, .woocommerce .wc-proceed-to-checkout > .checkout-button:focus-visible, .woocommerce .woocommerce-MyAccount-navigation ul li a:focus-visible, .ast-orders-table__row .ast-orders-table__cell:focus-visible, .woocommerce .woocommerce-order-details .order-again > .button:focus-visible, .woocommerce .woocommerce-message a.button.wc-forward:focus-visible';
 
-			$html_selectors_focus_only_inputs = 'input:focus, 
-												input[type="text"]:focus, 
-												input[type="email"]:focus, 
-												input[type="url"]:focus, 
-												input[type="password"]:focus, 
-												input[type="reset"]:focus, 
-												input[type="search"]:focus,
-												input[type="number"]:focus,
-												textarea:focus, 
-												.wp-block-search__input:focus, 
-												[data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-minimal:focus, 
-												.ast-mobile-popup-drawer.active .menu-toggle-close:focus, 
-												.woocommerce-ordering select.orderby:focus, 
-												#ast-scroll-top:focus,
-												#coupon_code:focus,
-												.woocommerce-page #comment:focus,
-												.woocommerce #reviews #respond input#submit:focus,
-												.woocommerce a.add_to_cart_button:focus, 
-												.woocommerce .button.single_add_to_cart_button:focus,
-												.woocommerce .woocommerce-cart-form button:focus,
-												.woocommerce .woocommerce-cart-form__cart-item .quantity .qty:focus,
-												.woocommerce .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus,
-												.woocommerce #order_comments:focus,
-												.woocommerce #place_order:focus,
-												.woocommerce .woocommerce-address-fields .woocommerce-address-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus,
-												.woocommerce .woocommerce-MyAccount-content form button:focus,
-												.woocommerce .woocommerce-MyAccount-content .woocommerce-EditAccountForm .woocommerce-form-row .woocommerce-Input.input-text:focus,
-												.woocommerce .ast-woocommerce-container .woocommerce-pagination ul.page-numbers li a:focus,
-												body #content .woocommerce form .form-row .select2-container--default .select2-selection--single:focus';
+			$html_selectors_focus_only_inputs = 'input:focus, input[type="text"]:focus, input[type="email"]:focus, 
+ input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, 
+ input[type="number"]:focus, textarea:focus, .wp-block-search__input:focus, [data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-minimal:focus, .ast-mobile-popup-drawer.active .menu-toggle-close:focus, .woocommerce-ordering select.orderby:focus, #ast-scroll-top:focus, #coupon_code:focus, .woocommerce-page #comment:focus, .woocommerce #reviews #respond input#submit:focus, .woocommerce a.add_to_cart_button:focus, .woocommerce .button.single_add_to_cart_button:focus, .woocommerce .woocommerce-cart-form button:focus, .woocommerce .woocommerce-cart-form__cart-item .quantity .qty:focus, .woocommerce .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce #order_comments:focus, .woocommerce #place_order:focus, .woocommerce .woocommerce-address-fields .woocommerce-address-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce .woocommerce-MyAccount-content form button:focus, .woocommerce .woocommerce-MyAccount-content .woocommerce-EditAccountForm .woocommerce-form-row .woocommerce-Input.input-text:focus, .woocommerce .ast-woocommerce-container .woocommerce-pagination ul.page-numbers li a:focus, body #content .woocommerce form .form-row .select2-container--default .select2-selection--single:focus';
 
 			if ( $enable_site_accessibility ) {
 				$outline_style = astra_get_option( 'site-accessibility-highlight-type' );
