@@ -1,6 +1,7 @@
 v4.1.7 (Unreleased)
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
+- Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".

@@ -807,6 +807,10 @@
     user-select: none;
     pointer-events: none;
 }
+.color-group-item .components-custom-gradient-picker__control-point-dropdown .components-popover .components-popover__content,
+.ast-color-palette .components-custom-gradient-picker__control-point-dropdown .components-popover .components-popover__content {
+    min-width: fit-content;
+}
 .ast-color-palette .components-popover .components-popover__content {
     bottom: calc(100% + 5px);
     animation: tooltips-vert .3s ease-out forwards;
