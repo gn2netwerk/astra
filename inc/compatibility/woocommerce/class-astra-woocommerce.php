@@ -2585,21 +2585,21 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$add_to_cart_quantity_btn_css = '';
 
 				$add_to_cart_quantity_btn_css .= '
-					.woocommerce .quantity.buttons_added {
+					.woocommerce-js .quantity.buttons_added {
 						display: inline-flex;
 					}
 
-					.woocommerce .quantity.buttons_added + .button.single_add_to_cart_button {
+					.woocommerce-js .quantity.buttons_added + .button.single_add_to_cart_button {
 						margin-' . $ltr_left . ': unset;
 					}
 
-					.woocommerce .quantity .qty {
+					.woocommerce-js .quantity .qty {
 						width: 2.631em;
 						margin-' . $ltr_left . ': 38px;
 					}
 
-					.woocommerce .quantity .minus,
-					.woocommerce .quantity .plus {
+					.woocommerce-js .quantity .minus,
+					.woocommerce-js .quantity .plus {
 						width: 38px;
 						display: flex;
 						justify-content: center;
@@ -2611,26 +2611,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						font-weight: 400;
 					}
 
-					.woocommerce .quantity .minus {
+					.woocommerce-js .quantity .minus {
 						border-' . $ltr_right . '-width: 0;
 						margin-' . $ltr_right . ': -38px;
 					}
 
-					.woocommerce .quantity .plus {
+					.woocommerce-js .quantity .plus {
 						border-' . $ltr_left . '-width: 0;
 						margin-' . $ltr_right . ': 6px;
 					}
 
-					.woocommerce input[type=number] {
+					.woocommerce-js input[type=number] {
 						max-width: 58px;
 						min-height: 36px;
 					}
 
-					.woocommerce input[type=number].qty::-webkit-inner-spin-button, .woocommerce input[type=number].qty::-webkit-outer-spin-button {
+					.woocommerce-js input[type=number].qty::-webkit-inner-spin-button, .woocommerce input[type=number].qty::-webkit-outer-spin-button {
 						-webkit-appearance: none;
 					}
 
-					.woocommerce input[type=number].qty {
+					.woocommerce-js input[type=number].qty {
 						-webkit-appearance: none;
 						-moz-appearance: textfield;
 					}
