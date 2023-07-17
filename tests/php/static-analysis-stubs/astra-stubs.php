@@ -15972,6 +15972,15 @@ namespace {
     {
     }
     /**
+    * Check whether user is exising or new to override the hr tag styling for elementor
+    * 
+    * @since 4.1.6
+    * @return boolean
+    */
+    function astra_can_add_styling_for_hr() 
+    {
+    }
+    /**
      * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
      *
      * @since 3.7.0

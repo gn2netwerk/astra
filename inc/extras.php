@@ -699,6 +699,17 @@ function astra_can_remove_elementor_toc_margin_space() {
 }
 
 /**
+ * Check whether user is exising or new to override the hr tag styling for elementor
+ * 
+ * @since 4.1.6
+ * @return boolean
+ */
+function astra_can_add_styling_for_hr() {
+	$astra_settings                       = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['add-styling-for-hr'] = isset( $astra_settings['add-styling-for-hr'] ) ? false : true;
+	return apply_filters( 'astra_add_styling_for_hr', $astra_settings['add-styling-for-hr'] );
+}
+/**
  * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
  *
  * @since 3.7.0

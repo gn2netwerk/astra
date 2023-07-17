@@ -151,6 +151,14 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					);
 				}
 
+				if ( astra_can_add_styling_for_hr() ) {
+					$elementor_base_css['body .elementor hr'] = array(
+						'background-color' => '#ccc',
+						'margin'           => '0',
+					);
+				}
+
+
 				// Load base static CSS when Elmentor is activated.
 				$parse_css .= astra_parse_css( $elementor_base_css );
 
