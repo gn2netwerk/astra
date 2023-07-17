@@ -1,6 +1,7 @@
 v4.1.7 (Unreleased)
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Fix: Cart button color setting is not working when product added to cart.
+- Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
