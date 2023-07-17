@@ -140,6 +140,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 						'margin' => '0',
 						'float'  => 'none',
 					),
+					'body .elementor hr' => array(
+						'background-color' => '#ccc'
+					),
 				);
 
 				if ( astra_can_remove_elementor_toc_margin_space() ) {
