@@ -425,8 +425,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 					default:
 					case 'FILTER_SANITIZE_STRING':
-							// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- This deprecation will be addressed later.
-							$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
+$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
 						break;
 
 					case 'FILTER_SANITIZE_URL':
@@ -450,6 +449,23 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				}
 			}
 
+		}
+
+		/**
+		 * Sanitizes string values.
+		 *
+		 * @since x.x.x
+		 * @param string $string The string being sanitized.
+		 * @return string $string The sanitized version of the string.
+		 */
+		function sanitize_string( $string ) {
+			// Replace HTML tags and entities with their plain text equivalents
+			$string = htmlspecialchars_decode( $string, ENT_QUOTES );
+
+			// Remove remaining HTML tags
+			$string = strip_tags( $string );
+
+			return $string;
 		}
 
 		/**
