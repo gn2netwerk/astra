@@ -1,6 +1,7 @@
 v4.1.7 (Unreleased)
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
+- Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
