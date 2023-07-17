@@ -425,7 +425,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 					default:
 					case 'FILTER_SANITIZE_STRING':
-$meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
+						$meta_value = isset( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : '';
 						break;
 
 					case 'FILTER_SANITIZE_URL':
@@ -451,22 +451,7 @@ $meta_value = filter_input( INPUT_POST, $key, FILTER_SANITIZE_STRING );
 
 		}
 
-		/**
-		 * Sanitizes string values.
-		 *
-		 * @since x.x.x
-		 * @param string $string The string being sanitized.
-		 * @return string $string The sanitized version of the string.
-		 */
-		function sanitize_string( $string ) {
-			// Replace HTML tags and entities with their plain text equivalents
-			$string = htmlspecialchars_decode( $string, ENT_QUOTES );
 
-			// Remove remaining HTML tags
-			$string = strip_tags( $string );
-
-			return $string;
-		}
 
 		/**
 		 * Register Script for Meta options
