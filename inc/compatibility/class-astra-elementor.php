@@ -155,7 +155,6 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					);
 				}
 
-
 				// Load base static CSS when Elmentor is activated.
 				$parse_css .= astra_parse_css( $elementor_base_css );
 
