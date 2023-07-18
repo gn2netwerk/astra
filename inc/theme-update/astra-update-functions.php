@@ -345,7 +345,7 @@ function astra_remove_elementor_toc_margin() {
  * @since x.x.x
  * @return void
  */
-function astra_add_hr_line_styling() {
+function astra_theme_background_updater_4_1_7() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['add-hr-styling-css'] ) ) {
