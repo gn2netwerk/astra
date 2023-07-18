@@ -3543,12 +3543,24 @@
     {
         "DM Sans": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
-                "700italic"
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -7882,6 +7894,31 @@
         }
     },
     {
+        "Lugrasimo": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Lumanosimo": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Lunasima": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Lusitana": {
             "variants": [
                 "regular",
@@ -9746,6 +9783,14 @@
         }
     },
     {
+        "Noto Sans Cypro Minoan": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans Deseret": {
             "variants": [
                 "regular"
@@ -10809,6 +10854,22 @@
         }
     },
     {
+        "Noto Sans Syriac Eastern": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans TC": {
             "variants": [
                 "100",
@@ -11302,6 +11363,14 @@
                 "900"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Noto Serif Khitan Small Script": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -15291,6 +15360,19 @@
         }
     },
     {
+        "Tektur": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Telex": {
             "variants": [
                 "regular"
@@ -15994,6 +16076,27 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Victor Mono": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
+            ],
+            "category": "monospace"
         }
     },
     {
