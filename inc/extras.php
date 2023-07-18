@@ -701,7 +701,7 @@ function astra_can_remove_elementor_toc_margin_space() {
 /**
  * Check whether user is exising or new to override the hr tag styling for elementor
  * 
- * @since 4.1.6
+ * @since x.x.x
  * @return boolean
  */
 function astra_can_add_styling_for_hr() {

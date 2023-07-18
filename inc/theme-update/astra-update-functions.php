@@ -342,10 +342,10 @@ function astra_remove_elementor_toc_margin() {
 /**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  * 
- * @since 4.16
+ * @since x.x.x
  * @return void
  */
-function add_hr_line_styling() {
+function astra_add_hr_line_styling() {
 	$theme_options = get_option( 'astra-settings', array() );
 
 	if ( ! isset( $theme_options['add-hr-styling-css'] ) ) {
