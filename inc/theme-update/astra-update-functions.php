@@ -1293,36 +1293,36 @@ function astra_theme_background_updater_4_2_0_beta_1() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['v4-2-0-beta-1-update-migration'] ) ) {
 
-		$post_types            = Astra_Posts_Structure_Loader::get_supported_post_types();
-		$theme_options         = get_option( 'astra-settings' );
-		$blog_types            = array( 'single', 'archive' );
-		$third_party_layouts   = array( 'woocommerce', 'edd', 'lifterlms', 'lifterlms-course-lesson', 'learndash' );
+		$post_types          = Astra_Posts_Structure_Loader::get_supported_post_types();
+		$theme_options       = get_option( 'astra-settings' );
+		$blog_types          = array( 'single', 'archive' );
+		$third_party_layouts = array( 'woocommerce', 'edd', 'lifterlms', 'lifterlms-course-lesson', 'learndash' );
 
 		// Global.
-		if ( isset( $theme_options[ 'site-content-layout' ] ) ) {
+		if ( isset( $theme_options['site-content-layout'] ) ) {
 			$theme_options = astra_apply_layout_migration( 'site-content-layout', 'ast-site-content-layout', 'site-content-style', 'site-sidebar-style', $theme_options );
 		}
 
 		// Single, archive.
 		foreach ( $blog_types as $index => $blog_type ) {
-			foreach( $post_types as $index => $post_type ) {
+			foreach ( $post_types as $index => $post_type ) {
 				$old_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-content-layout';
 				$new_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-ast-content-layout';
 				$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
 				$sidebar_style = $blog_type . '-' . esc_attr( $post_type ) . '-sidebar-style';
-				if( isset( $theme_options[ $old_layout ] ) ) {
+				if ( isset( $theme_options[ $old_layout ] ) ) {
 					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options );
 				}
 			}
 		}
 
 		// Third party existing layout migrations to new layout options.
-		foreach( $third_party_layouts as $index => $layout ) {
+		foreach ( $third_party_layouts as $index => $layout ) {
 			$old_layout    = $layout . '-content-layout';
 			$new_layout    = $layout . '-ast-content-layout';
 			$content_style = $layout . '-content-style';
 			$sidebar_style = $layout . '-sidebar-style';
-			if( isset( $theme_options[ $old_layout ] ) ) {
+			if ( isset( $theme_options[ $old_layout ] ) ) {
 				if ( 'lifterlms' === $layout ) {
 
 					// Lifterlms course/lesson sidebar style migration case.
@@ -1345,6 +1345,7 @@ function astra_theme_background_updater_4_2_0_beta_1() {
  * Handle migration from old to new layouts.
  *
  * Migration cases for old users, old layouts -> new layouts.
+ *
  * @since 4.2.0-beta.1
  * @param mixed $old_layout
  * @param mixed $new_layout

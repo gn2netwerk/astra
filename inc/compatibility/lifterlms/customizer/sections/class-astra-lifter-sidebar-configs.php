@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-top-section-divider' )
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -108,14 +108,14 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 				 * Option: LifterLMS Sidebar Style.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-style]',
-					'type'              => 'control',
-					'control'           => 'ast-selector',
-					'section'           => $section_general,
-					'default'           => astra_get_option( 'lifterlms-sidebar-style', 'default' ),
-					'priority'          => 1,
-					'title'             => $title_lifter_lms_sidebar_style,
-					'choices'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-style]',
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $section_general,
+					'default'    => astra_get_option( 'lifterlms-sidebar-style', 'default' ),
+					'priority'   => 1,
+					'title'      => $title_lifter_lms_sidebar_style,
+					'choices'    => array(
 						'default' => __( 'Default', 'astra' ),
 						'unboxed' => __( 'Unboxed', 'astra' ),
 						'boxed'   => __( 'Boxed', 'astra' ),
@@ -155,7 +155,7 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
-					'divider' => $lifter_lms_section_divider ? array( 'ast_class' => 'ast-section-spacing ast-top-section-divider' ) : array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'           => $lifter_lms_section_divider ? array( 'ast_class' => 'ast-section-spacing ast-top-section-divider' ) : array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				/**
@@ -178,14 +178,14 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 				 * Option: Course/Lesson Sidebar Style.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-style]',
-					'type'              => 'control',
-					'control'           => 'ast-selector',
-					'section'           => $section_courses,
-					'default'           => astra_get_option( 'lifterlms-course-lesson-sidebar-style', 'default' ),
-					'priority'          => 1,
-					'title'             => $title_lifter_lms_courses_sidebar_style,
-					'choices'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-style]',
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $section_courses,
+					'default'    => astra_get_option( 'lifterlms-course-lesson-sidebar-style', 'default' ),
+					'priority'   => 1,
+					'title'      => $title_lifter_lms_courses_sidebar_style,
+					'choices'    => array(
 						'default' => __( 'Default', 'astra' ),
 						'unboxed' => __( 'Unboxed', 'astra' ),
 						'boxed'   => __( 'Boxed', 'astra' ),

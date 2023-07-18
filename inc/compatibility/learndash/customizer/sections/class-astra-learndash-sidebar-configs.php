@@ -86,14 +86,14 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 				 * Option: Learndash Sidebar Style.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[learndash-sidebar-style]',
-					'type'              => 'control',
-					'control'           => 'ast-selector',
-					'section'           => 'section-leandash-general',
-					'default'           => astra_get_option( 'learndash-sidebar-style', 'default' ),
-					'priority'          => 5,
-					'title'             => __( 'Sidebar Style', 'astra' ),
-					'choices'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[learndash-sidebar-style]',
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => 'section-leandash-general',
+					'default'    => astra_get_option( 'learndash-sidebar-style', 'default' ),
+					'priority'   => 5,
+					'title'      => __( 'Sidebar Style', 'astra' ),
+					'choices'    => array(
 						'default' => __( 'Default', 'astra' ),
 						'unboxed' => __( 'Unboxed', 'astra' ),
 						'boxed'   => __( 'Boxed', 'astra' ),

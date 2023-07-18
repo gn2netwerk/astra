@@ -471,13 +471,13 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 
 					// Container.
-					'single-page-ast-content-layout'           => false === astra_check_is_structural_setup() ? 'default' : 'normal-width-container',
-					'single-page-content-style'                => false === astra_check_is_structural_setup() ? 'default' : 'unboxed',
-					'single-post-ast-content-layout'           => 'default',
-					'single-post-content-style'                => 'default',
-					'archive-post-ast-content-layout'          => 'default',
-					'ast-site-content-layout'                  => 'normal-width-container',
-					'site-content-style'                       => 'boxed',
+					'single-page-ast-content-layout'       => false === astra_check_is_structural_setup() ? 'default' : 'normal-width-container',
+					'single-page-content-style'            => false === astra_check_is_structural_setup() ? 'default' : 'unboxed',
+					'single-post-ast-content-layout'       => 'default',
+					'single-post-content-style'            => 'default',
+					'archive-post-ast-content-layout'      => 'default',
+					'ast-site-content-layout'              => 'normal-width-container',
+					'site-content-style'                   => 'boxed',
 
 					// Typography.
 					'body-font-family'                     => 'inherit',

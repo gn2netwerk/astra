@@ -85,14 +85,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 				 * Option: Woocommerce Sidebar Style.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[woocommerce-sidebar-style]',
-					'type'              => 'control',
-					'control'           => 'ast-selector',
-					'section'           => 'section-woo-general',
-					'default'           => astra_get_option( 'woocommerce-sidebar-style', 'default' ),
-					'priority'          => 5,
-					'title'             => __( 'Sidebar Style', 'astra' ),
-					'choices'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[woocommerce-sidebar-style]',
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => 'section-woo-general',
+					'default'    => astra_get_option( 'woocommerce-sidebar-style', 'default' ),
+					'priority'   => 5,
+					'title'      => __( 'Sidebar Style', 'astra' ),
+					'choices'    => array(
 						'default' => __( 'Default', 'astra' ),
 						'unboxed' => __( 'Unboxed', 'astra' ),
 						'boxed'   => __( 'Boxed', 'astra' ),

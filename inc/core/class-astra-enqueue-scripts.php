@@ -97,11 +97,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				return $classes;
 			}
 
-			$post_id = get_the_ID();
+			$post_id          = get_the_ID();
 			$is_boxed         = astra_is_content_style_boxed( $post_id );
 			$is_sidebar_boxed = astra_is_sidebar_style_boxed( $post_id );
-			$classes .= $is_boxed ? ' ast-default-content-style-boxed' : ' ast-default-content-unboxed';
-			$classes .= $is_sidebar_boxed ? ' ast-default-sidebar-style-boxed' : ' ast-default-sidebar-unboxed';
+			$classes         .= $is_boxed ? ' ast-default-content-style-boxed' : ' ast-default-content-unboxed';
+			$classes         .= $is_sidebar_boxed ? ' ast-default-sidebar-style-boxed' : ' ast-default-sidebar-unboxed';
 
 			if ( $post_id ) {
 				$meta_content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', $post_id );
@@ -123,10 +123,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes                      .= ' ast-default-layout-' . $editor_default_content_layout;
 			} else {
 				$editor_default_content_layout = astra_apply_boxed_layouts( $editor_default_content_layout, $is_boxed, $is_sidebar_boxed, $post_id );
-				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
+				$classes                      .= ' ast-default-layout-' . $editor_default_content_layout;
 			}
 
-			$content_layout   = astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed, $post_id );
+			$content_layout = astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed, $post_id );
 
 			if ( 'content-boxed-container' == $content_layout ) {
 				$classes .= ' ast-separate-container';
