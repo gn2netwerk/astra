@@ -1067,8 +1067,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					$edd_page_layout = astra_get_option_meta( 'site-content-layout', '', true );
 					if ( isset( $edd_page_layout ) ) {
 						$edd_page_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false, $edd_page_layout );
-					}
-					else {
+					} else {
 						$edd_page_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
 					}
 				}

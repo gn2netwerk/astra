@@ -45,15 +45,15 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 					'priority'          => 5,
 					'title'             => __( 'Container Layout', 'astra' ),
 					'choices'           => array(
-						'default'                 => array(
+						'default'                => array(
 							'label' => __( 'Default', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
 						),
-						'normal-width-container'         => array(
+						'normal-width-container' => array(
 							'label' => __( 'Normal', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'normal-width-container', false ) : '',
 						),
-						'full-width-container'            => array(
+						'full-width-container'   => array(
 							'label' => __( 'Full Width', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'full-width-container', false ) : '',
 						),
@@ -65,14 +65,14 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 				 * Option: LearnDash Content Style Option.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[learndash-content-style]',
-					'type'              => 'control',
-					'control'           => 'ast-selector',
-					'section'           => 'section-leandash-general',
-					'default'           => astra_get_option( 'learndash-content-style', 'default' ),
-					'priority'          => 5,
-					'title'             => __( 'Container Style', 'astra' ),
-					'choices'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[learndash-content-style]',
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => 'section-leandash-general',
+					'default'    => astra_get_option( 'learndash-content-style', 'default' ),
+					'priority'   => 5,
+					'title'      => __( 'Container Style', 'astra' ),
+					'choices'    => array(
 						'default' => 'Default',
 						'unboxed' => 'Unboxed',
 						'boxed'   => 'Boxed',

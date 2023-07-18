@@ -220,27 +220,30 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$ast_featured_img        = ( isset( $meta['ast-featured-img']['default'] ) ) ? $meta['ast-featured-img']['default'] : '';
 			$breadcrumbs_content     = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
 			$ast_banner_visibility   = ( isset( $meta['ast-banner-title-visibility']['default'] ) ) ? $meta['ast-banner-title-visibility']['default'] : '';
-			$exclude_cpt             = isset( $post->post_type ) ? in_array( $post->post_type, array(
-				'product',
-				'download',
-				'course',
-				'lesson',
-				'tutor_quiz',
-				'tutor_assignments',
-				'sfwd-assignment',
-				'sfwd-essays',
-				'sfwd-transactions',
-				'sfwd-certificates',
-				'sfwd-quiz',
-				'sfwd-courses',
-				'sfwd-lessons',
-				'sfwd-topic',
-				'groups'
-			) ) : '';
-			$show_meta_field       = ! self::is_bb_themer_layout();
-			$old_meta_layout       = isset ( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '';
-			$meta_key              = ( isset( $meta['astra-migrate-meta-layouts']['default'] ) ) ? $meta['astra-migrate-meta-layouts']['default'] : '';
-			$migrated_user         = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
+			$exclude_cpt             = isset( $post->post_type ) ? in_array(
+				$post->post_type,
+				array(
+					'product',
+					'download',
+					'course',
+					'lesson',
+					'tutor_quiz',
+					'tutor_assignments',
+					'sfwd-assignment',
+					'sfwd-essays',
+					'sfwd-transactions',
+					'sfwd-certificates',
+					'sfwd-quiz',
+					'sfwd-courses',
+					'sfwd-lessons',
+					'sfwd-topic',
+					'groups',
+				) 
+			) : '';
+			$show_meta_field         = ! self::is_bb_themer_layout();
+			$old_meta_layout         = isset( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '';
+			$meta_key                = ( isset( $meta['astra-migrate-meta-layouts']['default'] ) ) ? $meta['astra-migrate-meta-layouts']['default'] : '';
+			$migrated_user           = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
 			do_action( 'astra_meta_box_markup_before', $meta );
 
 			// Migrate old user existing container layout option to new layout options.
@@ -541,8 +544,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 					/** @psalm-suppress InvalidArgument */
 					delete_post_meta( $post_id, $key );
-				}
-
+				}           
 			}
 
 		}
@@ -661,23 +663,26 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function get_content_layout_options() {
 			$post_type   = get_post_type();
-			$exclude_cpt = in_array( $post_type, array(
-				'product',
-				'download',
-				'course',
-				'lesson',
-				'tutor_quiz',
-				'tutor_assignments',
-				'sfwd-assignment',
-				'sfwd-essays',
-				'sfwd-transactions',
-				'sfwd-certificates',
-				'sfwd-quiz',
-				'sfwd-courses',
-				'sfwd-lessons',
-				'sfwd-topic',
-				'groups'
-			) );
+			$exclude_cpt = in_array(
+				$post_type,
+				array(
+					'product',
+					'download',
+					'course',
+					'lesson',
+					'tutor_quiz',
+					'tutor_assignments',
+					'sfwd-assignment',
+					'sfwd-essays',
+					'sfwd-transactions',
+					'sfwd-certificates',
+					'sfwd-quiz',
+					'sfwd-courses',
+					'sfwd-lessons',
+					'sfwd-topic',
+					'groups',
+				) 
+			);
 			if ( astra_with_third_party() || $exclude_cpt ) {
 				return array(
 					'default'                => __( 'Customizer Setting', 'astra' ),
@@ -1204,26 +1209,26 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						'default'  => 'default',
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
-					'ast-site-content-layout'           => array(
+					'ast-site-content-layout'       => array(
 						'default'  => '',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-content-style'           => array(
+					'site-content-style'            => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'site-sidebar-style'           => array(
+					'site-sidebar-style'            => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'astra-migrate-meta-layouts'   => array(
+					'astra-migrate-meta-layouts'    => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),
-					'ast-featured-img'             => array(
+					'ast-featured-img'              => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
-					'ast-breadcrumbs-content'      => array(
+					'ast-breadcrumbs-content'       => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
 				)

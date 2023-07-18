@@ -130,19 +130,18 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 			if ( $old_meta_content_layout ) {
 				$content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false, $old_meta_content_layout );
-			}
-			else {
+			} else {
 				$content_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
 	
 				// If post meta value is present, apply new layout option.
-				if( $content_layout ) {
+				if ( $content_layout ) {
 					$content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
 				}
 			}
 
 			if ( empty( $content_layout ) ) {
 
-				$post_type = strval( get_post_type() );
+				$post_type      = strval( get_post_type() );
 				$content_layout = astra_toggle_layout( 'single-' . $post_type . '-ast-content-layout', 'single', false );
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
@@ -188,7 +187,7 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false, $ol
 
 	// Dynamic layout option for meta case.
 	$dynamic_layout_option = 'meta' === $level ? astra_get_option_meta( $new_content_option, '', true ) : astra_get_option( $new_content_option, 'default' );
-	$current_layout = '';
+	$current_layout        = '';
 
 	// Get meta value by ID if specified.
 	if ( $post_id ) {
@@ -196,11 +195,11 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false, $ol
 	}
 
 	// Meta layout migrations.
-	$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
-	$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
+	$meta_key              = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
+	$migrated_user         = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
 	$third_party_meta_page = astra_third_party_archive_meta( 'site-content-layout' );
 	if ( 'meta' === $level && $migrated_user ) {
-		if( false !== $third_party_meta_page ) {
+		if ( false !== $third_party_meta_page ) {
 			$old_meta = $third_party_meta_page;
 			$meta_key = astra_third_party_archive_meta( 'astra-migrate-meta-layouts' );
 		}
@@ -225,7 +224,7 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false, $ol
 			$current_layout = 'page-builder';
 			break;
 		default:
-			if( 'meta' === $level && ! $migrated_user && 'set' !== $meta_key && $old_meta ) {
+			if ( 'meta' === $level && ! $migrated_user && 'set' !== $meta_key && $old_meta ) {
 				$current_layout = $old_meta;
 			} else {
 				$current_layout = 'default';

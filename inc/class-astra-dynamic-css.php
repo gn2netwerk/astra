@@ -1794,7 +1794,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-bottom' => '2em',
 					),
 					'.ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box' => array(
-						'border-bottom'    => '1px solid var(--ast-border-color)',
+						'border-bottom' => '1px solid var(--ast-border-color)',
 					),
 					'.ast-separate-container .comments-title' => array(
 						'padding' => '2em 2em 0 2em',
@@ -4877,6 +4877,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Check if fullwidth layout with sidebar is supported.
 		 * Old users - yes
 		 * New users - no
+		 *
 		 * @return bool true|false.
 		 * @since 4.2.0-beta.1
 		 */

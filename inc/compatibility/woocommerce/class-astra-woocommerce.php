@@ -1238,15 +1238,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				if ( is_shop() ) {
 					$shop_page_id = get_option( 'woocommerce_shop_page_id' );
-					$shop_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', $shop_page_id );
+					$shop_layout  = astra_toggle_layout( 'ast-site-content-layout', 'meta', $shop_page_id );
 				} elseif ( is_product_taxonomy() ) {
 					$shop_layout = 'default';
 				} else {
 					$old_meta_layout = astra_get_option_meta( 'site-content-layout', '', true );
 					if ( isset( $old_meta_layout ) ) {
-						$shop_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false, $old_meta_layout);
-					}
-					else {
+						$shop_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false, $old_meta_layout );
+					} else {
 						$shop_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
 					}
 				}

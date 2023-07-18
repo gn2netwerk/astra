@@ -80,14 +80,14 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 				 * Option: Site Sidebar Style.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[site-sidebar-style]',
-					'type'              => 'control',
-					'control'           => 'ast-selector',
-					'section'           => 'section-sidebars',
-					'default'           => astra_get_option( 'site-sidebar-style', 'unboxed' ),
-					'priority'          => 9,
-					'title'             => __( 'Sidebar Style', 'astra' ),
-					'choices'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[site-sidebar-style]',
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => 'section-sidebars',
+					'default'    => astra_get_option( 'site-sidebar-style', 'unboxed' ),
+					'priority'   => 9,
+					'title'      => __( 'Sidebar Style', 'astra' ),
+					'choices'    => array(
 						'unboxed' => __( 'Unboxed', 'astra' ),
 						'boxed'   => __( 'Boxed', 'astra' ),
 					),

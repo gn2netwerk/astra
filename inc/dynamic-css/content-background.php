@@ -71,7 +71,7 @@ function astra_content_background_css( $dynamic_css ) {
 
 	// Apply Content BG Color for Narrow Unboxed Container.
 	if ( ! astra_is_content_style_boxed() ) {
-		$container_css = array_merge(
+		$container_css        = array_merge(
 			$container_css,
 			array( '.ast-narrow-container .site-content' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ) ),
 		);

@@ -52,15 +52,15 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'title'             => __( 'Container Layout', 'astra' ),
 					'transport'         => 'refresh',
 					'choices'           => array(
-						'normal-width-container'         => array(
+						'normal-width-container' => array(
 							'label' => __( 'Normal', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'normal-width-container', false ) : '',
 						),
-						'narrow-width-container'        => array(
+						'narrow-width-container' => array(
 							'label' => __( 'Narrow', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-width-container', false ) : '',
 						),
-						'full-width-container'            => array(
+						'full-width-container'   => array(
 							'label' => __( 'Full Width', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'full-width-container', false ) : '',
 						),
@@ -72,14 +72,14 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				 * Option: Global Content Style.
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[site-content-style]',
-					'type'              => 'control',
-					'control'           => 'ast-selector',
-					'section'           => 'section-container-layout',
-					'default'           => astra_get_option( 'site-content-style', 'boxed' ),
-					'priority'          => 9,
-					'title'             => __( 'Container Style', 'astra' ),
-					'choices'     => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[site-content-style]',
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => 'section-container-layout',
+					'default'    => astra_get_option( 'site-content-style', 'boxed' ),
+					'priority'   => 9,
+					'title'      => __( 'Container Style', 'astra' ),
+					'choices'    => array(
 						'unboxed' => __( 'Unboxed', 'astra' ),
 						'boxed'   => __( 'Boxed', 'astra' ),
 					),

@@ -425,8 +425,7 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 				$learndash_layout = astra_get_option_meta( 'site-content-layout', '', true );
 				if ( isset( $learndash_layout ) ) {
 					$learndash_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false, $learndash_layout );
-				}
-				else {
+				} else {
 					$learndash_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
 				}
 
