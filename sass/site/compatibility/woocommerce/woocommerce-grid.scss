@@ -485,7 +485,7 @@ p.demo_store,
 /**
  * Main WooCommerce styles
  */
-.woocommerce {
+.woocommerce-js {
 	.blockUI.blockOverlay {
 		position: relative;
 		@include loader();
@@ -2486,7 +2486,7 @@ p.demo_store,
 	}
 }
 
-.woocommerce,
+.woocommerce-js,
 .woocommerce-page {
 	/**
 	 * Product Saerch Widget
@@ -2743,7 +2743,7 @@ p.demo_store,
 /**
  * Woocommerce common form design
  */
- .woocommerce,
+ .woocommerce-js,
 .woocommerce-page{
 	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], textarea, form .form-row textarea {
 		border-color: var(--ast-border-color);
@@ -3641,7 +3641,7 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-.woocommerce {
+.woocommerce-js {
 
 	#secondary {
 		.woocommerce ul.cart_list,
