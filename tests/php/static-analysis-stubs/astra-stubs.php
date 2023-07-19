@@ -15527,6 +15527,15 @@ namespace {
     {
     }
     /**
+    * Check whether user is exising or new to override the hr tag styling for elementor
+    * 
+    * @since x.x.x
+    * @return boolean
+    */
+    function astra_can_add_styling_for_hr() 
+    {
+    }
+    /**
      * 404
      */
     function astra_entry_content_404_page()
@@ -17228,6 +17237,15 @@ namespace {
      * @return void
      */
     function astra_theme_background_updater_4_1_6()
+    {
+    }
+    /**
+     * Handle backward compatibility on version 4.1.7
+     *
+     * @since 4.1.7
+     * @return void
+     */
+    function astra_theme_background_updater_4_1_7()
     {
     }
     /**
