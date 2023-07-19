@@ -3610,7 +3610,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css       .= astra_parse_css( $list_spacing_css );
 			}
 
-			// Apply Astra Mini Cart CSS if Elementor mini cart is disabled.
+			// Apply Astra Mini Cart CSS if Elementor Mini Cart Template is disabled.
 			$parse_css .= self::elementor_mini_cart_disabled_dynamic_css();
 
 			$parse_css .= $dynamic_css;
