@@ -769,6 +769,25 @@ p.demo_store[data-position="bottom"],
   color: #777;
 }
 
+.woocommerce-js .quantity input[type="text"],
+.woocommerce-js .quantity input[type="number"],
+.woocommerce-js .quantity input[type="email"] {
+  padding: 0.3em;
+}
+
+.woocommerce-js .quantity input[type="text"]:focus,
+.woocommerce-js .quantity input[type="number"]:focus,
+.woocommerce-js .quantity input[type="email"]:focus {
+  outline: none;
+  border-color: var(--ast-border-color);
+}
+
+.woocommerce-js .quantity .qty {
+  width: 3.631em;
+  text-align: center;
+  min-height: 35px;
+}
+
 .woocommerce-js div.product {
   margin-bottom: 0;
   position: relative;
@@ -4915,35 +4934,4 @@ button.pswp__button--zoom:hover {
 .ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer {
   background-color: var(--ast-global-color-5);
   border: 1px solid var(--ast-border-color);
-}
-
-.woocommerce-js .quantity input[type="text"],
-.woocommerce-js .quantity input[type="number"],
-.woocommerce-js .quantity input[type="email"] {
-  padding: 0.3em;
-}
-
-.woocommerce-js .quantity input[type="text"]:focus,
-.woocommerce-js .quantity input[type="number"]:focus,
-.woocommerce-js .quantity input[type="email"]:focus {
-  outline: none;
-  border-color: var(--ast-border-color);
-}
-
-.woocommerce-js .quantity .qty {
-  width: 3.631em;
-  text-align: center;
-  min-height: 35px;
-}
-
-.woocommerce-js .widget_shopping_cart_content input[type=number] {
-  border-color: var(--ast-border-color);
-  background-color: #fff;
-  box-shadow: none;
-  border-radius: 0px;
-}
-
-.woocommerce-js .widget_shopping_cart_content input[type=number]:focus {
-  box-shadow: none;
-  border-color: var(--ast-border-color);
 }
