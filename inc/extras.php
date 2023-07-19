@@ -707,7 +707,7 @@ function astra_can_remove_elementor_toc_margin_space() {
 function astra_can_add_styling_for_hr() {
 	$astra_settings                       = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['add-styling-for-hr'] = isset( $astra_settings['add-styling-for-hr'] ) ? false : true;
-	return apply_filters( 'astra_add_styling_for_hr', $astra_settings['add-styling-for-hr'] );
+	return apply_filters( 'astra_highlight_elementor_hr_tag', $astra_settings['add-styling-for-hr'] );
 }
 /**
  * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
