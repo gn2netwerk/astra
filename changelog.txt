@@ -5,6 +5,7 @@ v4.1.7 (Unreleased)
 - Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
 - Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
+- Fix: Group container inner blocks option does not disable in the editor.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
 
