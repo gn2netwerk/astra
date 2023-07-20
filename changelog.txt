@@ -6,6 +6,7 @@ v4.1.7 (Unreleased)
 - Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
+- Fix: bbPress widget items loading in infinite loop while rendering banner layout.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
