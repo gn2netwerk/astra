@@ -4914,7 +4914,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'top'        => '3.5em',
 					),
 					'.woocommerce-js .widget_shopping_cart_content a.remove' => array(
-						'position' => 'absolute',
+						'position'   => 'absolute',
 						$ltr_left    => 'auto',
 						$ltr_right   => '0',
 					),
