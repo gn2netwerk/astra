@@ -425,7 +425,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 					default:
 					case 'FILTER_SANITIZE_STRING':
-						$meta_value = isset( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : '';
+						$meta_value = ! empty( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : '';
 						break;
 
 					case 'FILTER_SANITIZE_URL':
