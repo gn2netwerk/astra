@@ -341,6 +341,20 @@ function astra_remove_elementor_toc_margin() {
 
 /**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ * 
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_1_7() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['add-hr-styling-css'] ) ) {
+		$theme_options['add-hr-styling-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  * Use: Setting flag for removing widget specific design options when WordPress 5.8 & above activated on site.
  *
  * @since 3.6.8
