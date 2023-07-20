@@ -4130,19 +4130,13 @@ button.pswp__button--zoom:hover {
 
 	.widget {
 		.widget-title-common {
-			font-size: 1.2em;
-			font-weight: 500;
 			margin-bottom: 1rem;
-			color: var(--ast-global-color-3);
 		}
 
 		> div h3 {
 			@extend .widget-title-common;
 		}
 
-		.widget-title {
-			@extend .widget-title-common;
-		}
 
 		.wc-block-price-slider {
 			padding-top: 0.15em;
