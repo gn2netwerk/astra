@@ -3660,9 +3660,10 @@ namespace {
 		 * Apply CSS for Mini Cart when Elementor Mini Cart Template is Disabled.
 		 *
 		 * @since x.x.x
+		 * @param string $dynamic_css Theme Dynamic CSS
 		 * @return string Parsed CSS
 		 */
-		public static function elementor_mini_cart_disabled_dynamic_css() 
+		public static function elementor_mini_cart_disabled_dynamic_css( $dynamic_css ) 
         {
         }
     }
