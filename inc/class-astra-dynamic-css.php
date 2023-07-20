@@ -4874,6 +4874,5 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			return apply_filters( 'astra_get_option_woo_support_global_settings', isset( $astra_settings['woo_support_global_settings'] ) ? false : true );
 		}
-
 	}
 }
