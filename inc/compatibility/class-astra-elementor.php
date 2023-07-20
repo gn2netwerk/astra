@@ -525,6 +525,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 					'.woocommerce-js ul.product_list_widget li a img' => array(
 						'top' => '52%',
 					),
+					'.ast-mini-cart-empty .ast-mini-cart-message' => array(
+						'display' => 'none',
+					),
 				);
 				$dynamic_css .= astra_parse_css( $mini_cart_template_css );
 			}
