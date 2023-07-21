@@ -7,6 +7,7 @@ v4.1.7 (Unreleased)
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 - Fix: Group container inner blocks option does not disable in the editor.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
+- Fix: Woocommerce - Widget title size and color issue on all woocommerce pages.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
 
 v4.1.6
