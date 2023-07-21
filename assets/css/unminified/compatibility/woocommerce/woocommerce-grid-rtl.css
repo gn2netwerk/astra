@@ -4774,13 +4774,6 @@ button.pswp__button--zoom:hover {
   padding-right: 15px;
 }
 
-.woocommerce-page .widget .widget-title-common, .woocommerce-page .widget > div h3, .woocommerce-page .widget .widget-title {
-  font-size: 1.2em;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  color: var(--ast-global-color-3);
-}
-
 .woocommerce-page .widget .wc-block-price-slider {
   padding-top: 0.15em;
 }
