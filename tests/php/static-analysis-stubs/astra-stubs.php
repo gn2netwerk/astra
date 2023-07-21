@@ -3656,16 +3656,6 @@ namespace {
         public static function astra_check_default_color_typo()
         {
         }
-		/**
-		 * Apply CSS for Mini Cart when Elementor Mini Cart Template is Disabled.
-		 *
-		 * @since x.x.x
-		 * @param string $dynamic_css Theme Dynamic CSS
-		 * @return string Parsed CSS
-		 */
-		public static function elementor_mini_cart_disabled_dynamic_css( $dynamic_css ) 
-        {
-        }
     }
     /**
      * Global palette class
@@ -15529,11 +15519,11 @@ namespace {
     }
     /**
     * Check whether user is exising or new to override the hr tag styling for elementor
-    * 
+    *
     * @since x.x.x
     * @return boolean
     */
-    function astra_can_add_styling_for_hr() 
+    function astra_can_add_styling_for_hr()
     {
     }
     /**

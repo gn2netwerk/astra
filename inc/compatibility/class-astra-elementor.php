@@ -62,9 +62,6 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			 */
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_elementor_compatibility_styles' ) );
 
-			// Apply Astra Mini Cart CSS if Elementor Mini Cart Template is disabled.
-			add_filter( 'astra_dynamic_theme_css', array( $this, 'elementor_mini_cart_disabled_dynamic_css' ) );
-
 			add_action( 'rest_request_after_callbacks', array( $this, 'elementor_add_theme_colors' ), 999, 3 );
 			add_filter( 'rest_request_after_callbacks', array( $this, 'display_global_colors_front_end' ), 999, 3 );
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'generate_global_elementor_style' ), 11 );
@@ -443,32 +440,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				$dynamic_css           .= astra_parse_css( $palette_style );
 			}
 
-			return $dynamic_css;
-		}
-
-		/**
-		 * Load style inside Elementor editor.
-		 *
-		 * @since 3.7.0
-		 * @return void
-		 */
-		public function elementor_add_scripts() {
-
-			$editor_preferences = SettingsManager::get_settings_managers( 'editorPreferences' );
-			$theme              = $editor_preferences->get_model()->get_settings( 'ui_theme' );
-			$style              = 'dark' == $theme ? '-dark' : '';
-
-			wp_enqueue_style( 'astra-elementor-editor-style', ASTRA_THEME_URI . 'inc/assets/css/ast-elementor-editor' . $style . '.css', array(), ASTRA_THEME_VERSION );
-		}
-
-		/**
-		 * Apply CSS for Mini Cart when Elementor Mini Cart Template is Disabled.
-		 *
-		 * @since x.x.x
-		 * @param string $dynamic_css Theme Dynamic CSS
-		 * @return string Parsed CSS
-		 */
-		public function elementor_mini_cart_disabled_dynamic_css( $dynamic_css ) {
+			// Apply Astra Mini Cart CSS if Elementor Mini Cart Template is disabled.
 			$is_site_rtl         = is_rtl();
 			$ltr_left            = $is_site_rtl ? 'right' : 'left';
 			$ltr_right           = $is_site_rtl ? 'left' : 'right';
@@ -534,6 +506,20 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			return $dynamic_css;
 		}
 
+		/**
+		 * Load style inside Elementor editor.
+		 *
+		 * @since 3.7.0
+		 * @return void
+		 */
+		public function elementor_add_scripts() {
+
+			$editor_preferences = SettingsManager::get_settings_managers( 'editorPreferences' );
+			$theme              = $editor_preferences->get_model()->get_settings( 'ui_theme' );
+			$style              = 'dark' == $theme ? '-dark' : '';
+
+			wp_enqueue_style( 'astra-elementor-editor-style', ASTRA_THEME_URI . 'inc/assets/css/ast-elementor-editor' . $style . '.css', array(), ASTRA_THEME_VERSION );
+		}
 	}
 
 endif;
