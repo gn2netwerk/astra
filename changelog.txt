@@ -6,6 +6,7 @@ v4.1.7 (Unreleased)
 - Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
 - Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
+- Fix: WooCommerce - Elementor Pro's Mini Cart Widget Conflicts With Astra Mini Cart Widget.
 - Fix: Group container inner blocks option does not disable in the editor.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: Woocommerce - Widget title size and color issue on all woocommerce pages.
