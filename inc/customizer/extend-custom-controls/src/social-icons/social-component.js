@@ -76,6 +76,7 @@ const SocialComponent = props => {
 		{value: 'trip_advisor', label: __('Trip Advisor', 'astra'), color: '#00aa6c', background: 'transparent'},
 		{value: 'imdb', label: __('IMDB', 'astra'), color: '#000000', background: 'transparent'},
 		{value: 'tiktok', label: __('TikTok', 'astra'), color: '#000000', background: 'transparent'},
+		{value: 'threads', label: __('Threads', 'astra'), color: '#000000', background: 'transparent'},
 	]
 
 	const social_sharing = [
