@@ -142,7 +142,9 @@ class Astra_Header_Menu_Component {
 						)
 					);
 					echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
+						/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						wp_page_menu( $fallback_menu_args );
+						/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					echo '</nav>';
 				echo '</div>';
 		}
