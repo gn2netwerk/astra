@@ -485,7 +485,7 @@ p.demo_store,
 /**
  * Main WooCommerce styles
  */
-.woocommerce {
+.woocommerce-js {
 	.blockUI.blockOverlay {
 		position: relative;
 		@include loader();
@@ -2506,7 +2506,7 @@ p.demo_store,
 	}
 }
 
-.woocommerce,
+.woocommerce-js,
 .woocommerce-page {
 	/**
 	 * Product Saerch Widget
@@ -2763,7 +2763,7 @@ p.demo_store,
 /**
  * Woocommerce common form design
  */
- .woocommerce,
+ .woocommerce-js,
 .woocommerce-page{
 	input[type=text], input[type=email], input[type=url], input[type=password], input[type=number], input[type=search], input[type=reset], input[type=tel], textarea, form .form-row textarea {
 		border-color: var(--ast-border-color);
@@ -3661,7 +3661,7 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-.woocommerce {
+.woocommerce-js {
 
 	#secondary {
 		.woocommerce ul.cart_list,
@@ -4129,20 +4129,6 @@ button.pswp__button--zoom:hover {
 .woocommerce-page {
 
 	.widget {
-		.widget-title-common {
-			font-size: 1.2em;
-			font-weight: 500;
-			margin-bottom: 1rem;
-			color: var(--ast-global-color-3);
-		}
-
-		> div h3 {
-			@extend .widget-title-common;
-		}
-
-		.widget-title {
-			@extend .widget-title-common;
-		}
 
 		.wc-block-price-slider {
 			padding-top: 0.15em;
