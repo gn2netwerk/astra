@@ -16,14 +16,19 @@
 
     // Smooth scrolls if select option button is active.
     const AstraSmoothScrollBtn = document.querySelector( ".ast-sticky-add-to-cart-action-wrap .single_link_to_cart_button" );
-    
-    if( AstraSmoothScrollBtn ) {
-        AstraSmoothScrollBtn.addEventListener('click', function (e) {
+    const element = document.querySelector(".single_add_to_cart_button");
+
+    if( AstraSmoothScrollBtn && element ) {
+    var headerOffset = 200;
+    var elementPosition = element.getBoundingClientRect().top;
+    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    AstraSmoothScrollBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth',
-            });
-        });
-    }
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+           });
+  });
+}
 
 })();
