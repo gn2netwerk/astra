@@ -11,6 +11,7 @@ v4.1.7 (Unreleased)
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: Woocommerce - Widget title size and color issue on all woocommerce pages.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
+- Fix: Woocommerce - Sticky add to cart scroll is not working properrly for mobile & tablet. 
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
