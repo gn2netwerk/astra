@@ -39,6 +39,34 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static $starter_templates_slug = 'astra-sites';
 
 		/**
+		 * Astra Addon supported versions map array.
+		 *
+		 * @var array
+		 * @since x.x.x
+		 */
+		private static $astra_addon_supported_version_map = array(
+			'4.1.6' => '4.1.0',
+			'4.0.2' => '4.0.0',
+			'3.9.4' => '3.9.2',
+			'3.9.1' => '3.9.0',
+			'3.8.5' => '3.6.11',
+			'3.8.4' => '3.6.10',
+			'3.8.2' => '3.6.3',
+			'3.7.4' => '3.6.2',
+			'3.7.3' => '3.6.0',
+			'3.6.9' => '3.5.8',
+			'3.6.7' => '3.5.5',
+			'3.6.4' => '3.5.0',
+			'3.4.8' => '3.4.2',
+			'3.4.2' => '3.4.0',
+			'3.3.3' => '3.3.2',
+			'3.3.2' => '3.3.1',
+			'3.3.1' => '3.3.0',
+			'3.2.0' => '3.1.0',
+			'3.0.3' => '3.0.0',
+		);
+
+		/**
 		 * Constructor
 		 */
 		public function __construct() {
@@ -72,6 +100,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
 			add_action( 'admin_init', __CLASS__ . '::minimum_addon_version_notice' );
+			add_action( 'admin_init', __CLASS__ . '::minimum_addon_supported_version_notice' );
 
 			if ( astra_showcase_upgrade_notices() ) {
 				add_action( 'admin_init', __CLASS__ . '::upgrade_to_pro_wc_notice' );
@@ -298,6 +327,84 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				Astra_Notices::add_notice( $notice_args );
 			}
+		}
+
+		/**
+		 * Get minimum supported version for Astra addon.
+		 * This function will be used to inform the user about incompatible version of Astra addon.
+		 *
+		 * @param string $input_version Input version of the addon.
+		 *
+		 * @since x.x.x
+		 */
+		public static function get_astra_addon_min_supported_version( $input_version ) {
+
+			$supported_version = null;
+
+			// First, check if the exact version is supported
+			if ( isset( self::$astra_addon_supported_version_map[ $input_version ] ) ) {
+				$supported_version = self::$astra_addon_supported_version_map[ $input_version ];
+			} else {
+				foreach ( self::$astra_addon_supported_version_map as $index => $supported ) {
+					if ( $supported_version !== null || version_compare( $input_version, $index ) > 0 ) {
+						$supported_version = $supported;
+						break;
+					}
+				}
+			}
+
+			return $supported_version;
+		}
+
+		/**
+		 * This constant will be used to inform the user about incompatible version of Astra addon.
+		 *
+		 * @since x.x.x
+		 */
+		public static function minimum_addon_supported_version_notice() {
+
+			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) >= 0 ) ) {
+				return;
+			}
+
+			$astra_addon_supported_version = self::get_astra_addon_min_supported_version( ASTRA_EXT_VER );
+			if ( $astra_addon_supported_version !== null && version_compare( $astra_addon_supported_version, ASTRA_EXT_VER ) < 0 ) {
+				$message = sprintf(
+					/* translators: %1$s: Plugin Name, %2$s: Supported required version of the addon */
+					'Your current version of %1$s plugin is incompatible. Please update to at least version %2$s for optimal functionality.',
+					astra_get_addon_name(),
+					$astra_addon_supported_version
+				);
+			} else {
+				$message = sprintf(
+					/* translators: %1$s: Plugin Name */
+					'Your current version of %1$s is outdated. Please keep your product updated for better stability and security.',
+					astra_get_addon_name(),
+				);
+			}
+
+			$ext_min_supported_version = get_user_meta( get_current_user_id(), 'ast-addon-supported-version-notice', true );
+
+			if ( ! $ext_min_supported_version ) {
+				update_user_meta( get_current_user_id(), 'ast-addon-supported-version-notice', $astra_addon_supported_version );
+			}
+
+			if ( version_compare( $ext_min_supported_version, $astra_addon_supported_version, '!=' ) ) {
+				delete_user_meta( get_current_user_id(), 'ast-addon-minimum-supported-version-notice' );
+				update_user_meta( get_current_user_id(), 'ast-addon-supported-version-notice', $astra_addon_supported_version );
+			}
+
+			$notice_args = array(
+				'id'                         => 'ast-addon-minimum-supported-version-notice',
+				'type'                       => 'warning',
+				'message'                    => $message,
+				'show_if'                    => true,
+				'repeat-notice-after'        => false,
+				'priority'                   => 20,
+				'display-with-other-notices' => false,
+			);
+
+			Astra_Notices::add_notice( $notice_args );
 		}
 
 		/**
