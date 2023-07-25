@@ -21,16 +21,18 @@
     if (AstraSmoothScrollBtn && element) {
         const headerOffset = 230;
         const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        if (elementPosition) {
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-        if (elementPosition && offsetPosition) {
-            AstraSmoothScrollBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
+            if (offsetPosition) {
+                AstraSmoothScrollBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
                 });
-            });
+            }
         }
     }
 
