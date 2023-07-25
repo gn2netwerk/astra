@@ -156,6 +156,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				global $pagenow;
 				/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 				if ( isset( $pagenow ) && 'update.php' === $pagenow ) {
 					return;
 				}
