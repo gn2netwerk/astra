@@ -152,6 +152,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Force Astra welcome notice on theme activation.
 			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) && ! in_array( $current_slug, array( 'astra-advanced-hook', 'astra_adv_header' ), true ) ) {
 
+				// Do not display admin welcome banner notice on theme upload page.
+				$sanitized_php_self = filter_var( $_SERVER['PHP_SELF'], FILTER_SANITIZE_URL );
+				if ( isset( $sanitized_php_self ) && strpos( $sanitized_php_self, 'update.php' ) !== false ) {
+					return;
+				}
+
 				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-banner.png';
 				$ast_sites_notice_btn = self::astra_sites_notice_button();
 
