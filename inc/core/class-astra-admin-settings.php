@@ -154,7 +154,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				// Do not display admin welcome banner notice on theme upload page.
 				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$sanitized_php_self = filter_var( $_SERVER['PHP_SELF'], FILTER_SANITIZE_URL );
+				$sanitized_php_self = filter_var( $_SERVER['PHP_SELF'], FILTER_SANITIZE_URL ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 				if ( isset( $sanitized_php_self ) && strpos( $sanitized_php_self, 'update.php' ) !== false ) {
 					return;
 				}
