@@ -414,7 +414,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 				),
 			),
 			'',
-			astra_get_tablet_breakpoint(1)
+			astra_get_tablet_breakpoint( 1 )
 		);
 	}
 
