@@ -1,5 +1,5 @@
 v4.1.7 (Unreleased)
-- Improvement: Accessibility improvements for Woocommerce Pages.
+- Improvement: Accessibility improvements for WooCommerce pages.
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Improvement: Header Footer Builder - Added new social profile "Threads"
 - Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
