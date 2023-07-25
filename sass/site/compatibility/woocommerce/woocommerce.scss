@@ -484,7 +484,7 @@ p.demo_store,
 /**
  * Main WooCommerce styles
  */
-.woocommerce {
+.woocommerce-js {
 	.blockUI.blockOverlay {
 		position: relative;
 		@include loader();
@@ -3683,11 +3683,11 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-.woocommerce {
+.woocommerce-js {
 
 	#secondary {
-		.woocommerce ul.cart_list,
-		.woocommerce ul.product_list_widget {
+		.woocommerce-js ul.cart_list,
+		.woocommerce-js ul.product_list_widget {
 			margin: 0;
 		}
 	}
@@ -3849,7 +3849,7 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-.woocommerce .widget_shopping_cart .cart_list li,
+.woocommerce-js .widget_shopping_cart .cart_list li,
 .woocommerce.widget_shopping_cart .cart_list li {
 
 	padding: 1.2em 1.8em 1.2em 5em;
