@@ -1496,6 +1496,11 @@ p.demo_store[data-position="bottom"],
   box-shadow: none;
 }
 
+.woocommerce-js ul.products li.product a img.show-on-hover {
+  height: 100%;
+  object-fit: cover;
+}
+
 .woocommerce-js ul.products li.product strong {
   display: block;
 }

@@ -1313,6 +1313,11 @@ p.demo_store,
 			display: block;
 			margin: 0 0 1em;
 			box-shadow: none;
+
+			&.show-on-hover {
+				height: 100%;
+				object-fit: cover;
+			}
 		}
 
 		strong {
