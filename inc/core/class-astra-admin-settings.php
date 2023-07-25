@@ -153,10 +153,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) && ! in_array( $current_slug, array( 'astra-advanced-hook', 'astra_adv_header' ), true ) ) {
 
 				// Do not display admin welcome banner notice on theme upload page.
-				/** @psalm-suppress PossiblyUndefinedArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$sanitized_php_self = filter_var( $_SERVER['PHP_SELF'], FILTER_SANITIZE_URL );
-
-				if ( isset( $sanitized_php_self ) && strpos( $sanitized_php_self, 'update.php' ) !== false ) {
+				global $pagenow;
+				if ( isset( $pagenow ) && 'update.php' === $pagenow ) {
 					return;
 				}
 
