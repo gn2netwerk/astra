@@ -13,6 +13,7 @@ v4.1.7 (Unreleased)
 - Fix: Woocommerce - Widget title size and color issue on all woocommerce pages.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
 - Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
+- Fix: Header Builder - Normal header and transparent header height issue. introduced new filter: astra_site_logo_height to enable and disable this fix.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".

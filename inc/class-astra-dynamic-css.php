@@ -558,9 +558,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.astra-logo-svg'                        => array(
 					'width' => astra_get_css_value( $header_logo_width['desktop'], 'px' ),
 				),
-				'.astra-logo-svg:not(.sticky-custom-logo .astra-logo-svg, .transparent-custom-logo .astra-logo-svg, .advanced-header-logo .astra-logo-svg)' => array(
-					'height' => astra_get_css_value( ( ! empty( $header_logo_width['desktop-svg-height'] ) && ! is_customize_preview() ) ? $header_logo_width['desktop-svg-height'] : '', 'px' ),
-				),
+
 				'.site-header .site-description'         => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'desktop' ),
 					'display'   => esc_attr( $desktop_tagline_visibility ),
@@ -709,6 +707,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			);
 
+			if ( apply_filters( 'astra_site_logo_height', astra_get_option( 'astra-site-logo-height', true ) ) ) {
+				$css_output['.astra-logo-svg:not(.sticky-custom-logo .astra-logo-svg, .transparent-custom-logo .astra-logo-svg, .advanced-header-logo .astra-logo-svg)'] = array(
+					'height' => astra_get_css_value( ( ! empty( $header_logo_width['desktop-svg-height'] ) && ! is_customize_preview() ) ? $header_logo_width['desktop-svg-height'] : '', 'px' ),
+				);
+			}
+
 			/* Compatibility with cost calculator plugin range slider*/
 			if ( defined( 'CALC_VERSION' ) ) {
 				$css_output['.calc-range-slider input::-webkit-slider-runnable-track'] = array(
@@ -747,7 +751,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Default widget title color.
 			$css_output['.widget-title, .widget .wp-block-heading'] = array(
 				'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
-				'color' => astra_has_global_color_format_support() ? esc_attr( $heading_base_color ) : esc_attr( $text_color ),
+				'color'     => astra_has_global_color_format_support() ? esc_attr( $heading_base_color ) : esc_attr( $text_color ),
 			);
 
 			// Remove this condition after 2-3 updates of add-on.
