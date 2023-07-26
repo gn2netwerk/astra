@@ -747,7 +747,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Default widget title color.
 			$css_output['.widget-title, .widget .wp-block-heading'] = array(
 				'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 1.428571429 ),
-				'color' => astra_has_global_color_format_support() ? esc_attr( $heading_base_color ) : esc_attr( $text_color ),
+				'color'     => astra_has_global_color_format_support() ? esc_attr( $heading_base_color ) : esc_attr( $text_color ),
 			);
 
 			// Remove this condition after 2-3 updates of add-on.
@@ -4412,7 +4412,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				right: 0;
 				width: 100%;
 				height: 100%;
-				z-index: 1;
+				z-index: 5;
 				background-color: var(--ast-global-color-5);
 				opacity: .5;
 			}
