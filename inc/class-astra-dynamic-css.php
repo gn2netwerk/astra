@@ -707,7 +707,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			);
 
-			if ( apply_filters( 'astra_site_logo_height', astra_get_option( 'astra-site-logo-height', true ) ) ) {
+			/*  This is a fix issue with logo height for normal and transparent logo so that they are the same */
+			if ( ! apply_filters( 'astra_site_svg_logo_equal_height', astra_get_option( 'astra-site-svg-logo-equal-height', true ) ) ) {
 				$css_output['.astra-logo-svg:not(.sticky-custom-logo .astra-logo-svg, .transparent-custom-logo .astra-logo-svg, .advanced-header-logo .astra-logo-svg)'] = array(
 					'height' => astra_get_css_value( ( ! empty( $header_logo_width['desktop-svg-height'] ) && ! is_customize_preview() ) ? $header_logo_width['desktop-svg-height'] : '', 'px' ),
 				);

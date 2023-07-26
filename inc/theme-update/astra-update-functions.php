@@ -353,8 +353,8 @@ function astra_theme_background_updater_4_1_7() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
-	if ( ! isset( $theme_options['astra-site-logo-height'] ) ) {
-		$theme_options['astra-site-logo-height'] = false;
+	if ( ! isset( $theme_options['astra-site-svg-logo-equal-height'] ) ) {
+		$theme_options['astra-site-svg-logo-equal-height'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
