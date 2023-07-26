@@ -1315,7 +1315,8 @@ p.demo_store,
 			box-shadow: none;
 
 			&.show-on-hover {
-				height: 100%;
+				width: 0;
+				height: 0;
 				object-fit: cover;
 			}
 		}
@@ -1362,6 +1363,11 @@ p.demo_store,
 
 		a.ast-loop-product__link {
 			display: inline-block;
+		}
+
+		&:hover .show-on-hover  {
+			width: 100%;
+			height: 100%;
 		}
 	}
 
