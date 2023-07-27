@@ -209,6 +209,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
+			if ( astra_get_option( 'enable-lightbox', false ) ) {
+				$default_assets['js']['astra-lightbox'] = 'lightbox';
+				$default_assets['css']['astra-lightbox'] = 'lightbox';
+			}
+
 			return apply_filters( 'astra_theme_assets', $default_assets );
 		}
 
@@ -394,6 +399,17 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				);
 
 				wp_localize_script( 'astra-shop-add-to-cart', 'astra_shop_add_to_cart', apply_filters( 'astra_shop_add_to_cart_js_localize', $astra_shop_add_to_cart_localize_data ) );
+			}
+
+			if ( astra_get_option( 'enable-lightbox', false ) ) {
+				$astra_lightbox_localize_data = array(
+					'previous_text' => __( 'Previous', 'astra' ),
+					'next_text'     => __( 'Next', 'astra' ),
+					'close_text'    => __( 'Close', 'astra' ),
+					'loading_text'    => __( 'Loading...', 'astra' ),
+					'images_selector' => '.wp-block-media-text, .wp-block-image, .wp-block-gallery',
+				);
+				wp_localize_script( 'astra-lightbox', 'astra_lightbox', apply_filters( 'astra_lightbox_js_localize', $astra_lightbox_localize_data ) );
 			}
 		}
 

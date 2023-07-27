@@ -104,3 +104,8 @@ https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https:
 
 Astra local fonts feature is based on Webfonts Loader by WordPress Themes Team (WPTT). (https://github.com/WPTT/webfont-loader)
 Licensed under MIT ( https://github.com/WPTT/webfont-loader/blob/master/LICENSE )
+
+### Lightbox ###
+
+Astra's lightbox  based on SimpleLightbox library by Damir Brekalo. (https://github.com/dbrekalo/simpleLightbox/)
+Licensed under MIT ( https://github.com/dbrekalo/simpleLightbox/blob/master/LICENSE )
