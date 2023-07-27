@@ -13,6 +13,7 @@ v4.1.7 (Unreleased)
 - Fix: Woocommerce - Widget title size and color issue on all woocommerce pages.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
 - Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
+- Fix : Woocommerce - Swap Images feature shows uncropped image.
 - Fix: WooCommerce: left margin from the "Add to cart" button when Sold Individually option is selected.
 
 v4.1.6
