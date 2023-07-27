@@ -2352,6 +2352,10 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
     align-content: center;
 }
 
+#customize-control-astra-settings-ast-headings-font-settings .ast-fields-wrap {
+  overflow: visible;
+}
+
 .ast-customizer-font-varient-wrap .ast-multi-select__control:after {
     content: "\f11c";
     font-family: dashicons;
