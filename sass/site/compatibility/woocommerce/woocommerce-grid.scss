@@ -4253,3 +4253,7 @@ button.pswp__button--zoom:hover {
 	background-color: var(--ast-global-color-5);
 	border: 1px solid var(--ast-border-color);
 }
+
+.woocommerce-js .sold-individually .button.single_add_to_cart_button{
+    margin-left: -1em;
+}
