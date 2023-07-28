@@ -1,4 +1,5 @@
 v4.1.7 (Unreleased)
+- Improvement: Accessibility improvements for WooCommerce pages.
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Improvement: Header Footer Builder - Added new social profile "Threads".
 - Improvement: Introducing new admin notice for incompatibility of Astra Pro.
@@ -12,7 +13,8 @@ v4.1.7 (Unreleased)
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: Woocommerce - Widget title size and color issue on all woocommerce pages.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
-
+- Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
+- Fix : Woocommerce - Swap Images feature shows uncropped image.
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
 - Improvement: Improved title area customizer control UI for better user experience.
