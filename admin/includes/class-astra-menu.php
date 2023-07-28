@@ -271,7 +271,7 @@ class Astra_Menu {
 			'plugin_manager_nonce'   => wp_create_nonce( 'astra_plugin_manager_nonce' ),
 			'plugin_installer_nonce' => wp_create_nonce( 'updates' ),
 			'free_vs_pro_link'       => admin_url( 'admin.php?page=' . self::$plugin_slug . '&path=free-vs-pro' ),
-			'show_builder_migration' => Astra_Builder_Helper::is_new_user() ? false : true,
+			'show_builder_migration' => Astra_Builder_Helper::is_header_footer_builder_active(),
 			'plugin_installing_text' => __( 'Installing', 'astra' ),
 			'plugin_installed_text'  => __( 'Installed', 'astra' ),
 			'plugin_activating_text' => __( 'Activating', 'astra' ),
