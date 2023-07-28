@@ -9,6 +9,7 @@ v4.1.7 (Unreleased)
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
 - Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
+- Fix: Header Builder - Normal header and transparent header height issue. introduced new filter: astra_site_svg_logo_equal_height to enable or disable this fix.
 - Fix: Spectra Compatibility - Customizer spacing options overriding Spectra's block spacing.
 - Fix: Desktop and mobile header visible together at tablet_breakpoint (921px default) on scaled screen resolutions.
 - Fix: Block editor - Applying font-extras customizer settings to paragraph block (Line-height, Text Transform, Text Decoration, Letter Spacing).
