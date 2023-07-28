@@ -1522,6 +1522,12 @@ p.demo_store[data-position="bottom"],
   box-shadow: none;
 }
 
+.woocommerce-js ul.products li.product a img.show-on-hover {
+  width: 0;
+  height: 0;
+  object-fit: cover;
+}
+
 .woocommerce-js ul.products li.product strong {
   display: block;
 }
@@ -1564,6 +1570,11 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce-js ul.products li.product a.ast-loop-product__link {
   display: inline-block;
+}
+
+.woocommerce-js ul.products li.product:hover .show-on-hover {
+  width: 100%;
+  height: 100%;
 }
 
 .woocommerce-js .woocommerce-result-count {

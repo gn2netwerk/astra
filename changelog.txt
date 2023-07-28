@@ -1,19 +1,24 @@
 v4.1.7 (Unreleased)
 - Improvement: Accessibility improvements for WooCommerce pages.
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
-- Improvement: Header Footer Builder - Added new social profile "Threads"
-- Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
+- Improvement: Header Footer Builder - Added new social profile "Threads".
 - Fix: Cart button color setting is not working when product added to cart.
 - Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
 - Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
-- Fix: Customizer - Gradient picker shrink in size under color-group background controls.
-- Fix: WooCommerce - Elementor Pro's Mini Cart Widget Conflicts With Astra Mini Cart Widget.
 - Fix: Group container inner blocks option does not disable in the editor.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
-- Fix: Woocommerce - Widget title size and color issue on all woocommerce pages.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
 - Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
-- Fix: Spectra Compatibility - Theme Padding overriding Spectra Block Padding. 
+- Fix: Spectra Compatibility - Customizer spacing options overriding Spectra's block spacing.
+- Fix: Desktop and mobile header visible together at tablet_breakpoint (921px default) on scaled screen resolutions.
+- Fix: Editor - Applying Font Extras Customizer Settings to Paragraph Block ( Line-height, Text Transform, Text Decoration, Letter Spacing ).
+- Fix: WooCommerce - Swap Images feature shows uncropped image.
+- Fix: WooCommerce - Widget title size and color issue on all woocommerce pages.
+- Fix: WooCommerce - Sub pages of My Account dashboard menu does not update page title according to set menu.
+- Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
+- Fix: Slide in cart action for Add to Cart button does not work
+- Fix: Customizer - Typography font variation select dropdown gets cropped in font settings.
+- Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
