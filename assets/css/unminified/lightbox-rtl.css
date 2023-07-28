@@ -119,19 +119,22 @@ html.slbActive {
 	opacity: 0.8;
 }
 .ast-lightbox-container .slbCloseBtn {
- animation: slbEnter 0.3s;
+	animation: slbEnter 0.3s;
     font-size: 1.5em;
-    line-height: 1em;
+    line-height: 1.5em;
     width: 1.66667em;
     height: 1.66667em;
     position: absolute;
-    left: -0.33333em;
-    top: 1.5em;
+    left: 0.5em;
+    top: 0.5em;
     color: #fff;
     text-align: center;
     padding: 0;
     border-radius: 0;
     background: rgba(35,35,35,.65);
+}
+.admin-bar .ast-lightbox-container .slbCloseBtn {
+	top: 1.5em;
 }
 .ast-lightbox-container .slbLoading .slbCloseBtn {
 	display: none;
@@ -143,7 +146,7 @@ html.slbActive {
 }
 .ast-lightbox-container .slbArrows {
 	position: fixed;
-	top: 50%;
+	top: 47%;
 	right: 0;
 	left: 0;
 }
@@ -153,7 +156,6 @@ html.slbActive {
 .ast-lightbox-container .slbArrow {
 	position: absolute;
     top: 50%;
-    margin-top: -5rem;
     font-size: 1.5em;
     color: #fff;
     opacity: .8;

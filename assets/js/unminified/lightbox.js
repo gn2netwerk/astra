@@ -352,8 +352,8 @@
                                           '</div>'
                                         : ''
                                     ) +
-									'<button type="button" title="' + o.closeBtnCaption + '" class="slbCloseBtn ' + o.closeBtnClass + '">×</button>' +
                                 '</div>' +
+								'<button type="button" title="' + o.closeBtnCaption + '" class="slbCloseBtn ' + o.closeBtnClass + '">×</button>' +
                             '</div>' +
                         '</div>' +
                     '</div>'
