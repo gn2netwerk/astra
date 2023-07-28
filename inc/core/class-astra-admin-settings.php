@@ -348,14 +348,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function get_astra_addon_min_supported_version( $input_version ) {
 
-			$supported_version = null;
+			$supported_version = '';
 
 			// First, check if the exact version is supported
 			if ( isset( self::$astra_addon_supported_version_map[ $input_version ] ) ) {
 				$supported_version = self::$astra_addon_supported_version_map[ $input_version ];
 			} else {
 				foreach ( self::$astra_addon_supported_version_map as $index => $supported ) {
-					if ( $supported_version !== null || version_compare( $input_version, $index ) > 0 ) {
+					if ( '' !== $supported_version || version_compare( $input_version, $index ) > 0 ) {
 						$supported_version = $supported;
 						break;
 					}
@@ -372,7 +372,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function minimum_addon_supported_version_notice() {
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) >= 0 ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ( version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) >= 0 || version_compare( '4.0.0', ASTRA_EXT_VER ) < 0 ) ) ) {
 				return;
 			}
 
