@@ -13,8 +13,9 @@ v4.1.7 (Unreleased)
 - Fix: Woocommerce - Widget title size and color issue on all woocommerce pages.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
 - Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
-- Fix : Woocommerce - Swap Images feature shows uncropped image.
+- Fix: Woocommerce - Swap Images feature shows uncropped image.
 - Fix: Slide in cart action for Add to Cart button does not work
+- Fix: Customizer - Typography Font Variation Select Dropdown gets Cropped.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
