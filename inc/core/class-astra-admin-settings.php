@@ -355,7 +355,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$supported_version = self::$astra_addon_supported_version_map[ $input_version ];
 			} else {
 				foreach ( self::$astra_addon_supported_version_map as $index => $supported ) {
+					/** @psalm-suppress TypeDoesNotContainType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					if ( '' !== $supported_version || version_compare( $input_version, $index ) > 0 ) {
+						/** @psalm-suppress TypeDoesNotContainType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						$supported_version = $supported;
 						break;
 					}
@@ -377,9 +379,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			$astra_addon_supported_version = self::get_astra_addon_min_supported_version( ASTRA_EXT_VER );
-			/** @psalm-suppress TypeDoesNotContainType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( $astra_addon_supported_version !== null && version_compare( $astra_addon_supported_version, ASTRA_EXT_VER ) < 0 ) {
-				/** @psalm-suppress TypeDoesNotContainType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			if ( $astra_addon_supported_version !== '' && version_compare( $astra_addon_supported_version, ASTRA_EXT_VER ) < 0 ) {
 				$message = sprintf(
 					/* translators: %1$s: Plugin Name, %2$s: Supported required version of the addon */
 					'Your current version of %1$s plugin is incompatible. Please update to at least version %2$s for optimal functionality.',
