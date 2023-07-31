@@ -116,7 +116,7 @@
 
         appendTarget: 'body', // append elsewhere if needed
 
-        beforeSetContent: null, // convenient hooks for extending library behavoiur
+        beforeSetContent: null, // convenient hooks for extending library behavior
         beforeClose: null,
         afterClose: null,
         beforeDestroy: null,
@@ -339,24 +339,24 @@
             if (!this.$el) {
 
                 this.$el = parseHtml(
-                    '<div class="slbElement ast-lightbox-container ' + o.elementClass + '">' +
-                        '<div class="slbOverlay"></div>' +
-                        '<div class="slbWrapOuter">' +
-                            '<div class="slbWrap">' +
-                                '<div class="slbContentOuter">' +
-                                    '<div class="slbContent"></div>' +
-                                    (this.items.length > 1
-                                        ? '<div class="slbArrows">' +
-                                             '<button type="button" title="' + o.prevBtnCaption + '" class="prev slbArrow' + o.prevBtnClass + '">←</button>' +
-                                             '<button type="button" title="' + o.nextBtnCaption + '" class="next slbArrow' + o.nextBtnClass + '">→</button>' +
-                                          '</div>'
-                                        : ''
-                                    ) +
-                                '</div>' +
+					'<div class="slbElement ast-lightbox-container ' + this.options.elementClass + '">' +
+						'<div class="slbOverlay"></div>' +
+						'<div class="slbWrapOuter">' +
+							'<div class="slbWrap">' +
+								'<div class="slbContentOuter">' +
+									'<div class="slbContent"></div>' +
+									(this.items.length > 1
+										? '<div class="slbArrows">' +
+											'<button type="button" title="' + o.prevBtnCaption + '" class="prev slbArrow' + o.prevBtnClass + '">❮</button>' +
+											'<button type="button" title="' + o.nextBtnCaption + '" class="next slbArrow' + o.nextBtnClass + '">❯</button>' +
+											'</div>'
+										: ''
+									) +
+								'</div>' +
 								'<button type="button" title="' + o.closeBtnCaption + '" class="slbCloseBtn ' + o.closeBtnClass + '">×</button>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>'
+							'</div>' +
+						'</div>' +
+					'</div>'
                 );
 
                 this.$content = this.$el.querySelector('.slbContent');
@@ -373,6 +373,16 @@
             if (!this.modalInDom) {
 
                 document.querySelector(this.options.appendTarget).appendChild(this.$el);
+				if ( document.querySelector('.ast-lightbox-container .slbOverlay').classList.contains('show') ) {
+					document.querySelector('.ast-lightbox-container .slbOverlay').classList.remove('show');
+				} else {
+					document.querySelector('.ast-lightbox-container .slbOverlay').classList.add('show');
+				}
+
+				if ( document.querySelector('.ast-lightbox-container .slbWrapOuter').classList.contains('hideContent') ) {
+					document.querySelector('.ast-lightbox-container .slbWrapOuter').classList.remove('hideContent');
+				}
+
                 addClass(document.documentElement, this.options.htmlClass);
                 this.setupLightboxEvents();
                 this.modalInDom = true;
@@ -436,7 +446,12 @@
 
                 if (matches($target, '.slbCloseBtn') || (self.options.closeOnOverlayClick && matches($target, '.slbWrap'))) {
 
-                    self.close();
+					document.querySelector('.ast-lightbox-container .slbWrapOuter').classList.add('hideContent');
+					document.querySelector('.ast-lightbox-container .slbOverlay').classList.remove('show');
+
+					setTimeout(function(){
+						self.close();
+					}, 300);
 
                 } else if (matches($target, '.slbArrow')) {
 
@@ -450,7 +465,14 @@
 
             }).addEvent(document, 'keyup', function(e) {
 
-                self.options.closeOnEscapeKey && e.keyCode === 27 && self.close();
+				if ( self.options.closeOnEscapeKey && e.keyCode === 27 ) {
+					document.querySelector('.ast-lightbox-container .slbWrapOuter').classList.add('hideContent');
+					document.querySelector('.ast-lightbox-container .slbOverlay').classList.remove('show');
+
+					setTimeout(function(){
+						self.close();
+					}, 300);
+				}
 
                 if (self.items.length > 1) {
                     (e.keyCode === 39 || e.keyCode === 68) && self.next();
@@ -566,11 +588,7 @@
 					for ( let i = 0; i < foundImgs.length; i++ ) {
 						let img = foundImgs[i];
 						let parentElement = img.parentNode;
-						if ( parentElement.tagName === 'A' ) {
-							// if already there is anchor tag, add class to it & process for lightbox.
-							parentElement.title = img.getAttribute('alt') || '';
-							parentElement.classList.add( 'ast-lightbox' );
-						} else {
+						if ( parentElement.tagName !== 'A' ) {
 							// if there is no anchor tag, create one and process for lightbox.
 							let anchorTag = document.createElement('a');
 							anchorTag.href = img.getAttribute('src');
