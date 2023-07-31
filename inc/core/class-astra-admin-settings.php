@@ -347,6 +347,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since x.x.x
 		 */
 		public static function get_astra_addon_min_supported_version( $input_version ) {
+			if ( version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0 ) {
+				return ASTRA_EXT_MIN_VER;
+			}
 
 			$supported_version = '';
 
@@ -374,25 +377,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function minimum_addon_supported_version_notice() {
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ( version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) >= 0 || version_compare( '4.0.0', ASTRA_EXT_VER ) < 0 ) ) ) {
+			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+				return;
+			}
+
+			// ASTRA_EXT_MIN_VER < ASTRA_EXT_VER && ASTRA_EXT_VER < 4.0.0.
+			if ( version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) >= 0 || version_compare( '4.0.0', ASTRA_EXT_VER ) < 0 ) {
 				return;
 			}
 
 			$astra_addon_supported_version = self::get_astra_addon_min_supported_version( ASTRA_EXT_VER );
-			if ( $astra_addon_supported_version !== '' && version_compare( $astra_addon_supported_version, ASTRA_EXT_VER ) < 0 ) {
-				$message = sprintf(
-					/* translators: %1$s: Plugin Name, %2$s: Supported required version of the addon */
-					'Your current version of %1$s plugin is incompatible. Please update to at least version %2$s for optimal functionality.',
-					astra_get_addon_name(),
-					$astra_addon_supported_version
-				);
-			} else {
-				$message = sprintf(
-					/* translators: %1$s: Plugin Name */
-					'Your current version of %1$s is outdated. Please keep your product updated for better stability and security.',
-					astra_get_addon_name(),
-				);
-			}
+			$message = sprintf(
+				/* translators: %1$s: Plugin Name, %2$s: Supported required version of the addon */
+				'Your current version of %1$s plugin is incompatible. Please update to at least version %2$s for optimal functionality.',
+				astra_get_addon_name(),
+				$astra_addon_supported_version
+			);
 
 			$ext_min_supported_version = get_user_meta( get_current_user_id(), 'ast-addon-supported-version-notice', true );
 
