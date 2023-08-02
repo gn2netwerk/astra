@@ -283,6 +283,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 						var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
 						var weightObject = AstTypography._getWeightObject( AstTypography._cleanGoogleFonts( selectedValue ) );
+						console.error(weightObject);
 
 						control.generateDropdownHtml( weightObject, fontWeightContainer );
 						fontWeightContainer.val( fontWeightContainer.data('value') );

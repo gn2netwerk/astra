@@ -140,7 +140,7 @@
 		{
 			var weightObject        = [ '400', '600' ];
 			if ( fontValue == 'inherit' ) {
-				weightObject = [ '100','200','300','400','500','600','700','800','900' ];
+				weightObject = [ '100','200','300','400','normal','500','600','700','800','900' ];
 			} else if ( 'undefined' != typeof AstFontFamilies.system[ fontValue ] ) {
 				weightObject = AstFontFamilies.system[ fontValue ].weights;
 			} else if ( 'undefined' != typeof AstFontFamilies.google[ fontValue ] ) {
@@ -173,14 +173,15 @@
 			weightKey           = fontSelect.data( 'connected-control' ),
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			currentWeightTitle  = weightSelect.data( 'inherit' ),
-			weightValue         = init ? weightSelect.val() : '400',
+			weightValue         = 'inherit',
 			inheritWeightObject = [ 'inherit' ],
 			weightObject        = [ '400', '600' ],
 			weightOptions       = '',
 			weightMap           = astraTypo;
 			if ( fontValue == 'inherit' ) {
-				weightValue     = init ? weightSelect.val() : 'inherit';
+				// weightValue     = init ? weightSelect.val() : 'inherit';
 			}
+			console.error(weightKey, weightValue);
 
 			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
 			var weightObject = AstTypography._getWeightObject( fontValue );
@@ -189,12 +190,12 @@
 			weightMap[ 'inherit' ] = currentWeightTitle;
 			for ( ; i < weightObject.length; i++ ) {
 
-				if ( 0 === i && -1 === $.inArray( weightValue, weightObject ) ) {
-					weightValue = weightObject[ 0 ];
-					selected 	= ' selected="selected"';
-				} else {
-					selected = weightObject[ i ] == weightValue ? ' selected="selected"' : '';
-				}
+				// if ( 0 === i && -1 === $.inArray( weightValue, weightObject ) ) {
+				// 	weightValue = weightObject[ 0 ];
+				// 	selected 	= ' selected="selected"';
+				// } else {
+				// 	selected = weightObject[ i ] == weightValue ? ' selected="selected"' : '';
+				// }
 				if( ! weightObject[ i ].includes( "italic" ) ){
 					weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';
 				}
@@ -202,10 +203,10 @@
 
 			weightSelect.html( weightOptions );
 
-			if ( ! init ) {
-				api( weightKey ).set( '' );
-				api( weightKey ).set( weightValue );
-			}
+			// if ( ! init ) {
+			// 	api( weightKey ).set( '' );
+			// 	api( weightKey ).set( weightValue );
+			// }
 		},
 
 		setOption: function( optionName, value, isSelect2 ) {
