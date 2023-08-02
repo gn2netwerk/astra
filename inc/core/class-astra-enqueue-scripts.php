@@ -407,7 +407,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					'next_text'     => __( 'Next', 'astra' ),
 					'close_text'    => __( 'Close', 'astra' ),
 					'loading_text'    => __( 'Loading...', 'astra' ),
-					'images_selector' => '.wp-block-media-text, .wp-block-image, .wp-block-gallery, .wp-block-uagb-image__figure',
+					'images_selector' => array(
+						'single_selectors' => '.wp-block-media-text, .wp-block-image, .wp-block-uagb-image__figure',
+						'gallery_selectors' => '.wp-block-gallery'
+					),
 				);
 				wp_localize_script( 'astra-lightbox', 'astra_lightbox', apply_filters( 'astra_lightbox_js_localize', $astra_lightbox_localize_data ) );
 			}

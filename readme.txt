@@ -107,5 +107,5 @@ Licensed under MIT ( https://github.com/WPTT/webfont-loader/blob/master/LICENSE 
 
 = Lightbox =
 
-Astra's lightbox  based on SimpleLightbox library by Damir Brekalo. (https://github.com/dbrekalo/simpleLightbox/)
-Licensed under MIT ( https://github.com/dbrekalo/simpleLightbox/blob/master/LICENSE )
+Astra's lightbox  based on GLightbox library by Biati Digital. (https://biati-digital.github.io/glightbox/)
+Licensed under MIT ( https://github.com/biati-digital/glightbox/blob/master/LICENSE.md )
