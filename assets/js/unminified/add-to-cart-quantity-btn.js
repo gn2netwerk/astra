@@ -251,7 +251,9 @@ const inputHandler = function(e) {
     const quantity = e.target.value;
     const itemHash = e.target.getAttribute('name').replace(/cart\[([\w]+)\]\[qty\]/g, '$1');
 
-    sendAjaxQuantityRequest(e.currentTarget, quantity,itemHash);
+    if( quantity ) {
+        sendAjaxQuantityRequest(e.currentTarget, quantity,itemHash);
+    }
 }
 
 function quantityInput() {
