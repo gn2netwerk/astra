@@ -246,15 +246,10 @@ function sendAjaxQuantityRequest(currentTarget, quantity, itemHash ) {
 
 }
 
-const inputHandler = function(e) {
 
-    const quantity = e.target.value;
-    const itemHash = e.target.getAttribute('name').replace(/cart\[([\w]+)\]\[qty\]/g, '$1');
 
-    if( quantity ) {
-        sendAjaxQuantityRequest(e.currentTarget, quantity,itemHash);
-    }
-}
+let typingTimer; //timer identifier
+let doneTypingInterval = 500;
 
 function quantityInput() {
     const quantityInputContainer = document.querySelector('.woocommerce-mini-cart');
@@ -262,10 +257,20 @@ function quantityInput() {
     if( quantityInputContainer ) {
         const quantityInput = document.querySelectorAll('.input-text.qty');
 
-    
         quantityInput.forEach( single => {
-            single.addEventListener('input', inputHandler);
-            single.addEventListener('propertychange', inputHandler); // for IE8
-       });
+            single.addEventListener('keyup', (e) => {
+                clearTimeout(typingTimer);
+                if (single.value) {
+                    typingTimer = setTimeout(() => {
+                        const quantity = e.target.value;
+                        const itemHash = e.target.getAttribute('name').replace(/cart\[([\w]+)\]\[qty\]/g, '$1');
+
+                        if( quantity ) {
+                            sendAjaxQuantityRequest(e.target, quantity,itemHash);
+                        }
+                    }, doneTypingInterval);
+                }
+            });
+        });
     }
 }
