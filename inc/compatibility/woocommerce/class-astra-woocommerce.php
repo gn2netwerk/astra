@@ -2609,6 +2609,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						align-items: center;
 						outline: 0;
 						font-weight: 400;
+						z-index: 3;
 					}
 
 					.woocommerce-js .quantity .minus {
