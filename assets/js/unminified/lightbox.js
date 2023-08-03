@@ -3710,7 +3710,6 @@
 
 			if ( lightboxSelectorsArray.length ) {
 				lightboxSelectorsArray.forEach(element => {
-					console.error(element);
 					new GLightbox({
 						selector: element,
 					});
