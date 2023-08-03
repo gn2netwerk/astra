@@ -403,10 +403,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			if ( astra_get_option( 'enable-lightbox', false ) ) {
 				$astra_lightbox_localize_data = array(
-					'previous_text' => __( 'Previous', 'astra' ),
-					'next_text'     => __( 'Next', 'astra' ),
-					'close_text'    => __( 'Close', 'astra' ),
-					'loading_text'    => __( 'Loading...', 'astra' ),
 					'images_selector' => array(
 						'single_selectors' => '.wp-block-media-text, .wp-block-image, .wp-block-uagb-image__figure',
 						'gallery_selectors' => '.wp-block-gallery'
