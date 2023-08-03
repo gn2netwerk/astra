@@ -2,6 +2,8 @@ v4.1.7 (Unreleased)
 - Improvement: Accessibility improvements for WooCommerce pages.
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Improvement: Header Footer Builder - Added new social profile "Threads".
+- Improvement: WooCommerce - Mini Cart - Update cart quantity when input value is changed.
+- Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
 - Fix: Cart button color setting is not working when product added to cart.
 - Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
 - Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
