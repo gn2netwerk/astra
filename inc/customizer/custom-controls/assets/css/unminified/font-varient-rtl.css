@@ -68,3 +68,8 @@
     pointer-events: none;
     z-index: 1;
 }
+
+#customize-control-astra-settings-ast-headings-font-settings .ast-fields-wrap,
+#customize-control-astra-settings-ast-body-font-settings .ast-fields-wrap {
+    overflow: visible;
+}
