@@ -347,7 +347,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since x.x.x
 		 */
 		public static function get_astra_addon_min_supported_version( $input_version ) {
-			if ( version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0 ) {
+			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0 ) {
 				return ASTRA_EXT_MIN_VER;
 			}
 
