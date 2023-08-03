@@ -464,12 +464,12 @@
 }
 
 .glightbox-clean .gslide-title {
-	  font-size: 1em;
-	  font-weight: normal;
-	  font-family: arial;
-	  color: rgba(238, 238, 238, 0.9);
-	  text-align: center;
-	  line-height: 1.4em;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: arial;
+	color: rgba(238, 238, 238, 0.9);
+	text-align: center;
+	line-height: 1.4em;
 }
 
 .glightbox-clean .gslide-desc {
