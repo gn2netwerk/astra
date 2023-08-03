@@ -61,3 +61,8 @@
 #customize-controls .control-section-ast_section .customize-info .customize-section-description {
     margin-bottom: 0;
 }
+
+.customize-widgets-header { 
+    margin-left: -24px;
+    margin-right: -24px;
+}
