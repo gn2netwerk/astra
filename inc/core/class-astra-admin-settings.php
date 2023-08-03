@@ -389,7 +389,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$astra_addon_supported_version = self::get_astra_addon_min_supported_version( ASTRA_EXT_VER );
 			$message = sprintf(
 				/* translators: %1$s: Plugin Name, %2$s: Theme name, %3$s: Supported required version of the addon */
-				'Your current version of %1$s plugin is incompatible with %2$s theme. Please update to at least version %2$s for optimal functionality.',
+				'Your current version of %1$s plugin is incompatible with %2$s theme. Please update to at least version %3$s for optimal functionality.',
 				astra_get_addon_name(),
 				astra_get_theme_name(),
 				$astra_addon_supported_version
