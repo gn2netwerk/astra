@@ -3708,11 +3708,11 @@
 				}
 			}
 
+			let lightboxOptions = astra_lightbox.lightbox_options;
 			if ( lightboxSelectorsArray.length ) {
 				lightboxSelectorsArray.forEach(element => {
-					new GLightbox({
-						selector: element,
-					});
+					lightboxOptions.selector = element;
+					new GLightbox( lightboxOptions );
 				});
 			}
 		}
