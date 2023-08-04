@@ -1778,7 +1778,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'flex-grow' => '1',
 					),
 					'.widget'                         => array(
-						'margin-bottom' => '3.5em',
+						'margin-bottom' => '1.25em',
 					),
 					'#secondary li'                   => array(
 						'line-height' => '1.5em',
