@@ -2309,6 +2309,14 @@
         }
     },
     {
+        "Borel": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Bowlby One": {
             "variants": [
                 "regular"
@@ -3543,12 +3551,24 @@
     {
         "DM Sans": {
             "variants": [
+                "100",
+                "200",
+                "300",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
+                "600",
                 "700",
-                "700italic"
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -3567,6 +3587,23 @@
             "variants": [
                 "regular",
                 "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Dai Banna SIL": {
+            "variants": [
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -5617,6 +5654,22 @@
         "Hanalei Fill": {
             "variants": [
                 "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Handjet": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
             ],
             "category": "display"
         }
@@ -7711,6 +7764,29 @@
         }
     },
     {
+        "Lisu Bosa": {
+            "variants": [
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic",
+                "800",
+                "800italic",
+                "900",
+                "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Literata": {
             "variants": [
                 "200",
@@ -7879,6 +7955,31 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Lugrasimo": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Lumanosimo": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Lunasima": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -9746,6 +9847,14 @@
         }
     },
     {
+        "Noto Sans Cypro Minoan": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans Deseret": {
             "variants": [
                 "regular"
@@ -10809,6 +10918,22 @@
         }
     },
     {
+        "Noto Sans Syriac Eastern": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans TC": {
             "variants": [
                 "100",
@@ -10999,6 +11124,17 @@
         "Noto Sans Vai": {
             "variants": [
                 "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Noto Sans Vithkuqi": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -11305,6 +11441,14 @@
         }
     },
     {
+        "Noto Serif Khitan Small Script": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Serif Khmer": {
             "variants": [
                 "100",
@@ -11544,6 +11688,17 @@
     },
     {
         "Noto Serif Toto": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Noto Serif Vithkuqi": {
             "variants": [
                 "regular",
                 "500",
@@ -12880,6 +13035,31 @@
         }
     },
     {
+        "REM": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Racing Sans One": {
             "variants": [
                 "regular"
@@ -14129,6 +14309,8 @@
         "Sen": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700",
                 "800"
             ],
@@ -15291,6 +15473,19 @@
         }
     },
     {
+        "Tektur": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Telex": {
             "variants": [
                 "regular"
@@ -15994,6 +16189,27 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Victor Mono": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
+            ],
+            "category": "monospace"
         }
     },
     {
