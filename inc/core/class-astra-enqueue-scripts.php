@@ -395,7 +395,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				);
 			
 				wp_localize_script( 'astra-shop-add-to-cart', 'astra_shop_add_to_cart', apply_filters( 'astra_shop_add_to_cart_js_localize', $astra_shop_add_to_cart_localize_data ) );
-			}			
+			}
 		}
 
 		/**

@@ -513,7 +513,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			);
 
 			$css_output .= astra_parse_css( $header_cart_icon_outline );
-		}		
+		}
 
 		$header_cart_icon = array(
 
