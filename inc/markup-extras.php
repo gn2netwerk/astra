@@ -126,6 +126,13 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			}
 		}
 
+		// Add class for Sticky Sidebar if activated.
+		if ( 'no-sidebar' !== $sidebar_layout ) {
+			if ( astra_get_option( 'site-sticky-sidebar' ) ) {
+				$classes[] = 'ast-sticky-sidebar';
+			}
+		}
+
 		return $classes;
 	}
 }

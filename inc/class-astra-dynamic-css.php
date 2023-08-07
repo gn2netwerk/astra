@@ -4317,7 +4317,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( astra_get_option( 'site-sticky-sidebar' ) ) {
 				$sidebar_static_css .= '
-					.astra-sticky-sidebar-enabled .sidebar-main {
+					.ast-sticky-sidebar .sidebar-main {
 						top: 50px;
 						position: sticky;
 						position: -webkit-sticky;
