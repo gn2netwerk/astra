@@ -497,10 +497,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	if ( 'none' !== $header_cart_icon_style ) {
 
 
-		if ( function_exists( 'astra_has_pro_woocommerce_addon' ) && ! astra_has_pro_woocommerce_addon() &&
-			'outline' === $header_cart_icon_style &&
-			'default' !== $header_woo_cart_list
-		) {
+		if ( function_exists( 'astra_has_pro_woocommerce_addon' ) && ! astra_has_pro_woocommerce_addon() && 'outline' === $header_cart_icon_style && 'default' !== $header_woo_cart_list ) {
 			$border_width = astra_get_option( 'woo-header-cart-border-width' );
 		
 			$header_cart_icon_outline = array(
