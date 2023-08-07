@@ -407,9 +407,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 						'single_selectors' => '.wp-block-media-text, .wp-block-image, .wp-block-uagb-image__figure',
 						'gallery_selectors' => '.wp-block-gallery'
 					),
-					'lightbox_options' => array(
-						'zoomable' => false
-					),
+					'lightbox_options' => array(),
 				);
 				wp_localize_script( 'astra-lightbox', 'astra_lightbox', apply_filters( 'astra_lightbox_js_localize', $astra_lightbox_localize_data ) );
 			}
