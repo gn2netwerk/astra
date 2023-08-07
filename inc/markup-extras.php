@@ -101,8 +101,9 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		}
 
 		// Sidebar location.
-		$page_layout = 'ast-' . astra_page_layout();
-		$classes[]   = esc_attr( $page_layout );
+		$sidebar_layout = astra_page_layout();
+		$page_layout    = 'ast-' . $sidebar_layout;
+		$classes[]      = esc_attr( $page_layout );
 
 		// Current Astra verion.
 		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
