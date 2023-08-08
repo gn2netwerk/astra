@@ -338,14 +338,14 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 			context + '-soc-color',
 			'astra-settings[' + builder_type + '-social-' + index + '-brand-color]',
 			'fill',
-			selector + ' .ast-social-color-type-official .ast-builder-social-element svg'
+			selector + ' .ast-social-color-type-official svg'
 		);
 
 		astra_color_responsive_css(
 			context + '-soc-label-color',
 			'astra-settings[' + builder_type + '-social-' + index + '-brand-color]',
 			'color',
-			selector + ' .ast-social-color-type-official .ast-builder-social-element .social-item-label'
+			selector + ' .ast-social-color-type-official .social-item-label'
 		);
 
 		// Icon Label Brand Color.
@@ -353,7 +353,7 @@ function astra_builder_social_css( builder_type = 'header', social_count ) {
 			context + '-soc-label-color',
 			'astra-settings[' + builder_type + '-social-' + index + '-brand-label-color]',
 			'color',
-			selector + ' .ast-social-color-type-official .ast-builder-social-element span.social-item-label'
+			selector + ' .ast-social-color-type-official span.social-item-label'
 		);
 
 		// Icon Border Radius Fields
