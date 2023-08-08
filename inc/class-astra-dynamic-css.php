@@ -4415,7 +4415,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				right: 0;
 				width: 100%;
 				height: 100%;
-				z-index: 1;
+				z-index: 5;
 				background-color: var(--ast-global-color-5);
 				opacity: .5;
 			}

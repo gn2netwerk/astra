@@ -1,28 +1,38 @@
-v4.1.7 (Unreleased)
-- New: Customizer - Enable Brand Color on hover feature for social widget in header & footer builder.
+v4.1.8 (Unreleased)
+- New: Introducing new & optimized Lightbox feature in theme. ( Needs Doc )
+- New: Customizer - Enable Brand Color on hover feature for social widget in header & footer builder. ( Needs Doc )
 - Improvement: Accessibility improvements for WooCommerce pages.
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Improvement: Header Footer Builder - Added new social profile "Threads".
+- Improvement: WooCommerce - Mini Cart - Update cart quantity when input value is changed.
 - Improvement: Customizer - Header & Footer builder improvements.
+- Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
 - Fix: Cart button color setting is not working when product added to cart.
 - Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
 - Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
 - Fix: Group container inner blocks option does not disable in the editor.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
+- Fix: Woocommerce - Sticky add to cart scroll is not working properly for mobile & tablet.
 - Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
 - Fix: Header Builder - Normal header and transparent header height issue. introduced new filter: astra_site_svg_logo_equal_height to enable or disable this fix.
 - Fix: Spectra Compatibility - Customizer spacing options overriding Spectra's block spacing.
 - Fix: Desktop and mobile header visible together at tablet_breakpoint (921px default) on scaled screen resolutions.
 - Fix: Block editor - Applying font-extras customizer settings to paragraph block (Line-height, Text Transform, Text Decoration, Letter Spacing).
+- Fix: On home page & front page there is h1 tag assigned for site title.
 - Fix: WooCommerce - Swap Images feature shows uncropped image.
 - Fix: WooCommerce - Widget title size and color issue on all woocommerce pages.
 - Fix: WooCommerce - Sub pages of My Account dashboard menu does not update page title according to set menu.
 - Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
 - Fix: WooCommerce - Left margin from the "Add to cart" button when Sold Individually option is selected.
 - Fix: WooCommerce - Shop - Slide in cart action for Add to Cart button does not work when Elementor is active.
+- Fix: WooCommerce - PHP fatal error when 'astra_enable_woocommerce_integration' filter used to disable Astra and WooCommerce extended integration. ( https://wpastra.com/docs/remove-astra-customization-for-woocommerce/ )
 - Fix: Customizer - Typography font variation select dropdown gets cropped in font settings.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
+- Fix: Editor - Astra's theme preview button not alligned properly in the editor.
+
+v4.1.7
+- Improvement: Compatibility with WordPress-6.3.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
