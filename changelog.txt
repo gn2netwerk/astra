@@ -1,4 +1,5 @@
-v4.1.7 (Unreleased)
+v4.1.8 (Unreleased)
+- New: Introducing new & optimized Lightbox feature in theme. ( Needs Doc )
 - Improvement: Accessibility improvements for WooCommerce pages.
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Improvement: Header Footer Builder - Added new social profile "Threads".
@@ -10,7 +11,7 @@ v4.1.7 (Unreleased)
 - Fix: Group container inner blocks option does not disable in the editor.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
-- Fix: Woocommerce - Sticky add to cart scroll is not working properly for mobile & tablet. 
+- Fix: Woocommerce - Sticky add to cart scroll is not working properly for mobile & tablet.
 - Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
 - Fix: Header Builder - Normal header and transparent header height issue. introduced new filter: astra_site_svg_logo_equal_height to enable or disable this fix.
 - Fix: Spectra Compatibility - Customizer spacing options overriding Spectra's block spacing.
@@ -23,10 +24,14 @@ v4.1.7 (Unreleased)
 - Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
 - Fix: WooCommerce - Left margin from the "Add to cart" button when Sold Individually option is selected.
 - Fix: WooCommerce - Shop - Slide in cart action for Add to Cart button does not work when Elementor is active.
+- Fix: WooCommerce - PHP fatal error when 'astra_enable_woocommerce_integration' filter used to disable Astra and WooCommerce extended integration. ( https://wpastra.com/docs/remove-astra-customization-for-woocommerce/ )
 - Fix: Customizer - Typography font variation select dropdown gets cropped in font settings.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 - Fix: Editor - Astra's theme preview button not alligned properly in the editor.
 - Fix: Related Posts - Meta's author link is incorrect for other than admin created posts.
+
+v4.1.7
+- Improvement: Compatibility with WordPress-6.3.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
