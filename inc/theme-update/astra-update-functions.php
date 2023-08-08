@@ -1310,7 +1310,7 @@ function astra_theme_background_updater_4_2_0_beta_1() {
 				$new_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-ast-content-layout';
 				$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
 				$sidebar_style = $blog_type . '-' . esc_attr( $post_type ) . '-sidebar-style';
-				if ( isset( $theme_options[ $old_layout ] ) ) {
+				if ( isset( $theme_options[ $old_layout ] ) || 'page' === $post_type ) {
 					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options );
 				}
 			}
