@@ -548,7 +548,7 @@ class Astra_WP_Editor_CSS {
 				'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
 				'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
 				'padding-left'               => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
-				'min-width'					 => 'auto !important' // !important used here due to the search button width was getting overridden by wordpress min-width.
+				'min-width'                  => 'auto !important', // !important used here due to the search button width was getting overridden by wordpress min-width.
 			),
 			'.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus, .block-editor-writing-flow .wp-block-file .wp-block-file__button:hover, .block-editor-writing-flow .wp-block-file .wp-block-file__button:focus' => array(
 				'color'            => esc_attr( $btn_h_color ),
@@ -573,7 +573,7 @@ class Astra_WP_Editor_CSS {
 			'.editor-styles-wrapper .is-root-container.block-editor-block-list__layout > .wp-block-heading' => array(
 				'margin-bottom' => '20px',
 			),
-			'.editor-styles-wrapper p' => array(
+			'.editor-styles-wrapper p'         => array(
 				'line-height' => esc_attr( $body_line_height ),
 			),
 		);
