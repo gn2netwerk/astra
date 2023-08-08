@@ -259,12 +259,7 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 	if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
 
 		// Site Title.
-		$tag = 'span';
-		if ( is_home() || is_front_page() ) {
-			if ( apply_filters( 'astra_show_site_title_h1_tag', true ) && 'desktop' === $device ) {
-				$tag = 'h1';
-			}
-		}
+		$tag = apply_filters( 'astra_show_site_title_h1_tag', false ) ? 'h1' : 'span';
 
 		/**
 		 * Filters the site title output.
@@ -1700,7 +1695,7 @@ add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding
 function astra_bbpress_issue( $value ) {
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	if ( class_exists( 'bbpress' ) && ( bbp_is_single_user() || bbp_is_search() || bbp_is_topic_tag() ) ) {
+	if ( class_exists( 'bbpress' ) && ( bbp_is_single_user() || bbp_is_search() || bbp_is_topic_tag() || is_bbpress() ) ) {
 		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			return false;
