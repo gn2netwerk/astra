@@ -329,8 +329,8 @@ function astra_is_sidebar_style_boxed( $post_id = false ) {
  * @return mixed The content layout.
  */
 function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed, $post_id = false ) {
-
-	$meta_old_layout = astra_get_option_meta( 'site-content-layout', '', true );
+	
+	$meta_old_layout = is_singular() ? astra_get_option_meta( 'site-content-layout', '', true ) : '';
 	$meta_new_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
 	$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 	$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
@@ -353,7 +353,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 	}
 
 	// Migrate old user existing container layout option to new layout options.
-	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
+	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user && is_singular() ) {
 		if ( 'plain-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 			
 			// No need to evaluate further as no boxed layout will be applicable now.
