@@ -83,18 +83,6 @@ function astra_pagination_css( $dynamic_css ) {
                     margin-bottom: 10px;
                 }
             }
-            @media (max-width: 545px) {
-                .ast-pagination .prev,
-                .ast-pagination .prev:visited,
-                .ast-pagination .prev:focus,
-                .ast-pagination .next,
-                .ast-pagination .next:visited,
-                .ast-pagination .next:focus  {
-                    display: block;
-                    width: 100%;
-                    margin: 0;
-                }
-            }  
             .ast-pagination .prev,
             .ast-pagination .prev:visited,
             .ast-pagination .prev:focus,
@@ -208,16 +196,16 @@ function astra_pagination_css( $dynamic_css ) {
                     }';
 			}
 		}
-		$css_output_mobile   = array(
+        $css_output_mobile = array(
 
-			'.ast-pagination .next:focus' => array(
-				'width' => '100% !important',
-			),
-			'.ast-pagination .prev:focus' => array(
-				'width' => '100% !important',
-			),
-		);
-		$dynamic_css        .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+            '.ast-pagination .next:focus' => array(
+                'width' => '100% !important',
+            ),
+            '.ast-pagination .prev:focus' => array(
+                'width' => '100% !important',
+            ),
+        );
+        $dynamic_css .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 		return $dynamic_css .= Astra_Enqueue_Scripts::trim_css( $pagination_static_css );
 	}
 	return $dynamic_css;
