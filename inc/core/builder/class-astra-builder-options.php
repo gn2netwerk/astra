@@ -1698,25 +1698,28 @@ function astra_prepare_social_icon_defaults( $defaults, $index ) {
 	$defaults[ 'section-hb-social-icons-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 
-	$defaults[ 'footer-social-' . $index . '-space' ]          = array(
+	$defaults[ 'footer-social-' . $index . '-space' ]              = array(
 		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults[ 'footer-social-' . $index . '-bg-space' ]       = '';
-	$defaults[ 'footer-social-' . $index . '-size' ]           = array(
+	$defaults[ 'footer-social-' . $index . '-bg-space' ]           = '';
+	$defaults[ 'footer-social-' . $index . '-size' ]               = array(
 		'desktop' => 18,
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults[ 'footer-social-' . $index . '-radius' ]         = '';
-	$defaults[ 'footer-social-' . $index . '-color' ]          = '';
-	$defaults[ 'footer-social-' . $index . '-h-color' ]        = '';
-	$defaults[ 'footer-social-' . $index . '-bg-color' ]       = '';
-	$defaults[ 'footer-social-' . $index . '-bg-h-color' ]     = '';
-	$defaults[ 'footer-social-' . $index . '-label-toggle' ]   = false;
-	$defaults[ 'footer-social-' . $index . '-color-type' ]     = 'custom';
-	$defaults[ 'font-size-section-fb-social-icons-' . $index ] = array(
+	$defaults[ 'footer-social-' . $index . '-radius' ]             = '';
+	$defaults[ 'footer-social-' . $index . '-color' ]              = '';
+	$defaults[ 'footer-social-' . $index . '-h-color' ]            = '';
+	$defaults[ 'footer-social-' . $index . '-bg-color' ]           = '';
+	$defaults[ 'footer-social-' . $index . '-bg-h-color' ]         = '';
+	$defaults[ 'footer-social-' . $index . '-label-toggle' ]       = false;
+	$defaults[ 'footer-social-' . $index . '-color-type' ]         = 'custom';
+	$defaults[ 'footer-social-' . $index . '-brand-color' ]        = '';
+	$defaults[ 'footer-social-' . $index . '-brand-label-color' ]  = '';
+	$defaults[ 'footer-social-' . $index . '-brand-hover-toggle' ] = false;
+	$defaults[ 'font-size-section-fb-social-icons-' . $index ]     = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
@@ -1724,7 +1727,7 @@ function astra_prepare_social_icon_defaults( $defaults, $index ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults[ 'footer-social-icons-' . $index ]               = array(
+	$defaults[ 'footer-social-icons-' . $index ]                   = array(
 		'items' =>
 			array(
 				array(
@@ -1759,7 +1762,7 @@ function astra_prepare_social_icon_defaults( $defaults, $index ) {
 				),
 			),
 	);
-	$defaults[ 'footer-social-' . $index . '-alignment' ]      = array(
+	$defaults[ 'footer-social-' . $index . '-alignment' ]          = array(
 		'desktop' => 'center',
 		'tablet'  => 'center',
 		'mobile'  => 'center',
