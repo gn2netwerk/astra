@@ -185,6 +185,11 @@ function astra_is_content_style_boxed( $post_id = false ) {
 		// Get global content style if third party is default.
 		$global_content_style = ( 'default' === $third_party_content_style || empty( $third_party_content_style ) ) ? $global_content_style : $third_party_content_style;
 
+		// Woo Cart & Checkout Page
+		if ( 'woocommerce' === $third_party && ( is_cart() || is_checkout() ) ) {
+			return ( 'boxed' === $global_content_style );
+		}
+
 		// Third party shop/archive page meta case.
 		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-style' );
 		$meta_content_style    = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_content_style;
@@ -285,6 +290,11 @@ function astra_is_sidebar_style_boxed( $post_id = false ) {
 		// Get global sidebar style if third party is default.
 		$global_sidebar_style = ( 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ) ? $global_sidebar_style : $third_party_sidebar_style;
 
+		// Woo Cart & Checkout Page
+		if ( 'woocommerce' === $third_party && ( is_cart() || is_checkout() ) ) {
+			return ( 'boxed' === $global_sidebar_style );
+		}
+
 		// Third party shop/archive page meta case.
 		$third_party_meta_page = astra_third_party_archive_meta( 'site-sidebar-style' );
 		$meta_sidebar_style    = isset( $third_party_meta_page ) && $third_party_meta_page ? $third_party_meta_page : $meta_sidebar_style;
@@ -330,10 +340,14 @@ function astra_is_sidebar_style_boxed( $post_id = false ) {
  */
 function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed, $post_id = false ) {
 	
+	// Getting meta values here to handle meta migration cases.
 	$meta_old_layout = is_singular() ? astra_get_option_meta( 'site-content-layout', '', true ) : '';
 	$meta_new_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
+	
+	// To check whether migrated user or not.
 	$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 	$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
+
 	$sidebar_layout  = astra_page_layout();
 
 	// Editor compatibility.
