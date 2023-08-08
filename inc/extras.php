@@ -111,12 +111,12 @@ if ( ! function_exists( 'astra_404_page_layout' ) ) {
 add_filter( 'astra_page_layout', 'astra_404_page_layout', 10, 1 );
 
 /**
- * Return current content layout
+ * Return current content layout.
  */
 if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 	/**
-	 * Return current content layout
+	 * Return current content layout.
 	 *
 	 * @since 1.0.0
 	 * @return mixed content layout.
@@ -235,7 +235,7 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false, $ol
 }
 
 /**
- * Migrate meta layout to new layout.
+ * Migrate old meta layout to new layout.
  *
  * @since 4.2.0-beta.1
  * @param mixed $meta_layout

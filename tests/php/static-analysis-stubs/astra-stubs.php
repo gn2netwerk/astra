@@ -17223,7 +17223,7 @@ namespace {
     {
     }
 	/**
-	 * Migrate meta layout to new layout.
+	 * Migrate old meta layout to new layout.
 	 *
 	 * @since 4.2.0-beta.1
 	 * @param mixed $meta_layout
