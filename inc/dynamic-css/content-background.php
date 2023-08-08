@@ -37,7 +37,7 @@ function astra_content_background_css( $dynamic_css ) {
 
 	$author_box_extra_selector = ( true === astra_check_is_structural_setup() ) ? '.site-main' : '';
 
-	// Apply Unboxed Container with Sidebar Boxed look by changing background color to site background color.
+	// Apply unboxed container with sidebar boxed look by changing background color to site background color.
 	$content_bg_obj = astra_apply_unboxed_container( $content_bg_obj, $is_boxed, $is_sidebar_boxed, $current_layout );
 
 	// Container Layout Colors.

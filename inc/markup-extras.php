@@ -86,6 +86,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-amp';
 		}
 
+		// Apply content layout classes as per new revamped layout selection.
 		$content_layout   = astra_get_content_layout();
 		$is_boxed         = astra_is_content_style_boxed();
 		$is_sidebar_boxed = astra_is_sidebar_style_boxed();
@@ -370,7 +371,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user) {
 		if ( 'plain-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 			
-			// No need to evaluate further as no boxed layout will be applicable now.
+			// No need to evaluate further as no boxed (content or boxed) layout will be applicable now.
 			return $content_layout;
 		} elseif ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 			$is_boxed         = true;
