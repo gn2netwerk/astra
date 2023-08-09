@@ -1311,12 +1311,7 @@ function astra_theme_background_updater_4_2_0() {
 				$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
 				$sidebar_style = $blog_type . '-' . esc_attr( $post_type ) . '-sidebar-style';
 
-				/**
-				 * Check if old layout exists in theme options or post type is page.
-				 * Exception added for page post type because need to run migration for default case
-				 * Which is not set in theme options.
-				 */
-				if ( isset( $theme_options[ $old_layout ] ) || 'page' === $post_type ) {
+				if ( isset( $theme_options[ $old_layout ] ) ) {
 					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options );
 				}
 			}

@@ -618,7 +618,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'single-post-sidebar-layout'           => 'default',
 					'archive-post-sidebar-layout'          => 'default',
 					'site-sidebar-style'                   => 'unboxed',
-					'single-page-sidebar-style'            => 'default',
+					'single-page-sidebar-style'            => 'unboxed',
 					'single-post-sidebar-style'            => 'default',
 					'archive-post-sidebar-style'           => 'default',
 
