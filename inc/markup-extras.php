@@ -346,10 +346,10 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 	$meta_new_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
 	
 	// To check whether migrated user or not.
-	$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
-	$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
+	$meta_key      = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
+	$migrated_user = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
 
-	$sidebar_layout  = astra_page_layout();
+	$sidebar_layout = astra_page_layout();
 
 	// Editor compatibility.
 	if ( $post_id ) {
@@ -368,7 +368,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 	}
 
 	// Migrate old user existing container layout option to new layout options.
-	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user) {
+	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
 		if ( 'plain-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 			
 			// No need to evaluate further as no boxed (content or boxed) layout will be applicable now.
