@@ -1792,6 +1792,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
 						'padding' => '3em',
 					),
+
+					'.ast-separate-container .ast-article-single .ast-article-single' => array(
+						'padding' => '0',
+					),
+
+					'.ast-separate-container .ast-article-single .wp-block-post-template-is-layout-grid, .ast-plain-container .ast-article-single .wp-block-post-template-is-layout-grid, .ast-page-builder-template .ast-article-single .wp-block-post-template-is-layout-grid, .ast-narrow-container .ast-article-single .wp-block-post-template-is-layout-grid ' => array(
+						'padding-left' => '0',
+					),
+
 					'.ast-separate-container .ast-comment-list li.depth-1, .hentry' => array(
 						'margin-bottom' => '2em',
 					),
