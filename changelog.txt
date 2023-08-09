@@ -28,6 +28,7 @@ v4.1.8 (Unreleased)
 - Fix: Customizer - Typography font variation select dropdown gets cropped in font settings.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 - Fix: Editor - Astra's theme preview button not alligned properly in the editor.
+- Fix: Woocommerce - Shop Archive page Product Category Background color issue.
 
 v4.1.7
 - Improvement: Compatibility with WordPress-6.3.
