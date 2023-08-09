@@ -112,7 +112,6 @@ function astra_onload_function() {
 			}
 
 			const editorStylesWrapper = editorDocument.querySelector( '.editor-styles-wrapper' );
-			console.error(editorStylesWrapper);
 
 			if( null !== editorStylesWrapper ) {
 				const editorStylesWrapperWidth = parseInt( editorStylesWrapper.offsetWidth )
