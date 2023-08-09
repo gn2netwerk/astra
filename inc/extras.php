@@ -227,7 +227,7 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false, $ol
 			if ( 'meta' === $level && ! $migrated_user && 'set' !== $meta_key && $old_meta ) {
 				$current_layout = $old_meta;
 			} else {
-				$current_layout = 'default';
+				$current_layout = '';
 			}
 			break;
 	}
