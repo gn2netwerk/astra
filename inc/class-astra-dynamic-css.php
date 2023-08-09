@@ -1797,7 +1797,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding' => '0',
 					),
 
-					'.ast-separate-container .ast-article-single .wp-block-post-template-is-layout-grid, .ast-plain-container .ast-article-single .wp-block-post-template-is-layout-grid, .ast-page-builder-template .ast-article-single .wp-block-post-template-is-layout-grid, .ast-narrow-container .ast-article-single .wp-block-post-template-is-layout-grid ' => array(
+					'.ast-article-single .wp-block-post-template-is-layout-grid' => array(
 						'padding-left' => '0',
 					),
 
