@@ -65,6 +65,32 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_toggle_layout( 'ast-site-content-layout', 'global', false );
+
+			// Get the Global Container Layout based on Global Boxed and Global Sidebar Style.
+			if ( 'plain-container' === $container_layout ) {
+				$is_boxed         = ( 'boxed' === astra_get_option( 'site-content-style' ) );
+				$is_sidebar_boxed = ( 'boxed' === astra_get_option( 'site-sidebar-style' ) );
+				$sidebar_layout   = astra_get_option( 'site-sidebar-layout' );
+
+				// Apply content boxed layout or boxed layout depending on content/sidebar style.
+				if ( 'no-sidebar' === $sidebar_layout ) {
+					if ( $is_boxed ) {
+						$container_layout = 'boxed-container';
+					}
+				} elseif ( 'no-sidebar' !== $sidebar_layout ) {
+					if ( $is_boxed ) {
+						$container_layout = $is_sidebar_boxed ? 'boxed-container' : 'content-boxed-container';
+					} elseif ( $is_sidebar_boxed ) {
+
+						/**
+						 * Case: unboxed container with sidebar boxed
+						 * Container unboxed css is applied through astra_apply_unboxed_container()
+						*/ 
+						$container_layout = 'boxed-container';
+					}
+				}
+			}
+
 			$title_color                = astra_get_option( 'header-color-site-title' );
 			$title_hover_color          = astra_get_option( 'header-color-h-site-title' );
 			$tagline_color              = astra_get_option( 'header-color-site-tagline' );
