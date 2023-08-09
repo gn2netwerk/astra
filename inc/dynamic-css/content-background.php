@@ -156,7 +156,7 @@ function astra_content_background_css( $dynamic_css ) {
 /**
  * Applies an unboxed container to the content.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param array $content_bg_obj The background object for the content.
  * @param bool  $is_boxed Container style is boxed or not.
  * @param bool  $is_sidebar_boxed Sidebar style is boxed or not.

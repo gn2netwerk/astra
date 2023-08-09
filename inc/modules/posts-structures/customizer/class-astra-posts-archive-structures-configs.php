@@ -31,7 +31,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 * Compatibility case: Narrow width + dynamic customizer controls.
 	 *
 	 * @param string $post_type On basis of this will decide to show narrow-width layout or not.
-	 * @since 4.2.0-beta.1
+	 * @since 4.2.0
 	 */
 	public function get_new_content_layout_choices( $post_type ) {
 		if ( ! in_array( $post_type, Astra_Posts_Structures_Configs::get_narrow_width_exculde_cpts() ) ) {

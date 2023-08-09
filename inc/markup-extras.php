@@ -153,7 +153,7 @@ add_filter( 'body_class', 'astra_body_classes' );
 /**
  * Checks whether content style is boxed for current layout.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed $post_id Current post ID.
  * @return boolean 
  */
@@ -226,7 +226,7 @@ function astra_is_content_style_boxed( $post_id = false ) {
 /**
  * Check if the current page is a third party page.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param bool $is_sidebar_option Optional. Whether to check sidebar option needed for Lifterlms case. Default false.
  * @return string|bool Returns the name of third party if page belongs to any, otherwise returns false.
  */
@@ -258,7 +258,7 @@ function astra_with_third_party( $is_sidebar_option = false ) {
 /**
  * Check if the sidebar style is boxed.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed $post_id Current post ID.
  * @return bool Whether the sidebar style is boxed.
  */
@@ -332,7 +332,7 @@ function astra_is_sidebar_style_boxed( $post_id = false ) {
 /**
  * Switch to legacy boxed layouts (Content Boxed, Boxed) as per content style selection.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed   $content_layout Current layout.
  * @param boolean $is_boxed Current content style.
  * @param boolean $is_sidebar_boxed Current sidebar style.
@@ -408,7 +408,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 /**
  * WooCommerce, LifterLMS, EDD Archive (Shop, Courses, Memberships etc) Meta value.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed $option name of the option to fetch.
  * @return mixed meta_value
  */

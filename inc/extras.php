@@ -176,7 +176,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 /**
  * Return current content layout as per new layout selection.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed $new_content_option The new content layout option.
  * @param mixed $level The level of the layout.
  * @param mixed $post_id The id to fetch post meta.
@@ -237,7 +237,7 @@ function astra_toggle_layout( $new_content_option, $level, $post_id = false, $ol
 /**
  * Migrate old meta layout to new layout.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed $meta_layout
  * @return mixed new layout.
  */
