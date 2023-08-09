@@ -29,6 +29,7 @@ v4.1.8 (Unreleased)
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 - Fix: Editor - Astra's theme preview button not alligned properly in the editor.
 - FIx: Query Loop Block padding broken.
+
 v4.1.7
 - Improvement: Compatibility with WordPress-6.3.
 
