@@ -1289,9 +1289,9 @@ function astra_theme_background_updater_4_1_6() {
  * @since 4.2.0-beta.1
  * @return void
  */
-function astra_theme_background_updater_4_2_0_beta_1() {
+function astra_theme_background_updater_4_2_0() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['v4-2-0-beta-1-update-migration'] ) ) {
+	if ( ! isset( $theme_options['v4-2-0-update-migration'] ) ) {
 
 		$post_types          = Astra_Posts_Structure_Loader::get_supported_post_types();
 		$theme_options       = get_option( 'astra-settings' );
@@ -1342,7 +1342,7 @@ function astra_theme_background_updater_4_2_0_beta_1() {
 			$theme_options['fullwidth_sidebar_support'] = false;
 		}
 
-		$theme_options['v4-2-0-beta-1-update-migration'] = true;
+		$theme_options['v4-2-0-update-migration'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
