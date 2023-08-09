@@ -86,6 +86,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-amp';
 		}
 
+		// Apply content layout classes as per new revamped layout selection.
 		$content_layout   = astra_get_content_layout();
 		$is_boxed         = astra_is_content_style_boxed();
 		$is_sidebar_boxed = astra_is_sidebar_style_boxed();
@@ -152,7 +153,7 @@ add_filter( 'body_class', 'astra_body_classes' );
 /**
  * Checks whether content style is boxed for current layout.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed $post_id Current post ID.
  * @return boolean 
  */
@@ -184,6 +185,11 @@ function astra_is_content_style_boxed( $post_id = false ) {
 
 		// Get global content style if third party is default.
 		$global_content_style = ( 'default' === $third_party_content_style || empty( $third_party_content_style ) ) ? $global_content_style : $third_party_content_style;
+
+		// Woo Cart & Checkout Page
+		if ( 'woocommerce' === $third_party && ( is_cart() || is_checkout() ) ) {
+			return ( 'boxed' === $global_content_style );
+		}
 
 		// Third party shop/archive page meta case.
 		$third_party_meta_page = astra_third_party_archive_meta( 'site-content-style' );
@@ -220,7 +226,7 @@ function astra_is_content_style_boxed( $post_id = false ) {
 /**
  * Check if the current page is a third party page.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param bool $is_sidebar_option Optional. Whether to check sidebar option needed for Lifterlms case. Default false.
  * @return string|bool Returns the name of third party if page belongs to any, otherwise returns false.
  */
@@ -252,7 +258,7 @@ function astra_with_third_party( $is_sidebar_option = false ) {
 /**
  * Check if the sidebar style is boxed.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed $post_id Current post ID.
  * @return bool Whether the sidebar style is boxed.
  */
@@ -284,6 +290,11 @@ function astra_is_sidebar_style_boxed( $post_id = false ) {
 
 		// Get global sidebar style if third party is default.
 		$global_sidebar_style = ( 'default' === $third_party_sidebar_style || empty( $third_party_sidebar_style ) ) ? $global_sidebar_style : $third_party_sidebar_style;
+
+		// Woo Cart & Checkout Page
+		if ( 'woocommerce' === $third_party && ( is_cart() || is_checkout() ) ) {
+			return ( 'boxed' === $global_sidebar_style );
+		}
 
 		// Third party shop/archive page meta case.
 		$third_party_meta_page = astra_third_party_archive_meta( 'site-sidebar-style' );
@@ -321,7 +332,7 @@ function astra_is_sidebar_style_boxed( $post_id = false ) {
 /**
  * Switch to legacy boxed layouts (Content Boxed, Boxed) as per content style selection.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed   $content_layout Current layout.
  * @param boolean $is_boxed Current content style.
  * @param boolean $is_sidebar_boxed Current sidebar style.
@@ -329,12 +340,16 @@ function astra_is_sidebar_style_boxed( $post_id = false ) {
  * @return mixed The content layout.
  */
 function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed, $post_id = false ) {
-
-	$meta_old_layout = astra_get_option_meta( 'site-content-layout', '', true );
+	
+	// Getting meta values here to handle meta migration cases.
+	$meta_old_layout = is_singular() ? astra_get_option_meta( 'site-content-layout', '', true ) : '';
 	$meta_new_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
-	$meta_key        = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
-	$migrated_user   = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
-	$sidebar_layout  = astra_page_layout();
+	
+	// To check whether migrated user or not.
+	$meta_key      = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
+	$migrated_user = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
+
+	$sidebar_layout = astra_page_layout();
 
 	// Editor compatibility.
 	if ( $post_id ) {
@@ -356,7 +371,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
 		if ( 'plain-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 			
-			// No need to evaluate further as no boxed layout will be applicable now.
+			// No need to evaluate further as no boxed (content or boxed) layout will be applicable now.
 			return $content_layout;
 		} elseif ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
 			$is_boxed         = true;
@@ -393,7 +408,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 /**
  * WooCommerce, LifterLMS, EDD Archive (Shop, Courses, Memberships etc) Meta value.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed $option name of the option to fetch.
  * @return mixed meta_value
  */

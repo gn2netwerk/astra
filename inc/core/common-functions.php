@@ -1668,7 +1668,7 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 /**
  * Function which will return the Sidebar Layout to determine default body classes for Editor.
  * 
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param string $post_type Post Type.
  * @return string Sidebar Layout.
  */

@@ -700,7 +700,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 		/**
 		 * @return array The array of content layout options.
-		 * @since 4.2.0-beta.1
+		 * @since 4.2.0
 		 */
 		public function get_content_style_options() {
 			return array(
@@ -712,7 +712,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 		/**
 		 * @return array The array of sidebar style options.
-		 * @since 4.2.0-beta.1
+		 * @since 4.2.0
 		 */
 		public function get_sidebar_style_options() {
 			return array(

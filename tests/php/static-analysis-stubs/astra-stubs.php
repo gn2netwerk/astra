@@ -15163,7 +15163,7 @@ namespace {
     /**
      * Function which will return the Sidebar Layout to determine default body classes for Editor.
      * 
-     * @since 4.2.0-beta.1
+     * @since 4.2.0
      * @param string $post_type Post Type.
      * @return string Sidebar Layout.
      */
@@ -17195,7 +17195,7 @@ namespace {
 	/**
 	 * Checks whether content style is boxed for current layout.
 	 *
-	 * @since 4.2.0-beta.1
+	 * @since 4.2.0
      * @param mixed $post_id Current post ID.
 	 * @return boolean 
 	 */
@@ -17205,7 +17205,7 @@ namespace {
 	/**
 	 * Check if the current page is a third party page.
 	 *
-	 * @since 4.2.0-beta.1
+	 * @since 4.2.0
 	 * @param bool $is_sidebar_option Optional. Whether to check sidebar option needed for Lifterlms case. Default false.
 	 * @return string|bool Returns the name of third party if page belongs to any, otherwise returns false.
 	 */
@@ -17215,7 +17215,7 @@ namespace {
 	/**
 	 * Check if the sidebar style is boxed.
 	 *
-	 * @since 4.2.0-beta.1
+	 * @since 4.2.0
      * @param mixed $post_id Current post ID.
 	 * @return bool Whether the sidebar style is boxed.
 	 */
@@ -17223,9 +17223,9 @@ namespace {
     {
     }
 	/**
-	 * Migrate meta layout to new layout.
+	 * Migrate old meta layout to new layout.
 	 *
-	 * @since 4.2.0-beta.1
+	 * @since 4.2.0
 	 * @param mixed $meta_layout
 	 * @return mixed new layout.
 	 */
@@ -17235,7 +17235,7 @@ namespace {
     /**
      * Return current content layout as per new layout selection.
      *
-     * @since 4.2.0-beta.1
+     * @since 4.2.0
      * @param mixed $new_content_option The new content layout option.
      * @param mixed $level The level of the layout.
      * @param mixed $post_id The id to fetch post meta.
@@ -17249,7 +17249,7 @@ namespace {
      * Handle migration from old to new layouts.
      *
      * Migration cases for old users, old layouts -> new layouts.
-     * @since 4.2.0-beta.1
+     * @since 4.2.0
      * @param mixed $old_layout
      * @param mixed $new_layout
      * @param mixed $content_style
@@ -17263,7 +17263,7 @@ namespace {
     /**
      * Applies an unboxed container to the content.
      *
-     * @since 4.2.0-beta.1
+     * @since 4.2.0
      * @param array $content_bg_obj The background object for the content.
      * @param bool  $is_boxed Container style is boxed or not.
      * @param bool  $is_sidebar_boxed Sidebar style is boxed or not.
@@ -17276,7 +17276,7 @@ namespace {
 	/**
 	 * Switch to legacy boxed layouts (Content Boxed, Boxed) as per content style selection.
 	 *
-	 * @since 4.2.0-beta.1
+	 * @since 4.2.0
 	 * @param mixed $content_layout Current layout.
 	 * @param boolean $is_boxed Current content style.
 	 * @param boolean $is_sidebar_boxed Current sidebar style.
@@ -17289,7 +17289,7 @@ namespace {
 	/**
 	 * WooCommerce, LifterLMS, EDD Archive (Shop, Courses, Memberships etc) Meta value.
 	 *
-	 * @since 4.2.0-beta.1
+	 * @since 4.2.0
 	 * @param mixed $option name of the option to fetch.
 	 * @return mixed meta_value
 	 */

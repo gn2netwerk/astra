@@ -1286,12 +1286,12 @@ function astra_theme_background_updater_4_1_6() {
 /**
  * Migrating users to new container layout options
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @return void
  */
-function astra_theme_background_updater_4_2_0_beta_1() {
+function astra_theme_background_updater_4_2_0() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['v4-2-0-beta-1-update-migration'] ) ) {
+	if ( ! isset( $theme_options['v4-2-0-update-migration'] ) ) {
 
 		$post_types          = Astra_Posts_Structure_Loader::get_supported_post_types();
 		$theme_options       = get_option( 'astra-settings' );
@@ -1310,7 +1310,13 @@ function astra_theme_background_updater_4_2_0_beta_1() {
 				$new_layout    = $blog_type . '-' . esc_attr( $post_type ) . '-ast-content-layout';
 				$content_style = $blog_type . '-' . esc_attr( $post_type ) . '-content-style';
 				$sidebar_style = $blog_type . '-' . esc_attr( $post_type ) . '-sidebar-style';
-				if ( isset( $theme_options[ $old_layout ] ) ) {
+
+				/**
+				 * Check if old layout exists in theme options or post type is page.
+				 * Exception added for page post type because need to run migration for default case
+				 * Which is not set in theme options.
+				 */
+				if ( isset( $theme_options[ $old_layout ] ) || 'page' === $post_type ) {
 					$theme_options = astra_apply_layout_migration( $old_layout, $new_layout, $content_style, $sidebar_style, $theme_options );
 				}
 			}
@@ -1336,7 +1342,7 @@ function astra_theme_background_updater_4_2_0_beta_1() {
 			$theme_options['fullwidth_sidebar_support'] = false;
 		}
 
-		$theme_options['v4-2-0-beta-1-update-migration'] = true;
+		$theme_options['v4-2-0-update-migration'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
@@ -1346,7 +1352,7 @@ function astra_theme_background_updater_4_2_0_beta_1() {
  *
  * Migration cases for old users, old layouts -> new layouts.
  *
- * @since 4.2.0-beta.1
+ * @since 4.2.0
  * @param mixed $old_layout
  * @param mixed $new_layout
  * @param mixed $content_style
