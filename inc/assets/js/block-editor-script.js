@@ -32,9 +32,43 @@ function astra_onload_function() {
 
 	wp.data.subscribe(function () {
 		setTimeout( function () {
+			// Title visibility with new editor compatibility update.
+			var titleVisibility = document.querySelector( '.title-visibility' ),
+				titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' ),
+				editorDocument = document;
+
+			if ( astraColors.ast_wp_version_higher_6_3 ) {
+				let desktopPreview = document.getElementsByClassName('is-desktop-preview'),
+					tabletPreview = document.getElementsByClassName('is-tablet-preview'),
+					mobilePreview = document.getElementsByClassName('is-mobile-preview'),
+					dashiconsAssetLink = document.getElementById('dashicons-css'),
+					devicePreview = desktopPreview[0];
+
+				if ( tabletPreview.length > 0 ) {
+					devicePreview = tabletPreview[0];
+				} else if ( mobilePreview.length > 0 ) {
+					devicePreview = mobilePreview[0];
+				}
+
+				let iframe = devicePreview.getElementsByTagName('iframe')[0];
+				editorDocument = iframe.contentWindow.document || iframe.contentDocument;
+
+				titleVisibility = editorDocument.querySelector( '.title-visibility' );
+				titleBlock = editorDocument.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
+
+				// Create a link element for iframe document to support dashicons-css in it.
+				let dashiconsAssetAppendLink = document.createElement('link');
+				dashiconsAssetAppendLink.id = 'dashicons-css';
+				dashiconsAssetAppendLink.setAttribute('href', dashiconsAssetLink.getAttribute('href'));
+				dashiconsAssetAppendLink.setAttribute('rel', dashiconsAssetLink.getAttribute('rel'));
+				dashiconsAssetAppendLink.setAttribute('media', dashiconsAssetLink.getAttribute('media') );
+
+				editorDocument.body.appendChild(dashiconsAssetAppendLink);
+			}
+
 			// Compatibility for updating layout in editor with direct reflection.
 			const contentLayout = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-content-layout'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-content-layout'] : 'default',
-				bodyClass = document.querySelector('body');
+				bodyClass = astraColors.ast_wp_version_higher_6_3 ? editorDocument.querySelector('html') : document.querySelector('body');
 
 			switch( contentLayout ) {
 				case 'boxed-container':
@@ -77,7 +111,8 @@ function astra_onload_function() {
 				break;
 			}
 
-			const editorStylesWrapper = document.querySelector( '.editor-styles-wrapper' );
+			const editorStylesWrapper = editorDocument.querySelector( '.editor-styles-wrapper' );
+			console.error(editorStylesWrapper);
 
 			if( null !== editorStylesWrapper ) {
 				const editorStylesWrapperWidth = parseInt( editorStylesWrapper.offsetWidth )
@@ -102,9 +137,6 @@ function astra_onload_function() {
 				}
 			}
 
-			// Title visibility with new editor compatibility update.
-			var titleVisibility = document.querySelector( '.title-visibility' ),
-				titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 			if( null === titleVisibility && null !== titleBlock ) {
 				var titleVisibilityTrigger = '';
 				if( 'disabled' === wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-post-title'] ) {
@@ -115,9 +147,9 @@ function astra_onload_function() {
 				}
 
 				titleBlock.insertAdjacentHTML( 'beforeend', titleVisibilityTrigger );
-				document.querySelector( '.title-visibility' ).addEventListener( 'click', function() {
-					var titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
-					titleBlock.classList.toggle( 'invisible' );
+				editorDocument.querySelector( '.title-visibility' ).addEventListener( 'click', function() {
+					var deviceTitleBlock = editorDocument.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
+					deviceTitleBlock.classList.toggle( 'invisible' );
 
 					if( this.classList.contains( 'dashicons-hidden' ) ) {
 						this.classList.add( 'dashicons-visibility' );
@@ -206,14 +238,13 @@ function astra_onload_function() {
 document.body.addEventListener('mousedown', function () {
 	var blockCssMode = document.querySelector('body').classList.contains('ast-block-legacy')
 	var fontCss = document.getElementById('astra-google-fonts-css');
-if(true === blockCssMode){
-	var blockCss = document.getElementById('astra-block-editor-styles-css');
-	var inlineCss = document.getElementById('astra-block-editor-styles-inline-css');
-
-}else {
-	var blockCss = document.getElementById('astra-wp-editor-styles-css');
-	var inlineCss = document.getElementById('astra-wp-editor-styles-inline-css');
-}
+	if( true === blockCssMode ){
+		var blockCss = document.getElementById('astra-block-editor-styles-css');
+		var inlineCss = document.getElementById('astra-block-editor-styles-inline-css');
+	} else {
+		var blockCss = document.getElementById('astra-wp-editor-styles-css');
+		var inlineCss = document.getElementById('astra-wp-editor-styles-inline-css');
+	}
 
 
 	var blockFixCss = null !== blockCss ? blockCss.cloneNode(true) : null;
@@ -227,11 +258,10 @@ if(true === blockCssMode){
 
 		if (0 !== tabletPreview.length || 0 !== mobilePreview.length) {
 			var googleFontId = 'astra-google-fonts-css';
-			if(true === blockCssMode){
+			if( true === blockCssMode ){
 				var styleTagId = 'astra-block-editor-styles-inline-css';
 				var styleTagBlockId = 'astra-block-editor-styles-css';
-
-			} else{
+			} else {
 				var styleTagId = 'astra-wp-editor-styles-inline-css';
 				var styleTagBlockId = 'astra-wp-editor-styles-css';
 			}
