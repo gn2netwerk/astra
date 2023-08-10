@@ -530,3 +530,12 @@ body {
 	  border-radius: 2px;
 	}
 }
+
+/**
+ * 6.3 Compatibility fixes in block editor.
+ */
+ span.title-visibility svg {
+    width: 16px;
+    height: 40px;
+    fill: var(--wp-admin-theme-color);
+}
