@@ -619,7 +619,7 @@ h6 {
 }
 
 .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input {
-  padding: 10px 6px 10px 0;
+  padding: 10px 6px;
   transition: all 0.2s;
 }
 
