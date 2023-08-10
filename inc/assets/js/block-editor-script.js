@@ -204,13 +204,13 @@ function astra_onload_function() {
 			const titleInput     = document.querySelector('.editor-post-title__input');
 			const visibilityIcon = document.querySelector('.title-visibility');
 			if( null != titleInput && null != visibilityIcon ) {
-				editorDocument.addEventListener('click', function (event){
+				document.addEventListener('click', function (event){
 					if( ! titleBlock.contains( event.target ) ){
 						visibilityIcon.classList.remove('ast-show-visibility-icon');
 						titleInput.classList.remove('ast-show-editor-title-outline');
 					}
 				});
-				editorDocument.addEventListener('visibilitychange', function (){
+				document.addEventListener('visibilitychange', function (){
 						visibilityIcon.classList.remove('ast-show-visibility-icon');
 						titleInput.classList.remove('ast-show-editor-title-outline');
 				});
