@@ -76,7 +76,7 @@ function astra_onload_function() {
 
 		titleVisibilityTriggerElement.addEventListener("click", function() {
 			let metaTitleOptions = postTitleOption || '';
-			if ( this.parentNode.classList.contains( 'invisible' ) && 'disabled' === metaTitleOptions ) {
+			if ( this.parentNode.classList.contains( 'invisible' ) && ( 'disabled' === metaTitleOptions || '' === metaTitleOptions ) ) {
 				this.parentNode.classList.remove( 'invisible' );
 				this.dataset.tooltip = 'Disable Title';
 				titleVisibilityTriggerElement.innerHTML = '';
@@ -201,16 +201,18 @@ function astra_onload_function() {
 			}
 
 			// Show post/page title wrapper outline & eye icon only when clicked.
-			const titleInput     = document.querySelector('.editor-post-title__input');
-			const visibilityIcon = document.querySelector('.title-visibility');
+			const titleInput     = editorDocument.querySelector('.editor-post-title__input');
+			const visibilityIcon = editorDocument.querySelector('.title-visibility');
 			if( null != titleInput && null != visibilityIcon ) {
-				document.addEventListener('click', function (event){
-					if( ! titleBlock.contains( event.target ) ){
-						visibilityIcon.classList.remove('ast-show-visibility-icon');
-						titleInput.classList.remove('ast-show-editor-title-outline');
-					}
-				});
-				document.addEventListener('visibilitychange', function (){
+				if ( ! astraColors.ast_wp_version_higher_6_3 ) {
+					editorDocument.addEventListener('click', function (event){
+						if( ! titleBlock.contains( event.target ) ){
+							visibilityIcon.classList.remove('ast-show-visibility-icon');
+							titleInput.classList.remove('ast-show-editor-title-outline');
+						}
+					});
+				}
+				editorDocument.addEventListener('visibilitychange', function (){
 						visibilityIcon.classList.remove('ast-show-visibility-icon');
 						titleInput.classList.remove('ast-show-editor-title-outline');
 				});
