@@ -271,7 +271,7 @@ html {
 }
 
 .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input {
-  padding: 10px 6px;
+  padding: 10px 0 10px 6px;
   transition: all 0.2s;
 }
 
@@ -727,4 +727,12 @@ body .editor-styles-wrapper > .block-editor-block-list__layout.edit-post-visual-
 
 .wp-block-button button {
   border-radius: 2px;
+}
+
+/**
+ * 6.3 Compatibility fixes in block editor.
+ */
+span.title-visibility svg {
+  width: 20px;
+  height: 40px;
 }
