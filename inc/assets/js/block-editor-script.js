@@ -48,7 +48,9 @@ function astra_onload_function() {
 		}
 
 		let iframe = devicePreview.getElementsByTagName('iframe')[0];
-		editorDocument = iframe.contentWindow.document || iframe.contentDocument;
+		if ( devicePreview.querySelector('iframe') !== null ) {
+			editorDocument = iframe.contentWindow.document || iframe.contentDocument;
+		}
 
 		titleVisibility = editorDocument.querySelector( '.title-visibility' );
 		titleBlock = editorDocument.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
@@ -125,7 +127,9 @@ function astra_onload_function() {
 				}
 
 				let iframe = devicePreview.getElementsByTagName('iframe')[0];
-				editorDocument = iframe.contentWindow.document || iframe.contentDocument;
+				if ( devicePreview.querySelector('iframe') !== null ) {
+					editorDocument = iframe.contentWindow.document || iframe.contentDocument;
+				}
 
 				titleBlock = editorDocument.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
 			}
