@@ -55,6 +55,7 @@ function astra_comments_css( $dynamic_css ) {
 		$padding_comment_title                = $update_customizer_strctural_defaults ? '1em 0 0' : '2em 0';
 		$padding_ast_comment                  = $update_customizer_strctural_defaults ? '0' : '1em 0';
 		$padding_ast_comment_list             = $update_customizer_strctural_defaults ? '0' : '0.5em';
+		$border_color                         = astra_get_option( 'border-color' );
 
 		$single_post_comment_css = '.comments-title {
             padding: ' . esc_attr( $padding_comment_title ) . ';
@@ -111,7 +112,7 @@ function astra_comments_css( $dynamic_css ) {
           }
 
           .comments-area {
-            border-top: 1px solid #eeeeee;
+            border-top: 1px solid ' . esc_attr( $border_color ) . ';
             margin-top: 2em;
           }
 
