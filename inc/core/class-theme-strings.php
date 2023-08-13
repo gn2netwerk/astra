@@ -52,7 +52,7 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 				'string-comment-awaiting-moderation'     => __( 'Your comment is awaiting moderation.', 'astra' ),
 				'string-comment-title-reply'             => __( 'Leave a Comment', 'astra' ),
 				'string-comment-cancel-reply-link'       => __( 'Cancel Reply', 'astra' ),
-				'string-comment-label-submit'            => __( 'Post Comment &raquo;', 'astra' ),
+				'string-comment-label-submit'            => __( 'Post Comment', 'astra' ),
 				'string-comment-label-message'           => __( 'Type here..', 'astra' ),
 				'string-comment-label-name'              => __( 'Name*', 'astra' ),
 				'string-comment-label-email'             => __( 'Email*', 'astra' ),
