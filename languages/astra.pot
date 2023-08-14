@@ -9,14 +9,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-07-18T12:07:10+00:00\n"
+"POT-Creation-Date: 2023-08-14T11:36:26+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: astra\n"
 
 #. Theme Name of the theme
 #: admin/includes/class-astra-menu.php:77
-#: inc/markup-extras.php:1923
+#: inc/markup-extras.php:1938
 msgid "Astra"
 msgstr ""
 
@@ -839,7 +839,7 @@ msgstr ""
 #: inc/modules/posts-structures/customizer/class-astra-posts-archive-structures-configs.php:237
 #: inc/modules/posts-structures/customizer/class-astra-posts-archive-structures-configs.php:243
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:420
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:421
 msgid "None"
 msgstr ""
 
@@ -1828,8 +1828,8 @@ msgstr ""
 #: inc/builder/type/header/menu/class-astra-header-menu-component.php:144
 #: inc/builder/type/header/mobile-menu/class-astra-mobile-menu-component.php:80
 #: inc/builder/type/header/mobile-menu/class-astra-mobile-menu-component.php:127
-#: inc/markup-extras.php:1157
-#: inc/markup-extras.php:1193
+#: inc/markup-extras.php:1172
+#: inc/markup-extras.php:1208
 msgid "Site Navigation"
 msgstr ""
 
@@ -3016,7 +3016,7 @@ msgstr ""
 #: inc/core/builder/class-astra-builder-helper.php:747
 #: inc/customizer/configurations/builder/header/class-astra-header-search-component-configs.php:50
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:150
-#: inc/markup-extras.php:728
+#: inc/markup-extras.php:743
 #: searchform.php:30
 #: searchform.php:36
 msgid "Search"
@@ -3667,7 +3667,7 @@ msgstr ""
 
 #: inc/customizer/configurations/block-editor/class-astra-block-editor-configs.php:68
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:513
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:514
 msgid "Size"
 msgstr ""
 
@@ -4899,8 +4899,12 @@ msgid "Extensive range of tools to help blog pages stand out"
 msgstr ""
 
 #: inc/extras.php:426
-#: inc/markup-extras.php:899
+#: inc/markup-extras.php:914
 msgid "Astra WordPress Theme"
+msgstr ""
+
+#: inc/lib/astra-notices/class-astra-notices.php:119
+msgid "WordPress Nonce not validated."
 msgstr ""
 
 #. translators: %d: Minutes interval
@@ -4908,27 +4912,27 @@ msgstr ""
 msgid "Every %d Minutes"
 msgstr ""
 
-#: inc/markup-extras.php:727
+#: inc/markup-extras.php:742
 msgid "Search icon link"
 msgstr ""
 
-#: inc/markup-extras.php:760
+#: inc/markup-extras.php:775
 msgid "Add Custom HTML"
 msgstr ""
 
-#: inc/markup-extras.php:940
+#: inc/markup-extras.php:955
 msgid "Assign Footer Menu"
 msgstr ""
 
-#: inc/markup-extras.php:1598
+#: inc/markup-extras.php:1613
 msgid "Add Widget"
 msgstr ""
 
-#: inc/markup-extras.php:1638
+#: inc/markup-extras.php:1653
 msgid "Click here to assign a widget for this area."
 msgstr ""
 
-#: inc/markup-extras.php:1939
+#: inc/markup-extras.php:1954
 msgid "Astra Pro"
 msgstr ""
 
@@ -5379,7 +5383,7 @@ msgid "View All Documentation"
 msgstr ""
 
 #: admin/assets/build/dashboard-app.js:1
-#: admin/assets/src/dashboard-app/DocsPopup.js:11
+#: admin/assets/src/dashboard-app/DocsPopup.js:19
 msgid "Knowledge Base"
 msgstr ""
 
@@ -5957,146 +5961,146 @@ msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
 #: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:127
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:430
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:431
 msgid "Gradient"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:235
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:280
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:553
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:236
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:281
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:554
 msgid "Clear"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:285
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:286
 msgid "Reset"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:425
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:426
 msgid "Classic"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:453
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:459
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:454
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:460
 msgid "Select Background Image"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:459
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:460
 msgid "Replace image"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:467
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:468
 #: inc/customizer/extend-custom-controls/src/list-icons/item-component.js:158
 msgid "Remove Image"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:481
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:482
 msgid "Left Top"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:482
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:483
 msgid "Left Center"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:483
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:484
 msgid "Left Bottom"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:484
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:485
 msgid "Right Top"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:485
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:486
 msgid "Right Center"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:486
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:487
 msgid "Right Bottom"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:487
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:488
 msgid "Center Top"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:488
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:489
 msgid "Center Center"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:489
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:490
 msgid "Center Bottom"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:493
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:494
 msgid "Attachment"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:497
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:498
 msgid "Fixed"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:498
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:499
 msgid "Scroll"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:502
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:503
 msgid "Repeat"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:506
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:507
 msgid "No Repeat"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:507
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:508
 msgid "Repeat All"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:508
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:509
 msgid "Repeat Horizontally"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:509
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:510
 msgid "Repeat Vertically"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:517
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:518
 msgid "Auto"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:518
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:519
 msgid "Cover"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:519
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:520
 msgid "Contain"
 msgstr ""
 
 #: inc/customizer/extend-custom-controls/build/index.js:1
-#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:524
+#: inc/customizer/extend-custom-controls/src/common/astra-color-picker-control.js:525
 msgid "Image Overlay"
 msgstr ""
 
