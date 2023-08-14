@@ -1,6 +1,6 @@
 <?php
 /**
- * Astra functions and definitions
+ * Astra functions and
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
