@@ -237,7 +237,7 @@ function astra_comments_css( $dynamic_css ) {
 			$single_post_comment_css .= '
             .ast-comment-list li.depth-1 .ast-comment,
             .ast-comment-list li.depth-2 .ast-comment {
-              border-bottom: 1px solid #eeeeee;
+              border-bottom: 1px solid ' . esc_attr( $border_color ) . ';
             }';
 		}
 		if ( $is_site_rtl ) {
