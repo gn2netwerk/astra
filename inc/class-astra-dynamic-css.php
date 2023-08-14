@@ -2136,7 +2136,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$woo_btns_hover_selector          = ( true === self::astra_woo_support_global_settings() ) ? ', .woocommerce-js a.button:hover, .woocommerce button.button:hover, .woocommerce .woocommerce-message a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link:hover, [CLASS*="wc-block"] button:hover, .woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):not(.ast-continue-shopping):hover, .woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a.checkout:hover, .woocommerce button.button.alt.disabled.wc-variation-selection-needed:hover' : '';
 				$post_comment_btn_compat_selector = ( true === self::astra_post_comment_btn_compat() ) ? ', #comments .submit' : '';
 
-				// astra_post_comment_btn_compat
 				/**
 				 * Global button CSS - Desktop.
 				 */
