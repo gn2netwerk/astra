@@ -3647,6 +3647,16 @@ namespace {
         public static function load_cart_static_css()
         {
         }
+		/**
+		 * Post Comment Button Styling Compatibility.
+		 * Old Users - Will not reflect directly.
+		 * New Users - Direct reflection
+		 * @return bool true|false.
+		 * @since x.x.x
+		 */
+		public static function astra_post_comment_btn_compat() 
+        {
+        }
         /**
          * Check is new structural things are updated.
          *

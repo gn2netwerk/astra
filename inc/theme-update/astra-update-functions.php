@@ -1301,3 +1301,17 @@ function astra_theme_background_updater_4_1_6() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Handle backward compatibility on version 4.2.1
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_2_1() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['post-comment-btn-compat'] ) ) {
+		$theme_options['post-comment-btn-compat'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
