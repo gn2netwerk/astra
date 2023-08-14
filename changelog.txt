@@ -4,6 +4,10 @@ v4.2.0
 - New: Introducing new Sidebar Style Options: 'Boxed', 'Unboxed'. ( https://wpastra.com/docs/understanding-sidebar-style-in-astra-theme-customizing-your-sidebars-look/ )
 - Improvement: Migrating container & sidebar layouts to new revamped settings for better user experience. ( https://wpastra.com/docs/astra-4-2-0-beta-1-migrations-backwards-compatibility/ )
 
+v4.1.8
+- Fix: Title enable/disable option missing in block editor with WordPress-6.3.
+- Fix: Content layouts not working realtime in block editor with WordPress-6.3. 
+
 v4.1.7
 - Improvement: Compatibility with WordPress-6.3.
 
