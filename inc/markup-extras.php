@@ -212,12 +212,12 @@ if ( ! function_exists( 'astra_logo' ) ) {
 				if ( 0 === strpos( $header_logo_color, 'var(--' ) ) {
 					$agp       = new Astra_Global_Palette();
 					$svg_color = astra_hex_to_rgb( $agp->get_color_by_palette_variable( $header_logo_color ) );
-				} elseif ( ! preg_match( '^(#)((?:[A-Fa-f0-9]{3}){1,2})$', $header_logo_color ) ) {
+				} elseif ( preg_match( '/^#[a-f0-9]{6}$/i', $header_logo_color ) ) {
 					$svg_color = astra_hex_to_rgb( $header_logo_color );
 				} else {
 					$svg_color = astra_split_rgba( $header_logo_color );
 				}
-
+				
 				echo astra_get_filter_svg( 'ast-img-color-filter', apply_filters( 'astra_header_logo_svg_color', $svg_color ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
