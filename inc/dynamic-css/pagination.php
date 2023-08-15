@@ -197,7 +197,6 @@ function astra_pagination_css( $dynamic_css ) {
 			}
 		}
 		$css_output_mobile   = array(
-
 			'.ast-pagination .next:focus, .ast-pagination .prev:focus' => array(
 				'width' => '100% !important',
 			),
