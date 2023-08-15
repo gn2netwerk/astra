@@ -1303,12 +1303,12 @@ function astra_theme_background_updater_4_1_6() {
 }
 
 /**
- * Handle backward compatibility on version 4.2.1
+ * Handle backward compatibility on version 4.2.2
  *
  * @since x.x.x
  * @return void
  */
-function astra_theme_background_updater_4_2_1() {
+function astra_theme_background_updater_4_2_2() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['post-comment-btn-compat'] ) ) {
 		$theme_options['post-comment-btn-compat'] = false;

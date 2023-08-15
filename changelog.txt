@@ -1,6 +1,6 @@
-v4.2.1 (Unreleased)
+v4.2.2 (Unreleased)
 - Improvement: Guillemet symbol ">>" from "Post Comment" removed for better UI.
-- Fix: "Post Comment" button does not inheriting customizer global button stylings.
+- Fix: "Post Comment" button does not inherit customizer global button stylings.
 
 v4.1.8 (Unreleased)
 - New: Introducing new & optimized Lightbox feature in theme. ( Needs Doc )
