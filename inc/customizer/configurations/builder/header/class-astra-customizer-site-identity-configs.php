@@ -77,6 +77,20 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'description' => '',
 				),
 
+				/**
+				 * Option: Header logo color.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-logo-color]',
+					'default'  => astra_get_option( 'header-logo-color' ),
+					'type'     => 'control',
+					'control'  => 'ast-color',
+					'section'   => 'title_tagline',
+					'priority' => 5,
+					'context'   => Astra_Builder_Helper::$design_tab,
+					'title'    => __( 'Logo Color', 'astra' ),
+				),
+
 				// Option: Site Title Color.
 				array(
 					'name'      => 'header-color-site-title',

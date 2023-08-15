@@ -208,21 +208,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			$header_logo_color = astra_get_option( 'header-logo-color' );
 
 			if ( $header_logo_color ) {
-				
-				if ( 0 === strpos( $header_logo_color, 'var(--' ) ) {
-					$agp = new Astra_Global_Palette();
-					/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					$svg_color = astra_hex_to_rgb( $agp->get_color_by_palette_variable( $header_logo_color ) );
-				} elseif ( preg_match( '/^#[a-f0-9]{6}$/i', $header_logo_color ) ) {
-					/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					$svg_color = astra_hex_to_rgb( $header_logo_color );
-				} else {
-					/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					$svg_color = astra_split_rgba( $header_logo_color );
-				}
-
-				/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				echo astra_get_filter_svg( 'ast-img-color-filter', apply_filters( 'astra_header_logo_svg_color', $svg_color ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				astra_render_svg_mask( 'ast-img-color-filter', 'header_logo_svg_color', $header_logo_color );
 			}
 
 			$html .= '<span class="site-logo-img">';

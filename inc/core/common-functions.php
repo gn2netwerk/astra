@@ -1791,3 +1791,32 @@ function astra_split_rgba( $rgba ) {
 		'a' => $a,
 	);
 }
+
+
+/**
+ * Render svg mask.
+ *
+ * @since x.x.x
+ *
+ * @param string $id id.
+ * @param string $filter_name filter name.
+ * @param string $color color.
+ * @return mixed masked svg,
+ */
+function astra_render_svg_mask( $id, $filter_name, $color ) {
+
+	if ( 0 === strpos( $color, 'var(--' ) ) {
+		$agp = new Astra_Global_Palette();
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$svg_color = astra_hex_to_rgb( $agp->get_color_by_palette_variable( $color ) );
+	} elseif ( preg_match( '/^#[a-f0-9]{6}$/i', $color ) ) {
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$svg_color = astra_hex_to_rgb( $color );
+	} else {
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$svg_color = astra_split_rgba( $color );
+	}
+
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		echo astra_get_filter_svg( $id, apply_filters( 'astra_' . $filter_name, $svg_color ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}

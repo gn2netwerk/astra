@@ -162,20 +162,6 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'title'    => __( 'Borders', 'astra' ),
 				),
 
-				/**
-				 * Option: Header logo color.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-logo-color]',
-					'default'  => astra_get_option( 'header-logo-color' ),
-					'type'     => 'control',
-					'control'  => 'ast-color',
-					'section'  => $_section,
-					'priority' => 6,
-					'title'    => __( 'Header Logo Color', 'astra' ),
-					'divider'  => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
-				),
-
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
