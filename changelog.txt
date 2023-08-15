@@ -34,6 +34,7 @@ v4.1.8 (Unreleased)
 - Fix: Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed & Content Boxed layout.
 - Fix: Spectra - Table of Content's anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
 - Fix: Related Posts - Meta's author link is incorrect for other than admin created posts.
+- Fix: Blog: Paginnation - Next Page and Previous Page pagination links jumps on mobile view on focus.
 
 v4.1.7
 - Improvement: Compatibility with WordPress-6.3.
