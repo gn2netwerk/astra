@@ -4,6 +4,7 @@ v4.1.8 (Unreleased)
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Improvement: Header Footer Builder - Added new social profile "Threads".
 - Improvement: WooCommerce - Mini Cart - Update cart quantity when input value is changed.
+- Improvement: Compatibility with ZipWP.
 - Improvement: Synced comments-area border color with customizer border color setting.
 - Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
 - Fix: Group container inner blocks option does not disable in the editor.
