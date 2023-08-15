@@ -217,7 +217,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 				} else {
 					$svg_color = astra_split_rgba( $header_logo_color );
 				}
-				
+
 				echo astra_get_filter_svg( 'ast-img-color-filter', apply_filters( 'astra_header_logo_svg_color', $svg_color ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
@@ -1739,11 +1739,14 @@ function astra_get_filter_svg( $filter_id, $color ) {
 		'a' => array(),
 	);
 
-	$duotone_values['r'][]         = $color['r'] / 255;
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$duotone_values['r'][] = $color['r'] / 255;
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$duotone_values['g'][] = $color['g'] / 255;
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$duotone_values['b'][] = $color['b'] / 255;
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$duotone_values['a'][] = $color['a'];
-
 	ob_start();
 
 	?>
@@ -1784,12 +1787,10 @@ function astra_get_filter_svg( $filter_id, $color ) {
 
 	$svg = ob_get_clean();
 
-	if ( ! SCRIPT_DEBUG ) {
-		// Clean up the whitespace.
-		$svg = preg_replace( "/[\r\n\t ]+/", ' ', $svg );
-		$svg = str_replace( '> <', '><', $svg );
-		$svg = trim( $svg );
-	}
+	// Clean up the whitespace.
+	$svg = preg_replace( "/[\r\n\t ]+/", ' ', $svg );
+	$svg = str_replace( '> <', '><', $svg );
+	$svg = trim( $svg );
 
 	return $svg;
 }
@@ -1803,7 +1804,13 @@ function astra_get_filter_svg( $filter_id, $color ) {
  * @return array split version of rgb.
  */
 function astra_hex_to_rgb( $hex ) {
+	// @codingStandardsIgnoreStart
+	/**
+	 * @psalm-suppress PossiblyNullArrayAccess
+	 */
 	list($r, $g, $b) = sscanf( $hex, '#%02x%02x%02x' );
+
+	// @codingStandardsIgnoreEnd
 	return array(
 		'r' => $r,
 		'g' => $g,
