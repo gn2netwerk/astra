@@ -1448,6 +1448,8 @@ function hasWordPressWidgetBlockEditor() {
 	var ele_border_radius_selector = '';
 	var ele_border_width_selector  = '';
 	var ele_padding_selector       = '';
+
+	// Hover and focus selectors for comment button styling compatibility.
 	var commentBtnHoverSelector = '';
 	var commentBtnFocusSelector = '';
 	if ( astraCustomizer.post_comment_btn_compat_selector && '' != astraCustomizer.post_comment_btn_compat_selector ) {
