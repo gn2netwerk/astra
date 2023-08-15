@@ -205,6 +205,22 @@ if ( ! function_exists( 'astra_logo' ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
 			}
 
+			$header_logo_color = astra_get_option( 'header-logo-color' );
+
+			if ( $header_logo_color ) {
+				
+				if ( 0 === strpos( $header_logo_color, 'var(--' ) ) {
+					$agp       = new Astra_Global_Palette();
+					$svg_color = astra_hex_to_rgb( $agp->get_color_by_palette_variable( $header_logo_color ) );
+				} elseif ( ! preg_match( '^(#)((?:[A-Fa-f0-9]{3}){1,2})$', $header_logo_color ) ) {
+					$svg_color = astra_hex_to_rgb( $header_logo_color );
+				} else {
+					$svg_color = astra_split_rgba( $header_logo_color );
+				}
+
+				echo astra_get_filter_svg( 'ast-img-color-filter', apply_filters( 'astra_header_logo_svg_color', $svg_color ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+
 			$html .= '<span class="site-logo-img">';
 			$html .= get_custom_logo();
 			$html .= '</span>';
@@ -1705,3 +1721,122 @@ function astra_bbpress_issue( $value ) {
 
 add_filter( 'astra_single_layout_one_banner_visibility', 'astra_bbpress_issue', 50 );
 
+/**
+ * Gets the SVG for the duotone filter definition.
+ *
+ * @since x.x.x
+ *
+ * @param string $filter_id The ID of the filter.
+ * @param array  $color    An array of color strings.
+ * @return string An SVG with a duotone filter definition.
+ */
+function astra_get_filter_svg( $filter_id, $color ) {
+
+	$duotone_values = array(
+		'r' => array(),
+		'g' => array(),
+		'b' => array(),
+		'a' => array(),
+	);
+
+	$duotone_values['r'][]         = $color['r'] / 255;
+			$duotone_values['g'][] = $color['g'] / 255;
+			$duotone_values['b'][] = $color['b'] / 255;
+			$duotone_values['a'][] = $color['a'];
+
+	ob_start();
+
+	?>
+
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 0 0"
+		width="0"
+		height="0"
+		focusable="false"
+		role="none"
+		style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"
+	>
+		<defs>
+			<filter id="<?php echo esc_attr( $filter_id ); ?>">
+				<feColorMatrix
+					color-interpolation-filters="sRGB"
+					type="matrix"
+					values="
+						.299 .587 .114 0 0
+						.299 .587 .114 0 0
+						.299 .587 .114 0 0
+						.299 .587 .114 0 0
+					"
+				/>
+				<feComponentTransfer color-interpolation-filters="sRGB" >
+					<feFuncR type="table" tableValues="<?php echo esc_attr( implode( ' ', $duotone_values['r'] ) ); ?>" />
+					<feFuncG type="table" tableValues="<?php echo esc_attr( implode( ' ', $duotone_values['g'] ) ); ?>" />
+					<feFuncB type="table" tableValues="<?php echo esc_attr( implode( ' ', $duotone_values['b'] ) ); ?>" />
+					<feFuncA type="table" tableValues="<?php echo esc_attr( implode( ' ', $duotone_values['a'] ) ); ?>" />
+				</feComponentTransfer>
+				<feComposite in2="SourceGraphic" operator="in" />
+			</filter>
+		</defs>
+	</svg>
+
+	<?php
+
+	$svg = ob_get_clean();
+
+	if ( ! SCRIPT_DEBUG ) {
+		// Clean up the whitespace.
+		$svg = preg_replace( "/[\r\n\t ]+/", ' ', $svg );
+		$svg = str_replace( '> <', '><', $svg );
+		$svg = trim( $svg );
+	}
+
+	return $svg;
+}
+
+/**
+ * Converts HEX to RGB.
+ *
+ * @since x.x.x
+ *
+ * @param string $hex Hex color.
+ * @return array split version of rgb.
+ */
+function astra_hex_to_rgb( $hex ) {
+	list($r, $g, $b) = sscanf( $hex, '#%02x%02x%02x' );
+	return array(
+		'r' => $r,
+		'g' => $g,
+		'b' => $b,
+	);
+}
+
+/**
+ * Converts RGBA to split array RGBA.
+ *
+ * @since x.x.x
+ *
+ * @param string $rgba RGBA value.
+ * @return array split version of rgba.
+ */
+function astra_split_rgba( $rgba ) {
+	// Remove the "rgba(" and ")" from the input string.
+	$rgba = str_replace( array( 'rgba(', ')' ), '', $rgba );
+
+	// Split the RGBA values by comma.
+	$values = explode( ',', $rgba );
+
+	// Convert each value from string to integer.
+	$r = intval( $values[0] );
+	$g = intval( $values[1] );
+	$b = intval( $values[2] );
+	$a = floatval( $values[3] );
+
+	// Create the split RGBA string.
+	return array(
+		'r' => $r,
+		'g' => $g,
+		'b' => $b,
+		'a' => $a,
+	);
+}

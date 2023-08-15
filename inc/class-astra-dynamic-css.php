@@ -879,6 +879,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$css_output['.site-logo-img img'] = array(
 					' transition' => 'all 0.2s linear',
 				);
+
+				if ( astra_get_option( 'header-logo-color' ) ) {
+					$css_output['.site-logo-img img'] = array(
+						'filter' => 'url(#ast-img-color-filter)',
+					);
+				}
 			}
 
 			$parse_css = '';
