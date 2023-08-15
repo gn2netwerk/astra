@@ -4,9 +4,8 @@ v4.1.8 (Unreleased)
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Improvement: Header Footer Builder - Added new social profile "Threads".
 - Improvement: WooCommerce - Mini Cart - Update cart quantity when input value is changed.
-- Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
-- Fix: Cart button color setting is not working when product added to cart.
-- Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
+- Improvement: Compatibility with ZipWP.
+- Improvement: Synced comments-area border color with customizer border color setting.
 - Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
 - Fix: Group container inner blocks option does not disable in the editor.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
@@ -24,12 +23,18 @@ v4.1.8 (Unreleased)
 - Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
 - Fix: WooCommerce - Left margin from the "Add to cart" button when Sold Individually option is selected.
 - Fix: WooCommerce - Shop - Slide in cart action for Add to Cart button does not work when Elementor is active.
+- Fix: WooCommerce - Shop Archive page Product Category Background color issue.
 - Fix: WooCommerce - PHP fatal error when 'astra_enable_woocommerce_integration' filter used to disable Astra and WooCommerce extended integration. ( https://wpastra.com/docs/remove-astra-customization-for-woocommerce/ )
+- Fix: WooCommerce - Single Product - alt tag absent while rendering images for the WooCommerce payments.
+- Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
+- Fix: WooCommerce - Cart button color setting is not working when product added to cart.
 - Fix: Customizer - Typography font variation select dropdown gets cropped in font settings.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 - Fix: Editor - Astra's theme preview button not alligned properly in the editor.
-- Fix: Paginnation - Next Page and Previous Page jumps on mobile view.
+- Fix: Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed & Content Boxed layout.
+- Fix: Spectra - Table of Content's anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
 - Fix: Related Posts - Meta's author link is incorrect for other than admin created posts.
+- Fix: Blog: Paginnation - Next Page and Previous Page pagination links jumps on mobile view on focus.
 
 v4.1.7
 - Improvement: Compatibility with WordPress-6.3.
