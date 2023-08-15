@@ -181,7 +181,6 @@
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
 			}
-			console.error(weightKey, weightValue);
 
 			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
 			var weightObject = AstTypography._getWeightObject( fontValue );
