@@ -30,6 +30,7 @@ v4.1.8 (Unreleased)
 - Fix: Customizer - Typography font variation select dropdown gets cropped in font settings.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 - Fix: Editor - Astra's theme preview button not alligned properly in the editor.
+- Fix: Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed & Content Boxed layout.
 - Fix: Spectra - Table of Content's anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
 - Fix: Related Posts - Meta's author link is incorrect for other than admin created posts.
 
