@@ -1310,8 +1310,8 @@ function astra_theme_background_updater_4_1_6() {
  */
 function astra_theme_background_updater_4_2_2() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['post-comment-btn-compat'] ) ) {
-		$theme_options['post-comment-btn-compat'] = false;
+	if ( ! isset( $theme_options['v4-2-2-core-form-btns-styling'] ) ) {
+		$theme_options['v4-2-2-core-form-btns-styling'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

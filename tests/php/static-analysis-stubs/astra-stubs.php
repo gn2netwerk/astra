@@ -3648,13 +3648,13 @@ namespace {
         {
         }
 		/**
-		 * Post Comment Button Styling Compatibility.
+		 * Core Comment & Search Button Styling Compatibility.
 		 * Old Users - Will not reflect directly.
 		 * New Users - Direct reflection
 		 * @return bool true|false.
 		 * @since x.x.x
 		 */
-		public static function astra_post_comment_btn_compat() 
+		public static function astra_core_form_btns_styling() 
         {
         }
         /**
