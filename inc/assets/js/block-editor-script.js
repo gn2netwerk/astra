@@ -47,8 +47,8 @@ function astra_onload_function() {
 			devicePreview = mobilePreview[0];
 		}
 
-		let iframe = devicePreview.getElementsByTagName('iframe')[0];
-		if ( devicePreview.querySelector('iframe') !== null ) {
+		let iframe = undefined !== devicePreview ? devicePreview.getElementsByTagName('iframe')[0] : undefined;
+		if ( iframe && devicePreview.querySelector('iframe') !== null ) {
 			editorDocument = iframe.contentWindow.document || iframe.contentDocument;
 		}
 
@@ -126,8 +126,8 @@ function astra_onload_function() {
 					devicePreview = mobilePreview[0];
 				}
 
-				let iframe = devicePreview.getElementsByTagName('iframe')[0];
-				if ( devicePreview.querySelector('iframe') !== null ) {
+				let iframe = undefined !== devicePreview ? devicePreview.getElementsByTagName('iframe')[0] : undefined;
+				if ( iframe && devicePreview.querySelector('iframe') !== null ) {
 					editorDocument = iframe.contentWindow.document || iframe.contentDocument;
 				}
 
