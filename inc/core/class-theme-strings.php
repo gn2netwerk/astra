@@ -28,6 +28,7 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 	 */
 	function astra_default_strings( $key, $echo = true ) {
 
+		$post_comment_dynamic_string = ( true === Astra_Dynamic_CSS::astra_post_comment_btn_compat() ) ? __( 'Post Comment', 'astra' ) : __( 'Post Comment &raquo;', 'astra' );
 		$defaults = apply_filters(
 			'astra_default_strings',
 			array(
@@ -52,7 +53,7 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 				'string-comment-awaiting-moderation'     => __( 'Your comment is awaiting moderation.', 'astra' ),
 				'string-comment-title-reply'             => __( 'Leave a Comment', 'astra' ),
 				'string-comment-cancel-reply-link'       => __( 'Cancel Reply', 'astra' ),
-				'string-comment-label-submit'            => __( 'Post Comment', 'astra' ),
+				'string-comment-label-submit'            => $post_comment_dynamic_string,
 				'string-comment-label-message'           => __( 'Type here..', 'astra' ),
 				'string-comment-label-name'              => __( 'Name*', 'astra' ),
 				'string-comment-label-email'             => __( 'Email*', 'astra' ),
