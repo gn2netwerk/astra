@@ -29,6 +29,7 @@ v4.1.8 (Unreleased)
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 - Fix: Editor - Astra's theme preview button not alligned properly in the editor.
 - Fix: Spectra - Table of Content's anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
+- Fix: Related Posts - Meta's author link is incorrect for other than admin created posts.
 
 v4.1.7
 - Improvement: Compatibility with WordPress-6.3.
