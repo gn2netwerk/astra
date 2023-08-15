@@ -173,13 +173,13 @@
 			weightKey           = fontSelect.data( 'connected-control' ),
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			currentWeightTitle  = weightSelect.data( 'inherit' ),
-			weightValue         = 'inherit',
+			weightValue         = init ? weightSelect.val() : '400',
 			inheritWeightObject = [ 'inherit' ],
 			weightObject        = [ '400', '600' ],
 			weightOptions       = '',
 			weightMap           = astraTypo;
 			if ( fontValue == 'inherit' ) {
-				// weightValue     = init ? weightSelect.val() : 'inherit';
+				weightValue     = init ? weightSelect.val() : 'inherit';
 			}
 			console.error(weightKey, weightValue);
 
@@ -190,12 +190,12 @@
 			weightMap[ 'inherit' ] = currentWeightTitle;
 			for ( ; i < weightObject.length; i++ ) {
 
-				// if ( 0 === i && -1 === $.inArray( weightValue, weightObject ) ) {
-				// 	weightValue = weightObject[ 0 ];
-				// 	selected 	= ' selected="selected"';
-				// } else {
-				// 	selected = weightObject[ i ] == weightValue ? ' selected="selected"' : '';
-				// }
+				if ( 0 === i && -1 === $.inArray( weightValue, weightObject ) ) {
+					weightValue = weightObject[ 0 ];
+					selected 	= ' selected="selected"';
+				} else {
+					selected = weightObject[ i ] == weightValue ? ' selected="selected"' : '';
+				}
 				if( ! weightObject[ i ].includes( "italic" ) ){
 					weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';
 				}
@@ -203,10 +203,10 @@
 
 			weightSelect.html( weightOptions );
 
-			// if ( ! init ) {
-			// 	api( weightKey ).set( '' );
-			// 	api( weightKey ).set( weightValue );
-			// }
+			if ( ! init ) {
+				api( weightKey ).set( '' );
+				api( weightKey ).set( weightValue );
+			}
 		},
 
 		setOption: function( optionName, value, isSelect2 ) {
