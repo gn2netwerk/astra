@@ -1710,11 +1710,12 @@ add_filter( 'astra_single_layout_one_banner_visibility', 'astra_bbpress_issue', 
  * Render Svg Mask for Header logo
  *
  * @since x.x.x
+ * @return void
  */
 function render_header_svg_mask() {
 
 	$transparent_header_logo_color = astra_get_option( 'transparent-header-logo-color' );
-	$header_logo_color = astra_get_option( 'header-logo-color' );
+	$header_logo_color             = astra_get_option( 'header-logo-color' );
 
 	if ( $header_logo_color ) {
 		astra_render_svg_mask( 'ast-img-color-filter', 'header_logo_svg_color', $header_logo_color );
