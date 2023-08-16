@@ -2379,6 +2379,17 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 #customize-control-astra-settings-ast-body-font-settings .ast-fields-wrap {
     overflow: visible;
 }
+
+/**
+ * Hide normal font weight from font weight dropdown and display only if its set as font weight.
+ */
+.customize-control-ast-font select option[value="normal"], .customize-control-ast-font select[data-value="normal"] option[value="400"] {
+    display: none;
+}
+.customize-control-ast-font select[data-value="normal"] option[value="normal"] {
+    display: block;
+}
+
 span.customize-control-title.ast-group-section-title {
     margin-bottom: 4px;
     font-weight: 600;
