@@ -4925,7 +4925,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				';
 			}
 			return $sidebar_sticky_css;
-    }
+		}
 
 		/**
 		 * Core Comment & Search Button Styling Compatibility.
