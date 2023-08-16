@@ -1759,6 +1759,7 @@ function astra_hex_to_rgb( $hex ) {
 		'r' => $r,
 		'g' => $g,
 		'b' => $b,
+		'a' => 1,
 	);
 }
 
