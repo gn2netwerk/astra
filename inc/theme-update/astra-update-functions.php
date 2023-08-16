@@ -1301,3 +1301,17 @@ function astra_theme_background_updater_4_1_6() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Handle backward compatibility on version 4.2.2
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_2_2() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['v4-2-2-core-form-btns-styling'] ) ) {
+		$theme_options['v4-2-2-core-form-btns-styling'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
