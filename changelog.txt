@@ -26,6 +26,7 @@ v4.1.8 (Unreleased)
 - Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
 - Fix: WooCommerce - Left margin from the "Add to cart" button when Sold Individually option is selected.
 - Fix: WooCommerce - Shop - Slide in cart action for Add to Cart button does not work when Elementor is active.
+- Fix: WooCommerce - Shop Archive page Product Category Background color issue.
 - Fix: WooCommerce - PHP fatal error when 'astra_enable_woocommerce_integration' filter used to disable Astra and WooCommerce extended integration. ( https://wpastra.com/docs/remove-astra-customization-for-woocommerce/ )
 - Fix: WooCommerce - Single Product - alt tag absent while rendering images for the WooCommerce payments.
 - Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
@@ -33,8 +34,10 @@ v4.1.8 (Unreleased)
 - Fix: Customizer - Typography font variation select dropdown gets cropped in font settings.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
 - Fix: Editor - Astra's theme preview button not alligned properly in the editor.
+- Fix: Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed & Content Boxed layout.
 - Fix: Spectra - Table of Content's anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
 - Fix: Related Posts - Meta's author link is incorrect for other than admin created posts.
+- Fix: Blog: Paginnation - Next Page and Previous Page pagination links jumps on mobile view on focus.
 
 v4.1.7
 - Improvement: Compatibility with WordPress-6.3.
