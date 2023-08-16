@@ -95,6 +95,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_desktop_spacing_unit = ( isset( $menu_spacing['desktop-unit'] ) && ! empty( $menu_spacing['desktop-unit'] ) ) ? $menu_spacing['desktop-unit'] : '';
 
 	// - Tablet.
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$menu_tablet_spacing_top = ( isset( $menu_spacing['tablet']['top'] ) ) ? $menu_spacing['tablet']['top'] : '';
 
 	$menu_tablet_spacing_bottom = ( isset( $menu_spacing['tablet']['bottom'] ) ) ? $menu_spacing['tablet']['bottom'] : '';
@@ -115,6 +116,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$menu_mobile_spacing_left = ( isset( $menu_spacing['mobile']['left'] ) ) ? $menu_spacing['mobile']['left'] : '';
 
 	$menu_mobile_spacing_unit = ( isset( $menu_spacing['mobile-unit'] ) && ! empty( $menu_spacing['mobile-unit'] ) ) ? $menu_spacing['mobile-unit'] : '';
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 	$margin = astra_get_option( $_section . '-margin' );
 
