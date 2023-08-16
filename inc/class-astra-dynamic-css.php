@@ -879,6 +879,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$css_output['.site-logo-img img'] = array(
 					' transition' => 'all 0.2s linear',
 				);
+
+				if ( astra_get_option( 'header-logo-color' ) ) {
+					$css_output['.site-logo-img img'] = array(
+						'filter'      => 'url(#ast-img-color-filter)',
+						' transition' => 'all 0.2s linear',
+					);
+				}
+
+				if ( astra_get_option( 'transparent-header-logo-color' ) ) {
+					$css_output['.site-logo-img .transparent-custom-logo img, .ast-theme-transparent-header .site-logo-img img'] = array(
+						'filter' => 'url(#ast-img-color-filter-2)',
+					);
+				}           
 			}
 
 			$parse_css = '';
@@ -1792,6 +1805,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond' => array(
 						'padding' => '3em',
 					),
+
+					'.ast-separate-container .ast-article-single .ast-article-single' => array(
+						'padding' => '0',
+					),
+
+					'.ast-article-single .wp-block-post-template-is-layout-grid' => array(
+						'padding-' . $ltr_left => '0',
+					),
+
 					'.ast-separate-container .ast-comment-list li.depth-1, .hentry' => array(
 						'margin-bottom' => '2em',
 					),
@@ -2134,12 +2156,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$search_page_btn_selector         = ( true === $update_customizer_strctural_defaults ) ? ', .search .search-submit' : '';
 				$woo_btns_selector                = ( true === self::astra_woo_support_global_settings() ) ? ', .woocommerce-js a.button, .woocommerce button.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .woocommerce input.button:disabled:hover, .woocommerce input.button:disabled[disabled]:hover, .woocommerce #respond input#submit, .woocommerce button.button.alt.disabled, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link, .wc-block-grid__product-onsale, [CLASS*="wc-block"] button, .woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):not(.ast-continue-shopping), .woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a.checkout, .woocommerce button.button.alt.disabled.wc-variation-selection-needed' : '';
 				$woo_btns_hover_selector          = ( true === self::astra_woo_support_global_settings() ) ? ', .woocommerce-js a.button:hover, .woocommerce button.button:hover, .woocommerce .woocommerce-message a.button:hover,.woocommerce #respond input#submit:hover,.woocommerce #respond input#submit.alt:hover, .woocommerce input.button.alt:hover, .woocommerce input.button:hover, .woocommerce button.button.alt.disabled:hover, .wc-block-grid__products .wc-block-grid__product .wp-block-button__link:hover, [CLASS*="wc-block"] button:hover, .woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons .button:not(.checkout):not(.ast-continue-shopping):hover, .woocommerce-js .astra-cart-drawer .astra-cart-drawer-content .woocommerce-mini-cart__buttons a.checkout:hover, .woocommerce button.button.alt.disabled.wc-variation-selection-needed:hover' : '';
+				$v4_2_2_core_form_btns_styling_selector = ( true === self::astra_core_form_btns_styling() ) ? ', #comments .submit, .search .search-submit' : '';
 
 				/**
 				 * Global button CSS - Desktop.
 				 */
 				$global_button_desktop = array(
-					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $search_button_selector . $file_block_button_selector . $search_page_btn_selector . $woo_btns_selector => array(
+					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $v4_2_2_core_form_btns_styling_selector . $search_button_selector . $file_block_button_selector . $search_page_btn_selector . $woo_btns_selector => array(
 						'border-style'               => 'solid',
 						'border-top-width'           => ( isset( $global_custom_button_border_size['top'] ) && '' !== $global_custom_button_border_size['top'] ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : '0',
 						'border-right-width'         => ( isset( $global_custom_button_border_size['right'] ) && '' !== $global_custom_button_border_size['right'] ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : '0',
@@ -2176,7 +2199,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * Global button CSS - Tablet.
 				 */
 				$global_button_tablet = array(
-					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $search_button_selector . $file_block_button_selector . $search_page_btn_selector . $woo_btns_selector => array(
+					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $v4_2_2_core_form_btns_styling_selector . $search_button_selector . $file_block_button_selector . $search_page_btn_selector . $woo_btns_selector => array(
 						'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'tablet' ),
 						'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'tablet' ),
 						'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'tablet' ),
@@ -2193,7 +2216,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				 * Global button CSS - Mobile.
 				 */
 				$global_button_mobile = array(
-					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $search_button_selector . $file_block_button_selector . $search_page_btn_selector . $woo_btns_selector => array(
+					'.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' . $v4_2_2_core_form_btns_styling_selector . $search_button_selector . $file_block_button_selector . $search_page_btn_selector . $woo_btns_selector => array(
 						'padding-top'                => astra_responsive_spacing( $theme_btn_padding, 'top', 'mobile' ),
 						'padding-right'              => astra_responsive_spacing( $theme_btn_padding, 'right', 'mobile' ),
 						'padding-bottom'             => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'mobile' ),
@@ -4415,7 +4438,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				right: 0;
 				width: 100%;
 				height: 100%;
-				z-index: 1;
+				z-index: 5;
 				background-color: var(--ast-global-color-5);
 				opacity: .5;
 			}
@@ -4879,6 +4902,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function astra_woo_support_global_settings() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			return apply_filters( 'astra_get_option_woo_support_global_settings', isset( $astra_settings['woo_support_global_settings'] ) ? false : true );
+		}
+
+		/**
+		 * Core Comment & Search Button Styling Compatibility.
+		 * Old Users - Will not reflect directly.
+		 * New Users - Direct reflection
+		 * @return bool true|false.
+		 * @since x.x.x
+		 */
+		public static function astra_core_form_btns_styling() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return apply_filters( 'astra_core_form_btns_styling', isset( $astra_settings['v4-2-2-core-form-btns-styling'] ) ? false : true );
 		}
 	}
 }
