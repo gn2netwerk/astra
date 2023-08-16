@@ -160,6 +160,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'  => $_section,
 					'priority' => 6,
 					'title'    => __( 'Borders', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 
 			);

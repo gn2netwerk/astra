@@ -1718,10 +1718,12 @@ function render_header_svg_mask() {
 	$header_logo_color             = astra_get_option( 'header-logo-color' );
 
 	if ( $header_logo_color ) {
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		astra_render_svg_mask( 'ast-img-color-filter', 'header_logo_svg_color', $header_logo_color );
 	}
 
 	if ( $transparent_header_logo_color ) {
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		astra_render_svg_mask( 'ast-img-color-filter-2', 'header_logo_svg_color', $transparent_header_logo_color );
 	}
 }
