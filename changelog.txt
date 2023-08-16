@@ -1,3 +1,7 @@
+v4.2.2 (Unreleased)
+- Improvement: Guillemet symbol ">>" from "Post Comment" removed for better UI.
+- Fix: "Post Comment" button & Search button does not inherit customizer global button stylings.
+
 v4.1.8 (Unreleased)
 - New: Introducing new & optimized Lightbox feature in theme. ( Needs Doc )
 - Improvement: Accessibility improvements for WooCommerce pages.
@@ -19,10 +23,11 @@ v4.1.8 (Unreleased)
 - Fix: Block editor - Applying font-extras customizer settings to paragraph block (Line-height, Text Transform, Text Decoration, Letter Spacing).
 - Fix: On home page & front page there is h1 tag assigned for site title.
 - Fix: WooCommerce - Swap Images feature shows uncropped image.
-- Fix: WooCommerce - Widget title size and color issue on all woocommerce pages.
+- Fix: WooCommerce - Widget title size and color issue on all WooCommerce pages.
 - Fix: WooCommerce - Sub pages of My Account dashboard menu does not update page title according to set menu.
 - Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
 - Fix: WooCommerce - Left margin from the "Add to cart" button when Sold Individually option is selected.
+- Fix: Footer Builder - Menu - Zero '0' value not accepting in Menu Space.
 - Fix: WooCommerce - Shop - Slide in cart action for Add to Cart button does not work when Elementor is active.
 - Fix: WooCommerce - Shop Archive page Product Category Background color issue.
 - Fix: WooCommerce - PHP fatal error when 'astra_enable_woocommerce_integration' filter used to disable Astra and WooCommerce extended integration. ( https://wpastra.com/docs/remove-astra-customization-for-woocommerce/ )
