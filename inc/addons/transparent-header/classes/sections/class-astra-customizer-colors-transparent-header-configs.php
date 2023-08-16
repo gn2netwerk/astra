@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 
 
 				/**
-				* Option: Header background overlay color
+				* Option: Transparent Header logo color
 				*/
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[transparent-header-logo-color]',
@@ -60,6 +60,20 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'responsive' => false,
 					'rgba'       => true,
 					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
+				),
+
+				/**
+				* Option: Transparent Header logo color description.
+				*/
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-logo-color-notice]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-transparent-header',
+					'priority' => 34,
+					'label'    => '',
+					'context'  => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+					'help'     => __( 'Use it with transparent images for optimal results.', 'astra' ),
 				),
 
 				/**

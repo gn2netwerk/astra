@@ -91,6 +91,20 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'    => __( 'Logo Color', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
+				
+				/**
+				 * Option: Header logo color description.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[header-logo-color-notice]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'title_tagline',
+					'priority' => 5,
+					'label'    => '',
+					'context'  => Astra_Builder_Helper::$design_tab,
+					'help'     => __( 'Use it with transparent images for optimal results.', 'astra' ),
+				),
 
 				// Option: Site Title Color.
 				array(
