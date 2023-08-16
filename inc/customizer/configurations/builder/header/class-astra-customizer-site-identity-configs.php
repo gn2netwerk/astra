@@ -85,10 +85,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'  => astra_get_option( 'header-logo-color' ),
 					'type'     => 'control',
 					'control'  => 'ast-color',
-					'section'   => 'title_tagline',
+					'section'  => 'title_tagline',
 					'priority' => 5,
-					'context'   => Astra_Builder_Helper::$design_tab,
+					'context'  => Astra_Builder_Helper::$design_tab,
 					'title'    => __( 'Logo Color', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				// Option: Site Title Color.

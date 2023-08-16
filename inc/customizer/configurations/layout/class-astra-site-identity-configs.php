@@ -295,7 +295,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 						'transport'  => 'postMessage',
 						'priority'   => 8,
 						'context'    => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? array( Astra_Builder_Helper::$design_tab_config ) : '',
-						'divider'    => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
+						'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					),
 
 					// Option: Site Title Color.
