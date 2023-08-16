@@ -900,6 +900,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$css_output['.site-logo-img img'] = array(
 					' transition' => 'all 0.2s linear',
 				);
+
+				if ( astra_get_option( 'header-logo-color' ) ) {
+					$css_output['.site-logo-img img'] = array(
+						'filter'      => 'url(#ast-img-color-filter)',
+						' transition' => 'all 0.2s linear',
+					);
+				}
+
+				if ( astra_get_option( 'transparent-header-logo-color' ) ) {
+					$css_output['.site-logo-img .transparent-custom-logo img, .ast-theme-transparent-header .site-logo-img img'] = array(
+						'filter' => 'url(#ast-img-color-filter-2)',
+					);
+				}           
 			}
 
 			$parse_css = '';
