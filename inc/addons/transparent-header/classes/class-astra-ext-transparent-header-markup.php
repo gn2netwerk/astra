@@ -163,15 +163,10 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 */
 		public function transparent_custom_logo( $html, $blog_id ) {
 
-			$trans_logo                    = astra_get_option( 'transparent-header-logo' );
-			$transparent_header_devices    = astra_get_option( 'transparent-header-on-devices' );
-			$transparent_header_logo_color = astra_get_option( 'transparent-header-logo-color' );
+			$trans_logo                 = astra_get_option( 'transparent-header-logo' );
+			$transparent_header_devices = astra_get_option( 'transparent-header-on-devices' );
 
 			if ( '' !== $trans_logo ) {
-
-				if ( $transparent_header_logo_color ) {
-					astra_render_svg_mask( 'ast-img-color-filter-2', 'header_logo_svg_color', $transparent_header_logo_color );
-				}
 
 				/* Replace transparent header logo and width */
 				add_filter( 'wp_get_attachment_image_attributes', array( $this, 'replace_trans_header_attr' ), 10, 3 );
