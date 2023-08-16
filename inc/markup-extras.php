@@ -1728,4 +1728,4 @@ function render_header_svg_mask() {
 	}
 }
 
-add_filter( 'wp_footer', 'render_header_svg_mask' );
+add_action( 'wp_footer', 'render_header_svg_mask' );
