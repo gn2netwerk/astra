@@ -986,7 +986,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_container_layout_css();
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() ); 
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::astra_sticky_sidebar_css() );
 			}
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
@@ -4315,17 +4316,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				';
 			}
 
-			if ( astra_get_option( 'site-sticky-sidebar' ) ) {
-				$sidebar_static_css .= '
-					.ast-sticky-sidebar .sidebar-main {
-						top: 50px;
-						position: sticky;
-						position: -webkit-sticky;
-						overflow-y: auto;
-					}
-				';
-			}
-
 			return $sidebar_static_css;
 		}
 
@@ -4890,6 +4880,28 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function astra_woo_support_global_settings() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			return apply_filters( 'astra_get_option_woo_support_global_settings', isset( $astra_settings['woo_support_global_settings'] ) ? false : true );
+		}
+
+		/**
+		 * Dynamic CSS to make Sidebar Sticky.
+		 *
+		 * @return string Dynamic CSS.
+		 * @since x.x.x
+		 */
+		public static function astra_sticky_sidebar_css() {
+			$sidebar_sticky_css = '';
+			if ( astra_get_option( 'site-sticky-sidebar' ) ) {
+				$sidebar_sticky_css = '
+					@media (min-width: 922px) {
+						.ast-sticky-sidebar .sidebar-main {
+							top: 50px;
+							position: sticky;
+							position: -webkit-sticky;
+						}
+					}
+				';
+			}
+			return $sidebar_sticky_css;
 		}
 	}
 }

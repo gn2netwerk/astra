@@ -3656,6 +3656,15 @@ namespace {
         public static function astra_check_default_color_typo()
         {
         }
+        /**
+         * Dynamic CSS to make Sidebar Sticky.
+         *
+         * @return string Dynamic CSS.
+         * @since x.x.x
+         */
+        public static function astra_sticky_sidebar_css()
+        {
+        }
     }
     /**
      * Global palette class
