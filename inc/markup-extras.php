@@ -1713,3 +1713,27 @@ function astra_bbpress_issue( $value ) {
 
 add_filter( 'astra_single_layout_one_banner_visibility', 'astra_bbpress_issue', 50 );
 
+
+/**
+ * Render Svg Mask for Header logo
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_render_header_svg_mask() {
+
+	$transparent_header_logo_color = astra_get_option( 'transparent-header-logo-color' );
+	$header_logo_color             = astra_get_option( 'header-logo-color' );
+
+	if ( $header_logo_color && 'unset' !== $header_logo_color ) {
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		astra_render_svg_mask( 'ast-img-color-filter', 'header_logo_svg_color', $header_logo_color );
+	}
+
+	if ( $transparent_header_logo_color && 'unset' !== $transparent_header_logo_color ) {
+		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		astra_render_svg_mask( 'ast-img-color-filter-2', 'header_logo_svg_color', $transparent_header_logo_color );
+	}
+}
+
+add_action( 'wp_footer', 'astra_render_header_svg_mask' );
