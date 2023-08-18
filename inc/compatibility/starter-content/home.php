@@ -9,7 +9,7 @@
 // @codingStandardsIgnoreStart WordPressVIPMinimum.Security.Mustache.OutputNotation -- Required for starter content.
 $astra_default_home_content = '<!-- wp:cover {"minHeight":720,"minHeightUnit":"px","customGradient":"linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 73%,rgb(193,15,255) 100%)","isDark":false,"align":"full"} -->
 <div class="wp-block-cover alignfull is-light" style="min-height:720px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient" style="background:linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 73%,rgb(193,15,255) 100%)"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"align":"wide","layout":{"inherit":true,"type":"constrained"}} -->
-<div class="wp-block-group alignwide"><!-- wp:media-text {"align":"wide","mediaPosition":"right","mediaId":118,"mediaLink":"","mediaType":"image","mediaWidth":43,"verticalAlignment":"center"} -->
+<div class="wp-block-group alignwide"><!-- wp:media-text {"mediaPosition":"right","mediaId":118,"mediaLink":"","mediaType":"image","mediaWidth":43,"verticalAlignment":"center"} -->
 <div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center" style="grid-template-columns:auto 43%"><div class="wp-block-media-text__content"><!-- wp:heading {"textAlign":"left","level":1,"textColor":"white"} -->
 <h1 class="wp-block-heading has-text-align-left has-white-color has-text-color">Your Idea Matters!</h1>
 <!-- /wp:heading -->
