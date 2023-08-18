@@ -151,7 +151,7 @@ $astra_default_home_content = '<!-- wp:cover {"minHeight":720,"minHeightUnit":"p
 <!-- wp:paragraph -->
 <p>Nibh egestas dictumst cursus est turpis quis tincidunt pulvinar maecenas eget massa vel, ante nam blandit egestas enim id quis sit maecenas id nunc tempus auctor orci, enim imperdiet proin nibh mattis.</p>
 <!-- /wp:paragraph --></div>
-<!-- /wp:group --></div><figure class="wp-block-media-text__media"><img src=' . trailingslashit( get_template_directory_uri() ) . 'inc/assets/images/starter-content/about-us.jpg" alt="" class="wp-image-237 size-full"/></figure></div>
+<!-- /wp:group --></div><figure class="wp-block-media-text__media"><img src="' . trailingslashit( get_template_directory_uri() ) . 'inc/assets/images/starter-content/about-us.jpg" alt="" class="wp-image-237 size-full"/></figure></div>
 <!-- /wp:media-text --></div>
 <!-- /wp:group -->
 
