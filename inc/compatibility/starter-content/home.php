@@ -73,7 +73,7 @@ $astra_default_home_content = '<!-- wp:cover {"minHeight":720,"minHeightUnit":"p
 
 <!-- wp:column {"verticalAlignment":"top","style":{"spacing":{"blockGap":"8px"}}} -->
 <div class="wp-block-column is-vertically-aligned-top"><!-- wp:image {"id":137,"sizeSlug":"large","linkDestination":"none","className":"ast-exclude-lightbox"} -->
-<figure class="wp-block-image size-large ast-exclude-lightbox"><img src=' . trailingslashit( get_template_directory_uri() ) . 'inc/assets/images/starter-content/portfolio.svg" alt="" class="wp-image-137"/></figure>
+<figure class="wp-block-image size-large ast-exclude-lightbox"><img src="' . trailingslashit( get_template_directory_uri() ) . 'inc/assets/images/starter-content/portfolio.svg" alt="" class="wp-image-137"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
