@@ -95,7 +95,7 @@ $astra_default_home_content = '<!-- wp:cover {"minHeight":720,"minHeightUnit":"p
 <!-- wp:columns {"style":{"spacing":{"margin":{"top":"50px"}}}} -->
 <div class="wp-block-columns" style="margin-top:50px"><!-- wp:column {"style":{"spacing":{"blockGap":"8px"}}} -->
 <div class="wp-block-column"><!-- wp:image {"id":230,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src=' . trailingslashit( get_template_directory_uri() ) . 'inc/assets/images/starter-content/branding.jpg" alt="" class="wp-image-230"/></figure>
+<figure class="wp-block-image size-full"><img src="' . trailingslashit( get_template_directory_uri() ) . 'inc/assets/images/starter-content/branding.jpg" alt="" class="wp-image-230"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
