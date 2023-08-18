@@ -18,7 +18,7 @@ $astra_default_home_content = '<!-- wp:cover {"minHeight":720,"minHeightUnit":"p
 <p>Pulvinar enim ac tortor nulla facilisi tristique facilisi <br>elementum sollicitudin eget lorem.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:buttons {"align":"wide"} -->
+<!-- wp:buttons -->
 <div class="wp-block-buttons alignwide"><!-- wp:button -->
 <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#">Make a Website</a></div>
 <!-- /wp:button --></div>
