@@ -4913,7 +4913,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function astra_sticky_sidebar_css() {
 			$sidebar_sticky_css = '';
-			if ( astra_get_option( 'site-sticky-sidebar' ) ) {
+			if ( astra_get_option( 'site-sticky-sidebar', false ) ) {
 				$sidebar_sticky_css = '
 					@media (min-width: 922px) {
 						.ast-sticky-sidebar .sidebar-main {
