@@ -183,6 +183,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				'.elementor-template-full-width .ast-container' => array(
 					'display' => 'block',
 				),
+				'.elementor-screen-only, .screen-reader-text, .screen-reader-text span, .ui-helper-hidden-accessible' => array(
+					'top' => '0 !important',
+				),
 			);
 			$dynamic_css               .= astra_parse_css( $elementor_archive_page_css );
 
