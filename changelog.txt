@@ -1,16 +1,19 @@
-v4.1.7 (Unreleased)
+v4.2.2 (Unreleased)
+- New: Introducing new & optimized Lightbox feature in theme. ( Needs Doc )
 - Improvement: Accessibility improvements for WooCommerce pages.
 - Improvement: New Astra dashboard CTA banner for Starter Template installation.
 - Improvement: Header Footer Builder - Added new social profile "Threads".
 - Improvement: WooCommerce - Mini Cart - Update cart quantity when input value is changed.
-- Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
-- Fix: Cart button color setting is not working when product added to cart.
-- Fix: Single Product - alt tag absent while rendering images for the WooCommerce payments.
+- Improvement: Compatibility with ZipWP.
+- Improvement: Synced comments-area border color with customizer border color setting.
+- Improvement: Introduced new logo color option.
+- Improvement: Guillemet symbol ">>" from "Post Comment" removed for better UI.
+- Fix: "Post Comment" button & Search button does not inherit customizer global button stylings.
 - Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
 - Fix: Group container inner blocks option does not disable in the editor.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
-- Fix: Woocommerce - Sticky add to cart scroll is not working properly for mobile & tablet. 
+- Fix: Woocommerce - Sticky add to cart scroll is not working properly for mobile & tablet.
 - Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
 - Fix: Header Builder - Normal header and transparent header height issue. introduced new filter: astra_site_svg_logo_equal_height to enable or disable this fix.
 - Fix: Spectra Compatibility - Customizer spacing options overriding Spectra's block spacing.
@@ -18,13 +21,43 @@ v4.1.7 (Unreleased)
 - Fix: Block editor - Applying font-extras customizer settings to paragraph block (Line-height, Text Transform, Text Decoration, Letter Spacing).
 - Fix: On home page & front page there is h1 tag assigned for site title.
 - Fix: WooCommerce - Swap Images feature shows uncropped image.
-- Fix: WooCommerce - Widget title size and color issue on all woocommerce pages.
+- Fix: WooCommerce - Widget title size and color issue on all WooCommerce pages.
 - Fix: WooCommerce - Sub pages of My Account dashboard menu does not update page title according to set menu.
 - Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
 - Fix: WooCommerce - Left margin from the "Add to cart" button when Sold Individually option is selected.
+- Fix: Footer Builder - Menu - Zero '0' value not accepting in Menu Space.
 - Fix: WooCommerce - Shop - Slide in cart action for Add to Cart button does not work when Elementor is active.
+- Fix: WooCommerce - Shop Archive page Product Category Background color issue.
+- Fix: WooCommerce - PHP fatal error when 'astra_enable_woocommerce_integration' filter used to disable Astra and WooCommerce extended integration. ( https://wpastra.com/docs/remove-astra-customization-for-woocommerce/ )
+- Fix: WooCommerce - Single Product - alt tag absent while rendering images for the WooCommerce payments.
+- Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
+- Fix: WooCommerce - Cart button color setting is not working when product added to cart.
 - Fix: Customizer - Typography font variation select dropdown gets cropped in font settings.
 - Fix: Customizer - Gradient picker shrink in size under color-group background controls.
+- Fix: Editor - Astra's theme preview button not alligned properly in the editor.
+- Fix: Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed & Content Boxed layout.
+- Fix: Spectra - Table of Content's anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
+- Fix: Related Posts - Meta's author link is incorrect for other than admin created posts.
+- Fix: On desktop toggle submenu click it goes in infinite scroll loop when Elementor is active.
+- Fix: Blog: Paginnation - Next Page and Previous Page pagination links jumps on mobile view on focus.
+
+v4.2.1
+- Fix: PHP error while parsing container layout dynamic CSS under PHP-7.2 version.
+- Fix: Block editor - Undefined JS error while accessing post title visibility meta.
+
+v4.2.0
+- New: Introducing Revamped Container Layout Options: 'Normal', 'Narrow', 'Fullwidth'. ( https://wpastra.com/docs/astra-theme-container-layouts-revamped-options-and-improved-user-experience/ )
+- New: Introducing new Container Style Options: 'Boxed', 'Unboxed'. ( https://wpastra.com/docs/understanding-container-style-in-astra-theme-customizing-your-containers-look/ )
+- New: Introducing new Sidebar Style Options: 'Boxed', 'Unboxed'. ( https://wpastra.com/docs/understanding-sidebar-style-in-astra-theme-customizing-your-sidebars-look/ )
+- Improvement: Migrating container & sidebar layouts to new revamped settings for better user experience. ( https://wpastra.com/docs/astra-4-2-0-beta-1-migrations-backwards-compatibility/ )
+- Fix: Title enable/disable option not appearing in block editor in few edge cases with WordPress-6.3.
+
+v4.1.8
+- Fix: Title enable/disable option missing in block editor with WordPress-6.3.
+- Fix: Content layouts not working realtime in block editor with WordPress-6.3.
+
+v4.1.7
+- Improvement: Compatibility with WordPress-6.3.
 
 v4.1.6
 - Improvement: Header Footer Builder - Added new social profile "TikTok".
