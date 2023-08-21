@@ -464,11 +464,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			echo '<style class="astra-menu-appearance-style">
 					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
-					#menu-appearance a[href^="themes.php?page=astra-"]:before,
-					#menu-appearance a[href^="themes.php?page=astra_"]:before,
 					#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
 					#menu-appearance a[href^="edit-tags.php?taxonomy=bsf_custom_fonts"]:before,
-					#menu-appearance a[href^="themes.php?page=custom-typekit-fonts"]:before,
 					#menu-appearance a[href^="edit.php?post_type=bsf-sidebar"]:before {
 						content: "\21B3";
 						margin-right: 0.5em;
