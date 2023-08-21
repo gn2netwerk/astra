@@ -1,6 +1,7 @@
 v4.2.2 (Unreleased)
 - Improvement: Guillemet symbol ">>" from "Post Comment" removed for better UI.
 - Fix: "Post Comment" button & Search button does not inherit customizer global button stylings.
+- Fix: Uncaught TypeError by ensuring `menu-toggle-close` element exists and the DOM is fully loaded before assigning `onclick` event.
 
 v4.1.8 (Unreleased)
 - New: Introducing new & optimized Lightbox feature in theme. ( Needs Doc )
