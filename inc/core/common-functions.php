@@ -1666,6 +1666,24 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 }
 
 /**
+ * Function which will return the Sidebar Layout to determine default body classes for Editor.
+ *
+ * @since 4.2.0
+ * @param string $post_type Post Type.
+ * @return string Sidebar Layout.
+ */
+function astra_get_sidebar_layout_for_editor( $post_type ) {
+
+	$sidebar_layout = astra_get_option( 'single-' . $post_type . '-sidebar-layout' );
+
+	if ( 'default' === $sidebar_layout ) {
+		$sidebar_layout = astra_get_option( 'site-sidebar-layout' );
+	}
+
+	return $sidebar_layout;
+}
+
+/**
  * Gets the SVG for the duotone filter definition.
  *
  * @since x.x.x
@@ -1818,6 +1836,6 @@ function astra_render_svg_mask( $id, $filter_name, $color ) {
 		$svg_color = astra_split_rgba( $color );
 	}
 
-		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		echo astra_get_filter_svg( $id, apply_filters( 'astra_' . $filter_name, $svg_color ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	echo astra_get_filter_svg( $id, apply_filters( 'astra_' . $filter_name, $svg_color ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
