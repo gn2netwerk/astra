@@ -1614,18 +1614,18 @@ function astra_prepare_social_icon_defaults( $defaults, $index ) {
 
 	$astra_options = Astra_Theme_Options::get_astra_options();
 
-	$defaults[ 'header-social-' . $index . '-space' ]          = array(
+	$defaults[ 'header-social-' . $index . '-space' ]              = array(
 		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults[ 'header-social-' . $index . '-bg-space' ]       = '';
-	$defaults[ 'header-social-' . $index . '-size' ]           = array(
+	$defaults[ 'header-social-' . $index . '-bg-space' ]           = '';
+	$defaults[ 'header-social-' . $index . '-size' ]               = array(
 		'desktop' => 18,
 		'tablet'  => '',
 		'mobile'  => '',
 	);
-	$defaults[ 'header-social-' . $index . '-radius-fields' ]  = array(
+	$defaults[ 'header-social-' . $index . '-radius-fields' ]      = array(
 		'desktop'      => array(
 			'top'    => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
 			'right'  => ! isset( $astra_options[ 'header-social-' . $index . '-radius' ] ) ? '' : $astra_options[ 'header-social-' . $index . '-radius' ],
@@ -1648,13 +1648,14 @@ function astra_prepare_social_icon_defaults( $defaults, $index ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults[ 'header-social-' . $index . '-color' ]          = '';
-	$defaults[ 'header-social-' . $index . '-h-color' ]        = '';
-	$defaults[ 'header-social-' . $index . '-bg-color' ]       = '';
-	$defaults[ 'header-social-' . $index . '-bg-h-color' ]     = '';
-	$defaults[ 'header-social-' . $index . '-label-toggle' ]   = false;
-	$defaults[ 'header-social-' . $index . '-color-type' ]     = 'custom';
-	$defaults[ 'font-size-section-hb-social-icons-' . $index ] = array(
+	$defaults[ 'header-social-' . $index . '-color' ]              = '';
+	$defaults[ 'header-social-' . $index . '-h-color' ]            = '';
+	$defaults[ 'header-social-' . $index . '-bg-color' ]           = '';
+	$defaults[ 'header-social-' . $index . '-bg-h-color' ]         = '';
+	$defaults[ 'header-social-' . $index . '-label-toggle' ]       = false;
+	$defaults[ 'header-social-' . $index . '-color-type' ]         = 'custom';
+	$defaults[ 'header-social-' . $index . '-brand-hover-toggle' ] = false;
+	$defaults[ 'font-size-section-hb-social-icons-' . $index ]     = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
@@ -1662,7 +1663,7 @@ function astra_prepare_social_icon_defaults( $defaults, $index ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults[ 'header-social-icons-' . $index ]               = array(
+	$defaults[ 'header-social-icons-' . $index ]                   = array(
 		'items' =>
 			array(
 				array(
