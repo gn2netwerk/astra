@@ -2358,6 +2358,20 @@
         }
     },
     {
+        "Bricolage Grotesque": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Bruno Ace": {
             "variants": [
                 "regular"
@@ -13946,6 +13960,17 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Ruwudu": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "serif"
         }
     },
     {
