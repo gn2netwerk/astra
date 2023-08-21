@@ -910,20 +910,25 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 			menu.className += ' nav-menu';
 		}
 
-		if ( 'off-canvas' === mobileHeaderType ) {
-			var popupClose = document.getElementById( 'menu-toggle-close' );
-			popupClose.onclick = function() {
-				if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {
-					containerMenu.className = containerMenu.className.replace( ' toggled', '' );
-					button.setAttribute( 'aria-expanded', 'false' );
-					menu.setAttribute( 'aria-expanded', 'false' );
-				} else {
-					containerMenu.className += ' toggled';
-					button.setAttribute( 'aria-expanded', 'true' );
-					menu.setAttribute( 'aria-expanded', 'true' );
+		window.onload = function(){ 
+			if ( 'off-canvas' === mobileHeaderType ) {
+				var popupClose = document.getElementById( 'menu-toggle-close' );
+				if (popupClose) {
+					popupClose.onclick = function() {
+						if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {
+							containerMenu.className = containerMenu.className.replace( ' toggled', '' );
+							button.setAttribute( 'aria-expanded', 'false' );
+							menu.setAttribute( 'aria-expanded', 'false' );
+						} else {
+							containerMenu.className += ' toggled';
+							button.setAttribute( 'aria-expanded', 'true' );
+							menu.setAttribute( 'aria-expanded', 'true' );
+						}
+					};
 				}
-			};
+			}
 		}
+		
 
 		button.onclick = function() {
 			if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {
