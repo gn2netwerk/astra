@@ -839,6 +839,7 @@
     height: 28px;
     border-radius: 50%;
     margin: 0;
+	background: inherit;
 }
 .component-color-indicator {
     width: 25px;
@@ -2378,6 +2379,17 @@ div .ast-field-settings-modal .customize-control-ast-font-extras {
 #customize-control-astra-settings-ast-body-font-settings .ast-fields-wrap {
     overflow: visible;
 }
+
+/**
+ * Hide normal font weight from font weight dropdown and display only if its set as font weight.
+ */
+.customize-control-ast-font select option[value="normal"], .customize-control-ast-font select[data-value="normal"] option[value="400"] {
+    display: none;
+}
+.customize-control-ast-font select[data-value="normal"] option[value="normal"] {
+    display: block;
+}
+
 span.customize-control-title.ast-group-section-title {
     margin-bottom: 4px;
     font-weight: 600;
@@ -3967,7 +3979,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .astra-media-tab .ast-danger-btn {
-  color: var(--ast-customizer-color-13);
+  color: var(--ast-customizer-color-14);
   margin-top: 10px;
 }
 
@@ -3976,7 +3988,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .astra-media-tab .ast-danger-btn:hover {
-  border-color: var(--ast-customizer-color-13);
+  border-color: var(--ast-customizer-color-14);
 }
 
 .components-base-control.ast-text-control-input {
