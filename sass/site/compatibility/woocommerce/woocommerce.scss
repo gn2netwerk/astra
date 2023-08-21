@@ -1292,6 +1292,20 @@ p.demo_store,
 	}
 
 	ul.products li.product {
+
+		&.product-category {
+			padding-bottom: 0;
+
+			a {
+				height: 100%;
+
+				img {
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+
 		.onsale {
 			top: 0;
 			right: 0;
