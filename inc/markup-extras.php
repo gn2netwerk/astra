@@ -2019,7 +2019,7 @@ add_filter( 'astra_single_layout_one_banner_visibility', 'astra_bbpress_issue', 
 /**
  * Render Svg Mask for Header logo
  *
- * @since x.x.x
+ * @since 4.2.2
  * @return void
  */
 function astra_render_header_svg_mask() {

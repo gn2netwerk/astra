@@ -3652,7 +3652,7 @@ namespace {
 		 * Old Users - Will not reflect directly.
 		 * New Users - Direct reflection
 		 * @return bool true|false.
-		 * @since x.x.x
+		 * @since 4.2.2
 		 */
 		public static function astra_core_form_btns_styling() 
         {

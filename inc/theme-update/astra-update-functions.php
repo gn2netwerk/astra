@@ -1394,7 +1394,7 @@ function astra_apply_layout_migration( $old_layout, $new_layout, $content_style,
 /**
  * Handle backward compatibility on version 4.2.2
  *
- * @since x.x.x
+ * @since 4.2.2
  * @return void
  */
 function astra_theme_background_updater_4_2_2() {
