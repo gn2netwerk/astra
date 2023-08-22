@@ -3647,6 +3647,16 @@ namespace {
         public static function load_cart_static_css()
         {
         }
+		/**
+		 * Core Comment & Search Button Styling Compatibility.
+		 * Old Users - Will not reflect directly.
+		 * New Users - Direct reflection
+		 * @return bool true|false.
+		 * @since 4.2.2
+		 */
+		public static function astra_core_form_btns_styling() 
+        {
+        }
         /**
          * Check is new structural things are updated.
          *
