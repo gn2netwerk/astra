@@ -1,3 +1,6 @@
+v4.2.3
+- Fix: WooCommerce - Default Customizer Layout setting not applied correctly for Single Product.
+
 v4.2.2 (Unreleased)
 - New: Introducing new & optimized Lightbox feature in theme. ( Needs Doc )
 - Improvement: Accessibility improvements for WooCommerce pages.
