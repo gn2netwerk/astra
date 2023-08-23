@@ -155,7 +155,7 @@ add_filter( 'body_class', 'astra_body_classes' );
  *
  * @since 4.2.0
  * @param mixed $post_id Current post ID.
- * @return boolean 
+ * @return boolean
  */
 function astra_is_content_style_boxed( $post_id = false ) {
 
@@ -340,11 +340,11 @@ function astra_is_sidebar_style_boxed( $post_id = false ) {
  * @return mixed The content layout.
  */
 function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxed, $post_id = false ) {
-	
+
 	// Getting meta values here to handle meta migration cases.
 	$meta_old_layout = is_singular() ? astra_get_option_meta( 'site-content-layout', '', true ) : '';
 	$meta_new_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
-	
+
 	// To check whether migrated user or not.
 	$meta_key      = astra_get_option_meta( 'astra-migrate-meta-layouts', '', true );
 	$migrated_user = ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() );
@@ -370,7 +370,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 	// Migrate old user existing container layout option to new layout options.
 	if ( $meta_old_layout && 'set' !== $meta_key && $migrated_user ) {
 		if ( 'plain-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
-			
+
 			// No need to evaluate further as no boxed (content or boxed) layout will be applicable now.
 			return $content_layout;
 		} elseif ( 'content-boxed-container' == $meta_old_layout && 'plain-container' === $content_layout ) {
@@ -396,7 +396,7 @@ function astra_apply_boxed_layouts( $content_layout, $is_boxed, $is_sidebar_boxe
 				/**
 				 * Case: unboxed container with sidebar boxed
 				 * Container unboxed css is applied through astra_apply_unboxed_container()
-				*/ 
+				*/
 				$content_layout = 'boxed-container';
 			}
 		}
@@ -2015,11 +2015,10 @@ function astra_bbpress_issue( $value ) {
 
 add_filter( 'astra_single_layout_one_banner_visibility', 'astra_bbpress_issue', 50 );
 
-
 /**
  * Render Svg Mask for Header logo
  *
- * @since x.x.x
+ * @since 4.2.2
  * @return void
  */
 function astra_render_header_svg_mask() {
