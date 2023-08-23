@@ -1149,7 +1149,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$ast_container_layout = astra_get_content_layout();
 			$is_boxed             = astra_is_content_style_boxed();
 			$is_sidebar_boxed     = astra_is_sidebar_style_boxed();
-			$ast_container_layout = astra_apply_boxed_layouts( $ast_container_layout, $is_boxed, $is_sidebar_boxed );			
+			$ast_container_layout = astra_apply_boxed_layouts( $ast_container_layout, $is_boxed, $is_sidebar_boxed );		
 
 			/**
 			 * If transparent header is activated then it adds top 1.5em padding space, so this CSS will fix this issue.
