@@ -205,27 +205,26 @@ function astra_onload_function() {
 				applyContainerLayoutClasses( 'page-builder-template' );
 			break;
 			case 'default':
-				if( bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ) {
+				if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ) {
 					applyContainerLayoutClasses( 'boxed-container' );
-				}
-				else if( bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ) {
+				} else if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ) {
 					applyContainerLayoutClasses( 'content-boxed-container' );
-				} else if( bodyClass.classList.contains( 'ast-default-layout-page-builder' ) ) {
+				} else if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-page-builder' ) ) {
 					applyContainerLayoutClasses( 'page-builder-template' );
-				} else if( bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ) {
+				} else if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ) {
 					applyContainerLayoutClasses( 'plain-container' );
-				} else if( bodyClass.classList.contains( 'ast-default-layout-narrow-container' ) ) {
+				} else if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-narrow-container' ) ) {
 					applyContainerLayoutClasses( 'narrow-container' );
 				}
 			break;
 		}
 
-		const is_default_boxed         = bodyClass.classList.contains( 'ast-default-layout-boxed-container' );
-		const is_default_content_boxed = bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' );
-		const is_default_normal        = bodyClass.classList.contains( 'ast-default-layout-plain-container' );
+		const is_default_boxed         = bodyClass && bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ? true : false;
+		const is_default_content_boxed = bodyClass && bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ? true : false;
+		const is_default_normal        = bodyClass && bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ? true : false;
 		const is_default_normal_width  = ( 'default' === contentLayout && ( is_default_boxed || is_default_content_boxed || is_default_normal ) );
-		const is_content_style_boxed   = bodyClass.classList.contains( 'ast-default-content-boxed' );
-		const is_sidebar_style_boxed   = bodyClass.classList.contains( 'ast-default-sidebar-boxed' );
+		const is_content_style_boxed   = bodyClass && bodyClass.classList.contains( 'ast-default-content-boxed' ) ? true : false;
+		const is_sidebar_style_boxed   = bodyClass && bodyClass.classList.contains( 'ast-default-sidebar-boxed' ) ? true : false;
 
 		if ( 'normal-width-container' === contentLayout || is_default_normal_width ) {
 			switch ( contentStyle ) {
