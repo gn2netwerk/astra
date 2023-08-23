@@ -3689,7 +3689,7 @@
 					for ( let j = 0; j < images.length; j++ ) {
 						let img = images[j];
 						let parentFigure = img.parentNode;
-						if ( parentFigure.tagName !== 'A' && ! parentFigure.parentNode.classList.contains('wp-block-gallery') && ! parentFigure.classList.contains('ast-exclude-lightbox') && ! parentFigure.parentNode.classList.contains('ast-exclude-lightbox') ) {
+						if ( parentFigure.tagName !== 'A' && ! parentFigure.parentNode.classList.contains('wp-block-gallery')  ) {
 							// if there is no anchor tag, create one and process for lightbox.
 							img.classList.add( 'ast-lightbox-single-item-' + '-' + i + '-' + j );
 							lightboxSelectorsArray.push( '.ast-lightbox-single-item-' + '-' + i + '-' + j );
