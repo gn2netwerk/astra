@@ -89,7 +89,6 @@ class Astra_Social_Icon_Component_Configs {
 						'custom'   => __( 'Custom', 'astra' ),
 						'official' => __( 'Official', 'astra' ),
 					),
-					'transport'  => 'postMessage',
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => false,
 					'renderAs'   => 'text',
