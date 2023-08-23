@@ -219,12 +219,12 @@ function astra_onload_function() {
 			break;
 		}
 
-		const is_default_boxed         = bodyClass.classList.contains( 'ast-default-layout-boxed-container' );
-		const is_default_content_boxed = bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' );
-		const is_default_normal        = bodyClass.classList.contains( 'ast-default-layout-plain-container' );
+		const is_default_boxed         = bodyClass && bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ? true : false;
+		const is_default_content_boxed = bodyClass && bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ? true : false;
+		const is_default_normal        = bodyClass && bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ? true : false;
 		const is_default_normal_width  = ( 'default' === contentLayout && ( is_default_boxed || is_default_content_boxed || is_default_normal ) );
-		const is_content_style_boxed   = bodyClass.classList.contains( 'ast-default-content-boxed' );
-		const is_sidebar_style_boxed   = bodyClass.classList.contains( 'ast-default-sidebar-boxed' );
+		const is_content_style_boxed   = bodyClass && bodyClass.classList.contains( 'ast-default-content-boxed' ) ? true : false;
+		const is_sidebar_style_boxed   = bodyClass && bodyClass.classList.contains( 'ast-default-sidebar-boxed' ) ? true : false;
 
 		if ( 'normal-width-container' === contentLayout || is_default_normal_width ) {
 			switch ( contentStyle ) {
