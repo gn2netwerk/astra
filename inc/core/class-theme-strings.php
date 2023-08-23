@@ -29,7 +29,7 @@ if ( ! function_exists( 'astra_default_strings' ) ) {
 	function astra_default_strings( $key, $echo = true ) {
 
 		$post_comment_dynamic_string = ( true === Astra_Dynamic_CSS::astra_core_form_btns_styling() ) ? __( 'Post Comment', 'astra' ) : __( 'Post Comment &raquo;', 'astra' );
-		$defaults = apply_filters(
+		$defaults                    = apply_filters(
 			'astra_default_strings',
 			array(
 

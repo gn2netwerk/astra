@@ -179,8 +179,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'id'                         => 'astra-sites-on-active',
 					'type'                       => 'info',
 					'message'                    => sprintf(
-
-							'<div class="ast-welcome-banner">
+						'<div class="ast-welcome-banner">
 								<div class="ast-col-left">
 									<p class="sub-notice-title">%1$s</p>
 									<h2 class="notice-title">%2$s</h2>
