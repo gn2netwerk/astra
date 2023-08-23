@@ -205,16 +205,15 @@ function astra_onload_function() {
 				applyContainerLayoutClasses( 'page-builder-template' );
 			break;
 			case 'default':
-				if( bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ) {
+				if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ) {
 					applyContainerLayoutClasses( 'boxed-container' );
-				}
-				else if( bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ) {
+				} else if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ) {
 					applyContainerLayoutClasses( 'content-boxed-container' );
-				} else if( bodyClass.classList.contains( 'ast-default-layout-page-builder' ) ) {
+				} else if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-page-builder' ) ) {
 					applyContainerLayoutClasses( 'page-builder-template' );
-				} else if( bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ) {
+				} else if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ) {
 					applyContainerLayoutClasses( 'plain-container' );
-				} else if( bodyClass.classList.contains( 'ast-default-layout-narrow-container' ) ) {
+				} else if( bodyClass && bodyClass.classList.contains( 'ast-default-layout-narrow-container' ) ) {
 					applyContainerLayoutClasses( 'narrow-container' );
 				}
 			break;
