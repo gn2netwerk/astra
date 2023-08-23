@@ -381,9 +381,6 @@ class Astra_Social_Component_Dynamic_CSS {
 	 */
 	public static function get_social_static_css() {
 		$social_static_css = '
-		.ast-builder-social-element:hover {
-			color: #0274be;
-		}
 		.ast-social-stack-desktop .ast-builder-social-element,
 		.ast-social-stack-tablet .ast-builder-social-element,
 		.ast-social-stack-mobile .ast-builder-social-element {
