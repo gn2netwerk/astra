@@ -1,48 +1,54 @@
-v4.2.3
-- Fix: WooCommerce - Default Customizer Layout setting not applied correctly for Single Product.
-
-v4.2.2 (Unreleased)
+v4.2.3 (Unreleased)
 - New: Introducing new & optimized Lightbox feature in theme. ( Needs Doc )
-- Improvement: Accessibility improvements for WooCommerce pages.
-- Improvement: New Astra dashboard CTA banner for Starter Template installation.
-- Improvement: Header Footer Builder - Added new social profile "Threads".
+- Improvement: Introducing new admin notice for incompatibility of Astra Pro.
+- Improvement: Compatibility with ZipWP sites.
 - Improvement: WooCommerce - Mini Cart - Update cart quantity when input value is changed.
-- Improvement: Compatibility with ZipWP.
-- Improvement: Synced comments-area border color with customizer border color setting.
-- Improvement: Introduced new logo color option.
-- Improvement: Guillemet symbol ">>" from "Post Comment" removed for better UI.
-- Fix: "Post Comment" button & Search button does not inherit customizer global button stylings.
-- Fix: Post meta - FILTER_SANITIZE_STRING deprecated notice.
-- Fix: Group container inner blocks option does not disable in the editor.
+- Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
+- Fix: Header Builder - Normal header and transparent header height issue. Introduced new filter: 'astra_site_svg_logo_equal_height' to enable or disable this fix.
+- Fix: Header Builder - Menu - On desktop toggle submenu click it goes in infinite scroll loop when Elementor is active.
+- Fix: FILTER_SANITIZE_STRING deprecated notice coming while saving post meta.
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
-- Fix: Woocommerce - Sticky add to cart scroll is not working properly for mobile & tablet.
-- Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
-- Fix: Header Builder - Normal header and transparent header height issue. introduced new filter: astra_site_svg_logo_equal_height to enable or disable this fix.
-- Fix: Spectra Compatibility - Customizer spacing options overriding Spectra's block spacing.
 - Fix: Desktop and mobile header visible together at tablet_breakpoint (921px default) on scaled screen resolutions.
-- Fix: Block editor - Applying font-extras customizer settings to paragraph block (Line-height, Text Transform, Text Decoration, Letter Spacing).
-- Fix: On home page & front page there is h1 tag assigned for site title.
+- Fix: Woocommerce - Sticky add to cart scroll is not working properly for mobile & tablet.
 - Fix: WooCommerce - Swap Images feature shows uncropped image.
-- Fix: WooCommerce - Widget title size and color issue on all WooCommerce pages.
 - Fix: WooCommerce - Sub pages of My Account dashboard menu does not update page title according to set menu.
 - Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
 - Fix: WooCommerce - Left margin from the "Add to cart" button when Sold Individually option is selected.
-- Fix: Footer Builder - Menu - Zero '0' value not accepting in Menu Space.
-- Fix: WooCommerce - Shop - Slide in cart action for Add to Cart button does not work when Elementor is active.
 - Fix: WooCommerce - Shop Archive page Product Category Background color issue.
 - Fix: WooCommerce - PHP fatal error when 'astra_enable_woocommerce_integration' filter used to disable Astra and WooCommerce extended integration. ( https://wpastra.com/docs/remove-astra-customization-for-woocommerce/ )
 - Fix: WooCommerce - Single Product - alt tag absent while rendering images for the WooCommerce payments.
 - Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
 - Fix: WooCommerce - Cart button color setting is not working when product added to cart.
+- Fix: Block - Calendar widget block appearing with accent background colour due to which date is not readable.
+- Fix: Block - List block widget showing list style type none instead of disc.
+- Fix: Block editor - Quote block text color is not matching with the set from customizer.
+- Fix: Block editor - Group container inner blocks option does not disable in the editor.
+- Fix: Block Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed layout.
+- Fix: WooCommerce - Default Customizer Layout setting not applied correctly for Single Product.
+
+v4.2.2
+- New: Introduced new site logo color option.
+- Improvement: Header Footer Builder - Added new social profile "Threads".
+- Improvement: Values in customizer spacing controls should be unlinked if provided values are different.
+- Improvement: Guillemet symbol ">>" from "Post Comment" removed for better UI.
+- Improvement: New dashboard CTA banner for Starter Template installation.
+- Improvement: Synced comments-area border color with customizer border color setting.
+- Improvement: Accessibility improvements for WooCommerce pages.
+- Fix: "Post Comment" button & Search button does not inherit customizer global button stylings.
+- Fix: On home page & front page there is h1 tag assigned for site title.
+- Fix: Footer Builder - Menu - Zero '0' value not accepting in Menu Space.
 - Fix: Customizer - Typography font variation select dropdown gets cropped in font settings.
-- Fix: Customizer - Gradient picker shrink in size under color-group background controls.
-- Fix: Editor - Astra's theme preview button not alligned properly in the editor.
-- Fix: Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed & Content Boxed layout.
-- Fix: Spectra - Table of Content's anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
 - Fix: Related Posts - Meta's author link is incorrect for other than admin created posts.
-- Fix: On desktop toggle submenu click it goes in infinite scroll loop when Elementor is active.
-- Fix: Blog: Paginnation - Next Page and Previous Page pagination links jumps on mobile view on focus.
+- Fix: Customizer - Typography - Font weight select dropdown gets blank after selecting font-family & font-weight “inherit”.
+- Fix: Spectra - Table of Content's anchor links jerks when "Smooth Scroll to ID" option enabled from customizer.
+- Fix: Blog: Pagination - Next Page and Previous Page pagination links jumps on mobile view on focus.
+- Fix: Editor - Theme preview starter-content button not aligned properly in the editor.
+- Fix: WooCommerce - Widget title size and color issue on all WooCommerce pages.
+- Fix: Block editor - Applying font-extras customizer settings to paragraph block (Line-height, Text Transform, Text Decoration, Letter Spacing).
+- Fix: Spectra Compatibility - Customizer spacing options overriding Spectra's block spacing.
+- Fix: Customizer - Gradient picker shrink in size under color-group background controls.
+- Fix: WooCommerce - Slide in cart action for Add to Cart button does not work.
 
 v4.2.1
 - Fix: PHP error while parsing container layout dynamic CSS under PHP-7.2 version.
