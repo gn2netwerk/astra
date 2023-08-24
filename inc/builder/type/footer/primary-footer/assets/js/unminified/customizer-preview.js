@@ -52,7 +52,7 @@
 	// Footer Horizontal Alignment.
 	astra_css(
 		'astra-settings[hb-footer-horizontal-alignment]',
-		'justify-content',
+		AstraBuilderPrimaryFooterData.horizontal_alignment_prop,
 		selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
 	);
 

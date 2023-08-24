@@ -43,6 +43,19 @@ class Astra_Below_Footer_Component_Loader {
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_script( 'astra-footer-below-footer-customizer-preview-js', ASTRA_BUILDER_FOOTER_BELOW_FOOTER_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 
+		$inner_elements_layout         = astra_get_option( 'hb-stack' );
+		$inner_elements_layout_desktop = ( isset( $inner_elements_layout['desktop'] ) ) ? $inner_elements_layout['desktop'] : '';
+		$horizontal_alignment_prop     = 'stack' === $inner_elements_layout_desktop ? 'justify-self' : 'justify-content';
+
+		// Localize variables for Footer JS.
+		wp_localize_script(
+			'astra-footer-below-footer-customizer-preview-js',
+			'AstraBuilderBelowFooterData',
+			array(
+				'horizontal_alignment_prop' => $horizontal_alignment_prop,
+			)
+		);
+
 	}
 }
 
