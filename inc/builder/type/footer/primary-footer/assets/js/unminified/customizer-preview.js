@@ -49,6 +49,13 @@
         selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
     );
 
+	// Footer Horizontal Alignment.
+	astra_css(
+		'astra-settings[hb-footer-horizontal-alignment]',
+		'justify-content',
+		selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
+	);
+
 	// Inner Space.
 	wp.customize( 'astra-settings[hb-inner-spacing]', function( value ) {
 		value.bind( function( spacing ) {

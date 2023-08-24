@@ -23,6 +23,13 @@
         selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
     );
 
+	// Footer Horizontal Alignment.
+	astra_css(
+		'astra-settings[hbb-footer-horizontal-alignment]',
+		'justify-content',
+		selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
+	);
+
 
 	// Header Height.
 	astra_css(

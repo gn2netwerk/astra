@@ -62,7 +62,8 @@ function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_desktop, 'px' ),
 		),
 		$selector . ' .ast-builder-grid-row, ' . $selector . ' .site-footer-section' => array(
-			'align-items' => astra_get_option( 'hbb-footer-vertical-alignment' ),
+			'align-items'     => astra_get_option( 'hbb-footer-vertical-alignment' ),
+			'justify-content' => astra_get_option( 'hbb-footer-horizontal-alignment' ),
 		),
 		$selector . '.ast-footer-row-inline .site-footer-section' => array(
 			'display'       => 'flex',
