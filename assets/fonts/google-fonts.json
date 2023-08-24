@@ -9,6 +9,14 @@
         }
     },
     {
+        "ADLaM Display": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Abel": {
             "variants": [
                 "regular"
@@ -10050,10 +10058,13 @@
         "Noto Sans HK": {
             "variants": [
                 "100",
+                "200",
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "sans-serif"
@@ -10165,10 +10176,13 @@
         "Noto Sans KR": {
             "variants": [
                 "100",
+                "200",
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "sans-serif"
@@ -10772,10 +10786,13 @@
         "Noto Sans SC": {
             "variants": [
                 "100",
+                "200",
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "sans-serif"
@@ -10951,10 +10968,13 @@
         "Noto Sans TC": {
             "variants": [
                 "100",
+                "200",
                 "300",
                 "regular",
                 "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "sans-serif"
@@ -16372,6 +16392,22 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Wavefont": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
