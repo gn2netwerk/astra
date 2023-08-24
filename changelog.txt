@@ -1,3 +1,35 @@
+v4.2.3 (Unreleased)
+- New: Customizer - Enable Brand Color on hover feature for social widget in header & footer builder. ( Needs Doc )
+- New: Footer Builder - Horizontal Alignment options to align elements in footer rows.
+- Improvement: Introducing new admin notice for incompatibility of Astra Pro.
+- Improvement: Compatibility with ZipWP sites.
+- Improvement: WooCommerce - Mini Cart - Update cart quantity when input value is changed.
+- Improvement: Customizer - Header & Footer builder improvements.
+- Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
+- Fix: Header Builder - Normal header and transparent header height issue. Introduced new filter: 'astra_site_svg_logo_equal_height' to enable or disable this fix.
+- Fix: Header Builder - Menu - On desktop toggle submenu click it goes in infinite scroll loop when Elementor is active.
+- Fix: FILTER_SANITIZE_STRING deprecated notice coming while saving post meta.
+- Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
+- Fix: bbPress widget items loading in infinite loop while rendering banner layout.
+- Fix: Desktop and mobile header visible together at tablet_breakpoint (921px default) on scaled screen resolutions.
+- Fix: Woocommerce - Sticky add to cart scroll is not working properly for mobile & tablet.
+- Fix: WooCommerce - Swap Images feature shows uncropped image.
+- Fix: WooCommerce - Sub pages of My Account dashboard menu does not update page title according to set menu.
+- Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
+- Fix: WooCommerce - Left margin from the "Add to cart" button when Sold Individually option is selected.
+- Fix: WooCommerce - Shop Archive page Product Category Background color issue.
+- Fix: WooCommerce - PHP fatal error when 'astra_enable_woocommerce_integration' filter used to disable Astra and WooCommerce extended integration. ( https://wpastra.com/docs/remove-astra-customization-for-woocommerce/ )
+- Fix: WooCommerce - Single Product - alt tag absent while rendering images for the WooCommerce payments.
+- Fix: WooCommerce - WC Endpoints title not changing on My Account Page.
+- Fix: WooCommerce - Cart button color setting is not working when product added to cart.
+- Fix: Block - Calendar widget block appearing with accent background colour due to which date is not readable.
+- Fix: Block - List block widget showing list style type none instead of disc.
+- Fix: Block editor - Quote block text color is not matching with the set from customizer.
+- Fix: Block editor - Group container inner blocks option does not disable in the editor.
+- Fix: Block Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed layout.
+- Fix: WooCommerce - Default Customizer Layout setting not applied correctly for Single Product.
+- Fix: Block Editor - Title visibility eye meta option not appearing in Firefox browser.
+
 v4.2.2
 - New: Introduced new site logo color option.
 - Improvement: Header Footer Builder - Added new social profile "Threads".
