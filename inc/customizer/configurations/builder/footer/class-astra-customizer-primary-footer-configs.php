@@ -152,6 +152,28 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'responsive' => false,
 				),
 
+				/**
+				 * Option: Horizontal Alignment
+				 */
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[hb-footer-horizontal-alignment]',
+					'default'    => astra_get_option( 'hb-footer-horizontal-alignment' ),
+					'type'       => 'control',
+					'control'    => 'ast-selector',
+					'section'    => $_section,
+					'priority'   => 30,
+					'title'      => __( 'Horizontal Alignment', 'astra' ),
+					'choices'    => array(
+						'flex-start' => __( 'Left', 'astra' ),
+						'center'     => __( 'Center', 'astra' ),
+						'flex-end'   => __( 'Right', 'astra' ),
+					),
+					'context'    => Astra_Builder_Helper::$general_tab,
+					'transport'  => 'postMessage',
+					'renderAs'   => 'text',
+					'responsive' => false,
+				),
+
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[hb-stack]',
 					'default'  => astra_get_option( 'hb-stack' ),
