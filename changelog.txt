@@ -1,5 +1,5 @@
 v4.2.3 (Unreleased)
-- New: Customizer - Enable Brand Color on hover feature for social widget in header & footer builder. ( Needs Doc )
+- New: Header-Footer Builder - Social - Enable Brand Color option on hover. (Needs Doc)
 - New: Footer Builder - Horizontal Alignment options to align elements in footer rows.
 - Improvement: Introducing new admin notice for incompatibility of Astra Pro.
 - Improvement: Compatibility with ZipWP sites.
@@ -12,7 +12,7 @@ v4.2.3 (Unreleased)
 - Fix: Horizontal line (HR) is not inheriting the global text colors when Elementor is active.
 - Fix: bbPress widget items loading in infinite loop while rendering banner layout.
 - Fix: Desktop and mobile header visible together at tablet_breakpoint (921px default) on scaled screen resolutions.
-- Fix: Woocommerce - Sticky add to cart scroll is not working properly for mobile & tablet.
+- Fix: WooCommerce - Sticky add to cart scroll is not working properly for mobile & tablet.
 - Fix: WooCommerce - Swap Images feature shows uncropped image.
 - Fix: WooCommerce - Sub pages of My Account dashboard menu does not update page title according to set menu.
 - Fix: WooCommerce - Elementor Pro's Mini Cart widget conflicts with Astra Mini Cart builder element.
