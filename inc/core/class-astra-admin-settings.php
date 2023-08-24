@@ -87,11 +87,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
 
-			if ( ! is_customize_preview() ) {
-				// add css on the admin init action to resolve the error in the PWA service worker js.
-				add_action( 'admin_head', __CLASS__ . '::admin_submenu_css' );
-			}
-
 			add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );
 
 			add_action( 'astra_notice_before_markup_astra-sites-on-active', __CLASS__ . '::load_astra_admin_script' );
@@ -562,28 +557,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					wp_enqueue_script( 'astra-column-block-comp-js', ASTRA_THEME_URI . 'inc/assets/js/column-block-compatibility.js', array( 'wp-util', 'wp-hooks', 'wp-blocks' ), ASTRA_THEME_VERSION, false );
 				}
 			}
-		}
-
-		/**
-		 * Add custom CSS for admin area sub menu icons.
-		 *
-		 * @since 2.5.4
-		 */
-		public static function admin_submenu_css() {
-
-			echo '<style class="astra-menu-appearance-style">
-					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
-					#menu-appearance a[href^="themes.php?page=astra-"]:before,
-					#menu-appearance a[href^="themes.php?page=astra_"]:before,
-					#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
-					#menu-appearance a[href^="edit-tags.php?taxonomy=bsf_custom_fonts"]:before,
-					#menu-appearance a[href^="themes.php?page=custom-typekit-fonts"]:before,
-					#menu-appearance a[href^="edit.php?post_type=bsf-sidebar"]:before {
-						content: "\21B3";
-						margin-right: 0.5em;
-						opacity: 0.5;
-					}
-				</style>';
 		}
 
 		/**
