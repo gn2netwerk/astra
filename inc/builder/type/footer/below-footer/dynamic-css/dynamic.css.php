@@ -53,7 +53,7 @@ function astra_fb_below_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered 
 	$inner_spacing_mobile  = ( isset( $inner_spacing['mobile'] ) ) ? $inner_spacing['mobile'] : '';
 
 	// Horizontal alignment dynamic css for stack mode.
-	$inner_elements_layout         = astra_get_option( 'hb-stack' );
+	$inner_elements_layout         = astra_get_option( 'hbb-stack' );
 	$inner_elements_layout_desktop = ( isset( $inner_elements_layout['desktop'] ) ) ? $inner_elements_layout['desktop'] : '';
 	$horizontal_alignment_prop     = 'stack' === $inner_elements_layout_desktop ? 'justify-self' : 'justify-content';
 
