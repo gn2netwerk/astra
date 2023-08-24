@@ -73,6 +73,11 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$inner_spacing_desktop = ( isset( $inner_spacing['desktop'] ) ) ? $inner_spacing['desktop'] : '';
 	$inner_spacing_tablet  = ( isset( $inner_spacing['tablet'] ) ) ? $inner_spacing['tablet'] : '';
 	$inner_spacing_mobile  = ( isset( $inner_spacing['mobile'] ) ) ? $inner_spacing['mobile'] : '';
+	
+	// Horizontal alignment dynamic css for stack mode.
+	$inner_elements_layout         = astra_get_option( 'hb-stack' );
+	$inner_elements_layout_desktop = ( isset( $inner_elements_layout['desktop'] ) ) ? $inner_elements_layout['desktop'] : '';
+	$horizontal_alignment_prop     = 'stack' === $inner_elements_layout_desktop ? 'justify-self' : 'justify-content';
 
 	$css_output_desktop = array(
 		'.site-primary-footer-wrap'          => array(
@@ -84,7 +89,8 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 			'grid-column-gap' => astra_get_css_value( $inner_spacing_desktop, 'px' ),
 		),
 		$selector . ' .ast-builder-grid-row, ' . $selector . ' .site-footer-section' => array(
-			'align-items' => astra_get_option( 'hb-footer-vertical-alignment' ),
+			'align-items'              => astra_get_option( 'hb-footer-vertical-alignment' ),
+			$horizontal_alignment_prop => astra_get_option( 'hb-footer-horizontal-alignment' ),
 		),
 		$selector . '.ast-footer-row-inline .site-footer-section' => array(
 			'display'       => 'flex',

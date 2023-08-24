@@ -589,6 +589,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['hb-footer-vertical-alignment']  = 'flex-start';
 	$defaults['hbb-footer-vertical-alignment'] = 'flex-start';
 
+	$defaults['hba-footer-horizontal-alignment'] = 'center';
+	$defaults['hb-footer-horizontal-alignment']  = 'center';
+	$defaults['hbb-footer-horizontal-alignment'] = 'center';
+
 	$defaults['footer-bg-obj-responsive'] = array(
 		'desktop' => array(
 			'background-color'      => '',
