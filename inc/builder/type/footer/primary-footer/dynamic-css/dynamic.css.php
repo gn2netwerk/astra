@@ -70,9 +70,9 @@ function astra_fb_primary_footer_dynamic_css( $dynamic_css, $dynamic_css_filtere
 	$tab_layout  = ( isset( $layout['tablet'] ) ) ? $layout['tablet'] : 'full';
 	$mob_layout  = ( isset( $layout['mobile'] ) ) ? $layout['mobile'] : 'full';
 
-	$inner_spacing_desktop         = ( isset( $inner_spacing['desktop'] ) ) ? $inner_spacing['desktop'] : '';
-	$inner_spacing_tablet          = ( isset( $inner_spacing['tablet'] ) ) ? $inner_spacing['tablet'] : '';
-	$inner_spacing_mobile          = ( isset( $inner_spacing['mobile'] ) ) ? $inner_spacing['mobile'] : '';
+	$inner_spacing_desktop = ( isset( $inner_spacing['desktop'] ) ) ? $inner_spacing['desktop'] : '';
+	$inner_spacing_tablet  = ( isset( $inner_spacing['tablet'] ) ) ? $inner_spacing['tablet'] : '';
+	$inner_spacing_mobile  = ( isset( $inner_spacing['mobile'] ) ) ? $inner_spacing['mobile'] : '';
 	
 	// Horizontal alignment dynamic css for stack mode.
 	$inner_elements_layout         = astra_get_option( 'hb-stack' );
