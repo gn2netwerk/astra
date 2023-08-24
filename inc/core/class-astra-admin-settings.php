@@ -42,7 +42,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * Astra Addon supported versions map array.
 		 *
 		 * @var array
-		 * @since x.x.x
+		 * @since 4.3.0
 		 */
 		private static $astra_addon_supported_version_map = array(
 			'4.1.6' => '4.1.0',
@@ -338,7 +338,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @param string $input_version Input version of the addon.
 		 *
-		 * @since x.x.x
+		 * @since 4.3.0
 		 */
 		public static function get_astra_addon_min_supported_version( $input_version ) {
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0 ) {
@@ -367,7 +367,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 		 * This constant will be used to inform the user about incompatible version of Astra addon.
 		 *
-		 * @since x.x.x
+		 * @since 4.3.0
 		 */
 		public static function minimum_addon_supported_version_notice() {
 
