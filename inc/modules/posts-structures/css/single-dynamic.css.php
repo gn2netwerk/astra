@@ -91,6 +91,23 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$css_output_min_tablet  = array();
 	$narrow_container_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 
+	// Aspect Ratio processing.
+	$aspect_ratio_type = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-ratio-type', '' );
+	$predefined_scale = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-ratio-pre-scale' );
+	$custom_scale_width = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-custom-scale-width' );
+	$custom_scale_height = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-custom-scale-height' );
+	$aspect_ratio = astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_scale, $custom_scale_width, $custom_scale_height );
+
+	// Hover effects.
+	$scale_hover_css = '';
+	$hover_effect = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-hover-effect', '' );
+	if ( '' !== $hover_effect ) {
+		$scale_hover_css = 'zoomin' === $hover_effect ? 'scale(1.1);' : 'scale(0.9);';
+	}
+
+	$bordered_image = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-bordered-image', false );
+	$border_color   = astra_get_option( 'border-color' );
+
 	// Few settings from banner section are also applicable to 'layout-1' so adding this condition & compatibility.
 	if ( 'layout-1' === $layout_type ) {
 		/**
@@ -111,6 +128,15 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			),
 			$selector . ' > *:not(:last-child)'     => array(
 				'margin-bottom' => $elements_gap . 'px',
+			),
+			$selector . ' .post-thumb-img-content img'           => array(
+				'aspect-ratio' => $aspect_ratio,
+				'transition'  => 'all 0.3s',
+				'border' => $bordered_image ? '1px solid ' . $border_color : 'none',
+				'border-radius' => $bordered_image ? '4px' : '0',
+			),
+			$selector . ' .post-thumb-img-content img:hover'           => array(
+				'transform' => $scale_hover_css,
 			),
 		);
 		/**

@@ -475,6 +475,187 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				),
 
 				/**
+				 * Option: Image Ratio Type.
+				 */
+				array(
+					'name'       => $title_section . '-image-ratio-type',
+					'default'    => astra_get_option( $title_section . '-image-ratio-type', '' ),
+					'type'       => 'sub-control',
+					'transport'  => 'postMessage',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'section'   => $title_section,
+					'linked'    => $title_section . '-image',
+					'priority'   => 5,
+					'control'    => 'ast-selector',
+					'title'      => __( 'Image Ratio', 'astra' ),
+					'choices'    => array(
+						'' 				=> __( 'Original', 'astra' ),
+						'predefined'    => __( 'Predefined', 'astra' ),
+						'custom'       	=> __( 'Custom', 'astra' ),
+					),
+					'responsive' => false,
+					'renderAs'   => 'text',
+				),
+
+				/**
+				 * Option: Image Ratio Scale.
+				 */
+				array(
+					'name'       => $title_section . '-image-ratio-pre-scale',
+					'default'    => astra_get_option( $title_section . '-image-ratio-pre-scale' ),
+					'type'       => 'sub-control',
+					'transport'  => 'postMessage',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'linked'    => $title_section . '-image',
+					'section'   => $title_section,
+					'priority'   => 10,
+					'control'    => 'ast-selector',
+					'choices'    => array(
+						'1/1' 	 => __( '1:1', 'astra' ),
+						'4/3'    => __( '4:3', 'astra' ),
+						'16/9'   => __( '16:9', 'astra' ),
+						'2/1'    => __( '2:1', 'astra' ),
+					),
+					'responsive' => false,
+					'renderAs'   => 'text',
+				),
+
+				/**
+				 * Option: Image Scale width.
+				 */
+				array(
+					'name'              => $title_section . '-image-custom-scale-width',
+					'default'           => astra_get_option( $title_section . '-image-custom-scale-width', '' ),
+					'type'       		=> 'sub-control',
+					'control'           => 'ast-number',
+					'transport'  		=> 'postMessage',
+					'parent'    		=> ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'section'   		=> $title_section,
+					'linked'    		=> $title_section . '-image',
+					'transport'         => 'postMessage',
+					'priority'          => 11,
+					'input_attrs'       => array(
+						'style'       => 'text-align:center;',
+						'placeholder' => __( 'Auto', 'astra-addon' ),
+						'min'         => 1,
+						'max'         => 1000,
+					),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+				),
+
+				/**
+				 * Option: Image Scale height.
+				 */
+				array(
+					'name'              => $title_section . '-image-custom-scale-height',
+					'default'           => astra_get_option( $title_section . '-image-custom-scale-height', '' ),
+					'type'       		=> 'sub-control',
+					'control'           => 'ast-number',
+					'transport'  		=> 'postMessage',
+					'parent'    		=> ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'section'   		=> $title_section,
+					'linked'    		=> $title_section . '-image',
+					'transport'         => 'postMessage',
+					'priority'          => 12,
+					'input_attrs'       => array(
+						'style'       => 'text-align:center;',
+						'placeholder' => __( 'Auto', 'astra-addon' ),
+						'min'         => 1,
+						'max'         => 1000,
+					),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+				),
+
+				array(
+					'name'     => $title_section . '-original-image-scale-description',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'linked'   => $title_section . '-image',
+					'type'     => 'sub-control',
+					'control'  => 'ast-description',
+					'section'  => $title_section,
+					'priority' => 13,
+					'label'    => '',
+					'help'     => __( 'Images will be displayed using the aspect ratio in which they were uploaded.', 'astra' ),
+				),
+
+				array(
+					'name'     => $title_section . '-custom-image-scale-description',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'linked'   => $title_section . '-image',
+					'type'     => 'sub-control',
+					'control'  => 'ast-description',
+					'section'  => $title_section,
+					'priority' => 14,
+					'label'    => '',
+					'help'     => sprintf( /* translators: 1: link open markup, 2: link close markup */ __( 'Calculate a personalized image ratio using this %1$s online tool %2$s for your image dimensions.', 'astra' ), '<a href="https://www.digitalrebellion.com/webapps/aspectcalc" target="_blank">', '</a>' ),
+				),
+
+				/**
+				 * Option: Image Hover Effect.
+				 */
+				array(
+					'name'       => $title_section . '-image-hover-effect',
+					'default'    => astra_get_option( $title_section . '-image-hover-effect', '' ),
+					'type'       => 'sub-control',
+					'transport'  => 'postMessage',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'section'   => $title_section,
+					'linked'    => $title_section . '-image',
+					'priority'   => 15,
+					'control'    => 'ast-selector',
+					'title'      => __( 'Hover Effect', 'astra' ),
+					'choices'    => array(
+						'' 				=> __( 'None', 'astra' ),
+						'zoomin'    => __( 'Zoom In', 'astra' ),
+						'zoomout'       	=> __( 'Zoom Out', 'astra' ),
+					),
+					'responsive' => false,
+					'renderAs'   => 'text',
+					'divider'    => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
+				),
+
+				/**
+				 * Bordered Image?
+				 */
+				array(
+					'name'      => $title_section . '-bordered-image',
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'default'   => astra_get_option( $title_section . '-bordered-image', false ),
+					'linked'    => $title_section . '-image',
+					'type'      => 'sub-control',
+					'control'   => 'ast-toggle',
+					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
+					'section'   => $title_section,
+					'priority'  => 16,
+					'title'     => __( 'Bordered Image', 'astra' ),
+					'transport' => 'postMessage',
+				),
+
+				/**
+				 * Option: Image Size.
+				 */
+				array(
+					'name'      => $title_section . '-image-size',
+					'default'   => astra_get_option( $title_section . '-image-size', '' ),
+					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'section'   => $title_section,
+					'linked'    => $title_section . '-image',
+					'type'      => 'sub-control',
+					'priority'  => 17,
+					'transport' => 'postMessage',
+					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'title'     => __( 'Image Size', 'astra' ),
+					'control'   => 'ast-select',
+					'choices'   => array(
+						''             => __( 'Full Size', 'astra' ),
+						'thumbnail'    => __( 'Thumbnail', 'astra' ),
+						'medium'       => __( 'Medium', 'astra' ),
+						'medium_large' => __( 'Medium Large', 'astra' ),
+						'large'        => __( 'Large', 'astra' ),
+					),
+				),
+
+				/**
 				 * Single product payment sub control Visa.
 				 */
 				array(
@@ -485,7 +666,8 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'type'      => 'sub-control',
 					'control'   => 'ast-toggle',
 					'section'   => $title_section,
-					'priority'  => 5,
+					'priority'  => 20,
+					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 					'title'     => __( 'Use as Background', 'astra' ),
 					'transport' => 'postMessage',
 					'context'   => array(
@@ -510,7 +692,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'type'     => 'sub-control',
 					'control'  => 'ast-color',
 					'section'  => $title_section,
-					'priority' => 5,
+					'priority' => 25,
 					'title'    => __( 'Overlay Color', 'astra' ),
 					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
@@ -530,9 +712,9 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'type'     => 'sub-control',
 					'control'  => 'ast-description',
 					'section'  => $title_section,
-					'priority' => 10,
+					'priority' => 30,
 					'label'    => '',
-					'help'     => __( 'Note: These featured settings will only work for Layout 2 banner design.', 'astra' ),
+					'help'     => __( 'Note: These background settings will only work for Layout 2 banner design.', 'astra' ),
 				),
 
 				array(
