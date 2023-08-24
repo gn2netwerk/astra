@@ -1,5 +1,6 @@
 v4.2.3 (Unreleased)
 - New: Customizer - Enable Brand Color on hover feature for social widget in header & footer builder. ( Needs Doc )
+- New: Horizontal Alignment Control for Astra Footer.
 - Improvement: Introducing new admin notice for incompatibility of Astra Pro.
 - Improvement: Compatibility with ZipWP sites.
 - Improvement: WooCommerce - Mini Cart - Update cart quantity when input value is changed.
