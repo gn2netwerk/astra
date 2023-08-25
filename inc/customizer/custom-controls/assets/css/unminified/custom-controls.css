@@ -2583,7 +2583,7 @@ span.customize-control-title.ast-group-section-title {
     display: inline-flex;
 }
 .ast-fields-wrap [ID*="-image-custom-scale-height"] {
-    padding: 0 `!important;
+    padding: 0 !important;
     width: calc(50% + 10px);
 }
 .ast-fields-wrap [ID*="-image-custom-scale-width"] {

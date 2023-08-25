@@ -384,6 +384,12 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 							'path'  => '<span class="ahfb-svg-iconset ast-inline-flex"><svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10 12C10 10.8954 10.8954 10 12 10H88C89.1046 10 90 10.8954 90 12V70H10V12Z" fill="white"></path> <mask id="' . esc_attr( $title_section ) . '-masking" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="10" y="10" width="80" height="60"> <path d="M10 12C10 10.8954 10.8954 10 12 10H88C89.1046 10 90 10.8954 90 12V70H10V12Z" fill="white"></path> </mask> <g mask="url(#' . esc_attr( $title_section ) . '-masking)"> <path d="M2 9H95V35H2V9Z" fill="#DADDE2"></path> </g> <path fill-rule="evenodd" clip-rule="evenodd" d="M83 58H16V56H83V58Z" fill="#E9EAEE"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M83 64H16V62H83V64Z" fill="#E9EAEE"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M61 21H41V19H61V21Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M53.4 25H33V23H53.4V25Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M67 25H54.76V23H67V25Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M42.4783 29H40V28H42.4783V29Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M50.7391 29H47.4348V28H50.7391V29Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M46.6087 29H43.3044V28H46.6087V29Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M54.8696 29H51.5652V28H54.8696V29Z" fill="white"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M59 29H55.6956V28H59V29Z" fill="white"></path> <rect x="16" y="40" width="67" height="12" fill="#E9EAEE"></rect> </svg></span>',
 						),
 					),
+					'contextual_sub_control' => true,
+					'input_attrs' => array(
+						'dependents' 			 => array(
+							'layout-2' => array( $title_section . '-featured-as-background', $title_section . '-banner-featured-overlay' ),
+						),
+					),
 				),
 
 				/**
@@ -495,6 +501,14 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
+					'contextual_sub_control' => true,
+					'input_attrs' => array(
+						'dependents' 			 => array(
+							'' => array( $title_section . '-original-image-scale-description' ),
+							'predefined' => array( $title_section . '-image-ratio-pre-scale' ),
+							'custom'     => array( $title_section . '-image-custom-scale-width', $title_section . '-image-custom-scale-height', $title_section . '-custom-image-scale-description' ),
+						),
+					),
 				),
 
 				/**
@@ -643,7 +657,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'type'      => 'sub-control',
 					'priority'  => 17,
 					'transport' => 'postMessage',
-					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 					'title'     => __( 'Image Size', 'astra' ),
 					'control'   => 'ast-select',
 					'choices'   => array(
@@ -667,7 +680,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'control'   => 'ast-toggle',
 					'section'   => $title_section,
 					'priority'  => 20,
-					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
+					'divider'    => array( 'ast_class' => 'ast-section-spacing ast-top-section-divider' ),
 					'title'     => __( 'Use as Background', 'astra' ),
 					'transport' => 'postMessage',
 					'context'   => array(
@@ -703,18 +716,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 							'value'    => 'layout-2',
 						),
 					),
-				),
-
-				array(
-					'name'     => $title_section . '-featured-help-notice',
-					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
-					'linked'   => $title_section . '-image',
-					'type'     => 'sub-control',
-					'control'  => 'ast-description',
-					'section'  => $title_section,
-					'priority' => 30,
-					'label'    => '',
-					'help'     => __( 'Note: These background settings will only work for Layout 2 banner design.', 'astra' ),
 				),
 
 				array(
