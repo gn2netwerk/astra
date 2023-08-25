@@ -487,7 +487,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							$configuration['choices_upgrade'][ $key ] = isset( $value['is_pro'] ) ? $value['is_pro'] : false;
 						}
 					}
-					if ( isset( $configuration['input_attrs'] ) ) {
+					if ( isset( $configuration['inputAttrs'] ) ) {
 
 						$configuration['inputAttrs'] = '';
 						$configuration['labelStyle'] = '';
