@@ -29,6 +29,7 @@ v4.3.0 (Unreleased)
 - Fix: Block Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed layout.
 - Fix: WooCommerce - Default customizer layout setting not applied correctly for Single Product.
 - Fix: Block Editor - Title visibility eye meta option not appearing in Firefox browser.
+- Fix: Appearing sub arrows under theme.php page for admin pages of other BSF plugins like Sidebar Manager, Adobe Typekit Fonts etc.
 
 v4.2.2
 - New: Introduced new site logo color option.
