@@ -218,6 +218,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
+			if ( astra_get_option( 'enable-lightbox', false ) ) {
+				$default_assets['js']['astra-lightbox'] = 'lightbox';
+				$default_assets['css']['astra-lightbox'] = 'lightbox';
+			}
+
 			if ( astra_get_option( 'site-sticky-sidebar', false ) ) {
 				$default_assets['js']['astra-sticky-sidebar'] = 'sticky-sidebar';
 				$default_assets['css']['astra-sticky-sidebar'] = 'sticky-sidebar';
@@ -408,6 +413,17 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					'is_astra_pro'            => $is_astra_pro,
 				);
 				wp_localize_script( 'astra-shop-add-to-cart', 'astra_shop_add_to_cart', apply_filters( 'astra_shop_add_to_cart_js_localize', $astra_shop_add_to_cart_localize_data ) );
+			}
+
+			if ( astra_get_option( 'enable-lightbox', false ) ) {
+				$astra_lightbox_localize_data = array(
+					'images_selector' => array(
+						'single_selectors' => '.wp-block-media-text, .wp-block-image, .wp-block-uagb-image__figure',
+						'gallery_selectors' => '.wp-block-gallery'
+					),
+					'lightbox_options' => array(),
+				);
+				wp_localize_script( 'astra-lightbox', 'astra_lightbox', apply_filters( 'astra_lightbox_js_localize', $astra_lightbox_localize_data ) );
 			}
 
 			$sticky_sidebar = astra_get_option( 'site-sticky-sidebar', false );
