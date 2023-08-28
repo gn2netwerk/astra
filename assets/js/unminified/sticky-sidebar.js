@@ -56,7 +56,7 @@
 			if ( sidebar && astra_sticky_sidebar.sticky_sidebar_on ) { 
                 const offset  = window.astraStickySidebar.getOffset();
 				sidebar.style.top = Math.floor( offset + 50 ) + 'px';
-                sidebar.style.maxHeight = 'calc( 100vh - ' + Math.floor( offset + 20 ) + 'px )';
+                sidebar.style.maxHeight = 'calc( 100vh - ' + Math.floor( offset + 50 ) + 'px )';
 			}
 
 		},
