@@ -4946,13 +4946,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							top: 50px;
 							position: sticky;
 							position: -webkit-sticky;
+							overflow-y: auto;
 						}
 					}
 				';
 			}
 			return $sidebar_sticky_css;
-    }
+    	}
 
+		/*
 		 * Check if fullwidth layout with sidebar is supported.
 		 * Old users - yes
 		 * New users - no
