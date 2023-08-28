@@ -420,6 +420,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					'header_above_stick'  => astra_get_option( 'header-above-stick', false ),
 					'header_main_stick'   => astra_get_option( 'header-main-stick', false ),
 					'header_below_stick'  => astra_get_option( 'header-below-stick', false ),
+					'sticky_header_addon' => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'sticky-header' ) ),
 				);
 				wp_localize_script( 'astra-sticky-sidebar', 'astra_sticky_sidebar', apply_filters( 'astra_sticky_sidebar_js_localize', $astra_sticky_sidebar_localize_data ) );
 			}
