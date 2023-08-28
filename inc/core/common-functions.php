@@ -1666,9 +1666,27 @@ function astra_narrow_container_width( $location, $narrow_container_max_width ) 
 }
 
 /**
+ * Function which will return the Sidebar Layout to determine default body classes for Editor.
+ *
+ * @since 4.2.0
+ * @param string $post_type Post Type.
+ * @return string Sidebar Layout.
+ */
+function astra_get_sidebar_layout_for_editor( $post_type ) {
+
+	$sidebar_layout = astra_get_option( 'single-' . $post_type . '-sidebar-layout' );
+
+	if ( 'default' === $sidebar_layout ) {
+		$sidebar_layout = astra_get_option( 'site-sidebar-layout' );
+	}
+
+	return $sidebar_layout;
+}
+
+/**
  * Gets the SVG for the duotone filter definition.
  *
- * @since x.x.x
+ * @since 4.2.2
  *
  * @param string $filter_id The ID of the filter.
  * @param array  $color    An array of color strings.
@@ -1742,7 +1760,7 @@ function astra_get_filter_svg( $filter_id, $color ) {
 /**
  * Converts HEX to RGB.
  *
- * @since x.x.x
+ * @since 4.2.2
  *
  * @param string $hex Hex color.
  * @return array split version of rgb.
@@ -1766,7 +1784,7 @@ function astra_hex_to_rgb( $hex ) {
 /**
  * Converts RGBA to split array RGBA.
  *
- * @since x.x.x
+ * @since 4.2.2
  *
  * @param string $rgba RGBA value.
  * @return array split version of rgba.
@@ -1793,11 +1811,10 @@ function astra_split_rgba( $rgba ) {
 	);
 }
 
-
 /**
  * Render svg mask.
  *
- * @since x.x.x
+ * @since 4.2.2
  *
  * @param string $id id.
  * @param string $filter_name filter name.
@@ -1818,6 +1835,6 @@ function astra_render_svg_mask( $id, $filter_name, $color ) {
 		$svg_color = astra_split_rgba( $color );
 	}
 
-		/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		echo astra_get_filter_svg( $id, apply_filters( 'astra_' . $filter_name, $svg_color ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	echo astra_get_filter_svg( $id, apply_filters( 'astra_' . $filter_name, $svg_color ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
