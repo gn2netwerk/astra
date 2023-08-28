@@ -17,18 +17,15 @@
 
             let offset = 0;
             if ( window.innerWidth >= 992 ) {
-                if ( astra_sticky_sidebar.header_above_stick ) {
+                if ( "0" !== astra_sticky_sidebar.header_above_stick ) {
                     offset += Math.floor( parseInt( astra_sticky_sidebar.header_above_height.desktop ) );
                 }
-                if ( astra_sticky_sidebar.header_main_stick ) {
+                if ( "0" !== astra_sticky_sidebar.header_main_stick ) {
                     offset += Math.floor( parseInt( astra_sticky_sidebar.header_height.desktop ) );
                 }
-                if ( astra_sticky_sidebar.header_below_stick ) {
+                if ( "0" !== astra_sticky_sidebar.header_below_stick ) {
                     offset += Math.floor( parseInt( astra_sticky_sidebar.header_below_height.desktop ) );
                 }
-				if ( document.body.classList.contains( 'admin-bar' ) ) {
-					offset += 32;
-				}
                 return offset;
             }
 
@@ -38,7 +35,7 @@
 		 * Initiate the sticky sidebar.
 		 */
 		activateStickySidebar: function() {
-			
+			debugger
 			if ( ! document.body.classList.contains( 'ast-sticky-sidebar' ) ) {
 				return;
 			}
