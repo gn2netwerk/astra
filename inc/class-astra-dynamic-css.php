@@ -4952,7 +4952,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				';
 			}
 			return $sidebar_sticky_css;
-    	}
+		}
 
 		/*
 		 * Check if fullwidth layout with sidebar is supported.
