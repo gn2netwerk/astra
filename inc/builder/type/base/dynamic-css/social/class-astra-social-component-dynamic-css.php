@@ -106,8 +106,7 @@ class Astra_Social_Component_Dynamic_CSS {
 			/**
 			 * Social Icon CSS.
 			 */
-			$css_output_desktop = array(
-				
+			$css_output_desktop = array(            
 				$selector . ' .social-show-label-true .ast-builder-social-element' => array(
 					// Icon Spacing.
 					'margin-left'                => astra_get_css_value( $icon_spacing_desktop, 'px' ),
