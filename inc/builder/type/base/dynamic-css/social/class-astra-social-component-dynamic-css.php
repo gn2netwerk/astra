@@ -105,7 +105,7 @@ class Astra_Social_Component_Dynamic_CSS {
 
 			/**
 			 * Social Icon CSS.
-			 */var_dump($selector);
+			 */
 			$css_output_desktop = array(
 				
 				$selector . ' .social-show-label-true .ast-builder-social-element' => array(
