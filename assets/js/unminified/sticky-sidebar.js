@@ -11,38 +11,49 @@
     window.astraStickySidebar = {
 
         /**
-         * Get the top offset from header for sticky sidebar.
+         * Check whether the header type is sticky and active or not.
+         */
+        isStickyHeaderActive: function( header, headerStick ) {
+            return ( headerStick && "0" !== headerStick && null !== header );
+        },
+
+        /**
+         * Get the top offset from header for sticky sidebar start position.
          */
         getOffset: function () {
-
             let offset = 0;
-            if ( window.innerWidth >= 992 ) {
-                if ( "0" !== astra_sticky_sidebar.header_above_stick ) {
+            const abvHeader     = document.querySelector('.ast-above-header-bar');
+            const primaryHeader = document.querySelector('.ast-primary-header-bar');
+            const blwHeader     = document.querySelector('.ast-below-header-bar');
+            const desktopBreakpoint = 992;
+            if ( window.innerWidth >= desktopBreakpoint && ( abvHeader || primaryHeader || blwHeader ) ) {
+                if ( window.astraStickySidebar.isStickyHeaderActive( abvHeader, astra_sticky_sidebar.header_above_stick ) ) {
                     offset += Math.floor( parseInt( astra_sticky_sidebar.header_above_height.desktop ) );
                 }
-                if ( "0" !== astra_sticky_sidebar.header_main_stick ) {
+                if ( window.astraStickySidebar.isStickyHeaderActive( primaryHeader, astra_sticky_sidebar.header_main_stick ) ) {
                     offset += Math.floor( parseInt( astra_sticky_sidebar.header_height.desktop ) );
                 }
-                if ( "0" !== astra_sticky_sidebar.header_below_stick ) {
+                if ( window.astraStickySidebar.isStickyHeaderActive( blwHeader, astra_sticky_sidebar.header_below_stick ) ) {
                     offset += Math.floor( parseInt( astra_sticky_sidebar.header_below_height.desktop ) );
                 }
+                if ( document.body.classList.contains( 'admin-bar' ) ) {
+					offset += 32;
+				}
                 return offset;
             }
-
         },
 
 		/**
 		 * Initiate the sticky sidebar.
 		 */
 		activateStickySidebar: function() {
-			debugger
 			if ( ! document.body.classList.contains( 'ast-sticky-sidebar' ) ) {
 				return;
 			}
 			const sidebar = document.querySelector( '#secondary .sidebar-main' );
 			if ( sidebar && astra_sticky_sidebar.sticky_sidebar_on ) { 
                 const offset  = window.astraStickySidebar.getOffset();
-				sidebar.style.top = Math.floor( offset + 20 ) + 'px';
+				sidebar.style.top = Math.floor( offset + 50 ) + 'px';
                 sidebar.style.maxHeight = 'calc( 100vh - ' + Math.floor( offset + 20 ) + 'px )';
 			}
 
