@@ -4957,12 +4957,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$parse_css .= astra_parse_css(
+				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					$sidebar_sticky_css,
 					intval( $desktop_breakpoint ) + 1
 				);
 
 				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$parse_css .= astra_parse_css(
+				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					$sidebar_webkit_sticky_css,
 					intval( $desktop_breakpoint ) + 1
 				);
@@ -4970,6 +4972,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			return $parse_css;
+			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 
 		/*
