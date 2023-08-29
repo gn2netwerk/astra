@@ -2,8 +2,7 @@ v4.3.0 (Unreleased)
 - New: Header-Footer Builder - Social - Enable Brand Color option on hover.
 - Improvement: Introducing new admin notice for incompatibility of Astra Pro.
 - Improvement: WooCommerce - Mini Cart - Update cart quantity when the input value is changed.
-- Improvement: Header-Footer Builder - Code refactored &  misc bug fixes in terms of block layouts.
-- Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'art-hf-menu-x'.
+- Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'ast-hf-menu-x'.
 - Fix: Header Builder - Normal header and transparent header height issue. Introduced new filter: 'astra_site_svg_logo_equal_height' to enable or disable this fix.
 - Fix: Header Builder - Menu - On desktop toggle submenu click it goes in an infinite scroll loop when Elementor is active.
 - Fix: Footer Builder - The widget section gets 3.5em bottom spacing which affects frontend UI.
@@ -23,13 +22,14 @@ v4.3.0 (Unreleased)
 - Fix: WooCommerce - Default customizer layout setting not applied correctly for Single Product.
 - Fix: Customizer - Gradient picker breaking from responsive background control in WordPress 6.3.
 - Fix: Customizer - UI design tweak for the widget block editor.
+- Fix: Customizer - Widget Editor - Unable to scroll down to add blocks in the widget when header/footer builder area is active.
 - Fix: Block - Calendar widget block appearing with accent background color due to which date is not readable.
 - Fix: Block - List block widget showing list style type none instead of disc.
 - Fix: Block editor - Quote block text color does not match the set from the customizer.
 - Fix: Block editor - Group container inner blocks option is not disabled in the editor.
 - Fix: Block Editor - Query Loop Block - Tag 'article' inside 'article' getting extra spacing with Boxed layout.
 - Fix: Block Editor - Title visibility eye meta option not appearing in Firefox browser.
-- Fix: Appearing sub arrows under theme.php page for admin pages of other BSF plugins like Sidebar Manager, Adobe Typekit Fonts etc.
+- Fix: Appearing sub arrows under themes.php page for admin pages of other BSF plugins like Sidebar Manager, Adobe Typekit Fonts etc.
 - Fix: Default layout should be Fullwidth (formerly Full-width Stretched) when creating a new Elementor Page.
 
 v4.2.2
