@@ -417,6 +417,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$sticky_header_addon = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'sticky-header' ) );
 				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+				$desktop_breakpoint = astra_get_tablet_breakpoint();
 				$astra_sticky_sidebar_localize_data = array(
 					'sticky_sidebar_on'   => $sticky_sidebar,
 					'header_above_height' => astra_get_option( 'hba-header-height' ),
@@ -426,7 +427,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					'header_main_stick'   => astra_get_option( 'header-main-stick', false ),
 					'header_below_stick'  => astra_get_option( 'header-below-stick', false ),
 					'sticky_header_addon' => $sticky_header_addon,
-					'desktop_breakpoint'  => ( astra_get_tablet_breakpoint() + 1 ),
+					'desktop_breakpoint'  => $desktop_breakpoint + 1,
 				);
 				wp_localize_script( 'astra-sticky-sidebar', 'astra_sticky_sidebar', apply_filters( 'astra_sticky_sidebar_js_localize', $astra_sticky_sidebar_localize_data ) );
 			}

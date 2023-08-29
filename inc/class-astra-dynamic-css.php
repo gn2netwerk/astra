@@ -4952,14 +4952,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'position'   => '-webkit-sticky',
 					),
 				);
-				$desktop_breakpoint = ( astra_get_tablet_breakpoint() + 1 );
+				$desktop_breakpoint = astra_get_tablet_breakpoint();
 				$parse_css .= astra_parse_css(
 					$sidebar_sticky_css,
-					$desktop_breakpoint
+					$desktop_breakpoint + 1
 				);
 				$parse_css .= astra_parse_css(
 					$sidebar_webkit_sticky_css,
-					$desktop_breakpoint
+					$desktop_breakpoint + 1
 				);
 			}
 			return $parse_css;
