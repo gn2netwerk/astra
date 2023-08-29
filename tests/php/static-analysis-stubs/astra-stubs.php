@@ -3669,7 +3669,7 @@ namespace {
         /**
          * Dynamic CSS to make Sidebar Sticky.
          *
-         * @return string Dynamic CSS.
+         * @return string The Parsed CSS.
          * @param string Parse CSS.
          * @since x.x.x
          */
