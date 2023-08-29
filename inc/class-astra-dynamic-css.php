@@ -4939,6 +4939,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 */
 		public static function astra_sticky_sidebar_css( $parse_css ) {
+
 			if ( astra_get_option( 'site-sticky-sidebar', false ) ) {
 				$sidebar_sticky_css = array(
 					'.ast-sticky-sidebar .sidebar-main' => array(
@@ -4953,15 +4954,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 				$desktop_breakpoint = astra_get_tablet_breakpoint();
+
+				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$parse_css .= astra_parse_css(
 					$sidebar_sticky_css,
-					$desktop_breakpoint + 1
+					intval( $desktop_breakpoint ) + 1
 				);
+
+				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$parse_css .= astra_parse_css(
 					$sidebar_webkit_sticky_css,
-					$desktop_breakpoint + 1
+					intval( $desktop_breakpoint ) + 1
 				);
 			}
+
+			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			return $parse_css;
 		}
 
