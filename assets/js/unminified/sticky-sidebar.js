@@ -22,10 +22,10 @@
          */
         getOffset: function () {
             let offset = 0;
-            const abvHeader     = document.querySelector('.ast-above-header-bar');
-            const primaryHeader = document.querySelector('.ast-primary-header-bar');
-            const blwHeader     = document.querySelector('.ast-below-header-bar');
-            const desktopBreakpoint = 992;
+            const abvHeader         = document.querySelector('.ast-above-header-bar');
+            const primaryHeader     = document.querySelector('.ast-primary-header-bar');
+            const blwHeader         = document.querySelector('.ast-below-header-bar');
+            const desktopBreakpoint = astra_sticky_sidebar.desktop_breakpoint ? parseInt( astra_sticky_sidebar.desktop_breakpoint ) : 922;
             if ( window.innerWidth >= desktopBreakpoint && ( abvHeader || primaryHeader || blwHeader ) ) {
                 if ( document.body.classList.contains( 'admin-bar' ) ) {
 					offset += 32;

@@ -3670,6 +3670,7 @@ namespace {
          * Dynamic CSS to make Sidebar Sticky.
          *
          * @return string Dynamic CSS.
+         * @param string Parse CSS.
          * @since x.x.x
          */
         public static function astra_sticky_sidebar_css()
