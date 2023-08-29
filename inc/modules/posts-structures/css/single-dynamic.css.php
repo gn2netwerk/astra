@@ -97,6 +97,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$custom_scale_width = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-custom-scale-width' );
 	$custom_scale_height = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-custom-scale-height' );
 	$aspect_ratio = astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_scale, $custom_scale_width, $custom_scale_height );
+	$featured_image_width = ( '' !== astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-size', '' ) ) ? '100%' : '';
 
 	// Hover effects.
 	$scale_hover_css = '';
@@ -132,8 +133,9 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' .post-thumb-img-content img'           => array(
 				'aspect-ratio' => $aspect_ratio,
 				'transition'  => 'all 0.3s',
-				'border' => $bordered_image ? '1px solid ' . $border_color : 'none',
-				'border-radius' => $bordered_image ? '4px' : '0',
+				'border' => $bordered_image ? '1px solid ' . $border_color : '',
+				'border-radius' => $bordered_image ? '4px' : '',
+				'width' => $featured_image_width,
 			),
 			$selector . ' .post-thumb-img-content img:hover'           => array(
 				'transform' => $scale_hover_css,

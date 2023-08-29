@@ -650,7 +650,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				 */
 				array(
 					'name'      => $title_section . '-image-size',
-					'default'   => astra_get_option( $title_section . '-image-size', '' ),
+					'default'   => astra_get_option( $title_section . '-image-size', 'large' ),
 					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
 					'section'   => $title_section,
 					'linked'    => $title_section . '-image',
@@ -659,13 +659,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'transport' => 'postMessage',
 					'title'     => __( 'Image Size', 'astra' ),
 					'control'   => 'ast-select',
-					'choices'   => array(
-						''             => __( 'Full Size', 'astra' ),
-						'thumbnail'    => __( 'Thumbnail', 'astra' ),
-						'medium'       => __( 'Medium', 'astra' ),
-						'medium_large' => __( 'Medium Large', 'astra' ),
-						'large'        => __( 'Large', 'astra' ),
-					),
+					'choices'   => astra_get_site_image_sizes(),
 				),
 
 				/**

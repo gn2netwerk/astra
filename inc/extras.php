@@ -1145,6 +1145,38 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
 }
 
 /**
+ * Return the array of site's available image size.
+ *
+ * @since x.x.x
+ * @return array
+ */
+function astra_get_site_image_sizes () {
+	$image_sizes = array(
+		'thumbnail' => __('Thumbnail', 'astra'),
+		'medium' => __('Medium', 'astra'),
+		'medium_large' => __('Medium Large', 'astra'),
+		'large' => __('Large', 'astra'),
+		'full' => __('Full Size', 'astra'),
+	);
+
+	$all_sizes = get_intermediate_image_sizes(); // Gets the available intermediate image size names on site.
+
+	$refactored_sizes = array(
+		'full' => __('Full Size', 'astra')
+	);
+
+	foreach ( $all_sizes as $size ) {
+		if ( isset( $image_sizes[ $size ] ) ) {
+			$refactored_sizes[ $size ] = $image_sizes[ $size ];
+		} else {
+			$refactored_sizes[ $size ] = $size;
+		}
+	}
+
+	return $refactored_sizes;
+}
+
+/**
  * Return the aspect-ratio for dynamic image.
  *
  * @param string $aspect_ratio_type Aspect ratio type.
