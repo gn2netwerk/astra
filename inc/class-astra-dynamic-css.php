@@ -4931,14 +4931,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			return apply_filters( 'astra_get_option_woo_support_global_settings', isset( $astra_settings['woo_support_global_settings'] ) ? false : true );
 		}
 
-		/**
-		 * Dynamic CSS to make Sidebar Sticky.
-		 *
-		 * @return string The Parsed CSS.
-		 * @since x.x.x
-		 */
+        /**
+         * Dynamic CSS to make Sidebar Sticky.
+         *
+         * @return string Sticky Sidebar CSS.
+         * @since x.x.x
+         */
 		public static function astra_sticky_sidebar_css() {
-               $css = '';
+            $css = '';
 			if ( astra_get_option( 'site-sticky-sidebar', false ) ) {
 				$sidebar_sticky_css = array(
 					'.ast-sticky-sidebar .sidebar-main' => array(
@@ -4963,7 +4963,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					astra_get_tablet_breakpoint( '', 1 )
 				);
 			}
-
 			return $css;
 		}
 
