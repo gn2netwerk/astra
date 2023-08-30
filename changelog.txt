@@ -29,6 +29,7 @@ v4.2.3 (Unreleased)
 - Fix: Block Editor - Query Loop Block - Article inside aritcle getting extra spacing with Boxed layout.
 - Fix: WooCommerce - Default Customizer Layout setting not applied correctly for Single Product.
 - Fix: Block Editor - Title visibility eye meta option not appearing in Firefox browser.
+- Fix: Resolved console error which originated from "menu-toggle-close" element click on the frontend.
 - Fix: After WordPress 6.3 update margin bottom of figure tag is missing.
 
 v4.2.2
