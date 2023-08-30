@@ -1,3 +1,7 @@
+v4.3.0.1
+- Fix: Widget section gets overlapped on each other due to less spacing.
+- Fix: UL/OL list style type updated to "disc".
+
 v4.3.0
 - New: Header-Footer Builder - Social - Enable Brand Color option on hover.
 - Improvement: Introducing new admin notice for incompatibility of Astra Pro.
