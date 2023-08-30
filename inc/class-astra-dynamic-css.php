@@ -4953,18 +4953,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'position'   => '-webkit-sticky',
 					),
 				);
-				$desktop_breakpoint = astra_get_tablet_breakpoint();
 
 				/** @psalm-suppress UndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$parse_css .= astra_parse_css(
 					$sidebar_sticky_css,
-					intval( $desktop_breakpoint ) + 1
+					astra_get_tablet_breakpoint( '', 1 )
 				);
 
 				/** @psalm-suppress UndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$parse_css .= astra_parse_css(
 					$sidebar_webkit_sticky_css,
-					intval( $desktop_breakpoint ) + 1
+					astra_get_tablet_breakpoint( '', 1 )
 				);
 			}
 
