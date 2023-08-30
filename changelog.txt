@@ -1,7 +1,7 @@
 v4.3.0 (Unreleased)
 - New: Header-Footer Builder - Social - Enable Brand Color option on hover.
 - Improvement: Introducing new admin notice for incompatibility of Astra Pro.
-- Improvement: WooCommerce - Mini Cart - Update cart quantity when the input value is changed.
+- Improvement: WooCommerce - Mini Cart - Cart price details do not update on the “Enter” keypress.
 - Fix: Header Builder - Menu - Parsing duplicate ID error for 'primary-site-navigation' and 'ast-hf-menu-x'.
 - Fix: Header Builder - Normal header and transparent header height issue. Introduced new filter: 'astra_site_svg_logo_equal_height' to enable or disable this fix.
 - Fix: Header Builder - Menu - On desktop toggle submenu click it goes in an infinite scroll loop when Elementor is active.
