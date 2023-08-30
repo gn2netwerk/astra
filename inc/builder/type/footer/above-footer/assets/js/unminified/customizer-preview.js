@@ -31,13 +31,6 @@
         selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
     );
 
-	// Footer Horizontal Alignment.
-	astra_css(
-		'astra-settings[hba-footer-horizontal-alignment]',
-		AstraBuilderAboveFooterData.horizontal_alignment_prop,
-		selector + ' .ast-builder-grid-row, ' + selector + ' .site-footer-section'
-	);
-
 	// Border Bottom width.
 	wp.customize( 'astra-settings[hba-footer-separator]', function( setting ) {
 		setting.bind( function( separator ) {
