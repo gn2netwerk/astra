@@ -3654,7 +3654,7 @@ namespace {
 		 * @return bool true|false.
 		 * @since 4.2.2
 		 */
-		public static function astra_core_form_btns_styling() 
+		public static function astra_core_form_btns_styling()
         {
         }
         /**
@@ -15172,7 +15172,7 @@ namespace {
     }
     /**
      * Function which will return the Sidebar Layout to determine default body classes for Editor.
-     * 
+     *
      * @since 4.2.0
      * @param string $post_type Post Type.
      * @return string Sidebar Layout.
@@ -15514,6 +15514,15 @@ namespace {
      * @since 4.0.0
      */
     function astra_entry_content_single_page()
+    {
+    }
+    /**
+    * Check whether user is exising or new to override the hr tag styling for elementor
+    *
+    * @since 4.3.0
+    * @return boolean
+    */
+    function astra_can_add_styling_for_hr()
     {
     }
     /**
@@ -17207,7 +17216,7 @@ namespace {
 	 *
 	 * @since 4.2.0
      * @param mixed $post_id Current post ID.
-	 * @return boolean 
+	 * @return boolean
 	 */
     function astra_is_content_style_boxed( $post_id = false )
     {
@@ -17303,7 +17312,7 @@ namespace {
 	 * @param mixed $option name of the option to fetch.
 	 * @return mixed meta_value
 	 */
-	function astra_third_party_archive_meta( $option ) 
+	function astra_third_party_archive_meta( $option )
     {
     }
     /**
@@ -17322,6 +17331,15 @@ namespace {
      * @return void
      */
     function astra_theme_background_updater_4_1_6()
+    {
+    }
+    /**
+     * Handle backward compatibility on version 4.1.7
+     *
+     * @since 4.1.7
+     * @return void
+     */
+    function astra_theme_background_updater_4_1_7()
     {
     }
     /**
