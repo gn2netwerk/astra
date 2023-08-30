@@ -4964,7 +4964,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
-			return $parse_css;
+			return $css;
 		}
 
 		/*
