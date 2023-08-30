@@ -1,4 +1,4 @@
-v4.3.0 (Unreleased)
+v4.3.0
 - New: Header-Footer Builder - Social - Enable Brand Color option on hover.
 - Improvement: Introducing new admin notice for incompatibility of Astra Pro.
 - Improvement: WooCommerce - Mini Cart - Cart price details do not update on the “Enter” keypress.
