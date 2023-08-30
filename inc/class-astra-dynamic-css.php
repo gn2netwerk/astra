@@ -1026,7 +1026,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() ); 
-				$parse_css = self::astra_sticky_sidebar_css( $parse_css );
+				$parse_css .= self::astra_sticky_sidebar_css();
 			}
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
