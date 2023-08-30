@@ -4938,7 +4938,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 */
 		public static function astra_sticky_sidebar_css() {
-            $css = '';
+			$css = '';
 			if ( astra_get_option( 'site-sticky-sidebar', false ) ) {
 				$sidebar_sticky_css = array(
 					'.ast-sticky-sidebar .sidebar-main' => array(
