@@ -455,9 +455,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			}
 
 			// Apply Astra Mini Cart CSS if Elementor Mini Cart Template is disabled.
-			$is_site_rtl         = is_rtl();
-			$ltr_left            = $is_site_rtl ? 'right' : 'left';
-			$ltr_right           = $is_site_rtl ? 'left' : 'right';
+			$is_site_rtl = is_rtl();
+			$ltr_left    = $is_site_rtl ? 'right' : 'left';
+			$ltr_right   = $is_site_rtl ? 'left' : 'right';
 			if ( defined( 'ELEMENTOR_PRO_VERSION' ) && 'no' === get_option( 'elementor_' . 'use_mini_cart_template' ) ) {
 				$mini_cart_template_css = array(
 					'.woocommerce-js .woocommerce-mini-cart' => array(
@@ -484,9 +484,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 						'top'        => '3.5em',
 					),
 					'.woocommerce-js .widget_shopping_cart_content a.remove' => array(
-						'position'   => 'absolute',
-						$ltr_left    => 'auto',
-						$ltr_right   => '0',
+						'position' => 'absolute',
+						$ltr_left  => 'auto',
+						$ltr_right => '0',
 					),
 					'.woocommerce-js .woocommerce-mini-cart__total' => array(
 						'display'         => 'flex',
@@ -515,7 +515,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 						'display' => 'none',
 					),
 				);
-				$dynamic_css .= astra_parse_css( $mini_cart_template_css );
+				$dynamic_css           .= astra_parse_css( $mini_cart_template_css );
 			}
 			return $dynamic_css;
 		}
