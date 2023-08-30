@@ -4935,7 +4935,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Dynamic CSS to make Sidebar Sticky.
 		 *
 		 * @return string The Parsed CSS.
-		 * @param string Parse CSS.
 		 * @since x.x.x
 		 */
 		public static function astra_sticky_sidebar_css() {
