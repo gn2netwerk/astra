@@ -4938,8 +4938,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @param string Parse CSS.
 		 * @since x.x.x
 		 */
-		public static function astra_sticky_sidebar_css( $parse_css ) {
-
+		public static function astra_sticky_sidebar_css() {
+               $css = '';
 			if ( astra_get_option( 'site-sticky-sidebar', false ) ) {
 				$sidebar_sticky_css = array(
 					'.ast-sticky-sidebar .sidebar-main' => array(
