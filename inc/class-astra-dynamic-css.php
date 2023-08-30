@@ -4958,7 +4958,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					astra_get_tablet_breakpoint( '', 1 )
 				);
 
-				$parse_css .= astra_parse_css(
+				$css .= astra_parse_css(
 					$sidebar_webkit_sticky_css,
 					astra_get_tablet_breakpoint( '', 1 )
 				);
