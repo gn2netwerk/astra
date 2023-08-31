@@ -721,6 +721,9 @@
     </UndefinedDocblockClass>
   </file>
   <file src="inc/builder/class-astra-builder-loader.php">
+	<RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_null( self::$instance )</code>
+    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="4">
       <code>false === Astra_Builder_Helper::$is_header_footer_builder_active</code>
       <code>false === Astra_Builder_Helper::$is_header_footer_builder_active</code>
@@ -741,6 +744,10 @@
     </UndefinedDocblockClass>
   </file>
   <file src="inc/builder/controllers/class-astra-builder-ui-controller.php">
+	<RedundantConditionGivenDocblockType occurrences="1">
+      <code>! self::$ast_svgs</code>
+      <code>self::$ast_svgs</code>
+    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="2">
       <code>false === Astra_Builder_Helper::$is_header_footer_builder_active</code>
       <code>self::$ast_svgs</code>
@@ -771,6 +778,9 @@
     </UndefinedFunction>
   </file>
   <file src="inc/builder/controllers/class-astra-builder-widget-controller.php">
+	<RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_null( self::$instance )</code>
+    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="3">
       <code>false === Astra_Builder_Helper::$is_header_footer_builder_active</code>
       <code>false === Astra_Builder_Helper::$is_header_footer_builder_active</code>
@@ -791,6 +801,9 @@
     </UndefinedDocblockClass>
   </file>
   <file src="inc/builder/markup/class-astra-builder-footer.php">
+	<RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_null( self::$instance )</code>
+    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="2">
       <code>is_null( self::$instance )</code>
       <code>true === Astra_Builder_Helper::$is_header_footer_builder_active</code>
@@ -832,6 +845,9 @@
     </UndefinedDocblockClass>
   </file>
   <file src="inc/builder/markup/class-astra-builder-header.php">
+	<RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_null( self::$instance )</code>
+    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="2">
       <code>is_null( self::$instance )</code>
       <code>true === Astra_Builder_Helper::$is_header_footer_builder_active</code>
@@ -953,6 +969,9 @@
     </ParadoxicalCondition>
   </file>
   <file src="inc/builder/type/class-astra-builder-base-dynamic-css.php">
+	<RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_null( self::$instance )</code>
+    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="1">
       <code>is_null( self::$instance )</code>
     </DocblockTypeContradiction>
@@ -2162,6 +2181,9 @@
     </TooManyArguments>
   </file>
   <file src="inc/core/builder/class-astra-builder-admin.php">
+	<RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_null( self::$instance )</code>
+    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="1">
       <code>is_null( self::$instance )</code>
     </DocblockTypeContradiction>
@@ -2185,6 +2207,9 @@
     </UndefinedDocblockClass>
   </file>
   <file src="inc/core/builder/class-astra-builder-helper.php">
+	<RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_null( self::$instance )</code>
+    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="2">
       <code>is_null( self::$instance )</code>
       <code>is_null( self::$loaded_grid )</code>
@@ -2398,9 +2423,6 @@
     </MissingDocblockType>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>is_null( self::$defaults )</code>
-    </RedundantConditionGivenDocblockType>
-	<RedundantConditionGivenDocblockType occurrences="9">
-      <code>is_null( self::$instance )</code>
     </RedundantConditionGivenDocblockType>
     <UndefinedDocblockClass occurrences="1">
       <code>self::defaults()</code>
@@ -2843,6 +2865,9 @@
     </ParadoxicalCondition>
   </file>
   <file src="inc/customizer/configurations/builder/class-astra-builder-base-configuration.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_null( self::$instance )</code>
+    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="1">
       <code>is_null( self::$instance )</code>
     </DocblockTypeContradiction>
