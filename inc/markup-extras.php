@@ -1752,9 +1752,9 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 		$check_is_singular = is_singular();
 
-		$featured_image = true;
+		$featured_image      = true;
 		$featured_image_size = 'large';
-		$post_type      = strval( get_post_type() );
+		$post_type           = strval( get_post_type() );
 
 		if ( $check_is_singular ) {
 			$is_featured_image   = astra_get_option_meta( 'ast-featured-img' );

@@ -1150,19 +1150,19 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
  * @since x.x.x
  * @return array
  */
-function astra_get_site_image_sizes () {
+function astra_get_site_image_sizes() {
 	$image_sizes = array(
-		'thumbnail' => __('Thumbnail', 'astra'),
-		'medium' => __('Medium', 'astra'),
-		'medium_large' => __('Medium Large', 'astra'),
-		'large' => __('Large', 'astra'),
-		'full' => __('Full Size', 'astra'),
+		'thumbnail'    => __( 'Thumbnail', 'astra' ),
+		'medium'       => __( 'Medium', 'astra' ),
+		'medium_large' => __( 'Medium Large', 'astra' ),
+		'large'        => __( 'Large', 'astra' ),
+		'full'         => __( 'Full Size', 'astra' ),
 	);
 
 	$all_sizes = get_intermediate_image_sizes(); // Gets the available intermediate image size names on site.
 
 	$refactored_sizes = array(
-		'full' => __('Full Size', 'astra')
+		'full' => __( 'Full Size', 'astra' ),
 	);
 
 	foreach ( $all_sizes as $size ) {
@@ -1187,7 +1187,7 @@ function astra_get_site_image_sizes () {
  * @since x.x.x
  * @return string
  */
-function astra_get_dynamic_image_aspect_ratio ( $aspect_ratio_type, $predefined_scale, $custom_scale_width, $custom_scale_height ) {
+function astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_scale, $custom_scale_width, $custom_scale_height ) {
 	$aspect_ratio_css = '';
 	if ( '' !== $aspect_ratio_type ) {
 		if ( 'custom' === $aspect_ratio_type ) {

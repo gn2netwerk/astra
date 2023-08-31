@@ -492,7 +492,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						$configuration['inputAttrs'] = '';
 						$configuration['labelStyle'] = '';
 							/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-							foreach ( $configuration['input_attrs'] as $attr => $value ) {
+						foreach ( $configuration['input_attrs'] as $attr => $value ) {
 							/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							if ( 'style' !== $attr ) {
 								$configuration['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
