@@ -2399,6 +2399,9 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>is_null( self::$defaults )</code>
     </RedundantConditionGivenDocblockType>
+	<RedundantConditionGivenDocblockType occurrences="9">
+      <code>is_null( self::$instance )</code>
+    </RedundantConditionGivenDocblockType>
     <UndefinedDocblockClass occurrences="1">
       <code>self::defaults()</code>
     </UndefinedDocblockClass>
