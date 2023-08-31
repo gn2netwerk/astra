@@ -3534,7 +3534,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				<ul>
 			<?php
 			$colored_varients = array( 'cc-amex', 'cc-apple-pay', 'cc-discover', 'cc-mastercard', 'cc-paypal', 'cc-visa' );
-			$payment_list = astra_get_option( 'single-product-payment-list' );
+			$payment_list     = astra_get_option( 'single-product-payment-list' );
 
 			if ( isset( $payment_list['items'] ) ) {
 				foreach ( $payment_list['items'] as $single ) {
@@ -3542,7 +3542,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						if ( isset( $single['source'] ) && $single['source'] ) {
 							if ( 'image' === $single['source'] ) {
 								if ( isset( $single['image'] ) && $single['image'] ) {
-									$image_id = attachment_url_to_postid( $single['image'] );
+									$image_id  = attachment_url_to_postid( $single['image'] );
 									$image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 									?>
 							<li class="ast-custom-payment">
