@@ -1761,7 +1761,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 
-			/* Add margin bottom to the figure element conditionally for WordPress 6.3 or above */
+			/**
+			 * Add margin-bottom to the figure element conditionally for WordPress 6.3 or above.
+			 * @since x.x.x
+			 */
 			if ( astra_wp_version_compare('6.3', '>=') ) {
 				$figure_margin_bottom = array(
 					'.entry-content[ast-blocks-layout] > figure' => array(
