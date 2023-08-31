@@ -362,7 +362,7 @@ final class Astra_Builder_Helper {
 	/**
 	 * Member Variable
 	 *
-	 * @var null instance
+	 * @var mixed instance
 	 */
 	public static $loaded_grid = null;
 

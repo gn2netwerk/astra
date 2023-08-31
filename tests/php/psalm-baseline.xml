@@ -744,10 +744,6 @@
     </UndefinedDocblockClass>
   </file>
   <file src="inc/builder/controllers/class-astra-builder-ui-controller.php">
-	<RedundantConditionGivenDocblockType occurrences="1">
-      <code>! self::$ast_svgs</code>
-      <code>self::$ast_svgs</code>
-    </RedundantConditionGivenDocblockType>
     <DocblockTypeContradiction occurrences="2">
       <code>false === Astra_Builder_Helper::$is_header_footer_builder_active</code>
       <code>self::$ast_svgs</code>
