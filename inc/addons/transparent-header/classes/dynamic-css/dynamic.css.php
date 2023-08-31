@@ -358,7 +358,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	);
 
 	// Set sub menu link background color transparent.
-	if (!empty($transparent_sub_menu_bg_color_mobile) && ctype_xdigit(str_replace('#', '', $transparent_sub_menu_bg_color_mobile)) == false) {
+	if (!empty($transparent_sub_menu_bg_color_mobile) && preg_match('/^#[0-9a-fA-F]{6}$/', $transparent_sub_menu_bg_color_mobile)) {
 		$transparent_header_mobile['.ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .sub-menu, .ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .sub-menu, .ast-theme-transparent-header .main-header-menu .menu-item > sub-menu, .ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-item .menu-link, .ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link'] = array(
 			'background-color' => 'transparent'
 		);
