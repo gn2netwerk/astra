@@ -112,7 +112,10 @@ const SpectraScreen = () => {
 				<div className="relative flex flex-col items-center">
 					{Astra_Admin_Icons["spectra-logo"]}
 					<h2 className="text-4xl sm:text-[2.5rem] text-slate-800 font-semibold capitalize mb-2 mt-7">
-						{__(`${astra_admin.theme_name} + Spectra = ♥`, "astra")}
+						{`${astra_admin.theme_name} + Spectra = `}
+						<span className="text-[1em] leading-[1em]">
+							{Astra_Admin_Icons['heart-logo']}
+						</span>
 					</h2>
 					<p className="text-base leading-[1.625rem] mb-7">
 						{
@@ -120,22 +123,24 @@ const SpectraScreen = () => {
 						}
 					</p>
 					<button
-						className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover hover:text-white focus:text-white active:text-white focus:outline-none mr-4`}
+						className={`inline-flex w-[35%] justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover hover:text-white focus:text-white active:text-white focus:outline-none mr-4`}
 						onClick={ handleSpectraPluginAction }
 					>
 						{ getSpectraPluginTitle() }
 					</button>
-					<div className="relative pb-[25.375rem] mt-12 w-full">
-						{/* Added rel=0 query parameter at the end to disable YouTube recommendations */}
-						<iframe
-							className="absolute inset-0 w-full h-full rounded-md"
-							src={`https://www.youtube-nocookie.com/embed/${videoID}?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
-							allow="autoplay"
-							title="YouTube video player"
-							frameBorder="0"
-							allowFullScreen
-						></iframe>
-					</div>
+					{
+						astra_admin.show_banner_video && <div className="relative pb-[25.375rem] mt-12 w-full">
+							{/* Added rel=0 query parameter at the end to disable YouTube recommendations */}
+							<iframe
+								className="absolute inset-0 w-full h-full rounded-md"
+								src={`https://www.youtube-nocookie.com/embed/${videoID}?showinfo=0&autoplay=${allowAutoPlay}&mute=${allowAutoPlay}&rel=0`}
+								allow="autoplay"
+								title="YouTube video player"
+								frameBorder="0"
+								allowFullScreen
+							></iframe>
+						</div>
+					}
 				</div>
 
 				<div className="grid grid-cols-2 gap-12 mt-16 px-0 sm:px-8">
@@ -160,7 +165,7 @@ const SpectraScreen = () => {
 						)}
 					</h3>
 					<button
-						className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover hover:text-white focus:text-white active:text-white focus:outline-none mr-4`}
+						className={`inline-flex w-[45%] justify-center items-center px-4 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover hover:text-white focus:text-white active:text-white focus:outline-none mr-4`}
 						onClick={ handleSpectraPluginAction }
 					>
 						{ getSpectraPluginTitle() }

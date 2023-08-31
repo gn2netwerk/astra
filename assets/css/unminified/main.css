@@ -1628,7 +1628,7 @@ body {
 
 .widget ul {
   margin: 0;
-  list-style-type: none;
+  list-style-type: disc;
 }
 
 .no-widget-text {
@@ -1823,7 +1823,9 @@ body {
 }
 
 .widget_calendar #today {
-  background: #0274be;
+  color: #0274be;
+  font-weight: bold;
+  border-bottom: 2px solid #0274be;
 }
 
 /*----------  Builder  ----------*/
@@ -2668,7 +2670,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .entry-content {
   word-wrap: break-word;
-  display: flow-root;
 }
 
 .entry-content p {

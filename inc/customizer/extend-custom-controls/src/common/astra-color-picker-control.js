@@ -5,6 +5,7 @@ import { Dashicon, Button, ColorIndicator, TabPanel, GradientPicker, __experimen
 import { MediaUpload } from '@wordpress/media-utils';
 
 const AstraGradientPicker = AstraBuilderCustomizerData.isWP_5_9 ? GradientPicker : __experimentalGradientPicker;
+const defaultGradient = 'linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)';
 
 const maybeGetColorForVariable = ( color, palette ) => {
 	const paletteColors = palette.palette;
@@ -44,6 +45,8 @@ class AstraColorPickerControl extends Component {
 	constructor( props ) {
 		super( ...arguments );
 		this.onChangeComplete = this.onChangeComplete.bind( this );
+		this.onOverlayChangeComplete = this.onOverlayChangeComplete.bind( this );
+		this.onChangeOverlayGradientComplete = this.onChangeOverlayGradientComplete.bind( this );
 		this.onPaletteChangeComplete = this.onPaletteChangeComplete.bind( this );
 		this.onChangeGradientComplete = this.onChangeGradientComplete.bind( this );
 		this.renderImageSettings = this.renderImageSettings.bind( this );
@@ -59,6 +62,7 @@ class AstraColorPickerControl extends Component {
 			color: this.props.color,
 			modalCanClose: true,
 			backgroundType: this.props.backgroundType,
+			overlayType: this.props.overlayType,
 			supportGradient: ( undefined === AstraGradientPicker ? false : true ),
 		};
 	}
@@ -78,7 +82,7 @@ class AstraColorPickerControl extends Component {
 			modalCanClose,
 			isVisible,
 			supportGradient,
-			backgroundType,
+			backgroundType
 		} = this.state
 
 		const {
@@ -140,6 +144,7 @@ class AstraColorPickerControl extends Component {
 		}
 
 		let finalpaletteColors = [];
+		const defaultGradient = 'linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)';
 		let globalColorPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
 
 		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
@@ -187,7 +192,7 @@ class AstraColorPickerControl extends Component {
 															<AstraGradientPicker
 																className={`ast-gradient-color-picker ${ AstraBuilderCustomizerData.isWP_5_9 ? 'ast-gradient-ui': '' }`}
 																gradients={[]}
-																value={ this.props.color && this.props.color.includes( 'gradient' ) ? this.props.color : '' }
+																value={ this.props.color && this.props.color.includes( 'gradient' ) ? this.props.color : defaultGradient }
 																onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
 															/>
 														</>
@@ -331,6 +336,26 @@ class AstraColorPickerControl extends Component {
 		this.props.onChangeComplete( color, 'color' );
 	}
 
+	onOverlayChangeComplete( color ) {
+		let newColor;
+		if ( color.rgb && color.rgb.a && 1 !== color.rgb.a ) {
+			newColor = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
+		} else {
+			newColor = color.hex;
+		}
+		this.onChangeImageOptions( 'overlayType', 'overlay-type', 'classic' );
+		this.onChangeImageOptions( 'overlayColor', 'overlay-color', newColor );
+	}
+
+	onChangeOverlayGradientComplete( gradient ) {
+		this.onChangeImageOptions( 'overlayType', 'overlay-type', 'gradient' );
+		this.onChangeImageOptions( 'overlayGradient', 'overlay-gradient', gradient );
+	}
+
+	onOverlayTabSelect ( tabName ) {
+		this.onChangeImageOptions( 'overlayType', 'overlay-type', tabName );
+	}
+
 	onPaletteChangeComplete( color ) {
 		this.setState( { color: color } );
 		if ( this.state.refresh === true ) {
@@ -390,6 +415,35 @@ class AstraColorPickerControl extends Component {
 	}
 
 	renderImageSettings() {
+
+		let overlayTabs = [
+			{
+				name: 'none',
+				title: __( 'None', 'astra' ),
+				className: 'astra-none-overlay-bg',
+			},
+			{
+				name: 'classic',
+				title: __( 'Classic', 'astra' ),
+				className: 'astra-classic-overlay-bg',
+			},
+			{
+				name: 'gradient',
+				title: __( 'Gradient', 'astra' ),
+				className: 'astra-gradient-overlay-bg',
+			},
+		];
+
+		let finalpaletteColors = [];
+		let globalColorPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
+
+		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
+			let palettePrefix = astra.customizer.globalPaletteStylePrefix;
+			const paletteLables = astra.customizer.globalPaletteLabels;
+			let paletteColors = {};
+			Object.assign( paletteColors, { name: paletteLables[index], color: 'var('+ palettePrefix + index +')' } );
+			finalpaletteColors.push( paletteColors );
+		});
 
 		return (
 			<>
@@ -467,6 +521,48 @@ class AstraColorPickerControl extends Component {
 								{ value: "contain", label:  __( "Contain", 'astra' )  }
 							] }
 						/>
+						{ 1 < overlayTabs.length &&
+							<>
+							<label> { __( "Image Overlay", 'astra' ) } </label>
+							<TabPanel className="astra-popover-tabs astra-background-tabs"
+								activeClass="active-tab"
+								initialTabName={ this.props.overlayType }
+								onSelect={ ( tabName ) => this.onOverlayTabSelect( tabName ) }
+								tabs={ overlayTabs }
+							>
+								{
+									( tab ) => {
+										let tabout;
+										if ( tab.name ) {
+											if ( 'gradient' === tab.name ) {
+												tabout = (
+													<>
+														<AstraGradientPicker
+															className={`ast-gradient-color-picker ${ AstraBuilderCustomizerData.isWP_5_9 ? 'ast-gradient-ui': '' }`}
+															gradients={[]}
+															value={ this.props.overlayGradient || defaultGradient }
+															onChange={ ( gradient ) => this.onChangeOverlayGradientComplete( gradient ) }
+														/>
+													</>
+												);
+											} else if ( 'classic' === tab.name ) {
+												tabout = (
+													<>
+														<ColorPicker
+															color={ maybeGetColorForVariable(this.props.overlayColor, globalColorPalette) }
+															onChangeComplete={ (color) => this.onOverlayChangeComplete( color ) }
+														/>
+														<button type="button" onClick = { () => this.onChangeImageOptions( 'overlayColor', 'overlay-color', '' ) } className="ast-clear-btn-inside-picker components-button common components-circular-option-picker__clear is-secondary is-small">{ __( 'Clear', 'astra' ) }</button>
+													</>
+												);
+											}
+										}
+										return <div>{ tabout }</div>;
+									}
+								}
+							</TabPanel>
+							</>
+						}
 					</div>
 				</>
 				}
@@ -482,6 +578,8 @@ AstraColorPickerControl.propTypes = {
 	presetColors: PropTypes.object,
 	onChangeComplete: PropTypes.func,
 	onPaletteChangeComplete: PropTypes.func,
+	onPaletteChangeComplete: PropTypes.func,
+	onChangeOverlayGradientComplete: PropTypes.func,
 	onChange: PropTypes.func,
 	customizer: PropTypes.object
 };
