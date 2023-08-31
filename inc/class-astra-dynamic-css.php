@@ -1770,7 +1770,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				/* Parse CSS from array() -> All media CSS */
-				$parse_css .= astra_parse_css($figure_margin_bottom);
+				$parse_css .= astra_parse_css( $figure_margin_bottom );
 			}
 
 			if ( $is_widget_title_support_font_weight ) {
