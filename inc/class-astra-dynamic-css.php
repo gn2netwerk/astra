@@ -1760,6 +1760,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $outline_button_css );
 			}
 
+
+			/**
+			 * Add margin-bottom to the figure element conditionally for WordPress 6.3 or above.
+			 * @since x.x.x
+			 */
+			if ( astra_wp_version_compare('6.3', '>=') ) {
+				$figure_margin_bottom = array(
+					'.entry-content[ast-blocks-layout] > figure' => array(
+						'margin-bottom' => '1em',
+					),
+				);
+
+				/* Parse CSS from array() -> All media CSS */
+				$parse_css .= astra_parse_css( $figure_margin_bottom );
+			}
+
 			if ( $is_widget_title_support_font_weight ) {
 				$widget_title_font_weight_support = array(
 					'h1.widget-title' => array(
