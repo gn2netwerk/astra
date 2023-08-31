@@ -362,7 +362,7 @@ final class Astra_Builder_Helper {
 	/**
 	 * Member Variable
 	 *
-	 * @var mixed instance
+	 * @var mixed
 	 */
 	public static $loaded_grid = null;
 
@@ -1107,7 +1107,9 @@ final class Astra_Builder_Helper {
 
 		$loaded_components = array();
 
+		/** @psalm-suppress RedundantConditionGivenDocblockType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( is_null( self::$loaded_grid ) ) {
+				/** @psalm-suppress RedundantConditionGivenDocblockType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$grids['header_desktop'] = astra_get_option( 'header-desktop-items', array() );
 			$grids['header_mobile']  = astra_get_option( 'header-mobile-items', array() );
