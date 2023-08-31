@@ -2668,7 +2668,7 @@
       <code>self::$js_configs['controls']</code>
       <code>self::$js_configs['sub_controls']</code>
     </InvalidArrayAccess>
-    <InvalidArrayAssignment occurrences="17">
+    <InvalidArrayAssignment occurrences="19">
       <code>$section_id</code>
       <code>self::$choices[ $configuration['name'] ]</code>
       <code>self::$contexts[ $configuration['name'] ]</code>
@@ -2739,7 +2739,7 @@
       <code>astra_get_prop( $config, 'title' )</code>
       <code>astra_get_prop( $new_config, 'control' )</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayOffset occurrences="13">
+    <PossiblyNullArrayOffset occurrences="15">
       <code>$defaults</code>
       <code>self::$dynamic_options['partials']</code>
       <code>self::$dynamic_options['settings']</code>
@@ -2749,6 +2749,7 @@
       <code>self::$group_configs</code>
       <code>self::$js_configs ['sub_controls']</code>
       <code>self::$js_configs ['wp_defaults']</code>
+      <code>self::$js_configs ['contextual_sub_controls']</code>
       <code>self::$js_configs['clone_sections']</code>
       <code>self::$js_configs['panels']</code>
       <code>self::$js_configs['sections']</code>
