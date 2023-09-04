@@ -27,4 +27,6 @@ If our  team cannot reproduce and verify an issue, a bounty cannot be awarded. T
 
 Security reports should be sent to **[support+security@bsf.io](mailto:support+security@bsf.io)**
 
+For more details, please [visit this page](https://brainstormforce.com/bug-bounty-program/).
+
 Once again, thank you for helping us improve security. We really appreciate it.
