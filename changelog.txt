@@ -1,4 +1,5 @@
 v4.3.1 (Unreleased)
+- Fix: Block - Lists block style type updated to "disc" after v4.3.0 update.
 - Fix: Block Editor - Text color not inheriting as per the settings saved in customizer.
 
 v4.3.0
