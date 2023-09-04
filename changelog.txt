@@ -1,4 +1,4 @@
-v4.3.0
+v4.3.1 (Unreleased)
 - Fix: Block - Lists block style type updated to "disc" with v4.3.0 update.
 
 v4.3.0
