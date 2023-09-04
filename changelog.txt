@@ -1,3 +1,6 @@
+v4.3.1 (Unreleased)
+- Fix: Block Editor - Text color not inheriting as per the settings saved in customizer.
+
 v4.3.0
 - New: Header-Footer Builder - Social - Enable Brand Color option on hover.
 - Improvement: Introducing new admin notice for incompatibility of Astra Pro.
