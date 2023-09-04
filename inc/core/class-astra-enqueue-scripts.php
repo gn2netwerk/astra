@@ -220,7 +220,6 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			if ( astra_get_option( 'site-sticky-sidebar', false ) ) {
 				$default_assets['js']['astra-sticky-sidebar'] = 'sticky-sidebar';
-				$default_assets['css']['astra-sticky-sidebar'] = 'sticky-sidebar';
 			}
 
 			return apply_filters( 'astra_theme_assets', $default_assets );
