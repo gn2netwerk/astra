@@ -1,6 +1,5 @@
-v4.3.0.1
-- Fix: Widget section gets overlapped on each other due to less spacing.
-- Fix: UL/OL list style type updated to "disc".
+v4.3.0
+- Fix: Block - Lists block style type updated to "disc" with v4.3.0 update.
 
 v4.3.0
 - New: Header-Footer Builder - Social - Enable Brand Color option on hover.
