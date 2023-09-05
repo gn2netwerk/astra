@@ -61,7 +61,6 @@
 		},
 
         init: function () {
-
             // Kick off the sticky sidebar activation.
             window.astraStickySidebar.activateStickySidebar();
 
