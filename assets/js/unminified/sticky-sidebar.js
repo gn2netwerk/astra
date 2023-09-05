@@ -72,7 +72,6 @@
 	} else {
 		// The DOM has already been loaded.
 		window.astraStickySidebar.init();
-
 	}
 
 })();
