@@ -1,6 +1,14 @@
-v4.3.1 (Unreleased)
+v4.3.2 (Unreleased)
 - New: Sticky Sidebar (Needs Doc)
+- New: Introducing new Twitter-X Icon added for Social Sharing and Social Icons.
+- Improvement: Added a new filter 'astra_woo_shop_product_title_link' to remove the product title link from the product page.
 - Fix: Resolved console error which originated from "menu-toggle-close" element click on the frontend.
+- Fix: After WordPress 6.3 update bottom spacing of 'figure' tag is missing.
+
+v4.3.1
+- Fix: Block - Lists block style type updated to "disc" after v4.3.0 update.
+- Fix: Block Editor - Text color not inheriting as per the settings saved in customizer.
+- Fix: Single - Banner's custom background not working for Layout 1.
 
 v4.3.0
 - New: Header-Footer Builder - Social - Enable Brand Color option on hover.
