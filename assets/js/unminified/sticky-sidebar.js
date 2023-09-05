@@ -70,7 +70,6 @@
 		// The DOM has not yet been loaded.
 		document.addEventListener( 'DOMContentLoaded', window.astraStickySidebar.init );
 	} else {
-
 		// The DOM has already been loaded.
 		window.astraStickySidebar.init();
 
