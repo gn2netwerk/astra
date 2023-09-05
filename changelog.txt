@@ -2,7 +2,7 @@ v4.3.2 (Unreleased)
 - Improvement: Added a new filter 'astra_woo_shop_product_title_link' to remove the product title link from the product page.
 - Fix: Resolved console error which originated from "menu-toggle-close" element click on the frontend.
 - Fix: After WordPress 6.3 update bottom spacing of 'figure' tag is missing.
-- Fix: Custom Layout Modal's UI adding extra space in WP-6.3.
+- Fix: Theme's meta-box modal UI getting extra space after WordPress-6.3.
 
 v4.3.1
 - Fix: Block - Lists block style type updated to "disc" after v4.3.0 update.
