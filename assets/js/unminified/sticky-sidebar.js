@@ -64,8 +64,8 @@
             // Kick off the sticky sidebar activation.
             window.astraStickySidebar.activateStickySidebar();
         }
-
     }
+
 	if ( 'loading' === document.readyState ) {
 		// The DOM has not yet been loaded.
 		document.addEventListener( 'DOMContentLoaded', window.astraStickySidebar.init );
