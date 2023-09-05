@@ -58,7 +58,6 @@
 				sidebar.style.top = Math.floor( offset + 50 ) + 'px';
                 sidebar.style.maxHeight = 'calc( 100vh - ' + Math.floor( offset + 50 ) + 'px )';
 			}
-
 		},
 
         init: function () {
