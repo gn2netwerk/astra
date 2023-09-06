@@ -681,6 +681,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						),
 					),
 					'isWP_5_9'                    => astra_wp_version_compare( '5.8.99', '>=' ),
+					'ast_page_bg_title'           => __( 'Site Background', 'astra' ),
 				)
 			);
 
@@ -1215,6 +1216,18 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			register_post_meta(
 				'',
+				'ast-page-background-toggle',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'default'       => 'default',
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+
+			register_post_meta(
+				'',
 				'ast-page-background-meta',
 				array(
 					'single'        => true,
@@ -1448,8 +1461,52 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-breadcrumbs-content'       => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
-					'ast-page-background-meta'    => array(
+					'ast-page-background-toggle'    => array(
 						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-page-background-meta'    => array(
+						'default'  => array(
+						'desktop' => array(
+							'background-color'      => 'var(--ast-global-color-4)',
+							'background-image'      => '',
+							'background-repeat'     => 'repeat',
+							'background-position'   => 'center center',
+							'background-size'       => 'auto',
+							'background-attachment' => 'scroll',
+							'background-type'       => '',
+							'background-media'      => '',
+							'overlay-type'          => '',
+							'overlay-color'         => '',
+							'overlay-gradient'      => '',
+						),
+						'tablet'  => array(
+							'background-color'      => '',
+							'background-image'      => '',
+							'background-repeat'     => 'repeat',
+							'background-position'   => 'center center',
+							'background-size'       => 'auto',
+							'background-attachment' => 'scroll',
+							'background-type'       => '',
+							'background-media'      => '',
+							'overlay-type'          => '',
+							'overlay-color'         => '',
+							'overlay-gradient'      => '',
+						),
+						'mobile'  => array(
+							'background-color'      => '',
+							'background-image'      => '',
+							'background-repeat'     => 'repeat',
+							'background-position'   => 'center center',
+							'background-size'       => 'auto',
+							'background-attachment' => 'scroll',
+							'background-type'       => '',
+							'background-media'      => '',
+							'overlay-type'          => '',
+							'overlay-color'         => '',
+							'overlay-gradient'      => '',
+						),
+					),
 						'sanitize' => 'FILTER_DEFAULT',
 					),
 				)

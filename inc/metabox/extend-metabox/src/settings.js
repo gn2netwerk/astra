@@ -142,6 +142,7 @@ const MetaSettings = props => {
 	}, [props.meta['astra-migrate-meta-layouts']] );
 
 	console.log( 'here', props.meta );
+	console.log( props.meta['ast-page-background-toggle'] );
 
 	return (
 		<>
@@ -351,17 +352,47 @@ const MetaSettings = props => {
 												{ topTableSpacing }
 											</>
 										}
-										<ResponsiveBackground 
-											metavalue = { ( undefined !== props.meta['ast-page-background-meta'] && ''!== props.meta['ast-page-background-meta'] ? props.meta['ast-page-background-meta'] : 'default' ) }
-											control={ {
-													'label' : 'Site Background',
-													'default' : astMetaParams.site_page_bg_meta_default,
-													'description' : '',
-													'ignore_responsive_btns' : true,
-													'setMetaFieldValue' : props.setMetaFieldValue,
-												} }
-											id = { 'ast-page-background-meta' }
-										/>
+
+										{/* Page Background */}
+										{ bottomTableSpacing }
+										{/* { 'disabled' !== props.meta['ast-main-header-display'] && astMetaParams.is_addon_activated && astMetaParams.sticky_addon_enabled && */}
+											<>
+												{ topTableSpacing }
+												<tr className="ast-advanced-hook-row">
+													<td className="ast-advanced-hook-row-heading">
+														<label> { astMetaParams.ast_page_bg_title }</label>
+													</td>
+													<td className="ast-advanced-hook-row-content">
+														<section>
+														<div className="components-base-control__field">
+															<AstSelectorControl
+																metavalue = { ( undefined !== props.meta['ast-page-background-toggle'] && ''!== props.meta['ast-page-background-toggle'] ? props.meta['ast-page-background-toggle'] : 'default' ) }
+																choices = { headerOptions }
+																id = { 'ast-page-background-toggle' }
+																onChange={ ( val ) => {
+																	props.setMetaFieldValue( val, 'ast-page-background-toggle' );
+																} }
+															/>
+														</div>
+														{ undefined !== props.meta['ast-page-background-toggle'] && 'enabled' === props.meta['ast-page-background-toggle'] &&
+															<>
+																<ResponsiveBackground 
+																	metavalue = { ( undefined !== props.meta['ast-page-background-meta'] && ''!== props.meta['ast-page-background-meta'] ? props.meta['ast-page-background-meta'] : 'default' ) }
+																	control={ {
+																			'default' : astMetaParams.site_page_bg_meta_default,
+																			'ignore_responsive_btns' : true,
+																			'setMetaFieldValue' : props.setMetaFieldValue,
+																		} }
+																	id = { 'ast-page-background-meta' }
+																/>
+															</>
+														}
+														</section>
+													</td>
+												</tr>
+												{ topTableSpacing }
+											</>
+										{/* } */}
 									</tbody>
 								</table>
 							</div>

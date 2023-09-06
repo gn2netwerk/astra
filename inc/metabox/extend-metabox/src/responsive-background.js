@@ -109,7 +109,7 @@ const ResponsiveBackground = props => {
 			...obj[key]
 		};
 		deviceObj['background-image'] = media.url;
-		deviceObj['background-media'] = media.id;
+		deviceObj['background-media'] = toString(media.id);
 		deviceObj['background-type'] = backgroundType;
 		obj[key] = deviceObj;
 		updateValues(obj);
@@ -184,8 +184,6 @@ const ResponsiveBackground = props => {
 		updateValues(obj);
 	};
 
-	const label = props.control.label;
-	const description = props.control.description;
 	let labelHtml = null;
 	let descriptionHtml = null;
 	let responsiveHtml = null;
@@ -194,16 +192,6 @@ const ResponsiveBackground = props => {
 	const responsiveDesktop = parse( svgIcons['desktop-responsive'] );
 	const responsiveTablet = parse( svgIcons['tablet-responsive'] );
 	const responsiveMobile = parse( svgIcons['mobile-responsive'] );
-
-	if (label && '' !== label && undefined !== label) {
-		labelHtml = <span>{label}</span>;
-	} else {
-		labelHtml = <span>{__('Background', 'astra')}</span>;
-	}
-
-	if (description) {
-		descriptionHtml = <span className="description customize-control-description">{description}</span>;
-	}
 
 	const skipResponsiveTriggers = ( undefined !== props.control.ignore_responsive_btns && props.control.ignore_responsive_btns ) ? true : false;
 

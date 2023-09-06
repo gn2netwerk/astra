@@ -840,7 +840,7 @@ const ResponsiveBackground = props => {
       ...obj[key]
     };
     deviceObj['background-image'] = media.url;
-    deviceObj['background-media'] = media.id;
+    deviceObj['background-media'] = toString(media.id);
     deviceObj['background-type'] = backgroundType;
     obj[key] = deviceObj;
     updateValues(obj);
@@ -905,8 +905,6 @@ const ResponsiveBackground = props => {
     obj[key] = deviceObj;
     updateValues(obj);
   };
-  const label = props.control.label;
-  const description = props.control.description;
   let labelHtml = null;
   let descriptionHtml = null;
   let responsiveHtml = null;
@@ -914,16 +912,6 @@ const ResponsiveBackground = props => {
   const responsiveDesktop = (0,html_react_parser__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_6__["desktop-responsive"]);
   const responsiveTablet = (0,html_react_parser__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_6__["tablet-responsive"]);
   const responsiveMobile = (0,html_react_parser__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_6__["mobile-responsive"]);
-  if (label && '' !== label && undefined !== label) {
-    labelHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, label);
-  } else {
-    labelHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Background', 'astra'));
-  }
-  if (description) {
-    descriptionHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "description customize-control-description"
-    }, description);
-  }
   const skipResponsiveTriggers = undefined !== props.control.ignore_responsive_btns && props.control.ignore_responsive_btns ? true : false;
   responsiveHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
     className: "ast-responsive-btns"
@@ -1160,6 +1148,7 @@ const MetaSettings = props => {
     }
   }, [props.meta['astra-migrate-meta-layouts']]);
   console.log('here', props.meta);
+  console.log(props.meta['ast-page-background-toggle']);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_edit_post__WEBPACK_IMPORTED_MODULE_2__.PluginSidebarMoreMenuItem, {
     target: "theme-meta-panel",
     icon: icon
@@ -1305,17 +1294,30 @@ const MetaSettings = props => {
     className: "ast-advanced-hook-row-content"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-sticky-header-options components-base-control__field"
-  }, stickyHeadderOptions)))), topTableSpacing), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_responsive_background_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }, stickyHeadderOptions)))), topTableSpacing), bottomTableSpacing, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, topTableSpacing, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("tr", {
+    className: "ast-advanced-hook-row"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "ast-advanced-hook-row-heading"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, " ", astMetaParams.ast_page_bg_title)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("td", {
+    className: "ast-advanced-hook-row-content"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "components-base-control__field"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_selector_js__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    metavalue: undefined !== props.meta['ast-page-background-toggle'] && '' !== props.meta['ast-page-background-toggle'] ? props.meta['ast-page-background-toggle'] : 'default',
+    choices: headerOptions,
+    id: 'ast-page-background-toggle',
+    onChange: val => {
+      props.setMetaFieldValue(val, 'ast-page-background-toggle');
+    }
+  })), undefined !== props.meta['ast-page-background-toggle'] && 'enabled' === props.meta['ast-page-background-toggle'] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_responsive_background_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
     metavalue: undefined !== props.meta['ast-page-background-meta'] && '' !== props.meta['ast-page-background-meta'] ? props.meta['ast-page-background-meta'] : 'default',
     control: {
-      'label': 'Site Background',
       'default': astMetaParams.site_page_bg_meta_default,
-      'description': '',
       'ignore_responsive_btns': true,
       'setMetaFieldValue': props.setMetaFieldValue
     },
     id: 'ast-page-background-meta'
-  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }))))), topTableSpacing)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-cl-footer-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-button-container"

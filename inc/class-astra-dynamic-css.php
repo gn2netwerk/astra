@@ -106,6 +106,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Site Background Color.
 			$box_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 
+			// Override Page Background with meta value if set.
+			$site_background_meta = astra_get_option_meta( 'ast-page-background-meta' );
+			$site_background_toggle = astra_get_option_meta( 'ast-page-background-toggle' );
+
+			if ( isset( $site_background_toggle ) && 'enabled' === $site_background_toggle ) {
+				$box_bg_obj = $site_background_meta;
+			}
+
 			// Color Options.
 			$text_color         = astra_get_option( 'text-color' );
 			$theme_color        = astra_get_option( 'theme-color' );
