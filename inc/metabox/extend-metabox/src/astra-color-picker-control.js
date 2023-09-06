@@ -4,7 +4,7 @@ import { Component } from '@wordpress/element';
 import { Dashicon, Button, ColorIndicator, TabPanel, GradientPicker, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
 
-const AstraGradientPicker = AstraBuilderCustomizerData.isWP_5_9 ? GradientPicker : __experimentalGradientPicker;
+const AstraGradientPicker = astMetaParams.isWP_5_9 ? GradientPicker : __experimentalGradientPicker;
 const defaultGradient = 'linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)';
 
 const maybeGetColorForVariable = ( color, palette ) => {
@@ -145,10 +145,21 @@ class AstraColorPickerControl extends Component {
 
 		let finalpaletteColors = [];
 		const defaultGradient = 'linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)';
-		let globalColorPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
+		let globalColorPalette = { 'palette' : [
+			"#046bd2",
+			"#045cb4",
+			"#1e293b",
+			"#334155",
+			"#f9fafb",
+			"#FFFFFF",
+			"#e2e8f0",
+			"#cbd5e1",
+			"#94a3b8"
+		  ]};
+
 		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
-			let palettePrefix = astra.customizer.globalPaletteStylePrefix;
-			const paletteLables = astra.customizer.globalPaletteLabels;
+			let palettePrefix = '--ast-global-color-';
+			const paletteLables = ['Color  1', 'Color  2', 'Color  3', 'Color  4', 'Color  5', 'Color  6', 'Color  7', 'Color  8', 'Color  9'];
 			let paletteColors = {};
 			Object.assign( paletteColors, { name: paletteLables[index], color: 'var('+ palettePrefix + index +')' } );
 			finalpaletteColors.push( paletteColors );
@@ -189,7 +200,7 @@ class AstraColorPickerControl extends Component {
 													tabout = (
 														<>
 															<AstraGradientPicker
-																className={`ast-gradient-color-picker ${ AstraBuilderCustomizerData.isWP_5_9 ? 'ast-gradient-ui': '' }`}
+																className={`ast-gradient-color-picker ${ astMetaParams.isWP_5_9 ? 'ast-gradient-ui': '' }`}
 																gradients={[]}
 																value={ this.props.color && this.props.color.includes( 'gradient' ) ? this.props.color : defaultGradient }
 																onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
@@ -434,11 +445,22 @@ class AstraColorPickerControl extends Component {
 		];
 
 		let finalpaletteColors = [];
-		let globalColorPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
+		const defaultGradient = 'linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)';
+		let globalColorPalette = { 'palette' : [
+			"#046bd2",
+			"#045cb4",
+			"#1e293b",
+			"#334155",
+			"#f9fafb",
+			"#FFFFFF",
+			"#e2e8f0",
+			"#cbd5e1",
+			"#94a3b8"
+		  ]};
 
 		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
-			let palettePrefix = astra.customizer.globalPaletteStylePrefix;
-			const paletteLables = astra.customizer.globalPaletteLabels;
+			let palettePrefix = '--ast-global-color-';
+			const paletteLables = ['Color  1', 'Color  2', 'Color  3', 'Color  4', 'Color  5', 'Color  6', 'Color  7', 'Color  8', 'Color  9'];
 			let paletteColors = {};
 			Object.assign( paletteColors, { name: paletteLables[index], color: 'var('+ palettePrefix + index +')' } );
 			finalpaletteColors.push( paletteColors );
@@ -537,7 +559,7 @@ class AstraColorPickerControl extends Component {
 												tabout = (
 													<>
 														<AstraGradientPicker
-															className={`ast-gradient-color-picker ${ AstraBuilderCustomizerData.isWP_5_9 ? 'ast-gradient-ui': '' }`}
+															className={`ast-gradient-color-picker ${ astMetaParams.isWP_5_9 ? 'ast-gradient-ui': '' }`}
 															gradients={[]}
 															value={ this.props.overlayGradient || defaultGradient }
 															onChange={ ( gradient ) => this.onChangeOverlayGradientComplete( gradient ) }

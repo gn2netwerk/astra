@@ -11,6 +11,7 @@ import AstSelectorControl from './ast-selector.js';
 import svgIcons from '../../../../assets/svg/svgs.json';
 import { SelectControl, PanelBody, Modal } from '@wordpress/components';
 import parse from 'html-react-parser';
+import ResponsiveBackground from './responsive-background.js';
 
 const { __ } = wp.i18n;
 
@@ -139,6 +140,8 @@ const MetaSettings = props => {
 			}
 		}
 	}, [props.meta['astra-migrate-meta-layouts']] );
+
+	console.log( 'here', props.meta );
 
 	return (
 		<>
@@ -348,6 +351,17 @@ const MetaSettings = props => {
 												{ topTableSpacing }
 											</>
 										}
+										<ResponsiveBackground 
+											metavalue = { ( undefined !== props.meta['ast-page-background-meta'] && ''!== props.meta['ast-page-background-meta'] ? props.meta['ast-page-background-meta'] : 'default' ) }
+											control={ {
+													'label' : 'Site Background',
+													'default' : astMetaParams.site_page_bg_meta_default,
+													'description' : '',
+													'ignore_responsive_btns' : true,
+													'setMetaFieldValue' : props.setMetaFieldValue,
+												} }
+											id = { 'ast-page-background-meta' }
+										/>
 									</tbody>
 								</table>
 							</div>
