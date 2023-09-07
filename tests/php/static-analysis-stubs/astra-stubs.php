@@ -3506,6 +3506,15 @@ namespace {
         public function header_widget_div_open($args)
         {
         }
+        /**
+         * Dynamic CSS to make Sidebar Sticky.
+         *
+         * @return string Sticky Sidebar CSS.
+         * @since x.x.x
+         */
+        public static function astra_sticky_sidebar_css()
+        {
+        }
     }
     /**
      * New modern WP-Block editor experience.
