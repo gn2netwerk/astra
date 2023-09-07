@@ -318,7 +318,16 @@ class Astra_WP_Editor_CSS {
 		$site_background    = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 		$content_background = astra_get_option( 'content-bg-obj-responsive' );
 
+		// Override Page Background with meta value if set.
+		$site_background_toggle = astra_get_option_meta( 'ast-page-background-toggle', '', true );
+		$site_background = astra_get_option_meta( 'ast-page-background-meta', '', true );
+		if ( isset( $site_background_toggle ) && 'enabled' === $site_background_toggle ) {
+			$site_background = astra_get_option_meta( 'ast-page-background-meta' );
+		}
+
 		$background_style_data = astra_get_responsive_background_obj( $site_background, 'desktop' );
+
+
 		if (
 			empty( $background_style_data ) ||
 			(

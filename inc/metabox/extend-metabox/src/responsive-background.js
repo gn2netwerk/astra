@@ -195,18 +195,32 @@ const ResponsiveBackground = props => {
 
 	const skipResponsiveTriggers = ( undefined !== props.control.ignore_responsive_btns && props.control.ignore_responsive_btns ) ? true : false;
 
+	const [activeDevice, setActiveDevice] = useState('desktop'); // Initialize with 'desktop' as active device
+
+	const handleDeviceChange = ( device ) => {
+		if ( 'desktop' === device ) {
+			setActiveDevice( 'tablet' );
+		}
+		else if ( 'tablet' === device ) {
+			setActiveDevice( 'mobile' );
+		}
+		else {
+			setActiveDevice( 'desktop' );
+		}
+	}
+
 	responsiveHtml = <ul className="ast-responsive-btns">
-		<li className="desktop active">
+		<li className={`desktop ${activeDevice === 'desktop' ? 'active' : ''}`} onClick={ () => handleDeviceChange('desktop') }>
 			<button type="button" className="preview-desktop" data-device="desktop">
 				{responsiveDesktop}
 			</button>
 		</li>
-		<li className="tablet">
+		<li className={`tablet ${activeDevice === 'tablet' ? 'active' : ''}`} onClick={ () => handleDeviceChange('tablet') }>
 			<button type="button" className="preview-tablet" data-device="tablet">
 				{responsiveTablet}
 			</button>
 		</li>
-		<li className="mobile">
+		<li className={`mobile ${activeDevice === 'mobile' ? 'active' : ''}`} onClick={ () => handleDeviceChange('mobile') }>
 			<button type="button" className="preview-mobile" data-device="mobile">
 				{responsiveMobile}
 			</button>
@@ -214,13 +228,13 @@ const ResponsiveBackground = props => {
 	</ul>;
 
 	inputHtml = <div className="background-wrapper">
-		<div className="background-container desktop active">
+		<div className={`background-container desktop ${activeDevice === 'desktop' ? 'active' : ''}`}>
 			{renderSettings('desktop')}
 		</div>
-		<div className="background-container tablet">
+		<div className={`background-container tablet ${activeDevice === 'tablet' ? 'active' : ''}`}>
 			{renderSettings('tablet')}
 		</div>
-		<div className="background-container mobile">
+		<div className={`background-container mobile ${activeDevice === 'mobile' ? 'active' : ''}`}>
 			{renderSettings('mobile')}
 		</div>
 	</div>;

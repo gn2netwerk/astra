@@ -59,6 +59,11 @@ const MetaSettings = props => {
 		return ( { label: name, value: key } );
 	} );
 
+	// Page header optins.
+	const pageBgToggleOptions = Object.entries( astMetaParams.page_bg_toggle_options ).map( ( [ key, name ] ) => {
+		return ( { label: name, value: key } );
+	} );
+
 	// Checkbox control
 	const disableSections = Object.entries( astMetaParams.disable_sections ).map( ( [ key, value ] ) => {
 		let sectionValue = ( 'disabled' === props.meta[value['key']] ) ? true : false;
@@ -364,29 +369,38 @@ const MetaSettings = props => {
 													</td>
 													<td className="ast-advanced-hook-row-content">
 														<section>
-														<div className="components-base-control__field">
-															<AstSelectorControl
-																metavalue = { ( undefined !== props.meta['ast-page-background-toggle'] && ''!== props.meta['ast-page-background-toggle'] ? props.meta['ast-page-background-toggle'] : 'default' ) }
-																choices = { headerOptions }
-																id = { 'ast-page-background-toggle' }
-																onChange={ ( val ) => {
-																	props.setMetaFieldValue( val, 'ast-page-background-toggle' );
-																} }
-															/>
-														</div>
-														{ undefined !== props.meta['ast-page-background-toggle'] && 'enabled' === props.meta['ast-page-background-toggle'] &&
-															<>
-																<ResponsiveBackground 
-																	metavalue = { ( undefined !== props.meta['ast-page-background-meta'] && ''!== props.meta['ast-page-background-meta'] ? props.meta['ast-page-background-meta'] : 'default' ) }
-																	control={ {
-																			'default' : astMetaParams.site_page_bg_meta_default,
-																			'ignore_responsive_btns' : true,
-																			'setMetaFieldValue' : props.setMetaFieldValue,
-																		} }
-																	id = { 'ast-page-background-meta' }
+
+															{/* Toggle for Page Background */}
+															<div className="components-base-control__field">
+																<AstSelectorControl
+																	metavalue = { ( undefined !== props.meta['ast-page-background-toggle'] && ''!== props.meta['ast-page-background-toggle'] ? props.meta['ast-page-background-toggle'] : 'default' ) }
+																	choices = { pageBgToggleOptions }
+																	id = { 'ast-page-background-toggle' }
+																	onChange={ ( val ) => {
+																		props.setMetaFieldValue( val, 'ast-page-background-toggle' );
+																	} }
 																/>
-															</>
-														}
+															</div>
+
+															{/* Responsive Bg Control */}
+															{ undefined !== props.meta['ast-page-background-toggle'] && 'enabled' === props.meta['ast-page-background-toggle'] &&
+																<>
+																<div id="customize-control-astra-settings-site-layout-outside-bg-obj-responsive" className='customize-control customize-control-ast-responsive-background'>
+																	<ResponsiveBackground 
+																		metavalue = { ( undefined !== props.meta['ast-page-background-meta'] && ''!== props.meta['ast-page-background-meta'] ? props.meta['ast-page-background-meta'] : 'default' ) }
+																		control={ {
+																				'default' : astMetaParams.site_page_bg_meta_default,
+																				'ignore_responsive_btns' : false,
+																				'setMetaFieldValue' : props.setMetaFieldValue,
+																			} }
+																		id = { 'ast-page-background-meta' }
+																	/>
+																</div>
+																<p className='ast-page-background-help-text description'>
+																	{ __( 'Please note, option will override Global > Color > Site Background.', 'astra' ) }
+																</p>
+																</>
+															}
 														</section>
 													</td>
 												</tr>

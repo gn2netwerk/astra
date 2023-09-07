@@ -913,22 +913,36 @@ const ResponsiveBackground = props => {
   const responsiveTablet = (0,html_react_parser__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_6__["tablet-responsive"]);
   const responsiveMobile = (0,html_react_parser__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_6__["mobile-responsive"]);
   const skipResponsiveTriggers = undefined !== props.control.ignore_responsive_btns && props.control.ignore_responsive_btns ? true : false;
+  const [activeDevice, setActiveDevice] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)('desktop'); // Initialize with 'desktop' as active device
+
+  const handleDeviceChange = device => {
+    if ('desktop' === device) {
+      setActiveDevice('tablet');
+    } else if ('tablet' === device) {
+      setActiveDevice('mobile');
+    } else {
+      setActiveDevice('desktop');
+    }
+  };
   responsiveHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
     className: "ast-responsive-btns"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-    className: "desktop active"
+    className: `desktop ${activeDevice === 'desktop' ? 'active' : ''}`,
+    onClick: () => handleDeviceChange('desktop')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     type: "button",
     className: "preview-desktop",
     "data-device": "desktop"
   }, responsiveDesktop)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-    className: "tablet"
+    className: `tablet ${activeDevice === 'tablet' ? 'active' : ''}`,
+    onClick: () => handleDeviceChange('tablet')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     type: "button",
     className: "preview-tablet",
     "data-device": "tablet"
   }, responsiveTablet)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-    className: "mobile"
+    className: `mobile ${activeDevice === 'mobile' ? 'active' : ''}`,
+    onClick: () => handleDeviceChange('mobile')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     type: "button",
     className: "preview-mobile",
@@ -937,11 +951,11 @@ const ResponsiveBackground = props => {
   inputHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "background-wrapper"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "background-container desktop active"
+    className: `background-container desktop ${activeDevice === 'desktop' ? 'active' : ''}`
   }, renderSettings('desktop')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "background-container tablet"
+    className: `background-container tablet ${activeDevice === 'tablet' ? 'active' : ''}`
   }, renderSettings('tablet')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "background-container mobile"
+    className: `background-container mobile ${activeDevice === 'mobile' ? 'active' : ''}`
   }, renderSettings('mobile')));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, labelHtml, descriptionHtml), !skipResponsiveTriggers && responsiveHtml, renderReset(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "customize-control-content"
@@ -1066,9 +1080,18 @@ const MetaSettings = props => {
     };
   });
 
+  // Page header optins.
+  const pageBgToggleOptions = Object.entries(astMetaParams.page_bg_toggle_options).map(_ref7 => {
+    let [key, name] = _ref7;
+    return {
+      label: name,
+      value: key
+    };
+  });
+
   // Checkbox control
-  const disableSections = Object.entries(astMetaParams.disable_sections).map(_ref7 => {
-    let [key, value] = _ref7;
+  const disableSections = Object.entries(astMetaParams.disable_sections).map(_ref8 => {
+    let [key, value] = _ref8;
     let sectionValue = 'disabled' === props.meta[value['key']] ? true : false;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_checkbox_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
       label: value['label'],
@@ -1080,8 +1103,8 @@ const MetaSettings = props => {
       }
     });
   });
-  const headers_meta_options = Object.entries(astMetaParams.headers_meta_options).map(_ref8 => {
-    let [key, value] = _ref8;
+  const headers_meta_options = Object.entries(astMetaParams.headers_meta_options).map(_ref9 => {
+    let [key, value] = _ref9;
     let sectionValue = 'disabled' === props.meta[value['key']] ? true : false;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_checkbox_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
       label: value['label'],
@@ -1095,8 +1118,8 @@ const MetaSettings = props => {
   });
 
   // Checkbox control
-  const stickyHeadderOptions = Object.entries(astMetaParams.sticky_header_options).map(_ref9 => {
-    let [key, value] = _ref9;
+  const stickyHeadderOptions = Object.entries(astMetaParams.sticky_header_options).map(_ref10 => {
+    let [key, value] = _ref10;
     let stickyValue = 'disabled' === props.meta[value['key']] ? true : false;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_checkbox_js__WEBPACK_IMPORTED_MODULE_5__["default"], {
       label: value['label'],
@@ -1304,20 +1327,25 @@ const MetaSettings = props => {
     className: "components-base-control__field"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ast_selector_js__WEBPACK_IMPORTED_MODULE_7__["default"], {
     metavalue: undefined !== props.meta['ast-page-background-toggle'] && '' !== props.meta['ast-page-background-toggle'] ? props.meta['ast-page-background-toggle'] : 'default',
-    choices: headerOptions,
+    choices: pageBgToggleOptions,
     id: 'ast-page-background-toggle',
     onChange: val => {
       props.setMetaFieldValue(val, 'ast-page-background-toggle');
     }
-  })), undefined !== props.meta['ast-page-background-toggle'] && 'enabled' === props.meta['ast-page-background-toggle'] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_responsive_background_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  })), undefined !== props.meta['ast-page-background-toggle'] && 'enabled' === props.meta['ast-page-background-toggle'] && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    id: "customize-control-astra-settings-site-layout-outside-bg-obj-responsive",
+    className: "customize-control customize-control-ast-responsive-background"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_responsive_background_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
     metavalue: undefined !== props.meta['ast-page-background-meta'] && '' !== props.meta['ast-page-background-meta'] ? props.meta['ast-page-background-meta'] : 'default',
     control: {
       'default': astMetaParams.site_page_bg_meta_default,
-      'ignore_responsive_btns': true,
+      'ignore_responsive_btns': false,
       'setMetaFieldValue': props.setMetaFieldValue
     },
     id: 'ast-page-background-meta'
-  }))))), topTableSpacing)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    className: "ast-page-background-help-text description"
+  }, __('Please note, option will override Global > Color > Site Background.', 'astra')))))), topTableSpacing)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-cl-footer-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-button-container"

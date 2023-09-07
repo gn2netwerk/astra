@@ -682,6 +682,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					),
 					'isWP_5_9'                    => astra_wp_version_compare( '5.8.99', '>=' ),
 					'ast_page_bg_title'           => __( 'Site Background', 'astra' ),
+					'page_bg_toggle_options'      => $this->get_page_bg_toggle_options(),
 				)
 			);
 
@@ -914,6 +915,16 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'default'  => __( 'Inherit', 'astra' ),
 				'enabled'  => __( 'Enabled', 'astra' ),
 				'disabled' => __( 'Disabled', 'astra' ),
+			);
+		}
+
+		/**
+		 * Get Page Background Toggle Options.
+		 */
+		public function get_page_bg_toggle_options() {
+			return array(
+				'default'  => __( 'Inherit', 'astra' ),
+				'enabled'  => __( 'Enabled', 'astra' ),
 			);
 		}
 
