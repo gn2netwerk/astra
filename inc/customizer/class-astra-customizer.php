@@ -163,7 +163,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'priority'       => 80,
 				'capability'     => 'edit_theme_options',
 				'theme_supports' => '',
-				'title'          => 'Site Identity',
+				'title'          => __( 'Site Identity', 'astra' ),
 				'description'    => '',
 			);
 			// Register panel.
@@ -175,7 +175,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'priority'       => 80,
 				'capability'     => 'edit_theme_options',
 				'theme_supports' => '',
-				'title'          => 'Site Identity',
+				'title'          => __( 'Site Identity', 'astra' ),
 				'description'    => '',
 			);
 
