@@ -23,7 +23,7 @@
 				const defaultMediaDetails = {
 					sizes: {
 						thumbnail: {
-							source_url: post.placeholder_image,
+							source_url: post.wc_placeholder_image,
 						},
 					}
 				}

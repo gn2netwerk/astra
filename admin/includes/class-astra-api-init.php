@@ -142,7 +142,7 @@ class Astra_API_Init extends WP_REST_Controller {
 			)
 		);
 
-		register_rest_field('post', 'placeholder_image', array(
+		register_rest_field('post', 'wc_placeholder_image', array(
 			'get_callback' => function ( $post, $field_name, $request ) {
 				if ( $post['type'] !== 'product' ) {
 					return null;
