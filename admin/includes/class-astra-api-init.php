@@ -141,6 +141,16 @@ class Astra_API_Init extends WP_REST_Controller {
 				'schema' => array( $this, 'get_public_item_schema' ),
 			)
 		);
+
+		register_rest_field('post', 'placeholder_image', array(
+			'get_callback' => function ( $post, $field_name, $request ) {
+				if ( $post['type'] !== 'product' ) {
+					return null;
+				}
+
+				return wc_placeholder_img_src('thumbnail');
+			}
+		));
 	}
 
 	/**

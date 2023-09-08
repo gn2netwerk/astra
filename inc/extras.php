@@ -132,7 +132,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 				$content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false, $old_meta_content_layout );
 			} else {
 				$content_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
-	
+
 				// If post meta value is present, apply new layout option.
 				if ( $content_layout ) {
 					$content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
@@ -156,7 +156,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			$content_layout = '';
 			$post_type      = strval( get_post_type() );
 			$content_layout = astra_toggle_layout( 'archive-' . $post_type . '-ast-content-layout', 'archive', false );
-			
+
 			if ( is_search() ) {
 				$content_layout = astra_toggle_layout( 'archive-post-ast-content-layout', 'archive', false );
 			}
@@ -801,7 +801,7 @@ function astra_can_remove_elementor_toc_margin_space() {
 
 /**
  * Check whether user is exising or new to override the hr tag styling for elementor
- * 
+ *
  * @since 4.3.0
  * @return boolean
  */
@@ -1142,4 +1142,75 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
 		'letter-spacing'  => astra_get_font_extras( $font_extras_ast_option, 'letter-spacing', 'letter-spacing-unit' ),
 		'text-decoration' => astra_get_font_extras( $font_extras_ast_option, 'text-decoration' ),
 	);
+}
+
+/**
+ * Getting site active language & compatible with other plugins.
+ *
+ * @since x.x.x
+ * @return string
+ */
+function astra_get_current_language_slug() {
+	$lang = '';
+	if ( function_exists('pll_current_language' ) ) {
+		$lang = pll_current_language();
+	}
+	return apply_filters( 'astra_addon_site_current_language', $lang );
+}
+
+/**
+ * Function which will return the supported post types from core.
+ *
+ * Further processing includes:
+ * 1. Dynamic customizer
+ * 2. Live Search
+ *
+ * @since x.x.x
+ * @return array
+ */
+function astra_get_queried_post_types() {
+	$queried_post_types = array_keys(
+		get_post_types(
+			apply_filters(
+				'astra_dynamic_get_post_types_query_args',
+				array(
+					'public'   => true,
+					'_builtin' => false,
+				)
+			)
+		)
+	);
+
+	$queried_post_types   = array_diff(
+		$queried_post_types,
+		array(
+			'astra-advanced-hook',
+			'astra_adv_header',
+			'elementor_library',
+			'brizy_template',
+
+			'course',
+			'lesson',
+			'llms_membership',
+
+			'tutor_quiz',
+			'tutor_assignments',
+
+			'testimonial',
+			'frm_display',
+			'mec_esb',
+			'mec-events',
+
+			'sfwd-assignment',
+			'sfwd-essays',
+			'sfwd-transactions',
+			'sfwd-certificates',
+			'sfwd-quiz',
+			'e-landing-page',
+		)
+	);
+	$queried_post_types[] = 'post';
+	$queried_post_types[] = 'page';
+
+	return $queried_post_types;
 }
