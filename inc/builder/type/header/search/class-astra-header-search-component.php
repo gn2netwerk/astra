@@ -64,51 +64,6 @@ class Astra_Header_Search_Component {
 			];
 		}
 
-		if (
-			is_array( $args['post_type'] )
-			&&
-			in_array( 'product', $args['post_type'] )
-		) {
-			if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
-				$meta_query = array();
-
-				if ( isset( $args[ 'meta_query' ] ) ) {
-					$meta_query = $args['meta_query'];
-				}
-
-				$meta_query[] = array(
-					'key'     => '_stock_status',
-					'value'   => 'outofstock',
-					'compare' => '!=',
-				);
-
-				$args['meta_query'] = $meta_query;
-			}
-
-			if ( function_exists( 'wc_get_product_visibility_term_ids' ) ) {
-				$exclude_product_terms = wc_get_product_visibility_term_ids();
-
-				$tax_query = array();
-
-				if ( isset( $args['tax_query'] ) ) {
-					$tax_query = $args['tax_query'];
-				}
-
-				$tax_query['relation'] = 'AND';
-
-				$tax_query[] = array(
-					array(
-						'taxonomy' => 'product_visibility',
-						'field' => 'term_taxonomy_id',
-						'terms' => $exclude_product_terms['exclude-from-search'],
-						'operator' => 'NOT IN',
-					)
-				);
-
-				$args['tax_query'] = $tax_query;
-			}
-		}
-
 		return $args;
 	}
 }
