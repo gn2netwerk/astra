@@ -1399,7 +1399,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			?>
 
 			<option value="inherit"><?php esc_html_e( 'Default System Font', 'astra' ); ?></option>
-			<optgroup label="Other System Fonts">
+			<optgroup label="<?php echo esc_attr_e( 'Other System Fonts', 'astra' ); ?>">
 
 			<?php
 
