@@ -639,7 +639,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$config['type']            = isset( $config['ast_type'] ) ? $config['ast_type'] : 'ast_section';
 			$config['active']          = true;
 			$config['id']              = $section_name;
-			$config['customizeAction'] = sprintf( 'Customizing ▸ %s', astra_get_prop( $config, 'title' ) );
+			$config['customizeAction'] = sprintf( __( 'Customizing ▸ %s', 'astra' ), astra_get_prop( $config, 'title' ) );
 
 			if ( isset( $config['clone_type'] ) && isset( $config['clone_index'] ) ) {
 
