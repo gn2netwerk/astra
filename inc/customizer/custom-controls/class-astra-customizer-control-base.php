@@ -66,7 +66,6 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			);
 
 			wp_enqueue_script( 'astra-custom-control-plain-script', $js_uri . 'custom-controls-plain.js', $custom_controls_plain_deps, ASTRA_THEME_VERSION, true );
-			wp_set_script_translations( 'astra-custom-control-plain-script', 'astra' );
 
 			// Enqueue Customizer React.JS script.
 			$custom_controls_react_deps = array(
