@@ -8,6 +8,7 @@ v4.3.2 (Unreleased)
 - Fix: Header-Footer Builder - Social - Background spacing issue breaking UI in customizer preview.
 - Fix: Block Editor - After WordPress 6.3 compatibility title visibility SVG icon jerks on page load with slow networks.
 - Fix: Site Identity - Logo Width sizes not working as expected in the customizer preview.
+- Fix: Above Header - Padding left & right not applying on frontend & in the customizer preview.
 
 v4.3.1
 - Fix: Block - Lists block style type updated to "disc" after v4.3.0 update.
