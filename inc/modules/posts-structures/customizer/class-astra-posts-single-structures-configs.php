@@ -625,7 +625,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				 */
 				array(
 					'name'       => $title_section . '-image-position',
-					'default'    => astra_get_option( $title_section . '-image-position', '' ),
+					'default'    => astra_get_option( $title_section . '-image-position', 'inside' ),
 					'type'       => 'sub-control',
 					'transport'  => 'postMessage',
 					'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
