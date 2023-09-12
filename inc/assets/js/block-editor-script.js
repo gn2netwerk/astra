@@ -371,19 +371,21 @@ const updatePageBackground = () => {
     ? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-meta']
     : 'default';
 
-	debugger 
+	// Get the background object css values.
 	const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
+	applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS);
+}
 
-	document.querySelector('#editor .edit-post-visual-editor').style.background = desktopCSS;
+function applyStylesToElement(selector, styles) {
+  const element = document.querySelector(selector);
 
-	const keys = Object.keys(desktopCSS);
-
-	if (keys.length > 0) {
-	document.querySelector('body #editor .edit-post-visual-editor').style.backgroundImage = desktopCSS[[keys[0]]];
-	}
-
-	console.log(keys[0], desktopCSS[[keys[0]]]);
-
+  if (element) {
+    Object.keys(styles).forEach((property) => {
+      element.style[property] = styles[property];
+    });
+  } else {
+    console.error(`Element with selector "${selector}" not found.`);
+  }
 }
 
 /*
@@ -410,30 +412,30 @@ function astraGetResponsiveBackgroundObj(bgObjRes, device) {
    switch (bgType) {
 	 case 'color':
 	   if ('' !== bgImg && '' !== bgColor) {
-		 genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgImg});`;
+		 genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgImg})`;
 	   } else if ('mobile' === device) {
 		 if (desktopCss) {
-		   genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgDeskImg});`;
+		   genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgDeskImg})`;
 		 } else if (tabletCss) {
-		   genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgTabImg});`;
+		   genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgTabImg})`;
 		 } else {
 		   if ('' !== bgColor) {
-			 genBgCss['background-color'] = bgColor + ';';
-			 genBgCss['background-image'] = 'none;';
+			 genBgCss['background-color'] = bgColor;
+			 genBgCss['background-image'] = 'none';
 		   }
 		 }
 	   } else if ('tablet' === device) {
 		 if (desktopCss) {
-		   genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgDeskImg});`;
+		   genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgDeskImg})`;
 		 } else {
 		   if ('' !== bgColor) {
-			 genBgCss['background-color'] = bgColor + ';';
-			 genBgCss['background-image'] = 'none;';
+			 genBgCss['background-color'] = bgColor;
+			 genBgCss['background-image'] = 'none';
 		   }
 		 }
 	   } else if ('' === bgImg) {
-		 genBgCss['background-color'] = bgColor + ';';
-		 genBgCss['background-image'] = 'none;';
+		 genBgCss['background-color'] = bgColor;
+		 genBgCss['background-image'] = 'none';
 	   }
 	   break;
 
@@ -445,21 +447,21 @@ function astraGetResponsiveBackgroundObj(bgObjRes, device) {
 	   if ('' !== bgImg) {
 		 if ('none' !== overlayType) {
 		   if ('classic' === overlayType && '' !== overlayColor) {
-			 genBgCss['background-image'] = `linear-gradient(to right, ${overlayColor}, ${overlayColor}), url(${bgImg});`;
+			 genBgCss['background-image'] = `linear-gradient(to right, ${overlayColor}, ${overlayColor}), url(${bgImg})`;
 		   } else if ('gradient' === overlayType && '' !== overlayGrad) {
-			 genBgCss['background-image'] = `${overlayGrad}, url(${bgImg});`;
+			 genBgCss['background-image'] = `${overlayGrad}, url(${bgImg})`;
 		   } else {
-			 genBgCss['background-image'] = `url(${bgImg});`;
+			 genBgCss['background-image'] = `url(${bgImg})`;
 		   }
 		 } else {
-		   genBgCss['background-image'] = `url(${bgImg});`;
+		   genBgCss['background-image'] = `url(${bgImg})`;
 		 }
 	   }
 	   break;
 
 	 case 'gradient':
 	   if (bgColor) {
-		 genBgCss['background-image'] = bgColor + ';';
+		 genBgCss['background-image'] = bgColor;
 	   }
 	   break;
 
@@ -467,7 +469,7 @@ function astraGetResponsiveBackgroundObj(bgObjRes, device) {
 	   break;
    }
  } else if ('' !== bgColor) {
-   genBgCss['background-color'] = bgColor + ';';
+   genBgCss['background-color'] = bgColor;
  }
 
  if ('' !== bgImg) {
