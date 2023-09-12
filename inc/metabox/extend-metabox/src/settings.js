@@ -389,6 +389,7 @@ const MetaSettings = props => {
 																	<ResponsiveBackground 
 																		metavalue = { ( undefined !== props.meta['ast-page-background-meta'] && ''!== props.meta['ast-page-background-meta'] ? props.meta['ast-page-background-meta'] : 'default' ) }
 																		control={ {
+																				'controlName' : 'ast-page-background-meta',
 																				'default' : astMetaParams.site_page_bg_meta_default,
 																				'ignore_responsive_btns' : false,
 																				'setMetaFieldValue' : props.setMetaFieldValue,
@@ -402,6 +403,7 @@ const MetaSettings = props => {
 																	<ResponsiveBackground 
 																		metavalue = { ( undefined !== props.meta['ast-content-background-meta'] && ''!== props.meta['ast-content-background-meta'] ? props.meta['ast-content-background-meta'] : 'default' ) }
 																		control={ {
+																				'controlName' : 'ast-content-background-meta',
 																				'default' : astMetaParams.content_page_bg_meta_default,
 																				'ignore_responsive_btns' : false,
 																				'setMetaFieldValue' : props.setMetaFieldValue,

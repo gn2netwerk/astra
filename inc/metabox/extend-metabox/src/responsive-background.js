@@ -25,7 +25,7 @@ const ResponsiveBackground = props => {
 			...prevState,
 			value: obj
 		}));
-		props.control.setMetaFieldValue( obj, 'ast-page-background-meta' )
+		props.control.setMetaFieldValue( obj, props.control.controlName )
 	};
 
 	const updateBackgroundType = (device) => {

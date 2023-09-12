@@ -27,6 +27,13 @@ function astra_content_background_css( $dynamic_css ) {
 	}
 
 	$content_bg_obj          = astra_get_option( 'content-bg-obj-responsive' );
+
+	// Override content background with meta value if set.
+	$site_background_toggle = astra_get_option_meta( 'ast-page-background-toggle' );
+	if ( isset( $site_background_toggle ) && 'enabled' === $site_background_toggle ) {
+		$content_bg_obj = astra_get_option_meta( 'ast-content-background-meta' );
+	}
+
 	$blog_layout             = astra_get_option( 'blog-layout' );
 	$blog_grid               = astra_get_option( 'blog-grid' );
 	$sidebar_default_css     = $content_bg_obj;

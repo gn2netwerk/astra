@@ -374,16 +374,49 @@ const updatePageBackground = () => {
     ? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-meta']
     : 'default';
 
-	// Get the background object css values.
+	const contentObj = (undefined !== wp.data.select('core/editor') &&
+    null !== wp.data.select('core/editor') &&
+    undefined !== wp.data.select('core/editor').getEditedPostAttribute('meta') &&
+    wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-content-background-meta'])
+    ? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-content-background-meta']
+    : 'default';
+
+	// Document as per wp version.
+	editorDoc = document;
+	if ( astraColors.ast_wp_version_higher_6_3 ) {
+		let desktopPreview = document.getElementsByClassName('is-desktop-preview'),
+			tabletPreview = document.getElementsByClassName('is-tablet-preview'),
+			mobilePreview = document.getElementsByClassName('is-mobile-preview'),
+			devicePreview = desktopPreview[0];
+
+		if ( tabletPreview.length > 0 ) {
+			devicePreview = tabletPreview[0];
+		} else if ( mobilePreview.length > 0 ) {
+			devicePreview = mobilePreview[0];
+		}
+
+		let iframe = undefined !== devicePreview ? devicePreview.getElementsByTagName('iframe')[0] : undefined;
+		if ( iframe && devicePreview.querySelector('iframe') !== null ) {
+			editorDoc = iframe.contentWindow.document || iframe.contentDocument;
+		}
+	}
+
+	// Get the background object css values and update page background.
 	const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
-	applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS);
+	applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS, document );
+
+	// Get the background object css values and update page content background.
+	const desktopContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'desktop');
+	applyStylesToElement('.editor-styles-wrapper', desktopContentCSS, editorDoc );
+
 }
 
 /*
 * Dynamically applies styles to DOM element.
 */
-function applyStylesToElement(selector, styles) {
-  const element = document.querySelector(selector);
+function applyStylesToElement(selector, styles, docObj ) {
+
+  const element = docObj.querySelector(selector);
 
   if (element) {
     Object.keys(styles).forEach((property) => {
