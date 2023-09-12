@@ -694,6 +694,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'linked'            => astra_get_prop( $config, 'linked' ),
 				'variant'           => astra_get_prop( $config, 'variant' ),
 				'help'              => astra_get_prop( $config, 'help' ),
+				'description'       => astra_get_prop( $config, 'description' ),
 				'input_attrs'       => astra_get_prop( $config, 'input_attrs' ),
 				'disable'           => astra_get_prop( $config, 'disable' ),
 			);

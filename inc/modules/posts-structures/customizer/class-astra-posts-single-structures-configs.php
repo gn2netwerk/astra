@@ -579,18 +579,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				),
 
 				array(
-					'name'     => $title_section . '-original-image-scale-description',
-					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
-					'linked'   => $title_section . '-image',
-					'type'     => 'sub-control',
-					'control'  => 'ast-description',
-					'section'  => $title_section,
-					'priority' => 13,
-					'label'    => '',
-					'help'     => __( 'Images will be displayed using the aspect ratio in which they were uploaded.', 'astra' ),
-				),
-
-				array(
 					'name'     => $title_section . '-custom-image-scale-description',
 					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
 					'linked'   => $title_section . '-image',
@@ -618,6 +606,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
 					'control'   => 'ast-select',
 					'choices'   => astra_get_site_image_sizes(),
+					'description' => __( 'Note: Image Size & Ratio won\'t work if Image Position set as Background.', 'astra' ),
 				),
 
 				/**
@@ -655,6 +644,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'control'   => 'ast-toggle',
 					'section'   => $title_section,
 					'priority'  => 20,
+					'description'     => __( 'Note: Background settings will only work for "Inside" Image Position.', 'astra' ),
 					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 					'title'     => __( 'Use as Background', 'astra' ),
 					'transport' => 'postMessage',
@@ -682,18 +672,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 							'value'    => 'layout-2',
 						),
 					),
-				),
-
-				array(
-					'name'     => $title_section . '-featured-help-notice',
-					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
-					'linked'   => $title_section . '-image',
-					'type'     => 'sub-control',
-					'control'  => 'ast-description',
-					'section'  => $title_section,
-					'priority' => 25,
-					'label'    => '',
-					'help'     => __( 'Note: These background settings will only work for "Inside" Image Position.', 'astra' ),
 				),
 
 				array(

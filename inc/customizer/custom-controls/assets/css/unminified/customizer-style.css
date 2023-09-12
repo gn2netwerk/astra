@@ -150,6 +150,20 @@
   top: 6px;
 }
 
+.customize-control .ast-sortable-subfields-wrap .ast-control-tooltip {
+    position: absolute !important;
+    top: 40%;
+    right: 0px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.customize-control .ast-sortable-subfields-wrap .customize-control-ast-toggle .ast-control-tooltip {
+	right: 30px;
+}
+.ast-top-dotted-divider .dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip {
+    top: 24px;
+}
+
 /* Select2 WP 5.3 compatibility */
 .customize-control .select2-search input[type="text"].select2-search__field {
   min-height: 17px;

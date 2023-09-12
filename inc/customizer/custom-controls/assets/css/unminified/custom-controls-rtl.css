@@ -1579,6 +1579,20 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   top: 6px;
 }
 
+.customize-control .ast-sortable-subfields-wrap .ast-control-tooltip {
+    position: absolute !important;
+    top: 40%;
+    left: 0px;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.customize-control .ast-sortable-subfields-wrap .customize-control-ast-toggle .ast-control-tooltip {
+	left: 30px;
+}
+.ast-top-dotted-divider .dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip {
+    top: 24px;
+}
+
 /* Select2 WP 5.3 compatibility */
 .customize-control .select2-search input[type="text"].select2-search__field {
   min-height: 17px;
@@ -4368,7 +4382,7 @@ span.customize-control-title.ast-group-section-title {
 }
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
     margin-bottom: 16px;
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 3px;
 }
 
