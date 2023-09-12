@@ -184,6 +184,11 @@ const ResponsiveBackground = props => {
 		updateValues(obj);
 	};
 
+	const {
+		label,
+		description
+	} = props.control;
+
 	let labelHtml = null;
 	let descriptionHtml = null;
 	let responsiveHtml = null;
@@ -193,6 +198,15 @@ const ResponsiveBackground = props => {
 	const responsiveTablet = parse( svgIcons['tablet-responsive'] );
 	const responsiveMobile = parse( svgIcons['mobile-responsive'] );
 
+	if (label && '' !== label && undefined !== label) {
+		labelHtml = <span>{label}</span>;
+	} else {
+		labelHtml = <span>{__('Background', 'astra')}</span>;
+	}
+
+	if (description) {
+		descriptionHtml = <span className="description customize-control-description">{description}</span>;
+	}
 	const skipResponsiveTriggers = ( undefined !== props.control.ignore_responsive_btns && props.control.ignore_responsive_btns ) ? true : false;
 
 	const [activeDevice, setActiveDevice] = useState('desktop'); // Initialize with 'desktop' as active device
@@ -240,16 +254,20 @@ const ResponsiveBackground = props => {
 	</div>;
 
 	return <>
-		<label>
-			{labelHtml}
-			{descriptionHtml}
-		</label>
-		{ ( ! skipResponsiveTriggers ) &&
-			responsiveHtml
-		}
-		{renderReset()}
-		<div className="customize-control-content">
-			{inputHtml}
+		<div className='ast-bg-control-left'>
+			<label>
+				{labelHtml}
+				{descriptionHtml}
+			</label>
+			{ ( ! skipResponsiveTriggers ) &&
+				responsiveHtml
+			}
+		</div>
+		<div className='ast-bg-control-right'>
+			{renderReset()}
+			<div className="customize-control-content">
+				{inputHtml}
+			</div>
 		</div>
 	</>;
 };

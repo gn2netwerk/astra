@@ -905,6 +905,10 @@ const ResponsiveBackground = props => {
     obj[key] = deviceObj;
     updateValues(obj);
   };
+  const {
+    label,
+    description
+  } = props.control;
   let labelHtml = null;
   let descriptionHtml = null;
   let responsiveHtml = null;
@@ -912,6 +916,16 @@ const ResponsiveBackground = props => {
   const responsiveDesktop = (0,html_react_parser__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_6__["desktop-responsive"]);
   const responsiveTablet = (0,html_react_parser__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_6__["tablet-responsive"]);
   const responsiveMobile = (0,html_react_parser__WEBPACK_IMPORTED_MODULE_5__["default"])(_assets_svg_svgs_json__WEBPACK_IMPORTED_MODULE_6__["mobile-responsive"]);
+  if (label && '' !== label && undefined !== label) {
+    labelHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, label);
+  } else {
+    labelHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Background', 'astra'));
+  }
+  if (description) {
+    descriptionHtml = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "description customize-control-description"
+    }, description);
+  }
   const skipResponsiveTriggers = undefined !== props.control.ignore_responsive_btns && props.control.ignore_responsive_btns ? true : false;
   const [activeDevice, setActiveDevice] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)('desktop'); // Initialize with 'desktop' as active device
 
@@ -957,9 +971,13 @@ const ResponsiveBackground = props => {
   }, renderSettings('tablet')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `background-container mobile ${activeDevice === 'mobile' ? 'active' : ''}`
   }, renderSettings('mobile')));
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, labelHtml, descriptionHtml), !skipResponsiveTriggers && responsiveHtml, renderReset(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ast-bg-control-left"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, labelHtml, descriptionHtml), !skipResponsiveTriggers && responsiveHtml), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ast-bg-control-right"
+  }, renderReset(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "customize-control-content"
-  }, inputHtml));
+  }, inputHtml)));
 };
 ResponsiveBackground.propTypes = {
   control: (prop_types__WEBPACK_IMPORTED_MODULE_7___default().object).isRequired
@@ -1340,12 +1358,12 @@ const MetaSettings = props => {
     control: {
       'default': astMetaParams.site_page_bg_meta_default,
       'ignore_responsive_btns': false,
-      'setMetaFieldValue': props.setMetaFieldValue
+      'setMetaFieldValue': props.setMetaFieldValue,
+      'label': 'Page Background',
+      'description': ''
     },
     id: 'ast-page-background-meta'
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "ast-page-background-help-text description"
-  }, __('Please note, option will override Global > Color > Site Background.', 'astra')))))), topTableSpacing)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })))))), topTableSpacing)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-cl-footer-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-button-container"

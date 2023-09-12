@@ -392,13 +392,12 @@ const MetaSettings = props => {
 																				'default' : astMetaParams.site_page_bg_meta_default,
 																				'ignore_responsive_btns' : false,
 																				'setMetaFieldValue' : props.setMetaFieldValue,
+																				'label' : 'Page Background',
+																				'description' : '',
 																			} }
 																		id = { 'ast-page-background-meta' }
 																	/>
 																</div>
-																<p className='ast-page-background-help-text description'>
-																	{ __( 'Please note, option will override Global > Color > Site Background.', 'astra' ) }
-																</p>
 																</>
 															}
 														</section>

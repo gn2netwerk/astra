@@ -118,7 +118,6 @@ function astra_onload_function() {
 
 			// Adding title visibility icon on wp.data.subscribe.
 			addTitleVisibility();
-
 			if ( astraColors.ast_wp_version_higher_6_3 ) {
 				let desktopPreview = document.getElementsByClassName('is-desktop-preview'),
 					tabletPreview = document.getElementsByClassName('is-tablet-preview'),
@@ -357,8 +356,139 @@ function astra_onload_function() {
 				}
 			}
 
+			// Page background editor compatibility for direct reflection of colors.
+			updatePageBackground();
+
 		}, 1 );
 	});
+}
+
+const updatePageBackground = () => {
+	const bgObj = (undefined !== wp.data.select('core/editor') &&
+    null !== wp.data.select('core/editor') &&
+    undefined !== wp.data.select('core/editor').getEditedPostAttribute('meta') &&
+    wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-meta'])
+    ? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-meta']
+    : 'default';
+
+	debugger 
+	const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
+
+	document.querySelector('#editor .edit-post-visual-editor').style.background = desktopCSS;
+
+	const keys = Object.keys(desktopCSS);
+
+	if (keys.length > 0) {
+	document.querySelector('body #editor .edit-post-visual-editor').style.backgroundImage = desktopCSS[[keys[0]]];
+	}
+
+	console.log(keys[0], desktopCSS[[keys[0]]]);
+
+}
+
+/*
+* Generate Responsive Background Color CSS.
+*
+* @param {Object} bgObjRes - Object of background objects.
+* @param {string} device - CSS for which device.
+* @returns {Object}
+*/
+function astraGetResponsiveBackgroundObj(bgObjRes, device) {
+ const genBgCss = {};
+
+ const bgObj = bgObjRes[device];
+ const bgImg = bgObj['background-image'] || '';
+ const bgTabImg = bgObjRes['tablet']['background-image'] || '';
+ const bgDeskImg = bgObjRes['desktop']['background-image'] || '';
+ const bgColor = bgObj['background-color'] || '';
+ const tabletCss = bgObjRes['tablet']['background-image'] ? true : false;
+ const desktopCss = bgObjRes['desktop']['background-image'] ? true : false;
+
+ const bgType = bgObj['background-type'] || '';
+
+ if ('' !== bgType) {
+   switch (bgType) {
+	 case 'color':
+	   if ('' !== bgImg && '' !== bgColor) {
+		 genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgImg});`;
+	   } else if ('mobile' === device) {
+		 if (desktopCss) {
+		   genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgDeskImg});`;
+		 } else if (tabletCss) {
+		   genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgTabImg});`;
+		 } else {
+		   if ('' !== bgColor) {
+			 genBgCss['background-color'] = bgColor + ';';
+			 genBgCss['background-image'] = 'none;';
+		   }
+		 }
+	   } else if ('tablet' === device) {
+		 if (desktopCss) {
+		   genBgCss['background-image'] = `linear-gradient(to right, ${bgColor}, ${bgColor}), url(${bgDeskImg});`;
+		 } else {
+		   if ('' !== bgColor) {
+			 genBgCss['background-color'] = bgColor + ';';
+			 genBgCss['background-image'] = 'none;';
+		   }
+		 }
+	   } else if ('' === bgImg) {
+		 genBgCss['background-color'] = bgColor + ';';
+		 genBgCss['background-image'] = 'none;';
+	   }
+	   break;
+
+	 case 'image':
+	   const overlayType = bgObj['overlay-type'] || 'none';
+	   const overlayColor = bgObj['overlay-color'] || '';
+	   const overlayGrad = bgObj['overlay-gradient'] || '';
+
+	   if ('' !== bgImg) {
+		 if ('none' !== overlayType) {
+		   if ('classic' === overlayType && '' !== overlayColor) {
+			 genBgCss['background-image'] = `linear-gradient(to right, ${overlayColor}, ${overlayColor}), url(${bgImg});`;
+		   } else if ('gradient' === overlayType && '' !== overlayGrad) {
+			 genBgCss['background-image'] = `${overlayGrad}, url(${bgImg});`;
+		   } else {
+			 genBgCss['background-image'] = `url(${bgImg});`;
+		   }
+		 } else {
+		   genBgCss['background-image'] = `url(${bgImg});`;
+		 }
+	   }
+	   break;
+
+	 case 'gradient':
+	   if (bgColor) {
+		 genBgCss['background-image'] = bgColor + ';';
+	   }
+	   break;
+
+	 default:
+	   break;
+   }
+ } else if ('' !== bgColor) {
+   genBgCss['background-color'] = bgColor + ';';
+ }
+
+ if ('' !== bgImg) {
+   if (bgObj['background-repeat']) {
+	 genBgCss['background-repeat'] = bgObj['background-repeat'];
+   }
+
+   if (bgObj['background-position']) {
+	 genBgCss['background-position'] = bgObj['background-position'];
+   }
+
+   if (bgObj['background-size']) {
+	 genBgCss['background-size'] = bgObj['background-size'];
+   }
+
+   if (bgObj['background-attachment']) {
+	 genBgCss['background-attachment'] = bgObj['background-attachment'];
+   }
+ }
+
+  return genBgCss;
 }
 
 document.body.addEventListener('mousedown', function () {

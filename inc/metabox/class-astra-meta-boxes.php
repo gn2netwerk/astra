@@ -681,7 +681,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						),
 					),
 					'isWP_5_9'                    => astra_wp_version_compare( '5.8.99', '>=' ),
-					'ast_page_bg_title'           => __( 'Site Background', 'astra' ),
+					'ast_page_bg_title'           => __( 'Surface Colors', 'astra' ),
 					'page_bg_toggle_options'      => $this->get_page_bg_toggle_options(),
 				)
 			);
