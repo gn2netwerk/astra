@@ -356,13 +356,16 @@ function astra_onload_function() {
 				}
 			}
 
-			// Page background editor compatibility for direct reflection of colors.
+			// Page background editor compatibility for direct reflection of color picker.
 			updatePageBackground();
 
 		}, 1 );
 	});
 }
 
+/*
+* Updates the page background css from the color picker.
+*/
 const updatePageBackground = () => {
 	const bgObj = (undefined !== wp.data.select('core/editor') &&
     null !== wp.data.select('core/editor') &&
@@ -376,6 +379,9 @@ const updatePageBackground = () => {
 	applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS);
 }
 
+/*
+* Dynamically applies styles to DOM element.
+*/
 function applyStylesToElement(selector, styles) {
   const element = document.querySelector(selector);
 
@@ -390,10 +396,6 @@ function applyStylesToElement(selector, styles) {
 
 /*
 * Generate Responsive Background Color CSS.
-*
-* @param {Object} bgObjRes - Object of background objects.
-* @param {string} device - CSS for which device.
-* @returns {Object}
 */
 function astraGetResponsiveBackgroundObj(bgObjRes, device) {
  const genBgCss = {};

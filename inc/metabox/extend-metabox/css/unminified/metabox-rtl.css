@@ -346,8 +346,6 @@ a.ast-pro-upgrade-link {
     margin-bottom: -5px;
     margin-top: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
   
   .customize-control-ast-responsive-background .background-container h4 {
@@ -649,8 +647,8 @@ a.ast-pro-upgrade-link {
   .customize-control-ast-responsive-background .ast-responsive-btns,
   .customize-control-ast-responsive-color .ast-responsive-btns {
     position: relative;
-    right: 4.4em;
-    bottom: 0.3em;
+    top: 0.1em;
+    right: 0.2em;
   }
   
   /** Responsive Color CSS **/
@@ -2040,5 +2038,20 @@ a.ast-pro-upgrade-link {
 .customize-control .ast-reset-btn .dashicons-image-rotate {
     width: 12px;
     height: 12px;
-    font-size: 15px;
+    font-size: 12px;
+    position: relative;
+    top: 0.1em;
+    right: 0.5em;
+}
+
+.ast-bg-control-left {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  position: relative;
+  top: 0.6em;
+  max-height: 19.5px;
 }

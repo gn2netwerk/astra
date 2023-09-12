@@ -359,9 +359,9 @@ const MetaSettings = props => {
 										}
 
 										{/* Page Background */}
-										{ bottomTableSpacing }
-										{/* { 'disabled' !== props.meta['ast-main-header-display'] && astMetaParams.is_addon_activated && astMetaParams.sticky_addon_enabled && */}
+										{ astMetaParams.is_addon_activated && astMetaParams.color_addon_enabled &&
 											<>
+												{ bottomTableSpacing }
 												{ topTableSpacing }
 												<tr className="ast-advanced-hook-row">
 													<td className="ast-advanced-hook-row-heading">
@@ -405,7 +405,7 @@ const MetaSettings = props => {
 												</tr>
 												{ topTableSpacing }
 											</>
-										{/* } */}
+										}
 									</tbody>
 								</table>
 							</div>

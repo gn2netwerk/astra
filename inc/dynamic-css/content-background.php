@@ -164,8 +164,13 @@ function astra_content_background_css( $dynamic_css ) {
  * @return array $content_bg_obj The updated background object for the content.
  */
 function astra_apply_unboxed_container( $content_bg_obj, $is_boxed, $is_sidebar_boxed, $current_layout ) {
+	$site_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+	$site_background_toggle = astra_get_option_meta( 'ast-page-background-toggle' );
+	if ( isset( $site_background_toggle ) && 'enabled' === $site_background_toggle ) {
+		$site_bg_obj = astra_get_option_meta( 'ast-page-background-meta' );
+	}
 	if ( 'plain-container' === $current_layout && ! $is_boxed && $is_sidebar_boxed ) {
-		$content_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+		$content_bg_obj = $site_bg_obj;
 	}
 	return $content_bg_obj;
 }

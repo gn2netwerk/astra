@@ -639,6 +639,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'show_upgrade_notice'            => astra_showcase_upgrade_notices(),
 					// Flag needed to check whether user is old or new, true for old user, false for new.
 					'v4_1_6_migration'               => ( ! Astra_Dynamic_CSS::astra_fullwidth_sidebar_support() ),
+					'color_addon_enabled'            => ( $astra_ext_extension_class_exists && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? true : false,
 					'site_page_bg_meta_default'      => array(
 						'desktop' => array(
 							'background-color'      => 'var(--ast-global-color-4)',
