@@ -129,7 +129,6 @@
 
 	//Slide in cart shortcode functionality.
 	if(document.querySelector('.ast-slidein-cart')){
-			
 		document.querySelector('.ast-slidein-cart').addEventListener('click', (e)=> {
 			document.querySelector('#astra-mobile-cart-drawer').classList.add('active');
 			document.querySelector('html').classList.add('ast-mobile-cart-active');
