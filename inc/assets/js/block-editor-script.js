@@ -140,7 +140,8 @@ function astra_onload_function() {
 
 			// Compatibility for updating layout in editor with direct reflection.
 			const contentLayout = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['ast-site-content-layout'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['ast-site-content-layout'] : 'default',
-				bodyClass = astraColors.ast_wp_version_higher_6_3 ? editorDocument.querySelector('html') : document.querySelector('body');
+				bodyClass       = document.querySelector('body');
+				editorBodyClass = astraColors.ast_wp_version_higher_6_3 ? editorDocument.querySelector('html') : false;
 			const contentStyle = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-content-style'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-content-style'] : 'default';
 			const sidebarStyle = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-sidebar-style'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-sidebar-style'] : 'default';
 			const sidebarLayout = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' ) && wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-sidebar-layout'] ) ? wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-sidebar-layout'] : 'default';
@@ -154,6 +155,15 @@ function astra_onload_function() {
 							"ast-separate-container",
 							"ast-narrow-container"
 						);
+						if ( editorBodyClass ) {
+							editorBodyClass.classList.add("ast-plain-container");
+							editorBodyClass.classList.remove(
+								"ast-two-container",
+								"ast-page-builder-template",
+								"ast-separate-container",
+								"ast-narrow-container"
+							);							
+						}
 						break;
 					case "content-boxed-container":
 						bodyClass.classList.add("ast-separate-container");
@@ -163,6 +173,15 @@ function astra_onload_function() {
 							"ast-plain-container",
 							"ast-narrow-container"
 						);
+						if ( editorBodyClass ) {
+							editorBodyClass.classList.add("ast-separate-container");
+							editorBodyClass.classList.remove(
+								"ast-two-container",
+								"ast-page-builder-template",
+								"ast-plain-container",
+								"ast-narrow-container"
+							);							
+						}
 						break;
 					case "boxed-container":
 						bodyClass.classList.add(
@@ -174,6 +193,17 @@ function astra_onload_function() {
 							"ast-plain-container",
 							"ast-narrow-container"
 						);
+						if ( editorBodyClass ) {
+							editorBodyClass.classList.add(
+								"ast-separate-container",
+								"ast-two-container"
+							);
+							editorBodyClass.classList.remove(
+								"ast-page-builder-template",
+								"ast-plain-container",
+								"ast-narrow-container"
+							);						
+						}
 						break;
 					case "page-builder-template":
 						bodyClass.classList.add("ast-page-builder-template");
@@ -183,6 +213,15 @@ function astra_onload_function() {
 							"ast-separate-container",
 							"ast-narrow-container"
 						);
+						if ( editorBodyClass ) {
+							editorBodyClass.classList.add("ast-page-builder-template");
+							editorBodyClass.classList.remove(
+								"ast-two-container",
+								"ast-plain-container",
+								"ast-separate-container",
+								"ast-narrow-container"
+							);						
+						}
 						break;
 					case "narrow-container":
 						bodyClass.classList.add("ast-narrow-container");
@@ -191,7 +230,16 @@ function astra_onload_function() {
 							"ast-plain-container",
 							"ast-separate-container",
 							"ast-page-builder-template"
-							);
+						);
+						if ( editorBodyClass ) {
+							editorBodyClass.classList.add("ast-narrow-container");
+							editorBodyClass.classList.remove(
+								"ast-two-container",
+								"ast-plain-container",
+								"ast-separate-container",
+								"ast-page-builder-template"
+							);					
+						}
 						break;
 					default:
 						break;
