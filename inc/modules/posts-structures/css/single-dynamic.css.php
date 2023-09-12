@@ -49,6 +49,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 		$selector = 'header.entry-header' . $exclude_attr;
 	}
 
+	$site_content_width = astra_get_option( 'site-content-width', 1200 );
 	$horz_alignment   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-horizontal-alignment' );
 	$desk_h_alignment = ( isset( $horz_alignment['desktop'] ) ) ? $horz_alignment['desktop'] : '';
 	$tab_h_alignment  = ( isset( $horz_alignment['tablet'] ) ) ? $horz_alignment['tablet'] : '';
@@ -116,7 +117,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			),
 			$selector . ' .post-thumb-img-content img' => array(
 				'aspect-ratio'  => $aspect_ratio,
-				'transition'    => 'all 0.3s',
 			),
 		);
 		/**
@@ -202,9 +202,8 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' .ast-container a:hover, ' . $selector . ' .ast-container a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' .post-thumb-img-content img' => array(
+			'.single .post-thumb-img-content img' => array(
 				'aspect-ratio'  => $aspect_ratio,
-				'transition'    => 'all 0.3s',
 			),
 		);
 
@@ -302,9 +301,14 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				}
 			}
 		}
+
+		if ( 'outside' === $image_position ) {
+			$css_output_desktop[ '.single article .post-thumb' ] = array(
+				'margin-bottom'       => '2em',
+			);
+		}
 	}
 
-	$site_content_width = astra_get_option( 'site-content-width', 1200 );
 	$dynamic_css       .= '
 		.ast-single-entry-banner {
 			-js-display: flex;
