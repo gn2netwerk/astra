@@ -73,11 +73,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$custom_width   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-banner-custom-width', 1200 );
 
 	$single_structure        = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-structure', 'page' === $current_post_type ? array( 'ast-dynamic-single-' . $current_post_type . '-image', 'ast-dynamic-single-' . $current_post_type . '-title' ) : array( 'ast-dynamic-single-' . $current_post_type . '-title', 'ast-dynamic-single-' . $current_post_type . '-meta' ) );
-	$use_featured_background = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-featured-as-background', false );
-	$custom_background       = astra_get_option(
-		'ast-dynamic-single-' . $current_post_type . '-banner-background',
-		Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-background' )
-	);
 
 	// Banner Text typography dynamic stylings.
 	$banner_text_font_size = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-text-font-size' );
@@ -97,17 +92,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$custom_scale_width   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-custom-scale-width' );
 	$custom_scale_height  = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-custom-scale-height' );
 	$aspect_ratio         = astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_scale, $custom_scale_width, $custom_scale_height );
-	$featured_image_width = ( '' !== astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-size', '' ) ) ? '100%' : '';
-
-	// Hover effects.
-	$scale_hover_css = '';
-	$hover_effect    = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-hover-effect', '' );
-	if ( '' !== $hover_effect ) {
-		$scale_hover_css = 'zoomin' === $hover_effect ? 'scale(1.1);' : 'scale(0.9);';
-	}
-
-	$bordered_image = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-bordered-image', false );
-	$border_color   = astra_get_option( 'border-color' );
 
 	// Few settings from banner section are also applicable to 'layout-1' so adding this condition & compatibility.
 	if ( 'layout-1' === $layout_type ) {
@@ -133,12 +117,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' .post-thumb-img-content img' => array(
 				'aspect-ratio'  => $aspect_ratio,
 				'transition'    => 'all 0.3s',
-				'border'        => $bordered_image ? '1px solid ' . $border_color : '',
-				'border-radius' => $bordered_image ? '4px' : '',
-				'width'         => $featured_image_width,
-			),
-			$selector . ' .post-thumb-img-content img:hover' => array(
-				'transform' => $scale_hover_css,
 			),
 		);
 		/**
@@ -178,6 +156,13 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 		);
 	} else {
 		$entry_title_selector = is_customize_preview() ? $selector . ' .ast-container .entry-title' : $selector . ' .entry-title';
+		$image_position 	= astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-position', '' );
+		$use_featured_background = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-featured-as-background', false );
+		$custom_background       = astra_get_option(
+			'ast-dynamic-single-' . $current_post_type . '-banner-background',
+			Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-background' )
+		);
+
 		/**
 		 * Desktop CSS.
 		 */
@@ -216,6 +201,10 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			),
 			$selector . ' .ast-container a:hover, ' . $selector . ' .ast-container a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
+			),
+			$selector . ' .post-thumb-img-content img' => array(
+				'aspect-ratio'  => $aspect_ratio,
+				'transition'    => 'all 0.3s',
 			),
 		);
 
@@ -294,7 +283,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$css_output_desktop[ $selector . '[data-banner-width-type="custom"]' ]['max-width'] = $custom_width . 'px';
 		}
 
-		if ( in_array( 'ast-dynamic-single-' . $current_post_type . '-image', $single_structure ) && $use_featured_background ) {
+		if ( 'outside' !== $image_position && in_array( 'ast-dynamic-single-' . $current_post_type . '-image', $single_structure ) && $use_featured_background ) {
 			/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$feat_image_src = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) );
 			/** @psalm-suppress PossiblyFalseArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort

@@ -387,7 +387,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'contextual_sub_control' => true,
 					'input_attrs'            => array(
 						'dependents' => array(
-							'layout-2' => array( $title_section . '-featured-as-background', $title_section . '-banner-featured-overlay' ),
+							'layout-2' => array( $title_section . '-featured-as-background', $title_section . '-banner-featured-overlay', $title_section . '-image-position', $title_section . '-featured-help-notice' ),
 						),
 					),
 				),
@@ -603,47 +603,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				),
 
 				/**
-				 * Option: Image Hover Effect.
-				 */
-				array(
-					'name'       => $title_section . '-image-hover-effect',
-					'default'    => astra_get_option( $title_section . '-image-hover-effect', '' ),
-					'type'       => 'sub-control',
-					'transport'  => 'postMessage',
-					'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
-					'section'    => $title_section,
-					'linked'     => $title_section . '-image',
-					'priority'   => 15,
-					'control'    => 'ast-selector',
-					'title'      => __( 'Hover Effect', 'astra' ),
-					'choices'    => array(
-						''        => __( 'None', 'astra' ),
-						'zoomin'  => __( 'Zoom In', 'astra' ),
-						'zoomout' => __( 'Zoom Out', 'astra' ),
-					),
-					'responsive' => false,
-					'renderAs'   => 'text',
-					'divider'    => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
-				),
-
-				/**
-				 * Bordered Image?
-				 */
-				array(
-					'name'      => $title_section . '-bordered-image',
-					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
-					'default'   => astra_get_option( $title_section . '-bordered-image', false ),
-					'linked'    => $title_section . '-image',
-					'type'      => 'sub-control',
-					'control'   => 'ast-toggle',
-					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
-					'section'   => $title_section,
-					'priority'  => 16,
-					'title'     => __( 'Bordered Image', 'astra' ),
-					'transport' => 'postMessage',
-				),
-
-				/**
 				 * Option: Image Size.
 				 */
 				array(
@@ -656,8 +615,62 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'priority'  => 17,
 					'transport' => 'postMessage',
 					'title'     => __( 'Image Size', 'astra' ),
+					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
 					'control'   => 'ast-select',
 					'choices'   => astra_get_site_image_sizes(),
+				),
+
+				/**
+				 * Option: Image Width.
+				 */
+				array(
+					'name'       => $title_section . '-image-width',
+					'default'    => astra_get_option( $title_section . '-image-width', '' ),
+					'type'       => 'sub-control',
+					'transport'  => 'postMessage',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'linked'     => $title_section . '-image',
+					'section'    => $title_section,
+					'priority'   => 18,
+					'control'    => 'ast-selector',
+					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'title'     => __( 'Image Width', 'astra' ),
+					'choices'    => array(
+						''  => __( 'Default', 'astra' ),
+						'wide'  => __( 'Wide', 'astra' ),
+						'full'  => __( 'Full', 'astra' ),
+					),
+					'responsive' => false,
+					'renderAs'   => 'text',
+				),
+
+				/**
+				 * Option: Image Position.
+				 */
+				array(
+					'name'       => $title_section . '-image-position',
+					'default'    => astra_get_option( $title_section . '-image-position', '' ),
+					'type'       => 'sub-control',
+					'transport'  => 'postMessage',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'linked'     => $title_section . '-image',
+					'section'    => $title_section,
+					'priority'   => 18,
+					'control'    => 'ast-selector',
+					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'title'     => __( 'Image Position', 'astra' ),
+					'choices'    => array(
+						'inside'  => __( 'Inside', 'astra' ),
+						'outside'  => __( 'Outside', 'astra' ),
+					),
+					'responsive' => false,
+					'renderAs'   => 'text',
+					'contextual_sub_control' => true,
+					'input_attrs'            => array(
+						'dependents' => array(
+							'inside' => array( $title_section . '-featured-as-background', $title_section . '-banner-featured-overlay', $title_section . '-featured-help-notice' ),
+						),
+					),
 				),
 
 				/**
@@ -672,18 +685,9 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'control'   => 'ast-toggle',
 					'section'   => $title_section,
 					'priority'  => 20,
-					'divider'   => array( 'ast_class' => 'ast-section-spacing ast-top-section-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 					'title'     => __( 'Use as Background', 'astra' ),
 					'transport' => 'postMessage',
-					'context'   => array(
-						Astra_Builder_Helper::$general_tab_config,
-						'relation' => 'AND',
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[' . $title_section . '-layout]',
-							'operator' => '===',
-							'value'    => 'layout-2',
-						),
-					),
 				),
 
 				/**
@@ -708,6 +712,18 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 							'value'    => 'layout-2',
 						),
 					),
+				),
+
+				array(
+					'name'     => $title_section . '-featured-help-notice',
+					'parent'   => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'linked'   => $title_section . '-image',
+					'type'     => 'sub-control',
+					'control'  => 'ast-description',
+					'section'  => $title_section,
+					'priority' => 25,
+					'label'    => '',
+					'help'     => __( 'Note: These background settings will only work for "Inside" Image Position.', 'astra' ),
 				),
 
 				array(
