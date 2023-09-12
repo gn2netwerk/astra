@@ -398,6 +398,19 @@ const MetaSettings = props => {
 																		id = { 'ast-page-background-meta' }
 																	/>
 																</div>
+																<div id="customize-control-astra-settings-content-bg-obj-responsive" className='customize-control customize-control-ast-responsive-background'>
+																	<ResponsiveBackground 
+																		metavalue = { ( undefined !== props.meta['ast-content-background-meta'] && ''!== props.meta['ast-content-background-meta'] ? props.meta['ast-content-background-meta'] : 'default' ) }
+																		control={ {
+																				'default' : astMetaParams.content_page_bg_meta_default,
+																				'ignore_responsive_btns' : false,
+																				'setMetaFieldValue' : props.setMetaFieldValue,
+																				'label' : 'Content Background',
+																				'description' : '',
+																			} }
+																		id = { 'ast-content-background-meta' }
+																	/>
+																</div>
 																</>
 															}
 														</section>

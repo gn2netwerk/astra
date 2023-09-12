@@ -2055,3 +2055,10 @@ a.ast-pro-upgrade-link {
   top: 0.6em;
   max-height: 19.5px;
 }
+
+#customize-control-astra-settings-content-bg-obj-responsive {
+  margin-top: 2em;
+}
+#customize-control-astra-settings-content-bg-obj-responsive .ast-bg-control-left {
+  width: 57%;
+}
