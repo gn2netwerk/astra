@@ -56,7 +56,6 @@ class Astra_Widget_Component_Dynamic_CSS {
 				$builder_widget_selector = $selector . ' .' . $builder_type . '-widget-area-inner';
 			}
 
-			if ( ! astra_remove_widget_design_options() ) {
 
 				$title_font_size   = astra_get_option( $builder_type . '-widget-' . $index . '-font-size' );
 				$content_font_size = astra_get_option( $builder_type . '-widget-' . $index . '-content-font-size' );
@@ -89,11 +88,11 @@ class Astra_Widget_Component_Dynamic_CSS {
 					$builder_widget_selector . ' a:hover' => array(
 						'color' => $link_h_color_desktop,
 					),
-					$selector . ' .widget-title'          => array(
+					$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . 'h1, .entry-content h1, ' . 'h2, .entry-content h2, ' . 'h3, .entry-content h3, ' . 'h4, .entry-content h4, ' . 'h5, .entry-content h5, ' . 'h6, .entry-content h6' => array( 
 						'color'     => $title_color_desktop,
-						// Typography.
-						'font-size' => astra_responsive_font( $title_font_size, 'desktop' ),
+						'font-size' => astra_responsive_font($title_font_size, 'desktop'),
 					),
+					
 					$selector                             => array(
 						// Margin CSS.
 						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
@@ -109,10 +108,9 @@ class Astra_Widget_Component_Dynamic_CSS {
 						// Typography.
 						'font-size' => astra_responsive_font( $content_font_size, 'tablet' ),
 					),
-					$selector . ' .widget-title'          => array(
-						'color'     => $title_color_tablet,
-						// Typography.
-						'font-size' => astra_responsive_font( $title_font_size, 'tablet' ),
+					$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . 'h1, .entry-content h1, ' . 'h2, .entry-content h2, ' . 'h3, .entry-content h3, ' . 'h4, .entry-content h4, ' . 'h5, .entry-content h5, ' . 'h6, .entry-content h6' => array( 
+						'color'     =>  $title_color_tablet,
+						'font-size' => astra_responsive_font($title_font_size, 'desktop'),
 					),
 					$builder_widget_selector . ' a'       => array(
 						'color' => $link_color_tablet,
@@ -135,10 +133,9 @@ class Astra_Widget_Component_Dynamic_CSS {
 						// Typography.
 						'font-size' => astra_responsive_font( $content_font_size, 'mobile' ),
 					),
-					$selector . ' .widget-title'          => array(
+					$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . 'h1, .entry-content h1, ' . 'h2, .entry-content h2, ' . 'h3, .entry-content h3, ' . 'h4, .entry-content h4, ' . 'h5, .entry-content h5, ' . 'h6, .entry-content h6' => array( 
 						'color'     => $title_color_mobile,
-						// Typography.
-						'font-size' => astra_responsive_font( $title_font_size, 'mobile' ),
+						'font-size' => astra_responsive_font($title_font_size, 'desktop'),
 					),
 					$builder_widget_selector . ' a'       => array(
 						'color' => $link_color_mobile,
@@ -154,38 +151,6 @@ class Astra_Widget_Component_Dynamic_CSS {
 						'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 					),
 				);
-			} else {
-
-				$css_output_desktop = array(
-					$selector => array(
-						// Margin CSS.
-						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
-						'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
-						'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
-						'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
-					),
-				);
-
-				$css_output_tablet = array(
-					$selector => array(
-						// Margin CSS.
-						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
-						'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
-						'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
-						'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
-					),
-				);
-
-				$css_output_mobile = array(
-					$selector => array(
-						// Margin CSS.
-						'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
-						'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
-						'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
-						'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
-					),
-				);
-			}
 
 			/* Parse CSS from array() */
 			$css_output  = astra_parse_css( $css_output_desktop );

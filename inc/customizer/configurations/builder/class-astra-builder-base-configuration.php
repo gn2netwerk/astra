@@ -336,8 +336,6 @@ final class Astra_Builder_Base_Configuration {
 				);
 			}
 
-			if ( ! astra_remove_widget_design_options() ) {
-
 				$html_config[] = array(
 
 					/**
@@ -346,7 +344,7 @@ final class Astra_Builder_Base_Configuration {
 					array(
 						'name'       => ASTRA_THEME_SETTINGS . '[' . $type . '-widget-' . $index . '-title-color]',
 						'default'    => astra_get_option( $type . '-widget-' . $index . '-title-color' ),
-						'title'      => __( 'Title Color', 'astra' ),
+						'title'      => __( 'Heading Color', 'astra' ),
 						'type'       => 'control',
 						'section'    => $_section,
 						'priority'   => 7,
@@ -382,7 +380,7 @@ final class Astra_Builder_Base_Configuration {
 						'transport'  => 'postMessage',
 						'priority'   => 7,
 						'responsive' => true,
-						'divider'    => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
+						'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
 
 					/**
@@ -431,11 +429,12 @@ final class Astra_Builder_Base_Configuration {
 							'default'   => astra_get_option( $type . '-widget-' . $index . '-text-typography' ),
 							'type'      => 'control',
 							'control'   => 'ast-settings-group',
-							'title'     => __( 'Title Font', 'astra' ),
+							'title'     => __( 'Heading Font', 'astra' ),
 							'section'   => $_section,
 							'transport' => 'postMessage',
 							'priority'  => 90,
 							'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+							'divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 						),
 
 
@@ -567,7 +566,6 @@ final class Astra_Builder_Base_Configuration {
 						),
 					);
 				}
-			}
 
 			$html_config[] = self::prepare_visibility_tab( $_section, $type );
 
