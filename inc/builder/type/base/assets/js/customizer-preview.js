@@ -640,7 +640,6 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 			selector + ' .widget-area h6'
 		);
 
-
 		// Widget Content Typography.
 		astra_responsive_font_size(
 			'astra-settings[' + builder_type + '-widget-' + index + '-content-font-size]',
