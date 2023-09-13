@@ -172,7 +172,11 @@
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
     margin-bottom: 16px;
     font-size: 14px;
-    margin-top: 3px;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-color .ast-control-wrap .astra-popover-color {
+    margin-right: -10px;
+    margin-left: 10px;
+    width: calc(100% + 15px);
 }
 
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .ast-responsive-btns {

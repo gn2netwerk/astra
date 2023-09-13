@@ -1534,6 +1534,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   top: 0;
   left: 0;
   color: var(--ast-customizer-color-6);
+  cursor: help;
 }
 
 .customize-control.customize-control-ast-toggle-control .ast-control-tooltip {
@@ -1588,6 +1589,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
 }
 .customize-control .ast-sortable-subfields-wrap .customize-control-ast-toggle .ast-control-tooltip {
 	left: 30px;
+	top: 50%;
 }
 .ast-top-dotted-divider .dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip {
     top: 24px;
@@ -4383,7 +4385,11 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
     margin-bottom: 16px;
     font-size: 14px;
-    margin-top: 3px;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-color .ast-control-wrap .astra-popover-color {
+    margin-right: -10px;
+    margin-left: 10px;
+    width: calc(100% + 15px);
 }
 
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .ast-responsive-btns {
