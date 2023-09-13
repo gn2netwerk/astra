@@ -61,6 +61,7 @@ then
     composer phpcbf -n $FILES
     if [ $? != 0 ]
     then
+		echo $?
         echo "Please fix the PHPCS errors before commit!"
         echo " => Run this command for automatic fixes."
         echo "		composer phpcs -- $FILES"
