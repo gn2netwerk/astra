@@ -3629,33 +3629,33 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 					);
 
-					$parse_css .= astra_parse_css( $transparent_header_builder_tablet_css, '', astra_get_tablet_breakpoint() );
+				$parse_css .= astra_parse_css( $transparent_header_builder_tablet_css, '', astra_get_tablet_breakpoint() );
 
-					/**
-					 * Max-width: Mobile Breakpoint CSS.
-					 */
-					$transparent_header_builder_mobile_css = array(
-						'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element' => array(
-							'background' => esc_attr( $social_bg_color['mobile'] ),
-						),
-						'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg' => array(
-							'fill' => esc_attr( $social_color['mobile'] ),
-						),
-						'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover' => array(
-							'background' => esc_attr( $social_bg_hover_color['mobile'] ),
-						),
-						'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover svg' => array(
-							'fill' => esc_attr( $social_hover_color['mobile'] ),
-						),
-						'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label' => array(
-							'color' => esc_attr( $social_color['mobile'] ),
-						),
-						'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label' => array(
-							'color' => esc_attr( $social_hover_color['mobile'] ),
-						),
-					);
-
-					$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
+				/**
+				 * Max-width: Mobile Breakpoint CSS.
+				 */
+				$transparent_header_builder_mobile_css = array(
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element' => array(
+						'background' => esc_attr( $social_bg_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg' => array(
+						'fill' => esc_attr( $social_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover' => array(
+						'background' => esc_attr( $social_bg_hover_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover svg' => array(
+						'fill' => esc_attr( $social_hover_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element .social-item-label' => array(
+						'color' => esc_attr( $social_color['mobile'] ),
+					),
+					'.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element:hover .social-item-label' => array(
+						'color' => esc_attr( $social_hover_color['mobile'] ),
+					),
+				);
+	
+				$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
 			}
 
 			if ( self::astra_list_block_vertical_spacing() ) {
