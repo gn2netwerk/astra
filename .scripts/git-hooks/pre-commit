@@ -61,9 +61,8 @@ then
     composer phpcbf -n $FILES
     if [ $? !== 0 ]
     then
-        echo "PRE Commit test"
-		echo $?
-        echo "Please fix the PHPCS errors before commit!"
+        echo "If any issues remained, please fix it manually before commit! Else commit will fail."
+        echo " => Proceed to push if REMAINING count is 0."
         echo " => Run this command to get PHPCS issues."
         echo "		composer phpcs -- $FILES"
         exit 1
