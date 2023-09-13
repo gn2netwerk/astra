@@ -29,6 +29,8 @@
     }
   },
   "scripts": {
+    "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
+    "post-update-cmd": "vendor/bin/cghooks update",
     "format": "vendor/bin/phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
     "lint": "vendor/bin/phpcs --standard=phpcs.xml.dist --report-summary --report-source",
     "phpcs": "vendor/bin/phpcs",
@@ -40,14 +42,6 @@
       "cp .scripts/git-hooks/pre-commit .git/hooks/",
       "chmod +x .git/hooks/pre-commit",
       "echo 'pre-commit hook copied'"
-    ],
-    "post-install-cmd": [
-      "@commit:hook:pre",
-      "vendor/bin/cghooks add --ignore-lock"
-    ],
-    "post-update-cmd": [
-      "@commit:hook:pre",
-      "vendor/bin/cghooks update"
     ]
   },
   "config": {
