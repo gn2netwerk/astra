@@ -88,7 +88,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 					$builder_widget_selector . ' a:hover' => array(
 						'color' => $link_h_color_desktop,
 					),
-					$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . 'h1, .entry-content h1, ' . 'h2, .entry-content h2, ' . 'h3, .entry-content h3, ' . 'h4, .entry-content h4, ' . 'h5, .entry-content h5, ' . 'h6, .entry-content h6' => array( 
+					$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . $selector . ' h1, ' . $selector . ' .widget-area h1, ' . $selector . ' h2, ' . $selector . ' .widget-area h2, ' . $selector . ' h3, ' . $selector . ' .widget-area h3, ' . $selector . ' h4, ' . $selector . ' .widget-area h4, ' . $selector . ' h5, ' . $selector . ' .widget-area h5, ' . $selector . ' h6, ' . $selector . ' .widget-area h6' => array( 
 						'color'     => $title_color_desktop,
 						'font-size' => astra_responsive_font($title_font_size, 'desktop'),
 					),
@@ -108,7 +108,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 						// Typography.
 						'font-size' => astra_responsive_font( $content_font_size, 'tablet' ),
 					),
-					$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . 'h1, .entry-content h1, ' . 'h2, .entry-content h2, ' . 'h3, .entry-content h3, ' . 'h4, .entry-content h4, ' . 'h5, .entry-content h5, ' . 'h6, .entry-content h6' => array( 
+					$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . $selector . ' h1, ' . $selector . ' .widget-area h1, ' . $selector . ' h2, ' . $selector . ' .widget-area h2, ' . $selector . ' h3, ' . $selector . ' .widget-area h3, ' . $selector . ' h4, ' . $selector . ' .widget-area h4, ' . $selector . ' h5, ' . $selector . ' .widget-area h5, ' . $selector . ' h6, ' . $selector . ' .widget-area h6' => array( 
 						'color'     =>  $title_color_tablet,
 						'font-size' => astra_responsive_font($title_font_size, 'desktop'),
 					),
@@ -133,7 +133,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 						// Typography.
 						'font-size' => astra_responsive_font( $content_font_size, 'mobile' ),
 					),
-					$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . 'h1, .entry-content h1, ' . 'h2, .entry-content h2, ' . 'h3, .entry-content h3, ' . 'h4, .entry-content h4, ' . 'h5, .entry-content h5, ' . 'h6, .entry-content h6' => array( 
+					$selector . ' .widget-title, ' . $selector . ' .wp-block-heading, ' . $selector . ' h1, ' . $selector . ' .widget-area h1, ' . $selector . ' h2, ' . $selector . ' .widget-area h2, ' . $selector . ' h3, ' . $selector . ' .widget-area h3, ' . $selector . ' h4, ' . $selector . ' .widget-area h4, ' . $selector . ' h5, ' . $selector . ' .widget-area h5, ' . $selector . ' h6, ' . $selector . ' .widget-area h6' => array( 
 						'color'     => $title_color_mobile,
 						'font-size' => astra_responsive_font($title_font_size, 'desktop'),
 					),

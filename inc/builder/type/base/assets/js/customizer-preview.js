@@ -607,12 +607,18 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 			'color',
 			selector + ' .widget-title, ' +
 			selector + ' .wp-block-heading, ' +
-			'h1, .entry-content h1, ' +
-			'h2, .entry-content h2, ' +
-			'h3, .entry-content h3, ' +
-			'h4, .entry-content h4, ' +
-			'h5, .entry-content h5, ' +
-			'h6, .entry-content h6'
+			selector + ' h1, ' +
+			selector + ' .widget-area h1, ' +
+			selector + ' h2, ' +
+			selector + ' .widget-area h2, ' +
+			selector + ' h3, ' +
+			selector + ' .widget-area h3, ' +
+			selector + ' h4, ' +
+			selector + ' .widget-area h4, ' +
+			selector + ' h5, ' +
+			selector + ' .widget-area h5, ' +
+			selector + ' h6, ' +
+			selector + ' .widget-area h6'
 		);
 
 		// Widget Title Typography.
@@ -620,14 +626,21 @@ function astra_builder_widget_css( builder_type = 'header' ) {
 			'astra-settings[' + builder_type + '-widget-' + index + '-font-size]',
 			selector + ' .widget-title, ' +
 			selector + ' .wp-block-heading, ' +
-			'h1, .entry-content h1, ' +
-			'h2, .entry-content h2, ' +
-			'h3, .entry-content h3, ' +
-			'h4, .entry-content h4, ' +
-			'h5, .entry-content h5, ' +
-			'h6, .entry-content h6'
+			selector + ' h1, ' +
+			selector + ' .widget-area h1, ' +
+			selector + ' h2, ' +
+			selector + ' .widget-area h2, ' +
+			selector + ' h3, ' +
+			selector + ' .widget-area h3, ' +
+			selector + ' h4, ' +
+			selector + ' .widget-area h4, ' +
+			selector + ' h5, ' +
+			selector + ' .widget-area h5, ' +
+			selector + ' h6, ' +
+			selector + ' .widget-area h6'
 		);
-		
+
+
 		// Widget Content Typography.
 		astra_responsive_font_size(
 			'astra-settings[' + builder_type + '-widget-' + index + '-content-font-size]',
