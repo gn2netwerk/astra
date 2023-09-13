@@ -63,20 +63,7 @@ then
     then
         echo "Please fix the PHPCS errors before commit!"
         echo " => Run this command for automatic fixes."
-        echo "		composer phpcbf -- $FILES"
-        exit 1
-    fi
-fi
-
-if [ "$FILES" != "" ]
-then
-    echo "Running PHPCS Check..."
-    composer phpcs -n $FILES
-    if [ $? != 0 ]
-    then
-        echo "Please fix the PHPCS errors before commit!"
-        echo " => Run this command to check PHPCS errors."
-        echo "		composer lint:stan"
+        echo "		composer phpcs -- $FILES"
         exit 1
     fi
 fi
