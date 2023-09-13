@@ -42,12 +42,12 @@
       "echo 'pre-commit hook copied'"
     ],
     "post-install-cmd": [
-      "vendor/bin/cghooks add --ignore-lock",
-      "@commit:hook:pre"
+      "@commit:hook:pre",
+      "vendor/bin/cghooks add --ignore-lock"
     ],
     "post-update-cmd": [
-        "vendor/bin/cghooks update",
-        "@commit:hook:pre"
+      "@commit:hook:pre",
+      "vendor/bin/cghooks update"
     ]
   },
   "config": {
