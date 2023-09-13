@@ -323,13 +323,13 @@ function astra_onload_function() {
 				}
 			}
 
-			// // Narrow + Boxed compatibility in editor.
-			// if ( 'narrow-width-container' === contentLayout && ( 'boxed' === contentStyle || 'default' === contentStyle && is_content_style_boxed ) ) {
-			// 	document.querySelector('.edit-post-visual-editor__content-area').style.padding = '20px';
-			// }
-			// else if ( 'narrow-width-container' === contentLayout && ( 'unboxed' === contentStyle || 'default' === contentStyle && ! is_content_style_boxed ) ) {
-			// 	document.querySelector('.edit-post-visual-editor__content-area').style.padding = '0px';
-			// }
+			// Narrow + Boxed compatibility in editor.
+			if ( 'narrow-width-container' === contentLayout && ( 'boxed' === contentStyle || 'default' === contentStyle && is_content_style_boxed ) ) {
+				document.querySelector('.edit-post-visual-editor__content-area').style.padding = '20px';
+			}
+			else {
+				document.querySelector('.edit-post-visual-editor__content-area').style.padding = '0px';
+			}
 
 			const editorStylesWrapper = editorDocument.querySelector( '.editor-styles-wrapper' );
 
