@@ -1025,7 +1025,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_container_layout_css();
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() ); 
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
 				$parse_css .= self::astra_sticky_sidebar_css();
 			}
 
@@ -4981,7 +4981,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			return $css;
 		}
 
-		/*
+		/**
 		 * Check if fullwidth layout with sidebar is supported.
 		 * Old users - yes
 		 * New users - no
