@@ -156,7 +156,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 		);
 	} else {
 		$entry_title_selector = is_customize_preview() ? $selector . ' .ast-container .entry-title' : $selector . ' .entry-title';
-		$image_position 	= astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-position', 'inside' );
+		$image_position       = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-position', 'inside' );
 		$use_featured_background = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-featured-as-background', false );
 		$custom_background       = astra_get_option(
 			'ast-dynamic-single-' . $current_post_type . '-banner-background',
