@@ -316,7 +316,6 @@ class Astra_WP_Editor_CSS {
 		}
 
 		$site_background    = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
-		$content_background = astra_get_option( 'content-bg-obj-responsive' );
 		$background_style_data = astra_get_responsive_background_obj( $site_background, 'desktop' );
 
 
