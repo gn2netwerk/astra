@@ -75,6 +75,32 @@ class AstraColorPickerControl extends Component {
 		}
 	}
 
+	componentDidMount() {
+		// Add a click event listener to the document when the component mounts.
+		document.addEventListener('click', this.handleClickOutside);
+	}
+	
+	componentWillUnmount() {
+		// Remove the event listener when the component unmounts.
+		document.removeEventListener('click', this.handleClickOutside);
+	}
+
+	handleClickOutside = (event) => {
+		const isOutsideClickRange = ( !event.target.closest('.astra-popover-color') && !event.target.closest('.astra-advanced-color-indicate'));
+		console.log(isOutsideClickRange)
+		if (this.state.isVisible && isOutsideClickRange ) {
+		  // If the click is outside the modal, close it.
+		  this.closePicker();
+		}
+	};
+
+	closePicker = () => {
+		if ( this.state.isVisible === true ) {
+			console.log("kkkk")
+			this.setState( { isVisible: false } );
+		}
+	};
+
 	render() {
 
 		const {
@@ -182,6 +208,8 @@ class AstraColorPickerControl extends Component {
 						}
 					</Button>
 				</div>
+
+				{ /** Color Picker Modal */ }
 				<div className={"astra-color-picker-wrap " + (isVisible ? 'picker-open' : '')}>
 					<>
 						{ isVisible && (
