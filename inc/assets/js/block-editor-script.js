@@ -270,12 +270,12 @@ function astra_onload_function() {
 					}
 				break;
 			}
-
+			debugger;
 			const is_default_boxed         = bodyClass && bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ? true : false;
 			const is_default_content_boxed = bodyClass && bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ? true : false;
 			const is_default_normal        = bodyClass && bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ? true : false;
 			const is_default_normal_width  = ( 'default' === contentLayout && ( is_default_boxed || is_default_content_boxed || is_default_normal ) );
-			const is_content_style_boxed   = bodyClass && bodyClass.classList.contains( 'ast-default-content-boxed' ) ? true : false;
+			const is_content_style_boxed   = bodyClass && bodyClass.classList.contains( 'ast-default-content-style-boxed' ) ? true : false;
 			const is_sidebar_style_boxed   = bodyClass && bodyClass.classList.contains( 'ast-default-sidebar-boxed' ) ? true : false;
 
 			if ( 'normal-width-container' === contentLayout || is_default_normal_width ) {
@@ -322,6 +322,14 @@ function astra_onload_function() {
 					}
 				}
 			}
+
+			// // Narrow + Boxed compatibility in editor.
+			// if ( 'narrow-width-container' === contentLayout && ( 'boxed' === contentStyle || 'default' === contentStyle && is_content_style_boxed ) ) {
+			// 	document.querySelector('.edit-post-visual-editor__content-area').style.padding = '20px';
+			// }
+			// else if ( 'narrow-width-container' === contentLayout && ( 'unboxed' === contentStyle || 'default' === contentStyle && ! is_content_style_boxed ) ) {
+			// 	document.querySelector('.edit-post-visual-editor__content-area').style.padding = '0px';
+			// }
 
 			const editorStylesWrapper = editorDocument.querySelector( '.editor-styles-wrapper' );
 
@@ -404,9 +412,18 @@ function astra_onload_function() {
 				}
 			}
 
-			// Page background editor compatibility for direct reflection of color picker.
-			if ( 'enabled' === astraColors.background_toggle ) {
+			const backgroundToggle = (undefined !== wp.data.select('core/editor') &&
+			null !== wp.data.select('core/editor') &&
+			undefined !== wp.data.select('core/editor').getEditedPostAttribute('meta') &&
+			wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-toggle'])
+			? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-toggle']
+			: 'default';
+
+			if ( 'enabled' === backgroundToggle ) {
 				updatePageBackground();
+			}
+			else if ( 'default' === backgroundToggle ) {
+				updatePageBackground( true );
 			}
 
 		}, 1 );
@@ -416,20 +433,26 @@ function astra_onload_function() {
 /*
 * Updates the page background css from the color picker.
 */
-const updatePageBackground = () => {
-	const bgObj = (undefined !== wp.data.select('core/editor') &&
+const updatePageBackground = ( apply_customizer_default = false ) => {
+	
+	let bgObj = (undefined !== wp.data.select('core/editor') &&
     null !== wp.data.select('core/editor') &&
     undefined !== wp.data.select('core/editor').getEditedPostAttribute('meta') &&
     wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-meta'])
     ? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-meta']
     : 'default';
 
-	const contentObj = (undefined !== wp.data.select('core/editor') &&
+	let contentObj = (undefined !== wp.data.select('core/editor') &&
     null !== wp.data.select('core/editor') &&
     undefined !== wp.data.select('core/editor').getEditedPostAttribute('meta') &&
     wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-content-background-meta'])
     ? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-content-background-meta']
     : 'default';
+
+	if ( apply_customizer_default ) {
+		bgObj = astraColors.customizer_site_bg_obj;
+		contentObj = astraColors.customizer_content_bg_obj;
+	}
 
 	// Document as per wp version.
 	editorDoc = document;

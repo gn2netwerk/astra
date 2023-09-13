@@ -469,12 +469,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
-			// Override site background and content background customizer setting with meta value if set.
-			$post_id = get_the_ID();
-			$site_background_toggle = 'default';
-			if ( $post_id ) {
-				$site_background_toggle = get_post_meta( $post_id, 'ast-page-background-toggle', true );
-			}
+			$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
+			$site_bg_obj    = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 
 			$astra_global_palette_instance = new Astra_Global_Palette();
 			$astra_colors                  = array(
@@ -489,7 +485,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				'var(--ast-global-color-8)'  => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-8)' ),
 				'ast_wp_version_higher_6_3'  => astra_wp_version_compare( '6.2.99', '>' ),
 				'apply_content_bg_fullwidth' => astra_apply_content_background_fullwidth_layouts(),
-				'background_toggle'          => $site_background_toggle,
+				'customizer_content_bg_obj'  => $content_bg_obj,
+				'customizer_site_bg_obj'     => $site_bg_obj,
 			);
 
 			wp_localize_script( 'astra-block-editor-script', 'astraColors', apply_filters( 'astra_theme_root_colors', $astra_colors ) );

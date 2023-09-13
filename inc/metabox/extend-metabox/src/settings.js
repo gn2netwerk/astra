@@ -26,6 +26,8 @@ const MetaSettings = props => {
     const openModal = () => setOpen( true );
     const closeModal = () => setOpen( false );
 
+    const [ showHelpText, setShowHelpText ] = useState( false );
+
 	const is_hide_content_layout_sidebar = astMetaParams.is_hide_content_layout_sidebar;
 
 	// Adjust spacing & borders for table.
@@ -366,7 +368,9 @@ const MetaSettings = props => {
 												<tr className="ast-advanced-hook-row">
 													<td className="ast-advanced-hook-row-heading">
 														<label> { astMetaParams.ast_page_bg_title }</label>
-														<><i className="ast-control-tooltip dashicons dashicons-editor-help" ></i><span className="ast-dashicons-custom-tooltip"> { astMetaParams.surface_color_help_text }</span></>
+														<><i className="ast-control-tooltip dashicons dashicons-editor-help" onClick={ () => setShowHelpText( ! showHelpText ) }></i>
+														 { showHelpText && <span className="ast-dashicons-custom-tooltip"> { astMetaParams.surface_color_help_text }</span> }
+														</>
 													</td>
 													<td className="ast-advanced-hook-row-content">
 														<section>
