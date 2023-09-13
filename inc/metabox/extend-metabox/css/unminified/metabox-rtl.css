@@ -2034,12 +2034,11 @@ a.ast-pro-upgrade-link {
 
 .ast-dashicons-custom-tooltip {
   position: relative;
-  top: 32px;
-	padding: 6px 6px;
+  top: 34px;
+	padding: 8px 8px;
 	font-size: 12px;
 	font-weight: normal;
 	border-radius: 2px;
-	pointer-events: none;
 	color: #fff;
 	background: #1e1e1e;
 	transition: opacity 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955),visibility 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -2049,11 +2048,16 @@ a.ast-pro-upgrade-link {
 	align-items: center;
 	justify-content: center;
   line-height: 1.5em;
-  visibility: hidden;
+  text-align: center;
 }
 
-.dashicons-editor-help:hover ~ .ast-dashicons-custom-tooltip {
-  visibility: visible;
+/* Add a class to trigger the slide-down effect */
+.show-tooltip {
+  max-height: 200px; /* Adjust this value to control the height of the slide-down element */
+}
+
+.dashicons-editor-help {
+  cursor: pointer;
 }
 
 /** Custom CSS for Page Background **/
@@ -2084,9 +2088,10 @@ a.ast-pro-upgrade-link {
   max-height: 19.5px;
 }
 
-#customize-control-astra-settings-content-bg-obj-responsive {
-  margin-top: 2em;
-}
 #customize-control-astra-settings-content-bg-obj-responsive .ast-bg-control-left {
   width: 57%;
+}
+
+#customize-control-astra-settings-content-bg-obj-responsive {
+  margin-top: 2em;
 }
