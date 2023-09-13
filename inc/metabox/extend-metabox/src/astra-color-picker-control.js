@@ -86,7 +86,8 @@ class AstraColorPickerControl extends Component {
 	}
 
 	handleClickOutside = (event) => {
-		const isOutsideClickRange = ( !event.target.closest('.astra-popover-color') && !event.target.closest('.astra-advanced-color-indicate')) && !event.target.closest('.media-modal-content');
+		// If clicked on elements outside the range then close the modal.
+		const isOutsideClickRange = ( !event.target.closest('.astra-popover-color') && !event.target.closest('.astra-advanced-color-indicate')) && !event.target.closest('.media-modal-content') && !event.target.closest('.dashicons-format-image');
 		if (this.state.isVisible && isOutsideClickRange ) {
 		  // If the click is outside the modal, close it.
 		  this.closePicker();

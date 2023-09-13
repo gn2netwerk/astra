@@ -108,7 +108,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Override page background with meta value if set.
 			$site_background_toggle = astra_get_option_meta( 'ast-page-background-toggle' );
-			if ( isset( $site_background_toggle ) && 'enabled' === $site_background_toggle ) {
+			
+			// Check for third party pages meta.
+			if ( '' === $site_background_toggle && astra_with_third_party() ) {
+				$site_background_toggle = astra_third_party_archive_meta( 'ast-page-background-toggle' );
+				if ( isset( $site_background_toggle ) && 'enabled' === $site_background_toggle ) {
+					$box_bg_obj = astra_third_party_archive_meta( 'ast-page-background-meta' );
+				}
+			}	
+			elseif ( isset( $site_background_toggle ) && 'enabled' === $site_background_toggle ) {
 				$box_bg_obj = astra_get_option_meta( 'ast-page-background-meta' );
 			}
 
