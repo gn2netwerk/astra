@@ -72,4 +72,5 @@
 	<rule ref="Internal.Exception">
 		<severity>0</severity>
 	</rule>
+	<ini name="error_reporting" value="E_ALL &#38; ~E_DEPRECATED" />
 </ruleset>
