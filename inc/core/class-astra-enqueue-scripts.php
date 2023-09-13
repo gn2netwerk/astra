@@ -471,6 +471,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			// Override site background and content background customizer setting with meta value if set.
 			$post_id = get_the_ID();
+			$site_background_toggle = 'default';
 			if ( $post_id ) {
 				$site_background_toggle = get_post_meta( $post_id, 'ast-page-background-toggle', true );
 			}
