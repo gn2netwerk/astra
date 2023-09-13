@@ -1636,6 +1636,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public static function post_meta_options() {
 			$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
+			$apply_new_default_values = astra_button_default_padding_updated();
 			self::$meta_option = apply_filters(
 				'astra_meta_box_options',
 				array(
@@ -1699,7 +1700,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-page-background-meta'    => array(
 						'default'  => array(
 						'desktop' => array(
-							'background-color'      => 'var(--ast-global-color-4)',
+							'background-color'      => $apply_new_default_values ? 'var(--ast-global-color-4)' : '',
 							'background-image'      => '',
 							'background-repeat'     => 'repeat',
 							'background-position'   => 'center center',
