@@ -148,9 +148,6 @@ const MetaSettings = props => {
 		}
 	}, [props.meta['astra-migrate-meta-layouts']] );
 
-	console.log( 'here', props.meta );
-	console.log( props.meta['ast-page-background-toggle'] );
-
 	return (
 		<>
 			{/* Meta settings icon */}
