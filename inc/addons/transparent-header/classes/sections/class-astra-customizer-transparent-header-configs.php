@@ -954,6 +954,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 							'context'           => Astra_Builder_Helper::$general_tab,
 						),
 					);
+					$_configs = array_merge( $_configs, $_hfb_configs );
 
 			} else {
 				$_old_content_configs = array(
