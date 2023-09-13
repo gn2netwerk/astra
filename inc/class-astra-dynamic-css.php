@@ -91,8 +91,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 
-			$title_color                = astra_get_option( 'header-color-site-title' );
-			$title_hover_color          = astra_get_option( 'header-color-h-site-title' );
+			$title_color        = astra_get_option( 'header-color-site-title' );
+			$title_hover_color      = astra_get_option( 'header-color-h-site-title' );
 			$tagline_color              = astra_get_option( 'header-color-site-tagline' );
 			$site_title_setting         = astra_get_option( 'display-site-title-responsive' );
 			$desktop_title_visibility   = $site_title_setting['desktop'] ? 'block' : 'none';
@@ -1025,7 +1025,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_container_layout_css();
 
 			if ( 'no-sidebar' !== astra_page_layout() ) {
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() ); 
+				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
 				$parse_css .= self::astra_sticky_sidebar_css();
 			}
 
