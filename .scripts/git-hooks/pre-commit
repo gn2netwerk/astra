@@ -57,26 +57,13 @@ fi
 
 if [ "$FILES" != "" ]
 then
-    echo "Running PHPCS (Code Sniffer) Check..."
-    composer lint -n $FILES
+    echo "Running PHPCBF Check..."
+    composer phpcbf -n $FILES
     if [ $? != 0 ]
     then
         echo "Please fix the PHPCS errors before commit!"
         echo " => Run this command for automatic fixes."
-        echo "		composer lint:fix -- $FILES"
-        exit 1
-    fi
-fi
-
-if [ "$FILES" != "" ]
-then
-    echo "Running PHPStan Check..."
-    composer lint:stan
-    if [ $? != 0 ]
-    then
-        echo "Please fix the PHPStan errors before commit!"
-        echo " => Run this command to check PHPStan errors."
-        echo "		composer lint:stan"
+        echo "		composer phpcbf -- $FILES"
         exit 1
     fi
 fi
