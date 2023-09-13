@@ -59,10 +59,9 @@ if [ "$FILES" != "" ]
 then
     echo "Running PHPCBF Check..."
     composer phpcbf -n $FILES
-    if [ $? !== 0 ]
+    if [ $? != 0 ]
     then
-        echo "If any issues remained, please fix it manually before commit! Else commit will fail."
-        echo " => Proceed to push if REMAINING count is 0."
+        echo "For REMAINING issues fix it manually before commit! Proceed to push if REMAINING count is 0."
         echo " => Run this command to get PHPCS issues."
         echo "		composer phpcs -- $FILES"
         exit 1
