@@ -51,7 +51,7 @@ done
 
 if [ "$FILES" = "" ]
 then
-    echo "All good..."
+    echo "All good...🎉"
     exit 0
 fi
 
