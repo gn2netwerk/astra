@@ -232,6 +232,15 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		),
 	);
 
+if (transperent_anchor_styling()) {
+	$submenu_transperent_anchor_desktop = array (
+		'.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-link, .ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link' => array(
+            'background-color' => 'transparent',
+        ),
+	);
+
+	$transparent_header_desktop = array_merge($transparent_header_desktop, $submenu_transperent_anchor_desktop );
+}
 	$transparent_header_tablet = array(
 
 		'.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-bar-wrap .main-header-menu, .ast-theme-transparent-header.ast-header-break-point .main-header-bar-wrap .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .ast-mobile-header-wrap .main-header-bar' => array(
@@ -525,3 +534,15 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	return $dynamic_css;
 }
+
+/**
+		 * To avoid multiple transperent colour in submenu anchor tag.
+		 * Old Users - Will not reflect directly.
+		 * New Users - Will see the changes
+		 * @return bool true|false.
+		 * @since x.x.x
+		 */
+		function transperent_anchor_styling() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return apply_filters( 'submenu_anchor_transperent_style', isset( $astra_settings['v4-3-2-anchor_transperent_style'] ) ? false : true );
+		}
