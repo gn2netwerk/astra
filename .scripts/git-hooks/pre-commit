@@ -59,7 +59,7 @@ if [ "$FILES" != "" ]
 then
     echo "Running PHPCBF Check..."
     composer phpcbf -n $FILES
-    if [ $? != 0 ]
+    if [ $? !== 0 ]
     then
         echo "PRE Commit test"
 		echo $?

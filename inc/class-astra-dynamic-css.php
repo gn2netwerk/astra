@@ -91,9 +91,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 			}
 
-			$title_color                = astra_get_option( 'header-color-site-title' );
+			$title_color             = astra_get_option( 'header-color-site-title' );
 			$title_hover_color          = astra_get_option( 'header-color-h-site-title' );
-			$tagline_color              = astra_get_option( 'header-color-site-tagline' );
+			$tagline_color          = astra_get_option( 'header-color-site-tagline' );
 			$site_title_setting         = astra_get_option( 'display-site-title-responsive' );
 			$desktop_title_visibility   = $site_title_setting['desktop'] ? 'block' : 'none';
 			$tablet_title_visibility    = $site_title_setting['tablet'] ? 'block' : 'none';
