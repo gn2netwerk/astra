@@ -727,6 +727,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'isWP_5_9'                    => astra_wp_version_compare( '5.8.99', '>=' ),
 					'ast_page_bg_title'           => __( 'Surface Colors', 'astra' ),
 					'page_bg_toggle_options'      => $this->get_page_bg_toggle_options(),
+					'surface_color_help_text'     => __( 'Enabling this option will override global > colors > surface color options', 'astra' ),
 				)
 			);
 

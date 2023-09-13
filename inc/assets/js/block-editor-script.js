@@ -405,7 +405,9 @@ function astra_onload_function() {
 			}
 
 			// Page background editor compatibility for direct reflection of color picker.
-			updatePageBackground();
+			if ( 'enabled' === astraColors.background_toggle ) {
+				updatePageBackground();
+			}
 
 		}, 1 );
 	});
@@ -431,11 +433,11 @@ const updatePageBackground = () => {
 
 	// Document as per wp version.
 	editorDoc = document;
+	let desktopPreview = document.getElementsByClassName('is-desktop-preview'),
+		tabletPreview = document.getElementsByClassName('is-tablet-preview'),
+		mobilePreview = document.getElementsByClassName('is-mobile-preview'),
+		devicePreview = desktopPreview[0];
 	if ( astraColors.ast_wp_version_higher_6_3 ) {
-		let desktopPreview = document.getElementsByClassName('is-desktop-preview'),
-			tabletPreview = document.getElementsByClassName('is-tablet-preview'),
-			mobilePreview = document.getElementsByClassName('is-mobile-preview'),
-			devicePreview = desktopPreview[0];
 
 		if ( tabletPreview.length > 0 ) {
 			devicePreview = tabletPreview[0];
@@ -449,13 +451,89 @@ const updatePageBackground = () => {
 		}
 	}
 
-	// Get the background object css values and update page background.
-	const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
-	applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS, document );
+	if ( desktopPreview.length > 0 ) {
 
-	// Get the background object css values and update page content background.
-	const desktopContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'desktop');
-	applyStylesToElement('.editor-styles-wrapper', desktopContentCSS, editorDoc );
+		// Get the background object css values and update page background.
+		const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
+		applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS, document );
+
+		// Get the background object css values and update page content background.
+		const desktopContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'desktop');
+		applyStylesToElement('.editor-styles-wrapper', desktopContentCSS, editorDoc );
+
+	}
+	else if ( tabletPreview.length > 0 ) {
+		// Check current layout.
+		is_boxed_based_layout =   document.querySelector('body').contains( document.querySelector('.ast-separate-container') );
+
+		if ( astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
+			
+			/** Fullwidth with Content Bg */
+			// Get the background object css values and update page content background.
+			const tabletContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'tablet');
+			applyStylesToElement('.editor-styles-wrapper', tabletContentCSS, editorDoc );
+
+			// Set page background to black to indicate that page background not applicable.
+			applyStylesToElement('#editor .edit-post-visual-editor', {'background-color' : '#363636'}, document );
+		}
+		else if ( ! astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
+			
+			/** Fullwidth with Page Bg */
+			// Get the background object css values and update page background.
+			const tabletCSS = astraGetResponsiveBackgroundObj(bgObj, 'tablet');
+			applyStylesToElement('.editor-styles-wrapper', tabletCSS, document );
+
+		}
+		else if ( is_boxed_based_layout ) {
+			
+			/** Boxed Layouts with Content Bg & Page Bg */
+			// Get the background object css values and update page background.
+			const tabletCSS = astraGetResponsiveBackgroundObj(bgObj, 'tablet');
+			applyStylesToElement('#editor .edit-post-visual-editor', tabletCSS, document );
+
+			// Get the background object css values and update page content background.
+			const tabletContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'tablet');
+			applyStylesToElement('.editor-styles-wrapper', tabletContentCSS, editorDoc );
+
+		}
+	}
+	else if ( mobilePreview.length > 0 ) {
+
+		// Check current layout.
+		is_boxed_based_layout =   document.querySelector('body').contains( document.querySelector('.ast-separate-container') );
+
+		if ( astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
+			
+			/** Fullwidth with Content Bg */
+			// Get the background object css values and update page content background.
+			const mobileContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'mobile');
+			applyStylesToElement('.editor-styles-wrapper', mobileContentCSS, editorDoc );
+
+			// Set page background to black to indicate that page background not applicable.
+			applyStylesToElement('#editor .edit-post-visual-editor', {'background-color' : '#363636'}, document );
+		}
+		else if ( ! astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
+			
+			/** Fullwidth with Page Bg */
+			// Get the background object css values and update page background.
+			const mobileCSS = astraGetResponsiveBackgroundObj(bgObj, 'mobile');
+			applyStylesToElement('.editor-styles-wrapper', mobileCSS, document );
+
+		}
+		else if ( is_boxed_based_layout ) {
+			
+			/** Boxed Layouts with Content Bg & Page Bg */
+			// Get the background object css values and update page background.
+			const mobileCSS = astraGetResponsiveBackgroundObj(bgObj, 'mobile');
+			applyStylesToElement('#editor .edit-post-visual-editor', mobileCSS, document );
+
+			// Get the background object css values and update page content background.
+			const mobileContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'mobile');
+			applyStylesToElement('.editor-styles-wrapper', mobileContentCSS, editorDoc );
+
+		}
+	}
+
 
 }
 

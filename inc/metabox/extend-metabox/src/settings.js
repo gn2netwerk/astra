@@ -366,6 +366,7 @@ const MetaSettings = props => {
 												<tr className="ast-advanced-hook-row">
 													<td className="ast-advanced-hook-row-heading">
 														<label> { astMetaParams.ast_page_bg_title }</label>
+														<><i className="ast-control-tooltip dashicons dashicons-editor-help" ></i><span className="ast-dashicons-custom-tooltip"> { astMetaParams.surface_color_help_text }</span></>
 													</td>
 													<td className="ast-advanced-hook-row-content">
 														<section>
