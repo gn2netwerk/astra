@@ -470,8 +470,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			// Override site background and content background customizer setting with meta value if set.
-		    $post_id                = get_the_ID();
-		    $site_background_toggle = get_post_meta( $post_id, 'ast-page-background-toggle', true );
+			$post_id = get_the_ID();
+			if ( $post_id ) {
+				$site_background_toggle = get_post_meta( $post_id, 'ast-page-background-toggle', true );
+			}
 
 			$astra_global_palette_instance = new Astra_Global_Palette();
 			$astra_colors                  = array(

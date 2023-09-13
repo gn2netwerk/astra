@@ -322,7 +322,7 @@ class Astra_WP_Editor_CSS {
 		$post_id                = get_the_ID();
 		$site_background_toggle = get_post_meta( $post_id, 'ast-page-background-toggle', true );
 
-		if ( isset( $site_background_toggle ) && 'enabled' === $site_background_toggle ) {
+		if ( isset( $site_background_toggle ) && 'enabled' === $site_background_toggle && $post_id ) {
 			$site_background    = get_post_meta( $post_id, 'ast-page-background-meta', true );
 			$content_background = get_post_meta( $post_id, 'ast-content-background-meta', true );
 		}
