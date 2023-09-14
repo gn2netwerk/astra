@@ -141,7 +141,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'priority'    => 2,
 				'transport'   => 'postMessage',
 				'default'     => astra_get_option( 'header-search-width' ),
-				'title'       => __( 'Search Bar Width', 'astra' ),
+				'title'       => __( 'Search Width', 'astra' ),
 				'suffix'      => 'px',
 				'type'        => 'control',
 				'control'     => 'ast-responsive-slider',
@@ -150,7 +150,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 					'step' => 1,
 					'max'  => 1000,
 				),
-				'divider'     => defined( 'ASTRA_EXT_VER' ) ? array( 'ast_class' => 'ast-top-dotted-divider' ) : array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+				'divider'     => defined( 'ASTRA_EXT_VER' ) ? array( 'ast_class' => 'ast-top-dotted-divider' ) : array( 'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider' ),
 				'context'     => defined( 'ASTRA_EXT_VER' ) ? array(
 					Astra_Builder_Helper::$general_tab_config,
 					array(
