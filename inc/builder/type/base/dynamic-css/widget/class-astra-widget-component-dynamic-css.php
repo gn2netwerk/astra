@@ -107,9 +107,9 @@ class Astra_Widget_Component_Dynamic_CSS {
 						// Typography.
 						'font-size' => astra_responsive_font( $content_font_size, 'tablet' ),
 					),
-					$selector . ' .widget-title, ' .  $selector . ' h1, ' . $selector . ' .widget-area h1, ' . $selector . ' h2, ' . $selector . ' .widget-area h2, ' . $selector . ' h3, ' . $selector . ' .widget-area h3, ' . $selector . ' h4, ' . $selector . ' .widget-area h4, ' . $selector . ' h5, ' . $selector . ' .widget-area h5, ' . $selector . ' h6, ' . $selector . ' .widget-area h6' => array( 
-						'color'     =>  $title_color_tablet,
-						'font-size' => astra_responsive_font($title_font_size, 'tablet'),
+					$selector . ' .widget-title, ' . $selector . ' h1, ' . $selector . ' .widget-area h1, ' . $selector . ' h2, ' . $selector . ' .widget-area h2, ' . $selector . ' h3, ' . $selector . ' .widget-area h3, ' . $selector . ' h4, ' . $selector . ' .widget-area h4, ' . $selector . ' h5, ' . $selector . ' .widget-area h5, ' . $selector . ' h6, ' . $selector . ' .widget-area h6' => array( 
+						'color'     => $title_color_tablet,
+						'font-size' => astra_responsive_font( $title_font_size, 'tablet' ),
 					),
 					$builder_widget_selector . ' a'       => array(
 						'color' => $link_color_tablet,
@@ -134,7 +134,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 					),
 					$selector . ' .widget-title, ' . $selector . ' h1, ' . $selector . ' .widget-area h1, ' . $selector . ' h2, ' . $selector . ' .widget-area h2, ' . $selector . ' h3, ' . $selector . ' .widget-area h3, ' . $selector . ' h4, ' . $selector . ' .widget-area h4, ' . $selector . ' h5, ' . $selector . ' .widget-area h5, ' . $selector . ' h6, ' . $selector . ' .widget-area h6' => array( 
 						'color'     => $title_color_mobile,
-						'font-size' => astra_responsive_font($title_font_size, 'mobile'),
+						'font-size' => astra_responsive_font( $title_font_size, 'mobile' ),
 					),
 					$builder_widget_selector . ' a'       => array(
 						'color' => $link_color_mobile,
@@ -151,14 +151,14 @@ class Astra_Widget_Component_Dynamic_CSS {
 					),
 				);
 
-			/* Parse CSS from array() */
-			$css_output  = astra_parse_css( $css_output_desktop );
-			$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
-			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+				/* Parse CSS from array() */
+				$css_output  = astra_parse_css( $css_output_desktop );
+				$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
+				$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
-			$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'block' );
+				$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'block' );
 
-			$generated_css .= $css_output;
+				$generated_css .= $css_output;
 
 		}
 
