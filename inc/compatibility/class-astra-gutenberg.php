@@ -181,7 +181,6 @@ class Astra_Gutenberg {
 			$replace_regex,
 			function ( $matches ) use ( $video_url, $block_content, $block ) {
 				return Astra_After_Setup_Theme::get_instance()->responsive_oembed_wrapper( '', $video_url, array(), true );
-				// return $matches[1] . '<div class="wp-block-group__inner-container">' . $matches[2] . '</div>' . $matches[3];
 			},
 			$block_content
 		);
