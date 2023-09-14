@@ -1427,7 +1427,7 @@ function astra_theme_background_updater_4_2_2() {
 
 
 /**
- * Handle backward compatibility on version 4.2.2
+ * Handle backward compatibility on version x.x.x
  *
  * @since x.x.x
  * @return void
