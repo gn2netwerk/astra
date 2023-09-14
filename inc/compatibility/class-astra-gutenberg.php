@@ -179,6 +179,11 @@ class Astra_Gutenberg {
 
 		$updated_content = preg_replace_callback(
 			$replace_regex,
+			/**
+			 * Add iframe wrapper for videos.
+			 * @param  array $matches Matches.
+			 * @return mixed          Updated content.
+			 */
 			function ( $matches ) use ( $video_url, $block_content, $block ) {
 				return Astra_After_Setup_Theme::get_instance()->responsive_oembed_wrapper( '', $video_url, array(), true );
 			},
