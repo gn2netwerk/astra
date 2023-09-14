@@ -158,7 +158,7 @@ class Astra_Widget_Component_Dynamic_CSS {
 
 				$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( $_section, $selector, 'block' );
 
-				$generated_css .= $css_output;
+			$generated_css .= $css_output;
 
 		}
 
