@@ -375,17 +375,17 @@ const MetaSettings = props => {
 															{/* Toggle for Page Background */}
 															<div className="components-base-control__field">
 																<AstSelectorControl
-																	metavalue = { ( undefined !== props.meta['ast-page-background-toggle'] && ''!== props.meta['ast-page-background-toggle'] ? props.meta['ast-page-background-toggle'] : 'default' ) }
+																	metavalue = { ( undefined !== props.meta['ast-page-background-enabled'] && ''!== props.meta['ast-page-background-enabled'] ? props.meta['ast-page-background-enabled'] : 'default' ) }
 																	choices = { pageBgToggleOptions }
-																	id = { 'ast-page-background-toggle' }
+																	id = { 'ast-page-background-enabled' }
 																	onChange={ ( val ) => {
-																		props.setMetaFieldValue( val, 'ast-page-background-toggle' );
+																		props.setMetaFieldValue( val, 'ast-page-background-enabled' );
 																	} }
 																/>
 															</div>
 
 															{/* Responsive Bg Control */}
-															{ undefined !== props.meta['ast-page-background-toggle'] && 'enabled' === props.meta['ast-page-background-toggle'] &&
+															{ undefined !== props.meta['ast-page-background-enabled'] && 'enabled' === props.meta['ast-page-background-enabled'] &&
 																<>
 																<div id="customize-control-astra-settings-site-layout-outside-bg-obj-responsive" className='customize-control customize-control-ast-responsive-background'>
 																	<ResponsiveBackground 

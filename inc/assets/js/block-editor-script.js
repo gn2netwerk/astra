@@ -415,8 +415,8 @@ function astra_onload_function() {
 			const backgroundToggle = (undefined !== wp.data.select('core/editor') &&
 			null !== wp.data.select('core/editor') &&
 			undefined !== wp.data.select('core/editor').getEditedPostAttribute('meta') &&
-			wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-toggle'])
-			? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-toggle']
+			wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-enabled'])
+			? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-enabled']
 			: 'default';
 
 			if ( 'enabled' === backgroundToggle ) {

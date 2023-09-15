@@ -1272,7 +1272,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			register_post_meta(
 				'',
-				'ast-page-background-toggle',
+				'ast-page-background-enabled',
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
@@ -1693,7 +1693,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast-breadcrumbs-content'       => array(
 						'sanitize' => 'FILTER_SANITIZE_STRING',
 					),
-					'ast-page-background-toggle'    => array(
+					'ast-page-background-enabled'    => array(
 						'default'  => 'default',
 						'sanitize' => 'FILTER_DEFAULT',
 					),

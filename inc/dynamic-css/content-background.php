@@ -29,7 +29,7 @@ function astra_content_background_css( $dynamic_css ) {
 	$content_bg_obj          = astra_get_option( 'content-bg-obj-responsive' );
 
 	// Override content background with meta value if set.
-	$meta_background_enabled = astra_get_option_meta( 'ast-page-background-toggle' );
+	$meta_background_enabled = astra_get_option_meta( 'ast-page-background-enabled' );
 
 	// Check for third party pages meta.
 	if ( '' === $meta_background_enabled && astra_with_third_party() ) {
@@ -181,11 +181,11 @@ function astra_content_background_css( $dynamic_css ) {
 function astra_apply_unboxed_container( $content_bg_obj, $is_boxed, $is_sidebar_boxed, $current_layout ) {
 	
 	$site_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
-	$meta_background_enabled = astra_get_option_meta( 'ast-page-background-toggle' );
+	$meta_background_enabled = astra_get_option_meta( 'ast-page-background-enabled' );
 	
 	// Check for third party pages meta.
 	if ( '' === $meta_background_enabled && astra_with_third_party() ) {
-		$meta_background_enabled = astra_third_party_archive_meta( 'ast-page-background-toggle' );
+		$meta_background_enabled = astra_third_party_archive_meta( 'ast-page-background-enabled' );
 		if ( isset( $meta_background_enabled ) && 'enabled' === $meta_background_enabled ) {
 			$site_bg_obj = astra_third_party_archive_meta( 'ast-page-background-meta' );
 		}
