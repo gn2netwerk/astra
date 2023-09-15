@@ -221,7 +221,7 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 				'choices'   => $this->get_search_post_types_choices(),
 				'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				'renderAs'   => 'text',
-				'input_attrs'       => array(
+				'input_attrs'     => array(
 					'stack_after' => 2, // Currently stack options supports after 2 & 3.
 				),
 			),
