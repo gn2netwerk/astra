@@ -76,7 +76,7 @@ const MultiSelectComponent = props => {
 			)
 		}
 
-		<div className='ast-customizer-filter-taxonomies-wrap'>
+		<div className='ast-customizer-select-multi'>
 			<Select
 				name = { name }
 				value = { selectedValues }
@@ -86,6 +86,11 @@ const MultiSelectComponent = props => {
 				onFocus = { () => verticalScroll() }
 				className = "ast-variant-select"
 				classNamePrefix="ast-multi-select"
+				components={{
+					DropdownIndicator: () => null,
+					IndicatorSeparator: () => null,
+					ClearIndicator: () => null
+				}}
 			/>
 			{helpHtml}
 		</div>

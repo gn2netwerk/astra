@@ -3628,6 +3628,23 @@ span.customize-control-title.ast-group-section-title {
   width: 100%;
 }
 
+.ast-customizer-select-multi .ast-multi-select__input-container input:focus{
+    box-shadow: none;
+}
+
+.ast-customizer-select-multi .ast-multi-select__multi-value__label {
+    margin-right: 0.2em;
+}
+
+.ast-customizer-select-multi .ast-multi-select__multi-value {
+    padding: 0.3em 0.3em 0.3em 0.5em;
+}
+
+.ast-customizer-select-multi .ast-multi-select__menu *, .ast-customizer-select-multi .ast-multi-select__multi-value__remove {
+    cursor: pointer;
+}
+
+
 .ast-variant-select > div {
 	border-color: #dddddd;
 }
