@@ -336,11 +336,12 @@ const MetaSettings = props => {
 														</section>
 													</td>
 												</tr>
-												{ topTableSpacing }
 											</>
 										}
 										{ astMetaParams.is_addon_activated && astMetaParams.sticky_addon_enabled && 'enabled' == props.meta['stick-header-meta'] &&
 											<>
+											{ bottomTableSpacing }
+											{ topTableSpacing }
 												<tr className="ast-advanced-hook-row">
 													<td className="ast-advanced-hook-row-heading">
 														<label> { astMetaParams.sticky_header_title }</label>
@@ -353,20 +354,19 @@ const MetaSettings = props => {
 														</section>
 													</td>
 												</tr>
-												{ topTableSpacing }
 											</>
 										}
 
 										{/* Page Background */}
 										{ astMetaParams.is_addon_activated && astMetaParams.color_addon_enabled &&
 											<>
-												{ bottomTableSpacing }
-												{ topTableSpacing }
+										{ bottomTableSpacing }
+										{ topTableSpacing }
 												<tr className="ast-advanced-hook-row">
-													<td className="ast-advanced-hook-row-heading">
+													<td className="ast-advanced-hook-row-heading ast-show-help-text-container">
 														<label> { astMetaParams.ast_page_bg_title }</label>
-														<><i className="ast-control-tooltip dashicons dashicons-editor-help" onClick={ () => setShowHelpText( ! showHelpText ) }></i>
-														 { showHelpText && <span className="ast-dashicons-custom-tooltip"> { astMetaParams.surface_color_help_text }</span> }
+														<><i className="ast-control-tooltip dashicons dashicons-editor-help"></i>
+														<span className="ast-dashicons-custom-tooltip"> { astMetaParams.surface_color_help_text }</span>
 														</>
 													</td>
 													<td className="ast-advanced-hook-row-content">
