@@ -3317,13 +3317,14 @@ namespace {
         {
         }
         /**
-         * Comment meta wrapper opening div.
+         * Adds a responsive embed wrapper around oEmbed content
          *
-         * @param array $args markup arguments.
-         * @since 3.3.0
-         * @return array.
+         * @param  string $html The oEmbed markup.
+         * @param  string $url The URL being embedded.
+         * @param  array  $attr An array of attributes.
+		     * @param  bool   $core_yt_block Whether the oEmbed is being rendered by the core YouTube block.
          */
-        public function ast_comment_meta_wrap_open($args)
+        public function responsive_oembed_wrapper($html, $url, $attr, $core_yt_block = false)
         {
         }
         /**
