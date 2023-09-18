@@ -539,7 +539,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				 */
 				array(
 					'name'              => $title_section . '-image-custom-scale-width',
-					'default'           => astra_get_option( $title_section . '-image-custom-scale-width', '' ),
+					'default'           => astra_get_option( $title_section . '-image-custom-scale-width', 16 ),
 					'type'              => 'sub-control',
 					'control'           => 'ast-number',
 					'transport'         => 'postMessage',
@@ -561,7 +561,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				 */
 				array(
 					'name'              => $title_section . '-image-custom-scale-height',
-					'default'           => astra_get_option( $title_section . '-image-custom-scale-height', '' ),
+					'default'           => astra_get_option( $title_section . '-image-custom-scale-height', 9 ),
 					'type'              => 'sub-control',
 					'control'           => 'ast-number',
 					'transport'         => 'postMessage',
