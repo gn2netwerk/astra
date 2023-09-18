@@ -340,7 +340,6 @@ const MetaSettings = props => {
 										}
 										{ astMetaParams.is_addon_activated && astMetaParams.sticky_addon_enabled && 'enabled' == props.meta['stick-header-meta'] &&
 											<>
-											{ bottomTableSpacing }
 											{ topTableSpacing }
 												<tr className="ast-advanced-hook-row">
 													<td className="ast-advanced-hook-row-heading">
