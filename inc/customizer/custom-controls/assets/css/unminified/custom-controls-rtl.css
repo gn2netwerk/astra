@@ -3675,8 +3675,8 @@ span.customize-control-title.ast-group-section-title {
 .ast-customizer-select-multi .ast-multi-select__multi-value {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 12px;
-    padding: 2px 2px 2px 2px;
+    font-size: 14px;
+    padding: 2px 5px 2px 5px;
     min-width: auto;
     color: #4B5563;
     background-color: #F5F5F5;
