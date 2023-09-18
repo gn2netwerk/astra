@@ -464,7 +464,7 @@ a.ast-pro-upgrade-link {
   .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
     width: 300px;
   }
-  
+
   .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
   .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-white {
     border-radius: unset;
@@ -1219,10 +1219,6 @@ a.ast-pro-upgrade-link {
 }
 @media (max-width: 1845px) {
     /** Responsive Devices - Compatibility CSS */
-    .ast-color-palette .components-circular-option-picker__option-wrapper {
-        height: 22px;
-        width: 22px;
-    }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
         padding: 6px 10px;
     }
@@ -2104,4 +2100,18 @@ a.ast-pro-upgrade-link {
 
 .ast-show-help-text-container {
   position: relative;
+}
+
+.customize-control-ast-responsive-background .more-settings .message, .customize-control-ast-background .more-settings .message {
+  margin-right: 5px;
+}
+
+.customize-control .media-position-setting label.components-text {
+  text-transform: capitalize;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.components-base-control .components-base-control__field .components-input-control__backdrop {
+  border-color: #D1D5DB !important;
 }

@@ -608,6 +608,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$palette_css_var_prefix   = Astra_Global_Palette::get_css_variable_prefix();
 			$apply_new_default_values = astra_button_default_padding_updated();
+			$page_bg_dynamic_title    = ( isset ( $post_type ) ? __( ucfirst( $post_type ) . ' Background', 'astra' ) : __( 'Page Background', 'astra' ) );
+
 			wp_localize_script(
 				'astra-meta-settings',
 				'astMetaParams',
@@ -728,6 +730,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'ast_page_bg_title'           => __( 'Surface Colors', 'astra' ),
 					'page_bg_toggle_options'      => $this->get_page_bg_toggle_options(),
 					'surface_color_help_text'     => __( 'Enabling this option will override global > colors > surface color options', 'astra' ),
+					'page_bg_dynamic_title'       => $page_bg_dynamic_title,
 				)
 			);
 

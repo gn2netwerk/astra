@@ -464,7 +464,7 @@ a.ast-pro-upgrade-link {
   .customize-control-ast-responsive-background .customize-control-content .astra-color-picker-wrap {
     width: 300px;
   }
-  
+
   .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-color,
   .customize-control-ast-responsive-background .customize-control-content .components-color-picker__saturation-white {
     border-radius: unset;
@@ -1219,10 +1219,6 @@ a.ast-pro-upgrade-link {
 }
 @media (max-width: 1845px) {
     /** Responsive Devices - Compatibility CSS */
-    .ast-color-palette .components-circular-option-picker__option-wrapper {
-        height: 22px;
-        width: 22px;
-    }
     .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
         padding: 6px 10px;
     }
@@ -2033,8 +2029,11 @@ a.ast-pro-upgrade-link {
 /** Tooltip CSS **/
 
 .ast-dashicons-custom-tooltip {
-  position: relative;
-  top: 34px;
+  position: absolute;
+  right: 8px;
+  top: 20px;
+  width: 150px;
+  z-index: 999;
 	padding: 8px 8px;
 	font-size: 12px;
 	font-weight: normal;
@@ -2049,15 +2048,17 @@ a.ast-pro-upgrade-link {
 	justify-content: center;
   line-height: 1.5em;
   text-align: center;
-}
-
-/* Add a class to trigger the slide-down effect */
-.show-tooltip {
-  max-height: 200px; /* Adjust this value to control the height of the slide-down element */
+  visibility: hidden;
 }
 
 .dashicons-editor-help {
   cursor: pointer;
+  font-size: 16px;
+}
+
+.dashicons-editor-help:hover ~ .ast-dashicons-custom-tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 /** Custom CSS for Page Background **/
@@ -2094,4 +2095,23 @@ a.ast-pro-upgrade-link {
 
 #customize-control-astra-settings-content-bg-obj-responsive {
   margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.ast-show-help-text-container {
+  position: relative;
+}
+
+.customize-control-ast-responsive-background .more-settings .message, .customize-control-ast-background .more-settings .message {
+  margin-left: 5px;
+}
+
+.customize-control .media-position-setting label.components-text {
+  text-transform: capitalize;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.components-base-control .components-base-control__field .components-input-control__backdrop {
+  border-color: #D1D5DB !important;
 }

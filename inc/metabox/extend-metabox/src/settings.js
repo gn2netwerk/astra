@@ -360,8 +360,8 @@ const MetaSettings = props => {
 										{/* Page Background */}
 										{ astMetaParams.is_addon_activated && astMetaParams.color_addon_enabled &&
 											<>
-										{ bottomTableSpacing }
-										{ topTableSpacing }
+											{ bottomTableSpacing }
+											{ topTableSpacing }
 												<tr className="ast-advanced-hook-row">
 													<td className="ast-advanced-hook-row-heading ast-show-help-text-container">
 														<label> { astMetaParams.ast_page_bg_title }</label>
@@ -395,7 +395,7 @@ const MetaSettings = props => {
 																				'default' : astMetaParams.site_page_bg_meta_default,
 																				'ignore_responsive_btns' : false,
 																				'setMetaFieldValue' : props.setMetaFieldValue,
-																				'label' : 'Page Background',
+																				'label' : astMetaParams.page_bg_dynamic_title,
 																				'description' : '',
 																			} }
 																		id = { 'ast-page-background-meta' }

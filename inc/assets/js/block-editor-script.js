@@ -337,6 +337,17 @@ function astra_onload_function() {
 				}
 			}
 
+			// Container unboxed + sidebar boxed case.
+			let isUnboxedContainer = false;
+			const is_sidebar_default_enabled = 'default' === sidebarLayout && ( ! bodyClass.classList.contains( 'ast-sidebar-default-no-sidebar' ) );
+			if ( ( 'normal-width-container' === contentLayout || is_default_normal_width ) ) {
+				if ( is_sidebar_default_enabled || 'no-sidebar' !== sidebarLayout ) {
+					if ( 'default' === contentStyle && ! is_content_style_boxed ||  'unboxed' === contentStyle ) {
+						isUnboxedContainer = true;
+					}
+				}
+			}
+
 			const editorStylesWrapper = editorDocument.querySelector( '.editor-styles-wrapper' );
 
 			if( null !== editorStylesWrapper ) {
@@ -418,6 +429,7 @@ function astra_onload_function() {
 				}
 			}
 
+			// Live reflections for page background setting.
 			const backgroundToggle = (undefined !== wp.data.select('core/editor') &&
 			null !== wp.data.select('core/editor') &&
 			undefined !== wp.data.select('core/editor').getEditedPostAttribute('meta') &&
@@ -426,10 +438,20 @@ function astra_onload_function() {
 			: 'default';
 
 			if ( 'enabled' === backgroundToggle ) {
-				updatePageBackground();
+				if ( isUnboxedContainer ) {
+					updatePageBackground( false, isUnboxedContainer );
+				}
+				else {
+					updatePageBackground();
+				}
 			}
 			else if ( 'default' === backgroundToggle ) {
-				updatePageBackground( true );
+				if ( isUnboxedContainer ) {
+					updatePageBackground( true, isUnboxedContainer );
+				}
+				else {
+					updatePageBackground( true );
+				}
 			}
 
 		}, 1 );
@@ -439,7 +461,7 @@ function astra_onload_function() {
 /*
 * Updates the page background css from the color picker.
 */
-const updatePageBackground = ( apply_customizer_default = false ) => {
+const updatePageBackground = ( apply_customizer_default = false, isUnboxedContainer = false ) => {
 	
 	let bgObj = (undefined !== wp.data.select('core/editor') &&
     null !== wp.data.select('core/editor') &&
@@ -485,15 +507,24 @@ const updatePageBackground = ( apply_customizer_default = false ) => {
 		// Get the background object css values and update page background.
 		const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
 		applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS, document );
+		debugger
+		if ( isUnboxedContainer ) {
 
-		// Get the background object css values and update page content background.
-		const desktopContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'desktop');
-		applyStylesToElement('.editor-styles-wrapper', desktopContentCSS, editorDoc );
+			// container unboxed + sidebar boxed -> update page content background to site background.
+			applyStylesToElement('.editor-styles-wrapper', desktopCSS, editorDoc );			
+		}
+		else {
+
+			// Get the background object css values and update page content background.
+			const desktopContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'desktop');
+			applyStylesToElement('.editor-styles-wrapper', desktopContentCSS, editorDoc );
+		}
 
 	}
 	else if ( tabletPreview.length > 0 ) {
+
 		// Check current layout.
-		is_boxed_based_layout =   document.querySelector('body').contains( document.querySelector('.ast-separate-container') );
+		is_boxed_based_layout = document.querySelector('body').contains( document.querySelector('.ast-separate-container') );
 
 		if ( astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
 			
@@ -569,7 +600,7 @@ const updatePageBackground = ( apply_customizer_default = false ) => {
 /*
 * Dynamically applies styles to DOM element.
 */
-function applyStylesToElement(selector, styles, docObj ) {
+function applyStylesToElement( selector, styles, docObj ) {
 
   const element = docObj.querySelector(selector);
 
