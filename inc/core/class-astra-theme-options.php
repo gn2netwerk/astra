@@ -195,7 +195,34 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'button-h-color'                       => '',
 					'button-bg-color'                      => '',
 					'button-bg-h-color'                    => '',
+					'secondary-button-bg-h-color'          => '',
+					'secondary-button-bg-color'  		   => '',
+					'secondary-button-color'               => '',
+					'secondary-button-h-color'             => '',
 					'theme-button-padding'                 => array(
+						'desktop'      => array(
+							'top'    => $apply_new_default_values ? 15 : 10,
+							'right'  => $apply_new_default_values ? 30 : 40,
+							'bottom' => $apply_new_default_values ? 15 : 10,
+							'left'   => $apply_new_default_values ? 30 : 40,
+						),
+						'tablet'       => array(
+							'top'    => $apply_new_default_values ? 14 : '',
+							'right'  => $apply_new_default_values ? 28 : '',
+							'bottom' => $apply_new_default_values ? 14 : '',
+							'left'   => $apply_new_default_values ? 28 : '',
+						),
+						'mobile'       => array(
+							'top'    => $apply_new_default_values ? 12 : '',
+							'right'  => $apply_new_default_values ? 24 : '',
+							'bottom' => $apply_new_default_values ? 12 : '',
+							'left'   => $apply_new_default_values ? 24 : '',
+						),
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
+					'theme-secondary-button-padding'                 => array(
 						'desktop'      => array(
 							'top'    => $apply_new_default_values ? 15 : 10,
 							'right'  => $apply_new_default_values ? 30 : 40,
@@ -241,12 +268,42 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
+					'button-secondary-radius-fields'                 => array(
+						'desktop'      => array(
+							'top'    => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'right'  => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'bottom' => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+							'left'   => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
+						),
+						'tablet'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'mobile'       => array(
+							'top'    => '',
+							'right'  => '',
+							'bottom' => '',
+							'left'   => '',
+						),
+						'desktop-unit' => 'px',
+						'tablet-unit'  => 'px',
+						'mobile-unit'  => 'px',
+					),
 					'theme-button-border-group-border-size' => array(
 						'top'    => '',
 						'right'  => '',
 						'bottom' => '',
 						'left'   => '',
 					),
+					'theme-secondary-button-border-group-border-size' => array(
+						'top'    => '',
+						'right'  => '',
+						'bottom' => '',
+						'left'   => '',
+					),
+
 					// Footer - Small.
 					'footer-sml-layout'                    => 'footer-sml-layout-1',
 					'footer-sml-section-1'                 => 'custom',
