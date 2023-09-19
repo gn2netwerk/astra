@@ -841,6 +841,28 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 
 			}
 
+			/** Secondary buttons - outline styles */
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$_configs[] = array(
+					'name'        => 'section-scroll-to-top-ast-context-tabs',
+					'section'     => 'section-buttons',
+					'type'        => 'control',
+					'control'     => 'ast-builder-header-control',
+					'priority'    => 0,
+					'description' => '',
+				);
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[enable-scroll-to-top-notice]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-buttons',
+					'priority' => 1,
+					'label'    => '',
+					'help'     => __( 'Note: To get design settings in action make sure to enable Scroll to Top.', 'astra' ),
+					'context'  => Astra_Builder_Helper::$design_tab_config,
+				);
+			}
+
 			return array_merge( $configurations, $_configs );
 		}
 	}
