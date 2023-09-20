@@ -837,7 +837,7 @@ class Astra_Breadcrumb_Trail {
 			if ( isset( $post_type_object->rewrite['slug'] ) && ! empty( $post_type_object->rewrite['slug'] ) ) {
 				$this->add_path_parents( $post_type_object->rewrite['slug'] );
 			}
-		}		
+		}
 
 		// Add the post type [plural] name to the trail end.
 		if ( is_paged() || is_author() ) {
@@ -846,11 +846,11 @@ class Astra_Breadcrumb_Trail {
 			}
 		}
 		elseif ( true === $this->args['show_title'] ) {
-    			$this->items[] = post_type_archive_title( '', false );
+			$this->items[] = post_type_archive_title( '', false );
 		}
 		// If viewing a post type archive by author.
 		if ( is_author() ) {
-    			$this->add_user_archive_items();
+			$this->add_user_archive_items();
 		}
 	}
 
