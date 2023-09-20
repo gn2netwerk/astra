@@ -608,7 +608,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$palette_css_var_prefix   = Astra_Global_Palette::get_css_variable_prefix();
 			$apply_new_default_values = astra_button_default_padding_updated();
-			$page_bg_dynamic_title    = __( $post_type . ' Background', 'astra' );
+			$page_bg_dynamic_title    = ( $post_type ? __( $post_type . ' Background', 'astra' ) : __( 'Page Background', 'astra' ) );
 
 			wp_localize_script(
 				'astra-meta-settings',
