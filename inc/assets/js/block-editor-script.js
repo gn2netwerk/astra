@@ -507,7 +507,7 @@ const updatePageBackground = ( apply_customizer_default = false, isUnboxedContai
 		// Get the background object css values and update page background.
 		const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
 		applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS, document );
-		debugger
+
 		if ( isUnboxedContainer ) {
 
 			// container unboxed + sidebar boxed -> update page content background to site background.
@@ -603,6 +603,9 @@ const updatePageBackground = ( apply_customizer_default = false, isUnboxedContai
 function applyStylesToElement( selector, styles, docObj ) {
 
   const element = docObj.querySelector(selector);
+
+  // Remove any prior cache values if set already.
+  element.style.backgroundImage = 'none';
 
   if (element) {
     Object.keys(styles).forEach((property) => {

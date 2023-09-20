@@ -365,7 +365,10 @@ const MetaSettings = props => {
 													<td className="ast-advanced-hook-row-heading ast-show-help-text-container">
 														<label> { astMetaParams.ast_page_bg_title }</label>
 														<><i className="ast-control-tooltip dashicons dashicons-editor-help"></i>
-														<span className="ast-dashicons-custom-tooltip"> { astMetaParams.surface_color_help_text }</span>
+														{ undefined !== props.meta['ast-page-background-enabled'] && 'enabled' === props.meta['ast-page-background-enabled'] ?
+														<span className="ast-dashicons-custom-tooltip"> { astMetaParams.surface_color_help_text }</span> :
+														<span className="ast-dashicons-custom-tooltip" style={{bottom:'15px', top: 'unset'}}> { astMetaParams.surface_color_help_text }</span>
+														}
 														</>
 													</td>
 													<td className="ast-advanced-hook-row-content">
