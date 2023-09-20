@@ -2053,7 +2053,11 @@ a.ast-pro-upgrade-link {
 
 .dashicons-editor-help {
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  color: rgb(156, 163, 175);
+  position: relative;
+  right: 6px;
+  top: 2px;
 }
 
 .dashicons-editor-help:hover ~ .ast-dashicons-custom-tooltip {
