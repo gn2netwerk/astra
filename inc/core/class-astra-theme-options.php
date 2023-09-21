@@ -222,7 +222,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'theme-secondary-button-padding'                 => array(
+					'secondary-theme-button-padding'                 => array(
 						'desktop'      => array(
 							'top'    => $apply_new_default_values ? 15 : 10,
 							'right'  => $apply_new_default_values ? 30 : 40,
@@ -297,7 +297,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'bottom' => '',
 						'left'   => '',
 					),
-					'theme-secondary-button-border-group-border-size' => array(
+					'secondary-theme-button-border-group-border-size' => array(
 						'top'    => '',
 						'right'  => '',
 						'bottom' => '',

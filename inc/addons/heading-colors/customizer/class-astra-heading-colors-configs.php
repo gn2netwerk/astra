@@ -77,7 +77,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'title'     => __( 'Font', 'astra' ),
 					'section'   => 'section-buttons',
 					'transport' => 'postMessage',
-					'priority'  => 11.5,
+					'priority'  => 10,
 					'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 					'context'  => Astra_Builder_Helper::$design_tab,
 				),
