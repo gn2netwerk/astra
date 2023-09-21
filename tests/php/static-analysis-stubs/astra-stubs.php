@@ -8034,18 +8034,6 @@ namespace {
         public function setup_content_width()
         {
         }
-        /**
-         * Adds a responsive embed wrapper around oEmbed content
-         *
-         * @param  string $html The oEmbed markup.
-         * @param  string $url The URL being embedded.
-         * @param  array  $attr An array of attributes.
-         *
-         * @return string       Updated embed markup.
-         */
-        public function responsive_oembed_wrapper($html, $url, $attr)
-        {
-        }
     }
     /**
      * Astra Schema Markup.
