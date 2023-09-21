@@ -3322,7 +3322,7 @@ namespace {
          * @param  string $html The oEmbed markup.
          * @param  string $url The URL being embedded.
          * @param  array  $attr An array of attributes.
-		     * @param  bool   $core_yt_block Whether the oEmbed is being rendered by the core YouTube block.
+		 * @param  bool   $core_yt_block Whether the oEmbed is being rendered by the core YouTube block.
          */
         public function responsive_oembed_wrapper($html, $url, $attr, $core_yt_block = false)
         {
