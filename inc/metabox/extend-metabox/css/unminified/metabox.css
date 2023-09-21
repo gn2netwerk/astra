@@ -1217,44 +1217,7 @@ a.ast-pro-upgrade-link {
 .customize-control-ast-color + .customize-control-ast-color {
     margin-top: 30px;
 }
-@media (max-width: 1845px) {
-    /** Responsive Devices - Compatibility CSS */
-    .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
-        padding: 6px 10px;
-    }
-    .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-        width: 20px;
-        top: -2px;
-    }
-    .ast-color-palette .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
-        width: 24px;
-        height: 24px;
-    }
-    .astra-popover-color .ast-color-palette.components-circular-option-picker {
-        width: auto;
-        padding: 16px 0px 0px 8px;
-    }
-    .astra-typography-control .typography-button-wrap > button.components-button.astra-typography-preview-indicate {
-        padding: 0 2px;
-    }
-    .astra-typography-control .typography-button-wrap > button.components-button {
-        padding: 0 4px;
-	}
-	/** Modal Popup */
-	.ast-fields-wrap .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
-        width: auto;
-        height: auto;
-	}
-	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option-wrapper {
-		height: 20px;
-		width: 20px;
-	}
-	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
-		left: 1px;
-		top: -2px;
-		width: 18px;
-	}
-}
+
 @supports (-moz-appearance:none) {
 	@media (max-width: 1845px) {
 		.ast-color-palette .components-circular-option-picker__option-wrapper {
@@ -2057,7 +2020,7 @@ a.ast-pro-upgrade-link {
   color: rgb(156, 163, 175);
   position: relative;
   left: 6px;
-  top: 2px;
+  top: 2.5px;
 }
 
 .dashicons-editor-help:hover ~ .ast-dashicons-custom-tooltip {

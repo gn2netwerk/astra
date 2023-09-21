@@ -79,6 +79,18 @@ class AstraColorPickerControl extends Component {
 		// Add a click event listener to the document when the component mounts.
 		document.addEventListener('click', this.handleClickOutside);
 	}
+
+	componentDidUpdate() {
+		
+		// If the color picker is already open, hide the second color picker.
+		if ( document.querySelectorAll('.open').length > 1 ) {
+			const colorPickerPosition = 1;
+			const otherColorPicker = document.querySelectorAll('.astra-popover-color')[colorPickerPosition];
+			if( otherColorPicker ) {
+				otherColorPicker.style.display = 'none';
+			}
+		}
+	}
 	
 	componentWillUnmount() {
 		// Remove the event listener when the component unmounts.
@@ -86,10 +98,13 @@ class AstraColorPickerControl extends Component {
 	}
 
 	handleClickOutside = (event) => {
+		
 		// If clicked on elements outside the range then close the modal.
-		const isOutsideClickRange = ( !event.target.closest('.astra-popover-color') && !event.target.closest('.astra-advanced-color-indicate')) && !event.target.closest('.media-modal-content') && !event.target.closest('.dashicons-format-image');
+		const isOutsideClickRange = ( !event.target.closest('.astra-popover-color') && !event.target.closest('.astra-advanced-color-indicate')) && !event.target.closest('.media-modal-content') && !event.target.closest('.dashicons-format-image') && !event.target.closest('.components-popover__content');
+
 		if (this.state.isVisible && isOutsideClickRange ) {
-		  // If the click is outside the modal, close it.
+		  
+			// If the click is outside the modal, close it.
 		  this.closePicker();
 		}
 	};
@@ -195,7 +210,7 @@ class AstraColorPickerControl extends Component {
 				<div className={ ( this.props.color && this.props.color.includes('var') ) ? 'color-button-wrap has-global-palette-color' : 'color-button-wrap' } >
 					<Button className={ isVisible ? 'astra-color-icon-indicate open' : 'astra-color-icon-indicate' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }>
 						{ ( 'color' === backgroundType || 'gradient' === backgroundType ) &&
-						<ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color } >
+						<ColorIndicator className="astra-advanced-color-indicate" colorValue={ this.props.color }>
 							<span className="global-color">{ globalIconSVG() }</span>
 							</ColorIndicator>
 						}

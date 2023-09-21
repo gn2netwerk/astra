@@ -341,9 +341,11 @@ function astra_onload_function() {
 			let isUnboxedContainer = false;
 			const is_sidebar_default_enabled = 'default' === sidebarLayout && ( ! bodyClass.classList.contains( 'ast-sidebar-default-no-sidebar' ) );
 			if ( ( 'normal-width-container' === contentLayout || is_default_normal_width ) ) {
-				if ( is_sidebar_default_enabled || 'no-sidebar' !== sidebarLayout ) {
+				if ( is_sidebar_default_enabled || 'no-sidebar' !== sidebarLayout && 'default' !== sidebarLayout ) {
 					if ( 'default' === contentStyle && ! is_content_style_boxed ||  'unboxed' === contentStyle ) {
-						isUnboxedContainer = true;
+						if ( 'boxed' === sidebarStyle || 'default' === sidebarStyle && is_sidebar_style_boxed ) {
+							isUnboxedContainer = true;
+						}
 					}
 				}
 			}
@@ -508,16 +510,42 @@ const updatePageBackground = ( apply_customizer_default = false, isUnboxedContai
 		const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
 		applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS, document );
 
-		if ( isUnboxedContainer ) {
+		// Check current layout.
+		is_boxed_based_layout = document.querySelector('body').contains( document.querySelector('.ast-separate-container') );
 
-			// container unboxed + sidebar boxed -> update page content background to site background.
-			applyStylesToElement('.editor-styles-wrapper', desktopCSS, editorDoc );			
+		if ( astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
+
+			/** Fullwidth with Content Bg */
+			// Get the background object css values and update page content background.
+			const desktopContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'desktop');
+			applyStylesToElement('.editor-styles-wrapper', desktopContentCSS, editorDoc );
+
 		}
-		else {
+		else if ( ! astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
+
+			/** Fullwidth with Page Bg */
+			// Get the background object css values and update page background.
+			const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
+			applyStylesToElement('.editor-styles-wrapper', desktopCSS, document );
+
+		}
+		else if ( is_boxed_based_layout ) {
+
+			/** Boxed Layouts with Content Bg & Page Bg */
+			// Get the background object css values and update page background.
+			const desktopCSS = astraGetResponsiveBackgroundObj(bgObj, 'desktop');
+			applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS, document );
 
 			// Get the background object css values and update page content background.
 			const desktopContentCSS = astraGetResponsiveBackgroundObj(contentObj, 'desktop');
 			applyStylesToElement('.editor-styles-wrapper', desktopContentCSS, editorDoc );
+
+		}
+
+		if ( isUnboxedContainer ) {
+
+			// Container unboxed + sidebar boxed -> update page content background to site background.
+			applyStylesToElement('.editor-styles-wrapper', desktopCSS, editorDoc );
 		}
 
 	}
