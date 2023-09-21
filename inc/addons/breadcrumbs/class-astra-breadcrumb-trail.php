@@ -841,7 +841,7 @@ class Astra_Breadcrumb_Trail {
 
 		// Add the post type [plural] name to the trail end.
 		if ( is_paged() || is_author() ) {
-    		if ($post_type_object) {
+    		if ( is_object( $post_type_object ) ) {
         		$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_post_type_archive_link( $post_type_object->name ) ), post_type_archive_title( '', false ) );
 			}
 		}
