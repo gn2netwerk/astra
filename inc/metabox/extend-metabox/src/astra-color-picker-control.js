@@ -507,7 +507,7 @@ class AstraColorPickerControl extends Component {
 			Object.assign( paletteColors, { name: paletteLables[index], color: 'var('+ palettePrefix + index +')' } );
 			finalpaletteColors.push( paletteColors );
 		});
-
+		debugger
 		return (
 			<>
 				{ ( this.props.media.url || this.props.backgroundImage ) &&
@@ -521,12 +521,12 @@ class AstraColorPickerControl extends Component {
 					value={ ( this.props.media && this.props.media ? this.props.media :  '' ) }
 					render={ ( { open } ) => (
 						<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
-							{ ( ! this.props.media && ! this.props.backgroundImage ) ? __( "Select Background Image", 'astra' )  : __( "Replace image", 'astra' )  }
+							{ ( ! this.props.media.url && ! this.props.backgroundImage ) ? __( "Select Background Image", 'astra' )  : __( "Replace image", 'astra' )  }
 						</Button>
 					) }
 				/>
 
-				{ ( this.props.media || this.props.backgroundImage ) &&
+				{ ( this.props.media.url || this.props.backgroundImage ) &&
 				<>
 					<Button className="ast-bg-img-remove" onClick={ this.onRemoveImage } isLink isDestructive>
 						{ __( "Remove Image", 'astra' ) }
