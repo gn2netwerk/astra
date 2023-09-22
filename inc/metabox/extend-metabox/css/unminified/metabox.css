@@ -1532,6 +1532,7 @@ a.ast-pro-upgrade-link {
    */
   .astra-popover-tabs {
     position: relative;
+    top: 5px;
   }
   
   .astra-popover-tabs .components-tab-panel__tabs {

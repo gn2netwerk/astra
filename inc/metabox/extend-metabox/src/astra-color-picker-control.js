@@ -100,7 +100,7 @@ class AstraColorPickerControl extends Component {
 	handleClickOutside = (event) => {
 		
 		// If clicked on elements outside the range then close the modal.
-		const isOutsideClickRange = ( !event.target.closest('.astra-popover-color') && !event.target.closest('.astra-advanced-color-indicate')) && !event.target.closest('.media-modal-content') && !event.target.closest('.dashicons-format-image') && !event.target.closest('.components-popover__content');
+		const isOutsideClickRange =  ( !event.target.closest('.astra-popover-color') && !event.target.closest('.astra-advanced-color-indicate') && !event.target.closest('.media-modal-content') && !event.target.closest('.dashicons-format-image') && !event.target.closest('.components-popover__content') && !event.target.closest('.ast-bg-img-remove') );
 
 		if (this.state.isVisible && isOutsideClickRange ) {
 		  
@@ -356,7 +356,6 @@ class AstraColorPickerControl extends Component {
 			this.setState( { refresh: true } );
 		}
 		this.props.onChangeComplete( '', 'color' );
-		wp.customize.previewer.refresh();
 	}
 
 	onColorResetClick() {
@@ -507,7 +506,7 @@ class AstraColorPickerControl extends Component {
 			Object.assign( paletteColors, { name: paletteLables[index], color: 'var('+ palettePrefix + index +')' } );
 			finalpaletteColors.push( paletteColors );
 		});
-		debugger
+
 		return (
 			<>
 				{ ( this.props.media.url || this.props.backgroundImage ) &&
