@@ -13,6 +13,9 @@ v4.3.2 (Unreleased)
 - Fix: Above Header - Left & Right spacing does not apply on frontend & in the customizer preview.
 - Fix: Blog Archive - Read More button not working with the excerpt when the Left Sidebar layout is active.
 - Fix: Customizer - Blog - Design tab section seems blank when Astra Pro is active and all pro addons are disabled.
+- Fix: Block - Embed/YouTube block not working inside nested blocks from Custom Layouts.
+- Fix: Blog/Archive - Banner title font size is not working in responsive mode.
+- Fix: Desktop header creates visibility jerk on the exact tablet breakpoint.
 - Fix: Header Builder - Anchor tag link getting submenu background color which creates multiple color layer issues.
 
 v4.3.1
