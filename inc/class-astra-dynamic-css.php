@@ -392,8 +392,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * Apply text color depends on link color
 			 */
 			$btn_text_color = astra_get_option( 'button-color' );
+			$secondary_btn_text_color = astra_get_option( 'secondary-button-color' );
 			if ( empty( $btn_text_color ) ) {
 				$btn_text_color = astra_get_foreground_color( $theme_color );
+			}
+			if ( empty( $secondary_btn_text_color ) ) {
+				$secondary_btn_text_color = astra_get_foreground_color( $theme_color );
 			}
 
 			/**
@@ -415,7 +419,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( '' === astra_get_option( 'button-bg-color' ) && '' === astra_get_option( 'button-color' ) ) {
 					$btn_text_color = $theme_color;
 				} elseif ( '' === astra_get_option( 'button-color' ) ) {
-						$btn_text_color = $btn_bg_color;
+					$btn_text_color = $btn_bg_color;
 				}
 
 				$btn_bg_color = 'transparent';
@@ -1660,6 +1664,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( self::gutenberg_core_patterns_compat() ) {
 
+				if ( empty( $secondary_btn_text_color ) ) {
+					$btn_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
+				}
+				else {
+					$btn_color_val = esc_attr( $secondary_btn_text_color );
+				}
+
 				$outline_button_css = array(
 					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
 						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
@@ -1669,10 +1680,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-left-width'   => esc_attr( $theme_btn_left_border ),
 					),
 					'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
-						'color' => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
+						'color' => $btn_color_val,
 					),
 					'.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover' => array(
-						'color'            => esc_attr( $btn_text_hover_color ),
+						'color'            => empty( $secondary_btn_text_color ) ? esc_attr( $btn_text_hover_color ) : esc_attr( $secondary_btn_text_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
 					),
@@ -2478,6 +2489,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					}
 
 					$selector = '.wp-block-button .wp-block-button__link';
+					$outline_selector = '.wp-block-button.is-style-outline .wp-block-button__link';
+
 					if ( ! $block_editor_legacy_setup ) {
 						$selector = $selector . ', .wp-block-search .wp-block-search__button, body .wp-block-file .wp-block-file__button';
 					}
@@ -2540,6 +2553,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'border-bottom-left-radius'  => astra_responsive_spacing( $btn_border_radius_fields, 'left', 'mobile' ),
 						),
 					);
+					$global_secondary_button_page_builder_desktop[ $outline_selector ] = array(
+						'color'                      => esc_attr( $secondary_btn_text_color ),						
+					);
 				}
 
 				/* Parse CSS from array() */
@@ -2549,6 +2565,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $global_button_page_builder_tablet, '', astra_get_tablet_breakpoint() );
 				/* Parse CSS from array() */
 				$parse_css .= astra_parse_css( $global_button_page_builder_mobile, '', astra_get_mobile_breakpoint() );
+
+				/* Outline Button Parse CSS Desktop */
+				$parse_css .= astra_parse_css( $global_secondary_button_page_builder_desktop );
 
 			} else {
 
