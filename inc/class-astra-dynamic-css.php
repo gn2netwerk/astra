@@ -361,6 +361,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$global_custom_button_border_size = astra_get_option( 'theme-button-border-group-border-size' );
 			$btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
 			$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
+			$scndry_btn_border_color          = astra_get_option( 'secondary-theme-button-border-group-border-color' );
+			$scndry_btn_border_h_color        = astra_get_option( 'secondary-theme-button-border-group-border-h-color' );
 
 			/**
 			 * Theme Button Typography
@@ -372,6 +374,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$theme_btn_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'line-height', 'line-height-unit' );
 			$theme_btn_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'letter-spacing', 'letter-spacing-unit' );
 			$theme_btn_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-decoration' );
+
+			/**
+			 * Secondary Theme Button Typography
+			 */
+			$scndry_theme_btn_font_family     = astra_get_option( 'secondary-font-family-button' );
+			$scndry_theme_btn_font_size       = astra_get_option( 'secondary-font-size-button' );
+			$scndry_theme_btn_font_weight     = astra_get_option( 'secondary-font-weight-button' );
+			$scndry_theme_btn_text_transform  = astra_get_font_extras( astra_get_option( 'secondary-font-extras-button' ), 'text-transform' );
+			$scndry_theme_btn_line_height     = astra_get_font_extras( astra_get_option( 'secondary-font-extras-button' ), 'line-height', 'line-height-unit' );
+			$scndry_theme_btn_letter_spacing  = astra_get_font_extras( astra_get_option( 'secondary-font-extras-button' ), 'letter-spacing', 'letter-spacing-unit' );
+			$scndry_theme_btn_text_decoration = astra_get_font_extras( astra_get_option( 'secondary-font-extras-button' ), 'text-decoration' );
 
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				/**
@@ -392,22 +405,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * Apply text color depends on link color
 			 */
 			$btn_text_color = astra_get_option( 'button-color' );
-			$secondary_btn_text_color = astra_get_option( 'secondary-button-color' );
+			$scndry_btn_text_color = astra_get_option( 'secondary-button-color' );
 			if ( empty( $btn_text_color ) ) {
 				$btn_text_color = astra_get_foreground_color( $theme_color );
-			}
-			if ( empty( $secondary_btn_text_color ) ) {
-				$secondary_btn_text_color = astra_get_foreground_color( $theme_color );
 			}
 
 			/**
 			 * Apply text hover color depends on link hover color
 			 */
 			$btn_text_hover_color = astra_get_option( 'button-h-color' );
+			$scndry_btn_text_hover_color = astra_get_option( 'secondary-button-h-color' );
 			if ( empty( $btn_text_hover_color ) ) {
 				$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
 			}
 			$btn_bg_color     = astra_get_option( 'button-bg-color', $theme_color );
+			$scndry_btn_bg_color = astra_get_option( 'secondary-button-bg-color', $theme_color );
 			$btn_preset_style = astra_get_option( 'button-preset-style' );
 
 			if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
@@ -426,6 +438,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
+			$scndry_btn_bg_hover_color = astra_get_option( 'secondary-button-bg-h-color' );
 
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				// Spacing of Big Footer.
@@ -1664,28 +1677,55 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( self::gutenberg_core_patterns_compat() ) {
 
-				if ( empty( $secondary_btn_text_color ) ) {
+				// Secondary color.
+				if ( empty( $scndry_btn_text_color ) ) {
 					$btn_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
 				}
 				else {
-					$btn_color_val = esc_attr( $secondary_btn_text_color );
+					$btn_color_val = esc_attr( $scndry_btn_text_color );
 				}
 
-				$outline_button_css = array(
-					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
-						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
+				// Secondary border color.
+				if ( empty( $scndry_btn_border_color ) ) {
+					$btn_border_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
+				}
+				else {
+					$btn_border_color_val = esc_attr( $scndry_btn_border_color );
+				}
+
+				// Secondary border hover color.
+				if ( empty( $scndry_btn_border_h_color ) ) {
+					$btn_border_h_color_val = empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color );
+				}
+				else {
+					$btn_border_h_color_val = esc_attr( $scndry_btn_border_h_color );
+				}
+
+				$outline_button_css_desktop = array(
+					'div.wp-block-button .wp-block-button__link.is-style-outline, div.wp-block-button.is-style-outline>.wp-block-button__link, .ast-outline-button' => array(
+						'border-color'        => esc_attr( $btn_border_color_val ),
 						'border-top-width'    => esc_attr( $theme_btn_top_border ),
 						'border-right-width'  => esc_attr( $theme_btn_right_border ),
 						'border-bottom-width' => esc_attr( $theme_btn_bottom_border ),
 						'border-left-width'   => esc_attr( $theme_btn_left_border ),
+						'font-family'         => astra_get_font_family( $scndry_theme_btn_font_family ),
+						'font-weight'         => esc_attr( $scndry_theme_btn_font_weight ),
+						'font-size'           => astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ),
+						'line-height'         => esc_attr( $scndry_theme_btn_line_height ),
+						'text-transform'      => esc_attr( $scndry_theme_btn_text_transform ),
+						'text-decoration'     => esc_attr( $scndry_theme_btn_text_decoration ),
+						'letter-spacing'      => esc_attr( $scndry_theme_btn_letter_spacing ),
 					),
-					'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
-						'color' => $btn_color_val,
+					'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color), .ast-outline-button' => array(
+						'color' => esc_attr( $btn_color_val ),
 					),
-					'.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover' => array(
-						'color'            => empty( $secondary_btn_text_color ) ? esc_attr( $btn_text_hover_color ) : esc_attr( $secondary_btn_text_color ),
-						'background-color' => esc_attr( $btn_bg_hover_color ),
-						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
+					'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-background-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-background-color)' => array(
+						'background-color' => esc_attr( $scndry_btn_bg_color ),
+					),
+					'.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover, .ast-outline-button:hover, .ast-outline-button:focus' => array(
+						'color'            => empty( $scndry_btn_text_hover_color ) ? esc_attr( $btn_text_hover_color ) : esc_attr( $scndry_btn_text_hover_color ),
+						'background-color' => empty( $scndry_btn_bg_hover_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $scndry_btn_bg_hover_color ),
+						'border-color'     => esc_attr( $btn_border_h_color_val ),
 					),
 					// Adding CSS to highlight current paginated number.
 					'.post-page-numbers.current .page-link, .ast-pagination .page-numbers.current'                    => array(
@@ -1696,8 +1736,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				/* Parse CSS from array() -> All media CSS */
-				$parse_css .= astra_parse_css( $outline_button_css );
+				$outline_button_css_tablet = array(
+					'div.wp-block-button .wp-block-button__link.is-style-outline, div.wp-block-button.is-style-outline>.wp-block-button__link, .ast-outline-button' => array(
+						'font-size'        => astra_responsive_font( $scndry_theme_btn_font_size, 'tablet' ),
+					),
+				);
+
+				$outline_button_css_mobile = array(
+					'div.wp-block-button .wp-block-button__link.is-style-outline, div.wp-block-button.is-style-outline>.wp-block-button__link, .ast-outline-button' => array(
+						'font-size'        => astra_responsive_font( $scndry_theme_btn_font_size, 'mobile' ),
+					),
+				);
+
+				/* Parse CSS from array() -> Desktop */
+				$parse_css .= astra_parse_css( $outline_button_css_desktop );
+
+				/* Parse CSS from array() -> Tablet */
+				$parse_css .= astra_parse_css( $outline_button_css_tablet, '', astra_get_tablet_breakpoint() );
+
+				/* Parse CSS from array() -> Mobile */
+				$parse_css .= astra_parse_css( $outline_button_css_mobile, astra_get_mobile_breakpoint() );
 
 				if ( $block_editor_legacy_setup ) {
 
@@ -2554,7 +2612,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 					);
 					$global_secondary_button_page_builder_desktop[ $outline_selector ] = array(
-						'color'                      => esc_attr( $secondary_btn_text_color ),						
+						'color'                      => esc_attr( $scndry_btn_text_color ),
+						'background-color'           => esc_attr( $scndry_btn_bg_color ),				
 					);
 				}
 
