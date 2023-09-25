@@ -1424,3 +1424,25 @@ function astra_theme_background_updater_4_2_2() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Handle secondary buttons migration compatibility on version 4.3.2
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_3_2() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['v4-3-2-secondary-btn-styles'] ) ) {
+		$theme_options['v4-3-2-secondary-btn-styles'] = false;
+
+		// Migrate primary button presets to secondary button presets.
+		if ( isset( $theme_options['button-preset-style'] ) ) {
+			$btn_preset_style = $theme_options['button-preset-style'];
+			if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
+				$theme_options['secondary-button-preset-style'] = $btn_preset_style;
+			}
+		}
+		update_option( 'astra-settings', $theme_options );
+	}
+}
