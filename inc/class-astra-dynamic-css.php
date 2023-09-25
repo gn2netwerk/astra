@@ -419,7 +419,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$btn_text_hover_color = astra_get_foreground_color( $link_hover_color );
 			}
 			$btn_bg_color     = astra_get_option( 'button-bg-color', $theme_color );
-			$scndry_btn_bg_color = astra_get_option( 'secondary-button-bg-color', $theme_color );
+			$scndry_btn_bg_color = astra_get_option( 'secondary-button-bg-color' );
 			$btn_preset_style = astra_get_option( 'button-preset-style' );
 
 			if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
