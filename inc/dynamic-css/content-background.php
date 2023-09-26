@@ -189,8 +189,7 @@ function astra_apply_unboxed_container( $content_bg_obj, $is_boxed, $is_sidebar_
 		if ( isset( $meta_background_enabled ) && 'enabled' === $meta_background_enabled ) {
 			$site_bg_obj = astra_third_party_archive_meta( 'ast-page-background-meta' );
 		}
-	}
-	elseif ( isset( $meta_background_enabled ) && 'enabled' === $meta_background_enabled ) {
+	} elseif ( isset( $meta_background_enabled ) && 'enabled' === $meta_background_enabled ) {
 		$site_bg_obj = astra_get_option_meta( 'ast-page-background-meta' );
 	}
 
