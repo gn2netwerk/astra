@@ -434,6 +434,7 @@ final class Astra_Builder_Base_Configuration {
 							'section'   => $_section,
 							'transport' => 'postMessage',
 							'priority'  => 90,
+							'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 						),
 
 
