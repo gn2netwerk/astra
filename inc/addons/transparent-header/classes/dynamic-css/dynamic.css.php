@@ -541,5 +541,5 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
  */
 function transperent_anchor_styling() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-	return apply_filters( 'submenu_anchor_transperent_style', isset( $astra_settings['v4-3-2-anchor_transperent_style'] ) ? false : true );
+	return apply_filters( 'astra_submenu_anchor_transperent_style', isset( $astra_settings['v4-3-2-anchor_transperent_style'] ) ? false : true );
 }
