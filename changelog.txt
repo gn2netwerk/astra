@@ -18,6 +18,7 @@ v4.3.2 (Unreleased)
 - Fix: WooCommerce - Ultimate Addons for Elementor's Product widget missing with "View Cart" button.
 - Fix: Blog/Archive - Banner title font size is not working in responsive mode.
 - Fix: Desktop header creates visibility jerk on the exact tablet breakpoint.
+- Fix: Header Builder - Anchor tag link getting submenu background color which creates multiple color layer issues.
 
 v4.3.1
 - Fix: Block - Lists block style type updated to "disc" after v4.3.0 update.
