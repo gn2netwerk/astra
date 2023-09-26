@@ -232,7 +232,7 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 		),
 	);
 
-	if ( transperent_anchor_styling() ) {
+	if ( astra_has_submenu_transperent_styling() ) {
 		$transparent_header_desktop[ '.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-link, .ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link' ] = array(
 				'background-color'       => 'transparent',
 		);
