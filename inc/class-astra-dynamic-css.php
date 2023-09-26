@@ -115,8 +115,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( isset( $meta_background_enabled ) && 'enabled' === $meta_background_enabled ) {
 					$box_bg_obj = astra_third_party_archive_meta( 'ast-page-background-meta' );
 				}
-			}
-			elseif ( isset( $meta_background_enabled ) && 'enabled' === $meta_background_enabled ) {
+			} elseif ( isset( $meta_background_enabled ) && 'enabled' === $meta_background_enabled ) {
 				$box_bg_obj = astra_get_option_meta( 'ast-page-background-meta' );
 			}
 
