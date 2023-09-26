@@ -827,7 +827,7 @@ class Astra_Breadcrumb_Trail {
 		// Get the post type object.
 		$post_type_object = get_post_type_object( get_query_var( 'post_type' ) );
 
-		if ( is_object( $post_type_object ) && is_array( $post_type_object->rewrite ) ) {
+		if ( isset( $post_type_object->rewrite ) && is_array( $post_type_object->rewrite ) ) {
 
 			// If 'with_front' is true, add $wp_rewrite->front to the trail.
 			if ( isset( $post_type_object->rewrite['with_front'] ) && $post_type_object->rewrite['with_front'] ) {
