@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_filter( 'astra_dynamic_theme_css', 'astra_secondary_btn_styles' );
+add_filter( 'astra_dynamic_theme_css', 'astra_secondary_btn_styles', 11 );
 
 /**
  * Astra Secondary Button Styles - Dynamic CSS.
@@ -21,18 +21,26 @@ add_filter( 'astra_dynamic_theme_css', 'astra_secondary_btn_styles' );
 function astra_secondary_btn_styles( $dynamic_css ) {
 
     // Get theme button settings.
+    $parse_css = '';
 
     /** Primary */
+    $theme_color                      = astra_get_option( 'theme-color' );
     $btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
     $btn_bg_color                     = astra_get_option( 'button-bg-color', $theme_color );
     $btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
     $btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
     $link_hover_color                 = astra_get_option( 'link-h-color' );
     $btn_bg_hover_color               = astra_get_option( 'button-bg-h-color', $link_hover_color );
-    $theme_btn_top_border    = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : $default_border_size;
-    $theme_btn_right_border  = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : $default_border_size;
-    $theme_btn_left_border   = ( isset( $global_custom_button_border_size['left'] ) && ( '' !== $global_custom_button_border_size['left'] && '0' !== $global_custom_button_border_size['left'] ) ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : $default_border_size;
-    $theme_btn_bottom_border = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : $default_border_size;
+
+    $default_border_size = '2px';
+    if ( astra_button_default_padding_updated() ) {
+        $default_border_size = '';
+    }
+
+    $theme_btn_top_border             = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : $default_border_size;
+    $theme_btn_right_border           = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : $default_border_size;
+    $theme_btn_left_border            = ( isset( $global_custom_button_border_size['left'] ) && ( '' !== $global_custom_button_border_size['left'] && '0' !== $global_custom_button_border_size['left'] ) ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : $default_border_size;
+    $theme_btn_bottom_border          = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : $default_border_size;
     
     /** Secondary */
     $scndry_btn_text_color            = astra_get_option( 'secondary-button-color' );
@@ -51,6 +59,7 @@ function astra_secondary_btn_styles( $dynamic_css ) {
     $scndry_theme_btn_text_decoration = astra_get_font_extras( astra_get_option( 'secondary-font-extras-button' ), 'text-decoration' );
     $scndry_theme_btn_padding         = astra_get_option( 'secondary-theme-button-padding' );
     $scndry_btn_border_radius_fields  = astra_get_option( 'secondary-button-radius-fields' );
+    $scndry_btn_bg_color              = astra_get_option( 'secondary-button-bg-color' );
 
     // Secondary color.
     if ( empty( $scndry_btn_text_color ) ) {
@@ -91,7 +100,7 @@ function astra_secondary_btn_styles( $dynamic_css ) {
     }
 
     $outline_button_css_desktop = array(
-        'div.wp-block-button .wp-block-button__link.is-style-outline, div.wp-block-button.is-style-outline>.wp-block-button__link, .ast-outline-button' => array(
+        '.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
             'border-color'        => esc_attr( $btn_border_color_val ),
             'border-top-width'    => esc_attr( $border_top_val ),
             'border-right-width'  => esc_attr( $border_right_val ),
@@ -124,17 +133,10 @@ function astra_secondary_btn_styles( $dynamic_css ) {
             'background-color' => empty( $scndry_btn_bg_hover_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $scndry_btn_bg_hover_color ),
             'border-color'     => esc_attr( $btn_border_h_color_val ),
         ),
-        // Adding CSS to highlight current paginated number.
-        '.post-page-numbers.current .page-link, .ast-pagination .page-numbers.current'                    => array(
-            'color'            => astra_get_foreground_color( $theme_color ),
-            'border-color'     => esc_attr( $theme_color ),
-            'background-color' => esc_attr( $theme_color ),
-            'border-radius'    => '2px',
-        ),
     );
 
     $outline_button_css_tablet = array(
-        'div.wp-block-button .wp-block-button__link.is-style-outline, div.wp-block-button.is-style-outline>.wp-block-button__link, .ast-outline-button' => array(
+        '.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
             'font-size'        => astra_responsive_font( $scndry_theme_btn_font_size, 'tablet' ),
             'padding-top'         => astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'tablet' ),
             'padding-right'       => astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'tablet' ),
@@ -148,7 +150,7 @@ function astra_secondary_btn_styles( $dynamic_css ) {
     );
 
     $outline_button_css_mobile = array(
-        'div.wp-block-button .wp-block-button__link.is-style-outline, div.wp-block-button.is-style-outline>.wp-block-button__link, .ast-outline-button' => array(
+        '.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
             'font-size'        => astra_responsive_font( $scndry_theme_btn_font_size, 'mobile' ),
             'padding-top'         => astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'mobile' ),
             'padding-right'       => astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'mobile' ),
@@ -170,5 +172,5 @@ function astra_secondary_btn_styles( $dynamic_css ) {
     /* Parse CSS from array() -> Mobile */
     $parse_css .= astra_parse_css( $outline_button_css_mobile, '', astra_get_mobile_breakpoint() );
   
-	return $dynamic_css;
+	return $dynamic_css .= $parse_css;
 }
