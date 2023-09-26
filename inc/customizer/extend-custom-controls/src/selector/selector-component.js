@@ -90,7 +90,7 @@ const SelectorComponent = props => {
 							key={ value }
 							onClick={ () => onValueChange( value, device ) }
 							aria-pressed = { value === propsValue[device] }
-							isPrimary={device === 'desktop' ? value === propsValue[device] : true}
+							isPrimary = { value === propsValue[device] }
 						>
 							<span className="ahfb-icon-set"
 								dangerouslySetInnerHTML={ { __html: Icons[ icon ]  } }
