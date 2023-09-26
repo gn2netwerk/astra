@@ -1802,7 +1802,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$btn_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
 			}
 			else {
-				$btn_color_val = esc_attr( $scndry_btn_text_color );
+				$btn_color_val = empty( $scndry_btn_border_color ) ? esc_attr( $scndry_btn_bg_color ) : esc_attr( $scndry_btn_border_color );
 			}
 
 			// Secondary border color.
@@ -1810,7 +1810,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$btn_border_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
 			}
 			else {
-				$btn_border_color_val = esc_attr( $scndry_btn_border_color );
+				$btn_border_color_val = empty( $scndry_btn_border_color ) ? esc_attr( $scndry_btn_bg_color ) : esc_attr( $scndry_btn_border_color );
 			}
 
 			// Secondary border hover color.
@@ -1818,7 +1818,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$btn_border_h_color_val = empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color );
 			}
 			else {
-				$btn_border_h_color_val = esc_attr( $scndry_btn_border_h_color );
+				$btn_border_h_color_val = empty( $scndry_btn_border_h_color ) ? esc_attr( $scndry_btn_bg_hover_color ) : esc_attr( $scndry_btn_border_h_color );
 			}
 
 			// Secondary button border size.
@@ -1860,9 +1860,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color), .ast-outline-button' => array(
 					'color' => esc_attr( $btn_color_val ),
-				),
-				'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-background-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-background-color)' => array(
-					'background-color' => esc_attr( $scndry_btn_bg_color ),
 				),
 				'.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover, .ast-outline-button:hover, .ast-outline-button:focus' => array(
 					'color'            => empty( $scndry_btn_text_hover_color ) ? esc_attr( $btn_text_hover_color ) : esc_attr( $scndry_btn_text_hover_color ),
