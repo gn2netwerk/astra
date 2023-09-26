@@ -968,6 +968,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 		/**
 		 * Get Page Background Toggle Options.
+		 * @since x.x.x
 		 */
 		public function get_page_bg_toggle_options() {
 			return array(
