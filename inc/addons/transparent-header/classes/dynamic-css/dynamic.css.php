@@ -12,6 +12,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_filter( 'astra_dynamic_theme_css', 'astra_ext_transparent_header_dynamic_css' );
 
 /**
+ * To avoid multiple Transparent color in submenu anchor tag.
+ * Old Users - Will not reflect directly.
+ * New Users - Will see the changes
+ *
+ * @return bool true|false.
+ * @since x.x.x
+ */
+function astra_has_submenu_transperent_styling() {
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	return apply_filters( 'astra_submenu_anchor_transperent_style', isset( $astra_settings['v4-3-2-anchor_transperent_style'] ) ? false : true );
+}
+
+/**
  * Dynamic CSS
  *
  * @param  String $dynamic_css          Astra Dynamic CSS.
@@ -529,17 +542,4 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	$dynamic_css .= $css;
 
 	return $dynamic_css;
-}
-
-/**
- * To avoid multiple transperent colour in submenu anchor tag.
- * Old Users - Will not reflect directly.
- * New Users - Will see the changes
- *
- * @return bool true|false.
- * @since x.x.x
- */
-function astra_has_submenu_transperent_styling() {
-	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-	return apply_filters( 'astra_submenu_anchor_transperent_style', isset( $astra_settings['v4-3-2-anchor_transperent_style'] ) ? false : true );
 }
