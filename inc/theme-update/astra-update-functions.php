@@ -1436,8 +1436,8 @@ function astra_theme_background_updater_4_3_2() {
 	if ( ! isset( $theme_options['v4-3-2-secondary-btn-styles'] ) ) {
 		$theme_options['v4-3-2-secondary-btn-styles'] = false;
 
-		// Migrate primary button outline styles to secondary button outline styles.
-		if ( isset( $theme_options['secondary-theme-button-padding'] ) ) {
+		// Migrate primary button outline styles to secondary buttons.
+		if ( isset( $theme_options['theme-button-padding'] ) ) {
 			$theme_options['secondary-theme-button-padding'] = $theme_options['theme-button-padding'];
 		}
 		if ( isset( $theme_options['font-family-button'] ) ) {
