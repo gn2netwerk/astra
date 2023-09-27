@@ -690,15 +690,15 @@ class Astra_WP_Editor_CSS {
 			$btn_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
 		}
 		else {
-			$btn_color_val = esc_attr( $scndry_btn_text_color );
+			$btn_color_val = $scndry_btn_text_color;
 		}
 
 		// Secondary border color.
-		if ( empty( $scndry_btn_border_color ) ) {
+		if ( empty( $scndry_btn_border_color ) && empty( $scndry_btn_bg_color ) ) {
 			$btn_border_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
 		}
 		else {
-			$btn_border_color_val = esc_attr( $scndry_btn_border_color );
+			$btn_border_color_val = empty( $scndry_btn_border_color ) ? esc_attr( $scndry_btn_bg_color ) : esc_attr( $scndry_btn_border_color );
 		}
 
 		// Secondary border hover color.
@@ -706,7 +706,7 @@ class Astra_WP_Editor_CSS {
 			$btn_border_h_color_val = empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color );
 		}
 		else {
-			$btn_border_h_color_val = esc_attr( $scndry_btn_border_h_color );
+			$btn_border_h_color_val = $scndry_btn_border_h_color;
 		}
 
 		// Secondary button border size.
@@ -714,7 +714,7 @@ class Astra_WP_Editor_CSS {
 			$border_top_val = $scndry_theme_btn_top_border;
 			$border_right_val = $scndry_theme_btn_right_border;
 			$border_bottom_val = $scndry_theme_btn_bottom_border;
-			$border_left_val = $scndry_theme_btn_left_border; 
+			$border_left_val = $scndry_theme_btn_left_border;
 		}
 		else {
 			$border_top_val = $theme_btn_top_border;
