@@ -1439,12 +1439,12 @@ function astra_theme_background_updater_4_3_2() {
 		// Migrate primary button presets to secondary button presets.
 		if ( isset( $theme_options['button-preset-style'] ) ) {
 			$theme_options['secondary-theme-button-padding']                  = $theme_options['theme-button-padding'];
-			$btn_preset_style = $theme_options['button-preset-style'];
-			if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
-				$theme_options['secondary-button-preset-style']                   = $btn_preset_style;
-				$theme_options['secondary-button-radius-fields']                  = $theme_options['button-radius-fields'];
-				$theme_options['secondary-theme-button-border-group-border-size'] = $theme_options['theme-button-border-group-border-size'];
-			}
+			// $btn_preset_style = $theme_options['button-preset-style'];
+			// if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
+			// 	$theme_options['secondary-button-preset-style']                   = $btn_preset_style;
+			// 	$theme_options['secondary-button-radius-fields']                  = $theme_options['button-radius-fields'];
+			// 	$theme_options['secondary-theme-button-border-group-border-size'] = $theme_options['theme-button-border-group-border-size'];
+			// }
 		}
 		update_option( 'astra-settings', $theme_options );
 	}

@@ -1799,6 +1799,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$scndry_btn_bg_color                     = astra_get_option( 'secondary-button-bg-color' );
 			$scndry_btn_bg_hover_color               = astra_get_option( 'secondary-button-bg-h-color' );
 			$scndry_btn_text_hover_color             = astra_get_option( 'secondary-button-h-color' );
+			$outline_button_selector                 = 'wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
 
 			// Secondary color.
 			if ( empty( $scndry_btn_text_color ) ) {
@@ -1829,7 +1830,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$border_top_val = $scndry_theme_btn_top_border;
 				$border_right_val = $scndry_theme_btn_right_border;
 				$border_bottom_val = $scndry_theme_btn_bottom_border;
-				$border_left_val = $scndry_theme_btn_left_border; 
+				$border_left_val = $scndry_theme_btn_left_border;
+				$outline_button_selector = 'div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
 			}
 			else {
 				$border_top_val = $theme_btn_top_border;
@@ -1839,7 +1841,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			$outline_button_css_desktop = array(
-				'div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
+				$outline_button_selector => array(
 					'border-color'        => esc_attr( $btn_border_color_val ),
 					'border-top-width'    => esc_attr( $border_top_val ),
 					'border-right-width'  => esc_attr( $border_right_val ),
