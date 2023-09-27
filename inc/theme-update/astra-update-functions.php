@@ -1453,6 +1453,15 @@ function astra_theme_background_updater_4_3_2() {
 		if ( isset( $theme_options['font-family-button'] ) ) {
 			$theme_options['secondary-font-family-button'] = $theme_options['font-family-button'];
 		}
+		if ( isset( $theme_options['font-size-button'] ) ) {
+			$theme_options['secondary-font-size-button'] = $theme_options['font-size-button'];
+		}
+		if ( isset( $theme_options['font-weight-button'] ) ) {
+			$theme_options['secondary-font-weight-button'] = $theme_options['font-weight-button'];
+		}
+		if ( isset( $theme_options['font-extras-button'] ) ) {
+			$theme_options['secondary-font-extras-button'] = $theme_options['font-extras-button'];
+		}
 
 		update_option( 'astra-settings', $theme_options );
 	}
