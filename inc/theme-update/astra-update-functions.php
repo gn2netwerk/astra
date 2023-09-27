@@ -1436,20 +1436,10 @@ function astra_theme_background_updater_4_3_2() {
 	if ( ! isset( $theme_options['v4-3-2-secondary-btn-styles'] ) ) {
 		$theme_options['v4-3-2-secondary-btn-styles'] = false;
 
-		$theme_btn_font_family     = astra_get_option( 'font-family-button' );
-		$theme_btn_font_size       = astra_get_option( 'font-size-button' );
-		$theme_btn_font_weight     = astra_get_option( 'font-weight-button' );
-		$theme_btn_text_transform  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-transform' );
-		$theme_btn_line_height     = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'line-height', 'line-height-unit' );
-		$theme_btn_letter_spacing  = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'letter-spacing', 'letter-spacing-unit' );
-		$theme_btn_text_decoration = astra_get_font_extras( astra_get_option( 'font-extras-button' ), 'text-decoration' );
-
-		// Migrate primary button presets to secondary button presets.
+		// Migrate primary button outline styles to secondary button outline styles.
 		if ( isset( $theme_options['secondary-theme-button-padding'] ) ) {
 			$theme_options['secondary-theme-button-padding'] = $theme_options['theme-button-padding'];
 		}
-
-		// Migrate primary button presets to secondary button presets.
 		if ( isset( $theme_options['font-family-button'] ) ) {
 			$theme_options['secondary-font-family-button'] = $theme_options['font-family-button'];
 		}
@@ -1461,6 +1451,21 @@ function astra_theme_background_updater_4_3_2() {
 		}
 		if ( isset( $theme_options['font-extras-button'] ) ) {
 			$theme_options['secondary-font-extras-button'] = $theme_options['font-extras-button'];
+		}
+		if ( isset( $theme_options['button-bg-color'] ) ) {
+			$theme_options['secondary-button-bg-color'] = $theme_options['button-bg-color'];
+		}
+		if ( isset( $theme_options['button-bg-h-color'] ) ) {
+			$theme_options['secondary-button-bg-h-color'] = $theme_options['button-bg-h-color'];
+		}
+		if ( isset( $theme_options['theme-button-border-group-border-color'] ) ) {
+			$theme_options['secondary-theme-button-border-group-border-color'] = $theme_options['theme-button-border-group-border-color'];
+		}
+		if ( isset( $theme_options['theme-button-border-group-border-h-color'] ) ) {
+			$theme_options['secondary-theme-button-border-group-border-h-color'] = $theme_options['secondary-theme-button-border-group-border-h-color'];
+		}
+		if ( isset( $theme_options['button-radius-fields'] ) ) {
+			$theme_options['secondary-button-radius-fields'] = $theme_options['button-radius-fields'];
 		}
 
 		update_option( 'astra-settings', $theme_options );
