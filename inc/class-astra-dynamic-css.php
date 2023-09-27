@@ -1798,6 +1798,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$scndry_btn_border_radius_fields         = astra_get_option( 'secondary-button-radius-fields' );
 			$scndry_btn_bg_color                     = astra_get_option( 'secondary-button-bg-color' );
 			$scndry_btn_bg_hover_color               = astra_get_option( 'secondary-button-bg-h-color' );
+			$scndry_btn_text_hover_color             = astra_get_option( 'secondary-button-h-color' );
 
 			// Secondary color.
 			if ( empty( $scndry_btn_text_color ) ) {

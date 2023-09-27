@@ -1007,7 +1007,7 @@ function hasWordPressWidgetBlockEditor() {
 			let tabletBreakPoint    = astraBuilderPreview.tablet_break_point || 768,
 				mobileBreakPoint    = astraBuilderPreview.mobile_break_point || 544;
 
-			let globalSelector = '.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
+			let globalSelector = 'div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
 
 			let dynamicStyle = globalSelector + '{ border-top-left-radius :' + border['desktop']['top'] + border['desktop-unit']
 					+ '; border-bottom-right-radius :' + border['desktop']['bottom'] + border['desktop-unit'] + '; border-bottom-left-radius :'
