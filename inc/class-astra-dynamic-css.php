@@ -1799,7 +1799,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$scndry_btn_bg_color                     = astra_get_option( 'secondary-button-bg-color' );
 			$scndry_btn_bg_hover_color               = astra_get_option( 'secondary-button-bg-h-color' );
 			$scndry_btn_text_hover_color             = astra_get_option( 'secondary-button-h-color' );
-			$outline_button_selector                 = 'wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
+			$outline_button_selector                 = '.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
 
 			// Secondary color.
 			if ( empty( $scndry_btn_text_color ) ) {
