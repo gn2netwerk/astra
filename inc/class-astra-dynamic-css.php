@@ -1840,6 +1840,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$border_left_val = $theme_btn_left_border;
 			}
 
+			// Secondary button padding.
+			if ( $scndry_theme_btn_padding ) {
+				$outline_button_selector = 'div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
+			}
+
 			$outline_button_css_desktop = array(
 				$outline_button_selector => array(
 					'border-color'        => esc_attr( $btn_border_color_val ),
@@ -1862,6 +1867,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-top-right-radius'    => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'right', 'desktop' ),
 					'border-bottom-right-radius' => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'bottom', 'desktop' ),
 					'border-bottom-left-radius'  => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'left', 'desktop' ),
+					'background-color'           => 'transparent',
 				),
 				'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color), .ast-outline-button' => array(
 					'color' => esc_attr( $btn_color_val ),
