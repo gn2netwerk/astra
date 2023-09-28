@@ -196,7 +196,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'button-bg-color'                      => '',
 					'button-bg-h-color'                    => '',
 					'secondary-button-bg-h-color'          => '',
-					'secondary-button-bg-color'  		   => '',
+					'secondary-button-bg-color'            => '',
 					'secondary-button-color'               => '',
 					'secondary-button-h-color'             => '',
 					'theme-button-padding'                 => array(
