@@ -37,7 +37,10 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 			
 			$_configs = array();
-			for ( $index=0, $id=''; $index < 2; $index++, $id = 'secondary-' ) {
+			$id='';
+			for ( $index=0; $index < 2; $index++ ) {
+
+				$id = 1 === $index ? 'secondary-' : '';
 				$_tab_configs = array(
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[' . $id . 'button-preset-style]',
