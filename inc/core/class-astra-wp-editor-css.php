@@ -507,7 +507,7 @@ class Astra_WP_Editor_CSS {
 			),
 
 			// Gutenberg button compatibility for default styling.
-			'.editor-styles-wrapper .wp-block-button .wp-block-button__link, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button, .block-editor-writing-flow .wp-block-file .wp-block-file__button' => array(
+			'.editor-styles-wrapper .wp-block-button:not(.is-style-outline) .wp-block-button__link, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button, .block-editor-writing-flow .wp-block-file .wp-block-file__button' => array(
 				'border-style'               => ( $theme_btn_top_border || $theme_btn_right_border || $theme_btn_left_border || $theme_btn_bottom_border ) ? 'solid' : '',
 				'border-top-width'           => $theme_btn_top_border,
 				'border-right-width'         => $theme_btn_right_border,
@@ -703,21 +703,13 @@ class Astra_WP_Editor_CSS {
 			$btn_border_h_color_val = $scndry_btn_border_h_color;
 		}
 
-		// Secondary button border size.
-		if ( $scndry_theme_btn_top_border || $scndry_theme_btn_right_border || $scndry_theme_btn_left_border || $scndry_theme_btn_bottom_border ) {
-			$border_top_val = $scndry_theme_btn_top_border;
-			$border_right_val = $scndry_theme_btn_right_border;
-			$border_bottom_val = $scndry_theme_btn_bottom_border;
-			$border_left_val = $scndry_theme_btn_left_border;
-		}
-
 		$outline_button_css_desktop = array(
 			'.editor-styles-wrapper div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
 				'border-color'        => esc_attr( $btn_border_color_val ),
-				'border-top-width'    => esc_attr( $border_top_val ),
-				'border-right-width'  => esc_attr( $border_right_val ),
-				'border-bottom-width' => esc_attr( $border_bottom_val ),
-				'border-left-width'   => esc_attr( $border_left_val ),
+				'border-top-width'    => esc_attr( $scndry_theme_btn_top_border ),
+				'border-right-width'  => esc_attr( $scndry_theme_btn_right_border ),
+				'border-bottom-width' => esc_attr( $scndry_theme_btn_bottom_border ),
+				'border-left-width'   => esc_attr( $scndry_theme_btn_left_border ),
 				'font-family'         => astra_get_font_family( $scndry_theme_btn_font_family ),
 				'font-weight'         => esc_attr( $scndry_theme_btn_font_weight ),
 				'font-size'           => astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ),
