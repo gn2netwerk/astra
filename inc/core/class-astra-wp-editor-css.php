@@ -627,7 +627,6 @@ class Astra_WP_Editor_CSS {
 		$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
 		$link_hover_color                 = astra_get_option( 'link-h-color' );
 		$btn_bg_hover_color               = astra_get_option( 'button-bg-h-color', $link_hover_color );
-		$global_custom_button_border_size = astra_get_option( 'theme-button-border-group-border-size' );
 
 		// Apply button 4-6 preset styles same as frontend.
 		if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
@@ -657,11 +656,6 @@ class Astra_WP_Editor_CSS {
 		if ( astra_button_default_padding_updated() ) {
 			$default_border_size = '';
 		}
-
-		$theme_btn_top_border             = ( isset( $global_custom_button_border_size['top'] ) && ( '' !== $global_custom_button_border_size['top'] && '0' !== $global_custom_button_border_size['top'] ) ) ? astra_get_css_value( $global_custom_button_border_size['top'], 'px' ) : $default_border_size;
-		$theme_btn_right_border           = ( isset( $global_custom_button_border_size['right'] ) && ( '' !== $global_custom_button_border_size['right'] && '0' !== $global_custom_button_border_size['right'] ) ) ? astra_get_css_value( $global_custom_button_border_size['right'], 'px' ) : $default_border_size;
-		$theme_btn_left_border            = ( isset( $global_custom_button_border_size['left'] ) && ( '' !== $global_custom_button_border_size['left'] && '0' !== $global_custom_button_border_size['left'] ) ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : $default_border_size;
-		$theme_btn_bottom_border          = ( isset( $global_custom_button_border_size['bottom'] ) && ( '' !== $global_custom_button_border_size['bottom'] && '0' !== $global_custom_button_border_size['bottom'] ) ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : $default_border_size;
 
 		// Secondary button editor compatibility.
 		$scndry_btn_text_color                   = astra_get_option( 'secondary-button-color' );
@@ -715,12 +709,6 @@ class Astra_WP_Editor_CSS {
 			$border_right_val = $scndry_theme_btn_right_border;
 			$border_bottom_val = $scndry_theme_btn_bottom_border;
 			$border_left_val = $scndry_theme_btn_left_border;
-		}
-		else {
-			$border_top_val = $theme_btn_top_border;
-			$border_right_val = $theme_btn_right_border;
-			$border_bottom_val = $theme_btn_bottom_border;
-			$border_left_val = $theme_btn_left_border;
 		}
 
 		$outline_button_css_desktop = array(

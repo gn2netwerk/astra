@@ -1837,12 +1837,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$border_left_val = $scndry_theme_btn_left_border;
 				$outline_button_selector = 'div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
 			}
-			else {
-				$border_top_val = $theme_btn_top_border;
-				$border_right_val = $theme_btn_right_border;
-				$border_bottom_val = $theme_btn_bottom_border;
-				$border_left_val = $theme_btn_left_border;
-			}
 
 			// Secondary button padding.
 			if ( $padding_top || $padding_right || $padding_bottom || $padding_left ) {
