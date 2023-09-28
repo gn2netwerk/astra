@@ -216,11 +216,11 @@ class Astra_Heading_Colors_Loader {
 		);
 
 		$defaults['secondary-font-extras-button'] = array(
-			'line-height'         => ! isset( $astra_options['font-extras-button'] ) && isset( $astra_options['theme-btn-line-height'] ) ? $astra_options['theme-btn-line-height'] : 1,
+			'line-height'         => ! isset( $astra_options['secondary-font-extras-button'] ) && isset( $astra_options['secondary-theme-btn-line-height'] ) ? $astra_options['secondary-theme-btn-line-height'] : 1,
 			'line-height-unit'    => 'em',
-			'letter-spacing'      => ! isset( $astra_options['font-extras-button'] ) && isset( $astra_options['theme-btn-letter-spacing'] ) ? $astra_options['theme-btn-letter-spacing'] : '',
+			'letter-spacing'      => ! isset( $astra_options['secondary-font-extras-button'] ) && isset( $astra_options['secondary-theme-btn-letter-spacing'] ) ? $astra_options['secondary-theme-btn-letter-spacing'] : '',
 			'letter-spacing-unit' => 'px',
-			'text-transform'      => ! isset( $astra_options['font-extras-button'] ) && isset( $astra_options['text-transform-button'] ) ? $astra_options['text-transform-button'] : '',
+			'text-transform'      => ! isset( $astra_options['secondary-font-extras-button'] ) && isset( $astra_options['secondary-text-transform-button'] ) ? $astra_options['secondary-text-transform-button'] : '',
 			'text-decoration'     => '',
 		);
 
