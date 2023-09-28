@@ -1800,6 +1800,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$scndry_btn_bg_hover_color               = astra_get_option( 'secondary-button-bg-h-color' );
 			$scndry_btn_text_hover_color             = astra_get_option( 'secondary-button-h-color' );
 			$outline_button_selector                 = '.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
+			$padding_top                             = astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'desktop' );
+			$padding_right                           = astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'desktop' );
+			$padding_bottom                          = astra_responsive_spacing( $scndry_theme_btn_padding, 'bottom', 'desktop' );
+			$padding_left                            = astra_responsive_spacing( $scndry_theme_btn_padding, 'left', 'desktop' );
 
 			// Secondary color.
 			if ( empty( $scndry_btn_text_color ) ) {
@@ -1841,7 +1845,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			// Secondary button padding.
-			if ( $scndry_theme_btn_padding ) {
+			if ( $padding_top || $padding_right || $padding_bottom || $padding_left ) {
 				$outline_button_selector = 'div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
 			}
 
