@@ -1426,15 +1426,16 @@ function astra_theme_background_updater_4_2_2() {
 }
 
 /**
- * Handle secondary buttons migration compatibility on version 4.3.2
+ * Handle backward compatibility on version x.x.x
  *
  * @since x.x.x
  * @return void
  */
 function astra_theme_background_updater_4_3_2() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['v4-3-2-secondary-btn-styles'] ) ) {
-		$theme_options['v4-3-2-secondary-btn-styles'] = false;
+
+	if ( ! isset( $theme_options['v4-3-2-submenu-css'] ) ) {
+		$theme_options['v4-3-2-submenu-css'] = false;
 
 		// Migrate primary button outline styles to secondary buttons.
 		if ( isset( $theme_options['font-family-button'] ) ) {
