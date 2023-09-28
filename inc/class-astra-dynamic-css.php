@@ -1804,6 +1804,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$padding_right                           = astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'desktop' );
 			$padding_bottom                          = astra_responsive_spacing( $scndry_theme_btn_padding, 'bottom', 'desktop' );
 			$padding_left                            = astra_responsive_spacing( $scndry_theme_btn_padding, 'left', 'desktop' );
+			$border_top_val                          = '';
+			$border_right_val                        = '';
+			$border_bottom_val                       = '';
+			$border_left_val                         = '';
 
 			// Secondary color.
 			if ( empty( $scndry_btn_text_color ) ) {
