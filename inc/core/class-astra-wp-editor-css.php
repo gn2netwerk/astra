@@ -627,6 +627,7 @@ class Astra_WP_Editor_CSS {
 		$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
 		$link_hover_color                 = astra_get_option( 'link-h-color' );
 		$btn_bg_hover_color               = astra_get_option( 'button-bg-h-color', $link_hover_color );
+		$global_custom_button_border_size = astra_get_option( 'theme-button-border-group-border-size' );
 
 		// Apply button 4-6 preset styles same as frontend.
 		if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
@@ -744,6 +745,7 @@ class Astra_WP_Editor_CSS {
 				'border-top-right-radius'    => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'right', 'desktop' ),
 				'border-bottom-right-radius' => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'bottom', 'desktop' ),
 				'border-bottom-left-radius'  => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'left', 'desktop' ),
+				'background-color'           => 'transparent',
 			),
 			'.editor-styles-wrapper div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color), .ast-outline-button' => array(
 				'color' => esc_attr( $btn_color_val ),
