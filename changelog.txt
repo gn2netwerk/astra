@@ -1,5 +1,6 @@
 v4.3.2 (Unreleased)
 - New: Introducing a feature of Sticky Sidebar functionality for enhanced user experience. (Needs Doc)
+- New: Customizer - Secondary (Outline) Button Styles. (Needs Doc)
 - New: Introducing new Twitter-X Icon added for Social Sharing and Social Icons.
 - New: WooCommerce - Compatibility for a pro cart shortcode 'astra_woo_slide_in_cart', which adds support for a slide-in cart feature. (Needs Doc).
 - Improvement: Added a new filter 'astra_woo_shop_product_title_link' to remove the product title link from the product page.
