@@ -58,6 +58,7 @@ function astra_live_search_css( $dynamic_css ) {
 		a.ast-search-item {
 			position: relative;
 			padding: 12px 20px;
+			font-size: 0.9em;
 		}
 		a.ast-search-item:hover {
 			background-color: #f9fafb;
