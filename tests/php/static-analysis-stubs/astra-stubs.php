@@ -3394,10 +3394,11 @@ namespace {
          * @param  string $html The oEmbed markup.
          * @param  string $url The URL being embedded.
          * @param  array  $attr An array of attributes.
+		 * @param  bool   $core_yt_block Whether the oEmbed is being rendered by the core YouTube block.
          *
          * @return string       Updated embed markup.
          */
-        public function responsive_oembed_wrapper($html, $url, $attr)
+        public function responsive_oembed_wrapper($html, $url, $attr, $core_yt_block = false)
         {
         }
     }
@@ -15995,19 +15996,6 @@ namespace {
      * @return boolean false if it is an existing user, true for new user.
      */
     function astra_has_global_color_format_support()
-    {
-    }
-    /**
-     * Check whether widget specific config, dynamic CSS, preview JS needs to remove or not. Following cases considered while implementing this.
-     *
-     * 1. Is user is from old Astra setup.
-     * 2. Check if user is new but on lesser WordPress 5.8 versions.
-     * 3. User is new with block widget editor.
-     *
-     * @since 3.6.8
-     * @return boolean
-     */
-    function astra_remove_widget_design_options()
     {
     }
     /**
