@@ -727,7 +727,6 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => '',
 	);
 	$defaults['live-search'] = false;
-	$defaults['live-search-with-images'] = false;
 	$defaults['live-search-post-types'] = array(
 		'post' => 1,
 		'page' => 1,

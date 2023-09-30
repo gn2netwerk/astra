@@ -32,7 +32,7 @@ function astra_live_search_css( $dynamic_css ) {
 			position: absolute;
 			width: 100%;
 			top: 60px;
-			padding: 4px 16px;
+			padding: 4px 0;
 			max-height: 400px;
 			height: auto;
 			overflow-x: hidden;
@@ -40,7 +40,8 @@ function astra_live_search_css( $dynamic_css ) {
 			background: #fff;
 			z-index: 999999;
 			border-radius: 4px;
-			box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
+			border: 1px solid var(--ast-border-color);
+			box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08);
 		}
 		.ast-live-search-results > * {
 			-js-display: flex;
@@ -48,28 +49,29 @@ function astra_live_search_css( $dynamic_css ) {
 			justify-content: ' . esc_attr( $ltr_left ) . ';
 			flex-wrap: wrap;
 			align-items: center;
-			padding: 12px 0;
 		}
 		label.ast-search--posttype-heading {
-			text-transform: uppercase;
-			border-bottom: 1px solid var(--ast-border-color);
-			margin-bottom: 10px;
-			font-weight: 500;
+			text-transform: capitalize;
+			padding: 8px 12px;
 			color: ' . esc_attr( $heading_base_color ) . ';
 		}
 		a.ast-search-item {
 			position: relative;
+			padding: 12px 20px;
 		}
-		img.ast-search-result-img {
-			max-width: 40px;
-			border-radius: 2px;
-			margin-' . esc_attr( $ltr_right ) . ': 15px;
+		a.ast-search-item:hover {
+			background-color: #f9fafb;
 		}
 		a.ast-search-page-link {
 			justify-content: center;
 			justify-content: center;
 			border: 1px solid var(--ast-border-color);
 			margin-top: 10px;
+		}
+		.ast-search-item + .ast-search--posttype-heading {
+			border-top: 1px solid var(--ast-border-color);
+			margin-top: 10px;
+			padding-top: 12px;
 		}
 	';
 

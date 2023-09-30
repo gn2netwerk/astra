@@ -177,28 +177,6 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 			),
 
 			/**
-			 * Option: Live Search with Images.
-			 */
-			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[live-search-with-images]',
-				'default'  => astra_get_option( 'live-search-with-images' ),
-				'type'     => 'control',
-				'control'  => 'ast-toggle-control',
-				'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
-				'section'  => $_section,
-				'title'    => __( 'Result with Images', 'astra' ),
-				'priority' => 5,
-				'context'     => array(
-					Astra_Builder_Helper::$general_tab_config,
-					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[live-search]',
-						'operator' => '==',
-						'value'    => true,
-					),
-				),
-			),
-
-			/**
 			 * Option: Live Search based on Post Types.
 			 */
 			array(

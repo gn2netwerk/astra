@@ -17,39 +17,9 @@
 
 		Object.entries( resultsData ).map( ( [ postType, postsData ] ) => {
 			processedHtml += `<label class="ast-search--posttype-heading"> ${postType}s </label>`;
-
 			postsData.map((post) => {
 				const searchPostTitle = decodeHTMLEntities(post.title.rendered);
-				const defaultMediaDetails = {
-					sizes: {
-						thumbnail: {
-							source_url: post.wc_placeholder_image,
-						},
-					}
-				}
-
-				let _embedded = post._embedded;
-				const sizes = ( _embedded['wp:featuredmedia']?.[0]?.media_details || defaultMediaDetails ).sizes || {}
-				const imgHtml = ( _embedded['wp:featuredmedia'] && astra_search.search_results_images ) ? `<span class="ast-search-res-image-wrap">
-					<img
-						src="${sizes.thumbnail
-							? sizes?.thumbnail.source_url
-							: values(sizes).reduce(
-									(imgSize, current) =>
-										current.width <
-										imgSize.width
-											? current
-											: imgSize,
-									{
-										width: 999999999,
-									}
-							).source_url ||
-							_embedded['wp:featuredmedia'][0].source_url}"
-						class="ast-search-result-img"
-					/>
-				</span>` : '';
-
-				processedHtml += `<a class="ast-search-item" role="option" target="_blank" href="${post.link}"> ${imgHtml} <span> ${searchPostTitle} </span> </a>`;
+				processedHtml += `<a class="ast-search-item" role="option" target="_blank" href="${post.link}"> <span> ${searchPostTitle} </span> </a>`;
 			});
 		});
 
