@@ -15416,6 +15416,7 @@ namespace {
     }
     /**
      * Restrict direct changes on users end so make it filterable.
+     * Get Global Color Palettes
      *
      * @since 3.9.0
      * @return void
