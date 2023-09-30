@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 10,
 					'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
-					'context'  => Astra_Builder_Helper::$design_tab,
+					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
 				/**
@@ -187,30 +187,30 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				 */
 
 				 array(
-					'name'              => 'secondary-font-size-button',
-					'parent'            => ASTRA_THEME_SETTINGS . '[secondary-button-text-typography]',
-					'type'              => 'sub-control',
-					'control'           => 'ast-responsive-slider',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'section'           => 'section-buttons',
-					'transport'         => 'postMessage',
-					'title'             => __( 'Font Size', 'astra' ),
-					'priority'          => 3,
-					'default'           => astra_get_option( 'secondary-font-size-button' ),
-					'suffix'            => array( 'px', 'em' ),
-					'input_attrs'       => array(
-						'px' => array(
-							'min'  => 0,
-							'step' => 1,
-							'max'  => 200,
-						),
-						'em' => array(
-							'min'  => 0,
-							'step' => 1,
-							'max'  => 20,
-						),
-					),
-				),
+					 'name'              => 'secondary-font-size-button',
+					 'parent'            => ASTRA_THEME_SETTINGS . '[secondary-button-text-typography]',
+					 'type'              => 'sub-control',
+					 'control'           => 'ast-responsive-slider',
+					 'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					 'section'           => 'section-buttons',
+					 'transport'         => 'postMessage',
+					 'title'             => __( 'Font Size', 'astra' ),
+					 'priority'          => 3,
+					 'default'           => astra_get_option( 'secondary-font-size-button' ),
+					 'suffix'            => array( 'px', 'em' ),
+					 'input_attrs'       => array(
+						 'px' => array(
+							 'min'  => 0,
+							 'step' => 1,
+							 'max'  => 200,
+						 ),
+						 'em' => array(
+							 'min'  => 0,
+							 'step' => 1,
+							 'max'  => 20,
+						 ),
+					 ),
+				 ),
 
 				/**
 				* Option: Button Font Extras

@@ -189,7 +189,7 @@ class Astra_Heading_Colors_Loader {
 		$defaults['secondary-font-weight-button'] = $apply_new_default_color_typo_values ? '500' : 'inherit';
 		$defaults['font-family-button']           = 'inherit';
 		$defaults['secondary-font-family-button'] = 'inherit';
-		$defaults['font-size-button']   = array(
+		$defaults['font-size-button']             = array(
 			'desktop'      => $apply_new_default_color_typo_values ? '16' : '',
 			'tablet'       => '',
 			'mobile'       => '',

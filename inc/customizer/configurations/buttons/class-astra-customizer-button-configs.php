@@ -35,12 +35,12 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
-			
-			$_configs = array();
-			$id='';
-			for ( $index=0; $index < 2; $index++ ) {
 
-				$id = 1 === $index ? 'secondary-' : '';
+			$_configs = array();
+			$id       = '';
+			for ( $index = 0; $index < 2; $index++ ) {
+
+				$id           = 1 === $index ? 'secondary-' : '';
 				$_tab_configs = array(
 					array(
 						'name'      => ASTRA_THEME_SETTINGS . '[' . $id . 'button-preset-style]',
@@ -224,12 +224,186 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 								'button-bg-h-color'    => '',
 								'button-color'         => '',
 							),
+							'button_04' => array(
+								'src'                  => 'btn-preset-04',
+								'border-size'          => array(
+									'top'    => 1,
+									'right'  => 1,
+									'bottom' => 1,
+									'left'   => 1,
+								),
+								'button-radius-fields' => array(
+									'desktop'      => array(
+										'top'    => 0,
+										'right'  => 0,
+										'bottom' => 0,
+										'left'   => 0,
+									),
+									'tablet'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'mobile'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'desktop-unit' => 'px',
+									'tablet-unit'  => 'px',
+									'mobile-unit'  => 'px',
+								),
+								'button-padding'       => array(
+									'desktop'      => array(
+										'top'    => 10,
+										'right'  => 20,
+										'bottom' => 10,
+										'left'   => 20,
+									),
+									'tablet'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'mobile'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'desktop-unit' => 'px',
+									'tablet-unit'  => 'px',
+									'mobile-unit'  => 'px',
+								),
+								'button-bg-color'      => 'rgba(0,0,0,0)',
+								'button-bg-h-color'    => '',
+								'button-color'         => '#0170B9',
+							),
+							'button_05' => array(
+								'src'                  => 'btn-preset-05',
+								'border-size'          => array(
+									'top'    => 1,
+									'right'  => 1,
+									'bottom' => 1,
+									'left'   => 1,
+								),
+								'button-radius-fields' => array(
+									'desktop'      => array(
+										'top'    => 3,
+										'right'  => 3,
+										'bottom' => 3,
+										'left'   => 3,
+									),
+									'tablet'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'mobile'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'desktop-unit' => 'px',
+									'tablet-unit'  => 'px',
+									'mobile-unit'  => 'px',
+								),
+								'button-padding'       => array(
+									'desktop'      => array(
+										'top'    => 10,
+										'right'  => 20,
+										'bottom' => 10,
+										'left'   => 20,
+									),
+									'tablet'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'mobile'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'desktop-unit' => 'px',
+									'tablet-unit'  => 'px',
+									'mobile-unit'  => 'px',
+								),
+								'button-bg-color'      => 'rgba(0,0,0,0)',
+								'button-bg-h-color'    => '',
+								'button-color'         => '#0170B9',
+							),
+							'button_06' => array(
+								'src'                  => 'btn-preset-06',
+								'border-size'          => array(
+									'top'    => 1,
+									'right'  => 1,
+									'bottom' => 1,
+									'left'   => 1,
+								),
+								'button-radius-fields' => array(
+									'desktop'      => array(
+										'top'    => 30,
+										'right'  => 30,
+										'bottom' => 30,
+										'left'   => 30,
+									),
+									'tablet'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'mobile'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'desktop-unit' => 'px',
+									'tablet-unit'  => 'px',
+									'mobile-unit'  => 'px',
+								),
+								'button-padding'       => array(
+									'desktop'      => array(
+										'top'    => 10,
+										'right'  => 20,
+										'bottom' => 10,
+										'left'   => 20,
+									),
+									'tablet'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'mobile'       => array(
+										'top'    => '',
+										'right'  => '',
+										'bottom' => '',
+										'left'   => '',
+									),
+									'desktop-unit' => 'px',
+									'tablet-unit'  => 'px',
+									'mobile-unit'  => 'px',
+								),
+								'button-bg-color'      => 'rgba(0,0,0,0)',
+								'button-bg-h-color'    => '',
+								'button-color'         => '#0170B9',
+							),
 						),
 						'priority'  => 18,
 						'transport' => 'postMessage',
 						'divider'   => array( 'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider' ),
 					),
-	
+
 					/**
 					 * Group: Theme Button color Group
 					 */
@@ -449,188 +623,11 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 
 				// Only add outline presets to secondary button presets.
 				$secondary_btn_preset_index = 13;
-				$_configs[$secondary_btn_preset_index]['options'] = 
-					array(
-						'button_04' => array(
-							'src'                  => 'btn-preset-04',
-							'secondary-border-size'          => array(
-								'top'    => 1,
-								'right'  => 1,
-								'bottom' => 1,
-								'left'   => 1,
-							),
-							'secondary-button-radius-fields' => array(
-								'desktop'      => array(
-									'top'    => 0,
-									'right'  => 0,
-									'bottom' => 0,
-									'left'   => 0,
-								),
-								'tablet'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'mobile'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'desktop-unit' => 'px',
-								'tablet-unit'  => 'px',
-								'mobile-unit'  => 'px',
-							),
-							'secondary-button-padding'       => array(
-								'desktop'      => array(
-									'top'    => 10,
-									'right'  => 20,
-									'bottom' => 10,
-									'left'   => 20,
-								),
-								'tablet'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'mobile'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'desktop-unit' => 'px',
-								'tablet-unit'  => 'px',
-								'mobile-unit'  => 'px',
-							),
-							'button-bg-color'      => 'rgba(0,0,0,0)',
-							'button-bg-h-color'    => '',
-							'button-color'         => '#0170B9',
-						),
-						'button_05' => array(
-							'src'                  => 'btn-preset-05',
-							'secondary-border-size'          => array(
-								'top'    => 1,
-								'right'  => 1,
-								'bottom' => 1,
-								'left'   => 1,
-							),
-							'secondary-button-radius-fields' => array(
-								'desktop'      => array(
-									'top'    => 3,
-									'right'  => 3,
-									'bottom' => 3,
-									'left'   => 3,
-								),
-								'tablet'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'mobile'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'desktop-unit' => 'px',
-								'tablet-unit'  => 'px',
-								'mobile-unit'  => 'px',
-							),
-							'secondary-button-padding'       => array(
-								'desktop'      => array(
-									'top'    => 10,
-									'right'  => 20,
-									'bottom' => 10,
-									'left'   => 20,
-								),
-								'tablet'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'mobile'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'desktop-unit' => 'px',
-								'tablet-unit'  => 'px',
-								'mobile-unit'  => 'px',
-							),
-							'secondary-button-bg-color'      => 'rgba(0,0,0,0)',
-							'secondary-button-bg-h-color'    => '',
-							'secondary-button-color'         => '#0170B9',
-						),
-						'button_06' => array(
-							'src'                   => 'btn-preset-06',
-							'secondary-border-size' => array(
-								'top'    => 1,
-								'right'  => 1,
-								'bottom' => 1,
-								'left'   => 1,
-							),
-							'secondary-button-radius-fields' => array(
-								'desktop'      => array(
-									'top'    => 30,
-									'right'  => 30,
-									'bottom' => 30,
-									'left'   => 30,
-								),
-								'tablet'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'mobile'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'desktop-unit' => 'px',
-								'tablet-unit'  => 'px',
-								'mobile-unit'  => 'px',
-							),
-							'secondary-button-padding'       => array(
-								'desktop'      => array(
-									'top'    => 10,
-									'right'  => 20,
-									'bottom' => 10,
-									'left'   => 20,
-								),
-								'tablet'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'mobile'       => array(
-									'top'    => '',
-									'right'  => '',
-									'bottom' => '',
-									'left'   => '',
-								),
-								'desktop-unit' => 'px',
-								'tablet-unit'  => 'px',
-								'mobile-unit'  => 'px',
-							),
-							'secondary-button-bg-color'      => 'rgba(0,0,0,0)',
-							'secondary-button-bg-h-color'    => '',
-							'secondary-button-color'         => '#0170B9',
-						),
-					);
 
 				// Add context & priority dynamically to secondary tab options.
-				for ( $index=$secondary_btn_preset_index, $priority=0; $index < count( $_configs )-1 ; $index++ ) { 
-					$_configs[$index]['context']  = Astra_Builder_Helper::$design_tab;
-					$_configs[$index]['priority'] = ++$priority;
+				for ( $index = $secondary_btn_preset_index, $priority = 0; $index < count( $_configs ) - 1; $index++ ) {
+					$_configs[ $index ]['context']  = Astra_Builder_Helper::$design_tab;
+					$_configs[ $index ]['priority'] = ++$priority;
 				}
 			}
 
@@ -871,7 +868,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 				);
 				$_configs = array_merge( $_configs, $_trans_config );
-				
+
 			}
 
 

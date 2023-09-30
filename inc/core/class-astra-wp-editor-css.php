@@ -315,8 +315,8 @@ class Astra_WP_Editor_CSS {
 			$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 		}
 
-		$site_background    = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
-		$content_background = astra_get_option( 'content-bg-obj-responsive' );
+		$site_background       = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+		$content_background    = astra_get_option( 'content-bg-obj-responsive' );
 		$background_style_data = astra_get_responsive_background_obj( $site_background, 'desktop' );
 		if (
 			empty( $background_style_data ) ||
@@ -620,13 +620,13 @@ class Astra_WP_Editor_CSS {
 		);
 
 		/** Primary button styles */
-		$theme_color                      = astra_get_option( 'theme-color' );
-		$btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
-		$btn_bg_color                     = astra_get_option( 'button-bg-color', $theme_color );
-		$btn_border_color                 = astra_get_option( 'theme-button-border-group-border-color' );
-		$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
-		$link_hover_color                 = astra_get_option( 'link-h-color' );
-		$btn_bg_hover_color               = astra_get_option( 'button-bg-h-color', $link_hover_color );
+		$theme_color        = astra_get_option( 'theme-color' );
+		$btn_border_color   = astra_get_option( 'theme-button-border-group-border-color' );
+		$btn_bg_color       = astra_get_option( 'button-bg-color', $theme_color );
+		$btn_border_color   = astra_get_option( 'theme-button-border-group-border-color' );
+		$btn_border_h_color = astra_get_option( 'theme-button-border-group-border-h-color' );
+		$link_hover_color   = astra_get_option( 'link-h-color' );
+		$btn_bg_hover_color = astra_get_option( 'button-bg-h-color', $link_hover_color );
 
 		// Apply button 4-6 preset styles same as frontend.
 		if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
@@ -682,45 +682,42 @@ class Astra_WP_Editor_CSS {
 		// Secondary color.
 		if ( empty( $scndry_btn_text_color ) ) {
 			$btn_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
-		}
-		else {
+		} else {
 			$btn_color_val = $scndry_btn_text_color;
 		}
 
 		// Secondary border color.
 		if ( empty( $scndry_btn_border_color ) && empty( $scndry_btn_bg_color ) ) {
 			$btn_border_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
-		}
-		else {
+		} else {
 			$btn_border_color_val = empty( $scndry_btn_border_color ) ? esc_attr( $scndry_btn_bg_color ) : esc_attr( $scndry_btn_border_color );
 		}
 
 		// Secondary border hover color.
 		if ( empty( $scndry_btn_border_h_color ) ) {
 			$btn_border_h_color_val = empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color );
-		}
-		else {
+		} else {
 			$btn_border_h_color_val = $scndry_btn_border_h_color;
 		}
 
 		$outline_button_css_desktop = array(
 			'.editor-styles-wrapper div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
-				'border-color'        => esc_attr( $btn_border_color_val ),
-				'border-top-width'    => esc_attr( $scndry_theme_btn_top_border ),
-				'border-right-width'  => esc_attr( $scndry_theme_btn_right_border ),
-				'border-bottom-width' => esc_attr( $scndry_theme_btn_bottom_border ),
-				'border-left-width'   => esc_attr( $scndry_theme_btn_left_border ),
-				'font-family'         => astra_get_font_family( $scndry_theme_btn_font_family ),
-				'font-weight'         => esc_attr( $scndry_theme_btn_font_weight ),
-				'font-size'           => astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ),
-				'line-height'         => esc_attr( $scndry_theme_btn_line_height ),
-				'text-transform'      => esc_attr( $scndry_theme_btn_text_transform ),
-				'text-decoration'     => esc_attr( $scndry_theme_btn_text_decoration ),
-				'letter-spacing'      => esc_attr( $scndry_theme_btn_letter_spacing ),
-				'padding-top'         => astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'desktop' ),
-				'padding-right'       => astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'desktop' ),
-				'padding-bottom'      => astra_responsive_spacing( $scndry_theme_btn_padding, 'bottom', 'desktop' ),
-				'padding-left'        => astra_responsive_spacing( $scndry_theme_btn_padding, 'left', 'desktop' ),
+				'border-color'               => esc_attr( $btn_border_color_val ),
+				'border-top-width'           => esc_attr( $scndry_theme_btn_top_border ),
+				'border-right-width'         => esc_attr( $scndry_theme_btn_right_border ),
+				'border-bottom-width'        => esc_attr( $scndry_theme_btn_bottom_border ),
+				'border-left-width'          => esc_attr( $scndry_theme_btn_left_border ),
+				'font-family'                => astra_get_font_family( $scndry_theme_btn_font_family ),
+				'font-weight'                => esc_attr( $scndry_theme_btn_font_weight ),
+				'font-size'                  => astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ),
+				'line-height'                => esc_attr( $scndry_theme_btn_line_height ),
+				'text-transform'             => esc_attr( $scndry_theme_btn_text_transform ),
+				'text-decoration'            => esc_attr( $scndry_theme_btn_text_decoration ),
+				'letter-spacing'             => esc_attr( $scndry_theme_btn_letter_spacing ),
+				'padding-top'                => astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'desktop' ),
+				'padding-right'              => astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'desktop' ),
+				'padding-bottom'             => astra_responsive_spacing( $scndry_theme_btn_padding, 'bottom', 'desktop' ),
+				'padding-left'               => astra_responsive_spacing( $scndry_theme_btn_padding, 'left', 'desktop' ),
 				'border-top-left-radius'     => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'top', 'desktop' ),
 				'border-top-right-radius'    => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'right', 'desktop' ),
 				'border-bottom-right-radius' => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'bottom', 'desktop' ),
@@ -737,7 +734,7 @@ class Astra_WP_Editor_CSS {
 			),
 		);
 
-		$desktop_css = array_merge( $desktop_css, $outline_button_css_desktop );
+		$desktop_css             = array_merge( $desktop_css, $outline_button_css_desktop );
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {

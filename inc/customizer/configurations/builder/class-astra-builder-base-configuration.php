@@ -312,7 +312,7 @@ final class Astra_Builder_Base_Configuration {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'divider'   => array( 'ast_class' => ' ast-section-spacing ' ),
+					'divider'           => array( 'ast_class' => ' ast-section-spacing ' ),
 				),
 			);
 

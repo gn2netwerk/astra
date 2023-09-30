@@ -18,10 +18,9 @@ const ButtonPresetsComponent = (props) => {
 
 	const onChangePreset = ( presetKey ) => {
 
-		const buttonRadiusFields = options[ presetKey ][ dynamicKey + 'button-radius-fields' ];
-		const btnBackgroundColor = options[ presetKey ][ dynamicKey + 'button-bg-color' ];
-		const borderWidth = options[ presetKey ][ dynamicKey + 'border-size' ];
-		const padding = options[ presetKey ][ dynamicKey + 'button-padding' ];
+		const buttonRadiusFields = options[ presetKey ][ 'button-radius-fields' ];
+		const borderWidth = options[ presetKey ][ 'border-size' ];
+		const padding = options[ presetKey ][ 'button-padding' ];
 
 		// Padding
 		props.customizer
@@ -42,6 +41,10 @@ const ButtonPresetsComponent = (props) => {
 			.renderContent();
 
 		// Border size.
+		props.customizer
+			.control( 'astra-settings[' + dynamicKey + 'theme-button-border-group-border-size]' )
+			.renderContent();
+
 		props.customizer
 			.control( 'astra-settings[' + dynamicKey + 'theme-button-border-group-border-size]' )
 			.setting.set( borderWidth );

@@ -222,7 +222,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'secondary-theme-button-padding'                 => array(
+					'secondary-theme-button-padding'       => array(
 						'desktop'      => array(
 							'top'    => '',
 							'right'  => '',
@@ -268,7 +268,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'button-secondary-radius-fields'                 => array(
+					'button-secondary-radius-fields'       => array(
 						'desktop'      => array(
 							'top'    => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
 							'right'  => ! isset( $astra_options['button-radius'] ) ? '' : $astra_options['button-radius'],
