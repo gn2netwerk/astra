@@ -2591,7 +2591,7 @@ span.customize-control-title.ast-group-section-title {
 }
 
 .customize-control-ast-radio-icon .ast-options {
-    background-color: var(--ast-customizer-color-9);
+    background-color: transparent;
     margin: 0;
     line-height: 0;
 }
@@ -2613,6 +2613,7 @@ span.customize-control-title.ast-group-section-title {
     text-align: center;
     line-height: 28px;
     width: 100%;
+	font-size: 16px;
 }
 
 .customize-control-ast-radio-icon .ast-options li {
@@ -2634,6 +2635,7 @@ span.customize-control-title.ast-group-section-title {
     background-color: var(--ast-customizer-color-1);
     color: var(--ast-customizer-color-10);
     border-color: var(--ast-customizer-color-1);
+    margin-right: 1px;
 }
 
 .customize-control-ast-row-layout .ast-responsive-btns {

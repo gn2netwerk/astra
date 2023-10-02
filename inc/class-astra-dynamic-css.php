@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Override page background with meta value if set.
 			$meta_background_enabled = astra_get_option_meta( 'ast-page-background-enabled' );
-			
+
 			// Check for third party pages meta.
 			if ( '' === $meta_background_enabled && astra_with_third_party() ) {
 				$meta_background_enabled = astra_third_party_archive_meta( 'ast-page-background-enabled' );
@@ -1889,9 +1889,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding' => '0',
 					),
 					'.ast-comment-formwrap'           => array(
-						'padding'    => '0 20px',
-						'display'    => 'inline-flex',
-						'column-gap' => '20px',
+						'padding'      => '0',
+						'display'      => 'inline-flex',
+						'column-gap'   => '20px',
+						'width'        => '100%',
+						'margin-left'  => '0',
+						'margin-right' => '0',
+					),
+					'.comments-area textarea#comment:focus, .comments-area textarea#comment:active, .comments-area .ast-comment-formwrap input[type="text"]:focus, .comments-area .ast-comment-formwrap input[type="text"]:active ' => array(
+						'box-shadow' => 'none',
+						'outline'    => 'none',
+						'border'     => '1px solid var(--ast-global-color-0)',
 					),
 					'.archive.ast-page-builder-template .entry-header' => array(
 						'margin-top' => '2em',
@@ -3669,7 +3677,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'color' => esc_attr( $social_hover_color['mobile'] ),
 						),
 					);
-	
+
 					$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
 			}
 

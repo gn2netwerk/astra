@@ -21,6 +21,7 @@ v4.3.2 (Unreleased)
 - Fix: Desktop header creates visibility jerk on the exact tablet breakpoint.
 - Fix: Header Builder - Anchor tag link getting submenu background color which creates multiple color layer issues.
 - Fix: Social Share - Wrong SVG icon (Ravelry) showing on frontend due to incorrect path.
+- Fix: Comment Form - On active & focus of form fields they look improper.
 
 v4.3.1
 - Fix: Block - Lists block style type updated to "disc" after v4.3.0 update.
