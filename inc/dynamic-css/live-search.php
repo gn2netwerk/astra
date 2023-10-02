@@ -54,6 +54,10 @@ function astra_live_search_css( $dynamic_css ) {
 			text-transform: capitalize;
 			padding: 8px 12px;
 			color: ' . esc_attr( $heading_base_color ) . ';
+			font-weight: 500;
+		}
+		label.ast-search--no-results-heading {
+			padding: 12px 20px;
 		}
 		a.ast-search-item {
 			position: relative;
