@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2fe538d45c45f9e2e3d6e50c2f70f100",
+    "content-hash": "0261d5876730c445b20f00ec123a428e",
     "packages": [
         {
             "name": "brainstormforce/astra-notices",
@@ -2631,7 +2631,7 @@
         },
         {
             "name": "roots/wordpress",
-            "version": "5.9.7",
+            "version": "6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roots/wordpress.git",
@@ -2662,7 +2662,7 @@
             ],
             "support": {
                 "issues": "https://github.com/roots/wordpress/issues",
-                "source": "https://github.com/roots/wordpress/tree/6.2.2"
+                "source": "https://github.com/roots/wordpress/tree/6.3.1"
             },
             "funding": [
                 {
@@ -2745,22 +2745,22 @@
         },
         {
             "name": "roots/wordpress-no-content",
-            "version": "5.9.7",
+            "version": "6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress.git",
-                "reference": "5.9.7"
+                "reference": "6.3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/release/wordpress-5.9.7-no-content.zip",
-                "shasum": "2329737935c22686b7fd7d301e0e022a0c8fccc5"
+                "url": "https://downloads.wordpress.org/release/wordpress-6.3.1-no-content.zip",
+                "shasum": "102bc5e48d9372f1a71fbb133270e113af2363e3"
             },
             "require": {
-                "php": ">= 5.6.20"
+                "php": ">= 7.0.0"
             },
             "provide": {
-                "wordpress/core-implementation": "5.9.7"
+                "wordpress/core-implementation": "6.3.1"
             },
             "suggest": {
                 "ext-curl": "Performs remote request operations.",
@@ -2811,7 +2811,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2023-05-20T05:41:43+00:00"
+            "time": "2023-08-29T14:23:47+00:00"
         },
         {
             "name": "sebastian/cli-parser",
