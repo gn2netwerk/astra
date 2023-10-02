@@ -2,23 +2,16 @@ name: PHPUnit
 
 on: pull_request
 
-# Cancels all previous workflow runs for pull requests that have not completed.
-concurrency:
-    # The concurrency group contains the workflow name and the branch name for pull requests
-    # or the commit hash for any other events.
-    group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
-    cancel-in-progress: true
-
 jobs:
   phpunit:
     name: PHPUnit (PHP ${{ matrix.php }} with WordPress ${{ matrix.wordpress }})
     runs-on: ubuntu-latest
 
     env:
-      DB_HOST: 127.0.0.1
-      DB_NAME: local
-      DB_USER: root
-      DB_PASS: root
+       WP_DB_HOST: 127.0.0.1
+       WP_DB_NAME: local
+       WP_DB_USER: root
+       WP_DB_PASS: ""
 
     services:
       mysql:
@@ -45,17 +38,14 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer, cs2pr
 
       - name: Composer Install
-        uses: "ramsey/composer-install@v1"
+        uses: ramsey/composer-install@v1
 
       - name: Setup problem matchers for PHPUnit
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Run tests
         run: composer run test
-        env:
-          WP_DB_NAME: ${{ env.DB_NAME }}
-          WP_DB_USER: ${{ env.DB_USER }}
-          WP_DB_PASS: ${{ env.DB_PASS }}
-          WP_DB_HOST: ${{ env.DB_HOST }}
