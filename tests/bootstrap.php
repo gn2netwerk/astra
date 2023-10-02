@@ -13,8 +13,7 @@ tests_add_filter(
 	'muplugins_loaded',
 	function() {
 		// test set up, plugin activation, etc.
-		require dirname( __DIR__ ) . '/unlist-posts.php';
-		require dirname( __DIR__ ) . '/class-unlist-posts-admin.php';
+		require dirname( __DIR__ ) . '/functions.php';
 	}
 );
 
