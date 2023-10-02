@@ -59,6 +59,7 @@
 	<arg value="s"/>
 
 	<exclude-pattern>tests/php/static-analysis-stubs/*</exclude-pattern>
+	<exclude-pattern>tests/*</exclude-pattern>
 	<exclude-pattern>inc/addons/breadcrumbs/class-astra-breadcrumb-trail.php</exclude-pattern>
 	<exclude-pattern>inc/google-fonts.php</exclude-pattern>
 	<exclude-pattern>*/index.asset.php</exclude-pattern>
