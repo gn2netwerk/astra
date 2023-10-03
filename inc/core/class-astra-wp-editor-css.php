@@ -732,6 +732,13 @@ class Astra_WP_Editor_CSS {
 				'background-color' => empty( $scndry_btn_bg_hover_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $scndry_btn_bg_hover_color ),
 				'border-color'     => esc_attr( $btn_border_h_color_val ),
 			),
+
+			// Primary hover styles.
+			'.editor-styles-wrapper .wp-block-button:not(.is-style-outline) .wp-block-button__link:hover, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .block-editor-writing-flow .wp-block-file .wp-block-file__button:hover' => array(
+				'color'            => esc_attr( $btn_text_hover_color ),
+				'background-color' => esc_attr( $btn_bg_hover_color ),
+				'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
+			),
 		);
 
 		$desktop_css             = array_merge( $desktop_css, $outline_button_css_desktop );
