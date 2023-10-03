@@ -1,6 +1,6 @@
 <?php
 /**
- * Class TestPing
+ * Class TestAstraInit
  *
  * @package Astra
  */
@@ -8,10 +8,10 @@
 /**
  * Check if test cases working fine.
  */
-class TestPing extends WP_UnitTestCase {
+class TestAstraInit extends WP_UnitTestCase {
 
 	/**
-	 * User ID for a editor user..
+	 * User ID for a Admin user..
 	 *
 	 * @var int
 	 */
