@@ -1906,6 +1906,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
+			// Secondary button preset compatibility.
+			$btn_preset_style = astra_get_option( 'secondary-button-preset-style' );
+
+			if ( 'button_01' === $btn_preset_style || 'button_02' === $btn_preset_style || 'button_03' === $btn_preset_style ) {
+				if ( empty( $scndry_btn_text_color ) ) {
+					$scndry_btn_text_color = astra_get_foreground_color( $theme_color );
+				}
+				$outline_button_css_desktop['div.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background), div.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)'] = array(
+					'background-color' => empty ( $scndry_btn_bg_color ) ? esc_attr( $theme_color ) : esc_attr( $scndry_btn_bg_color ),
+					'color'            => esc_attr( $scndry_btn_text_color ),
+				);
+			}
+
 			/* Parse CSS from array() -> Desktop */
 			$parse_css .= astra_parse_css( $outline_button_css_desktop );
 
