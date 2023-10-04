@@ -748,6 +748,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-search-menu-icon .search-form button.search-submit:focus svg' => array(
 					'margin-right' => '1px',
 				),
+				'.ast-search-menu-icon .search-form button.search-submit' => array(
+					'padding' => '0 4px',
+				),
 			);
 
 			/*  This is a fix issue with logo height for normal and transparent logo so that they are the same */
