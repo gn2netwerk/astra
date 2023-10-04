@@ -817,7 +817,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$reset_underline_from_anchors = self::unset_builder_elements_underline();
 
-				$excluding_anchor_selectors = $reset_underline_from_anchors ? '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button, .ast-single-post .entry-content .uagb-tab a, .ast-single-post .entry-content .uagb-ifb-cta a, .ast-single-post .entry-content .wp-block-uagb-buttons a, .ast-single-post .entry-content .uabb-module-content a, .ast-single-post .entry-content .uagb-post-grid a, .ast-single-post .entry-content .uagb-timeline a, .ast-single-post .entry-content .uagb-toc__wrap a, .ast-single-post .entry-content .uagb-taxomony-box a, .ast-single-post .entry-content .woocommerce a, .entry-content .wp-block-latest-posts > li > a, .ast-single-post .entry-content .wp-block-file__button, .ast-single-post .wp-block-button.is-style-outline .wp-block-button__link' : '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button,  .ast-single-post .wp-block-button.is-style-outline .wp-block-button__link';
+				$excluding_anchor_selectors = $reset_underline_from_anchors ? '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button, .ast-single-post .entry-content .uagb-tab a, .ast-single-post .entry-content .uagb-ifb-cta a, .ast-single-post .entry-content .wp-block-uagb-buttons a, .ast-single-post .entry-content .uabb-module-content a, .ast-single-post .entry-content .uagb-post-grid a, .ast-single-post .entry-content .uagb-timeline a, .ast-single-post .entry-content .uagb-toc__wrap a, .ast-single-post .entry-content .uagb-taxomony-box a, .ast-single-post .entry-content .woocommerce a, .entry-content .wp-block-latest-posts > li > a, .ast-single-post .entry-content .wp-block-file__button, .ast-single-post .wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link' : '.ast-single-post .wp-block-button .wp-block-button__link, .ast-single-post .elementor-button-wrapper .elementor-button,  .ast-single-post .wp-block-button.is-style-outline .wp-block-button__link';
 
 				$excluding_anchor_selectors = apply_filters( 'astra_remove_underline_anchor_links', $excluding_anchor_selectors );
 
@@ -1686,7 +1686,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
 						'color' => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 					),
-					'.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover' => array(
+					'.wp-block-button.is-style-outline .wp-block-button__link:hover, .wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link:focus, .wp-block-buttons .wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, .wp-block-buttons .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover' => array(
 						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
@@ -1836,12 +1836,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$border_right_val        = $scndry_theme_btn_right_border;
 				$border_bottom_val       = $scndry_theme_btn_bottom_border;
 				$border_left_val         = $scndry_theme_btn_left_border;
-				$outline_button_selector = 'div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
+				$outline_button_selector = '.wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
 			}
 
 			// Secondary button padding.
 			if ( $padding_top || $padding_right || $padding_bottom || $padding_left ) {
-				$outline_button_selector = 'div.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
+				$outline_button_selector = '.wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
 			}
 
 			$outline_button_css_desktop = array(
@@ -1868,10 +1868,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-bottom-left-radius'  => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'left', 'desktop' ),
 					'background-color'           => 'transparent',
 				),
-				'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color), .ast-outline-button' => array(
+				'.wp-block-buttons .wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-buttons .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color), .ast-outline-button' => array(
 					'color' => esc_attr( $btn_color_val ),
 				),
-				'.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover, .ast-outline-button:hover, .ast-outline-button:focus' => array(
+				'.wp-block-button.is-style-outline .wp-block-button__link:hover, .wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link:focus, .wp-block-buttons .wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, .wp-block-buttons .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover, .ast-outline-button:hover, .ast-outline-button:focus' => array(
 					'color'            => empty( $scndry_btn_text_hover_color ) ? esc_attr( $btn_text_hover_color ) : esc_attr( $scndry_btn_text_hover_color ),
 					'background-color' => empty( $scndry_btn_bg_hover_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $scndry_btn_bg_hover_color ),
 					'border-color'     => esc_attr( $btn_border_h_color_val ),
@@ -1913,7 +1913,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				if ( empty( $scndry_btn_text_color ) ) {
 					$scndry_btn_text_color = astra_get_foreground_color( $theme_color );
 				}
-				$outline_button_css_desktop['div.wp-block-button .wp-block-button__link.is-style-outline:not(.has-background), div.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)'] = array(
+				$outline_button_css_desktop['.wp-block-buttons .wp-block-button .wp-block-button__link.is-style-outline:not(.has-background), .wp-block-buttons .wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)'] = array(
 					'background-color' => empty ( $scndry_btn_bg_color ) ? esc_attr( $theme_color ) : esc_attr( $scndry_btn_bg_color ),
 					'color'            => esc_attr( $scndry_btn_text_color ),
 				);
