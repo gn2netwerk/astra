@@ -1007,6 +1007,10 @@ function hasWordPressWidgetBlockEditor() {
 			let tabletBreakPoint    = astraBuilderPreview.tablet_break_point || 768,
 				mobileBreakPoint    = astraBuilderPreview.mobile_break_point || 544;
 
+			if( "" === border ) {
+				return;
+			}
+
 			let globalSelector = '.wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
 
 			let dynamicStyle = globalSelector + '{ border-top-left-radius :' + border['desktop']['top'] + border['desktop-unit']
@@ -2093,12 +2097,13 @@ function hasWordPressWidgetBlockEditor() {
 			setting.bind( function( value ) {
 				if( '' === value ) {
 
-					var buttonPreset = wp.customize( 'astra-settings[button-preset-style]' ).get();
+					var buttonPreset = wp.customize( 'astra-settings[secondary-button-preset-style]' ).get();
+					var themeColor = wp.customize( 'astra-settings[theme-color]' ).get();
 
 					// If button has outline preset.
 					if( 'button_04' === buttonPreset || 'button_05' === buttonPreset || 'button_06' === buttonPreset ) {
 
-						var buttonBGColor   = wp.customize( 'astra-settings[button-bg-color]' ).get();
+						var buttonBGColor   = wp.customize( 'astra-settings[secondary-button-bg-color]' ).get();
 
 						jQuery( 'style#astra-settings-secondary-button-color-color' ).remove();
 
@@ -2114,7 +2119,7 @@ function hasWordPressWidgetBlockEditor() {
 						// Theme Button - Background Color
 						jQuery( 'head' ).append(
 							'<style id="astra-settings-secondary-button-color-color">'
-							+ btnSecondaryColorSelector + '	{ color: #FFFFFF }'
+							+ btnSecondaryColorSelector + '	{ color: ' + themeColor + ' }'
 							+ '</style>'
 						);
 					}
@@ -2237,7 +2242,7 @@ function hasWordPressWidgetBlockEditor() {
 					}
 
 				}
-				 else {
+				 else if ( 'button_01' === buttonPreset || 'button_02' === buttonPreset || 'button_03' === buttonPreset ) {
 					jQuery( 'style#astra-settings-secondary-button-bg-color-background-color' ).remove();
 					jQuery( 'style#astra-settings-secondary-button-outline-preset-color' ).remove();
 
@@ -2259,6 +2264,33 @@ function hasWordPressWidgetBlockEditor() {
 						+ btnBgColorSelector + '	{ background-color: ' + value + ' }'
 						+ '</style>'
 					);
+				}
+				else {
+					var buttonTextColor = wp.customize( 'astra-settings[secondary-button-color]' ).get();
+					var buttonBorderColor = wp.customize( 'astra-settings[secondary-theme-button-border-group-border-color]' ).get();
+
+					if( '' === buttonBorderColor ) {
+
+						// Theme Button - Background Color
+						jQuery( 'style#astra-settings-secondary-theme-button-border-group-border-color' ).remove();
+
+						// Theme Button - Background Color
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-secondary-theme-button-border-group-border-color">'
+							+ btnSecondarySelector + '	{ border-color: ' + value + ' }'
+							+ '</style>'
+						);
+					}
+
+					if( '' === buttonTextColor ) {
+						jQuery( 'style#astra-settings-secondary-button-outline-preset-color' ).remove();
+
+						jQuery( 'head' ).append(
+							'<style id="astra-settings-secondary-button-outline-preset-color">'
+							+ btnSecondaryColorSelector + '	{ color: ' + value + ' }'
+							+ '</style>'
+						);
+					}
 				}
 			} );
 		} );
