@@ -1899,7 +1899,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.comments-area textarea#comment:focus, .comments-area textarea#comment:active, .comments-area .ast-comment-formwrap input[type="text"]:focus, .comments-area .ast-comment-formwrap input[type="text"]:active ' => array(
 						'box-shadow' => 'none',
 						'outline'    => 'none',
-						'border'     => '1px solid var(--ast-global-color-0)',
 					),
 					'.archive.ast-page-builder-template .entry-header' => array(
 						'margin-top' => '2em',
