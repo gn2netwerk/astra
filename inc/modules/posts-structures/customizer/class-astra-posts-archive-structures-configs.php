@@ -310,7 +310,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'section'  => $parent_section,
 					'priority' => 2,
 					'linked'   => $title_section,
-					'linkText' => ( 'post' === $post_type ) ? __( 'Blog Title', 'astra' ) : Astra_Posts_Structures_Configs::astra_get_dynamic_section_title( get_post_type_object( $post_type ), $post_type ) . __( ' Title', 'astra' ),
+					'linkText' => $this->get_dynamic_section_title( get_post_type_object( $post_type ), $post_type ),
 				),
 
 				/**
@@ -1001,6 +1001,20 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 		}
 
 		return $configurations;
+	}
+
+	/**
+	 * Get Dynamic Section Title.
+	 *
+	 * @since x.x.x
+	 * @param object $post_type_object Post type object.
+	 * @param string $post_type Post type.
+	 * @return string
+	 */
+	public function get_dynamic_section_title( $post_type_object, $post_type ) {
+		$title = ( 'post' === $post_type ) ? __( 'Blog Title', 'astra' ) : Astra_Posts_Structures_Configs::astra_get_dynamic_section_title( get_post_type_object( $post_type ), $post_type );
+		$title = 'sc_collection' === $post_type ? __( 'Collections', 'astra' ) : $title;
+		return apply_filters( 'astra_archive_post_title', $title . __( ' Title', 'astra' ), $post_type_object, $post_type );
 	}
 }
 

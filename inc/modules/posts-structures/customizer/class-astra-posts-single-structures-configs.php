@@ -341,7 +341,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 
 				array(
 					'name'     => $title_section,
-					'title'    => isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) . __( ' Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
+					'title'    => $this->get_dynamic_section_title( $post_type_object, $post_type ),
 					'type'     => 'section',
 					'section'  => $parent_section,
 					'panel'    => ( 'product' === $post_type ) ? 'woocommerce' : '',
@@ -356,7 +356,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'section'  => $parent_section,
 					'priority' => 2,
 					'linked'   => $title_section,
-					'linkText' => isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) . __( ' Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
+					'linkText' => $this->get_dynamic_section_title( $post_type_object, $post_type ),
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider ast-bottom-section-divider' ),
 				),
 
@@ -1183,6 +1183,20 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 		}
 
 		return $configurations;
+	}
+
+	/**
+	 * Get Dynamic Section Title.
+	 *
+	 * @since x.x.x
+	 * @param object $post_type_object Post type object.
+	 * @param string $post_type Post type.
+	 * @return string
+	 */
+	public function get_dynamic_section_title( $post_type_object, $post_type ) {
+		$title = isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) : ucfirst( $post_type );
+		$title = 'sc_collection' === $post_type ? __( 'Collection', 'astra' ) : $title;
+		return apply_filters( 'astra_single_post_title', $title . __( ' Title', 'astra' ), $post_type_object, $post_type );
 	}
 }
 
