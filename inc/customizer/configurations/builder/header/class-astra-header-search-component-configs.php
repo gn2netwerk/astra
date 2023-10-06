@@ -49,7 +49,9 @@ class Astra_Header_Search_Component_Configs extends Astra_Customizer_Config_Base
 		$post_type_choices = array();
 		foreach ( $all_post_types as $post_type ) {
 			$post_type_object = get_post_type_object( $post_type );
-			$post_type_choices[ $post_type ] = $post_type_object->labels->name;
+			/** @psalm-suppress PossiblyNullPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$post_type_choices[ $post_type ] = ! empty( $post_type_object->labels->name ) ? $post_type_object->labels->name : $post_type;
+			/** @psalm-suppress PossiblyNullPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 		return $post_type_choices;
 	}

@@ -372,7 +372,7 @@ if ( ! function_exists( 'astra_get_prop' ) ) :
 	 * @param string $prop    Name of the property to be retrieved.
 	 * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
 	 *
-	 * @return null|string|mixed The value
+	 * @return string|mixed The value
 	 */
 	function astra_get_prop( $array, $prop, $default = null ) {
 
