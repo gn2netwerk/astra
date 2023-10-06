@@ -315,8 +315,8 @@ class Astra_WP_Editor_CSS {
 			$body_font_size_desktop = ( '' != $body_font_size ) ? $body_font_size : 15;
 		}
 
-		$site_background    = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
-		$content_background = astra_get_option( 'content-bg-obj-responsive' );
+		$site_background       = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
+		$content_background    = astra_get_option( 'content-bg-obj-responsive' );
 		$background_style_data = astra_get_responsive_background_obj( $site_background, 'desktop' );
 		if (
 			empty( $background_style_data ) ||
