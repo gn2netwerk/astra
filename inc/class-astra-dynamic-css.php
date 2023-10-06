@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			// Override page background with meta value if set.
 			$meta_background_enabled = astra_get_option_meta( 'ast-page-background-enabled' );
-			
+
 			// Check for third party pages meta.
 			if ( '' === $meta_background_enabled && astra_with_third_party() ) {
 				$meta_background_enabled = astra_third_party_archive_meta( 'ast-page-background-enabled' );
@@ -744,6 +744,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-radius' => ( '' !== $mobile_header_toggle_btn_border_radius ) ? esc_attr( $mobile_header_toggle_btn_border_radius ) . 'px' : '',
 				),
 
+				// Search.
+				'.ast-search-menu-icon .search-form button.search-submit:focus svg' => array(
+					'margin-right' => '1px',
+				),
+				'.ast-search-menu-icon .search-form button.search-submit' => array(
+					'padding' => '0 4px',
+				),
 			);
 
 			/*  This is a fix issue with logo height for normal and transparent logo so that they are the same */
@@ -829,7 +836,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Accessibility options.
 			$enable_site_accessibility        = astra_get_option( 'site-accessibility-toggle', false );
 			$html_selectors_focus_visible     = 'a:focus-visible, .ast-menu-toggle:focus-visible, .site .skip-link:focus-visible, .wp-block-loginout input:focus-visible, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper, .ast-header-navigation-arrow:focus-visible, .woocommerce .wc-proceed-to-checkout > .checkout-button:focus-visible, .woocommerce .woocommerce-MyAccount-navigation ul li a:focus-visible, .ast-orders-table__row .ast-orders-table__cell:focus-visible, .woocommerce .woocommerce-order-details .order-again > .button:focus-visible, .woocommerce .woocommerce-message a.button.wc-forward:focus-visible, .woocommerce #minus_qty:focus-visible, .woocommerce #plus_qty:focus-visible, a#ast-apply-coupon:focus-visible, .woocommerce .woocommerce-info a:focus-visible, .woocommerce .astra-shop-summary-wrap a:focus-visible, .woocommerce a.wc-forward:focus-visible, #ast-apply-coupon:focus-visible, .woocommerce-js .woocommerce-mini-cart-item a.remove:focus-visible';
-			$html_selectors_focus_only_inputs = 'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, input[type="number"]:focus, textarea:focus, .wp-block-search__input:focus, [data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-minimal:focus, .ast-mobile-popup-drawer.active .menu-toggle-close:focus, .woocommerce-ordering select.orderby:focus, #ast-scroll-top:focus, #coupon_code:focus, .woocommerce-page #comment:focus, .woocommerce #reviews #respond input#submit:focus, .woocommerce a.add_to_cart_button:focus, .woocommerce .button.single_add_to_cart_button:focus, .woocommerce .woocommerce-cart-form button:focus, .woocommerce .woocommerce-cart-form__cart-item .quantity .qty:focus, .woocommerce .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce #order_comments:focus, .woocommerce #place_order:focus, .woocommerce .woocommerce-address-fields .woocommerce-address-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce .woocommerce-MyAccount-content form button:focus, .woocommerce .woocommerce-MyAccount-content .woocommerce-EditAccountForm .woocommerce-form-row .woocommerce-Input.input-text:focus, .woocommerce .ast-woocommerce-container .woocommerce-pagination ul.page-numbers li a:focus, body #content .woocommerce form .form-row .select2-container--default .select2-selection--single:focus, #ast-coupon-code:focus, .woocommerce.woocommerce-js .quantity input[type=number]:focus, .woocommerce-js .woocommerce-mini-cart-item .quantity input[type=number]:focus, .woocommerce p#ast-coupon-trigger:focus';
+			$html_selectors_focus_only_inputs = 'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, input[type="number"]:focus, textarea:focus, .wp-block-search__input:focus, [data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-minimal:focus, .ast-mobile-popup-drawer.active .menu-toggle-close:focus, .woocommerce-ordering select.orderby:focus, #ast-scroll-top:focus, #coupon_code:focus, .woocommerce-page #comment:focus, .woocommerce #reviews #respond input#submit:focus, .woocommerce a.add_to_cart_button:focus, .woocommerce .button.single_add_to_cart_button:focus, .woocommerce .woocommerce-cart-form button:focus, .woocommerce .woocommerce-cart-form__cart-item .quantity .qty:focus, .woocommerce .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce #order_comments:focus, .woocommerce #place_order:focus, .woocommerce .woocommerce-address-fields .woocommerce-address-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce .woocommerce-MyAccount-content form button:focus, .woocommerce .woocommerce-MyAccount-content .woocommerce-EditAccountForm .woocommerce-form-row .woocommerce-Input.input-text:focus, .woocommerce .ast-woocommerce-container .woocommerce-pagination ul.page-numbers li a:focus, body #content .woocommerce form .form-row .select2-container--default .select2-selection--single:focus, #ast-coupon-code:focus, .woocommerce.woocommerce-js .quantity input[type=number]:focus, .woocommerce-js .woocommerce-mini-cart-item .quantity input[type=number]:focus, .woocommerce p#ast-coupon-trigger:focus, .ast-search-menu-icon .search-form button.search-submit:focus';
 
 			if ( $enable_site_accessibility ) {
 				$outline_style = astra_get_option( 'site-accessibility-highlight-type' );
@@ -1069,6 +1076,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				require_once ASTRA_THEME_DIR . 'inc/dynamic-css/comments.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			} else {
 				require_once ASTRA_THEME_DIR . 'inc/dynamic-css/comments-flex.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			}
+
+			$live_search_enabled = astra_get_option( 'live-search', false );
+			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active && Astra_Builder_Helper::is_component_loaded( 'search', 'header' ) && $live_search_enabled ) {
+				// Live search CSS.
+				require_once ASTRA_THEME_DIR . 'inc/dynamic-css/live-search.php'; // PHPCS:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			}
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
@@ -2040,9 +2053,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'padding' => '0',
 					),
 					'.ast-comment-formwrap'           => array(
-						'padding'    => '0 20px',
-						'display'    => 'inline-flex',
-						'column-gap' => '20px',
+						'padding'      => '0',
+						'display'      => 'inline-flex',
+						'column-gap'   => '20px',
+						'width'        => '100%',
+						'margin-left'  => '0',
+						'margin-right' => '0',
+					),
+					'.comments-area textarea#comment:focus, .comments-area textarea#comment:active, .comments-area .ast-comment-formwrap input[type="text"]:focus, .comments-area .ast-comment-formwrap input[type="text"]:active ' => array(
+						'box-shadow' => 'none',
+						'outline'    => 'none',
 					),
 					'.archive.ast-page-builder-template .entry-header' => array(
 						'margin-top' => '2em',
@@ -3820,7 +3840,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'color' => esc_attr( $social_hover_color['mobile'] ),
 						),
 					);
-	
+
 					$parse_css .= astra_parse_css( $transparent_header_builder_mobile_css, '', astra_get_mobile_breakpoint() );
 			}
 
