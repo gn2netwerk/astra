@@ -310,9 +310,9 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'section'  => $parent_section,
 					'priority' => 2,
 					'linked'   => $title_section,
-					/** @psalm-suppress PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					// @codingStandardsIgnoreStart
 					'linkText' => $this->get_dynamic_section_title( get_post_type_object( $post_type ), $post_type ),
-					/** @psalm-suppress PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					// @codingStandardsIgnoreEnd
 				),
 
 				/**
@@ -1009,12 +1009,16 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 	 * Get Dynamic Section Title.
 	 *
 	 * @since x.x.x
-	 * @param object $post_type_object Post type object.
+	 * @param object|null $post_type_object Post type object.
 	 * @param string $post_type Post type.
 	 * @return string
 	 */
 	public function get_dynamic_section_title( $post_type_object, $post_type ) {
-		$title = ( 'post' === $post_type ) ? __( 'Blog', 'astra' ) : Astra_Posts_Structures_Configs::astra_get_dynamic_section_title( get_post_type_object( $post_type ), $post_type );
+		if ( ! is_null( $post_type_object ) ) {
+			$title = ( 'post' === $post_type ) ? __( 'Blog', 'astra' ) : Astra_Posts_Structures_Configs::astra_get_dynamic_section_title( get_post_type_object( $post_type ), $post_type );
+		} else {
+			$title = __( 'Archive Banner', 'astra' );
+		}
 		return apply_filters( 'astra_archive_post_title', $title . __( ' Title', 'astra' ) );
 	}
 }

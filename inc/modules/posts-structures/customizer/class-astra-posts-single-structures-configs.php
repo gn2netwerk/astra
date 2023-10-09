@@ -341,9 +341,9 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 
 				array(
 					'name'     => $title_section,
-					/** @psalm-suppress PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					// @codingStandardsIgnoreStart
 					'title'    => $this->get_dynamic_section_title( $post_type_object, $post_type ),
-					/** @psalm-suppress PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					// @codingStandardsIgnoreEnd
 					'type'     => 'section',
 					'section'  => $parent_section,
 					'panel'    => ( 'product' === $post_type ) ? 'woocommerce' : '',
@@ -1191,12 +1191,16 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * Get Dynamic Section Title.
 	 *
 	 * @since x.x.x
-	 * @param object $post_type_object Post type object.
+	 * @param object|null $post_type_object Post type object.
 	 * @param string $post_type Post type.
 	 * @return string
 	 */
 	public function get_dynamic_section_title( $post_type_object, $post_type ) {
-		$title = isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) : ucfirst( $post_type );
+		if ( ! is_null() ) {
+			$title = isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) : ucfirst( $post_type );
+		} else {
+			$title = __( 'Single Banner', 'astra' );
+		}
 		return apply_filters( 'astra_single_post_title', $title . __( ' Title', 'astra' ) );
 	}
 }
