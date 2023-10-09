@@ -1151,6 +1151,7 @@ function astra_get_queried_post_types() {
 			'astra_adv_header',
 			'elementor_library',
 			'brizy_template',
+			'sc_collection',
 
 			'course',
 			'lesson',

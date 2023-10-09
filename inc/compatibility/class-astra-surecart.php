@@ -50,6 +50,8 @@ class Astra_SureCart {
 		add_action( 'astra_entry_top', array( $this, 'revert_surecart_support' ) );
 		add_filter( 'astra_page_layout', array( $this, 'sc_shop_sidebar_layout' ) );
 		add_filter( 'astra_get_content_layout', array( $this, 'sc_shop_content_layout' ) );
+
+		// Boxed layout support.
 		add_filter( 'astra_is_content_layout_boxed', array( $this, 'sc_shop_content_boxed_layout' ) );
 		add_filter( 'astra_is_sidebar_layout_boxed', array( $this, 'sc_shop_sidebar_boxed_layout' ) );
 	}
@@ -61,7 +63,7 @@ class Astra_SureCart {
 	 * @since x.x.x
 	 */
 	public function astra_is_surecart_shop_page() {
-		if ( ! is_null( $this->shop_page_status ) ) {
+		if ( ! is_customize_preview() && ! is_null( $this->shop_page_status ) ) {
 			return $this->shop_page_status;
 		}
 
@@ -105,8 +107,8 @@ class Astra_SureCart {
 	/**
 	 * SureCart Shop Container
 	 *
-	 * @param string $layout Layout type.
-	 * @return string $layout Layout type.
+	 * @param string $content_layout Layout type.
+	 * @return string $content_layout Layout type.
 	 * @since x.x.x
 	 */
 	public function sc_shop_content_layout( $content_layout ) {
@@ -124,39 +126,39 @@ class Astra_SureCart {
 	/**
 	 * SureCart Shop Container Style
 	 *
-	 * @param string $layout_style Layout style.
-	 * @return string $layout_style Layout style.
+	 * @param string $is_style_boxed Layout style.
+	 * @return string $is_style_boxed Layout style.
 	 * @since x.x.x
 	 */
-	public function sc_shop_content_boxed_layout( $layout_style ) {
+	public function sc_shop_content_boxed_layout( $is_style_boxed ) {
 		if ( $this->astra_is_surecart_shop_page() ) {
-			$sc_shop_layout_style = astra_get_option( 'archive-' . $this->post_type . '-content-style', $layout_style );
+			$sc_shop_layout_style = astra_get_option( 'archive-' . $this->post_type . '-content-style', 'default' );
 
 			if ( 'boxed' === $sc_shop_layout_style ) {
-				$layout_style = $sc_shop_layout_style;
+				$is_style_boxed = true;
 			}
 		}
 
-		return apply_filters( 'astra_get_store_layout_style', $layout_style );
+		return apply_filters( 'astra_get_store_layout_style', $is_style_boxed );
 	}
 
 	/**
 	 * SureCart Shop Sidebar Style
 	 *
-	 * @param string $layout_style Layout style.
-	 * @return string $layout_style Layout style.
+	 * @param string $is_style_boxed Layout style.
+	 * @return string $is_style_boxed Layout style.
 	 * @since x.x.x
 	 */
-	public function sc_shop_sidebar_boxed_layout( $layout_style ) {
+	public function sc_shop_sidebar_boxed_layout( $is_style_boxed ) {
 		if ( $this->astra_is_surecart_shop_page() ) {
-			$sc_shop_layout_style = astra_get_option( 'archive-' . $this->post_type . '-sidebar-layout', $layout_style );
+			$sc_shop_layout_style = astra_get_option( 'archive-' . $this->post_type . '-sidebar-style', 'default' );
 
 			if ( 'boxed' === $sc_shop_layout_style ) {
-				$layout_style = $sc_shop_layout_style;
+				$is_style_boxed = true;
 			}
 		}
 
-		return apply_filters( 'astra_get_store_sidebar_style', $layout_style );
+		return apply_filters( 'astra_get_store_sidebar_style', $is_style_boxed );
 	}
 
 	/**
@@ -296,6 +298,9 @@ class Astra_SureCart {
 		if ( false === $this->astra_is_surecart_shop_page() ) {
 			return;
 		}
+
+		remove_filter( 'astra_is_content_layout_boxed', array( $this, 'sc_shop_content_boxed_layout' ) );
+		remove_filter( 'astra_is_sidebar_layout_boxed', array( $this, 'sc_shop_sidebar_boxed_layout' ) );
 
 		remove_filter( 'astra_banner_elements_structure', array( $this, 'update_astra_banner_elements_structure' ) );
 		remove_filter( 'astra_banner_elements_post_type', array( $this, 'update_astra_banner_elements_post_type' ) );

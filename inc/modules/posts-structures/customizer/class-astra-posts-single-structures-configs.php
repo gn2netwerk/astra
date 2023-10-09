@@ -1195,7 +1195,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 */
 	public function get_dynamic_section_title( $post_type_object, $post_type ) {
 		$title = isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) : ucfirst( $post_type );
-		$title = 'sc_collection' === $post_type ? __( 'Collection', 'astra' ) : $title;
 		return apply_filters( 'astra_single_post_title', $title . __( ' Title', 'astra' ), $post_type_object, $post_type );
 	}
 }
