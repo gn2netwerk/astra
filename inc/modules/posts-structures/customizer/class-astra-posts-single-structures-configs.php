@@ -1196,7 +1196,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 * @return string
 	 */
 	public function get_dynamic_section_title( $post_type_object, $post_type ) {
-		if ( ! is_null() ) {
+		if ( ! is_null( $post_type_object ) ) {
 			$title = isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) : ucfirst( $post_type );
 		} else {
 			$title = __( 'Single Banner', 'astra' );
