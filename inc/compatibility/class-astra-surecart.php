@@ -305,7 +305,7 @@ class Astra_SureCart {
 		remove_filter( 'astra_banner_elements_structure', array( $this, 'update_astra_banner_elements_structure' ) );
 		remove_filter( 'astra_banner_elements_post_type', array( $this, 'update_astra_banner_elements_post_type' ) );
 		remove_filter( 'astra_banner_elements_prefix', array( $this, 'update_astra_banner_elements_prefix' ) );
-		remove_filter( 'the_title', array( $this, 'update_the_title' ), 10, 2 );
+		remove_filter( 'the_title', array( $this, 'update_the_title' ), 10 );
 	}
 }
 

@@ -341,7 +341,9 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 
 				array(
 					'name'     => $title_section,
+					/** @psalm-suppress PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'title'    => $this->get_dynamic_section_title( $post_type_object, $post_type ),
+					/** @psalm-suppress PossiblyNullArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'type'     => 'section',
 					'section'  => $parent_section,
 					'panel'    => ( 'product' === $post_type ) ? 'woocommerce' : '',
@@ -1195,7 +1197,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 	 */
 	public function get_dynamic_section_title( $post_type_object, $post_type ) {
 		$title = isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) : ucfirst( $post_type );
-		return apply_filters( 'astra_single_post_title', $title . __( ' Title', 'astra' ), $post_type_object, $post_type );
+		return apply_filters( 'astra_single_post_title', $title . __( ' Title', 'astra' ), $post_type );
 	}
 }
 
