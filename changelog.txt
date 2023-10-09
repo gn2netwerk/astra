@@ -1,3 +1,6 @@
+v4.4.0
+- Improvement: Updated default colors from color palette on fresh setup for better UI/UX.
+
 v4.3.1
 - Fix: Block - Lists block style type updated to "disc" after v4.3.0 update.
 - Fix: Block Editor - Text color not inheriting as per the settings saved in customizer.
