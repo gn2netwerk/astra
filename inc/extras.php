@@ -132,7 +132,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 				$content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false, $old_meta_content_layout );
 			} else {
 				$content_layout = astra_get_option_meta( 'ast-site-content-layout', '', true );
-	
+
 				// If post meta value is present, apply new layout option.
 				if ( $content_layout ) {
 					$content_layout = astra_toggle_layout( 'ast-site-content-layout', 'meta', false );
@@ -156,7 +156,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 			$content_layout = '';
 			$post_type      = strval( get_post_type() );
 			$content_layout = astra_toggle_layout( 'archive-' . $post_type . '-ast-content-layout', 'archive', false );
-			
+
 			if ( is_search() ) {
 				$content_layout = astra_toggle_layout( 'archive-post-ast-content-layout', 'archive', false );
 			}
@@ -372,7 +372,7 @@ if ( ! function_exists( 'astra_get_prop' ) ) :
 	 * @param string $prop    Name of the property to be retrieved.
 	 * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
 	 *
-	 * @return null|string|mixed The value
+	 * @return string|mixed The value
 	 */
 	function astra_get_prop( $array, $prop, $default = null ) {
 
@@ -801,7 +801,7 @@ function astra_can_remove_elementor_toc_margin_space() {
 
 /**
  * Check whether user is exising or new to override the hr tag styling for elementor
- * 
+ *
  * @since 4.3.0
  * @return boolean
  */
@@ -820,43 +820,6 @@ function astra_has_global_color_format_support() {
 	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['support-global-color-format'] = isset( $astra_settings['support-global-color-format'] ) ? false : true;
 	return apply_filters( 'astra_apply_global_color_format_support', $astra_settings['support-global-color-format'] );
-}
-
-/**
- * Check whether widget specific config, dynamic CSS, preview JS needs to remove or not. Following cases considered while implementing this.
- *
- * 1. Is user is from old Astra setup.
- * 2. Check if user is new but on lesser WordPress 5.8 versions.
- * 3. User is new with block widget editor.
- *
- * @since 3.6.8
- * @return boolean
- */
-function astra_remove_widget_design_options() {
-	$astra_settings               = get_option( ASTRA_THEME_SETTINGS );
-	$remove_widget_design_options = isset( $astra_settings['remove-widget-design-options'] ) ? false : true;
-
-	// True -> Hide widget sections, False -> Display widget sections.
-	$is_widget_design_sections_hidden = true;
-
-	if ( ! $remove_widget_design_options ) {
-		// For old users we will show widget design options by anyways.
-		return apply_filters( 'astra_remove_widget_design_options', false );
-	}
-
-	// Considering the user is new now.
-	if ( isset( $astra_settings['remove-widget-design-options'] ) && $astra_settings['remove-widget-design-options'] ) {
-		// User was on WP-5.8 lesser version previously and he may update their WordPress to 5.8 in future. So we display the options in this case.
-		$is_widget_design_sections_hidden = false;
-	} elseif ( astra_has_widgets_block_editor() ) {
-		// User is new & having block widgets active. So we will hide those options.
-		$is_widget_design_sections_hidden = true;
-	} else {
-		// Setting up flag because user is on lesser WP versions and may update WP to 5.8.
-		astra_update_option( 'remove-widget-design-options', true );
-	}
-
-	return apply_filters( 'astra_remove_widget_design_options', $is_widget_design_sections_hidden );
 }
 
 /**
@@ -1142,4 +1105,75 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
 		'letter-spacing'  => astra_get_font_extras( $font_extras_ast_option, 'letter-spacing', 'letter-spacing-unit' ),
 		'text-decoration' => astra_get_font_extras( $font_extras_ast_option, 'text-decoration' ),
 	);
+}
+
+/**
+ * Getting site active language & compatible with other plugins.
+ *
+ * @since x.x.x
+ * @return string
+ */
+function astra_get_current_language_slug() {
+	$lang = '';
+	if ( function_exists('pll_current_language' ) ) {
+		$lang = pll_current_language();
+	}
+	return apply_filters( 'astra_addon_site_current_language', $lang );
+}
+
+/**
+ * Function which will return the supported post types from core.
+ *
+ * Further processing includes:
+ * 1. Dynamic customizer
+ * 2. Live Search
+ *
+ * @since x.x.x
+ * @return array
+ */
+function astra_get_queried_post_types() {
+	$queried_post_types = array_keys(
+		get_post_types(
+			apply_filters(
+				'astra_dynamic_get_post_types_query_args',
+				array(
+					'public'   => true,
+					'_builtin' => false,
+				)
+			)
+		)
+	);
+
+	$queried_post_types   = array_diff(
+		$queried_post_types,
+		array(
+			'astra-advanced-hook',
+			'astra_adv_header',
+			'elementor_library',
+			'brizy_template',
+
+			'course',
+			'lesson',
+			'llms_membership',
+
+			'tutor_quiz',
+			'tutor_assignments',
+
+			'testimonial',
+			'frm_display',
+			'mec_esb',
+			'mec-events',
+
+			'sfwd-assignment',
+			'sfwd-essays',
+			'sfwd-transactions',
+			'sfwd-certificates',
+			'sfwd-quiz',
+			'e-landing-page',
+		)
+	);
+	$queried_post_types[] = 'post';
+	$queried_post_types[] = 'page';
+
+	return $queried_post_types;
 }
