@@ -71,9 +71,6 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		$selector . ' .search-field::placeholder,' . $selector . ' .ast-icon' => array(
 			'color' => esc_attr( $icon_color_desktop ),
 		),
-		$selector . ' .ast-search-menu-icon.ast-dropdown-active .search-field' => array(
-			'margin-right' => astra_get_css_value( $icon_size_desktop - 10, 'px' ),
-		),
 		$margin_selector                                => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
@@ -98,9 +95,6 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		$selector . ' .search-field::placeholder' => array(
 			'color' => esc_attr( $icon_color_tablet ),
 		),
-		$selector . ' .ast-search-menu-icon.ast-dropdown-active .search-field' => array(
-			'margin-right' => astra_get_css_value( $icon_size_tablet - 10, 'px' ),
-		),
 		$margin_selector                          => array(
 			// Margin CSS.
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
@@ -124,9 +118,6 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		),
 		$selector . ' .search-field::placeholder' => array(
 			'color' => esc_attr( $icon_color_mobile ),
-		),
-		$selector . ' .ast-search-menu-icon.ast-dropdown-active .search-field' => array(
-			'margin-right' => astra_get_css_value( $icon_size_mobile - 10, 'px' ),
 		),
 		$margin_selector                          => array(
 			// Margin CSS.

@@ -3727,8 +3727,8 @@ span.customize-control-title.ast-group-section-title {
 .ast-customizer-select-multi .ast-multi-select__value-container {
     overflow-x: hidden;
     flex-wrap: nowrap;
-    padding-right: 5px;
-    padding-left: 25px;
+    padding-right: 10px;
+    padding-left: 30px;
 }
 
 .ast-customizer-select-multi:before {
@@ -3749,7 +3749,7 @@ span.customize-control-title.ast-group-section-title {
     position: absolute;
     font-family: dashicons;
     font-size: 16px;
-    margin-left: 7px;
+    margin-left: 15px;
     pointer-events: none;
     z-index: 1;
     top: 13px;
@@ -3789,6 +3789,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-customizer-select-multi .ast-multi-select__menu {
     z-index: 2;
 }
+
 .ast-variant-select > div {
 	border-color: #dddddd;
 }

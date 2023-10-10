@@ -980,6 +980,7 @@ function astra_search_static_css() {
 			width : 100%;
 			padding : 0.60em;
 			padding-left : 5.5em;
+			transition: all 0.2s;
 		}
 		.site-header-section-left .ast-search-menu-icon.slide-search .search-form {
 			padding-right: 3em;
@@ -1009,6 +1010,7 @@ function astra_search_static_css() {
 			width : 100%;
 			padding : 0.60em;
 			padding-right : 5.5em;
+			transition: all 0.2s;
 		}
 		.site-header-section-left .ast-search-menu-icon.slide-search .search-form {
 			padding-left: 3em;
