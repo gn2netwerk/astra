@@ -1866,7 +1866,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-left-width'          => esc_attr( $border_left_val ),
 					'font-family'                => astra_get_font_family( $scndry_theme_btn_font_family ),
 					'font-weight'                => esc_attr( $scndry_theme_btn_font_weight ),
-					'font-size'                  => isset( $scndry_theme_btn_font_size ) && is_array( $scndry_theme_btn_font_size ) ? astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ) : '',
+					'font-size'                  => isset( $scndry_theme_btn_font_size['desktop'] ) && isset( $scndry_theme_btn_font_size['desktop-unit'] ) && is_array( $scndry_theme_btn_font_size ) ? astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ) : '',
 					'line-height'                => esc_attr( $scndry_theme_btn_line_height ),
 					'text-transform'             => esc_attr( $scndry_theme_btn_text_transform ),
 					'text-decoration'            => esc_attr( $scndry_theme_btn_text_decoration ),
