@@ -81,7 +81,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	);
 
 	if ( $search_width_applicable ) {
-		$css_output_desktop[ $selector . ' form.search-form .search-field' ] = array(
+		$css_output_desktop[ $selector . ' form.search-form .search-field, ' . $selector . ' .ast-dropdown-active.ast-search-menu-icon.slide-search input.search-field' ] = array(
 			'width' => astra_get_css_value( astra_get_prop( $search_width, 'desktop' ), 'px' ),
 		);
 	}
@@ -105,7 +105,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	);
 
 	if ( $search_width_applicable ) {
-		$css_output_tablet[ $selector . ' form.search-form .search-field' ] = array(
+		$css_output_tablet[ $selector . ' form.search-form .search-field, ' . $selector . ' .ast-dropdown-active.ast-search-menu-icon.slide-search input.search-field' ] = array(
 			'width' => astra_get_css_value( astra_get_prop( $search_width, 'tablet' ), 'px' ),
 		);
 	}
@@ -129,7 +129,7 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	);
 
 	if ( $search_width_applicable ) {
-		$css_output_mobile[ $selector . ' form.search-form .search-field' ] = array(
+		$css_output_mobile[ $selector . ' form.search-form .search-field, ' . $selector . ' .ast-dropdown-active.ast-search-menu-icon.slide-search input.search-field' ] = array(
 			'width' => astra_get_css_value( astra_get_prop( $search_width, 'mobile' ), 'px' ),
 		);
 	}

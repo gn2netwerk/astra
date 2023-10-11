@@ -531,6 +531,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			$link_selector = ( true === $update_customizer_strctural_defaults ) ? 'a' : 'a, .page-title';
+			$transparent_search_box_bg_color = astra_get_option( 'transparent-header-search-box-background-color', '#fff' );
 
 			$css_output = array(
 
@@ -748,16 +749,26 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-search-menu-icon .search-form button.search-submit' => array(
 					'padding' => '0 4px',
 				),
-				'.ast-search-menu-icon .search-form button.search-submit:focus' => array(
-					'color' => 'var(--ast-global-color-0)',
-				),
-				'.ast-header-search form.search-form .search-field:focus' => array(
-					'box-shadow' => '0 0 0 2px var(--ast-global-color-0)',
-				),
 				'.ast-search-menu-icon form.search-form' => array(
 					'padding-right' => '0',
-				)
+				),
+				'.ast-header-search .ast-search-menu-icon.slide-search input.search-field' => array(
+					'width' => '0',
+				),
 			);
+
+			if ( self::astra_upgrade_fullscreen_search_submit_style() ) {
+				$css_output['.ast-search-menu-icon .search-form button.search-submit:focus, .ast-theme-transparent-header .ast-header-search .ast-dropdown-active .ast-icon, .ast-theme-transparent-header .ast-inline-search .search-field:focus .ast-icon'] = array(
+					'color' => 'var(--ast-global-color-1)',
+				);
+				$css_output['.ast-header-search .search-form .search-field:focus'] = array(
+					'box-shadow' => '0 0 0 2px var(--ast-global-color-0)',
+				);
+				$css_output['.ast-header-search .slide-search .search-form .search-field'] = array(
+					'box-shadow' => '0 0 0 2px var(--ast-global-color-0)',
+					'background-color' => '#fff', // Referred by main.css.
+				);
+			}
 
 			/*  This is a fix issue with logo height for normal and transparent logo so that they are the same */
 			if ( ! apply_filters( 'astra_site_svg_logo_equal_height', astra_get_option( 'astra-site-svg-logo-equal-height', true ) ) ) {
@@ -5197,6 +5208,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function astra_core_form_btns_styling() {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			return apply_filters( 'astra_core_form_btns_styling', isset( $astra_settings['v4-2-2-core-form-btns-styling'] ) ? false : true );
+		}
+
+		/**
+		 * Improve full screen search Submit button style.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user, true if not.
+		 */
+		public static function astra_upgrade_fullscreen_search_submit_style() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['v4-4-0-backward-option'] = isset( $astra_settings['v4-4-0-backward-option'] ) ? false : true;
+			return apply_filters( 'astra_addon_upgrade_fullscreen_search_submit_style', $astra_settings['v4-4-0-backward-option'] );
 		}
 	}
 }

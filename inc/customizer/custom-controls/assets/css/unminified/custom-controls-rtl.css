@@ -1790,6 +1790,8 @@ li[ID*="accordion-section-ast-dynamic-archive-"].control-section-ast_section {
   font-size: 11px;
   line-height: 16px;
   font-weight: 400;
+  text-wrap: wrap;
+  display: inline-block;
 }
 
 .customize-control-ast-description a.button {

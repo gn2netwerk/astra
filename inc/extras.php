@@ -946,7 +946,7 @@ function astra_search_static_css() {
 	.ast-search-menu-icon .search-field {
 		border: none;
 		background-color: transparent;
-		transition: width .2s;
+		transition: all .3s;
 		border-radius: inherit;
 		color: inherit;
 		font-size: inherit;
