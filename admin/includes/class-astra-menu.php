@@ -148,22 +148,14 @@ class Astra_Menu {
 		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 		if ( $show_custom_layout_submenu ) {
-			// add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page -- Taken the menu on top level
-			// 	self::$plugin_slug,
-			// 	__( 'Custom Layouts', 'astra' ),
-			// 	__( 'Custom Layouts', 'astra' ),
-			// 	$capability,
-			// 	/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			// 	( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ? 'edit.php?post_type=astra-advanced-hook' : 'admin.php?page=' . self::$plugin_slug . '&path=custom-layouts'
-			// 	/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			// );
 			add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page -- Taken the menu on top level
 				self::$plugin_slug,
-				__( 'Theme Builder', 'astra' ),
-				__( 'Theme Builder', 'astra' ),
+				__( 'Custom Layouts', 'astra' ),
+				__( 'Custom Layouts', 'astra' ),
 				$capability,
-				'theme-builder',
-				array( $this, 'render_theme_builder' ),
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ? 'edit.php?post_type=astra-advanced-hook' : 'admin.php?page=' . self::$plugin_slug . '&path=custom-layouts'
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			);
 		}
 
@@ -227,24 +219,6 @@ class Astra_Menu {
 				</div>
 			</div>
 		</div>
-		<?php
-	}
-
-	/**
-	 * Renders the admin settings.
-	 *
-	 * @since 2.0.0
-	 * @return void
-	 */
-	public function render_theme_builder() {
-		?>
-			<div class="ast-tb-menu-page-wrapper">
-				<div id="ast-tb-menu-page">
-					<div class="ast-tb-menu-page-content">
-						<div id="ast-tb-app-root" class="ast-tb-app-root"></div>
-					</div>
-				</div>
-			</div>
 		<?php
 	}
 
