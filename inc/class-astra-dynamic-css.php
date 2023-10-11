@@ -1033,7 +1033,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css(
 					array(
 						'#ast-desktop-header' => array(
-							'display' => 'none !important',
+							'display' => 'none',
 						),
 					),
 					'', 
