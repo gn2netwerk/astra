@@ -112,16 +112,15 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		 * @return void
 		 */
 		public function setup_menu() {
-			$custom_layout_submenu = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) );
-				add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page -- Taken the menu on top level
-					'astra',
-					__( 'Theme Builder', 'astra' ),
-					__( 'Theme Builder', 'astra' ),
-					'manage_options',
-					'theme-builder-free',
-					array( $this, 'render_theme_builder' ),
-					2
-				);
+			add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page -- Taken the menu on top level
+				'astra',
+				__( 'Theme Builder', 'astra' ),
+				__( 'Theme Builder', 'astra' ),
+				'manage_options',
+				'theme-builder-free',
+				array( $this, 'render_theme_builder' ),
+				2
+			);
 		}
 	}
 
