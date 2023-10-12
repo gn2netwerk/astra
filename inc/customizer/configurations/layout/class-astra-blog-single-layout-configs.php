@@ -143,7 +143,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-toggle-control',
 					'section'     => 'section-blog-single',
-					'title'       => __( 'Enable Featured Image', 'astra-addon' ),
+					'title'       => __( 'Banner Featured Image', 'astra-addon' ),
 					'priority'    => 6,
 					'description' => __( 'Have Featured Image above post article, to modernize your blog post.', 'astra-addon' ),
 					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
