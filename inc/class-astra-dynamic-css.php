@@ -1045,9 +1045,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'#ast-desktop-header' => array(
 							'display' => 'none',
 						),
-						'#ast-mobile-header' => array(
-							'display' => 'none',
-						),
 					),
 					'',
 					astra_get_tablet_breakpoint()
