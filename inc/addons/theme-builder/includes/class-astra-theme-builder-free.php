@@ -42,9 +42,9 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		 *  Constructor
 		 */
 		public function __construct() {
-			$show_custom_layout_submenu = ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ? false : true;
+			$show_custom_layout_submenu = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) );
 
-			if ( $show_custom_layout_submenu ) {
+			if ( ! $show_custom_layout_submenu ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'theme_builder_admin_enqueue_scripts' ) );
 				add_action( 'admin_body_class', array( $this, 'admin_body_class' ) );
 				add_action( 'admin_menu', array( $this, 'setup_menu' ) );			
