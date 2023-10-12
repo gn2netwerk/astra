@@ -4210,7 +4210,20 @@ const Breadcrumbs = () => {
     key: index
   }, item, index < currCrumb.length - 1 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "ast-tb-crumb-icon"
-  }, ' > '))));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+    width: "14",
+    height: "14",
+    viewBox: "0 0 14 14",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    className: "ast-tb-breadcrumb-icon"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    d: "M4.90625 10.2734L8.17578 7.0039L4.90625 3.73438",
+    stroke: "#4B5563",
+    "stroke-width": "1.08984",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
+  }))))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Breadcrumbs);
 

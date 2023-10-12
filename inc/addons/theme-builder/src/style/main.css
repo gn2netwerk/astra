@@ -168,7 +168,7 @@
 
 .ast-tb-sidebar-help {
 	position: relative;
-	top: 35%;
+	top: 20%;
 }
 
 .ast-tb-all-layouts-btn {
@@ -211,7 +211,9 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 20px;
+	padding-top: 15px;
 	max-width: 200px;
+	max-height: 240px;
 }
 
 .ast-tb-card-title-wrapper {
@@ -222,8 +224,8 @@
 
 .ast-tb-canvas-content-row {
 	margin-top: 32px;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	display: flex;
+	flex-wrap: wrap;
 	grid-gap: 32px;
 }
 
@@ -233,12 +235,12 @@
 
 /** Card **/
 .ast-tb-card-svg-icon {
-	height: 180px;
+	height: 200px;
 }
 
 .ast-tb-card-title {
 	color: #1e293b;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-weight: 500;
 	margin: 0;
@@ -246,10 +248,14 @@
 
 .ast-tb-card-title-wrapper {
 	display: flex;
-	width: 100%;
-	margin-top: 20px;
+	width: 120%;
+	margin-top: 15px;
 	border-top: 1px solid #e9e9e9;
-	padding-top: 16px;
+	padding-top: 10px;
+}
+
+.ast-tb-card-title-wrapper > svg {
+	margin-left: 5%;
 }
 
 .ast-tb-canvas-content-row-flex {
@@ -301,6 +307,13 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 150%;
+}
+
+.ast-tb-card-hover-btn:hover {
+	background: #035fbc;
+}
+.ast-tb-btn:hover {
+	background: #035fbc;
 }
 
 .ast-tb-card-parent {
@@ -360,4 +373,9 @@
 
 .ast-tb-card-blur-on-hover {
 	filter: blur(2.5px);
+}
+
+.ast-tb-breadcrumb-icon {
+	position: relative;
+	top: 2px;
 }
