@@ -30,10 +30,10 @@ function astra_hb_search_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 		return $dynamic_css;
 	}
 
-	$_section  = 'section-header-search';
-	$selector  = '.ast-header-search';
-	$icon_size = astra_get_option( 'header-search-icon-space' );
-	$search_width = astra_get_option( 'header-search-width' );
+	$_section                = 'section-header-search';
+	$selector                = '.ast-header-search';
+	$icon_size               = astra_get_option( 'header-search-icon-space' );
+	$search_width            = astra_get_option( 'header-search-width' );
 	$search_width_applicable = ( ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ( 'slide-search' === astra_get_option( 'header-search-box-type' ) || 'search-box' === astra_get_option( 'header-search-box-type' ) ) ) ) ? true : false;
 
 	$icon_size_desktop = ( isset( $icon_size ) && isset( $icon_size['desktop'] ) && ! empty( $icon_size['desktop'] ) ) ? $icon_size['desktop'] : 20;

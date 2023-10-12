@@ -156,7 +156,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'default'    => astra_get_option( 'article-featured-image-position' ),
 					'priority'   => 6,
 					'title'      => __( 'Image Position', 'astra' ),
-					'context'     => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[article-featured-image]',
@@ -165,8 +165,8 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						),
 					),
 					'choices'    => array(
-						'above' => __( 'Above', 'astra' ),
-						'behind'  => __( 'Behind', 'astra' ),
+						'above'  => __( 'Above', 'astra' ),
+						'behind' => __( 'Behind', 'astra' ),
 					),
 					'responsive' => false,
 					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'default'    => astra_get_option( 'article-featured-image-width-type' ),
 					'priority'   => 6,
 					'title'      => __( 'Image Width', 'astra' ),
-					'context'     => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[article-featured-image]',
@@ -195,27 +195,27 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					),
 					'choices'    => array(
 						'wide' => __( 'Wide', 'astra' ),
-						'full'  => __( 'Full Width', 'astra' ),
+						'full' => __( 'Full Width', 'astra' ),
 					),
 					'responsive' => false,
 					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 					'renderAs'   => 'text',
 				),
 				array(
-					'name'                   => ASTRA_THEME_SETTINGS . '[article-featured-image-ratio-type]',
-					'default'                => astra_get_option( 'article-featured-image-ratio-type', '' ),
-					'type'                   => 'control',
-					'section'                => 'section-blog-single',
-					'priority'               => 6,
-					'control'                => 'ast-selector',
-					'title'                  => __( 'Image Ratio', 'astra' ),
-					'choices'                => array(
+					'name'       => ASTRA_THEME_SETTINGS . '[article-featured-image-ratio-type]',
+					'default'    => astra_get_option( 'article-featured-image-ratio-type', '' ),
+					'type'       => 'control',
+					'section'    => 'section-blog-single',
+					'priority'   => 6,
+					'control'    => 'ast-selector',
+					'title'      => __( 'Image Ratio', 'astra' ),
+					'choices'    => array(
 						''           => __( 'Original', 'astra' ),
 						'predefined' => __( 'Predefined', 'astra' ),
 						'custom'     => __( 'Custom', 'astra' ),
 					),
 					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
-					'context'     => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[article-featured-image]',
@@ -223,8 +223,8 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 							'value'    => true,
 						),
 					),
-					'responsive'             => false,
-					'renderAs'               => 'text',
+					'responsive' => false,
+					'renderAs'   => 'text',
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[article-featured-image-ratio-pre-scale]',
@@ -239,7 +239,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'16/9' => __( '16:9', 'astra' ),
 						'2/1'  => __( '2:1', 'astra' ),
 					),
-					'context'     => array(
+					'context'    => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[article-featured-image]',
@@ -268,7 +268,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'min'         => 1,
 						'max'         => 1000,
 					),
-					'context'     => array(
+					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[article-featured-image]',
@@ -296,7 +296,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'min'         => 1,
 						'max'         => 1000,
 					),
-					'context'     => array(
+					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[article-featured-image]',
@@ -318,7 +318,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'section'  => 'section-blog-single',
 					'priority' => 6,
 					'label'    => '',
-					'context'     => array(
+					'context'  => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[article-featured-image]',
@@ -334,15 +334,15 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'help'     => sprintf( /* translators: 1: link open markup, 2: link close markup */ __( 'Calculate a personalized image ratio using this %1$s online tool %2$s for your image dimensions.', 'astra' ), '<a href="https://www.digitalrebellion.com/webapps/aspectcalc" target="_blank">', '</a>' ),
 				),
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[article-featured-image-size]',
-					'default'   => astra_get_option( 'article-featured-image-size', 'large' ),
-					'section'   => 'section-blog-single',
-					'type'      => 'control',
-					'priority'  => 6,
-					'title'     => __( 'Image Size', 'astra' ),
-					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
-					'control'   => 'ast-select',
-					'choices'   => astra_get_site_image_sizes( true ),
+					'name'        => ASTRA_THEME_SETTINGS . '[article-featured-image-size]',
+					'default'     => astra_get_option( 'article-featured-image-size', 'large' ),
+					'section'     => 'section-blog-single',
+					'type'        => 'control',
+					'priority'    => 6,
+					'title'       => __( 'Image Size', 'astra' ),
+					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'control'     => 'ast-select',
+					'choices'     => astra_get_site_image_sizes( true ),
 					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'description' => defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ? __( 'When "Custom" is selected, following Featured Image Sizes are applied.', 'astra-addon' ) : '',
 					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort

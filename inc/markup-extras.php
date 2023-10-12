@@ -1760,11 +1760,11 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 
 		$check_is_singular = is_singular();
 
-		$featured_image      = true;
-		$post_type           = strval( get_post_type() );
+		$featured_image = true;
+		$post_type      = strval( get_post_type() );
 
 		if ( $check_is_singular ) {
-			$is_featured_image   = astra_get_option_meta( 'ast-featured-img' );
+			$is_featured_image = astra_get_option_meta( 'ast-featured-img' );
 		} else {
 			$is_featured_image = astra_get_option( 'ast-featured-img' );
 		}
@@ -2053,13 +2053,13 @@ add_action( 'wp_footer', 'astra_render_header_svg_mask' );
  * @since x.x.x
  */
 function astra_single_post_entry_featured_image() {
-	$is_featured_image = astra_get_option( 'article-featured-image', false );
+	$is_featured_image   = astra_get_option( 'article-featured-image', false );
 	$featured_image_size = astra_get_option( 'article-featured-image-size', 'large' );
 
 	if ( apply_filters( 'astra_post_featured_image_condition', ( is_single() && has_post_thumbnail() && $is_featured_image ) ) ) {
 		do_action( 'astra_article_featured_image_before' );
 
-		$output = '';
+		$output     = '';
 		$post_thumb = apply_filters(
 			'astra_article_featured_image_markup',
 			get_the_post_thumbnail(
@@ -2070,9 +2070,9 @@ function astra_single_post_entry_featured_image() {
 		);
 		if ( '' != $post_thumb ) {
 			$featured_image_width = astra_get_option( 'article-featured-image-width-type', 'wide' );
-			$output .= '<div class="ast-single-post-featured-section post-thumb ast-article-image-container--' . esc_attr( $featured_image_width ) . '">';
-			$output .= $post_thumb;
-			$output .= '</div>';
+			$output              .= '<div class="ast-single-post-featured-section post-thumb ast-article-image-container--' . esc_attr( $featured_image_width ) . '">';
+			$output              .= $post_thumb;
+			$output              .= '</div>';
 		}
 
 		$output = apply_filters( 'astra_featured_post_thumbnail', $output );

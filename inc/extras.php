@@ -1179,7 +1179,7 @@ function astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_s
  */
 function astra_get_current_language_slug() {
 	$lang = '';
-	if ( function_exists('pll_current_language' ) ) {
+	if ( function_exists( 'pll_current_language' ) ) {
 		$lang = pll_current_language();
 	}
 	return apply_filters( 'astra_addon_site_current_language', $lang );

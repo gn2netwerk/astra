@@ -530,7 +530,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$h6_properties = array_merge( $h6_properties, $h6_font_properties );
 			}
 
-			$link_selector = ( true === $update_customizer_strctural_defaults ) ? 'a' : 'a, .page-title';
+			$link_selector                   = ( true === $update_customizer_strctural_defaults ) ? 'a' : 'a, .page-title';
 			$transparent_search_box_bg_color = astra_get_option( 'transparent-header-search-box-background-color', '#fff' );
 
 			$css_output = array(
@@ -761,11 +761,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$css_output['.ast-search-menu-icon .search-form button.search-submit:focus, .ast-theme-transparent-header .ast-header-search .ast-dropdown-active .ast-icon, .ast-theme-transparent-header .ast-inline-search .search-field:focus .ast-icon'] = array(
 					'color' => 'var(--ast-global-color-1)',
 				);
-				$css_output['.ast-header-search .search-form .search-field:focus'] = array(
+				$css_output['.ast-header-search .search-form .search-field:focus']         = array(
 					'box-shadow' => '0 0 0 2px var(--ast-global-color-0)',
 				);
 				$css_output['.ast-header-search .slide-search .search-form .search-field'] = array(
-					'box-shadow' => '0 0 0 2px var(--ast-global-color-0)',
+					'box-shadow'       => '0 0 0 2px var(--ast-global-color-0)',
 					'background-color' => '#fff', // Referred by main.css.
 				);
 			}
@@ -1944,7 +1944,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$scndry_btn_text_color = astra_get_foreground_color( $theme_color );
 				}
 				$outline_button_css_desktop['.wp-block-buttons .wp-block-button .wp-block-button__link.is-style-outline:not(.has-background), .wp-block-buttons .wp-block-button.is-style-outline>.wp-block-button__link:not(.has-background)'] = array(
-					'background-color' => empty ( $scndry_btn_bg_color ) ? esc_attr( $theme_color ) : esc_attr( $scndry_btn_bg_color ),
+					'background-color' => empty( $scndry_btn_bg_color ) ? esc_attr( $theme_color ) : esc_attr( $scndry_btn_bg_color ),
 					'color'            => esc_attr( $scndry_btn_text_color ),
 				);
 			}
@@ -5217,7 +5217,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function astra_upgrade_fullscreen_search_submit_style() {
-			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['v4-4-0-backward-option'] = isset( $astra_settings['v4-4-0-backward-option'] ) ? false : true;
 			return apply_filters( 'astra_addon_upgrade_fullscreen_search_submit_style', $astra_settings['v4-4-0-backward-option'] );
 		}

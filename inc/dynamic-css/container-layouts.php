@@ -97,7 +97,7 @@ function astra_container_layout_css() {
 	';
 
 	if ( $is_featured_image && 'behind' === $image_position ) {
-		$page_container_css        .= '
+		$page_container_css .= '
 			.ast-separate-container .site-content .ast-single-post-featured-section + article {
 				margin-top: -80px;
 				z-index: 9;

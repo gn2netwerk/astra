@@ -497,18 +497,18 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 				 * Single product payment sub control Visa.
 				 */
 				array(
-					'name'      => $title_section . '-featured-as-background',
-					'parent'    => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
-					'default'   => astra_get_option( $title_section . '-featured-as-background', false ),
-					'linked'    => $title_section . '-image',
-					'type'      => 'sub-control',
-					'control'   => 'ast-toggle',
-					'section'   => $title_section,
-					'priority'  => 20,
-					'description'     => __( 'Note: Background settings will only work for "Inside" Image Position.', 'astra' ),
-					'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
-					'title'     => __( 'Use as Background', 'astra' ),
-					'transport' => 'postMessage',
+					'name'        => $title_section . '-featured-as-background',
+					'parent'      => ASTRA_THEME_SETTINGS . '[' . $title_section . '-structure]',
+					'default'     => astra_get_option( $title_section . '-featured-as-background', false ),
+					'linked'      => $title_section . '-image',
+					'type'        => 'sub-control',
+					'control'     => 'ast-toggle',
+					'section'     => $title_section,
+					'priority'    => 20,
+					'description' => __( 'Note: Background settings will only work for "Inside" Image Position.', 'astra' ),
+					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
+					'title'       => __( 'Use as Background', 'astra' ),
+					'transport'   => 'postMessage',
 				),
 
 				/**
