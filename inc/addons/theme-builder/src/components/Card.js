@@ -65,7 +65,6 @@ function Card({ title, icon, layout, template, enabled }) {
 						onClick={() =>
 							window.open(
 								astra_theme_builder.astra_pricing_page_url,
-								"_blank"
 							)
 						}
 					>

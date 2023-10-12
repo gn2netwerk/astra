@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		public function __construct() {
 			$show_custom_layout_submenu = ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ? false : true;
 
-			if ( !$show_custom_layout_submenu ) {
+			if ( $show_custom_layout_submenu ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'theme_builder_admin_enqueue_scripts' ) );
 				add_action( 'admin_body_class', array( $this, 'admin_body_class' ) );
 				add_action( 'admin_menu', array( $this, 'setup_menu' ) );			
@@ -57,8 +57,11 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
          * @return void
 		 */
 		public function theme_builder_admin_enqueue_scripts() {
-
-            wp_enqueue_style( 'astra-theme-builder-style', ASTRA_THEME_BUILDER_FREE_URI . 'build/index.css' );
+			$file_prefix = '';
+			if ( is_rtl() ) {
+				$file_prefix .= '.rtl';
+			}
+            wp_enqueue_style( 'astra-theme-builder-style', ASTRA_THEME_BUILDER_FREE_URI . 'build/index' . $file_prefix . '.css', array(), ASTRA_THEME_VERSION );
             wp_enqueue_script( 'astra-theme-builder-script', ASTRA_THEME_BUILDER_FREE_URI . 'build/index.js', array( 'wp-element' ), ASTRA_THEME_VERSION, true );
 			wp_enqueue_style('dashicons');
 
@@ -110,7 +113,6 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		 */
 		public function setup_menu() {
 			$custom_layout_submenu = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) );
-			if ( ! $custom_layout_submenu ) {
 				add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page -- Taken the menu on top level
 					'astra',
 					__( 'Theme Builder', 'astra' ),
@@ -120,7 +122,6 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 					array( $this, 'render_theme_builder' ),
 					2
 				);
-			}
 		}
 	}
 

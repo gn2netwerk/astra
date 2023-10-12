@@ -12,7 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "@wordpress/scripts": "^26.13.0",
-    "style-loader": "^3.3.3"
+    "style-loader": "^3.3.3",
+    "webpack-rtl-plugin": "^2.0.0"
   },
   "dependencies": {
     "@wordpress/api-fetch": "^6.40.0",

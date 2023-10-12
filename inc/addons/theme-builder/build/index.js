@@ -4322,7 +4322,7 @@ function Card({
     "clip-rule": "evenodd"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
     className: "ast-tb-card-hover-btn",
-    onClick: () => window.open(astra_theme_builder.astra_pricing_page_url, "_blank")
+    onClick: () => window.open(astra_theme_builder.astra_pricing_page_url)
   }, "Upgrade")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `ast-tb-card ${isHovered ? "ast-tb-card-blur-on-hover" : ""}`
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
