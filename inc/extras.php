@@ -1112,10 +1112,11 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
 /**
  * Return the array of site's available image size.
  *
+ * @param boolean $add_custom Add custom image size.
  * @since x.x.x
  * @return array
  */
-function astra_get_site_image_sizes() {
+function astra_get_site_image_sizes( $add_custom = false ) {
 	$image_sizes = array(
 		'thumbnail'    => __( 'Thumbnail', 'astra' ),
 		'medium'       => __( 'Medium', 'astra' ),
@@ -1136,6 +1137,12 @@ function astra_get_site_image_sizes() {
 		} else {
 			$refactored_sizes[ $size ] = $size;
 		}
+	}
+
+	/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	if ( $add_custom && defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ) {
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$refactored_sizes['custom'] = __( 'Custom', 'astra' );
 	}
 
 	return $refactored_sizes;

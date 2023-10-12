@@ -87,14 +87,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$css_output_min_tablet  = array();
 	$narrow_container_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 
-	// Aspect Ratio processing.
-	$aspect_ratio_type    = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-ratio-type', '' );
-	$predefined_scale     = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-ratio-pre-scale' );
-	$custom_scale_width   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-custom-scale-width', 16 );
-	$custom_scale_height  = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-image-custom-scale-height', 9 );
-	$aspect_ratio         = astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_scale, $custom_scale_width, $custom_scale_height );
-	$with_aspect_img_width = 'predefined' === $aspect_ratio_type || 'custom' === $aspect_ratio_type ? '100%' : '';
-
 	// Few settings from banner section are also applicable to 'layout-1' so adding this condition & compatibility.
 	if ( 'layout-1' === $layout_type ) {
 		$image_wrap_alignment = ( false === astra_get_option( 'v4-4-0-backward-option', true ) ) ? '' : 'center';
@@ -119,10 +111,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			),
 			$selector . ' .post-thumb-img-content' => array(
 				'text-align'  => $image_wrap_alignment,
-			),
-			$selector . ' .post-thumb-img-content img' => array(
-				'aspect-ratio'  => $aspect_ratio,
-				'width' => $with_aspect_img_width,
 			),
 		);
 		/**
@@ -207,10 +195,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			),
 			$selector . ' .ast-container a:hover, ' . $selector . ' .ast-container a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
-			),
-			'.single .post-thumb-img-content img' => array(
-				'aspect-ratio'  => $aspect_ratio,
-				'width' => $with_aspect_img_width,
 			),
 		);
 

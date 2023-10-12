@@ -2638,6 +2638,14 @@ li[ID*="-image-custom-scale-width"] {
 li[ID*="-image-custom-scale-height"]:before {
     content: ':';
     padding: 0 10px;
+	line-height: 30px;
+}
+li[ID*="-image-custom-scale-height"].customize-control-ast-hidden {
+    float: unset;
+    width: unset;
+}
+li[ID*="-image-custom-scale-height"].customize-control-ast-hidden:before {
+    content: unset;
 }
 
 /* Hide spin buttons for WebKit (Chrome, Safari) */
@@ -4697,6 +4705,9 @@ li[ID*="-image-custom-scale-height"]:before {
 	display: flex;
 	white-space: break-spaces;
 	inline-size: max-content;
+}
+.ast-top-dotted-divider .ast-control-tooltip.dashicons-editor-help {
+    top: 20px;
 }
 
 .select2-container {
