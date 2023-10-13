@@ -1,3 +1,6 @@
+v4.3.3 (Unreleased)
+- New: Theme Builder Free Version Preview.
+
 v4.3.2 (Unreleased)
 - New: Header Builder - Search - Introducing a new feature Live Search.
 - New: Header Builder - Search - Post Types selection option to filter Live Search results within.
