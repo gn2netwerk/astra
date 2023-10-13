@@ -87,7 +87,15 @@ const Sidebar = ({ items }) => {
 			))}
 
 			{/** Sidebar Help */}
-			<div className="ast-tb-sidebar-help">
+			<div
+				className="ast-tb-sidebar-help"
+				onClick={() =>
+					window.open(
+						astra_theme_builder.astra_docs_page_url,
+						"_blank"
+					)
+				}
+			>
 				<svg
 					width="24"
 					height="25"
