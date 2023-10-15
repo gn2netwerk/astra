@@ -70,9 +70,12 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 			wp_enqueue_style( 'dashicons' );
 
 			$localized_data = array(
-				'title'                  => __( 'Theme Builder', 'astra' ),
-				'astra_pricing_page_url' => 'https://wpastra.com/pricing/',
-				'astra_docs_page_url'    => 'https://wpastra.com/docs/',
+				'title'                      => __( 'Theme Builder', 'astra' ),
+				'rest_url'                   => '/wp-json/astra-addon/v1/custom-layouts/',
+				'new_custom_layout_base_url' => get_admin_url( null, 'post-new.php?post_type=astra-advanced-hook' ),
+				'astra_pricing_page_url'     => 'https://wpastra.com/pricing/',
+				'astra_docs_page_url'        => 'https://wpastra.com/docs/',
+				'admin_url'                  => admin_url(),
 			);
 
 			wp_localize_script( 'astra-theme-builder-script', 'astra_theme_builder', $localized_data );
