@@ -1036,18 +1036,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'display' => 'none',
 						),
 					),
-					'', 
-					astra_get_mobile_breakpoint() 
+					'',
+					astra_get_tablet_breakpoint()
 				);
 
 				$parse_css .= astra_parse_css(
 					array(
-						'#ast-desktop-header' => array(
+						'#ast-mobile-header' => array(
 							'display' => 'none',
 						),
 					),
-					'',
-					astra_get_tablet_breakpoint()
+					astra_get_tablet_breakpoint( '', 1 )
 				);
 			}
 
