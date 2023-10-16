@@ -1892,7 +1892,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			$outline_button_css_tablet = array(
-				'.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
+				$outline_button_selector => array(
 					'font-size'                  => astra_responsive_font( $scndry_theme_btn_font_size, 'tablet' ),
 					'padding-top'                => astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'tablet' ),
 					'padding-right'              => astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'tablet' ),
@@ -1906,7 +1906,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			$outline_button_css_mobile = array(
-				'.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
+				$outline_button_selector => array(
 					'font-size'                  => astra_responsive_font( $scndry_theme_btn_font_size, 'mobile' ),
 					'padding-top'                => astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'mobile' ),
 					'padding-right'              => astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'mobile' ),
