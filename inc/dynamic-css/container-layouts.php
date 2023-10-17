@@ -98,6 +98,10 @@ function astra_container_layout_css() {
 
 	if ( $is_featured_image && 'behind' === $image_position ) {
 		$tab_one_max_breakpoint = astra_get_tablet_breakpoint( '', 1 );
+		/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$tab_one_max_breakpoint = '@media (min-width: ' . $tab_one_max_breakpoint . 'px)';
+		/** @psalm-suppress InvalidOperand */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 		$page_container_css .= '
 			.ast-separate-container .site-content .ast-single-post-featured-section + article {
 				margin-top: -80px;
@@ -105,7 +109,7 @@ function astra_container_layout_css() {
 				position: relative;
 				border-radius: 4px;
 			}
-			@media (min-width: ' . $tab_one_max_breakpoint . 'px) {
+			' . $tab_one_max_breakpoint . ' {
 				.ast-no-sidebar .site-content .ast-article-image-container--wide {
 					margin-left: -120px;
 					margin-right: -120px;

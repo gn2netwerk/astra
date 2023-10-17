@@ -31,8 +31,11 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			/** @psalm-suppress DocblockTypeContradiction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$tab_config = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
-					Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab;
+			$tab_config = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab;
+
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$article_size_description = defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ? __( 'When "Custom" is selected, following Featured Image Sizes are applied.', 'astra-addon' ) : '';
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$_configs = array(
 
@@ -343,9 +346,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 					'control'     => 'ast-select',
 					'choices'     => astra_get_site_image_sizes( true ),
-					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					'description' => defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ? __( 'When "Custom" is selected, following Featured Image Sizes are applied.', 'astra-addon' ) : '',
-					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					'description' => $article_size_description,
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
