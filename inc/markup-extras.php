@@ -2064,7 +2064,7 @@ function astra_single_post_entry_featured_image() {
 			'astra_article_featured_image_markup',
 			get_the_post_thumbnail(
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				astra_get_post_id(),
+				absint( astra_get_post_id() ),
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				apply_filters( 'astra_post_featured_image_default_size', $featured_image_size ),
 				apply_filters( 'astra_post_featured_image_itemprop', '' )
