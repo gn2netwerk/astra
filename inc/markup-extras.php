@@ -2063,7 +2063,7 @@ function astra_single_post_entry_featured_image() {
 		$post_thumb = apply_filters(
 			'astra_article_featured_image_markup',
 			get_the_post_thumbnail(
-				get_the_ID(),
+				astra_get_post_id(),
 				apply_filters( 'astra_post_featured_image_default_size', $featured_image_size ),
 				apply_filters( 'astra_post_featured_image_itemprop', '' )
 			)
