@@ -3,8 +3,9 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import sidebarItems from './utils/sidebarItems';
 import Canvas from './components/Canvas';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { __ } from "@wordpress/i18n";
 
 const App = () => {
 

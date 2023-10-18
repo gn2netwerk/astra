@@ -3,6 +3,7 @@ import React from "react";
 import SidebarItem from "./SidebarItem";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { __ } from "@wordpress/i18n";
 
 const Sidebar = ({ items }) => {
 	const location = useLocation();

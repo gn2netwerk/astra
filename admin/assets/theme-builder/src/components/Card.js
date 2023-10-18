@@ -1,6 +1,7 @@
 import React from "react";
 import iconSVG from "../utils/svg";
 import { useState } from "react";
+import { __ } from "@wordpress/i18n";
 
 function Card({ title, icon, layout, template, enabled }) {
 	const [isHovered, setIsHovered] = useState(false);

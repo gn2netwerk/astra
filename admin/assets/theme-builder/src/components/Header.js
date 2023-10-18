@@ -1,5 +1,6 @@
 import React from 'react';
 import Breadcrumbs from './Breadcrumbs';
+import { __ } from "@wordpress/i18n";
 
 const Header = () => {
 

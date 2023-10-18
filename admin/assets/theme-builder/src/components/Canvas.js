@@ -1,6 +1,7 @@
 import React from "react";
 import Layouts from "./Layouts";
 import { Switch, Route } from "react-router-dom";
+import { __ } from "@wordpress/i18n";
 
 const Canvas = () => {
 	return (

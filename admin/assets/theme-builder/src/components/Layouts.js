@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card';
 import layoutItems from '../utils/layoutItems';
+import { __ } from "@wordpress/i18n";
 
 const Layouts = () => {
 

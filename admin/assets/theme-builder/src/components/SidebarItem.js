@@ -1,7 +1,8 @@
 // SidebarItem.js
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { __ } from "@wordpress/i18n";
 
 const SidebarItem = ({ label, icon, layout, template }) => {
 	const location = useLocation();
