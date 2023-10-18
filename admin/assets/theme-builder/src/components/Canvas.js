@@ -1,6 +1,6 @@
 import React from "react";
 import Layouts from "./Layouts";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 const Canvas = () => {
 	return (
@@ -17,7 +17,7 @@ const Canvas = () => {
 							)
 						}
 					>
-						Upgrade
+						{ __( 'Upgrade', 'astra' ) }
 					</button>
 				</div>
 				<div className="ast-tb-canvas-content">

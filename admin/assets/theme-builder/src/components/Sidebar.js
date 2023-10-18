@@ -1,7 +1,7 @@
 // Sidebar.js
 import React from "react";
 import SidebarItem from "./SidebarItem";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const Sidebar = ({ items }) => {
