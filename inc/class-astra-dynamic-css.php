@@ -765,7 +765,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'box-shadow' => '0 0 0 2px var(--ast-global-color-0)',
 				);
 				$css_output['.ast-header-search .slide-search .search-form .search-field'] = array(
-					'box-shadow'       => '0 0 0 2px var(--ast-global-color-0)',
+					'box-shadow' => '0 0 0 2px var(--ast-global-color-0)',
+				);
+
+				// Reduced specificity so that it does not override customizer background color option.
+				$css_output['.ast-header-search .slide-search .search-field'] = array(
 					'background-color' => '#fff', // Referred by main.css.
 				);
 			}
