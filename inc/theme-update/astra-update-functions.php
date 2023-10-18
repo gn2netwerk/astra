@@ -1460,7 +1460,7 @@ function astra_theme_background_updater_4_3_2() {
 			$theme_options['secondary-theme-button-border-group-border-color'] = $theme_options['theme-button-border-group-border-color'];
 		}
 		if ( isset( $theme_options['theme-button-border-group-border-h-color'] ) ) {
-			$theme_options['secondary-theme-button-border-group-border-h-color'] = $theme_options['secondary-theme-button-border-group-border-h-color'];
+			$theme_options['secondary-theme-button-border-group-border-h-color'] = $theme_options['theme-button-border-group-border-h-color'];
 		}
 		if ( isset( $theme_options['button-radius-fields'] ) ) {
 			$theme_options['secondary-button-radius-fields'] = $theme_options['button-radius-fields'];
