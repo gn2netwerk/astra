@@ -403,7 +403,7 @@ function astra_banner_elements_order( $structure = array() ) {
 		return;
 	}
 
-	// If Blog / Latest Post page is active then looping required strctural order.
+	// If Blog / Latest Post page is active then looping required structural order.
 	if ( ( ! is_front_page() && is_home() ) && false === astra_get_option( 'ast-dynamic-archive-post-banner-on-blog', false ) ) {
 		return astra_blog_post_thumbnail_and_title_order();
 	}
