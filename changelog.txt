@@ -9,6 +9,7 @@ v4.4.0 (Unreleased)
 - New: WooCommerce - Compatibility for a pro cart shortcode 'astra_woo_slide_in_cart', which adds support for a slide-in cart feature. (Needs Doc).
 - Improvement: Added a new filter 'astra_woo_shop_product_title_link' to remove the product title link from the product page.
 - Improvement: Header-Footer Builder - Enabled widget design options by default and it is supported for editor blocks as well.
+- Improvement: Updated default colors from color palette on fresh setup for better UI/UX.
 - Fix: Resolved console error which originated from "menu-toggle-close" element click on the frontend.
 - Fix: Theme's meta-box modal UI getting extra space after WordPress-6.3.
 - Fix: After WordPress 6.3 bottom spacing of 'figure' tag is missing.
