@@ -1,8 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Categories from './components/Categories';
-import Layouts from './components/Layouts';
-import LayoutDetailSection from './components/LayoutDetailSection';
 
 function ThemeBuilderRouter({ categoriesProps, categoryData }) {
 	const query = new URLSearchParams( useLocation().search );

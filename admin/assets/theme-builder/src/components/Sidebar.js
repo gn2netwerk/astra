@@ -52,7 +52,7 @@ const Sidebar = ({ items }) => {
 							stroke-width="2"
 						/>
 					</svg>
-					<h2>All Layouts</h2>
+					<h2>{ __( 'All Layouts', 'astra' ) }</h2>
 				</div>
 				<div className="ast-tb-sidebar-header-right">
 					{isHovered && (
@@ -74,7 +74,7 @@ const Sidebar = ({ items }) => {
 
 			{/** Sidebar Subtitle */}
 			<div className="ast-tb-sidebar-subtitle">
-				<h3>Website Parts</h3>
+				<h3>{ __( 'Website Parts', 'astra' ) }</h3>
 			</div>
 			{items.map((item, index) => (
 				<SidebarItem
@@ -111,7 +111,7 @@ const Sidebar = ({ items }) => {
 						stroke-linejoin="round"
 					/>
 				</svg>
-				<span>Help</span>
+				<span>{ __( 'Help', 'astra' ) }</span>
 			</div>
 		</div>
 	);

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Breadcrumbs = () => {
   
-  let currCrumb = ['Dashboard', 'Theme Builder'];
+  let currCrumb = [__( 'Dashboard', 'astra' ), __( 'Theme Builder', 'astra' )];
 
   return (
     <nav className='ast-tb-breadcrumbs'>

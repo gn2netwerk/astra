@@ -7,7 +7,7 @@ const Canvas = () => {
 		<div className="ast-tb-canvas">
 			<div className="ast-tb-canvas-body">
 				<div className="ast-tb-canvas-header">
-					<h2>Start customizing every part of your website.</h2>
+					<h2>{ __( 'Start customizing every part of your website.', 'astra' ) }</h2>
 					<button
 						className="ast-tb-btn ast-tb-btn-primary"
 						onClick={() =>
