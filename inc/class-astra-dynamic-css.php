@@ -4957,5 +4957,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			return apply_filters( 'astra_core_form_btns_styling', isset( $astra_settings['v4-2-2-core-form-btns-styling'] ) ? false : true );
 		}
+
+		/**
+		 * Sync colors for new starter library.
+		 *
+		 * @return bool true|false.
+		 * @since x.x.x
+		 */
+		public static function astra_sync_starter_library_colors() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return apply_filters( 'astra_get_option_sync_colors_starter_colors', isset( $astra_settings['v4-4-0-sync-colors-starter-colors'] ) ? false : true );
+		}
 	}
 }
