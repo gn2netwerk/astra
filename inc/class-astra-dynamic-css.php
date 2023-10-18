@@ -1032,10 +1032,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$parse_css .= astra_parse_css(
 					array(
-						'.ast-header-break-point #ast-desktop-header' => array(
+						'#ast-desktop-header' => array(
 							'display' => 'none',
 						),
-					)
+					),
+					'',
+					astra_get_tablet_breakpoint()
 				);
 
 				$parse_css .= astra_parse_css(
@@ -1044,7 +1046,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'display' => 'none',
 						),
 					),
-					astra_get_tablet_breakpoint()
+					astra_get_tablet_breakpoint( '', 1 )
 				);
 			}
 
