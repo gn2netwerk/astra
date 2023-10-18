@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'ASTRA_THEME_BUILDER_FREE_DIR', ASTRA_THEME_DIR . 'admin/assets/theme-builder/' );
-define( 'ASTRA_THEME_BUILDER_FREE_URI', ASTRA_THEME_URI . 'admin/assets/theme-builder/' );
-
 if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
+
+	define( 'ASTRA_THEME_BUILDER_FREE_DIR', ASTRA_THEME_DIR . 'admin/assets/theme-builder/' );
+	define( 'ASTRA_THEME_BUILDER_FREE_URI', ASTRA_THEME_URI . 'admin/assets/theme-builder/' );
 
 	/**
 	 * Theme Builder initial setup.
