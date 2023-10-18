@@ -946,7 +946,7 @@ function astra_search_static_css() {
 	.ast-search-menu-icon .search-field {
 		border: none;
 		background-color: transparent;
-		transition: width .2s;
+		transition: all .3s;
 		border-radius: inherit;
 		color: inherit;
 		font-size: inherit;
@@ -980,6 +980,7 @@ function astra_search_static_css() {
 			width : 100%;
 			padding : 0.60em;
 			padding-left : 5.5em;
+			transition: all 0.2s;
 		}
 		.site-header-section-left .ast-search-menu-icon.slide-search .search-form {
 			padding-right: 3em;
@@ -1009,6 +1010,7 @@ function astra_search_static_css() {
 			width : 100%;
 			padding : 0.60em;
 			padding-right : 5.5em;
+			transition: all 0.2s;
 		}
 		.site-header-section-left .ast-search-menu-icon.slide-search .search-form {
 			padding-left: 3em;
@@ -1108,6 +1110,68 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
 }
 
 /**
+ * Return the array of site's available image size.
+ *
+ * @param boolean $add_custom Add custom image size.
+ * @since x.x.x
+ * @return array
+ */
+function astra_get_site_image_sizes( $add_custom = false ) {
+	$image_sizes = array(
+		'thumbnail'    => __( 'Thumbnail', 'astra' ),
+		'medium'       => __( 'Medium', 'astra' ),
+		'medium_large' => __( 'Medium Large', 'astra' ),
+		'large'        => __( 'Large', 'astra' ),
+		'full'         => __( 'Full Size', 'astra' ),
+	);
+
+	$all_sizes = get_intermediate_image_sizes(); // Gets the available intermediate image size names on site.
+
+	$refactored_sizes = array(
+		'full' => __( 'Full Size', 'astra' ),
+	);
+
+	foreach ( $all_sizes as $size ) {
+		if ( isset( $image_sizes[ $size ] ) ) {
+			$refactored_sizes[ $size ] = $image_sizes[ $size ];
+		} else {
+			$refactored_sizes[ $size ] = $size;
+		}
+	}
+
+	/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	if ( $add_custom && defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'blog-pro' ) ) {
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$refactored_sizes['custom'] = __( 'Custom', 'astra' );
+	}
+
+	return $refactored_sizes;
+}
+
+/**
+ * Return the aspect-ratio for dynamic image.
+ *
+ * @param string $aspect_ratio_type Aspect ratio type.
+ * @param string $predefined_scale Predefined scale.
+ * @param string $custom_scale_width Custom scale width.
+ * @param string $custom_scale_height Custom scale height.
+ *
+ * @since x.x.x
+ * @return string
+ */
+function astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_scale, $custom_scale_width, $custom_scale_height ) {
+	$aspect_ratio_css = '';
+	if ( '' !== $aspect_ratio_type ) {
+		if ( 'custom' === $aspect_ratio_type ) {
+			$aspect_ratio_css = absint( $custom_scale_width ) . '/' . absint( $custom_scale_height );
+		} else {
+			$aspect_ratio_css = $predefined_scale;
+		}
+	}
+	return $aspect_ratio_css;
+}
+
+/**
  * Getting site active language & compatible with other plugins.
  *
  * @since x.x.x
@@ -1115,7 +1179,7 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
  */
 function astra_get_current_language_slug() {
 	$lang = '';
-	if ( function_exists('pll_current_language' ) ) {
+	if ( function_exists( 'pll_current_language' ) ) {
 		$lang = pll_current_language();
 	}
 	return apply_filters( 'astra_addon_site_current_language', $lang );
@@ -1151,6 +1215,7 @@ function astra_get_queried_post_types() {
 			'astra_adv_header',
 			'elementor_library',
 			'brizy_template',
+			'sc_collection',
 
 			'course',
 			'lesson',

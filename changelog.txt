@@ -1,13 +1,14 @@
-v4.3.3 (Unreleased)
+v4.4.1 (Unreleased)
 - New: Theme Builder Free Version Preview.
 
-v4.3.2 (Unreleased)
+v4.4.0 (Unreleased)
 - New: Header Builder - Search - Introducing a new feature Live Search.
 - New: Header Builder - Search - Post Types selection option to filter Live Search results within.
 - New: Header Builder - Search - Option to adjust search bar width.
 - New: Introducing a feature of Sticky Sidebar functionality for enhanced user experience. (Needs Doc)
 - New: Introducing Primary & Secondary Button styles under Global - Buttons. (Needs Doc)
 - New: Introducing new Twitter-X Icon added for Social Sharing and Social Icons.
+- New: Introducing new featured image options like Image Ratio, Image Size, Image Position, etc for single layouts.
 - New: WooCommerce - Compatibility for a pro cart shortcode 'astra_woo_slide_in_cart', which adds support for a slide-in cart feature. (Needs Doc).
 - Improvement: Added a new filter 'astra_woo_shop_product_title_link' to remove the product title link from the product page.
 - Improvement: Header-Footer Builder - Enabled widget design options by default and it is supported for editor blocks as well.

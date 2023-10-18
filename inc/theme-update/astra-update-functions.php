@@ -1460,12 +1460,26 @@ function astra_theme_background_updater_4_3_2() {
 			$theme_options['secondary-theme-button-border-group-border-color'] = $theme_options['theme-button-border-group-border-color'];
 		}
 		if ( isset( $theme_options['theme-button-border-group-border-h-color'] ) ) {
-			$theme_options['secondary-theme-button-border-group-border-h-color'] = $theme_options['secondary-theme-button-border-group-border-h-color'];
+			$theme_options['secondary-theme-button-border-group-border-h-color'] = $theme_options['theme-button-border-group-border-h-color'];
 		}
 		if ( isset( $theme_options['button-radius-fields'] ) ) {
 			$theme_options['secondary-button-radius-fields'] = $theme_options['button-radius-fields'];
 		}
 
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Handle backward compatibility on version x.x.x
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_4_0() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['v4-4-0-backward-option'] ) ) {
+		$theme_options['v4-4-0-backward-option'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
