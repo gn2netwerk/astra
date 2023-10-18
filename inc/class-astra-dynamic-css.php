@@ -754,6 +754,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.ast-header-search .ast-search-menu-icon.slide-search input.search-field' => array(
 					'width' => '0',
+					'outline' => '0',
 				),
 			);
 
@@ -761,11 +762,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$css_output['.ast-search-menu-icon .search-form button.search-submit:focus, .ast-theme-transparent-header .ast-header-search .ast-dropdown-active .ast-icon, .ast-theme-transparent-header .ast-inline-search .search-field:focus .ast-icon'] = array(
 					'color' => 'var(--ast-global-color-1)',
 				);
-				$css_output['.ast-header-search .search-form .search-field:focus']         = array(
-					'box-shadow' => '0 0 0 2px var(--ast-global-color-0)',
-				);
-				$css_output['.ast-header-search .slide-search .search-form .search-field'] = array(
-					'box-shadow' => '0 0 0 2px var(--ast-global-color-0)',
+				$css_output['.ast-header-search .slide-search .search-form']         = array(
+					'border' => '2px solid var(--ast-global-color-0)',
 				);
 
 				// Reduced specificity so that it does not override customizer background color option.
