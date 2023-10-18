@@ -714,6 +714,10 @@ class Astra_WP_Editor_CSS {
 			$scndry_btn_border_radius_left   = astra_responsive_spacing( $btn_border_radius_fields, 'left', 'desktop' );
 		}
 
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$secondary_btn_desktop_font_size = is_array( $scndry_theme_btn_font_size ) && isset( $scndry_theme_btn_font_size['desktop'] ) && isset( $scndry_theme_btn_font_size['desktop-unit'] ) ? astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ) : '';
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 		$outline_button_css_desktop = array(
 			'.editor-styles-wrapper .wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
 				'border-color'               => esc_attr( $btn_border_color_val ),
@@ -723,9 +727,7 @@ class Astra_WP_Editor_CSS {
 				'border-left-width'          => esc_attr( $scndry_theme_btn_left_border ),
 				'font-family'                => astra_get_font_family( $scndry_theme_btn_font_family ),
 				'font-weight'                => esc_attr( $scndry_theme_btn_font_weight ),
-				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				'font-size'                  => is_array( $scndry_theme_btn_font_size ) && isset( $scndry_theme_btn_font_size['desktop'] ) && isset( $scndry_theme_btn_font_size['desktop-unit'] ) ? astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ) : '',
-				/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				'font-size'                  => esc_attr( $secondary_btn_desktop_font_size ),
 				'line-height'                => esc_attr( $scndry_theme_btn_line_height ),
 				'text-transform'             => esc_attr( $scndry_theme_btn_text_transform ),
 				'text-decoration'            => esc_attr( $scndry_theme_btn_text_decoration ),
