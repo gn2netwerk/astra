@@ -68,7 +68,7 @@ function Card({ title, icon, layout, template, enabled }) {
 							)
 						}
 					>
-						Upgrade
+						{ __( 'Upgrade', 'astra' ) }
 					</button>
 				</div>
 			)}
