@@ -1866,7 +1866,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-left-width'          => esc_attr( $border_left_val ),
 					'font-family'                => astra_get_font_family( $scndry_theme_btn_font_family ),
 					'font-weight'                => esc_attr( $scndry_theme_btn_font_weight ),
-					'font-size'                  => astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ),
+					'font-size'                  => isset( $scndry_theme_btn_font_size['desktop'] ) && isset( $scndry_theme_btn_font_size['desktop-unit'] ) && is_array( $scndry_theme_btn_font_size ) ? astra_get_font_css_value( $scndry_theme_btn_font_size['desktop'], $scndry_theme_btn_font_size['desktop-unit'] ) : '',
 					'line-height'                => esc_attr( $scndry_theme_btn_line_height ),
 					'text-transform'             => esc_attr( $scndry_theme_btn_text_transform ),
 					'text-decoration'            => esc_attr( $scndry_theme_btn_text_decoration ),
@@ -1892,7 +1892,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			$outline_button_css_tablet = array(
-				'.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
+				$outline_button_selector => array(
 					'font-size'                  => astra_responsive_font( $scndry_theme_btn_font_size, 'tablet' ),
 					'padding-top'                => astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'tablet' ),
 					'padding-right'              => astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'tablet' ),
@@ -1906,7 +1906,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			);
 
 			$outline_button_css_mobile = array(
-				'.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button' => array(
+				$outline_button_selector => array(
 					'font-size'                  => astra_responsive_font( $scndry_theme_btn_font_size, 'mobile' ),
 					'padding-top'                => astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'mobile' ),
 					'padding-right'              => astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'mobile' ),
