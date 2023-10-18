@@ -1717,7 +1717,7 @@ input[type="text"].select2-search__field {
 	display: grid;
     grid-template-columns: 70% 20% 10%;
     align-items: center;
-    padding: 16px 12px 16px 0;
+    padding: 0 12px 0 0;
     height: 100%;
 	align-items: center;
     align-content: center;
@@ -1738,6 +1738,7 @@ input[type="text"].select2-search__field {
     white-space: nowrap;
     text-overflow: ellipsis;
     height: auto;
+    line-height: 50px;
 }
 
 .ast-section-toggle:not(.active) > label {
