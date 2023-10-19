@@ -965,7 +965,7 @@ function astra_search_static_css() {
 		opacity: 1;
 		position: relative;
 	}
-	.ast-search-menu-icon.ast-dropdown-active .search-field {
+	.ast-search-menu-icon.ast-dropdown-active .search-field, .ast-dropdown-active.ast-search-menu-icon.slide-search input.search-field {
 		width: 235px;
 	}
 	.ast-header-search .ast-search-menu-icon.slide-search .search-form, .ast-header-search .ast-search-menu-icon.ast-inline-search .search-form {
