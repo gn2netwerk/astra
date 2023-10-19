@@ -754,8 +754,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'.ast-header-search .ast-search-menu-icon.slide-search input.search-field' => array(
 					'width' => '0',
-					'outline' => '0',
-					'padding' => '0',
+				),
+				'.ast-header-search .ast-search-menu-icon.ast-dropdown-active .search-form,.ast-header-search .ast-search-menu-icon.ast-dropdown-active .search-field:focus' => array(
+					'border-color' =>  'var(--ast-global-color-0)',
+					'transition' => 'all 0.2s',
 				),
 			);
 
