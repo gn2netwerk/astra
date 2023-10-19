@@ -5,10 +5,8 @@ import sidebarItems from './utils/sidebarItems';
 import Canvas from './components/Canvas';
 import { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { __ } from "@wordpress/i18n";
 
 const App = () => {
-
     // Remove admin bar padding.
     useEffect(() => { document.querySelector('html.wp-toolbar').style.paddingTop = 0; }, []);
 
