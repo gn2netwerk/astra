@@ -4215,6 +4215,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .entry-content .post-thumb {
   margin-bottom: 1em;
+  margin-top: -1em;
 }
 
 .entry-content p {
@@ -4387,6 +4388,10 @@ input[type="color"]::-webkit-color-swatch {
 */
 .single {
   /* 1 - Single Post Navigation Styles */
+}
+
+.single .entry-header {
+  margin-bottom: 2em;
 }
 
 .single .post-navigation {
