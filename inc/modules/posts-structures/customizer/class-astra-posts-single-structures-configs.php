@@ -509,7 +509,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'control'     => 'ast-toggle',
 					'section'     => $title_section,
 					'priority'    => 20,
-					'description' => __( 'Note: Background settings will only work for "Inside" Image Position.', 'astra' ),
 					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 					'title'       => __( 'Use as Background', 'astra' ),
 					'transport'   => 'postMessage',
