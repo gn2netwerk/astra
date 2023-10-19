@@ -758,7 +758,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			if ( self::astra_upgrade_fullscreen_search_submit_style() ) {
+			if ( self::astra_4_4_0_compatibility() ) {
 				$css_output['.ast-search-menu-icon .search-form button.search-submit:focus, .ast-theme-transparent-header .ast-header-search .ast-dropdown-active .ast-icon, .ast-theme-transparent-header .ast-inline-search .search-field:focus .ast-icon'] = array(
 					'color' => 'var(--ast-global-color-1)',
 				);
@@ -1086,7 +1086,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'display' => 'none',
 						),
 					),
-					astra_get_tablet_breakpoint()
+					astra_get_tablet_breakpoint( '', 1 )
 				);
 			}
 
@@ -5218,7 +5218,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user, true if not.
 		 */
-		public static function astra_upgrade_fullscreen_search_submit_style() {
+		public static function astra_4_4_0_compatibility() {
 			$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['v4-4-0-backward-option'] = isset( $astra_settings['v4-4-0-backward-option'] ) ? false : true;
 			return apply_filters( 'astra_addon_upgrade_fullscreen_search_submit_style', $astra_settings['v4-4-0-backward-option'] );
