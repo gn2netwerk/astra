@@ -146,9 +146,9 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-toggle-control',
 					'section'     => 'section-blog-single',
-					'title'       => __( 'Banner Featured Image', 'astra-addon' ),
+					'title'       => __( 'Featured Image', 'astra-addon' ),
 					'priority'    => 6,
-					'description' => __( 'Have Featured Image above post article, to modernize your blog post.', 'astra-addon' ),
+					'description' => __( 'Have Featured Image above, below, behind the post article, to modernize your blog post.', 'astra-addon' ),
 					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 				array(
@@ -170,6 +170,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'choices'    => array(
 						'above'  => __( 'Above', 'astra' ),
 						'behind' => __( 'Behind', 'astra' ),
+						'below'  => __( 'Below', 'astra' ),
 					),
 					'responsive' => false,
 					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),
@@ -206,14 +207,14 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[article-featured-image-ratio-type]',
-					'default'    => astra_get_option( 'article-featured-image-ratio-type', '' ),
+					'default'    => astra_get_option( 'article-featured-image-ratio-type', 'predefined' ),
 					'type'       => 'control',
 					'section'    => 'section-blog-single',
 					'priority'   => 6,
 					'control'    => 'ast-selector',
 					'title'      => __( 'Image Ratio', 'astra' ),
 					'choices'    => array(
-						''           => __( 'Original', 'astra' ),
+						'default'           => __( 'Original', 'astra' ),
 						'predefined' => __( 'Predefined', 'astra' ),
 						'custom'     => __( 'Custom', 'astra' ),
 					),
