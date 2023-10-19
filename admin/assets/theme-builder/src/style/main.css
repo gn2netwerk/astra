@@ -78,11 +78,18 @@
 .ast-tb-sidebar {
 	border-right: 1px solid #e5e7eb;
 	background: #fff;
-	width: 14%;
+	width: 19%;
 	height: 100%;
 	top: 65px;
 	background-color: white;
 	padding: 40px 20px 40px 20px;
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) and (max-width: 1480px) {
+	.ast-tb-sidebar {
+		width: 30%;
+	}
 }
 
 .ast-tb-sidebar-header {
