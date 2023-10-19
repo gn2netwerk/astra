@@ -314,13 +314,15 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 
 			$structure_sub_controls = array();
 			// Add featured as background sub-control.
-			$structure_sub_controls[ $title_section . '-image' ] = array(
-				'clone'       => false,
-				'is_parent'   => true,
-				'main_index'  => $title_section . '-image',
-				'clone_limit' => 2,
-				'title'       => __( 'Featured Image', 'astra' ),
-			);
+			if ( 'post' !== $post_type ) {
+				$structure_sub_controls[ $title_section . '-image' ] = array(
+					'clone'       => false,
+					'is_parent'   => true,
+					'main_index'  => $title_section . '-image',
+					'clone_limit' => 2,
+					'title'       => __( 'Featured Image', 'astra' ),
+				);
+			}
 
 			$configurations = array_merge( $configurations, $this->get_layout_configuration( $parent_section, $post_type ) );
 

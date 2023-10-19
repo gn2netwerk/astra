@@ -2907,6 +2907,10 @@ input[type="color"]::-webkit-color-swatch {
   word-wrap: break-word;
 }
 
+.entry-content .post-thumb {
+  margin-bottom: 1em;
+}
+
 .entry-content p {
   margin-bottom: 1.6em;
 }
@@ -3077,10 +3081,6 @@ input[type="color"]::-webkit-color-swatch {
 */
 .single {
   /* 1 - Single Post Navigation Styles */
-}
-
-.single .entry-header {
-  margin-bottom: 2em;
 }
 
 .single .post-navigation {

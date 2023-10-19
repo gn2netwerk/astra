@@ -755,6 +755,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-header-search .ast-search-menu-icon.slide-search input.search-field' => array(
 					'width' => '0',
 					'outline' => '0',
+					'padding' => '0',
 				),
 			);
 

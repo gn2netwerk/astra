@@ -146,9 +146,9 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'ast-toggle-control',
 					'section'     => 'section-blog-single',
-					'title'       => __( 'Banner Featured Image', 'astra-addon' ),
+					'title'       => __( 'Featured Image', 'astra-addon' ),
 					'priority'    => 6,
-					'description' => __( 'Have Featured Image above post article, to modernize your blog post.', 'astra-addon' ),
+					'description' => __( 'Have Featured Image above, below, behind the post article, to modernize your blog post.', 'astra-addon' ),
 					'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 				array(
@@ -170,6 +170,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'choices'    => array(
 						'above'  => __( 'Above', 'astra' ),
 						'behind' => __( 'Behind', 'astra' ),
+						'below'  => __( 'Below', 'astra' ),
 					),
 					'responsive' => false,
 					'divider'    => array( 'ast_class' => 'ast-top-dotted-divider' ),

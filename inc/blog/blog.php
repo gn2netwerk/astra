@@ -483,6 +483,10 @@ function astra_banner_elements_order( $structure = array() ) {
 				break;
 
 			case 'single-image':
+				// Restricting for single post as we have different options to render, refer - 'astra_setup_article_featured_image'.
+				if ( 'post' === $post_type ) {
+					break;
+				}
 				$featured_background = astra_get_option( 'ast-dynamic-single-' . $post_type . '-featured-as-background', false );
 
 				if ( ( 'layout-2' === $layout_type && false === $featured_background ) || 'layout-1' === $layout_type ) {

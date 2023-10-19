@@ -129,10 +129,10 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Blog Single.
 					'blog-single-width'                    => 'default',
 					'blog-single-max-width'                => 1200,
-					'article-featured-image'               => false,
+					'article-featured-image'               => true,
 					'article-featured-image-position'      => 'behind',
 					'article-featured-image-width-type'    => 'wide',
-					'article-featured-image-ratio-type'    => '',
+					'article-featured-image-ratio-type'    => 'predefined',
 					'article-featured-image-ratio-pre-scale' => '16/9',
 					'article-featured-image-custom-scale-width' => '16',
 					'article-featured-image-custom-scale-height' => '9',
