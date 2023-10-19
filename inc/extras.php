@@ -1123,7 +1123,7 @@ function astra_get_site_image_sizes( $add_custom = false ) {
 		'full'         => __( 'Full Size', 'astra' ),
 	);
 
-	// Gets the available intermediate image size names on site.  
+	// Gets the available intermediate image size names on site.
 	$all_sizes = get_intermediate_image_sizes();  // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.get_intermediate_image_sizes_get_intermediate_image_sizes -- Required for image sizes to work.
 
 
@@ -1161,7 +1161,7 @@ function astra_get_site_image_sizes( $add_custom = false ) {
  */
 function astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_scale, $custom_scale_width, $custom_scale_height ) {
 	$aspect_ratio_css = '';
-	if ( '' !== $aspect_ratio_type ) {
+	if ( 'default' !== $aspect_ratio_type ) {
 		if ( 'custom' === $aspect_ratio_type ) {
 			$aspect_ratio_css = absint( $custom_scale_width ) . '/' . absint( $custom_scale_height );
 		} else {

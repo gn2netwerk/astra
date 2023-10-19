@@ -1478,6 +1478,8 @@ function astra_theme_background_updater_4_4_0() {
 					}
 				}
 				$theme_options['article-featured-image-position'] = $article_featured_position;
+				$theme_options['article-featured-image-ratio-type'] = 'default';
+
 			} else {
 				$theme_options['article-featured-image'] = false;
 			}

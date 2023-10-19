@@ -207,14 +207,14 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				),
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[article-featured-image-ratio-type]',
-					'default'    => astra_get_option( 'article-featured-image-ratio-type', '' ),
+					'default'    => astra_get_option( 'article-featured-image-ratio-type', 'predefined' ),
 					'type'       => 'control',
 					'section'    => 'section-blog-single',
 					'priority'   => 6,
 					'control'    => 'ast-selector',
 					'title'      => __( 'Image Ratio', 'astra' ),
 					'choices'    => array(
-						''           => __( 'Original', 'astra' ),
+						'default'           => __( 'Original', 'astra' ),
 						'predefined' => __( 'Predefined', 'astra' ),
 						'custom'     => __( 'Custom', 'astra' ),
 					),
