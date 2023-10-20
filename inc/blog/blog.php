@@ -483,11 +483,17 @@ function astra_banner_elements_order( $structure = array() ) {
 				break;
 
 			case 'single-image':
-				// Restricting for single post as we have different options to render, refer - 'astra_setup_article_featured_image'.
-				if ( 'post' === $post_type ) {
+				$featured_background = astra_get_option( 'ast-dynamic-single-' . $post_type . '-featured-as-background', false );
+
+				if ( 'layout-1' === $layout_type ) {
+					$article_featured_image_position = astra_get_option( 'ast-dynamic-single-' . $post_type . '-article-featured-image-position-layout-1', 'behind' );
+				} else {
+					$article_featured_image_position = astra_get_option( 'ast-dynamic-single-' . $post_type . '-article-featured-image-position-layout-2', 'none' );
+				}
+
+				if ( 'none' !== $article_featured_image_position ) {
 					break;
 				}
-				$featured_background = astra_get_option( 'ast-dynamic-single-' . $post_type . '-featured-as-background', false );
 
 				if ( ( 'layout-2' === $layout_type && false === $featured_background ) || 'layout-1' === $layout_type ) {
 					do_action( 'astra_blog_single_featured_image_before' );
