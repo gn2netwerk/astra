@@ -1842,21 +1842,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$border_left_val                         = '';
 
 			// Secondary color.
-			if ( empty( $scndry_btn_text_color ) ) {
+			if ( empty( $scndry_btn_text_color ) && self::gutenberg_core_patterns_compat() ) {
 				$btn_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
 			} else {
 				$btn_color_val = $scndry_btn_text_color;
 			}
 
 			// Secondary border color.
-			if ( empty( $scndry_btn_border_color ) && empty( $scndry_btn_bg_color ) ) {
+			if ( empty( $scndry_btn_border_color ) && empty( $scndry_btn_bg_color ) && self::gutenberg_core_patterns_compat() ) {
 				$btn_border_color_val = empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color );
 			} else {
 				$btn_border_color_val = empty( $scndry_btn_border_color ) ? esc_attr( $scndry_btn_bg_color ) : esc_attr( $scndry_btn_border_color );
 			}
 
 			// Secondary border hover color.
-			if ( empty( $scndry_btn_border_h_color ) ) {
+			if ( empty( $scndry_btn_border_h_color ) && self::gutenberg_core_patterns_compat() ) {
 				$btn_border_h_color_val = empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color );
 			} else {
 				$btn_border_h_color_val = $scndry_btn_border_h_color;
