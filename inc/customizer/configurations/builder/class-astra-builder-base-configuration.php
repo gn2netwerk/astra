@@ -18,7 +18,7 @@ final class Astra_Builder_Base_Configuration {
 	/**
 	 * Member Variable
 	 *
-	 * @var instance
+	 * @var mixed instance
 	 */
 	private static $instance = null;
 
@@ -312,7 +312,7 @@ final class Astra_Builder_Base_Configuration {
 						'bottom' => __( 'Bottom', 'astra' ),
 						'left'   => __( 'Left', 'astra' ),
 					),
-					'divider'   => array( 'ast_class' => ' ast-section-spacing ' ),
+					'divider'           => array( 'ast_class' => ' ast-section-spacing ' ),
 				),
 			);
 
@@ -352,7 +352,7 @@ final class Astra_Builder_Base_Configuration {
 						'transport'  => 'postMessage',
 						'control'    => 'ast-responsive-color',
 						'responsive' => true,
-						'divider'    => ( ! $astra_has_widgets_block_editor ) ? array( 'ast_class' => 'ast-top-divider' ) : '',
+						'divider'    => ( ! $astra_has_widgets_block_editor ) ? array( 'ast_class' => 'ast-top-divider' ) : array( 'ast_class' => 'ast-section-spacing' ),
 						'rgba'       => true,
 					),
 
@@ -478,7 +478,6 @@ final class Astra_Builder_Base_Configuration {
 							'section'   => $_section,
 							'transport' => 'postMessage',
 							'priority'  => 91,
-							'divider'   => array( 'ast_class' => 'ast-bottom-divider ' ),
 						),
 
 						/**
