@@ -119,7 +119,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' .post-thumb-img-content'  => array(
 				'text-align' => $image_wrap_alignment,
 			),
-			$selector . ' .post-thumb img, .ast-single-post-featured-section.post-thumb img'  => array(
+			$selector . ' .post-thumb img, .ast-single-post-featured-section.post-thumb img' => array(
 				'aspect-ratio' => $aspect_ratio,
 			),
 		);
@@ -206,7 +206,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' .ast-container a:hover, ' . $selector . ' .ast-container a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' .post-thumb img'  => array(
+			$selector . ' .post-thumb img'                => array(
 				'aspect-ratio' => $aspect_ratio,
 			),
 		);

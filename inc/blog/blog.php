@@ -425,7 +425,7 @@ function astra_banner_elements_order( $structure = array() ) {
 
 	do_action( 'astra_single_post_banner_before' );
 	$post_type = apply_filters( 'astra_banner_elements_post_type', $post_type );
-	$prefix = apply_filters( 'astra_banner_elements_prefix', $prefix );
+	$prefix    = apply_filters( 'astra_banner_elements_prefix', $prefix );
 
 	foreach ( apply_filters( 'astra_banner_elements_structure', $structure ) as $metaval ) {
 		$meta_key = $prefix . '-' . astra_get_last_meta_word( $metaval );
