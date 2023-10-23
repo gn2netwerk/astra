@@ -141,6 +141,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'suffix'      => 'px',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
+					'transport'  => 'refresh',
 					'input_attrs' => array(
 						'min'  => 30,
 						'step' => 1,
