@@ -713,7 +713,6 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					),
 					'section'           => $title_section,
 					'priority'          => 25,
-					'divider'           => 'post' === $post_type ? array() : array( 'ast_class' => 'ast-bottom-spacing' ),
 					'title'             => __( 'Meta', 'astra' ),
 					'choices'           => array_merge(
 						array(
