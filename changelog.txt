@@ -1,6 +1,6 @@
 v4.5.0 (Unreleased)
 - Fix: Smooth Scroll fails to navigate by keyboard on-focus and eventually breaks Accessibility.
-- Fix: Footer Builder - Above and below footer vertical alignment option is not working.
+- Fix: Footer Builder - Above and Below Footer vertical alignment options are not working.
 
 v4.4.0
 - New: Header Builder - Search - Introducing a new feature Live Search. ( https://wpastra.com/docs/live-search/ )
