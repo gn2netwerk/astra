@@ -15,12 +15,12 @@ const FreeVsPro = () => {
 	};
 
 	const getAstraProTitle = () => {
-		return astra_admin.pro_installed_status ? __( 'Activate Now' ) : __( 'Upgrade Now' );
+		return astra_admin.pro_installed_status ? __( 'Activate Now', 'astra' ) : __( 'Upgrade Now', 'astra' );
 	}
 
 	const redirectUpgradeAstraProPurchase = () => {
 		window.open(
-			'https://wpastra.com/pro/?utm_source=dashboard&utm_medium=free-theme&utm_campaign=free-vs-pro',
+			astra_admin.upgrade_url,
 			'_blank'
 		);
 	}
