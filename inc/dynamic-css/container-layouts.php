@@ -75,7 +75,7 @@ function astra_check_any_page_builder_is_active( $post_id ) {
  * @since 3.3.0
  */
 function astra_container_layout_css() {
-	$container_layout    = astra_get_content_layout();
+	$container_layout = astra_get_content_layout();
 
 	$page_container_css = '
 		.ast-single-post-featured-section + article {

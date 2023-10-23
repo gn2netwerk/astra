@@ -2050,10 +2050,10 @@ add_action( 'wp_footer', 'astra_render_header_svg_mask' );
 /**
  * Render Featured Image for single post at 'astra_entry_before' hook before post <article>
  *
- * @since x.x.x
+ * @since 4.4.0
  */
 function astra_single_post_entry_featured_image() {
-	$post_type = strval( get_post_type() );
+	$post_type           = strval( get_post_type() );
 	$featured_image_size = astra_get_option( 'ast-dynamic-single-' . $post_type . '-article-featured-image-size', 'large' );
 
 	if ( apply_filters( 'astra_post_featured_image_condition', ( has_post_thumbnail() ) ) ) {
@@ -2088,16 +2088,16 @@ function astra_single_post_entry_featured_image() {
  * Prepare rendering Featured Image for single post at 'astra_header_after' hook after header.
  * Required on single post only.
  *
- * @since x.x.x
+ * @since 4.4.0
  */
 function astra_setup_article_featured_image() {
 	if ( ! is_singular() ) {
 		return;
 	}
 
-	$post_type = strval( get_post_type() );
+	$post_type           = strval( get_post_type() );
 	$banner_title_layout = astra_get_option( 'ast-dynamic-single-' . $post_type . '-layout', 'layout-1' );
-	$single_structure = astra_get_option( 'ast-dynamic-single-' . $post_type . '-structure', astra_get_option( 'ast-dynamic-single-' . $post_type . '-structure', 'page' === $post_type ? array( 'ast-dynamic-single-' . $post_type . '-image', 'ast-dynamic-single-' . $post_type . '-title' ) : array( 'ast-dynamic-single-' . $post_type . '-title', 'ast-dynamic-single-' . $post_type . '-meta' ) ) );
+	$single_structure    = astra_get_option( 'ast-dynamic-single-' . $post_type . '-structure', astra_get_option( 'ast-dynamic-single-' . $post_type . '-structure', 'page' === $post_type ? array( 'ast-dynamic-single-' . $post_type . '-image', 'ast-dynamic-single-' . $post_type . '-title' ) : array( 'ast-dynamic-single-' . $post_type . '-title', 'ast-dynamic-single-' . $post_type . '-meta' ) ) );
 
 	if ( ! in_array( 'ast-dynamic-single-' . $post_type . '-image', $single_structure ) ) {
 		return;

@@ -756,11 +756,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'width' => '0',
 				),
 				'.ast-header-search .ast-search-menu-icon.ast-dropdown-active .search-form, .ast-header-search .ast-search-menu-icon.ast-dropdown-active .search-field:focus' => array(
-					'border-color' =>  'var(--ast-global-color-0)',
-					'transition' => 'all 0.2s',
+					'border-color' => 'var(--ast-global-color-0)',
+					'transition'   => 'all 0.2s',
 				),
-				'.search-form input.search-field:focus' => array(
-					'outline' =>  'none', // Making highlight by border that's why making outline none.
+				'.search-form input.search-field:focus'  => array(
+					'outline' => 'none', // Making highlight by border that's why making outline none.
 				),
 			);
 
@@ -768,7 +768,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$css_output['.ast-search-menu-icon .search-form button.search-submit:focus, .ast-theme-transparent-header .ast-header-search .ast-dropdown-active .ast-icon, .ast-theme-transparent-header .ast-inline-search .search-field:focus .ast-icon'] = array(
 					'color' => 'var(--ast-global-color-1)',
 				);
-				$css_output['.ast-header-search .slide-search .search-form']         = array(
+				$css_output['.ast-header-search .slide-search .search-form'] = array(
 					'border' => '2px solid var(--ast-global-color-0)',
 				);
 
@@ -1970,7 +1970,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/**
 			 * Add margin-bottom to the figure element conditionally for WordPress 6.3 or above.
 			 *
-			 * @since x.x.x
+			 * @since 4.4.0
 			 */
 			if ( astra_wp_version_compare( '6.3', '>=' ) ) {
 				$figure_margin_bottom = array(
@@ -5162,7 +5162,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Dynamic CSS to make Sidebar Sticky.
 		 *
 		 * @return string Sticky Sidebar CSS.
-		 * @since x.x.x
+		 * @since 4.4.0
 		 */
 		public static function astra_sticky_sidebar_css() {
 			$css = '';
@@ -5222,7 +5222,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		/**
 		 * Improve full screen search Submit button style.
 		 *
-		 * @since x.x.x
+		 * @since 4.4.0
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function astra_4_4_0_compatibility() {

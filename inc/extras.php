@@ -1111,7 +1111,7 @@ function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font
  * Return the array of site's available image size.
  *
  * @param boolean $add_custom Add custom image size.
- * @since x.x.x
+ * @since 4.4.0
  * @return array
  */
 function astra_get_site_image_sizes( $add_custom = false ) {
@@ -1156,7 +1156,7 @@ function astra_get_site_image_sizes( $add_custom = false ) {
  * @param string $custom_scale_width Custom scale width.
  * @param string $custom_scale_height Custom scale height.
  *
- * @since x.x.x
+ * @since 4.4.0
  * @return string
  */
 function astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_scale, $custom_scale_width, $custom_scale_height ) {
@@ -1174,7 +1174,7 @@ function astra_get_dynamic_image_aspect_ratio( $aspect_ratio_type, $predefined_s
 /**
  * Getting site active language & compatible with other plugins.
  *
- * @since x.x.x
+ * @since 4.4.0
  * @return string
  */
 function astra_get_current_language_slug() {
@@ -1192,7 +1192,7 @@ function astra_get_current_language_slug() {
  * 1. Dynamic customizer
  * 2. Live Search
  *
- * @since x.x.x
+ * @since 4.4.0
  * @return array
  */
 function astra_get_queried_post_types() {
