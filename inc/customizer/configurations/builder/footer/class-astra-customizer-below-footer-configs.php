@@ -134,14 +134,13 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[hbb-footer-height]',
 					'section'     => $_section,
-					'transport'   => 'postMessage',
+					'transport'   => 'refresh',
 					'default'     => astra_get_option( 'hbb-footer-height' ),
 					'priority'    => 30,
 					'title'       => __( 'Height', 'astra' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'suffix'      => 'px',
-					'transport'  => 'refresh',
 					'input_attrs' => array(
 						'min'  => 30,
 						'step' => 1,
