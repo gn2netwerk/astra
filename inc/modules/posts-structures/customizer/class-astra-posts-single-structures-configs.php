@@ -648,7 +648,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 					'control'     => 'ast-select',
 					'choices'     => astra_get_site_image_sizes( true ),
-					'description' => defined( 'ASTRA_EXT_VER' ) ? __( "You can specify Custom image sizes from the parent Single Post's 'Featured Image Size' option.", 'astra' ) : '',
+					'description' => defined( 'ASTRA_EXT_VER' ) ? __( "You can specify Custom image sizes from the Single Post's 'Featured Image Size' option.", 'astra' ) : '',
 				),
 
 				array(

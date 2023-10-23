@@ -1468,7 +1468,8 @@ function astra_theme_background_updater_4_4_0() {
 		// Single - Article Featured Image visibility migration.
 		$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
 		foreach ( $post_types as $index => $post_type ) {
-			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-article-featured-image-position' ] = 'none';
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-article-featured-image-position-layout-1' ] = 'none';
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-article-featured-image-position-layout-2' ] = 'none';
 			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-article-featured-image-ratio-type' ] = 'default';
 		}
 
