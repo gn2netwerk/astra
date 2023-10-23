@@ -2907,6 +2907,11 @@ input[type="color"]::-webkit-color-swatch {
   word-wrap: break-word;
 }
 
+.entry-content .post-thumb {
+  margin-bottom: 1em;
+  margin-top: -1em;
+}
+
 .entry-content p {
   margin-bottom: 1.6em;
 }

@@ -78,7 +78,7 @@ function astra_container_layout_css() {
 	$container_layout    = astra_get_content_layout();
 	$is_featured_image   = astra_get_option( 'article-featured-image', false );
 	$image_position      = astra_get_option( 'article-featured-image-position', 'below' );
-	$aspect_ratio_type   = astra_get_option( 'article-featured-image-ratio-type', '' );
+	$aspect_ratio_type   = astra_get_option( 'article-featured-image-ratio-type', 'predefined' );
 	$predefined_scale    = astra_get_option( 'article-featured-image-ratio-pre-scale' );
 	$custom_scale_width  = astra_get_option( 'article-featured-image-custom-scale-width', 16 );
 	$custom_scale_height = astra_get_option( 'article-featured-image-custom-scale-height', 9 );

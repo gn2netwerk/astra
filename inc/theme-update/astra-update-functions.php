@@ -1465,6 +1465,26 @@ function astra_theme_background_updater_4_4_0() {
 			$theme_options['secondary-button-radius-fields'] = $theme_options['button-radius-fields'];
 		}
 
+		// Single - Featured Image options migration.
+		if ( ! isset( $theme_options['article-featured-image'] ) && isset( $theme_options[ 'ast-dynamic-single-post-structure' ] ) ) {
+			if( is_array( $theme_options[ 'ast-dynamic-single-post-structure' ] ) && in_array( 'ast-dynamic-single-post-image', $theme_options[ 'ast-dynamic-single-post-structure' ] ) ) {
+				$theme_options['article-featured-image'] = true;
+				$article_featured_position = '';
+				foreach ( $theme_options[ 'ast-dynamic-single-post-structure' ] as $key => $value ) {
+					if ( 'ast-dynamic-single-post-image' === $value && 0 === $key ) {
+						$article_featured_position = 'above';
+					} else {
+						$article_featured_position = 'below';
+					}
+				}
+				$theme_options['article-featured-image-position'] = $article_featured_position;
+				$theme_options['article-featured-image-ratio-type'] = 'default';
+
+			} else {
+				$theme_options['article-featured-image'] = false;
+			}
+		}
+
 		update_option( 'astra-settings', $theme_options );
 	}
 }

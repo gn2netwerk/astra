@@ -752,9 +752,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.ast-search-menu-icon form.search-form' => array(
 					'padding-right' => '0',
 				),
-				'.ast-header-search .ast-search-menu-icon.slide-search input.search-field' => array(
+				'.ast-search-menu-icon.slide-search input.search-field' => array(
 					'width' => '0',
-					'outline' => '0',
+				),
+				'.ast-header-search .ast-search-menu-icon.ast-dropdown-active .search-form, .ast-header-search .ast-search-menu-icon.ast-dropdown-active .search-field:focus' => array(
+					'border-color' =>  'var(--ast-global-color-0)',
+					'transition' => 'all 0.2s',
+				),
+				'.search-form input.search-field:focus' => array(
+					'outline' =>  'none', // Making highlight by border that's why making outline none.
 				),
 			);
 
