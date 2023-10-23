@@ -366,9 +366,14 @@
 }
 
 .ast-tb-sidebar-help {
+	position: absolute;
+	bottom: 40px;
 	display: flex;
 	align-items: center;
+	padding: 12px 8px 10px 8px;
 	gap: 8px;
+	cursor: pointer;
+	min-width: 265px;
 }
 
 .ast-tb-card-blur-on-hover {
