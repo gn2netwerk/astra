@@ -1,4 +1,4 @@
-v4.4.0 (Unreleased)
+v4.4.0
 - New: Header Builder - Search - Introducing a new feature Live Search.
 - New: Header Builder - Search - Post Types selection option to filter Live Search results within.
 - New: Header Builder - Search - Option to adjust search bar width.
