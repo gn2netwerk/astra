@@ -7,7 +7,9 @@ import App from "./App";
  */
 import './style/main.css';
 
-ReactDOM.render(
-    <App />,
-	document.getElementById('ast-tb-app-root')
-);
+if ( document.getElementById('ast-tb-app-root') ) {
+    ReactDOM.render(
+        <App />,
+        document.getElementById('ast-tb-app-root')
+    );
+}
