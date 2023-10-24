@@ -89,7 +89,7 @@ const Sidebar = ({ items }) => {
 
 			{/** Sidebar Help */}
 			<div
-				className="ast-tb-sidebar-help"
+				className="ast-tb-sidebar-help ast-tb-sidebar-item"
 				onClick={() =>
 					window.open(
 						astra_theme_builder.astra_docs_page_url,
