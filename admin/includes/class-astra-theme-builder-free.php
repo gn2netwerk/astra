@@ -51,7 +51,8 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 			if ( ! $is_astra_addon_active ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'theme_builder_admin_enqueue_scripts' ) );
 				add_action( 'admin_body_class', array( $this, 'admin_body_class' ) );
-				add_action( 'admin_menu', array( $this, 'setup_menu' ) );           
+				add_action( 'admin_menu', array( $this, 'setup_menu' ) );
+				add_action( 'admin_init', array( $this, 'astra_theme_builder_disable_notices' ) );   
 			}
 		}
 
@@ -136,6 +137,20 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 				array( $this, 'render_theme_builder' ),
 				2
 			);
+		}
+
+		/**
+		 * Disable notices for theme builder page.
+		 *
+		 * @since x.x.x
+		 */
+		public function astra_theme_builder_disable_notices() {
+
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Fetching a $_GET value, no nonce available to validate.
+			if ( isset( $_GET['page'] ) && 'theme-builder-free' === $_GET['page'] ) {
+				remove_all_actions('admin_notices');
+				remove_all_actions('all_admin_notices'); // For older versions of WordPress
+			}
 		}
 	}
 
