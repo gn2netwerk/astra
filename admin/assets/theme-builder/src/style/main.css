@@ -218,6 +218,10 @@
 	align-items: center;
 }
 
+h3.ast-tb-create-new-card-title {
+	margin-left: 5%;
+}
+
 .ast-tb-canvas-content-row {
 	margin-top: 32px;
 	display: flex;

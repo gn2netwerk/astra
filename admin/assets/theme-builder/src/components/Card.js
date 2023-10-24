@@ -82,28 +82,7 @@ function Card({ title, icon, layout, template, enabled }) {
 					{icon ? icon : loadSVG()}
 				</div>
 				<div className="ast-tb-card-title-wrapper">
-					{enabled ? (
-						<svg
-							width="8"
-							height="8"
-							viewBox="0 0 8 8"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<circle cx="4" cy="4" r="3" fill="#17B26A" />
-						</svg>
-					) : (
-						<svg
-							width="8"
-							height="8"
-							viewBox="0 0 8 8"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<circle cx="4" cy="4" r="3" fill="#94A3B8" />
-						</svg>
-					)}
-					<h3 className="ast-tb-card-title">{title}</h3>
+					<h3 className="ast-tb-card-title ast-tb-create-new-card-title">{title}</h3>
 				</div>
 			</div>
 		</div>
