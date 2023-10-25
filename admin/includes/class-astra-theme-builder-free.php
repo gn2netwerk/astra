@@ -167,7 +167,8 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 				$is_astra_addon_active = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) );
 				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				if ( $is_astra_addon_active ) {
-					die( wp_redirect( admin_url( 'admin.php?page=theme-builder' ) ) );
+					wp_redirect( admin_url( 'admin.php?page=theme-builder' ) );
+					exit;
 				}
 			}
 		}
