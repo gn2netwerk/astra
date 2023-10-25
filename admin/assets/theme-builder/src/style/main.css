@@ -266,8 +266,8 @@ h3.ast-tb-create-new-card-title {
 }
 
 .ast-tb-category-parent {
-	margin-top: 36px;
-	margin-bottom: 50px;
+	margin-top: 32px;
+	margin-bottom: 32px;
 }
 
 .ast-tb-category-parent:last-child {
@@ -384,4 +384,8 @@ h3.ast-tb-create-new-card-title {
 .ast-tb-breadcrumb-icon {
 	position: relative;
 	top: 2px;
+}
+
+.ast-tb-card-icon-wrapper-hover {
+	filter: blur(2.5px);
 }

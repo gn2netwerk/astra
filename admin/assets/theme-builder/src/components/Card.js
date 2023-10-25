@@ -65,24 +65,28 @@ function Card({ title, icon, layout, template, enabled }) {
 						className="ast-tb-card-hover-btn"
 						onClick={() =>
 							window.open(
-								astra_theme_builder.astra_pricing_page_url,
+								astra_theme_builder.astra_pricing_page_url
 							)
 						}
 					>
-						{ __( 'Upgrade', 'astra' ) }
+						{__("Upgrade", "astra")}
 					</button>
 				</div>
 			)}
 			<div
-				className={`ast-tb-card ${
-					isHovered ? "ast-tb-card-blur-on-hover" : ""
-				}`}
+				className={"ast-tb-card"}
 			>
-				<div className="ast-tb-card-icon-wrapper">
+				<div
+					className={`ast-tb-card-icon-wrapper ${
+						isHovered ? "ast-tb-card-icon-wrapper-hover" : ""
+					}`}
+				>
 					{icon ? icon : loadSVG()}
 				</div>
 				<div className="ast-tb-card-title-wrapper">
-					<h3 className="ast-tb-card-title ast-tb-create-new-card-title">{title}</h3>
+					<h3 className="ast-tb-card-title ast-tb-create-new-card-title">
+						{title}
+					</h3>
 				</div>
 			</div>
 		</div>
