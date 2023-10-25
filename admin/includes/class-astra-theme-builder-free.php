@@ -52,8 +52,9 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'theme_builder_admin_enqueue_scripts' ) );
 				add_action( 'admin_body_class', array( $this, 'admin_body_class' ) );
 				add_action( 'admin_menu', array( $this, 'setup_menu' ) );
-				add_action( 'admin_init', array( $this, 'astra_theme_builder_disable_notices' ) );   
+				add_action( 'admin_init', array( $this, 'astra_theme_builder_disable_notices' ) );
 			}
+			add_action( 'admin_page_access_denied', array( $this, 'astra_theme_builder_access_denied_redirect' ) );
 		}
 
 		/**
@@ -150,6 +151,24 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 			if ( isset( $_GET['page'] ) && 'theme-builder-free' === $_GET['page'] ) {
 				remove_all_actions('admin_notices');
 				remove_all_actions('all_admin_notices'); // For older versions of WordPress
+			}
+		}
+
+		/**
+		 * Redirect to theme builder pro from free preview if pro module is active.
+		 *
+		 * @since x.x.x
+		 */
+		public function astra_theme_builder_access_denied_redirect() {
+
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Fetching a $_GET value, no nonce available to validate.
+			if ( isset( $_GET['page'] ) && 'theme-builder-free' === $_GET['page'] ) {
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				$is_astra_addon_active = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) );
+				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				if ( $is_astra_addon_active ) {
+					die( wp_redirect( admin_url( 'admin.php?page=theme-builder' ) ) );
+				}
 			}
 		}
 	}
