@@ -142,26 +142,6 @@ class Astra_Menu {
 			'customize.php'
 		);
 
-		// Add Custom Layout submenu for versions below 4.5.0.
-		if ( defined( 'ASTRA_EXT_VER' ) && version_compare(ASTRA_EXT_VER, '4.5.0', '<') ) {
-
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$show_custom_layout_submenu = ( defined( 'ASTRA_EXT_VER' ) && ( ! Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ) ? false : true;
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	
-			if ( $show_custom_layout_submenu ) {
-				add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page -- Taken the menu on top level
-					self::$plugin_slug,
-					__( 'Custom Layouts', 'astra' ),
-					__( 'Custom Layouts', 'astra' ),
-					$capability,
-					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) ) ? 'edit.php?post_type=astra-advanced-hook' : 'admin.php?page=' . self::$plugin_slug . '&path=custom-layouts'
-					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				);
-			}
-		}
-
 		if ( ! $this->spectra_has_top_level_menu() && ! astra_is_white_labelled() ) {
 			// Add Spectra submenu.
 			add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page -- Taken the menu on top level
