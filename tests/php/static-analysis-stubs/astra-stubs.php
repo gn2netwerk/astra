@@ -15557,6 +15557,24 @@ namespace {
     {
     }
     /**
+     * Check whether user is exising or new to change the default height of below footer
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_update_below_footer_height()
+    {
+    }
+    /**
+     * Check whether user is exising or new to change the default vertical alignment for below footer
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_update_below_footer_vertical_alignment()
+    {
+    }
+    /**
      * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
      *
      * @since 3.7.0
@@ -16989,7 +17007,16 @@ namespace {
      */
     function astra_theme_background_updater_4_4_0()
     {
-    }
+    }    
+    /**
+    * Handle backward compatibility on version 4.4.0
+    *
+    * @since x.x.x
+    * @return void
+    */
+   function astra_theme_background_updater_4_5_0()
+   {
+   }
     /**
      * WordPress filter - Widget Tags
      *

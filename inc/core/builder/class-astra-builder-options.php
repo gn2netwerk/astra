@@ -21,6 +21,8 @@ add_filter( 'astra_theme_defaults', 'astra_hf_builder_customizer_defaults' );
 function astra_hf_builder_customizer_defaults( $defaults ) {
 
 	$astra_options = Astra_Theme_Options::get_astra_options();
+	$update_below_footer_height = Astra_Dynamic_CSS::astra_update_below_footer_height();
+	$update_below_footer_vertical_alignment = Astra_Dynamic_CSS::astra_update_below_footer_vertical_alignment();
 
 	/**
 	 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
@@ -573,7 +575,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Below Footer Defaults.
 	 */
-	$defaults['hbb-footer-height'] = 60;
+	$defaults['hbb-footer-height'] = $update_below_footer_height ? 60 : 80;
 	$defaults['hbb-footer-column'] = '1';
 	$defaults['hbb-footer-layout'] = array(
 		'desktop' => 'full',
@@ -585,9 +587,9 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['hb-footer-layout-width']  = 'content';
 	$defaults['hbb-footer-layout-width'] = 'content';
 
-	$defaults['hba-footer-vertical-alignment'] = 'center';
-	$defaults['hb-footer-vertical-alignment']  = 'center';
-	$defaults['hbb-footer-vertical-alignment'] = 'center';
+	$defaults['hba-footer-vertical-alignment'] = 'flex-start';
+	$defaults['hb-footer-vertical-alignment']  = 'flex-start';
+	$defaults['hbb-footer-vertical-alignment'] = $update_below_footer_vertical_alignment ? 'center' : 'flex-start';
 
 	$defaults['footer-bg-obj-responsive'] = array(
 		'desktop' => array(
