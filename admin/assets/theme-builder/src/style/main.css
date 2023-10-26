@@ -7,9 +7,7 @@
 	display: none;
 }
 
-.ast-theme-builder #wpcontent,
-#wpfooter,
-#wpbody-content {
+.ast-theme-builder #wpcontent {
 	margin: 0px;
 	padding: 0px;
 }
