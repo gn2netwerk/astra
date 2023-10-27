@@ -1117,7 +1117,7 @@ input[type="submit"]:focus {
 
 .ast-search-menu-icon {
   position: relative;
-  z-index: 3;
+  z-index: 9;
 }
 
 /* must have higher specificity than alternative color schemes inline styles */

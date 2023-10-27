@@ -155,7 +155,7 @@ html {
 
 .edit-post-visual-editor .ast-search-menu-icon {
   position: relative;
-  z-index: 3;
+  z-index: 9;
 }
 
 .edit-post-visual-editor .site .skip-link {
