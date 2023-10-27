@@ -11,23 +11,17 @@
 class TestAstraInit extends WP_UnitTestCase {
 
 	/**
-	 * User ID for a Admin user..
-	 *
-	 * @var int
-	 */
-	private $admin_user_id;
-
-	/**
 	 * Setup the tests class.
 	 *
 	 * @return void
 	 */
 	public function setUp() {
-		$this->admin_user_id = self::factory()->user->create(
-			array(
-				'role' => 'administrator',
-			)
-		);
+		parent::setUp();
+		// Additional setup if needed.
+	}
+	public function tearDown() {
+		parent::tearDown();
+		// Additional cleanup if needed.
 	}
 
 	/**
