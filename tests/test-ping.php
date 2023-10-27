@@ -31,10 +31,10 @@ class TestAstraInit extends WP_UnitTestCase {
 	}
 
 	/**
-     * A basic test example.
-     *
-     * @return void
-     */
+	 * A basic test example.
+	 *
+	 * @return void
+	 */
 	public function test_true_is_true() {
 		$this->assertTrue( true );
 	}
