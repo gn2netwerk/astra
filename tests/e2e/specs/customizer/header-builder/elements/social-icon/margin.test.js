@@ -42,10 +42,12 @@ describe( 'Social icons in the customizer', () => {
 				},
 			},
 		};
+
 		await setCustomize( socialIconMargin );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
+
 		await page.waitForSelector( '.ast-header-social-1-wrap' );
 		await expect( {
 			selector: '.ast-header-social-1-wrap',

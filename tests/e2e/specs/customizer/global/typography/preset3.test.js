@@ -7,7 +7,7 @@ describe( 'Global typography preset-3 style in the customizer', () => {
 	it( 'body style should be applied correctly', async () => {
 		const globalTypographyPreset3 = {
 			'typography-presets': 'Preset3',
-			'body-font-family': "'Roboto,sans-serif'",
+			'body-font-family': "Roboto, sans-serif",
 			'body-font-weight': '400',
 			'font-size-body': {
 				desktop: '17',
