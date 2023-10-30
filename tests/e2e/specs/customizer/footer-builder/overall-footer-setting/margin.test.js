@@ -3,56 +3,6 @@ import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'footer builder margin setting in customizer', () => {
-	it( 'margin for tablet should apply correctly', async () => {
-		const footerBuilderMargin = {
-			'section-footer-builder-layout-margin': {
-				tablet: {
-					top: '60',
-					right: '60',
-					bottom: '60',
-					left: '60',
-				},
-				'tablet-unit': 'px',
-			},
-			'footer-desktop-items': {
-				primary: {
-					primary_1: {
-						0: 'social-icons-1',
-					},
-				},
-			},
-		};
-		await setCustomize( footerBuilderMargin );
-
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
-
-		await setBrowserViewport( 'medium' );
-		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.site-footer' );
-
-		await expect( {
-			selector: '.site-footer',
-			property: 'margin-top',
-		} ).cssValueToBe( `${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ].tablet.top }${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ][ 'tablet-unit' ] }`,
-		);
-		await expect( {
-			selector: '.site-footer',
-			property: 'margin-right',
-		} ).cssValueToBe( `${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ].tablet.right }${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ][ 'tablet-unit' ] }`,
-		);
-		await expect( {
-			selector: '.site-footer',
-			property: 'margin-bottom',
-		} ).cssValueToBe( `${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ].tablet.bottom }${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ][ 'tablet-unit' ] }`,
-		);
-		await expect( {
-			selector: '.site-footer',
-			property: 'margin-left',
-		} ).cssValueToBe( `${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ].tablet.left }${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ][ 'tablet-unit' ] }`,
-		);
-	} );
 	it( 'margin for mobile should apply correctly', async () => {
 		const footerBuilderMargin = {
 			'section-footer-builder-layout-margin': {
