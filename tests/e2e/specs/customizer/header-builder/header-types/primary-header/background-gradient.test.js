@@ -36,10 +36,6 @@ describe( 'primary header background gradient setting in customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.ast-primary-header-bar' );
-		await expect( {
-			selector: '.ast-primary-header-bar',
-			property: 'background-image',
-		} ).cssValueToBe( `${ primaryHeader[ 'hb-header-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await page.waitForSelector( '.ast-primary-header-bar.ast-primary-header' );

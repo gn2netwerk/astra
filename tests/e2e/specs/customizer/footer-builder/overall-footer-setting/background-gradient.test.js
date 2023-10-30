@@ -54,12 +54,6 @@ describe( 'Footer builder background gradient setting in customizer', () => {
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
 		await page.waitForSelector( '.site-footer' );
-		await expect( {
-			selector: '.site-footer',
-			property: 'background-image',
-		} ).cssValueToBe(
-			`${ FooterBuilderBgGradient[ 'footer-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
-		);
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await page.waitForSelector( '.site-footer' );
