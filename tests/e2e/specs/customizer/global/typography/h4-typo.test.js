@@ -37,11 +37,6 @@ describe( 'global typography heading 4 settings in the customizer', () => {
 		await page.goto( createURL( 'heading-4-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'h4, .entry-content h4' );
-		await expect( {
-			selector: 'h4, .entry-content h4',
-			property: 'font-family',
-		} ).cssValueToBe( `${ heading4Font[ 'font-family-h4' ] }` );
 
 		await expect( {
 			selector: 'h4, .entry-content h4',

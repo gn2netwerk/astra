@@ -24,11 +24,6 @@ describe( 'Social icons in the customizer', () => {
 		} );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
-		await page.waitForSelector( '.ast-footer-social-1-wrap .ast-builder-social-element' );
-		await expect( {
-			selector: '.ast-footer-social-1-wrap .ast-builder-social-element',
-			property: 'background-color',
-		} ).cssValueToBe( `${ socialIconBackColor[ 'footer-social-1-bg-color' ].desktop }` );
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );

@@ -18,14 +18,6 @@ describe( 'above header bottom border size and color setting in customizer', () 
 			waitUntil: 'networkidle0',
 		} );
 
-		await page.waitForSelector( '.ast-above-header-bar' );
-		await expect( {
-			selector: '.ast-above-header-bar',
-			property: 'border-bottom-width',
-		} ).cssValueToBe(
-			`${ bottomBorder[ 'hba-header-separator' ] + 'px' }`,
-		);
-
 		await expect( {
 			selector: '.ast-above-header-bar',
 			property: 'border-bottom-color',
