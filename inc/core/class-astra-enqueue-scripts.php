@@ -500,6 +500,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
 			$site_bg_obj    = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$is_astra_pro_colors_activated = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) );
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 			$astra_global_palette_instance = new Astra_Global_Palette();
 			$astra_colors                  = array(
 				'var(--ast-global-color-0)'     => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-0)' ),
@@ -515,9 +519,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				'apply_content_bg_fullwidth'    => astra_apply_content_background_fullwidth_layouts(),
 				'customizer_content_bg_obj'     => $content_bg_obj,
 				'customizer_site_bg_obj'        => $site_bg_obj,
-				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				'is_astra_pro_colors_activated' => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ),
-				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				'is_astra_pro_colors_activated' => $is_astra_pro_colors_activated,
 			);
 
 			wp_localize_script( 'astra-block-editor-script', 'astraColors', apply_filters( 'astra_theme_root_colors', $astra_colors ) );
