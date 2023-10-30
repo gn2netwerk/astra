@@ -20,6 +20,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
+
     steps:
     - uses: actions/checkout@v2
 
@@ -38,7 +43,7 @@ jobs:
 
     - name: E2E Tests
       if: always()
-      run: npm run test:e2e:ci
+      run: npm run test:e2e:ci --shard=${{ matrix.shard }}/${{ strategy.job-total }}
 
     - name: Stop Docker environment
       run: npm run env:stop
