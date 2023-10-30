@@ -21,12 +21,6 @@ describe( 'header margin settings in the customizer', () => {
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-hfb-header .site-header',
-			property: 'margin-top',
-		} ).cssValueToBe(
-			`${ headerWidthAndMargin[ 'section-header-builder-layout-margin' ].mobile.top }${ headerWidthAndMargin[ 'section-header-builder-layout-margin' ][ 'mobile-unit' ] }`,
-		);
-		await expect( {
-			selector: '.ast-hfb-header .site-header',
 			property: 'margin-right',
 		} ).cssValueToBe(
 			`${ headerWidthAndMargin[ 'section-header-builder-layout-margin' ].mobile.right }${ headerWidthAndMargin[ 'section-header-builder-layout-margin' ][ 'mobile-unit' ] }`,

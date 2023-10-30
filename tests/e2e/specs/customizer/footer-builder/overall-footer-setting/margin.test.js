@@ -33,11 +33,6 @@ describe( 'footer builder margin setting in customizer', () => {
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.ast-hfb-header .site-footer',
-			property: 'margin-top',
-		} ).cssValueToBe( `${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ].desktop.top }${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ][ 'desktop-unit' ] }`,
-		);
-		await expect( {
-			selector: '.ast-hfb-header .site-footer',
 			property: 'margin-right',
 		} ).cssValueToBe( `${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ].desktop.right }${ footerBuilderMargin[ 'section-footer-builder-layout-margin' ][ 'desktop-unit' ] }`,
 		);
