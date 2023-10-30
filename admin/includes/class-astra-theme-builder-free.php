@@ -48,8 +48,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 			$is_astra_addon_active = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) );
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
-			// Show menu only if Astra Pro is installed and activated.
-			if ( defined( 'ASTRA_EXT_VER' ) && ! $is_astra_addon_active ) {
+			if ( ! $is_astra_addon_active ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'theme_builder_admin_enqueue_scripts' ) );
 				add_action( 'admin_body_class', array( $this, 'admin_body_class' ) );
 				add_action( 'admin_menu', array( $this, 'setup_menu' ) );
@@ -98,7 +97,6 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		 * @param string $classes Space separated class string.
 		 */
 		public function admin_body_class( $classes = '' ) {
-
 			$theme_builder_class = isset( $_GET['page'] ) && 'theme-builder-free' === $_GET['page'] ? 'ast-theme-builder' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Fetching a $_GET value, no nonce available to validate.
 			$classes            .= ' ' . $theme_builder_class . ' ';
 
