@@ -14,7 +14,7 @@
     "wp-coding-standards/wpcs": "^2.1.0",
     "wptrt/wpthemereview": "^0.2.0",
     "automattic/vipwpcs": "^2.3",
-    "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5",
+    "phpunit/phpunit": "5.7.*",
     "roots/wordpress": "^6.0",
     "wp-phpunit/wp-phpunit": "^6.0",
     "yoast/phpunit-polyfills": "^1.0"
