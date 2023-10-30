@@ -48,8 +48,6 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 			$is_astra_addon_active = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'advanced-hooks' ) );
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
-			$lower_astra_pro_ver = ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '4.5.0', '<' ) );
-
 			if ( ! $is_astra_addon_active ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'theme_builder_admin_enqueue_scripts' ) );
 				add_action( 'admin_body_class', array( $this, 'admin_body_class' ) );
