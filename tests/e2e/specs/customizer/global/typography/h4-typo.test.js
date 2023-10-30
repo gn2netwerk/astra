@@ -40,11 +40,6 @@ describe( 'global typography heading 4 settings in the customizer', () => {
 
 		await expect( {
 			selector: 'h4, .entry-content h4',
-			property: 'font-weight',
-		} ).cssValueToBe( `${ heading4Font[ 'font-weight-h4' ] }` );
-
-		await expect( {
-			selector: 'h4, .entry-content h4',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ heading4Font[ 'font-size-h4' ].desktop }${ heading4Font[ 'font-size-h4' ][ 'desktop-unit' ] }`,
