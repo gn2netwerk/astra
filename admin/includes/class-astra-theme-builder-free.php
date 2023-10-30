@@ -50,7 +50,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 
 			$lower_astra_pro_ver = ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '4.5.0', '<' ) );
 
-			if ( ! $is_astra_addon_active && ( defined( 'ASTRA_EXT_VER' ) && ! $lower_astra_pro_ver ) ) {
+			if ( ! $is_astra_addon_active ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'theme_builder_admin_enqueue_scripts' ) );
 				add_action( 'admin_body_class', array( $this, 'admin_body_class' ) );
 				add_action( 'admin_menu', array( $this, 'setup_menu' ) );
