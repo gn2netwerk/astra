@@ -27,10 +27,11 @@ describe( 'footer builder margin setting in customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-hfb-header .site-footer' );
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.site-footer' );
+
 		await expect( {
 			selector: '.site-footer',
 			property: 'margin-top',

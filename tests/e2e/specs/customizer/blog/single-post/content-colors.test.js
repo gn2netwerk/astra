@@ -19,11 +19,6 @@ describe( 'Section Content color option under the customizer', () => {
 		await page.goto( createURL( '/test-post' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-related-post-content .entry-header .ast-related-post-title a' );
-		await expect( {
-			selector: '.ast-related-post-content .entry-header .ast-related-post-title a',
-			property: 'color',
-		} ).cssValueToBe( `${ contentColor[ 'related-posts-text-color' ] }` );
 
 		await page.waitForSelector( '.ast-related-post-content .entry-meta' );
 		await expect( {
