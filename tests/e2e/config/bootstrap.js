@@ -220,8 +220,8 @@ beforeAll( async () => {
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	await setupBrowser();
-	// await trashAllPosts( 'post' );
-	// await trashAllPosts( 'page' );
+	await trashAllPosts();
+	await trashAllPosts( 'page' );
 	await siteReset();
 	await page.setDefaultNavigationTimeout( 10000 );
 	await page.setDefaultTimeout( 10000 );
