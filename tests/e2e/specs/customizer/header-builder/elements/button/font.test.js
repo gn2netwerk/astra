@@ -36,6 +36,11 @@ describe( 'Header builder button setting in customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
+		await page.waitForSelector( '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button' );
+		await expect( {
+			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',
+			property: 'font-family',
+		} ).cssValueToBe( `${ buttonFont[ 'header-button1-font-family' ] }` );
 
 		await expect( {
 			selector: '.ast-header-button-1[data-section*="section-hb-button-"] .ast-builder-button-wrap .ast-custom-button',

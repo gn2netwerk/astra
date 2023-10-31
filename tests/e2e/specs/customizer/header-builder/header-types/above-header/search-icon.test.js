@@ -24,6 +24,13 @@ describe( 'customizing search icon in the above header section', () => {
 			waitUntil: 'networkidle0',
 		} );
 
+		await page.waitForSelector( '.astra-search-icon' );
+		await expect( {
+			selector: '.astra-search-icon',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ searchIcon[ 'header-search-icon-space' ].desktop }${ searchIcon[ 'header-search-icon-space' ][ 'desktop-unit' ] }`,
+		);
 		//Search icon color for desktop
 		await expect( {
 			selector: '.ast-header-search .ast-icon',

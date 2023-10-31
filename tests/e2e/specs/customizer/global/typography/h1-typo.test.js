@@ -38,6 +38,10 @@ describe( 'global typography H1 settings in the customizer', () => {
 		await page.waitForSelector( '.entry-content' );
 		await expect( {
 			selector: '.entry-content h1',
+			property: 'font-family',
+		} ).cssValueToBe( `${ heading1Font[ 'font-family-h1' ] }` );
+		await expect( {
+			selector: '.entry-content h1',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ heading1Font[ 'font-weight-h1' ] }` );
 		await expect( {
