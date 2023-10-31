@@ -438,27 +438,29 @@ function astra_onload_function() {
 			}
 
 			// Live reflections for page background setting.
-			const backgroundToggle = (undefined !== wp.data.select('core/editor') &&
-			null !== wp.data.select('core/editor') &&
-			undefined !== wp.data.select('core/editor').getEditedPostAttribute('meta') &&
-			wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-enabled'])
-			? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-enabled']
-			: 'default';
-
-			if ( 'enabled' === backgroundToggle ) {
-				if ( isUnboxedContainer ) {
-					updatePageBackground( false, isUnboxedContainer );
+			if ( astraColors.is_astra_pro_colors_activated ) {
+				const backgroundToggle = (undefined !== wp.data.select('core/editor') &&
+				null !== wp.data.select('core/editor') &&
+				undefined !== wp.data.select('core/editor').getEditedPostAttribute('meta') &&
+				wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-enabled'])
+				? wp.data.select('core/editor').getEditedPostAttribute('meta')['ast-page-background-enabled']
+				: 'default';
+	
+				if ( 'enabled' === backgroundToggle ) {
+					if ( isUnboxedContainer ) {
+						updatePageBackground( false, isUnboxedContainer );
+					}
+					else {
+						updatePageBackground();
+					}
 				}
-				else {
-					updatePageBackground();
-				}
-			}
-			else if ( 'default' === backgroundToggle ) {
-				if ( isUnboxedContainer ) {
-					updatePageBackground( true, isUnboxedContainer );
-				}
-				else {
-					updatePageBackground( true );
+				else if ( 'default' === backgroundToggle ) {
+					if ( isUnboxedContainer ) {
+						updatePageBackground( true, isUnboxedContainer );
+					}
+					else {
+						updatePageBackground( true );
+					}
 				}
 			}
 
@@ -517,7 +519,10 @@ const updatePageBackground = ( apply_customizer_default = false, isUnboxedContai
 		applyStylesToElement('#editor .edit-post-visual-editor', desktopCSS, document );
 
 		// Check current layout.
-		is_boxed_based_layout = document.querySelector('body').contains( document.querySelector('.ast-separate-container') );
+		is_boxed_based_layout = false;
+		if ( document && document.querySelector('body') ) {
+			is_boxed_based_layout = document.querySelector('body').classList.contains('ast-separate-container');
+		}
 
 		if ( astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
 
@@ -558,7 +563,10 @@ const updatePageBackground = ( apply_customizer_default = false, isUnboxedContai
 	else if ( tabletPreview.length > 0 ) {
 
 		// Check current layout.
-		is_boxed_based_layout = document.querySelector('body').contains( document.querySelector('.ast-separate-container') );
+		is_boxed_based_layout = false;
+		if ( document && document.querySelector('body') ) {
+			is_boxed_based_layout = document.querySelector('body').classList.contains('ast-separate-container');
+		}
 
 		if ( astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
 
@@ -594,7 +602,10 @@ const updatePageBackground = ( apply_customizer_default = false, isUnboxedContai
 	else if ( mobilePreview.length > 0 ) {
 
 		// Check current layout.
-		is_boxed_based_layout =   document.querySelector('body').contains( document.querySelector('.ast-separate-container') );
+		is_boxed_based_layout = false;
+		if ( document && document.querySelector('body') ) {
+			is_boxed_based_layout = document.querySelector('body').classList.contains('ast-separate-container');
+		}
 
 		if ( astraColors.apply_content_bg_fullwidth && ( ! is_boxed_based_layout ) ) {
 
@@ -634,19 +645,18 @@ const updatePageBackground = ( apply_customizer_default = false, isUnboxedContai
 /*
 * Dynamically applies styles to DOM element.
 */
-function applyStylesToElement( selector, styles, docObj ) {
-
-  const element = docObj.querySelector(selector);
-
-  if (element) {
-	// Remove any prior cache values if set already.
-	element.style.backgroundImage = 'none';
-
-    Object.keys(styles).forEach((property) => {
-      element.style[property] = styles[property];
-    });
-  } else {
-    console.error(`Element with selector "${selector}" not found.`);
+function applyStylesToElement( selector, styles, docObj ) {  
+  if ( docObj ) {
+	  const element = docObj.querySelector(selector);
+	  if (element) {
+      // Remove any prior cache values if set already.
+  	  element.style.backgroundImage = 'none';
+	  	Object.keys(styles).forEach((property) => {
+		    element.style[property] = styles[property];
+  		});
+	  } else {
+	  	console.error(`Element with selector "${selector}" not found.`);
+	  }
   }
 }
 
