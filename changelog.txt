@@ -1,4 +1,5 @@
 v4.5.0 (Unreleased)
+- Fix: Default colors from customizer palette are mismatch with frontend global colors & with block editor's theme colors.
 - Fix: Smooth Scroll fails to navigate by keyboard on-focus and eventually breaks Accessibility.
 
 v4.4.0
