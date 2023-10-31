@@ -16,7 +16,8 @@
 		let processedHtml = '';
 
 		Object.entries( resultsData ).map( ( [ postType, postsData ] ) => {
-			processedHtml += `<label class="ast-search--posttype-heading"> ${postType}s </label>`;
+			let postTypeLabel = astra_search.search_post_types_labels[postType] ? astra_search.search_post_types_labels[postType] : postType + 's';
+			processedHtml += `<label class="ast-search--posttype-heading"> ${postTypeLabel} </label>`;
 			postsData.map((post) => {
 				const searchPostTitle = decodeHTMLEntities(post.title.rendered);
 				processedHtml += `<a class="ast-search-item" role="option" target="_self" href="${post.link}"> <span> ${searchPostTitle} </span> </a>`;
