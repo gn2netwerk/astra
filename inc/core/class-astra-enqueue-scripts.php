@@ -411,8 +411,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					foreach ( $search_within_val as $post_type => $value ) {
 						if ( $value && post_type_exists( $post_type ) ) {
 							$search_post_types[]                  = $post_type;
+							/** @psalm-suppress PossiblyNullPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 							$post_type_object                     = get_post_type_object( $post_type );
-							$search_post_type_label[ $post_type ] = esc_html( $post_type_object->labels->name );
+							$search_post_type_label[ $post_type ] = is_object( $post_type_object ) && isset( $post_type_object->labels->name ) ? esc_html( $post_type_object->labels->name ) : $post_type;
+							/** @psalm-suppress PossiblyNullPropertyFetch */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						}
 					}
 				}
