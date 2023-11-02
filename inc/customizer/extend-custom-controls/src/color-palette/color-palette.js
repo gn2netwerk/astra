@@ -121,20 +121,67 @@ const ColorPaletteComponent = (props) => {
 		</>
 	);
 
-	var paletteOptions = (
+	let paletteOptions = (
 		<>
 			{Object.keys(state.palettes).map((paletteKey, index) => {
 				return (
+					<div
+						className={
+							"ast-color-palette-wrap " +
+							(paletteKey === state.currentPalette
+								? "active"
+								: "")
+						}
+						key={index}
+					>
+						<section onClick={() => onPaletteChange(paletteKey)}>
+							{state.palettes[paletteKey].map((color, index) => {
+								if( index < 4 ) {
+									return (
+										<div className="ast-single-color-container" style={{ backgroundColor: color }} key={index}></div>
+									)
+								} else {
+									return ('')
+								}
+							})}
+							<span className="ast-palette-label-wrap">
+								{__("Style", "astra") + " " + (index + 1)}
+							</span>
+						</section>
+					</div>
+				);
+			})}
+		</>
+	);
+
+	const toggleClose = () => {
+		let parent_wrap = jQuery('.customize-control-ast-color-palette');
+		parent_wrap.find( '.ast-field-settings-modal' ).hide();
+		parent_wrap.find( '.ast-adv-toggle-icon.open' ).removeClass('open');
+	};
+
+	const handlePresetAssignment = (presetKey) => {
+		if ( state.presets && state.presets[presetKey] ) {
+			state.presets[presetKey].map( ( item, index ) => {
+				handleChangeComplete( index, { hex: item } );
+			} );
+			toggleClose();
+		}
+	};
+
+	let presetOptions = (
+		<>
+			{state.presets && Object.keys(state.presets).map((presetKey, index) => {
+				return (
 					<section className="ast-palette-presets-inner-wrap" key={index}>
-						<span className="ast-palette-label-wrap">
-							{__("Color Palette", "astra") + " " + (index + 1)}
+						<span className="ast-preset-label-wrap">
+							{__("Color Preset", "astra") + " " + (index + 1)}
 						</span>
 						<Button
-							key={index}
-							onClick={ () => onPaletteChange( paletteKey ) }
+							onClick={ () => handlePresetAssignment( presetKey ) }
 							className={ 'ast-preset-palette-item' }
 						>
-							{state.palettes[paletteKey].map((color, subIndex) => {
+							{state.presets[presetKey].map((color, subIndex) => {
 								return (
 									<div className="ast-palette-individual-item-wrap" key={subIndex}>
 										<span
@@ -174,18 +221,21 @@ const ColorPaletteComponent = (props) => {
 			<div className="ast-toggle-desc-wrap">
 				<label className="customizer-text">{labelHtml}</label>
 				<span className="ast-adv-toggle-icon dashicons" data-control={name}></span>
-
 			</div>
-
-			<div className="ast-color-palette-wrapper">{paletteColors}</div>
 
 			<div className="ast-field-settings-wrap">
 				<div className="ast-field-settings-modal">
-					<div className="ast-color-palette-container">
-						{paletteOptions}
+					<div className="ast-color-preset-container">
+						{presetOptions}
 					</div>
 				</div>
 			</div>
+
+			<div className="ast-color-palette-container">
+				{paletteOptions}
+			</div>
+
+			<div className="ast-color-palette-wrapper">{paletteColors}</div>
 		</>
 	);
 };
