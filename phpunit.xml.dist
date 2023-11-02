@@ -19,7 +19,7 @@
 
 	<filter>
         <blacklist>
-            	<directory>./wordpress</directory>
+            	<directory>./wordpress/</directory>
         </blacklist>
     </filter>
 </phpunit>
