@@ -10,16 +10,13 @@
 	<testsuites>
 		<testsuite name="main">
 			<directory prefix="test-" suffix=".php">./tests/</directory>
+			<exclude>
+				<directory>wordpress</directory>
+			</exclude>
 		</testsuite>
 	</testsuites>
 
 	<php>
 		<env name="WP_PHPUNIT__TESTS_CONFIG" value="tests/wp-config.php" />
 	</php>
-
-	<filter>
-        <blacklist>
-            	<directory>./wordpress/</directory>
-        </blacklist>
-    </filter>
 </phpunit>
