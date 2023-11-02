@@ -16,4 +16,10 @@
 	<php>
 		<env name="WP_PHPUNIT__TESTS_CONFIG" value="tests/wp-config.php" />
 	</php>
+
+	<filter>
+        <blacklist>
+            	<directory>./wordpress</directory>
+        </blacklist>
+    </filter>
 </phpunit>
