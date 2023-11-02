@@ -88,6 +88,7 @@ const Sidebar = ({ items }) => {
 			))}
 
 			{/** Sidebar Help */}
+			<div className="ast-tb-help-divider"></div>
 			<div
 				className="ast-tb-sidebar-help ast-tb-sidebar-item"
 				onClick={() =>

@@ -3,7 +3,7 @@ import { __ } from "@wordpress/i18n";
 
 const Breadcrumbs = () => {
   
-  let currCrumb = [__( 'Dashboard', 'astra' ), __( 'Theme Builder', 'astra' )];
+  let currCrumb = [__( 'Dashboard', 'astra' ), __( 'Site Builder', 'astra' )];
 
   return (
     <nav className='ast-tb-breadcrumbs'>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme Builder Free Version Preview.
+ * Site Builder Free Version Preview.
  *
  * @package Astra
  */
@@ -15,7 +15,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 	define( 'ASTRA_THEME_BUILDER_FREE_URI', ASTRA_THEME_URI . 'admin/assets/theme-builder/' );
 
 	/**
-	 * Theme Builder initial setup.
+	 * Site Builder initial setup.
 	 *
 	 * @since 1.0.0
 	 */
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 			wp_enqueue_style( 'dashicons' );
 
 			$localized_data = array(
-				'title'                      => __( 'Theme Builder', 'astra' ),
+				'title'                      => __( 'Site Builder', 'astra' ),
 				'rest_url'                   => '/wp-json/astra-addon/v1/custom-layouts/',
 				'new_custom_layout_base_url' => admin_url( 'post-new.php?post_type=astra-advanced-hook' ),
 				'astra_pricing_page_url'     => 'https://wpastra.com/pricing/',
@@ -131,8 +131,8 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		public function setup_menu() {
 			add_submenu_page( // phpcs:ignore WPThemeReview.PluginTerritory.NoAddAdminPages.add_menu_pages_add_submenu_page -- Taken the menu on top level
 				'astra',
-				__( 'Theme Builder', 'astra' ),
-				__( 'Theme Builder', 'astra' ),
+				__( 'Site Builder', 'astra' ),
+				__( 'Site Builder', 'astra' ),
 				'manage_options',
 				'theme-builder-free',
 				array( $this, 'render_theme_builder' ),
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		}
 
 		/**
-		 * Disable notices for theme builder page.
+		 * Disable notices for Site Builder page.
 		 *
 		 * @since x.x.x
 		 */
@@ -155,7 +155,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		}
 
 		/**
-		 * Redirect to theme builder pro from free preview if pro module is active.
+		 * Redirect to Site Builder pro from free preview if pro module is active.
 		 *
 		 * @since x.x.x
 		 */

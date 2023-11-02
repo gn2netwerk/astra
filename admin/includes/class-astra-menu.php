@@ -536,7 +536,7 @@ class Astra_Menu {
 					),
 				),
 				'advanced-hooks'        => array(
-					'title'           => ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '4.5.0', '<' ) ) ? __( 'Custom Layouts', 'astra' ) : __( 'Theme Builder', 'astra' ),
+					'title'           => ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '4.5.0', '<' ) ) ? __( 'Custom Layouts', 'astra' ) : __( 'Site Builder', 'astra' ),
 					'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'astra' ),
 					'manage_settings' => true,
 					'class'           => 'ast-addon',

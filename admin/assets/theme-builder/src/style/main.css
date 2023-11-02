@@ -364,7 +364,6 @@ h3.ast-tb-create-new-card-title {
 }
 
 .ast-tb-sidebar-help {
-	position: absolute;
 	bottom: 40px;
 	display: flex;
 	align-items: center;
@@ -386,4 +385,11 @@ h3.ast-tb-create-new-card-title {
 
 .ast-tb-card-icon-wrapper-hover {
 	filter: blur(2.5px);
+}
+
+.ast-tb-help-divider {
+	width: 100%;
+	border-top: 1px solid #E2E8F0;
+    margin-top: 24px;
+	margin-bottom: 16px;
 }

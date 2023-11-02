@@ -153,7 +153,7 @@ const ExtensionCard = ( props ) => {
 												method: 'POST',
 												body: reFormData,
 											} ).then( ( data ) => {
-												if ( "Theme Builder" === title ) {
+												if ( "Site Builder" === title ) {
 													location.reload();
 												}
 											} );

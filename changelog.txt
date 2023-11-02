@@ -1,5 +1,5 @@
 v4.5.0 (Unreleased)
-- New: Theme Builder Free Version Preview.
+- New: Site Builder Free Version Preview.
 - Fix: Smooth Scroll fails to navigate by keyboard on-focus and eventually breaks Accessibility.
 
 v4.4.0
@@ -523,7 +523,7 @@ v3.6.9
 
 v3.6.8
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.
-- Fix: Elementor Pro's Header-Footer theme builder layouts does not override theme's Header-Footer builder layouts.
+- Fix: Elementor Pro's Header-Footer Site Builder layouts does not override theme's Header-Footer builder layouts.
 - Fix: Bulk action selection not working on any WordPress list table when theme's "Get Started" notice is active.
 - Fix: Header Footer Widgets: Off-canvas content is displaying over Legacy widget's preview in the customizer for WordPress 5.8.
 - Deprecated: Header Footer Widgets - Deprecated design specific options for better compatibility with WordPress 5.8. ( https://wpastra.com/docs/enable-astra-widget-design-options/ )
@@ -697,7 +697,7 @@ v3.4.0
 - Fix: RTL WooCommerce Shop page - on Mobile Grid single column was appearing when two columns were set from the customizer setting for existing users.
 
 v3.3.3
-- Fix: Elementor - Theme Builder archive page contents are not aligned center.
+- Fix: Elementor - Site Builder archive page contents are not aligned center.
 - Fix: Elementor - Elementor editor panel switches back to the main panel while using the responsive view.
 
 v3.3.2
@@ -1414,7 +1414,7 @@ v1.3.3
 - Fix: Comments Form: Correctly align the cookie consent option.
 - Fix: Improvement in styling for the third-party plugin for variations product.
 - Fix: Hiding Overflow on Site Content is not needed and has unpredictable consequences (Credits @actual-saurabh)
-- Fix: 404-page displaying content twice if theme builder is used.
+- Fix: 404-page displaying content twice if Site Builder is used.
 - Fix: CSS errors in Opera Mini browser.
 - Fix: W3 Validator errors for some Customisations.
 - Fix: Header Layout 2 misalignment on Versions Safari 10 and below when custom menu element is selected.
