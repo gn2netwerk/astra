@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
 import { useEffect, useState } from "react";
 import { __ } from "@wordpress/i18n";
+import { Button } from '@wordpress/components';
 
 const ColorPaletteComponent = (props) => {
 	const value = props.control.setting.get();
@@ -124,30 +125,28 @@ const ColorPaletteComponent = (props) => {
 		<>
 			{Object.keys(state.palettes).map((paletteKey, index) => {
 				return (
-					<div
-						className={
-							"ast-color-palette-wrap " +
-							(paletteKey === state.currentPalette
-								? "active"
-								: "")
-						}
-						key={index}
-					>
-						<section onClick={() => onPaletteChange(paletteKey)}>
-							{state.palettes[paletteKey].map((color, index) => {
-								if( index < 4 ) {
-									return (
-										<div className="ast-single-color-container" style={{ backgroundColor: color }} key={index}></div>
-									)
-								} else {
-									return ('')
-								}
+					<section className="ast-palette-presets-inner-wrap" key={index}>
+						<span className="ast-palette-label-wrap">
+							{__("Color Palette", "astra") + " " + (index + 1)}
+						</span>
+						<Button
+							key={index}
+							onClick={ () => onPaletteChange( paletteKey ) }
+							className={ 'ast-preset-palette-item' }
+						>
+							{state.palettes[paletteKey].map((color, subIndex) => {
+								return (
+									<div className="ast-palette-individual-item-wrap" key={subIndex}>
+										<span
+											className='ast-palette-individual-item'
+											style={{ color: color }}
+											>
+										</span>
+									</div>
+								);
 							})}
-							<span className="ast-palette-label-wrap">
-								{__("Style", "astra") + " " + (index + 1)}
-							</span>
-						</section>
-					</div>
+						</Button>
+					</section>
 				);
 			})}
 		</>
