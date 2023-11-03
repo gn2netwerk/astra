@@ -81,6 +81,7 @@
 .ast-color-preset-container {
     max-height: 425px;
     overflow: scroll;
+	overflow-x: hidden;
 }
 .ast-color-palette-container {
     width: 100%;
