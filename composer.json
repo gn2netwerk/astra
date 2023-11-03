@@ -39,7 +39,7 @@
     "lint": "vendor/bin/phpcs --standard=phpcs.xml.dist --report-summary --report-source",
     "phpcs": "vendor/bin/phpcs",
     "phpcbf": "vendor/bin/phpcbf",
-    "psalm": "./vendor/bin/psalm",
+    "psalm": "vendor/bin/psalm",
     "gen-stubs": "vendor/bin/generate-stubs astra/ --out=tests/php/static-analysis-stubs/astra-stubs.php",
     "update-stubs": "rm -f tests/php/static-analysis-stubs/astra-stubs.php && grunt release-no-clean && composer gen-stubs",
     "test": "vendor/bin/phpunit",

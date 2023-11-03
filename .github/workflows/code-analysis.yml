@@ -18,12 +18,6 @@ jobs:
               node: ['14.15']
 
     steps:
-      - uses: preactjs/compressed-size-action@v2
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          # Always ignore SourceMaps and node_modules:
-          exclude: "{**/*.map,**/node_modules/**,**/wordpress/**}"
-
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -53,7 +47,7 @@ jobs:
         if: always()
         uses: chekalsky/phpcs-action@v1
         with:
-          phpcs_bin_path: './vendor/bin/phpcs -d memory_limit=512M'
+          phpcs_bin_path: './vendor/bin/phpcs --ignore=node_modules,vendor,wordpress -d memory_limit=512M'
 
       - name: "Static Analysis"
         if: always()
