@@ -15562,16 +15562,7 @@ namespace {
      * @since x.x.x
      * @return boolean
      */
-    function astra_update_below_footer_height()
-    {
-    }
-    /**
-     * Check whether user is exising or new to change the default vertical alignment for below footer
-     *
-     * @since x.x.x
-     * @return boolean
-     */
-    function astra_update_below_footer_vertical_alignment()
+    function astra_update_below_footer_height_vertical_alignment()
     {
     }
     /**

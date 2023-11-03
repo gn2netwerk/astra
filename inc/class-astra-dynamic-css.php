@@ -4511,22 +4511,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean
  		 */
-		public static function astra_update_below_footer_height() {
+		public static function astra_update_below_footer_height_vertical_alignment() {
 			$astra_settings                      = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['hbb-footer-height'] = isset( $astra_settings['hbb-footer-height'] ) ? false: true;
-			return apply_filters( 'astra_below_footer_height', $astra_settings['hbb-footer-height'] );
-		}
-
-		/**
-		 * Check whether user is exising or new to change the default vertical alignment for below footer
-		 * 
-		 * @since x.x.x
-		 * @return boolean
-		 */
-		public static function astra_update_below_footer_vertical_alignment() {
-			$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['hbb-footer-vertical-alignment'] = isset( $astra_settings['hbb-footer-vertical-alignment'] ) ? false: true;
-			return apply_filters( 'astra_below_footer_vertical_alignment', $astra_settings['hbb-footer-vertical-alignment'] );
+			$astra_settings['v4-5-0-below-footer-height-vertical-alignment'] = isset( $astra_settings['v4-5-0-below-footer-height-vertical-alignment'] ) ? false: true;
+			return apply_filters( 'astra_below_footer_height_vertical_alignment', $astra_settings['v4-5-0-below-footer-height-vertical-alignment'] );
 		}
 
 		/**
