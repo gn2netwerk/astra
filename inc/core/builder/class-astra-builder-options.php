@@ -21,7 +21,7 @@ add_filter( 'astra_theme_defaults', 'astra_hf_builder_customizer_defaults' );
 function astra_hf_builder_customizer_defaults( $defaults ) {
 
 	$astra_options = Astra_Theme_Options::get_astra_options();
-	$update_below_footer_height_vertical_alignment = Astra_Dynamic_CSS::astra_update_below_footer_height_vertical_alignment();
+	$astra_update_below_footer_height_vertical_alignment = Astra_Dynamic_CSS::astra_update_below_footer_height_vertical_alignment();
 
 	/**
 	 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
