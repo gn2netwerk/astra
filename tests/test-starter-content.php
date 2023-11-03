@@ -1,6 +1,6 @@
 <?php
 /**
- * Class TestAstraInit
+ * Class Tests_Astra_StarterContent
  *
  * @package Astra
  */
@@ -11,27 +11,6 @@
  * @group themes
  */
 class Tests_Astra_StarterContent extends WP_UnitTestCase {
-
-	/**
-	 * User ID for a Admin user..
-	 *
-	 * @var int
-	 */
-	private $admin_user_id;
-
-	/**
-	 * Setup the tests class.
-	 *
-	 * @return void
-	 */
-	public function setUp() {
-		$this->admin_user_id = self::factory()->user->create(
-			array(
-				'role' => 'administrator',
-			)
-		);
-	}
-
 	/**
 	 * Testing Starter Content.
 	 */
