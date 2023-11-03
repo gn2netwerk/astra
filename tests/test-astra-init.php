@@ -24,10 +24,12 @@ class Tests_Astra_Init extends WP_UnitTestCase {
 	/**
 	 * Check loaders.
 	 */
-	public function testAutoloader() {
-		$this->assertTrue( class_exists( 'Astra_Admin_Loader' ) );
+	public function testLoaders() {
 		$this->assertTrue( class_exists( 'Astra_After_Setup_Theme' ) );
 		$this->assertTrue( class_exists( 'Astra_Customizer' ) );
 		$this->assertTrue( class_exists( 'Astra_Dynamic_CSS' ) );
+
+		$this->assertTrue( function_exists( 'astra_get_queried_post_types' ) );
+		$this->assertTrue( function_exists( 'astra_get_font_extras' ) );
 	}
 }
