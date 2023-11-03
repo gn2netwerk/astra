@@ -18,6 +18,12 @@ jobs:
               node: ['14.15']
 
     steps:
+      - uses: preactjs/compressed-size-action@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          # Always ignore SourceMaps and node_modules:
+          exclude: "{**/*.map,**/node_modules/**,**/wordpress/**}"
+
       - name: Checkout
         uses: actions/checkout@v2
 
