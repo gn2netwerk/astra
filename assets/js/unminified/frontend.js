@@ -1184,7 +1184,7 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 		}
 
 		function scrollToIDHandler(e) {
-		
+
 			let offset = 0;
 			const siteHeader = document.querySelector('.site-header');
 
