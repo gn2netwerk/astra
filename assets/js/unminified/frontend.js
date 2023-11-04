@@ -1184,23 +1184,29 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 		}
 
 		function scrollToIDHandler(e) {
-
+			e.preventDefault();
+		
 			let offset = 0;
 			const siteHeader = document.querySelector('.site-header');
-
+		
 			if (siteHeader) {
-
+				
 				//Check and add offset to scroll top if header is sticky.
 				const headerHeight = siteHeader.querySelectorAll('div[data-stick-support]');
-
+		
 				if (headerHeight) {
 					headerHeight.forEach(single => {
 						offset += single.clientHeight;
 					});
 				}
-
+		
 				const href = this.hash;
-				if (href) {
+				const link = this.href;
+		
+				// Simply added check if the href attribute contains a URL to another page
+				if (link !== window.location.href.split('#')[0]) {
+					window.location.href = link;
+				} else if (href) {
 					const scrollId = document.querySelector(href);
 					if (scrollId) {
 						const scrollOffsetTop = scrollId.offsetTop - offset;
