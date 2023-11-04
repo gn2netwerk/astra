@@ -1184,22 +1184,21 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 		}
 
 		function scrollToIDHandler(e) {
-			e.preventDefault();
 		
 			let offset = 0;
 			const siteHeader = document.querySelector('.site-header');
-		
+
 			if (siteHeader) {
-				
+
 				//Check and add offset to scroll top if header is sticky.
 				const headerHeight = siteHeader.querySelectorAll('div[data-stick-support]');
-		
+
 				if (headerHeight) {
 					headerHeight.forEach(single => {
 						offset += single.clientHeight;
 					});
 				}
-		
+
 				const href = this.hash;
 				const link = this.href;
 		
