@@ -66,9 +66,13 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 				$file_prefix .= '.rtl';
 			}
 
+			/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_enqueue_style( 'astra-theme-builder-style', ASTRA_THEME_BUILDER_FREE_URI . 'build/index' . $file_prefix . '.css', array(), ASTRA_THEME_VERSION );
+			/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+			/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_enqueue_script( 'astra-theme-builder-script', ASTRA_THEME_BUILDER_FREE_URI . 'build/index.js', array( 'wp-element' ), ASTRA_THEME_VERSION, true );
+			/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			wp_enqueue_style( 'dashicons' );
 
