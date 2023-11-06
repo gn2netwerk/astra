@@ -9,7 +9,7 @@ v4.5.0 (Unreleased)
 - Fix: WooCommerce - Duplicate 'No Products in the Cart' Message in WooCommerce Cart Widget.
 - Fix: Editor - Content Background not applying correctly in some edge cases.
 - Fix: Post Title - Behind Featured image position breaks the UI with sidebar layout.
-- Fix: Enable smooth scroll to ID causes issue on the comment navigation section.
+- Fix: Enable Smooth Scroll to ID causes a jerk issue on the comment navigation section.
 
 v4.4.0
 - New: Header Builder - Search - Introducing a new feature Live Search. ( https://wpastra.com/docs/live-search/ )
