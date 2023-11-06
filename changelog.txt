@@ -1423,7 +1423,7 @@ v1.3.3
 - Fix: Comments Form: Correctly align the cookie consent option.
 - Fix: Improvement in styling for the third-party plugin for variations product.
 - Fix: Hiding Overflow on Site Content is not needed and has unpredictable consequences (Credits @actual-saurabh)
-- Fix: 404-page displaying content twice if Theme Builder is used.
+- Fix: 404-page displaying content twice if theme builder is used.
 - Fix: CSS errors in Opera Mini browser.
 - Fix: W3 Validator errors for some Customisations.
 - Fix: Header Layout 2 misalignment on Versions Safari 10 and below when custom menu element is selected.
