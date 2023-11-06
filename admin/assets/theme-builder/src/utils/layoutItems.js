@@ -79,9 +79,9 @@ const layoutItems = [
 				<path
 					d="M145.417 88.3327L131.75 101.999L145.417 115.666M179.583 88.3327L193.25 101.999L179.583 115.666M169.333 74.666L155.667 129.333"
 					stroke="white"
-					stroke-width="6.83333"
-					stroke-linecap="round"
-					stroke-linejoin="round"
+					strokeWidth="6.83333"
+					strokeLinecap="round"
+					strokeLinejoin="round"
 				/>
 				<rect
 					x="49.25"

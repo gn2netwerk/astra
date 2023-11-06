@@ -23,9 +23,9 @@ const Breadcrumbs = () => {
 								<path
 									d="M4.90625 10.2734L8.17578 7.0039L4.90625 3.73438"
 									stroke="#4B5563"
-									stroke-width="1.08984"
-									stroke-linecap="round"
-									stroke-linejoin="round"
+									strokeWidth="1.08984"
+									strokeLinecap="round"
+									strokeLinejoin="round"
 								/>
 							</svg>
             </span>
