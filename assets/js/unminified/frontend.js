@@ -1172,7 +1172,7 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 	 * @since x.x.x
 	 */
 	if ( astra.is_scroll_to_id ) {
-		const links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href="#0"]):not([href*="uagb-tab"]):not(.uagb-toc-link__trigger):not(.skip-link)');
+		const links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href="#0"]):not([href*="uagb-tab"]):not(.uagb-toc-link__trigger):not(.skip-link):not(.nav-previous a)');
 		if (links) {
 
 			for (const link of links) {
@@ -1200,12 +1200,7 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 				}
 
 				const href = this.hash;
-				const link = this.href;
-		
-				// Simply added check if the href attribute contains a URL to another page
-				if (link !== window.location.href.split('#')[0]) {
-					window.location.href = link;
-				} else if (href) {
+				if (href) {
 					const scrollId = document.querySelector(href);
 					if (scrollId) {
 						const scrollOffsetTop = scrollId.offsetTop - offset;
