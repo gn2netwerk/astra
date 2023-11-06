@@ -1,5 +1,6 @@
 v4.4.1
-- Improvement: Updated SelectWoo library to 1.0.10.
+- Improvement: Compatibility with WordPress-6.4.
+- Improvement: Updated SelectWoo library to 1.0.10 to hardened the security.
 - Fix: Default colors from customizer palette are mismatch with frontend global colors & with block editor's theme colors.
 - Fix: Smooth Scroll fails to navigate by keyboard on-focus and eventually breaks Accessibility.
 - Fix: Search - Live Search - Search results dropdown goes beneath the header menu.
