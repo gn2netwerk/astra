@@ -4506,7 +4506,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
- 		 * Check whether user is exising or new to change the default height of below footer
+		 * Check whether user is exising or new to change the default height of below footer
 		 * 
 		 * @since x.x.x
 		 * @return boolean
