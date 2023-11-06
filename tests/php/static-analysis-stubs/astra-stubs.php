@@ -15562,7 +15562,7 @@ namespace {
      * @since x.x.x
      * @return boolean
      */
-    function astra_update_below_footer_height_vertical_alignment()
+    function astra_update_footer_row_vertical_alignment()
     {
     }
     /**

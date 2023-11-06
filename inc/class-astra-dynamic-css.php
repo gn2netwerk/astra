@@ -4511,10 +4511,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean
 		 */
-		public static function astra_update_below_footer_height_vertical_alignment() {
+		public static function astra_update_footer_row_vertical_alignment() {
 			$astra_settings                      = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['v4-5-0-below-footer-height-vertical-alignment'] = isset( $astra_settings['v4-5-0-below-footer-height-vertical-alignment'] ) ? false: true;
-			return apply_filters( 'astra_below_footer_height_vertical_alignment', $astra_settings['v4-5-0-below-footer-height-vertical-alignment'] );
+			$astra_settings['footer-row-vertical-alignment'] = isset( $astra_settings['footer-row-vertical-alignment'] ) ? false: true;
+			return apply_filters( 'astra_below_footer_vertical_alignment', $astra_settings['footer-row-vertical-alignment'] );
 		}
 
 		/**
