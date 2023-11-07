@@ -9,6 +9,7 @@ v4.5.0 (Unreleased)
 - Fix: WooCommerce - Duplicate 'No Products in the Cart' Message in WooCommerce Cart Widget.
 - Fix: Editor - Content Background not applying correctly in some edge cases.
 - Fix: Post Title - Behind Featured image position breaks the UI with sidebar layout.
+- Fix: Editor - Optimizations for slow editor experience.
 
 v4.4.0
 - New: Header Builder - Search - Introducing a new feature Live Search. ( https://wpastra.com/docs/live-search/ )
