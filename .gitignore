@@ -49,3 +49,7 @@ inc/lib/astra-notices/.phpunit.result.cache
 
 # Ignore node_modules from git
 admin/assets/theme-builder/node_modules/
+
+# phpunit
+.phpunit.result.cache
+wordpress/
