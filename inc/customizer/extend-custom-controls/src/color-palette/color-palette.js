@@ -136,7 +136,7 @@ const ColorPaletteComponent = (props) => {
 					>
 						<section onClick={() => onPaletteChange(paletteKey)}>
 							{state.palettes[paletteKey].map((color, index) => {
-								if( index < 4 ) {
+								if( index < 5 ) {
 									return (
 										<div className="ast-single-color-container" style={{ backgroundColor: color }} key={index}></div>
 									)

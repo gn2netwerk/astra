@@ -635,7 +635,7 @@
 .ast-color-palette-container {
     width: 100%;
     display: inline-grid;
-    grid-template-columns: repeat( 3,1fr );
+    grid-template-columns: repeat( 2,1fr );
     column-gap: 16px;
     row-gap: 16px;
 	margin-top: 12px;
@@ -654,7 +654,7 @@
     box-shadow: 0 0 0 1px #ddd;
 }
 #customize-control-astra-color-palettes .ast-single-color-container {
-    width: 25%;
+    width: 20%;
     height: 48px;
     display: inline-block;
 }
@@ -685,7 +685,7 @@
 .ast-color-palette-wrap .ast-single-color-container:first-child {
     border-top-left-radius: 3px;
 }
-.ast-color-palette-wrap .ast-single-color-container:nth-child(4) {
+.ast-color-palette-wrap .ast-single-color-container:nth-child(5) {
     border-top-right-radius: 3px;
 }
 .ast-palette-individual-item {
@@ -1675,10 +1675,6 @@ input[type="text"].select2-search__field {
 #customize-theme-controls .control-section.open {
   height: 100%;
   padding: 12px 24px 25px 24px;
-}
-ul#sub-accordion-section-section-colors-background.control-section.open {
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 /* Safari Browser specific CSS */
