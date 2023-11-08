@@ -32,7 +32,6 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		 *  Initiator
 		 * 
 		 * @since x.x.x
-		 * @return void
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
