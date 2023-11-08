@@ -1,6 +1,8 @@
+import { __ } from "@wordpress/i18n";
+
 const sidebarItems = [
     {
-        label: "Header",
+        label: __( "Header", "astra" ),
 		layout: "header",
 		template: "",
         icon: (
@@ -20,7 +22,7 @@ const sidebarItems = [
         ),
     },
     {
-        label: "Footer",
+        label: __( "Footer", "astra" ),
 		layout: "footer",
 		template: "",
         icon: (
@@ -40,7 +42,7 @@ const sidebarItems = [
         ),
     },
     {
-        label: "Hooks",
+        label: __( "Hooks", "astra" ),
         layout: "hooks",
 		template: "",
         icon: (
@@ -62,7 +64,7 @@ const sidebarItems = [
         ),
     },
     {
-        label: "Inside Post/Page",
+        label: __( "Inside Post/Page", "astra" ),
 		layout: "content",
 		template: "",
         icon: (
@@ -84,7 +86,7 @@ const sidebarItems = [
         ),
     },
     {
-        label: "Single",
+        label: __( "Single", "astra" ),
 		layout: "template",
 		template: "single",
         icon: (
@@ -105,7 +107,7 @@ const sidebarItems = [
         ),
     },
     {
-        label: "Archive",
+        label: __( "Archive", "astra" ),
 		layout: "template",
 		template: "archive",
         icon: (
@@ -186,7 +188,7 @@ const sidebarItems = [
         ),
     },
     {
-        label: "404 Page",
+        label: __( "404 Page", "astra" ),
 		layout: "404-page",
 		template: "",
         icon: (

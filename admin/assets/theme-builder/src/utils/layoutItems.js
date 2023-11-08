@@ -1,6 +1,8 @@
+import { __ } from "@wordpress/i18n";
+
 const layoutItems = [
 	{
-		label: "Header",
+		label: __( "Header", "astra" ),
 		layout: "header",
 		template: "",
 		icon: (
@@ -24,7 +26,7 @@ const layoutItems = [
 		),
 	},
 	{
-		label: "Footer",
+		label: __( "Footer", "astra" ),
 		layout: "footer",
 		template: "",
 		icon: (
@@ -55,7 +57,7 @@ const layoutItems = [
 		),
 	},
 	{
-		label: "Hooks",
+		label: __( "Hooks", "astra" ),
 		layout: "hooks",
 		template: "",
 		icon: (
@@ -127,7 +129,7 @@ const layoutItems = [
 		),
 	},
 	{
-		label: "Inside Post/Page",
+		label: __( "Inside Post/Page", "astra" ),
 		layout: "content",
 		template: "",
 		icon: (
@@ -195,7 +197,7 @@ const layoutItems = [
 		),
 	},
 	{
-		label: "Single",
+		label: __( "Single", "astra" ),
 		layout: "template",
 		template: "single",
 		icon: (
@@ -226,7 +228,7 @@ const layoutItems = [
 		),
 	},
 	{
-		label: "Archive",
+		label: __( "Archive", "astra" ),
 		layout: "template",
 		template: "archive",
 		icon: (
@@ -304,7 +306,7 @@ const layoutItems = [
 		),
 	},
 	{
-		label: "404 Page",
+		label: __( "404 Page", "astra" ),
 		layout: "404-page",
 		template: "",
 		icon: (
