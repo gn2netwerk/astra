@@ -153,7 +153,7 @@ const ExtensionCard = ( props ) => {
 												method: 'POST',
 												body: reFormData,
 											} ).then( ( data ) => {
-												if ( "Site Builder" === title ) {
+												if ( "advanced-hooks" === slug ) {
 													location.reload();
 												}
 											} );

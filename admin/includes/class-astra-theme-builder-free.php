@@ -17,7 +17,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 	/**
 	 * Site Builder initial setup.
 	 *
-	 * @since 1.0.0
+	 * @since x.x.x
 	 */
 	class Astra_Theme_Builder_Free {
 
@@ -30,6 +30,9 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 
 		/**
 		 *  Initiator
+		 * 
+		 * @since x.x.x
+		 * @return void
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
@@ -42,6 +45,9 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 
 		/**
 		 *  Constructor
+		 * 
+		 * @since x.x.x
+		 * @return void
 		 */
 		public function __construct() {
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -60,6 +66,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		/**
 		 *  Enqueue scripts and styles.
 		 * 
+		 * @since x.x.x
 		 * @return void
 		 */
 		public function theme_builder_admin_enqueue_scripts() {
@@ -140,6 +147,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		 * Disable notices for Site Builder page.
 		 *
 		 * @since x.x.x
+		 * @return void
 		 */
 		public function astra_theme_builder_disable_notices() {
 
@@ -154,6 +162,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		 * Redirect to Site Builder pro from free preview if pro module is active.
 		 *
 		 * @since x.x.x
+		 * @return void
 		 */
 		public function astra_theme_builder_access_denied_redirect() {
 
