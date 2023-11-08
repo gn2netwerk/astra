@@ -2760,7 +2760,7 @@ namespace {
         /**
          * Return starter content definition.
          *
-         * @return mixed|void
+         * @return mixed|void 
          * @since 4.0.0
          */
         public function get()
@@ -9315,6 +9315,39 @@ namespace {
         {
         }
     }
+    /*!
+     * ISC License
+     * 
+     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
+     *
+     * Permission to use, copy, modify, and/or distribute this software for any
+     * purpose with or without fee is hereby granted, provided that the above
+     * copyright notice and this permission notice appear in all copies.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+     * PERFORMANCE OF THIS SOFTWARE.
+     */
+    class FlattedString
+    {
+        public function __construct($value)
+        {
+        }
+    }
+    class Flatted
+    {
+        // public utilities
+        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
+        {
+        }
+        public static function stringify($value, $options = 0, $depth = 512)
+        {
+        }
+    }
     /**
      * Download webfonts locally.
      *
@@ -12116,39 +12149,6 @@ namespace {
         {
         }
     }
-    /*!
-     * ISC License
-     * 
-     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
-     *
-     * Permission to use, copy, modify, and/or distribute this software for any
-     * purpose with or without fee is hereby granted, provided that the above
-     * copyright notice and this permission notice appear in all copies.
-     *
-     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-     * PERFORMANCE OF THIS SOFTWARE.
-     */
-    class FlattedString
-    {
-        public function __construct($value)
-        {
-        }
-    }
-    class Flatted
-    {
-        // public utilities
-        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
-        {
-        }
-        public static function stringify($value, $options = 0, $depth = 512)
-        {
-        }
-    }
     /**
      * Astra_API_Init.
      *
@@ -12348,77 +12348,6 @@ namespace {
          * @since 1.2.4
          */
         public function required_plugin_deactivate()
-        {
-        }
-    }
-    /**
-     * Site Builder initial setup.
-     *
-     * @since 1.0.0
-     */
-    class Astra_Theme_Builder_Free
-    {
-        /**
-         *  Initiator
-         */
-        public static function get_instance()
-        {
-        }
-        /**
-         *  Constructor
-         */
-        public function __construct()
-        {
-        }
-        /**
-         *  Enqueue scripts and styles.
-         * 
-         * @return void
-         */
-        public function theme_builder_admin_enqueue_scripts()
-        {
-        }
-        /**
-         * Admin Body Classes
-         *
-         * @since x.x.x
-         * @param string $classes Space separated class string.
-         */
-        public function admin_body_class($classes = '')
-        {
-        }
-        /**
-         * Renders the admin settings.
-         *
-         * @since x.x.x
-         * @return void
-         */
-        public function render_theme_builder()
-        {
-        }
-        /**
-         * Setup menu.
-         *
-         * @since x.x.x
-         * @return void
-         */
-        public function setup_menu()
-        {
-        }
-        /**
-         * Disable notices for Site Builder page.
-         *
-         * @since x.x.x
-         */
-        public function astra_theme_builder_disable_notices()
-        {
-        }
-        /**
-         * Redirect to Site Builder pro from free preview if pro module is active.
-         *
-         * @since x.x.x
-         */
-        public function astra_theme_builder_access_denied_redirect()
         {
         }
     }
@@ -17303,8 +17232,6 @@ namespace {
     function astra_entry_footer()
     {
     }
-    \define('ASTRA_THEME_BUILDER_FREE_DIR', \ASTRA_THEME_DIR . 'admin/assets/theme-builder/');
-    \define('ASTRA_THEME_BUILDER_FREE_URI', \ASTRA_THEME_URI . 'admin/assets/theme-builder/');
     /**
      * Template for Small Footer Layout 2
      *
