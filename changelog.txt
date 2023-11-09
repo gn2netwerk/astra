@@ -1,5 +1,6 @@
 v4.5.0 (Unreleased)
-- Fix: EDD cart broken in RTL mode.
+- Fix: Footer Builder - Above and Below Footer vertical alignment options are not working.
+- Fix: EDD - Mini cart widget UI broken in the RTL mode.
 
 v4.4.1
 - Improvement: Compatibility with WordPress-6.4.

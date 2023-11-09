@@ -15681,6 +15681,16 @@ namespace {
     {
     }
     /**
+     * Check whether user is exising or new to change the default height of below footer
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_update_footer_row_vertical_alignment()
+    {
+    }
+    /**
+     * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
      * Backward flag purpose - To keep structure defaults updation by filter.
@@ -17202,8 +17212,18 @@ namespace {
     function astra_mobile_trigger_row_setting($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    /**
+     * Handle backward compatibility on version 4.4.0
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_theme_background_updater_4_5_0()
+    {
+    }
     \define('ASTRA_MOBILE_TRIGGER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/mobile-trigger');
     \define('ASTRA_MOBILE_TRIGGER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/mobile-trigger');
+
     /**
      * Dynamic CSS
      *
