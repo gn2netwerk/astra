@@ -1,3 +1,6 @@
+v4.5.0 (Unreleased)
+- Fix: Footer Builder - Above and Below Footer vertical alignment options are not working.
+
 v4.4.1
 - Improvement: Compatibility with WordPress-6.4.
 - Improvement: Updated SelectWoo library to 1.0.10 to hardened the security.
