@@ -631,6 +631,20 @@
     max-height: 425px;
     overflow: scroll;
 	overflow-x: hidden;
+	scrollbar-width: thin;
+    scrollbar-color: #d8d8d8 #f1f1f1;
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: #d8d8d8 #f1f1f1;
+}
+.ast-color-preset-container::-webkit-scrollbar {
+	width: 5px;
+}
+.ast-color-preset-container::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+.ast-color-preset-container::-webkit-scrollbar-thumb {
+	background: #d8d8d8;
 }
 .ast-color-palette-container {
     width: 100%;
@@ -689,9 +703,9 @@
     border-top-left-radius: 3px;
 }
 .ast-palette-individual-item {
-    height: 100%;
+    height: 21px;
+    width: 21px;
     display: block;
-    width: 100%;
     box-shadow: 0px 0px 0px 15px inset;
     border-width: 1px;
     border-style: solid;
@@ -702,7 +716,7 @@
 }
 
 .ast-palette-individual-item-wrap:not(:last-child) {
-    margin-left: 5px;
+    margin-left: 4px;
 }
 .components-button.ast-preset-palette-item {
     width: 100%;
@@ -717,15 +731,11 @@
 	box-shadow: none;
 	outline: none;
 }
-.ast-palette-individual-item-wrap {
-    width: 23px;
-    height: 23px;
-}
 .customize-control-ast-color-palette .ast-field-settings-modal::before {
     left: 12px;
 }
 section.ast-palette-presets-inner-wrap {
-    padding: 12px 12px 8px;
+    padding: 12px 10px 8px;
     transition: all 0.2s;
 }
 section.ast-palette-presets-inner-wrap:last-child {

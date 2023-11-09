@@ -1486,13 +1486,8 @@ function astra_theme_background_updater_4_4_0() {
 function astra_theme_background_updater_4_5_0() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['footer-row-vertical-alignment'] ) ) {
-		$theme_options['footer-row-vertical-alignment'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-  
-  if ( ! isset( $theme_options['v4-7-0-backward-option'] ) ) {
-		$theme_options['v4-7-0-backward-option'] = false;
+	if ( ! isset( $theme_options['v4-5-0-backward-option'] ) ) {
+		$theme_options['v4-5-0-backward-option'] = false;
 
 		$palette_options = get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() );
 		if ( ! isset( $palette_options['presets'] ) ) {

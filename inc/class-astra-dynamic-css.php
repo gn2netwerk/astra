@@ -4506,18 +4506,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * Check whether user is exising or new to change the default height of below footer
-		 * 
-		 * @since x.x.x
-		 * @return boolean
-		 */
-		public static function astra_update_footer_row_vertical_alignment() {
-			$astra_settings                      = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['footer-row-vertical-alignment'] = isset( $astra_settings['footer-row-vertical-alignment'] ) ? false: true;
-			return apply_filters( 'astra_below_footer_vertical_alignment', $astra_settings['footer-row-vertical-alignment'] );
-		}
-
-		/**
 		 * Load sidebar static CSS when it is enabled.
 		 *
 		 * @since 3.0.0
@@ -5249,10 +5237,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return boolean false if it is an existing user, true if not.
 		 */
-		public static function astra_4_7_0_compatibility() {
+		public static function astra_4_5_0_compatibility() {
 			$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['v4-7-0-backward-option'] = isset( $astra_settings['v4-7-0-backward-option'] ) ? false : true;
-			return apply_filters( 'astra_upgrade_color_styles', $astra_settings['v4-7-0-backward-option'] );
+			$astra_settings['v4-5-0-backward-option'] = isset( $astra_settings['v4-5-0-backward-option'] ) ? false : true;
+			return apply_filters( 'astra_upgrade_color_styles', $astra_settings['v4-5-0-backward-option'] );
 		}
 	}
 }
