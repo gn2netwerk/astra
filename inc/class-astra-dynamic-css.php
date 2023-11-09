@@ -4506,6 +4506,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
+		 * Check whether user is exising or new to change the default height of below footer
+		 * 
+		 * @since x.x.x
+		 * @return boolean
+		 */
+		public static function astra_update_footer_row_vertical_alignment() {
+			$astra_settings                      = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['footer-row-vertical-alignment'] = isset( $astra_settings['footer-row-vertical-alignment'] ) ? false: true;
+			return apply_filters( 'astra_below_footer_vertical_alignment', $astra_settings['footer-row-vertical-alignment'] );
+		}
+
+		/**
 		 * Load sidebar static CSS when it is enabled.
 		 *
 		 * @since 3.0.0
