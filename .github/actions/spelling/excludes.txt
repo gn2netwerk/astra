@@ -12,5 +12,13 @@
 ^assets/svg/
 \.txt$
 \.json$
+\.js$
+\.css$
 \.xml$
 \.md$
+[^/]\.jpg$
+[^/]\.png$
+[^/]\.ttf$
+[^/]\.woff$
+[^/]\.eot$
+[^/]\.svg$
