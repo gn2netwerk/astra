@@ -224,7 +224,7 @@ h3.ast-tb-create-new-card-title {
 	margin-top: 32px;
 	display: flex;
 	flex-wrap: wrap;
-	grid-gap: 32px;
+	grid-gap: 24px;
 }
 
 .ast-tb-canvas-body {
