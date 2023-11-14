@@ -399,8 +399,6 @@ fuelphp
 fullscreen
 fullsizepath
 fullwidth
-Functio
-Furthe
 fwrite
 gcp
 genral
