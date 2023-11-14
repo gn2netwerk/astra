@@ -154,7 +154,7 @@ const ExtensionCard = ( props ) => {
 												body: reFormData,
 											} ).then( ( data ) => {
 												if ( "advanced-hooks" === slug ) {
-													location.reload();
+													location.reload(); // Do reload screen.
 												}
 											} );
 										}
