@@ -393,3 +393,7 @@ h3.ast-tb-create-new-card-title {
     margin-top: 24px;
 	margin-bottom: 16px;
 }
+
+.ast-tb-header-close {
+	cursor: pointer;
+}

@@ -18,24 +18,18 @@ function Card({ title, icon, layout, template, enabled }) {
 		switch (layout) {
 			case "header":
 				return iconSVG.Header;
-				break;
 			case "footer":
 				return iconSVG.Footer;
-				break;
 			case "404-page":
 				return iconSVG.Page_404;
-				break;
 			case "hooks":
 				return iconSVG.Hooks;
-				break;
 			case "content":
 				return iconSVG.Content;
-				break;
 			case "template":
 				return template && "single" === template
 					? iconSVG.Single
 					: iconSVG.Archive;
-				break;
 			default:
 				break;
 		}

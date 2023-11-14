@@ -93,30 +93,6 @@ const iconSVG = {
 			<rect x="166.75" y="236" width="62" height="7" rx="3.5" fill="#D6DCE4" />
 		</svg>
 	),
-	Archive: (
-		<svg
-			width="324"
-			height="304"
-			viewBox="0 0 324 304"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className="ast-tb-card-svg-icon"
-		>
-			<rect width="323.5" height="304" rx="5" fill="#ECEFF3" />
-			<rect x="49.75" y="29" width="107" height="63" rx="5" fill="#D6DCE4" />
-			<rect x="49.75" y="102" width="107" height="7" rx="3.5" fill="#D6DCE4" />
-			<rect x="49.75" y="119" width="62" height="7" rx="3.5" fill="#D6DCE4" />
-			<rect x="166.75" y="29" width="107" height="63" rx="5" fill="#D6DCE4" />
-			<rect x="166.75" y="102" width="107" height="7" rx="3.5" fill="#D6DCE4" />
-			<rect x="166.75" y="119" width="62" height="7" rx="3.5" fill="#D6DCE4" />
-			<rect x="49.75" y="146" width="107" height="63" rx="5" fill="#D6DCE4" />
-			<rect x="49.75" y="219" width="107" height="7" rx="3.5" fill="#D6DCE4" />
-			<rect x="49.75" y="236" width="62" height="7" rx="3.5" fill="#D6DCE4" />
-			<rect x="166.75" y="146" width="107" height="63" rx="5" fill="#D6DCE4" />
-			<rect x="166.75" y="219" width="107" height="7" rx="3.5" fill="#D6DCE4" />
-			<rect x="166.75" y="236" width="62" height="7" rx="3.5" fill="#D6DCE4" />
-		</svg>
-	),
 	Single: (
 		<svg
 			width="324"
