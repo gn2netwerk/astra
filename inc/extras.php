@@ -1186,9 +1186,9 @@ function astra_get_current_language_slug() {
 }
 
 /**
- * Functio which will return the supported post types from core.
+ * Function which will return the supported post types from core.
  *
- * Furthe processing includes:
+ * Further processing includes:
  * 1. Dynamic customizer
  * 2. Live Search
  *
